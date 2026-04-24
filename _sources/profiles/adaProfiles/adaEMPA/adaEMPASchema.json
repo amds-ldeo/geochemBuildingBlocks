@@ -32,21 +32,48 @@
                                     "type": "object",
                                     "properties": {
                                         "ada:componentType": {
-                                            "anyOf": [
-                                                {
-                                                    "enum": [
-                                                        "ada:EMPAImageMap",
-                                                        "ada:EMPAImage",
-                                                        "ada:EMPAQEATabular",
-                                                        "ada:EMPAImageCollection",
-                                                        "ada:EMPAESPCTabular",
-                                                        "ada:EMPAESPCPlot"
+                                            "description": "Part's componentType must carry an @type drawn from the EMPA-specific or universal componentType enums. The @type may be a single string (image/tabularData/collection enum form) or an array (detailEMPA form).",
+                                            "type": "object",
+                                            "properties": {
+                                                "@type": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "ada:EMPAImageMap",
+                                                                "ada:EMPAImage",
+                                                                "ada:EMPAQEATabular",
+                                                                "ada:EMPAImageCollection",
+                                                                "ada:EMPAESPCTabular",
+                                                                "ada:EMPAESPCPlot"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
+                                                        },
+                                                        {
+                                                            "type": "array",
+                                                            "minItems": 1,
+                                                            "contains": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "enum": [
+                                                                            "ada:EMPAImageMap",
+                                                                            "ada:EMPAImage",
+                                                                            "ada:EMPAQEATabular",
+                                                                            "ada:EMPAImageCollection",
+                                                                            "ada:EMPAESPCTabular",
+                                                                            "ada:EMPAESPCPlot"
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     ]
-                                                },
-                                                {
-                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
-                                            ]
+                                            }
                                         }
                                     }
                                 }
