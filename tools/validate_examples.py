@@ -2,7 +2,7 @@
 """
 Validate all example JSON files against their resolved schemas.
 
-Uses resolve_schema.py's resolver to fully inline $ref references before
+Uses tools/resolve_schema.py's resolver to fully inline $ref references before
 validation, so $defs and cross-file references are handled correctly.
 
 Usage:
@@ -14,23 +14,10 @@ Usage:
 import argparse
 import json
 import sys
-import yaml
 from pathlib import Path
 
-# Import the root resolver (handles transitive internal $defs refs correctly)
-_repo_root = str(Path(__file__).resolve().parent.parent)
-sys.path.insert(0, _repo_root)
-from resolve_schema import SchemaResolver
-
-# Fallback: tools/resolve_schema.py (handles recursive schemas better)
-import importlib.util
-_tools_spec = importlib.util.spec_from_file_location(
-    "tools_resolve_schema",
-    str(Path(__file__).resolve().parent / "resolve_schema.py"))
-_tools_resolver = importlib.util.module_from_spec(_tools_spec)
-_tools_spec.loader.exec_module(_tools_resolver)
-_fallback_resolve_file = _tools_resolver.resolve_file
-_fallback_strip = _tools_resolver.strip_metadata_keys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from resolve_schema import resolve_file, strip_metadata_keys
 
 from jsonschema import Draft202012Validator
 
@@ -50,21 +37,11 @@ def find_example_schema_pairs():
 
 
 def resolve_for_validation(schema_path: Path) -> dict:
-    """Resolve a schema file into a fully-inlined JSON Schema dict.
-
-    Uses the root SchemaResolver (correct transitive $defs handling).
-    Falls back to tools/resolve_schema.py for schemas with circular refs.
-    """
-    try:
-        resolver = SchemaResolver(verbose=False, inline_single_use=False)
-        resolved = resolver.resolve(str(schema_path.resolve()))
-        resolved.pop("$schema", None)
-        return resolved
-    except RecursionError:
-        resolved = _fallback_resolve_file(schema_path.resolve(), set())
-        _fallback_strip(resolved)
-        resolved.pop("$schema", None)
-        return resolved
+    """Resolve a schema file into a fully-inlined JSON Schema dict."""
+    resolved = resolve_file(schema_path.resolve(), seen=set())
+    resolved = strip_metadata_keys(resolved, is_root=True)
+    resolved.pop("$schema", None)
+    return resolved
 
 
 def validate_example(example_path: Path, schema: dict):
@@ -99,15 +76,7 @@ def main():
         rel = example_path.relative_to(REPO_ROOT)
         try:
             schema = resolve_for_validation(schema_path)
-            try:
-                errors = validate_example(example_path, schema)
-            except RecursionError:
-                # Root resolver may produce circular $ref that jsonschema
-                # can't handle; fall back to tools resolver which inlines fully
-                resolved = _fallback_resolve_file(schema_path.resolve(), set())
-                _fallback_strip(resolved)
-                resolved.pop("$schema", None)
-                errors = validate_example(example_path, resolved)
+            errors = validate_example(example_path, schema)
             if errors:
                 failed += 1
                 failures.append((rel, errors))
