@@ -104,6 +104,7 @@ properties:
         enum:
         - ada:AIVAImage
         - ada:EMPAImage
+        - ada:EMPAESPCPlot
         - ada:LITImage
         - ada:STEMImage
         - ada:TEMImage

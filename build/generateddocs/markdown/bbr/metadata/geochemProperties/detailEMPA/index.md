@@ -69,8 +69,11 @@ properties:
     contains:
       anyOf:
       - const: ada:EMPAImage
+      - const: ada:EMPAImageMap
       - const: ada:EMPAQEATabular
       - const: ada:EMPAImageCollection
+      - const: ada:EMPAESPCTabular
+      - const: ada:EMPAESPCPlot
   ada:spectrometersUsed:
     type: string
     description: Spectrometers used in analysis
