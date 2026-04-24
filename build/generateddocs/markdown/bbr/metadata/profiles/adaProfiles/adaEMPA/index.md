@@ -264,9 +264,7 @@ Mock data for validation and testing.
       "schema:unitText": "wt%",
       "schema:minValue": 0,
       "schema:maxValue": 100,
-      "cdi:intendedDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#decimal"
-      ],
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:physicalDataType": [
         "https://www.w3.org/TR/xmlschema-2/#double"
       ],
@@ -288,9 +286,7 @@ Mock data for validation and testing.
         "https://ada.astromat.org/vocabulary/variables/position_x"
       ],
       "schema:unitText": "micrometer",
-      "cdi:intendedDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#decimal"
-      ],
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:physicalDataType": [
         "https://www.w3.org/TR/xmlschema-2/#float"
       ],
@@ -371,11 +367,14 @@ Mock data for validation and testing.
             "ada:signalUsed": "Mg Kα characteristic X-ray"
           },
           "ada:spatialRegistration": {
-            "@type": [
-              "ada:SpatialRegistration"
-            ],
-            "ada:registrationMethod": "stage-coordinate",
-            "ada:referenceFrame": "sample holder origin"
+            "ada:originX": 0,
+            "ada:originY": 0,
+            "ada:pixelScaleX": 1.5,
+            "ada:pixelScaleY": 1.5,
+            "ada:pixelUnits": "micrometer",
+            "ada:originLocation": "upperLeft",
+            "ada:coordDef": "pixel-defined, upperLeftPixel",
+            "ada:coordUnits": "micrometer"
           }
         },
         {
@@ -446,7 +445,8 @@ Mock data for validation and testing.
             ],
             "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
             "ada:signalUsed": "Characteristic X-rays: Si Kα, Ti Kα, Al Kα, Fe Kα, Mn Kα, Mg Kα, Ca Kα, Na Kα, K Kα, Cr Kα"
-          }
+          },
+          "cdi:isDelimited": true
         },
         {
           "@id": "ex:adaEMPA-part-imagecollection",
@@ -512,7 +512,8 @@ Mock data for validation and testing.
             ],
             "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
             "ada:signalUsed": "Full X-ray spectrum, 0–20 keV, 10 eV channel width"
-          }
+          },
+          "cdi:isDelimited": true
         },
         {
           "@id": "ex:adaEMPA-part-espcplot",
@@ -852,9 +853,7 @@ Mock data for validation and testing.
       "schema:unitText": "wt%",
       "schema:minValue": 0,
       "schema:maxValue": 100,
-      "cdi:intendedDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#decimal"
-      ],
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:physicalDataType": [
         "https://www.w3.org/TR/xmlschema-2/#double"
       ],
@@ -876,9 +875,7 @@ Mock data for validation and testing.
         "https://ada.astromat.org/vocabulary/variables/position_x"
       ],
       "schema:unitText": "micrometer",
-      "cdi:intendedDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#decimal"
-      ],
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:physicalDataType": [
         "https://www.w3.org/TR/xmlschema-2/#float"
       ],
@@ -959,11 +956,14 @@ Mock data for validation and testing.
             "ada:signalUsed": "Mg K\u03b1 characteristic X-ray"
           },
           "ada:spatialRegistration": {
-            "@type": [
-              "ada:SpatialRegistration"
-            ],
-            "ada:registrationMethod": "stage-coordinate",
-            "ada:referenceFrame": "sample holder origin"
+            "ada:originX": 0,
+            "ada:originY": 0,
+            "ada:pixelScaleX": 1.5,
+            "ada:pixelScaleY": 1.5,
+            "ada:pixelUnits": "micrometer",
+            "ada:originLocation": "upperLeft",
+            "ada:coordDef": "pixel-defined, upperLeftPixel",
+            "ada:coordUnits": "micrometer"
           }
         },
         {
@@ -1034,7 +1034,8 @@ Mock data for validation and testing.
             ],
             "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
             "ada:signalUsed": "Characteristic X-rays: Si K\u03b1, Ti K\u03b1, Al K\u03b1, Fe K\u03b1, Mn K\u03b1, Mg K\u03b1, Ca K\u03b1, Na K\u03b1, K K\u03b1, Cr K\u03b1"
-          }
+          },
+          "cdi:isDelimited": true
         },
         {
           "@id": "ex:adaEMPA-part-imagecollection",
@@ -1100,7 +1101,8 @@ Mock data for validation and testing.
             ],
             "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
             "ada:signalUsed": "Full X-ray spectrum, 0\u201320 keV, 10 eV channel width"
-          }
+          },
+          "cdi:isDelimited": true
         },
         {
           "@id": "ex:adaEMPA-part-espcplot",
@@ -1356,6 +1358,7 @@ ex:adaEMPA-part-espcplot a schema1:ImageObject,
 
 ex:adaEMPA-part-espctable a cdi:TabularTextDataSet,
         ada:tabularData ;
+    cdi:isDelimited true ;
     schema1:description "Energy-dispersive X-ray spectrum channel counts (energy, counts) from a representative pyroxene point." ;
     schema1:encodingFormat "text/csv" ;
     schema1:name "ALH84001_xray_spectrum.csv" ;
@@ -1422,12 +1425,18 @@ ex:adaEMPA-part-imagemap a schema1:ImageObject,
     ada:imageType "Wavelength-dispersive X-ray intensity map" ;
     ada:numPixelsX 1024 ;
     ada:numPixelsY 1024 ;
-    ada:spatialRegistration [ a ada:SpatialRegistration ;
-            ada:referenceFrame "sample holder origin" ;
-            ada:registrationMethod "stage-coordinate" ] .
+    ada:spatialRegistration [ ada:coordDef "pixel-defined, upperLeftPixel" ;
+            ada:coordUnits "micrometer" ;
+            ada:originLocation "upperLeft" ;
+            ada:originX 0 ;
+            ada:originY 0 ;
+            ada:pixelScaleX 1.5e+00 ;
+            ada:pixelScaleY 1.5e+00 ;
+            ada:pixelUnits "micrometer" ] .
 
 ex:adaEMPA-part-qea a cdi:TabularTextDataSet,
         ada:tabularData ;
+    cdi:isDelimited true ;
     schema1:description "Quantitative elemental abundances for 42 point analyses on pyroxene and olivine grains." ;
     schema1:encodingFormat "text/csv" ;
     schema1:name "ALH84001_point_analyses.csv" ;

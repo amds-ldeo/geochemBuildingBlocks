@@ -149,6 +149,7 @@ ex:adaEMPA-part-espcplot a schema1:ImageObject,
 
 ex:adaEMPA-part-espctable a cdi:TabularTextDataSet,
         ada:tabularData ;
+    cdi:isDelimited true ;
     schema1:description "Energy-dispersive X-ray spectrum channel counts (energy, counts) from a representative pyroxene point." ;
     schema1:encodingFormat "text/csv" ;
     schema1:name "ALH84001_xray_spectrum.csv" ;
@@ -215,12 +216,18 @@ ex:adaEMPA-part-imagemap a schema1:ImageObject,
     ada:imageType "Wavelength-dispersive X-ray intensity map" ;
     ada:numPixelsX 1024 ;
     ada:numPixelsY 1024 ;
-    ada:spatialRegistration [ a ada:SpatialRegistration ;
-            ada:referenceFrame "sample holder origin" ;
-            ada:registrationMethod "stage-coordinate" ] .
+    ada:spatialRegistration [ ada:coordDef "pixel-defined, upperLeftPixel" ;
+            ada:coordUnits "micrometer" ;
+            ada:originLocation "upperLeft" ;
+            ada:originX 0 ;
+            ada:originY 0 ;
+            ada:pixelScaleX 1.5e+00 ;
+            ada:pixelScaleY 1.5e+00 ;
+            ada:pixelUnits "micrometer" ] .
 
 ex:adaEMPA-part-qea a cdi:TabularTextDataSet,
         ada:tabularData ;
+    cdi:isDelimited true ;
     schema1:description "Quantitative elemental abundances for 42 point analyses on pyroxene and olivine grains." ;
     schema1:encodingFormat "text/csv" ;
     schema1:name "ALH84001_point_analyses.csv" ;
