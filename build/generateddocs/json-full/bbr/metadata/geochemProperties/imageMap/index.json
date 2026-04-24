@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-04-09",
+  "dateOfLastChange": "2026-04-24",
   "link": "https://github.com/usgin/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -30,16 +30,16 @@
     "ada.bbr.metadata.geochemProperties.imageMap": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/imageMap/rules.shacl"
     ],
-    "ada.bbr.metadata.geochemProperties.spatialRegistration": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/spatialRegistration/rules.shacl"
-    ],
     "ada.bbr.metadata.geochemProperties.detailEMPA": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailEMPA/rules.shacl"
+    ],
+    "ada.bbr.metadata.geochemProperties.spatialRegistration": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/spatialRegistration/rules.shacl"
     ]
   },
   "dependsOn": [
-    "ada.bbr.metadata.geochemProperties.spatialRegistration",
-    "ada.bbr.metadata.geochemProperties.detailEMPA"
+    "ada.bbr.metadata.geochemProperties.detailEMPA",
+    "ada.bbr.metadata.geochemProperties.spatialRegistration"
   ],
   "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/imageMap/context.jsonld",
   "schema": {
@@ -50,7 +50,6 @@
   "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/imageMap/context.jsonld",
   "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/imageMap/resolvedProperties.json",
   "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/imageMap/",
-  "rdfData": [],
   "validationPassed": true,
   "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/bbr/metadata/geochemProperties/imageMap/",
   "description": "# Image Map Type\n\nDescribes spatially registered image maps with pixel coordinates, component type classification (including EMPA details), and spatial registration metadata. Extends the basic image type with pixel dimensions and spatial registration.\n",
