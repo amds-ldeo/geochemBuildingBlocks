@@ -1,0 +1,67 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA DSC Product Profile",
+    "description": "Technique-specific profile for Differential Scanning Calorimetry (DSC) products. Extends the base ADA product profile with constraints on valid DSC component types and detailDSC requirements.",
+    "allOf": [
+        {
+            "$ref": "../adaProduct/adaProductSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "schema:additionalType": {
+                    "description": "Must include a DSC product type identifier.",
+                    "contains": {
+                        "enum": [
+                            "Differential Scanning Calorimetry (DSC)",
+                            "Differential Scanning Calorimetry"
+                        ]
+                    }
+                },
+                "schema:distribution": {
+                    "description": "Distribution items for adaDSC. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:hasPart": {
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ada:componentType": {
+                                            "anyOf": [
+                                                {
+                                                    "enum": [
+                                                        "ada:DSCHeatTabular",
+                                                        "ada:DSCResultsTabular"
+                                                    ]
+                                                },
+                                                {
+                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:subjectOf": {
+                    "properties": {
+                        "dcterms:conformsTo": {
+                            "contains": {
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "https://w3id.org/geochem/metadata/profiles/adaDSC"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

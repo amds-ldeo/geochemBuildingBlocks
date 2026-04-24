@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA Analysis Instrument",
+    "description": "ADA analytical instrument building block. Extends the core CDIF instrument building block with NeXus NXinstrument classification via additionalType. Instruments are typed as schema:Thing + schema:Product (from core) with domain-specific types (e.g. nxs:BaseClass/NXinstrument, ada:AMSInstrument) in additionalType.",
+    "allOf": [
+        {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/instrumentSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "schema:additionalType": {
+                    "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier).",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1
+                }
+            },
+            "required": [
+                "schema:additionalType"
+            ]
+        }
+    ]
+}

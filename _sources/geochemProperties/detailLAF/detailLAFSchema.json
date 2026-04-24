@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "LAF Instrument Detail",
+    "description": "Laser Ablation Fluorescence processed/raw data. elementAnalyzed goes in resultTarget.",
+    "type": "object",
+    "properties": {
+        "@type": {
+            "type": "array",
+            "minItems": 1,
+            "contains": {
+                "anyOf": [
+                    {
+                        "const": "ada:LAFProcessed"
+                    },
+                    {
+                        "const": "ada:LAFRaw"
+                    }
+                ]
+            }
+        },
+        "ada:elementAnalyzed": {
+            "type": "string"
+        },
+        "ada:sampleMassConsumed": {
+            "type": "string"
+        },
+        "ada:sampleType": {
+            "type": "string"
+        }
+    }
+}

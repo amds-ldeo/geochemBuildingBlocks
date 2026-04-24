@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "NanoSIMS Instrument Detail",
+    "description": "Nano Secondary Ion Mass Spectrometry with isotope tracking",
+    "type": "object",
+    "properties": {
+        "@type": {
+            "type": "array",
+            "minItems": 1,
+            "contains": {
+                "anyOf": [
+                    {
+                        "const": "ada:NanoSIMSCollection"
+                    },
+                    {
+                        "const": "ada:NanoSIMSImageCollection"
+                    },
+                    {
+                        "const": "ada:NanoSIMSTabular"
+                    },
+                    {
+                        "const": "ada:NanoSIMSMap"
+                    }
+                ]
+            }
+        },
+        "ada:phaseAnalyzed": {
+            "$ref": "../stringArray/stringArraySchema.json"
+        },
+        "ada:isotopeAnalyzed": {
+            "$ref": "../stringArray/stringArraySchema.json"
+        }
+    }
+}

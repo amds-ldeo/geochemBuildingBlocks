@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ICP-OES Instrument Detail",
+    "description": "Inductively Coupled Plasma Optical Emission Spectrometry. (Extension type, not in v3 source schema.)",
+    "type": "object",
+    "properties": {
+        "@type": {
+            "type": "array",
+            "minItems": 1,
+            "contains": {
+                "anyOf": [
+                    {
+                        "const": "ada:ICPOESIntermediateTabular"
+                    },
+                    {
+                        "const": "ada:ICPOESProcessedTabular"
+                    },
+                    {
+                        "const": "ada:ICPOESRawTabular"
+                    }
+                ]
+            }
+        },
+        "ada:mass": {
+            "type": "string"
+        },
+        "ada:dissolutionFactor": {
+            "type": "number"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "EMPA Instrument Detail",
+    "description": "Electron Microprobe Analysis with spectrometer and signal details.",
+    "type": "object",
+    "properties": {
+        "@type": {
+            "type": "array",
+            "minItems": 1,
+            "contains": {
+                "anyOf": [
+                    {
+                        "const": "ada:EMPAImage"
+                    },
+                    {
+                        "const": "ada:EMPAQEATabular"
+                    },
+                    {
+                        "const": "ada:EMPAImageCollection"
+                    }
+                ]
+            }
+        },
+        "ada:spectrometersUsed": {
+            "type": "string",
+            "description": "Spectrometers used in analysis"
+        },
+        "ada:signalUsed": {
+            "type": "string"
+        }
+    }
+}

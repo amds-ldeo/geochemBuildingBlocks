@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "NanoIR Instrument Detail",
+    "description": "Nano-IR spectroscopy collections with phase analysis",
+    "type": "object",
+    "properties": {
+        "@type": {
+            "type": "array",
+            "minItems": 1,
+            "contains": {
+                "anyOf": [
+                    {
+                        "const": "ada:NanoIRBackground"
+                    }
+                ]
+            }
+        },
+        "ada:phaseAnalyzed": {
+            "$ref": "../stringArray/stringArraySchema.json"
+        }
+    }
+}

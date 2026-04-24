@@ -1,0 +1,47 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "QRIS Instrument Detail",
+    "description": "QRIS (Raman) with calibration and illumination parameters. (Extension type, not in v3 source schema.)",
+    "type": "object",
+    "properties": {
+        "@type": {
+            "type": "array",
+            "minItems": 1,
+            "contains": {
+                "anyOf": [
+                    {
+                        "const": "ada:QRISCalibrated"
+                    },
+                    {
+                        "const": "ada:QRISRaw"
+                    }
+                ]
+            }
+        },
+        "ada:calibrationFile": {
+            "type": "string"
+        },
+        "ada:pipelineVersion": {
+            "type": "string"
+        },
+        "ada:focalLength": {
+            "type": "integer"
+        },
+        "ada:illuminationColor": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "string"
+            }
+        },
+        "ada:illuminationLevel": {
+            "type": "integer"
+        },
+        "ada:exposureTime": {
+            "type": "integer"
+        },
+        "ada:target": {
+            "type": "string"
+        }
+    }
+}
