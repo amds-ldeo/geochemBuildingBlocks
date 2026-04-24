@@ -446,8 +446,8 @@
                       "type": "object",
                       "properties": {
                         "ada:componentType": {
-                          "type": "string",
-                          "description": "ADA file type classification. Values are restricted by technique-specific profiles. Universal types (e.g. ada:calibrationFile, ada:report) are valid across all techniques."
+                          "type": "object",
+                          "description": "ADA file type classification object. Contains an @type (string or array) drawn from technique-specific or universal componentType values, plus any detail-block properties (e.g. spectrometersUsed, signalUsed) for technique-specific shapes. Technique profiles constrain which @type values are valid."
                         }
                       }
                     }

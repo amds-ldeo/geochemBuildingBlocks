@@ -112,6 +112,7 @@ allOf:
             - ada:ICPOESIntermediateTabular
             - ada:ICPOESProcessedTabular
             - ada:ICPOESRawTabular
+            - ada:EMPAESPCTabular
             - ada:ICTabular
             - ada:MCICPMSTabular
             - ada:NGNSMSRaw

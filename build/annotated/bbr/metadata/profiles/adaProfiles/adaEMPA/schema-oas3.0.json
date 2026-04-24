@@ -460,8 +460,8 @@
                           "type": "object",
                           "properties": {
                             "ada:componentType": {
-                              "type": "string",
-                              "description": "ADA file type classification. Values are restricted by technique-specific profiles. Universal types (e.g. ada:calibrationFile, ada:report) are valid across all techniques."
+                              "type": "object",
+                              "description": "ADA file type classification object. Contains an @type (string or array) drawn from technique-specific or universal componentType values, plus any detail-block properties (e.g. spectrometersUsed, signalUsed) for technique-specific shapes. Technique profiles constrain which @type values are valid."
                             }
                           }
                         }
@@ -4281,6 +4281,7 @@
               "enum": [
                 "ada:AIVAImage",
                 "ada:EMPAImage",
+                "ada:EMPAESPCPlot",
                 "ada:LITImage",
                 "ada:STEMImage",
                 "ada:TEMImage",
@@ -4490,6 +4491,7 @@
                         "ada:ICPOESIntermediateTabular",
                         "ada:ICPOESProcessedTabular",
                         "ada:ICPOESRawTabular",
+                        "ada:EMPAESPCTabular",
                         "ada:ICTabular",
                         "ada:MCICPMSTabular",
                         "ada:NGNSMSRaw",
@@ -5655,12 +5657,27 @@
               },
               {
                 "enum": [
+                  "ada:EMPAImageMap"
+                ]
+              },
+              {
+                "enum": [
                   "ada:EMPAQEATabular"
                 ]
               },
               {
                 "enum": [
                   "ada:EMPAImageCollection"
+                ]
+              },
+              {
+                "enum": [
+                  "ada:EMPAESPCTabular"
+                ]
+              },
+              {
+                "enum": [
+                  "ada:EMPAESPCPlot"
                 ]
               }
             ]
@@ -6294,21 +6311,48 @@
                   "type": "object",
                   "properties": {
                     "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:EMPAImageMap",
-                            "ada:EMPAImage",
-                            "ada:EMPAQEATabular",
-                            "ada:EMPAImageCollection",
-                            "ada:EMPAESPCTabular",
-                            "ada:EMPAESPCPlot"
+                      "description": "Part's componentType must carry an @type drawn from the EMPA-specific or universal componentType enums. The @type may be a single string (image/tabularData/collection enum form) or an array (detailEMPA form).",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "ada:EMPAImageMap",
+                                "ada:EMPAImage",
+                                "ada:EMPAQEATabular",
+                                "ada:EMPAImageCollection",
+                                "ada:EMPAESPCTabular",
+                                "ada:EMPAESPCPlot"
+                              ]
+                            },
+                            {
+                              "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaEMPA/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
+                            },
+                            {
+                              "type": "array",
+                              "minItems": 1,
+                              "contains": {
+                                "anyOf": [
+                                  {
+                                    "enum": [
+                                      "ada:EMPAImageMap",
+                                      "ada:EMPAImage",
+                                      "ada:EMPAQEATabular",
+                                      "ada:EMPAImageCollection",
+                                      "ada:EMPAESPCTabular",
+                                      "ada:EMPAESPCPlot"
+                                    ]
+                                  },
+                                  {
+                                    "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaEMPA/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
+                                  }
+                                ]
+                              }
+                            }
                           ]
-                        },
-                        {
-                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaEMPA/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
                         }
-                      ]
+                      }
                     }
                   }
                 }

@@ -358,10 +358,13 @@ x-defs:
                   - type: object
                     properties:
                       ada:componentType:
-                        type: string
-                        description: ADA file type classification. Values are restricted
-                          by technique-specific profiles. Universal types (e.g. ada:calibrationFile,
-                          ada:report) are valid across all techniques.
+                        type: object
+                        description: ADA file type classification object. Contains
+                          an @type (string or array) drawn from technique-specific
+                          or universal componentType values, plus any detail-block
+                          properties (e.g. spectrometersUsed, signalUsed) for technique-specific
+                          shapes. Technique profiles constrain which @type values
+                          are valid.
         schema:subjectOf:
           properties:
             dcterms:conformsTo:
@@ -2956,6 +2959,7 @@ x-defs:
             enum:
             - ada:AIVAImage
             - ada:EMPAImage
+            - ada:EMPAESPCPlot
             - ada:LITImage
             - ada:STEMImage
             - ada:TEMImage
@@ -3108,6 +3112,7 @@ x-defs:
                 - ada:ICPOESIntermediateTabular
                 - ada:ICPOESProcessedTabular
                 - ada:ICPOESRawTabular
+                - ada:EMPAESPCTabular
                 - ada:ICTabular
                 - ada:MCICPMSTabular
                 - ada:NGNSMSRaw
@@ -3948,9 +3953,15 @@ x-defs:
           - enum:
             - ada:EMPAImage
           - enum:
+            - ada:EMPAImageMap
+          - enum:
             - ada:EMPAQEATabular
           - enum:
             - ada:EMPAImageCollection
+          - enum:
+            - ada:EMPAESPCTabular
+          - enum:
+            - ada:EMPAESPCPlot
       ada:spectrometersUsed:
         type: string
         description: Spectrometers used in analysis
