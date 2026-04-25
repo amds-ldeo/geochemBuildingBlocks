@@ -20,7 +20,7 @@ A registered analytical method definition modeled as a `cdi:Activity` + `schema:
 - `schema:instrument` — primary instrument with manufacturer, model, sub-components
 - `bios:computationalTool` — software tools (method-wide)
 - `bios:reagent` — reference materials used across multiple steps
-- `ada:laboratory` — laboratory/facility
+- `schema:location` — laboratory/facility
 - `schema:agent` — method author (person or organisation)
 
 ### Standard workflow (`schema:actionProcess`)

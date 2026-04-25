@@ -4,6 +4,38 @@
   "description": "A registered analytical method definition modeled as a cdi:Activity and schema:Action. The method identity (name, technique, instrument, laboratory) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. Method-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
   "type": "object",
   "properties": {
+    "@context": {
+      "type": "object",
+      "description": "JSON-LD context declaring the namespace prefixes used in a method definition. Required for the document to be a valid JSON-LD instance. Bound prefixes must include schema (always), cdi (DDI-CDI), and ada (ADA vocabulary). Additional prefixes (bios, dqv, prov, skos) are recommended when those vocabularies are used in the body of the definition.",
+      "properties": {
+        "schema": {
+          "const": "http://schema.org/"
+        },
+        "ada": {
+          "const": "https://ada.astromat.org/metadata/"
+        },
+        "cdi": {
+          "const": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        },
+        "bios": {
+          "const": "https://bioschemas.org/"
+        },
+        "dqv": {
+          "const": "http://www.w3.org/ns/dqv#"
+        },
+        "prov": {
+          "const": "http://www.w3.org/ns/prov#"
+        },
+        "skos": {
+          "const": "http://www.w3.org/2004/02/skos/core#"
+        }
+      },
+      "required": [
+        "schema",
+        "ada",
+        "cdi"
+      ]
+    },
     "@id": {
       "type": "string",
       "description": "Persistent URI for this method definition in the registry."
@@ -3383,7 +3415,7 @@
         ]
       }
     },
-    "ada:laboratory": {
+    "schema:location": {
       "allOf": [
         {
           "title": "ADA Analysis Laboratory",
@@ -8053,7 +8085,7 @@
                       ]
                     },
                     "schema:inDefinedTermSet": {
-                      "description": "SKOS ConceptScheme providing the controlled vocabulary for allowed values of this parameter. When present, form renders a dropdown/select populated from the vocabulary.",
+                      "description": "SKOS ConceptScheme providing the controlled vocabulary for allowed values of this parameter. When present, form renders a dropdown/select populated from the vocabulary. Can be an object reference (@id URI), a labeled link (LinkRole with name and URL), or a plain URI string.",
                       "anyOf": [
                         {
                           "type": "string",
@@ -8061,27 +8093,46 @@
                         },
                         {
                           "type": "object",
+                          "description": "Object reference to a vocabulary defined elsewhere.",
+                          "properties": {
+                            "@id": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "@id"
+                          ]
+                        },
+                        {
+                          "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                          "type": "object",
                           "properties": {
                             "@type": {
+                              "default": "schema:CreativeWork",
                               "type": "array",
                               "items": {
                                 "type": "string"
                               },
                               "contains": {
-                                "const": "skos:ConceptScheme"
+                                "const": "schema:CreativeWork"
                               },
                               "minItems": 1
                             },
-                            "@id": {
-                              "type": "string",
-                              "format": "uri"
-                            },
                             "schema:name": {
                               "type": "string"
+                            },
+                            "schema:description": {
+                              "type": "string"
+                            },
+                            "schema:url": {
+                              "type": "string",
+                              "format": "uri"
                             }
                           },
                           "required": [
-                            "@id"
+                            "@type",
+                            "schema:url"
                           ]
                         }
                       ]
@@ -8138,8 +8189,123 @@
                       "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
                     },
                     "ada:category": {
-                      "type": "string",
-                      "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\")."
+                      "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "description": "schema.org Defined Term schema",
+                          "type": "object",
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "contains": {
+                                "const": "schema:DefinedTerm"
+                              },
+                              "minItems": 1
+                            },
+                            "schema:name": {
+                              "type": "string",
+                              "description": "text label for the term that is useful to human user"
+                            },
+                            "schema:identifier": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "description": "Properties for a schema.org identifier",
+                                  "type": "object",
+                                  "properties": {
+                                    "@type": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "contains": {
+                                        "const": "schema:PropertyValue"
+                                      },
+                                      "minItems": 1
+                                    },
+                                    "schema:propertyID": {
+                                      "type": "string",
+                                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                    },
+                                    "schema:value": {
+                                      "type": "string",
+                                      "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                                    },
+                                    "schema:url": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                    }
+                                  },
+                                  "allOf": [
+                                    {
+                                      "required": [
+                                        "@type"
+                                      ]
+                                    },
+                                    {
+                                      "anyOf": [
+                                        {
+                                          "required": [
+                                            "schema:value"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "schema:url"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "schema:inDefinedTermSet": {
+                              "type": "string",
+                              "description": "Name for the controlled vocabulary responsible for this keyword."
+                            },
+                            "schema:termCode": {
+                              "type": "string",
+                              "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                            }
+                          },
+                          "allOf": [
+                            {
+                              "required": [
+                                "@type"
+                              ]
+                            },
+                            {
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "schema:name"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "schema:identifier"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "schema:termCode"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
                     },
                     "ada:dataType": {
                       "type": "string",
@@ -8750,7 +8916,7 @@
             ]
           },
           "schema:inDefinedTermSet": {
-            "description": "SKOS ConceptScheme providing the controlled vocabulary for allowed values of this parameter. When present, form renders a dropdown/select populated from the vocabulary.",
+            "description": "SKOS ConceptScheme providing the controlled vocabulary for allowed values of this parameter. When present, form renders a dropdown/select populated from the vocabulary. Can be an object reference (@id URI), a labeled link (LinkRole with name and URL), or a plain URI string.",
             "anyOf": [
               {
                 "type": "string",
@@ -8758,27 +8924,46 @@
               },
               {
                 "type": "object",
+                "description": "Object reference to a vocabulary defined elsewhere.",
+                "properties": {
+                  "@id": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "@id"
+                ]
+              },
+              {
+                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                "type": "object",
                 "properties": {
                   "@type": {
+                    "default": "schema:CreativeWork",
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
                     "contains": {
-                      "const": "skos:ConceptScheme"
+                      "const": "schema:CreativeWork"
                     },
                     "minItems": 1
                   },
-                  "@id": {
-                    "type": "string",
-                    "format": "uri"
-                  },
                   "schema:name": {
                     "type": "string"
+                  },
+                  "schema:description": {
+                    "type": "string"
+                  },
+                  "schema:url": {
+                    "type": "string",
+                    "format": "uri"
                   }
                 },
                 "required": [
-                  "@id"
+                  "@type",
+                  "schema:url"
                 ]
               }
             ]
@@ -8835,8 +9020,123 @@
             "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
           },
           "ada:category": {
-            "type": "string",
-            "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\")."
+            "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "description": "schema.org Defined Term schema",
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:DefinedTerm"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "text label for the term that is useful to human user"
+                  },
+                  "schema:identifier": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "Properties for a schema.org identifier",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:PropertyValue"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:propertyID": {
+                            "type": "string",
+                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                          },
+                          "schema:value": {
+                            "type": "string",
+                            "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                          },
+                          "schema:url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                          }
+                        },
+                        "allOf": [
+                          {
+                            "required": [
+                              "@type"
+                            ]
+                          },
+                          {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "schema:value"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:url"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "type": "string",
+                    "description": "Name for the controlled vocabulary responsible for this keyword."
+                  },
+                  "schema:termCode": {
+                    "type": "string",
+                    "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                  }
+                },
+                "allOf": [
+                  {
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "schema:name"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "schema:identifier"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "schema:termCode"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           "ada:dataType": {
             "type": "string",
@@ -9169,27 +9469,46 @@
                   },
                   {
                     "type": "object",
+                    "description": "Object reference to a vocabulary defined elsewhere.",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ]
+                  },
+                  {
+                    "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                    "type": "object",
                     "properties": {
                       "@type": {
+                        "default": "schema:CreativeWork",
                         "type": "array",
                         "items": {
                           "type": "string"
                         },
                         "contains": {
-                          "const": "skos:ConceptScheme"
+                          "const": "schema:CreativeWork"
                         },
                         "minItems": 1
                       },
-                      "@id": {
-                        "type": "string",
-                        "format": "uri"
-                      },
                       "schema:name": {
                         "type": "string"
+                      },
+                      "schema:description": {
+                        "type": "string"
+                      },
+                      "schema:url": {
+                        "type": "string",
+                        "format": "uri"
                       }
                     },
                     "required": [
-                      "@id"
+                      "@type",
+                      "schema:url"
                     ]
                   }
                 ]
@@ -10390,6 +10709,7 @@
     }
   },
   "required": [
+    "@context",
     "@type",
     "schema:name",
     "schema:measurementTechnique"
