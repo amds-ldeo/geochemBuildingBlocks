@@ -36620,9 +36620,10 @@
                   "type": "object",
                   "anyOf": [
                     {
+                      "description": "Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf. Constrains ada:componentType to the universal enum and marks it required. Factored out of every profile to eliminate the inline boilerplate.",
                       "properties": {
                         "ada:componentType": {
-                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def (typically via the universalComponentTypeBranch wrapper) in their hasPart anyOf branches.",
                           "type": "string",
                           "enum": [
                             "ada:analysisLocation",

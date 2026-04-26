@@ -23,11 +23,7 @@ allOf:
               items:
                 type: object
                 anyOf:
-                  - properties:
-                      ada:componentType:
-                        $ref: ../adaProduct/schema.yaml#/$defs/universalComponentType
-                    required:
-                      - ada:componentType
+                  - $ref: ../adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
                   - $ref: ../../../geochemProperties/detailICPOES/schema.yaml
       schema:subjectOf:
         properties:
