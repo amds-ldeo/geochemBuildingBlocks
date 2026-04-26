@@ -241,9 +241,14 @@ allOf:
           properties:
             "prov:used":
               type: array
-              description: Instruments used in the analysis
+              description: >-
+                Instruments and/or analytical method definitions used in the
+                analysis. Each item is either an instrument BB instance or a
+                methodDefinition BB instance.
               items:
-                $ref: ../../../geochemProperties/instrument/schema.yaml
+                anyOf:
+                  - $ref: ../../../geochemProperties/instrument/schema.yaml
+                  - $ref: ../../../geochemProperties/methodDefinition/schema.yaml
             "schema:location":
               $ref: ../../../geochemProperties/laboratory/schema.yaml
             "schema:object":
