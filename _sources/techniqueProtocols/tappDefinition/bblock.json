@@ -1,7 +1,7 @@
 {
   "$schema": "metaschema.yaml",
-  "name": "Analytical Method Definition",
-  "abstract": "A registered analytical method definition modeled as cdi:Activity + schema:Action + ada:MethodDefinition + bios:LabProtocol. Method identity (name, technique, instrument, laboratory, target material) at top level. Standard workflow encoded in schema:actionProcess as a schema:HowTo with ordered cdi:Activity + schema:Action steps. Each workflow step carries its own parameters, reagents, instruments. Uses bios:computationalTool for software, bios:reagent for reference materials, dqv:hasQualityMeasurement for quality metrics, ada:fieldScope (method/session/element) for parameter lifecycle.",
+  "name": "Technique-Aligned Protocol Profile (TAPP) Definition",
+  "abstract": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as cdi:Activity + schema:Action + ada:TAPPDefinition + bios:LabProtocol. TAPP identity (name, technique, instrument, location, target material) at top level. Standard workflow encoded in schema:actionProcess as a schema:HowTo with ordered cdi:Activity + schema:Action steps. Each workflow step carries its own parameters, reagents, instruments. Uses bios:computationalTool for software, bios:reagent for reference materials, dqv:hasQualityMeasurement for quality metrics, ada:fieldScope (method/session/element) for parameter lifecycle.",
   "status": "under-development",
   "dateTimeAddition": "2026-04-08T00:00:00Z",
   "itemClass": "schema",
@@ -14,7 +14,8 @@
   "tags": [
     "ada",
     "astromat",
-    "method",
+    "tapp",
+    "technique-protocol",
     "analytical-method",
     "registry",
     "bioschemas",

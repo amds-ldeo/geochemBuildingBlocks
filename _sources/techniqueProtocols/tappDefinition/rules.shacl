@@ -11,8 +11,8 @@
 @prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .
 @base <https://www.ogc.org/rules/template/> .
 
-# Validates method definition nodes typed as ada:MethodDefinition.
-cdifd:methodDefinitionShape
+# Validates Technique-Aligned Protocol Profile (TAPP) definition nodes typed as ada:TAPPDefinition.
+cdifd:tappDefinitionShape
     a sh:NodeShape ;
     sh:target [
         a sh:SPARQLTarget ;
@@ -20,7 +20,7 @@ cdifd:methodDefinitionShape
             PREFIX ada: <https://ada.astromat.org/metadata/>
             SELECT ?this
             WHERE {
-                ?this a ada:MethodDefinition .
+                ?this a ada:TAPPDefinition .
             }
         """ ;
     ] ;
@@ -29,45 +29,45 @@ cdifd:methodDefinitionShape
         sh:minCount 1 ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "Method definition must have a schema:name." ;
+        sh:message "TAPP definition must have a schema:name." ;
     ] ;
     sh:property [
         sh:path schema:measurementTechnique ;
         sh:minCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Method definition must specify a schema:measurementTechnique." ;
+        sh:message "TAPP definition must specify a schema:measurementTechnique." ;
     ] ;
     sh:property [
         sh:path schema:actionProcess ;
         sh:maxCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Method definition should include a schema:actionProcess workflow." ;
+        sh:message "TAPP definition should include a schema:actionProcess workflow." ;
     ] ;
     sh:property [
         sh:path schema:version ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:severity sh:Warning ;
-        sh:message "Method definition should specify a schema:version." ;
+        sh:message "TAPP definition should specify a schema:version." ;
     ] ;
     sh:property [
         sh:path schema:datePublished ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:severity sh:Warning ;
-        sh:message "Method definition should specify schema:datePublished." ;
+        sh:message "TAPP definition should specify schema:datePublished." ;
     ] ;
     sh:property [
         sh:path schema:instrument ;
         sh:maxCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Method definition should specify a primary instrument." ;
+        sh:message "TAPP definition should specify a primary instrument." ;
     ] ;
     sh:property [
         sh:path ada:analyteTemplate ;
         sh:maxCount 1 ;
         sh:severity sh:Info ;
-        sh:message "Method definition may include an ada:analyteTemplate." ;
+        sh:message "TAPP definition may include an ada:analyteTemplate." ;
     ] ;
-    sh:message "Method definition nodes (ada:MethodDefinition) must have name and technique." ;
+    sh:message "TAPP definition nodes (ada:TAPPDefinition) must have name and technique." ;
     .

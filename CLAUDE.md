@@ -21,7 +21,7 @@ When fixing a bug that surfaces in a generated artifact, **trace to the source g
 
 `adaProduct` redefines `prov:wasGeneratedBy.items.properties` with ADA-specific keys; via `allOf` merge, the upstream `cdifProvActivity` constraints still apply. Recent renames/extensions:
 
-- `prov:used` accepts `anyOf [instrument | methodDefinition]` (used to be just instrument).
+- `prov:used` accepts `anyOf [instrument | tappDefinition]` (used to be just instrument; tappDefinition was previously named methodDefinition and lived under geochemProperties/, now moved to `_sources/techniqueProtocols/tappDefinition/`; JSON-LD class is `ada:TAPPDefinition`).
 - `schema:location` (was `ada:laboratory`) — laboratory $ref.
 - `schema:object` (was `schema:mainEntity`) — array of MaterialSample objects (samples analyzed). Required CDIF mbb to extend `cdifProvActivity.schema:object` to also accept arrays of `schema:Thing` per schema.org range; `schema:result` extended symmetrically. Both extensions landed via the propagate-schema run on 2026-04-26.
 

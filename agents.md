@@ -10,7 +10,8 @@ Modular metadata schema components for the Astromat Data Archive (ADA), built on
 
 ```
 _sources/
-  geochemProperties/       31 property building blocks (instrument, laboratory, file types, technique details)
+  geochemProperties/       30 property building blocks (instrument, laboratory, file types, technique details)
+  techniqueProtocols/      1 building block (tappDefinition; was previously geochemProperties/methodDefinition)
   profiles/adaProfiles/    36 metadata profiles (adaProduct base + 35 technique profiles)
 build/                     Generated outputs (register.json, annotated schemas, RDF exports, reports)
 tools/                     Python tooling for generation, validation, and auditing
@@ -113,18 +114,19 @@ Profiles additionally compose base schemas via `allOf` references.
 - **ada_metadata_forms** (amds-ldeo) -- Django app that validates ADA metadata. Uses a standalone monolithic JSON Schema (`adaMetadata-SchemaOrgSchema-v3.json`), NOT the modular building blocks. No direct dependency on this repo's build outputs.
 - **w3id.org/cdif** -- persistent identifier redirects for CDIF building blocks and conformance URIs. Maintained in smrgeoinfo/w3id.org fork.
 
-## methodDefinition building block (v3)
+## tappDefinition building block (v3)
 
-The `geochemProperties/methodDefinition/` building block defines analytical method definitions as `cdi:Activity` + `schema:Action` + `ada:MethodDefinition` + `bios:LabProtocol`.
+Lives at `_sources/techniqueProtocols/tappDefinition/`. Was previously `geochemProperties/methodDefinition/` (renamed for consistency with the broader "Technique-Aligned Protocol Profile" terminology). Defines TAPP definitions as `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol`.
 
 - **Identity:** `schema:name`, `schema:identifier`, `schema:version`, `schema:measurementTechnique`, `schema:object` (target materials), `schema:instrument`, `schema:location` (laboratory; was `ada:laboratory`), `bios:computationalTool`, `bios:reagent`, `schema:agent`
 - **Workflow:** `schema:actionProcess` contains a `schema:HowTo` with ordered `cdi:Activity` + `schema:Action` steps (sample prep, calibration, acquisition, data processing, QC)
-- **Parameters:** typed as `schema:PropertyValueSpecification` with `readonlyValue`, `valueRequired`, `defaultValue`, `minValue`/`maxValue`, `inDefinedTermSet`, `ada:fieldScope` (method/session/element). Parameters live on their workflow steps; method-wide parameters at top level.
+- **Parameters:** typed as `schema:PropertyValueSpecification` with `readonlyValue`, `valueRequired`, `defaultValue`, `minValue`/`maxValue`, `inDefinedTermSet`, `ada:fieldScope` (method/session/element). Parameters live on their workflow steps; TAPP-wide parameters at top level.
 - **Enumerations:** allowed-value lists are expressed via `schema:inDefinedTermSet`. Four shapes accepted: URI string, `{@id}` reference, `LabeledLink`, or an inline `{@type: schema:DefinedTermSet, schema:hasDefinedTerm: [{schema:DefinedTerm, schema:termCode}, ...]}`. The legacy `ada:enumeration` array property has been removed.
 - **Analyte template:** `ada:analyteTemplate` with `PropertyValueSpecification`-typed columns and default analyte rows
 - **Vocabularies:** Bioschemas (`bios:computationalTool`, `bios:reagent`, `bios:LabProcess`), DDI-CDI (`cdi:Activity`), DQV (`dqv:hasQualityMeasurement`), schema.org `DefinedTermSet`/`DefinedTerm`
-- **Examples:** sibling `examplemethodDefinition-<variant>.json` files: concord-glass-v1-0-6 (EPMA glass), nmnh-spinel-oxybar-v1 (EPMA spinel oxybarometry), uoc-laicpms-glass-v1 (LA-ICP-MS glass trace elements)
-- **Form integration:** Tab 3 of ada_metadata_forms consumes method definitions from the registry
+- **Examples:** sibling `exampletappDefinition-<variant>.json` files: concord-glass-v1-0-6 (EPMA glass), nmnh-spinel-oxybar-v1 (EPMA spinel oxybarometry), uoc-laicpms-glass-v1 (LA-ICP-MS glass trace elements)
+- **Used by:** `adaProduct.prov:wasGeneratedBy.items.prov:used.items.anyOf` accepts either an `instrument` BB instance or a `tappDefinition` BB instance.
+- **Form integration:** Tab 3 of ada_metadata_forms consumes TAPP definitions from the registry
 
 ## Common tasks
 

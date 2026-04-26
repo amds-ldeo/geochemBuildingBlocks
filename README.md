@@ -4,7 +4,11 @@ Modular metadata schema components for the [Astromat Data Archive (ADA)](https:/
 
 ## Structure
 
-### geochemProperties (31 schema components)
+### geochemProperties (30 schema components) + techniqueProtocols (1)
+
+`techniqueProtocols/tappDefinition` was previously `geochemProperties/methodDefinition`; it was renamed and moved to a sibling top-level folder to reflect the broader "Technique-Aligned Protocol Profile (TAPP)" terminology. JSON-LD class is now `ada:TAPPDefinition`.
+
+### geochemProperties (30 schema components)
 
 Property building blocks that define ADA-specific metadata elements: file types, instrument details, technique-specific data structures, spatial registration, and more.
 
@@ -84,13 +88,13 @@ Browse the building blocks at: https://usgin.github.io/geochemBuildingBlocks/
 
 `resolve_schema.py` and `regenerate_schema_json.py` are synced from the canonical copies in [metadataBuildingBlocks/tools/](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/tools). Do not edit locally — update the canonical copy and run `python tools/sync_resolve_schema.py --apply` from the metadataBuildingBlocks repo. The audit, validation, and report tools were also sourced from that repository.
 
-## Method Definition Building Block
+## TAPP Definition Building Block
 
-The `methodDefinition` building block at `geochemProperties/methodDefinition/` defines a registry-backed analytical method definition schema (v3). A method definition is modeled as a `cdi:Activity` + `schema:Action` + `ada:MethodDefinition` + `bios:LabProtocol`.
+The `tappDefinition` building block at `techniqueProtocols/tappDefinition/` defines a registry-backed Technique-Aligned Protocol Profile (TAPP) definition schema (v3). Was previously `methodDefinition`. A TAPP definition is modeled as a `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol`.
 
 ### Structure
 
-- **Method identity** (top level) — name, DOI, version, `schema:measurementTechnique`, `schema:object` (target materials), instrument, `schema:location` (laboratory/facility), software (`bios:computationalTool`), reagents (`bios:reagent`), agent
+- **TAPP identity** (top level) — name, DOI, version, `schema:measurementTechnique`, `schema:object` (target materials), instrument, `schema:location` (laboratory/facility), software (`bios:computationalTool`), reagents (`bios:reagent`), agent
 - **Standard workflow** (`schema:actionProcess`) — a `schema:HowTo` containing ordered `cdi:Activity` + `schema:Action` steps: sample preparation, calibration, data acquisition, data processing, quality control
 - **Parameters** — typed as `schema:PropertyValueSpecification` with `schema:readonlyValue`, `schema:valueRequired`, `schema:defaultValue`, `schema:minValue`/`maxValue`, `schema:inDefinedTermSet` (SKOS vocabulary link), and `ada:fieldScope` (method/session/element)
 - **Analyte template** (`ada:analyteTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows
@@ -100,9 +104,9 @@ The `methodDefinition` building block at `geochemProperties/methodDefinition/` d
 
 Example files use the sibling `example<bbName>-<variant>.json` pattern (validated by `tools/validate_examples.py`):
 
-- `examplemethodDefinition-concord-glass-v1-0-6.json` — EPMA WDS tephra glass (Concord University)
-- `examplemethodDefinition-nmnh-spinel-oxybar-v1.json` — EPMA WDS spinel oxybarometry (Smithsonian NMNH)
-- `examplemethodDefinition-uoc-laicpms-glass-v1.json` — LA-ICP-MS volcanic glass trace elements (University of Cologne)
+- `exampletappDefinition-concord-glass-v1-0-6.json` — EPMA WDS tephra glass (Concord University)
+- `exampletappDefinition-nmnh-spinel-oxybar-v1.json` — EPMA WDS spinel oxybarometry (Smithsonian NMNH)
+- `exampletappDefinition-uoc-laicpms-glass-v1.json` — LA-ICP-MS volcanic glass trace elements (University of Cologne)
 
 ### Vocabularies used
 

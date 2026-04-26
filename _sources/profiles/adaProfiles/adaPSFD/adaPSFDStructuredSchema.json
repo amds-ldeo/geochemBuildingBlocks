@@ -6221,15 +6221,15 @@
         "properties": {
           "prov:used": {
             "type": "array",
-            "description": "Instruments and/or analytical method definitions used in the analysis. Each item is either an instrument BB instance or a methodDefinition BB instance.",
+            "description": "Instruments and/or Technique-Aligned Protocol Profile (TAPP) definitions used in the analysis. Each item is either an instrument BB instance or a tappDefinition BB instance.",
             "items": {
               "anyOf": [
                 {
                   "$ref": "#/$defs/Instrument"
                 },
                 {
-                  "title": "Analytical Method Definition v3",
-                  "description": "A registered analytical method definition modeled as a cdi:Activity and schema:Action. The method identity (name, technique, instrument, laboratory) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. Method-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
+                  "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
+                  "description": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as a cdi:Activity and schema:Action. The TAPP identity (name, technique, instrument, location) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
                   "type": "object",
                   "properties": {
                     "@context": {
@@ -6266,7 +6266,7 @@
                     },
                     "@id": {
                       "type": "string",
-                      "description": "Persistent URI for this method definition in the registry."
+                      "description": "Persistent URI for this TAPP definition in the registry."
                     },
                     "@type": {
                       "type": "array",
@@ -6287,7 +6287,7 @@
                         },
                         {
                           "contains": {
-                            "const": "ada:MethodDefinition"
+                            "const": "ada:TAPPDefinition"
                           }
                         },
                         {
@@ -6296,7 +6296,7 @@
                           }
                         }
                       ],
-                      "description": "Must include cdi:Activity, schema:Action, ada:MethodDefinition, and bios:LabProtocol."
+                      "description": "Must include cdi:Activity, schema:Action, ada:TAPPDefinition, and bios:LabProtocol."
                     },
                     "schema:name": {
                       "type": "string",
@@ -35092,7 +35092,7 @@
                                 "properties": {
                                   "prov:used": {
                                     "type": "array",
-                                    "description": "Instruments and/or analytical method definitions used in the analysis. Each item is either an instrument BB instance or a methodDefinition BB instance.",
+                                    "description": "Instruments and/or Technique-Aligned Protocol Profile (TAPP) definitions used in the analysis. Each item is either an instrument BB instance or a tappDefinition BB instance.",
                                     "items": {
                                       "anyOf": [
                                         {
@@ -37968,8 +37968,8 @@
                                           ]
                                         },
                                         {
-                                          "title": "Analytical Method Definition v3",
-                                          "description": "A registered analytical method definition modeled as a cdi:Activity and schema:Action. The method identity (name, technique, instrument, laboratory) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. Method-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
+                                          "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
+                                          "description": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as a cdi:Activity and schema:Action. The TAPP identity (name, technique, instrument, location) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
                                           "type": "object",
                                           "properties": {
                                             "@context": {
@@ -38006,7 +38006,7 @@
                                             },
                                             "@id": {
                                               "type": "string",
-                                              "description": "Persistent URI for this method definition in the registry."
+                                              "description": "Persistent URI for this TAPP definition in the registry."
                                             },
                                             "@type": {
                                               "type": "array",
@@ -38027,7 +38027,7 @@
                                                 },
                                                 {
                                                   "contains": {
-                                                    "const": "ada:MethodDefinition"
+                                                    "const": "ada:TAPPDefinition"
                                                   }
                                                 },
                                                 {
@@ -38036,7 +38036,7 @@
                                                   }
                                                 }
                                               ],
-                                              "description": "Must include cdi:Activity, schema:Action, ada:MethodDefinition, and bios:LabProtocol."
+                                              "description": "Must include cdi:Activity, schema:Action, ada:TAPPDefinition, and bios:LabProtocol."
                                             },
                                             "schema:name": {
                                               "type": "string",
