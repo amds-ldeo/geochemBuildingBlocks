@@ -507,8 +507,19 @@
         "QualityMeasure": {
           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaSLS/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure"
         },
+        "universalComponentTypeBranch": {
+          "description": "Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf. Constrains ada:componentType to the universal enum and marks it required. Factored out of every profile to eliminate the inline boilerplate.",
+          "properties": {
+            "ada:componentType": {
+              "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaSLS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
+            }
+          },
+          "required": [
+            "ada:componentType"
+          ]
+        },
         "universalComponentType": {
-          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def (typically via the universalComponentTypeBranch wrapper) in their hasPart anyOf branches.",
           "type": "string",
           "enum": [
             "ada:analysisLocation",
@@ -6869,14 +6880,7 @@
                   "type": "object",
                   "anyOf": [
                     {
-                      "properties": {
-                        "ada:componentType": {
-                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaSLS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
-                        }
-                      },
-                      "required": [
-                        "ada:componentType"
-                      ]
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaSLS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentTypeBranch"
                     },
                     {
                       "properties": {

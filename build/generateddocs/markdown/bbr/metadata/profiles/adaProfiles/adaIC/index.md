@@ -1044,11 +1044,7 @@ allOf:
             items:
               type: object
               anyOf:
-              - properties:
-                  ada:componentType:
-                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
-                required:
-                - ada:componentType
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
               - properties:
                   ada:componentType:
                     type: string

@@ -368,10 +368,20 @@ $defs:
     $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/temporalExtent/schema.yaml
   QualityMeasure:
     $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
+  universalComponentTypeBranch:
+    description: Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
+      Constrains ada:componentType to the universal enum and marks it required. Factored
+      out of every profile to eliminate the inline boilerplate.
+    properties:
+      ada:componentType:
+        $ref: '#/$defs/universalComponentType'
+    required:
+    - ada:componentType
   universalComponentType:
     description: ada:componentType values valid across all ADA techniques. As a string,
       directly assignable to the part's ada:componentType property. Profiles use this
-      $def in their hasPart anyOf branches.
+      $def (typically via the universalComponentTypeBranch wrapper) in their hasPart
+      anyOf branches.
     type: string
     enum:
     - ada:analysisLocation
