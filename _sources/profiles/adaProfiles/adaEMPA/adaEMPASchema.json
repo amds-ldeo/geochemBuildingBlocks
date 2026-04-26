@@ -22,7 +22,7 @@
                     }
                 },
                 "schema:distribution": {
-                    "description": "Distribution items for adaEMPA. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+                    "description": "Distribution items for adaEMPA. Each archive hasPart item must declare ada:componentType as a single string, drawn either from the universal componentType enum or from the EMPA-specific set defined by detailEMPA. EMPA-specific parts may also carry ada:spectrometersUsed and ada:signalUsed as siblings (per detailEMPA).",
                     "type": "array",
                     "items": {
                         "type": "object",
@@ -30,52 +30,45 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "description": "Part's componentType must carry an @type drawn from the EMPA-specific or universal componentType enums. The @type may be a single string (image/tabularData/collection enum form) or an array (detailEMPA form).",
-                                            "type": "object",
+                                    "anyOf": [
+                                        {
                                             "properties": {
-                                                "@type": {
-                                                    "anyOf": [
-                                                        {
-                                                            "enum": [
-                                                                "ada:EMPAImageMap",
-                                                                "ada:EMPAImage",
-                                                                "ada:EMPAQEATabular",
-                                                                "ada:EMPAImageCollection",
-                                                                "ada:EMPAESPCTabular",
-                                                                "ada:EMPAESPCPlot"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
-                                                        },
-                                                        {
-                                                            "type": "array",
-                                                            "minItems": 1,
-                                                            "contains": {
-                                                                "anyOf": [
-                                                                    {
-                                                                        "enum": [
-                                                                            "ada:EMPAImageMap",
-                                                                            "ada:EMPAImage",
-                                                                            "ada:EMPAQEATabular",
-                                                                            "ada:EMPAImageCollection",
-                                                                            "ada:EMPAESPCTabular",
-                                                                            "ada:EMPAESPCPlot"
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
+                                                "ada:componentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ada:analysisLocation",
+                                                        "ada:annotatedImage",
+                                                        "ada:areaOfInterest",
+                                                        "ada:basemap",
+                                                        "ada:calibrationFile",
+                                                        "ada:code",
+                                                        "ada:contextPhotography",
+                                                        "ada:contextVideo",
+                                                        "ada:inputFile",
+                                                        "ada:instrumentMetadata",
+                                                        "ada:logFile",
+                                                        "ada:methodDescription",
+                                                        "ada:other",
+                                                        "ada:plot",
+                                                        "ada:processingMethod",
+                                                        "ada:quickLook",
+                                                        "ada:report",
+                                                        "ada:samplePreparation",
+                                                        "ada:shapefile",
+                                                        "ada:supplementalBasemap",
+                                                        "ada:supplementaryImage",
+                                                        "ada:worldFile"
                                                     ]
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailEMPA/detailEMPASchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

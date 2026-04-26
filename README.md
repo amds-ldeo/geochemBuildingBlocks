@@ -24,6 +24,28 @@ Metadata profiles that compose property building blocks with CDIF base schemas:
   - ADA-specific: technique types, instrument/lab/sample overlays, `ada:componentType`
 - **35 technique profiles** — technique-specific constraints on `ada:componentType` values (e.g., adaSEM, adaXRD, adaICPMS, adaTEM)
 
+## componentType architecture
+
+Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EMPAImageMap`) that classifies the file. The architecture enforces a two-level constraint:
+
+1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping). E.g. `ada:EMPAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
+
+2. **Profile-level constraint** — a technique profile's `schema:hasPart.items` uses a schema-level `anyOf`: one branch lists the universal componentTypes (a string `enum`); other branches `$ref` technique-specific *detail* schemas. A detail schema constrains `ada:componentType` to its technique consts (e.g. `detailEMPA` allows only the six EMPA componentTypes) and contributes detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) on the same hasPart item — flat, not nested inside componentType.
+
+### Refreshing the mapping
+
+After editing the Components worksheet:
+
+```
+python tools/apply_componentType_enums.py --refresh \
+    --xlsx ../../amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx
+python tools/regenerate_schema_json.py
+python tools/resolve_schema.py --all
+python tools/validate_examples.py
+```
+
+The cached mapping at `tools/componentType_enum_cache.json` is committed so the apply step works on a fresh clone without spreadsheet access.
+
 ## Cross-repo imports
 
 This repository imports shared schema.org and CDIF property building blocks from [metadataBuildingBlocks](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks) via the OGC Building Blocks import mechanism. All external references use absolute URLs (`https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/...`).
@@ -68,7 +90,7 @@ The `methodDefinition` building block at `geochemProperties/methodDefinition/` d
 
 ### Structure
 
-- **Method identity** (top level) — name, DOI, version, `schema:measurementTechnique`, `schema:object` (target materials), instrument, laboratory, software (`bios:computationalTool`), reagents (`bios:reagent`), agent
+- **Method identity** (top level) — name, DOI, version, `schema:measurementTechnique`, `schema:object` (target materials), instrument, `schema:location` (laboratory/facility), software (`bios:computationalTool`), reagents (`bios:reagent`), agent
 - **Standard workflow** (`schema:actionProcess`) — a `schema:HowTo` containing ordered `cdi:Activity` + `schema:Action` steps: sample preparation, calibration, data acquisition, data processing, quality control
 - **Parameters** — typed as `schema:PropertyValueSpecification` with `schema:readonlyValue`, `schema:valueRequired`, `schema:defaultValue`, `schema:minValue`/`maxValue`, `schema:inDefinedTermSet` (SKOS vocabulary link), and `ada:fieldScope` (method/session/element)
 - **Analyte template** (`ada:analyteTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows
@@ -76,9 +98,11 @@ The `methodDefinition` building block at `geochemProperties/methodDefinition/` d
 
 ### Examples
 
-- `concord-glass-v1-0-6.json` — EPMA WDS tephra glass (Concord University)
-- `nmnh-spinel-oxybar-v1.json` — EPMA WDS spinel oxybarometry (Smithsonian NMNH)
-- `uoc-laicpms-glass-v1.json` — LA-ICP-MS volcanic glass trace elements (University of Cologne)
+Example files use the sibling `example<bbName>-<variant>.json` pattern (validated by `tools/validate_examples.py`):
+
+- `examplemethodDefinition-concord-glass-v1-0-6.json` — EPMA WDS tephra glass (Concord University)
+- `examplemethodDefinition-nmnh-spinel-oxybar-v1.json` — EPMA WDS spinel oxybarometry (Smithsonian NMNH)
+- `examplemethodDefinition-uoc-laicpms-glass-v1.json` — LA-ICP-MS volcanic glass trace elements (University of Cologne)
 
 ### Vocabularies used
 
