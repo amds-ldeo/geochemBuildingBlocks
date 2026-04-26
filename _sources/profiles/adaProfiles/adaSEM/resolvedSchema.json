@@ -26784,29 +26784,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:SEMImageCollection",
-                            "ada:SEMImageMap",
-                            "ada:SEMEBSDGrainImage",
-                            "ada:SEMEBSDGrainImageMap",
-                            "ada:SEMEBSDGrainImageMapCube",
-                            "ada:SEMEDSElementalMap",
-                            "ada:SEMEDSElementalMaps",
-                            "ada:SEMEDSElementalMapsCube",
-                            "ada:SEMEDSPointData",
-                            "ada:SEMEDSPointDataCollection",
-                            "ada:SEMEDSPointDataCube",
-                            "ada:SEMHRCLImage",
-                            "ada:SEMHRCLMap",
-                            "ada:SEMHRCLCube"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26832,9 +26815,38 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:SEMImageCollection",
+                            "ada:SEMImageMap",
+                            "ada:SEMEBSDGrainImage",
+                            "ada:SEMEBSDGrainImageMap",
+                            "ada:SEMEBSDGrainImageMapCube",
+                            "ada:SEMEDSElementalMap",
+                            "ada:SEMEDSElementalMaps",
+                            "ada:SEMEDSElementalMapsCube",
+                            "ada:SEMEDSPointData",
+                            "ada:SEMEDSPointDataCollection",
+                            "ada:SEMEDSPointDataCube",
+                            "ada:SEMHRCLImage",
+                            "ada:SEMHRCLMap",
+                            "ada:SEMHRCLCube"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

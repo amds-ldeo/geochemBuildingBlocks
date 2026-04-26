@@ -26779,18 +26779,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:XRDTabular",
-                            "ada:XRDDiffractionPattern",
-                            "ada:XRDIndexedImage"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26816,9 +26810,54 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:XRDDiffractionPattern",
+                            "ada:XRDIndexedImage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "title": "XRD Instrument Detail",
+                      "description": "X-ray Diffraction tabular data with geometry and wavelength",
+                      "type": "object",
+                      "properties": {
+                        "ada:componentType": {
+                          "const": "ada:XRDTabular"
+                        },
+                        "ada:geometry": {
+                          "type": "string"
+                        },
+                        "ada:sampleMount": {
+                          "type": "string"
+                        },
+                        "ada:stepSize": {
+                          "type": "number"
+                        },
+                        "ada:timePerStep": {
+                          "type": "number"
+                        },
+                        "ada:wavelength": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

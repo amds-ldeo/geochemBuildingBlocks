@@ -4,12 +4,8 @@
     "description": "ARGT (Argon) document type with phase and isotope analysis",
     "type": "object",
     "properties": {
-        "@type": {
-            "type": "array",
-            "contains": {
-                "const": "ada:ARGTDocument"
-            },
-            "minItems": 1
+        "ada:componentType": {
+            "const": "ada:ARGTDocument"
         },
         "ada:phaseAnalyzed": {
             "type": "string"
@@ -17,5 +13,8 @@
         "ada:isotopeType": {
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "ada:componentType"
+    ]
 }

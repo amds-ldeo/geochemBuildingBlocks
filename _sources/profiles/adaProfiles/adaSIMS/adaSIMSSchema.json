@@ -27,21 +27,32 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
                                                     "enum": [
                                                         "ada:SIMSTabular",
                                                         "ada:SIMSCollection"
                                                     ]
-                                                },
-                                                {
-                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

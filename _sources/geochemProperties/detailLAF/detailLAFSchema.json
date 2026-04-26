@@ -4,19 +4,15 @@
     "description": "Laser Ablation Fluorescence processed/raw data. elementAnalyzed goes in resultTarget.",
     "type": "object",
     "properties": {
-        "@type": {
-            "type": "array",
-            "minItems": 1,
-            "contains": {
-                "anyOf": [
-                    {
-                        "const": "ada:LAFProcessed"
-                    },
-                    {
-                        "const": "ada:LAFRaw"
-                    }
-                ]
-            }
+        "ada:componentType": {
+            "anyOf": [
+                {
+                    "const": "ada:LAFProcessed"
+                },
+                {
+                    "const": "ada:LAFRaw"
+                }
+            ]
         },
         "ada:elementAnalyzed": {
             "type": "string"
@@ -27,5 +23,8 @@
         "ada:sampleType": {
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "ada:componentType"
+    ]
 }

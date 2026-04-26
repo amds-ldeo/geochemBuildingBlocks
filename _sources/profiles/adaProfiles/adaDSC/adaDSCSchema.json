@@ -27,21 +27,34 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
-                                                    "enum": [
-                                                        "ada:DSCHeatTabular",
-                                                        "ada:DSCResultsTabular"
-                                                    ]
-                                                },
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
                                                     "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ada:DSCResultsTabular"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailDSC/detailDSCSchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

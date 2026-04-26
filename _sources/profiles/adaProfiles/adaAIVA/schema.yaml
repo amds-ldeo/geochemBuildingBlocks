@@ -1,40 +1,45 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA AIVA Product Profile
-description: Technique-specific profile for AI-driven Visual Analysis (AIVA) products. Extends the base ADA product profile
-  with constraints on valid AIVA component types.
+description: Technique-specific profile for AI-driven Visual Analysis (AIVA) products. Extends the base ADA product profile with constraints on valid AIVA component types.
 allOf:
-- $ref: ../adaProduct/schema.yaml
-- type: object
-  properties:
-    schema:additionalType:
-      description: Must include a AIVA product type identifier.
-      contains:
-        enum:
-        - Advanced Imaging and Visualization of Astromaterials (AIVA)
-        - Advanced Imaging and Visualization of Astromaterials
-        - Analysis Advanced Imaging and Visualization of Astromaterials (AIVA)
-    schema:distribution:
-      description: Distribution items for adaAIVA. Archive hasPart items must have ada:componentType from technique-specific
-        or universal values.
-      type: array
-      items:
-        type: object
+  - $ref: ../adaProduct/schema.yaml
+  - type: object
+    properties:
+      schema:additionalType:
+        description: Must include a AIVA product type identifier.
+        contains:
+          enum:
+            - Advanced Imaging and Visualization of Astromaterials (AIVA)
+            - Advanced Imaging and Visualization of Astromaterials
+            - Analysis Advanced Imaging and Visualization of Astromaterials (AIVA)
+      schema:distribution:
+        description: Distribution items for adaAIVA. Archive hasPart items must have ada:componentType from technique-specific or universal values.
+        type: array
+        items:
+          type: object
+          properties:
+            schema:hasPart:
+              items:
+                type: object
+                anyOf:
+                  - properties:
+                      ada:componentType:
+                        $ref: ../adaProduct/schema.yaml#/$defs/universalComponentType
+                    required:
+                      - ada:componentType
+                  - properties:
+                      ada:componentType:
+                        type: string
+                        enum:
+                          - ada:AIVAImage
+                          - ada:AIVAImageCollection
+                    required:
+                      - ada:componentType
+      schema:subjectOf:
         properties:
-          schema:hasPart:
-            items:
+          dcterms:conformsTo:
+            contains:
               type: object
               properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
-                    - ada:AIVAImage
-                    - ada:AIVAImageCollection
-                  - $ref: '../adaProduct/schema.yaml#/$defs/universalComponentType'
-    schema:subjectOf:
-      properties:
-        dcterms:conformsTo:
-          contains:
-            type: object
-            properties:
-              '@id':
-                const: 'https://w3id.org/geochem/metadata/profiles/adaAIVA'
+                '@id':
+                  const: 'https://w3id.org/geochem/metadata/profiles/adaAIVA'

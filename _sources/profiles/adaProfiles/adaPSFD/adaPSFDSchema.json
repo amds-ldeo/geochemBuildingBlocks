@@ -27,20 +27,21 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
-                                                    "enum": [
-                                                        "ada:PSFDTabular"
-                                                    ]
-                                                },
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
                                                     "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailPSFD/detailPSFDSchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

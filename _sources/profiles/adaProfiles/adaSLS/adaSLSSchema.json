@@ -27,22 +27,34 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
-                                                    "enum": [
-                                                        "ada:SLSShapeModel",
-                                                        "ada:SLSPartialScan",
-                                                        "ada:ShapeModelImage"
-                                                    ]
-                                                },
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
                                                     "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ada:ShapeModelImage"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailSLS/detailSLSSchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

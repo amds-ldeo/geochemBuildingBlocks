@@ -29,23 +29,34 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
-                                                    "enum": [
-                                                        "ada:VNMIRSpectralPoint",
-                                                        "ada:VNMIROverviewImage",
-                                                        "ada:VNMIRSpectralMap",
-                                                        "ada:VNMIRSpectraPlot"
-                                                    ]
-                                                },
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
                                                     "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ada:VNMIRSpectraPlot"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailVNMIR/detailVNMIRSchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

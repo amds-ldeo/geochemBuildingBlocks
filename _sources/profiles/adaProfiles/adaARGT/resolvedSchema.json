@@ -26779,17 +26779,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:ARGTDocument",
-                            "ada:ARGTCollection"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26815,9 +26810,44 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:ARGTCollection"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "title": "ARGT Instrument Detail",
+                      "description": "ARGT (Argon) document type with phase and isotope analysis",
+                      "type": "object",
+                      "properties": {
+                        "ada:componentType": {
+                          "const": "ada:ARGTDocument"
+                        },
+                        "ada:phaseAnalyzed": {
+                          "type": "string"
+                        },
+                        "ada:isotopeType": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

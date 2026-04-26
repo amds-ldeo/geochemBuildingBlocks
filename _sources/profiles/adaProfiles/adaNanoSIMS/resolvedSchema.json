@@ -26781,20 +26781,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:NanoSIMSCollection",
-                            "ada:NanoSIMSImageCollection",
-                            "ada:NanoSIMSTabular",
-                            "ada:NanoSIMSMap",
-                            "ada:NanoSIMSImage"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26820,9 +26812,69 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:NanoSIMSImage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "title": "NanoSIMS Instrument Detail",
+                      "description": "Nano Secondary Ion Mass Spectrometry with isotope tracking",
+                      "type": "object",
+                      "properties": {
+                        "ada:componentType": {
+                          "anyOf": [
+                            {
+                              "const": "ada:NanoSIMSCollection"
+                            },
+                            {
+                              "const": "ada:NanoSIMSImageCollection"
+                            },
+                            {
+                              "const": "ada:NanoSIMSTabular"
+                            },
+                            {
+                              "const": "ada:NanoSIMSMap"
+                            }
+                          ]
+                        },
+                        "ada:phaseAnalyzed": {
+                          "title": "String Array Type",
+                          "description": "Simple reusable array of strings",
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "ada:isotopeAnalyzed": {
+                          "title": "String Array Type",
+                          "description": "Simple reusable array of strings",
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

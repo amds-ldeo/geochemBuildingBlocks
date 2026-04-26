@@ -26780,17 +26780,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:LAFProcessed",
-                            "ada:LAFRaw"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26816,9 +26811,41 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "title": "LAF Instrument Detail",
+                      "description": "Laser Ablation Fluorescence processed/raw data. elementAnalyzed goes in resultTarget.",
+                      "type": "object",
+                      "properties": {
+                        "ada:componentType": {
+                          "anyOf": [
+                            {
+                              "const": "ada:LAFProcessed"
+                            },
+                            {
+                              "const": "ada:LAFRaw"
+                            }
+                          ]
+                        },
+                        "ada:elementAnalyzed": {
+                          "type": "string"
+                        },
+                        "ada:sampleMassConsumed": {
+                          "type": "string"
+                        },
+                        "ada:sampleType": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

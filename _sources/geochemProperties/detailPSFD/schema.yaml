@@ -3,12 +3,11 @@ title: PSFD Instrument Detail
 description: Point Spread Function Data with image names and conditions
 type: object
 properties:
-  "@type":
-    type: array
-    contains:
-      const: "ada:PSFDTabular"
-    minItems: 1
+  ada:componentType:
+    const: "ada:PSFDTabular"
   'ada:imageName':
     $ref: ../stringArray/schema.yaml
   'ada:imageViewingConditions':
     type: string
+required:
+  - ada:componentType

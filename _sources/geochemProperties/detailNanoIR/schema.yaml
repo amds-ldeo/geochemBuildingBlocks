@@ -3,11 +3,9 @@ title: NanoIR Instrument Detail
 description: Nano-IR spectroscopy collections with phase analysis
 type: object
 properties:
-  "@type":
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-        - const: "ada:NanoIRBackground"
+  ada:componentType:
+    const: "ada:NanoIRBackground"
   'ada:phaseAnalyzed':
     $ref: ../stringArray/schema.yaml
+required:
+  - ada:componentType

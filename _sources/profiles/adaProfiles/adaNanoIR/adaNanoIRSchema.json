@@ -29,23 +29,36 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
                                                     "enum": [
-                                                        "ada:NanoIRBackground",
                                                         "ada:NanoIRMap",
                                                         "ada:NanoIRMapCollection",
                                                         "ada:NanoIRPointCollection"
                                                     ]
-                                                },
-                                                {
-                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailNanoIR/detailNanoIRSchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

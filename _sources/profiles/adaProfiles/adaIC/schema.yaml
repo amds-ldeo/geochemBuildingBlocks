@@ -1,38 +1,43 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA IC Product Profile
-description: Technique-specific profile for Ion Chromatography (IC) products. Extends the base ADA product profile with constraints
-  on valid IC component types.
+description: Technique-specific profile for Ion Chromatography (IC) products. Extends the base ADA product profile with constraints on valid IC component types.
 allOf:
-- $ref: ../adaProduct/schema.yaml
-- type: object
-  properties:
-    schema:additionalType:
-      description: Must include a IC product type identifier.
-      contains:
-        enum:
-        - Ion Chromatography (IC)
-        - Ion Chromatography
-    schema:distribution:
-      description: Distribution items for adaIC. Archive hasPart items must have ada:componentType from technique-specific
-        or universal values.
-      type: array
-      items:
-        type: object
+  - $ref: ../adaProduct/schema.yaml
+  - type: object
+    properties:
+      schema:additionalType:
+        description: Must include a IC product type identifier.
+        contains:
+          enum:
+            - Ion Chromatography (IC)
+            - Ion Chromatography
+      schema:distribution:
+        description: Distribution items for adaIC. Archive hasPart items must have ada:componentType from technique-specific or universal values.
+        type: array
+        items:
+          type: object
+          properties:
+            schema:hasPart:
+              items:
+                type: object
+                anyOf:
+                  - properties:
+                      ada:componentType:
+                        $ref: ../adaProduct/schema.yaml#/$defs/universalComponentType
+                    required:
+                      - ada:componentType
+                  - properties:
+                      ada:componentType:
+                        type: string
+                        enum:
+                          - ada:ICTabular
+                    required:
+                      - ada:componentType
+      schema:subjectOf:
         properties:
-          schema:hasPart:
-            items:
+          dcterms:conformsTo:
+            contains:
               type: object
               properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
-                    - ada:ICTabular
-                  - $ref: '../adaProduct/schema.yaml#/$defs/universalComponentType'
-    schema:subjectOf:
-      properties:
-        dcterms:conformsTo:
-          contains:
-            type: object
-            properties:
-              '@id':
-                const: 'https://w3id.org/geochem/metadata/profiles/adaIC'
+                '@id':
+                  const: 'https://w3id.org/geochem/metadata/profiles/adaIC'

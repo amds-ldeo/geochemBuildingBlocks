@@ -26779,16 +26779,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:EAIRMSCollection"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26814,9 +26810,31 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "title": "EA-IRMS Instrument Detail",
+                      "description": "Elemental Analysis Isotope Ratio Mass Spectrometry collection",
+                      "type": "object",
+                      "properties": {
+                        "ada:componentType": {
+                          "const": "ada:EAIRMSCollection"
+                        },
+                        "ada:massConsumed": {
+                          "type": "string"
+                        },
+                        "ada:elementType": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

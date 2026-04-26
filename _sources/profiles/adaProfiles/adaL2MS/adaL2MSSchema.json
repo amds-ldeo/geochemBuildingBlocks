@@ -27,21 +27,34 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
-                                                    "enum": [
-                                                        "ada:L2MSCube",
-                                                        "ada:L2MSOverviewImage"
-                                                    ]
-                                                },
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
                                                     "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ada:L2MSOverviewImage"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailL2MS/detailL2MSSchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

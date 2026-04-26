@@ -27,64 +27,19 @@
       "type": "string"
     },
     "ada:componentType": {
-      "anyOf": [
-        {
-          "title": "EMPA Instrument Detail",
-          "description": "Electron Microprobe Analysis with spectrometer and signal details.",
-          "type": "object",
-          "properties": {
-            "@type": {
-              "anyOf": [
-                {
-                  "const": "ada:EMPAImage"
-                },
-                {
-                  "const": "ada:EMPAQEATabular"
-                },
-                {
-                  "const": "ada:EMPAImageCollection"
-                }
-              ]
-            },
-            "ada:spectrometersUsed": {
-              "type": "string",
-              "description": "Spectrometers used in analysis"
-            },
-            "ada:signalUsed": {
-              "type": "string"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "properties": {
-            "@type": {
-              "enum": [
-                "ada:basemap",
-                "ada:supplementalBasemap",
-                "ada:L2MSOverviewImage",
-                "ada:NanoIRMap",
-                "ada:LITImage",
-                "ada:UVFMImage",
-                "ada:VLMImage",
-                "ada:SEMEBSDGrainImageMap",
-                "ada:SEMEDSElementalMap",
-                "ada:SEMHRCLMap",
-                "ada:SEMImageMap",
-                "ada:STEMImage",
-                "ada:TEMImage",
-                "ada:TEMPatternsImage",
-                "ada:NanoSIMSMap",
-                "ada:XANESimage",
-                "ada:VNMIROverviewImage"
-              ]
-            }
-          },
-          "required": [
-            "@type"
-          ]
-        }
-      ]
+      "type": "string",
+      "enum": [
+        "ada:EMPAImageMap",
+        "ada:NanoIRMap",
+        "ada:SEMEBSDGrainImageMap",
+        "ada:SEMEDSElementalMap",
+        "ada:SEMHRCLMap",
+        "ada:SEMImageMap",
+        "ada:SLSTextureMap",
+        "ada:basemap",
+        "ada:supplementalBasemap"
+      ],
+      "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific imageMap componentTypes."
     },
     "ada:channel1": {
       "type": "string"

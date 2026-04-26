@@ -3,16 +3,15 @@ title: NanoSIMS Instrument Detail
 description: Nano Secondary Ion Mass Spectrometry with isotope tracking
 type: object
 properties:
-  "@type":
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-        - const: "ada:NanoSIMSCollection"
-        - const: "ada:NanoSIMSImageCollection"
-        - const: "ada:NanoSIMSTabular"
-        - const: "ada:NanoSIMSMap"
+  ada:componentType:
+    anyOf:
+      - const: "ada:NanoSIMSCollection"
+      - const: "ada:NanoSIMSImageCollection"
+      - const: "ada:NanoSIMSTabular"
+      - const: "ada:NanoSIMSMap"
   'ada:phaseAnalyzed':
     $ref: ../stringArray/schema.yaml
   'ada:isotopeAnalyzed':
     $ref: ../stringArray/schema.yaml
+required:
+  - ada:componentType

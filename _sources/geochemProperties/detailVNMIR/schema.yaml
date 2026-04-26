@@ -3,14 +3,11 @@ title: VNMIR Instrument Detail
 description: Very-Near Mid-IR spectroscopy with detailed measurement parameters
 type: object
 properties:
-  "@type":
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-        - const: "ada:VNMIRSpectralPoint"
-        - const: "ada:VNMIROverviewImage"
-        - const: "ada:VNMIRSpectralMap"
+  ada:componentType:
+    anyOf:
+      - const: "ada:VNMIRSpectralPoint"
+      - const: "ada:VNMIROverviewImage"
+      - const: "ada:VNMIRSpectralMap"
   'ada:detector':
     type: string
   'ada:beamsplitter':
@@ -59,3 +56,5 @@ properties:
     type: number
   'ada:vacuumExposedSample':
     type: boolean
+required:
+  - ada:componentType

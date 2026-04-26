@@ -10,9 +10,19 @@
       "type": "object",
       "properties": {
         "@type": {
-          "const": [
-            "ada:basemap",
-            "schema:Map"
+          "type": "array",
+          "minItems": 2,
+          "allOf": [
+            {
+              "contains": {
+                "const": "ada:basemap"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:Map"
+              }
+            }
           ]
         },
         "schema:description": {
@@ -49,7 +59,7 @@
       "description": "ARGT (Argon) document type with phase and isotope analysis",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "const": "ada:ARGTDocument"
         },
         "ada:phaseAnalyzed": {
@@ -58,36 +68,51 @@
         "ada:isotopeType": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "DSC Instrument Detail",
       "description": "Differential Scanning Calorimetry heat tabular data",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "const": "ada:DSCHeatTabular"
         },
         "ada:analysisType": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "EMPA Instrument Detail",
-      "description": "Electron Microprobe Analysis with spectrometer and signal details.",
+      "description": "Detail block for Electron Microprobe Analysis hasPart items. Discriminates on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed as sibling properties on the hasPart item.",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "anyOf": [
             {
               "const": "ada:EMPAImage"
+            },
+            {
+              "const": "ada:EMPAImageMap"
             },
             {
               "const": "ada:EMPAQEATabular"
             },
             {
               "const": "ada:EMPAImageCollection"
+            },
+            {
+              "const": "ada:EMPAESPCTabular"
+            },
+            {
+              "const": "ada:EMPAESPCPlot"
             }
           ]
         },
@@ -98,14 +123,17 @@
         "ada:signalUsed": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "EA-IRMS Instrument Detail",
       "description": "Elemental Analysis Isotope Ratio Mass Spectrometry collection",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "const": "ada:EAIRMSCollection"
         },
         "ada:massConsumed": {
@@ -114,14 +142,17 @@
         "ada:elementType": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "ICP-OES Instrument Detail",
       "description": "Inductively Coupled Plasma Optical Emission Spectrometry. (Extension type, not in v3 source schema.)",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "anyOf": [
             {
               "const": "ada:ICPOESIntermediateTabular"
@@ -140,14 +171,17 @@
         "ada:dissolutionFactor": {
           "type": "number"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "L2MS Instrument Detail",
       "description": "Laser-2 Mass Spectrometry cube data with ionization parameters",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "const": "ada:L2MSCube"
         },
         "ada:sampleName": {
@@ -171,14 +205,17 @@
         "ada:wavelengthUnits": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "LAF Instrument Detail",
       "description": "Laser Ablation Fluorescence processed/raw data. elementAnalyzed goes in resultTarget.",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "anyOf": [
             {
               "const": "ada:LAFProcessed"
@@ -197,37 +234,46 @@
         "ada:sampleType": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "NanoIR Instrument Detail",
       "description": "Nano-IR spectroscopy collections with phase analysis",
       "type": "object",
       "properties": {
-        "@type": {
-          "anyOf": [
-            {
-              "const": "ada:NanoIRBackground"
-            }
-          ]
+        "ada:componentType": {
+          "const": "ada:NanoIRBackground"
         },
         "ada:phaseAnalyzed": {
           "$ref": "#/$defs/StringArray"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "NanoSIMS Instrument Detail",
       "description": "Nano Secondary Ion Mass Spectrometry with isotope tracking",
       "type": "object",
       "properties": {
-        "@type": {
-          "type": "string",
-          "enum": [
-            "ada:NanoSIMSCollection",
-            "ada:NanoSIMSImageCollection",
-            "ada:NanoSIMSTabular",
-            "ada:NanoSIMSMap"
+        "ada:componentType": {
+          "anyOf": [
+            {
+              "const": "ada:NanoSIMSCollection"
+            },
+            {
+              "const": "ada:NanoSIMSImageCollection"
+            },
+            {
+              "const": "ada:NanoSIMSTabular"
+            },
+            {
+              "const": "ada:NanoSIMSMap"
+            }
           ]
         },
         "ada:phaseAnalyzed": {
@@ -236,14 +282,17 @@
         "ada:isotopeAnalyzed": {
           "$ref": "#/$defs/StringArray"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "PSFD Instrument Detail",
       "description": "Point Spread Function Data with image names and conditions",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "const": "ada:PSFDTabular"
         },
         "ada:imageName": {
@@ -252,14 +301,17 @@
         "ada:imageViewingConditions": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "VNMIR Instrument Detail",
       "description": "Very-Near Mid-IR spectroscopy with detailed measurement parameters",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "anyOf": [
             {
               "const": "ada:VNMIRSpectralPoint"
@@ -344,14 +396,17 @@
         "ada:vacuumExposedSample": {
           "type": "boolean"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "QRIS Instrument Detail",
       "description": "QRIS (Raman) with calibration and illumination parameters. (Extension type, not in v3 source schema.)",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "anyOf": [
             {
               "const": "ada:QRISCalibrated"
@@ -386,14 +441,17 @@
         "ada:target": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "SLS Instrument Detail",
       "description": "Structured Light Scanning shape models and partial scans",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "anyOf": [
             {
               "const": "ada:SLSShapeModel"
@@ -421,14 +479,17 @@
         "ada:watertight": {
           "type": "boolean"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "XCT Instrument Detail",
       "description": "X-ray Computed Tomography images with detailed scan parameters. (Extension type, not in v3 source schema.)",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "const": "ada:XCTImageCollection"
         },
         "ada:beamFilterMaterial": {
@@ -527,14 +588,17 @@
         "ada:xrayTubePower": {
           "type": "number"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     },
     {
       "title": "XRD Instrument Detail",
       "description": "X-ray Diffraction tabular data with geometry and wavelength",
       "type": "object",
       "properties": {
-        "@type": {
+        "ada:componentType": {
           "const": "ada:XRDTabular"
         },
         "ada:geometry": {
@@ -552,7 +616,10 @@
         "ada:wavelength": {
           "type": "number"
         }
-      }
+      },
+      "required": [
+        "ada:componentType"
+      ]
     }
   ],
   "$defs": {

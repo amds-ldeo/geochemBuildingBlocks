@@ -26781,19 +26781,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:VNMIRSpectralPoint",
-                            "ada:VNMIROverviewImage",
-                            "ada:VNMIRSpectralMap",
-                            "ada:VNMIRSpectraPlot"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26819,9 +26812,120 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:VNMIRSpectraPlot"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "title": "VNMIR Instrument Detail",
+                      "description": "Very-Near Mid-IR spectroscopy with detailed measurement parameters",
+                      "type": "object",
+                      "properties": {
+                        "ada:componentType": {
+                          "anyOf": [
+                            {
+                              "const": "ada:VNMIRSpectralPoint"
+                            },
+                            {
+                              "const": "ada:VNMIROverviewImage"
+                            },
+                            {
+                              "const": "ada:VNMIRSpectralMap"
+                            }
+                          ]
+                        },
+                        "ada:detector": {
+                          "type": "string"
+                        },
+                        "ada:beamsplitter": {
+                          "type": "string"
+                        },
+                        "ada:calibrationStandards": {
+                          "type": "string"
+                        },
+                        "ada:comments": {
+                          "type": "string"
+                        },
+                        "ada:numberOfScans": {
+                          "type": "integer"
+                        },
+                        "ada:eMaxFitRegionMax": {
+                          "type": "string"
+                        },
+                        "ada:eMaxFitRegionMin": {
+                          "type": "string"
+                        },
+                        "ada:emissionAngle": {
+                          "type": "number"
+                        },
+                        "ada:emissivityMaximum": {
+                          "type": "string"
+                        },
+                        "ada:environmentalPressure": {
+                          "type": "number"
+                        },
+                        "ada:incidenceAngle": {
+                          "type": "number"
+                        },
+                        "ada:measurement": {
+                          "type": "string"
+                        },
+                        "ada:measurementEnvironment": {
+                          "type": "string"
+                        },
+                        "ada:phaseAngle": {
+                          "type": "number"
+                        },
+                        "ada:sampleHeated": {
+                          "type": "boolean"
+                        },
+                        "ada:samplePreparation": {
+                          "type": "string"
+                        },
+                        "ada:sampleTemperature": {
+                          "type": "integer"
+                        },
+                        "ada:spectralRangeMax": {
+                          "type": "string"
+                        },
+                        "ada:spectralRangeMin": {
+                          "type": "string"
+                        },
+                        "ada:spectralResolution": {
+                          "type": "string"
+                        },
+                        "ada:spectralSampling": {
+                          "type": "string"
+                        },
+                        "ada:spotSize": {
+                          "type": "string"
+                        },
+                        "ada:uncertaintyNoise": {
+                          "type": "number"
+                        },
+                        "ada:vacuumExposedSample": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

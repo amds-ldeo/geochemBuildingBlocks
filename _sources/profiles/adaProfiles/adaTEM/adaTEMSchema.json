@@ -34,10 +34,21 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
                                                     "enum": [
                                                         "ada:TEMImage",
                                                         "ada:TEMPatternsImage",
@@ -49,13 +60,13 @@
                                                         "ada:STEMEELSTabular",
                                                         "ada:STEMEELSCube"
                                                     ]
-                                                },
-                                                {
-                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }

@@ -4,12 +4,8 @@
   "description": "Nano-IR spectroscopy collections with phase analysis",
   "type": "object",
   "properties": {
-    "@type": {
-      "anyOf": [
-        {
-          "const": "ada:NanoIRBackground"
-        }
-      ]
+    "ada:componentType": {
+      "const": "ada:NanoIRBackground"
     },
     "ada:phaseAnalyzed": {
       "title": "String Array Type",
@@ -20,5 +16,8 @@
         "type": "string"
       }
     }
-  }
+  },
+  "required": [
+    "ada:componentType"
+  ]
 }

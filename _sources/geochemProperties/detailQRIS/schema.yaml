@@ -5,13 +5,10 @@ description: >-
   not in v3 source schema.)
 type: object
 properties:
-  "@type":
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-        - const: "ada:QRISCalibrated"
-        - const: "ada:QRISRaw"
+  ada:componentType:
+    anyOf:
+      - const: "ada:QRISCalibrated"
+      - const: "ada:QRISRaw"
   'ada:calibrationFile':
     type: string
   'ada:pipelineVersion':
@@ -29,3 +26,5 @@ properties:
     type: integer
   'ada:target':
     type: string
+required:
+  - ada:componentType

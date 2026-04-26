@@ -26779,17 +26779,12 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:L2MSCube",
-                            "ada:L2MSOverviewImage"
-                          ]
-                        },
-                        {
-                          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+                          "type": "string",
                           "enum": [
                             "ada:analysisLocation",
                             "ada:annotatedImage",
@@ -26815,9 +26810,59 @@
                             "ada:worldFile"
                           ]
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:L2MSOverviewImage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "title": "L2MS Instrument Detail",
+                      "description": "Laser-2 Mass Spectrometry cube data with ionization parameters",
+                      "type": "object",
+                      "properties": {
+                        "ada:componentType": {
+                          "const": "ada:L2MSCube"
+                        },
+                        "ada:sampleName": {
+                          "type": "string"
+                        },
+                        "ada:ionizationTimeDelay": {
+                          "type": "integer"
+                        },
+                        "ada:massGate": {
+                          "type": "boolean"
+                        },
+                        "ada:photoionizationWavelength": {
+                          "type": "integer"
+                        },
+                        "ada:plasmaShutter": {
+                          "type": "boolean"
+                        },
+                        "ada:timeDelayUnits": {
+                          "type": "string"
+                        },
+                        "ada:wavelengthUnits": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

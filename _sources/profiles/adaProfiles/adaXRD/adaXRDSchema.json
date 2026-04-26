@@ -27,22 +27,35 @@
                             "schema:hasPart": {
                                 "items": {
                                     "type": "object",
-                                    "properties": {
-                                        "ada:componentType": {
-                                            "anyOf": [
-                                                {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
                                                     "enum": [
-                                                        "ada:XRDTabular",
                                                         "ada:XRDDiffractionPattern",
                                                         "ada:XRDIndexedImage"
                                                     ]
-                                                },
-                                                {
-                                                    "$ref": "../adaProduct/schema.yaml#/$defs/universalComponentType"
                                                 }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
                                             ]
+                                        },
+                                        {
+                                            "$ref": "../../../geochemProperties/detailXRD/detailXRDSchema.json"
                                         }
-                                    }
+                                    ]
                                 }
                             }
                         }
