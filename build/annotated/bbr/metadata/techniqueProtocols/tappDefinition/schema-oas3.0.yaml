@@ -55,7 +55,7 @@ x-defs:
       schema:identifier:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       schema:inDefinedTermSet:
         type: string
         description: Name for the controlled vocabulary responsible for this keyword.
@@ -84,7 +84,7 @@ x-defs:
       are typed as schema:Thing + schema:Product (from core) with domain-specific
       types (e.g. nxs:BaseClass/NXinstrument, ada:AMSInstrument) in additionalType.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
     - type: object
       properties:
         schema:additionalType:
@@ -109,7 +109,7 @@ x-defs:
       Inherits place name, identifier, alternateName, geo coordinates, and geosparql
       geometry from spatialExtent.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
     - type: object
       properties:
         schema:additionalType:
@@ -148,7 +148,7 @@ x-defs:
       schema:identifier:
         description: identifier for person, recommend ORCID
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         - type: string
       schema:alternateName:
         type: string
@@ -156,7 +156,7 @@ x-defs:
       schema:affiliation:
         description: if affiliation is present, value must be a schema:Organization.
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       schema:contactPoint:
         type: object
         description: restrict to email only. Schema.org allows telephone and postal
@@ -227,7 +227,7 @@ x-defs:
         type: array
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
           - type: string
       schema:name:
         type: string
@@ -240,7 +240,7 @@ x-defs:
       schema:identifier:
         description: identifier for organization
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         - type: string
       schema:sameAs:
         type: array
@@ -310,7 +310,7 @@ x-defs:
       schema:identifier:
         description: identifier for a particular grant
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Identifier
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Identifier
       schema:description:
         type: string
         description: description of the funding or grant
@@ -327,8 +327,8 @@ x-defs:
                 externally; must be dereferenceable
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Person
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Organization
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Person
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Organization
     anyOf:
     - required:
       - schema:funder
@@ -338,11 +338,11 @@ x-defs:
       - schema:name
     $defs:
       Person:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
       Organization:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/monetaryGrant/schema.yaml
@@ -370,19 +370,19 @@ x-defs:
               type: string
               description: a resolvable reference to a representation of a quality
                 measure
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
       dqv:value:
         description: the reported result of the quality measure, either as a string
           or a defined term from a vocabulary
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
     required:
     - dqv:isMeasurementOf
     - dqv:value
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
@@ -451,7 +451,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
       schema:url:
         type: string
         format: uri
@@ -459,7 +459,7 @@ x-defs:
       schema:manufacturer:
         description: Organization that manufactured this instrument.
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
       schema:model:
         type: object
         description: Product model information for this instrument.
@@ -479,31 +479,31 @@ x-defs:
             description: Model identifier.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
         required:
         - schema:name
       schema:category:
         description: Instrument type classification(s) from a controlled vocabulary.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/DefinedTerm
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/DefinedTerm
       schema:owner:
         description: Organization that owns this instrument.
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
       schema:contributor:
         description: Agents associated with this instrument in specific roles (e.g.
           operator, custodian, principal investigator). Use schema:owner for the owning
           organization.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AgentInRole
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AgentInRole
       schema:additionalProperty:
         type: array
         description: Instrument-specific properties (measured variables, detection
           limits, calibration information, operating parameters, etc.).
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
       schema:validFrom:
         type: string
         description: Date the instrument was commissioned (ISO 8601).
@@ -517,7 +517,7 @@ x-defs:
           an inline instrument description or an @id reference.
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/InstrumentComponent
+          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/InstrumentComponent
           - type: object
             properties:
               '@id':
@@ -530,7 +530,7 @@ x-defs:
         description: Links to related resources (manuals, datasheets, calibration
           records, related instruments).
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/LabeledLink
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/LabeledLink
       schema:subjectOf:
         description: Catalog record metadata-about-metadata for this instrument description.
         type: object
@@ -565,19 +565,19 @@ x-defs:
     - schema:name
     $defs:
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       Organization:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       Person:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       AgentInRole:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
       AdditionalProperty:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
       LabeledLink:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
       InstrumentComponent:
         type: object
         description: A sub-component of an instrument system. Uses the same structure
@@ -605,7 +605,7 @@ x-defs:
           schema:identifier:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
           schema:additionalType:
             description: Component type classification.
             type: array
@@ -614,9 +614,9 @@ x-defs:
           schema:additionalProperty:
             type: array
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
+              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
           schema:manufacturer:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
           schema:model:
             type: object
             properties:
@@ -633,7 +633,7 @@ x-defs:
               schema:identifier:
                 anyOf:
                 - type: string
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
         required:
         - schema:name
     x-jsonld-prefixes:
@@ -662,25 +662,25 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
       schema:name:
         description: A place name for the location, either as a string or a DefinedTerm
           from a gazetteer.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
       schema:identifier:
         description: Formal identifier for this place (e.g. ROR identifier for a facility).
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/Identifier
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/Identifier
       schema:alternateName:
         description: Alternate or abbreviated name(s) for this place.
         type: array
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
       schema:geo:
         description: Either a bounding box or a point location.
         anyOf:
@@ -811,9 +811,9 @@ x-defs:
       - geosparql:hasGeometry
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
@@ -838,7 +838,7 @@ x-defs:
       schema:roleName:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       schema:contributor:
         anyOf:
         - type: object
@@ -848,8 +848,8 @@ x-defs:
               description: IRI reference to a Person or Organization defined elsewhere
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
     required:
     - '@type'
     - schema:roleName
@@ -875,7 +875,7 @@ x-defs:
       schema:propertyID:
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/propertyID_item
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/propertyID_item
         minItems: 1
         description: identifier or name for the property concept quantified by the
           values in this variable slot. Multiple values can specify the property at
@@ -891,7 +891,7 @@ x-defs:
       schema:unitCode:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
       schema:unitText:
         type: string
     required:
@@ -899,7 +899,7 @@ x-defs:
     - schema:value
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       propertyID_item:
         anyOf:
         - type: string
@@ -907,19 +907,19 @@ x-defs:
           properties:
             '@id':
               type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
     x-jsonld-prefixes:
       schema: http://schema.org/
       nxs: http://purl.org/nexusformat/definitions/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/additionalProperty/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-title: Analytical Method Definition v3
-description: A registered analytical method definition modeled as a cdi:Activity and
-  schema:Action. The method identity (name, technique, instrument, laboratory) lives
-  at the top level. The standard workflow is encoded in schema:actionProcess as a
-  schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps
-  (sample preparation, calibration, acquisition, data processing, quality control).
-  Each workflow step carries its own parameters, reagents, and instruments. Method-level
+title: Technique-Aligned Protocol Profile (TAPP) Definition v3
+description: A registered Technique-Aligned Protocol Profile (TAPP) definition modeled
+  as a cdi:Activity and schema:Action. The TAPP identity (name, technique, instrument,
+  location) lives at the top level. The standard workflow is encoded in schema:actionProcess
+  as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action
+  steps (sample preparation, calibration, acquisition, data processing, quality control).
+  Each workflow step carries its own parameters, reagents, and instruments. TAPP-level
   parameters that apply across all steps remain at the top level in ada:methodParameters.
   Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for
   activity sequence, and dqv:hasQualityMeasurement for quality metrics.
@@ -960,7 +960,7 @@ properties:
     - cdi
   '@id':
     type: string
-    description: Persistent URI for this method definition in the registry.
+    description: Persistent URI for this TAPP definition in the registry.
   '@type':
     type: array
     items:
@@ -975,11 +975,11 @@ properties:
         - schema:Action
     - contains:
         enum:
-        - ada:MethodDefinition
+        - ada:TAPPDefinition
     - contains:
         enum:
         - bios:LabProtocol
-    description: Must include cdi:Activity, schema:Action, ada:MethodDefinition, and
+    description: Must include cdi:Activity, schema:Action, ada:TAPPDefinition, and
       bios:LabProtocol.
   schema:name:
     type: string
@@ -989,7 +989,7 @@ properties:
     description: DOI or other persistent ID for this method definition.
     anyOf:
     - type: string
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
   schema:description:
     type: string
     description: Human-readable summary of the method, may be auto-generated from
@@ -1013,43 +1013,43 @@ properties:
     description: The analytical technique this method implements. Must be a DefinedTerm
       from a controlled vocabulary of techniques.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
   schema:object:
     description: Target material(s) this method is designed to analyse (e.g. silicate
       glass, olivine, spinel). Modeled as DefinedTerm(s) or free text.
     type: array
     items:
       anyOf:
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       - type: string
   schema:instrument:
     description: Primary instrument specification for this method. Use schema:hasPart
       for instrument sub-components (spectrometers, detectors).
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.instrument
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.instrument
   bios:computationalTool:
     description: Software tools used for data acquisition, reduction, and processing.
       Each tool carries name, version, and optional URL.
     type: array
     items:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/ComputationalTool
+      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/ComputationalTool
   bios:reagent:
     description: Reference materials, calibration standards, and chemical reagents
       used across this method. Reagents specific to a single workflow step should
       be placed on that step instead.
     type: array
     items:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/Reagent
+      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/Reagent
   schema:location:
     description: Laboratory where this method was developed. Optional; omit for methods
       that are instrument-generic.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.laboratory
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.laboratory
   schema:agent:
     description: Person or organisation who defined or is responsible for this method.
     anyOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
     - type: object
       properties:
         '@id':
@@ -1061,14 +1061,14 @@ properties:
       acquisition, data processing, quality control). Steps carry their own parameters,
       reagents, instruments, and sub-steps.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/WorkflowHowTo
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/WorkflowHowTo
   ada:methodParameters:
     type: array
     description: Method-level parameters that apply across all workflow steps (e.g.
       method-scoped constants like matrix correction model). Step-specific parameters
       should be placed on the appropriate workflow step instead.
     items:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/MethodParameter
+      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/MethodParameter
   ada:analyteTemplate:
     description: Template for per-analyte (element-specific) parameters. Defines the
       columns that appear in the element table, each with scope, datatype, and constraints.
@@ -1079,7 +1079,7 @@ properties:
       ada:analyteColumns:
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/AnalyteColumn
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/AnalyteColumn
       ada:defaultAnalytes:
         type: array
         description: Pre-populated analyte rows for this method. Each entry is an
@@ -1095,17 +1095,17 @@ properties:
       qualityMeasure building block.
     type: array
     items:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/QualityMeasure
+      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/QualityMeasure
   schema:relatedLink:
     type: array
     description: Publications, Zenodo records, or other references documenting this
       method.
     items:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
   schema:funding:
     type: array
     items:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant
+      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant
 required:
 - '@context'
 - '@type'
@@ -1143,7 +1143,7 @@ $defs:
         description: Ordered sequence of workflow steps. Each step is a cdi:Activity
           + schema:Action describing a distinct phase of the analytical procedure.
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/WorkflowStep
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/WorkflowStep
     required:
     - '@type'
     - schema:step
@@ -1187,7 +1187,7 @@ $defs:
       schema:instrument:
         description: Instrument or equipment used in this step.
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.instrument
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.instrument
         - type: object
           properties:
             '@id':
@@ -1198,12 +1198,12 @@ $defs:
         description: Software tools used in this step.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/ComputationalTool
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/ComputationalTool
       bios:reagent:
         description: Reference materials, standards, or reagents used in this step.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/Reagent
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/Reagent
       prov:used:
         description: Input entities consumed or referenced by this step (e.g. prepared
           sample from a prior step).
@@ -1238,24 +1238,24 @@ $defs:
           step, matrix correction settings for the data processing step).
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/StepParameter
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/StepParameter
       ada:methodParameters:
         description: Step-specific method parameters with scope and tier metadata.
           These are parameters that belong to this particular workflow phase.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/MethodParameter
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/MethodParameter
       schema:actionProcess:
         description: Sub-workflow for this step, expressed as a nested schema:HowTo
           with its own ordered steps. Use for steps that have a multi-phase internal
           procedure (e.g. sample preparation with mount, grind, polish, coat).
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/WorkflowHowTo
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/WorkflowHowTo
       dqv:hasQualityMeasurement:
         description: Quality measurements specific to this workflow step.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/$defs/QualityMeasure
+          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/$defs/QualityMeasure
     required:
     - '@type'
     - schema:name
@@ -1290,7 +1290,7 @@ $defs:
         anyOf:
         - type: string
           format: uri
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       schema:inDefinedTermSet:
         description: "Controlled vocabulary providing allowed values for this parameter.
           When present, form renders a dropdown/select populated from the vocabulary.
@@ -1310,7 +1310,7 @@ $defs:
               format: uri
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
         - type: object
           description: Inline schema:DefinedTermSet listing the allowed values as
             schema:DefinedTerm objects. Use when no external vocabulary URI is available;
@@ -1384,7 +1384,7 @@ $defs:
           link to a controlled vocabulary of parameter categories.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       ada:dataType:
         type: string
         enum:
@@ -1402,7 +1402,7 @@ $defs:
         description: URI for unit of measure (QUDT preferred).
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       ada:cdifPropertyPath:
         type: string
         description: The CDIF building block property path this parameter maps to.
@@ -1473,7 +1473,7 @@ $defs:
         anyOf:
         - type: string
           format: uri
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       schema:inDefinedTermSet:
         description: "Controlled vocabulary providing allowed values for this column.
           Four shapes are accepted: (1) a plain URI string identifying an external
@@ -1492,7 +1492,7 @@ $defs:
               format: uri
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
         - type: object
           description: Inline schema:DefinedTermSet listing the allowed values as
             schema:DefinedTerm objects. Use when no external vocabulary URI is available;
@@ -1658,7 +1658,7 @@ $defs:
     required:
     - schema:name
   QualityMeasure:
-    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
+    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

@@ -248,14 +248,14 @@
                 "properties": {
                   "prov:used": {
                     "type": "array",
-                    "description": "Instruments and/or analytical method definitions used in the analysis. Each item is either an instrument BB instance or a methodDefinition BB instance.",
+                    "description": "Instruments and/or Technique-Aligned Protocol Profile (TAPP) definitions used in the analysis. Each item is either an instrument BB instance or a tappDefinition BB instance.",
                     "items": {
                       "anyOf": [
                         {
                           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.instrument"
                         },
                         {
-                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition"
+                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition"
                         }
                       ]
                     }
@@ -1366,9 +1366,9 @@
       "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/instrument/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "ada.bbr.metadata.geochemProperties.methodDefinition": {
-      "title": "Analytical Method Definition v3",
-      "description": "A registered analytical method definition modeled as a cdi:Activity and schema:Action. The method identity (name, technique, instrument, laboratory) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. Method-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
+    "ada.bbr.metadata.techniqueProtocols.tappDefinition": {
+      "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
+      "description": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as a cdi:Activity and schema:Action. The TAPP identity (name, technique, instrument, location) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
       "type": "object",
       "properties": {
         "@context": {
@@ -1419,7 +1419,7 @@
         },
         "@id": {
           "type": "string",
-          "description": "Persistent URI for this method definition in the registry."
+          "description": "Persistent URI for this TAPP definition in the registry."
         },
         "@type": {
           "type": "array",
@@ -1445,7 +1445,7 @@
             {
               "contains": {
                 "enum": [
-                  "ada:MethodDefinition"
+                  "ada:TAPPDefinition"
                 ]
               }
             },
@@ -1457,7 +1457,7 @@
               }
             }
           ],
-          "description": "Must include cdi:Activity, schema:Action, ada:MethodDefinition, and bios:LabProtocol."
+          "description": "Must include cdi:Activity, schema:Action, ada:TAPPDefinition, and bios:LabProtocol."
         },
         "schema:name": {
           "type": "string",
@@ -1531,14 +1531,14 @@
           "description": "Software tools used for data acquisition, reduction, and processing. Each tool carries name, version, and optional URL.",
           "type": "array",
           "items": {
-            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/ComputationalTool"
+            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/ComputationalTool"
           }
         },
         "bios:reagent": {
           "description": "Reference materials, calibration standards, and chemical reagents used across this method. Reagents specific to a single workflow step should be placed on that step instead.",
           "type": "array",
           "items": {
-            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/Reagent"
+            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/Reagent"
           }
         },
         "schema:location": {
@@ -1572,7 +1572,7 @@
           "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps.",
           "allOf": [
             {
-              "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/WorkflowHowTo"
+              "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/WorkflowHowTo"
             }
           ]
         },
@@ -1580,7 +1580,7 @@
           "type": "array",
           "description": "Method-level parameters that apply across all workflow steps (e.g. method-scoped constants like matrix correction model). Step-specific parameters should be placed on the appropriate workflow step instead.",
           "items": {
-            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/MethodParameter"
+            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/MethodParameter"
           }
         },
         "ada:analyteTemplate": {
@@ -1590,7 +1590,7 @@
             "ada:analyteColumns": {
               "type": "array",
               "items": {
-                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/AnalyteColumn"
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/AnalyteColumn"
               }
             },
             "ada:defaultAnalytes": {
@@ -1610,7 +1610,7 @@
           "description": "Quality measurements that characterize the method's expected performance (e.g. analytical precision, accuracy, counting statistics error). Uses the CDIF qualityMeasure building block.",
           "type": "array",
           "items": {
-            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/QualityMeasure"
+            "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/QualityMeasure"
           }
         },
         "schema:relatedLink": {
@@ -1670,7 +1670,7 @@
               "type": "array",
               "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure.",
               "items": {
-                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/WorkflowStep"
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/WorkflowStep"
               }
             }
           },
@@ -1751,14 +1751,14 @@
               "description": "Software tools used in this step.",
               "type": "array",
               "items": {
-                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/ComputationalTool"
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/ComputationalTool"
               }
             },
             "bios:reagent": {
               "description": "Reference materials, standards, or reagents used in this step.",
               "type": "array",
               "items": {
-                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/Reagent"
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/Reagent"
               }
             },
             "prov:used": {
@@ -1816,21 +1816,21 @@
               "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step).",
               "type": "array",
               "items": {
-                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/StepParameter"
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/StepParameter"
               }
             },
             "ada:methodParameters": {
               "description": "Step-specific method parameters with scope and tier metadata. These are parameters that belong to this particular workflow phase.",
               "type": "array",
               "items": {
-                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/MethodParameter"
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/MethodParameter"
               }
             },
             "schema:actionProcess": {
               "description": "Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use for steps that have a multi-phase internal procedure (e.g. sample preparation with mount, grind, polish, coat).",
               "allOf": [
                 {
-                  "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/WorkflowHowTo"
+                  "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/WorkflowHowTo"
                 }
               ]
             },
@@ -1838,7 +1838,7 @@
               "description": "Quality measurements specific to this workflow step.",
               "type": "array",
               "items": {
-                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.methodDefinition/$defs/QualityMeasure"
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaLCMS/schema-oas3.0.json#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/QualityMeasure"
               }
             }
           },
@@ -2417,7 +2417,7 @@
         "dqv": "http://www.w3.org/ns/dqv#",
         "skos": "http://www.w3.org/2004/02/skos/core#"
       },
-      "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema.yaml",
+      "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ada.bbr.metadata.geochemProperties.laboratory": {

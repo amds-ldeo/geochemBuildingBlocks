@@ -210,13 +210,13 @@ allOf:
         properties:
           prov:used:
             type: array
-            description: Instruments and/or analytical method definitions used in
-              the analysis. Each item is either an instrument BB instance or a methodDefinition
-              BB instance.
+            description: Instruments and/or Technique-Aligned Protocol Profile (TAPP)
+              definitions used in the analysis. Each item is either an instrument
+              BB instance or a tappDefinition BB instance.
             items:
               anyOf:
               - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/instrument/schema.yaml
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema.yaml
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema.yaml
           schema:location:
             $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/laboratory/schema.yaml
           schema:object:
