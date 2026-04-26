@@ -40,7 +40,7 @@
   "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailEAIRMS/context.jsonld",
   "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailEAIRMS/resolvedProperties.json",
   "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailEAIRMS/",
-  "validationPassed": true,
+  "validationPassed": false,
   "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/bbr/metadata/geochemProperties/detailEAIRMS/",
   "description": "# EA-IRMS Instrument Detail\n\nElemental Analysis Isotope Ratio Mass Spectrometry collection.\n",
   "examples": [
@@ -69,7 +69,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: EA-IRMS Instrument Detail\ndescription: Elemental Analysis Isotope Ratio Mass Spectrometry collection\ntype: object\nproperties:\n  '@type':\n    type: array\n    contains:\n      const: ada:EAIRMSCollection\n    minItems: 1\n  ada:massConsumed:\n    type: string\n  ada:elementType:\n    type: string\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: EA-IRMS Instrument Detail\ndescription: Elemental Analysis Isotope Ratio Mass Spectrometry collection\ntype: object\nproperties:\n  ada:componentType:\n    const: ada:EAIRMSCollection\n  ada:massConsumed:\n    type: string\n  ada:elementType:\n    type: string\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
   "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
   "gitPath": "_sources/geochemProperties/detailEAIRMS"
 }

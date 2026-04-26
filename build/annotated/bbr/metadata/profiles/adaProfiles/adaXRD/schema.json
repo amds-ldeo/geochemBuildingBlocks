@@ -27,22 +27,35 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.json#/$defs/universalComponentType"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
                           "enum": [
-                            "ada:XRDTabular",
                             "ada:XRDDiffractionPattern",
                             "ada:XRDIndexedImage"
                           ]
-                        },
-                        {
-                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.json#/$defs/universalComponentType"
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
+                    },
+                    {
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailXRD/schema.json"
                     }
-                  }
+                  ]
                 }
               }
             }

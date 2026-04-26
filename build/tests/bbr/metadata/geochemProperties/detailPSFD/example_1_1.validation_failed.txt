@@ -1,0 +1,48 @@
+Validation report for ada.bbr.metadata.geochemProperties.detailPSFD - PSFD Instrument Detail
+Generated 2026-04-26T15:13:31.891276+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'ada:componentType' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'description': 'Point Spread Function Data with image names and '
+                    'conditions',
+     'properties': {'ada:componentType': {'const': 'ada:PSFDTabular'},
+                    'ada:imageName': {'$ref': 'https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/stringArray/schema.yaml'},
+                    'ada:imageViewingConditions': {'type': 'string'}},
+     'required': ['ada:componentType'],
+     'title': 'PSFD Instrument Detail',
+     'type': 'object',
+     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
+                           'schema': 'http://schema.org/'}}
+
+On instance:
+    {'@type': ['ada:PSFDTabular'],
+     'ada:imageName': ['crater_overview_001.tif',
+                       'crater_overview_002.tif'],
+     'ada:imageViewingConditions': 'nadir, 50m altitude'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/geochemProperties/detailPSFD/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geochemProperties/detailPSFD/rules.shacl:
+ - Shape cdifd:detailPSFDShape: *none*
+
+Validation result for _sources/geochemProperties/stringArray/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+=== End SHACL ===
+

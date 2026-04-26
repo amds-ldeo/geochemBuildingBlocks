@@ -501,7 +501,8 @@
           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaVNMIR/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure"
         },
         "universalComponentType": {
-          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+          "type": "string",
           "enum": [
             "ada:analysisLocation",
             "ada:annotatedImage",
@@ -541,6 +542,113 @@
       },
       "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.json",
       "x-schema-id": "https://w3id.org/adaJSONLD/schema/3.0",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "ada.bbr.metadata.geochemProperties.detailVNMIR": {
+      "title": "VNMIR Instrument Detail",
+      "description": "Very-Near Mid-IR spectroscopy with detailed measurement parameters",
+      "type": "object",
+      "properties": {
+        "ada:componentType": {
+          "anyOf": [
+            {
+              "enum": [
+                "ada:VNMIRSpectralPoint"
+              ]
+            },
+            {
+              "enum": [
+                "ada:VNMIROverviewImage"
+              ]
+            },
+            {
+              "enum": [
+                "ada:VNMIRSpectralMap"
+              ]
+            }
+          ]
+        },
+        "ada:detector": {
+          "type": "string"
+        },
+        "ada:beamsplitter": {
+          "type": "string"
+        },
+        "ada:calibrationStandards": {
+          "type": "string"
+        },
+        "ada:comments": {
+          "type": "string"
+        },
+        "ada:numberOfScans": {
+          "type": "integer"
+        },
+        "ada:eMaxFitRegionMax": {
+          "type": "string"
+        },
+        "ada:eMaxFitRegionMin": {
+          "type": "string"
+        },
+        "ada:emissionAngle": {
+          "type": "number"
+        },
+        "ada:emissivityMaximum": {
+          "type": "string"
+        },
+        "ada:environmentalPressure": {
+          "type": "number"
+        },
+        "ada:incidenceAngle": {
+          "type": "number"
+        },
+        "ada:measurement": {
+          "type": "string"
+        },
+        "ada:measurementEnvironment": {
+          "type": "string"
+        },
+        "ada:phaseAngle": {
+          "type": "number"
+        },
+        "ada:sampleHeated": {
+          "type": "boolean"
+        },
+        "ada:samplePreparation": {
+          "type": "string"
+        },
+        "ada:sampleTemperature": {
+          "type": "integer"
+        },
+        "ada:spectralRangeMax": {
+          "type": "string"
+        },
+        "ada:spectralRangeMin": {
+          "type": "string"
+        },
+        "ada:spectralResolution": {
+          "type": "string"
+        },
+        "ada:spectralSampling": {
+          "type": "string"
+        },
+        "ada:spotSize": {
+          "type": "string"
+        },
+        "ada:uncertaintyNoise": {
+          "type": "number"
+        },
+        "ada:vacuumExposedSample": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ada:componentType"
+      ],
+      "x-jsonld-prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailVNMIR/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.cdifProperties.cdifCore": {
@@ -5688,23 +5796,34 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:VNMIRSpectralPoint",
-                            "ada:VNMIROverviewImage",
-                            "ada:VNMIRSpectralMap",
-                            "ada:VNMIRSpectraPlot"
-                          ]
-                        },
-                        {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
                           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaVNMIR/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:VNMIRSpectraPlot"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaVNMIR/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.detailVNMIR"
                     }
-                  }
+                  ]
                 }
               }
             }

@@ -501,7 +501,8 @@
           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaXRD/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure"
         },
         "universalComponentType": {
-          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+          "type": "string",
           "enum": [
             "ada:analysisLocation",
             "ada:annotatedImage",
@@ -541,6 +542,42 @@
       },
       "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.json",
       "x-schema-id": "https://w3id.org/adaJSONLD/schema/3.0",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "ada.bbr.metadata.geochemProperties.detailXRD": {
+      "title": "XRD Instrument Detail",
+      "description": "X-ray Diffraction tabular data with geometry and wavelength",
+      "type": "object",
+      "properties": {
+        "ada:componentType": {
+          "enum": [
+            "ada:XRDTabular"
+          ]
+        },
+        "ada:geometry": {
+          "type": "string"
+        },
+        "ada:sampleMount": {
+          "type": "string"
+        },
+        "ada:stepSize": {
+          "type": "number"
+        },
+        "ada:timePerStep": {
+          "type": "number"
+        },
+        "ada:wavelength": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ada:componentType"
+      ],
+      "x-jsonld-prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailXRD/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.cdifProperties.cdifCore": {
@@ -5686,22 +5723,35 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaXRD/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
                           "enum": [
-                            "ada:XRDTabular",
                             "ada:XRDDiffractionPattern",
                             "ada:XRDIndexedImage"
                           ]
-                        },
-                        {
-                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaXRD/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
+                    },
+                    {
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaXRD/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.detailXRD"
                     }
-                  }
+                  ]
                 }
               }
             }

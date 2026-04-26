@@ -16,14 +16,10 @@
   "description": "Point Spread Function Data with image names and conditions",
   "type": "object",
   "properties": {
-    "@type": {
-      "type": "array",
-      "contains": {
-        "enum": [
-          "ada:PSFDTabular"
-        ]
-      },
-      "minItems": 1
+    "ada:componentType": {
+      "enum": [
+        "ada:PSFDTabular"
+      ]
     },
     "ada:imageName": {
       "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailPSFD/schema-oas3.0.json#/x-defs/ada.bbr.metadata.geochemProperties.stringArray"
@@ -32,6 +28,9 @@
       "type": "string"
     }
   },
+  "required": [
+    "ada:componentType"
+  ],
   "x-jsonld-prefixes": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/"

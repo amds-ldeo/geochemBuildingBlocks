@@ -1049,13 +1049,20 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
-                    - ada:ARGTDocument
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
                     - ada:ARGTCollection
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailARGT/schema.yaml
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

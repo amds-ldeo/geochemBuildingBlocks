@@ -2,8 +2,8 @@
   "title": "Validation report for ada.bbr.metadata.geochemProperties.detailEAIRMS - EA-IRMS Instrument Detail",
   "bblockName": "EA-IRMS Instrument Detail",
   "bblockId": "ada.bbr.metadata.geochemProperties.detailEAIRMS",
-  "generated": "2026-04-26T05:37:49.981018+00:00",
-  "result": true,
+  "generated": "2026-04-26T15:13:31.461031+00:00",
+  "result": false,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -52,9 +52,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Elemental Analysis Isotope Ratio Mass Spectrometry '\n                    'collection',\n     'properties': {'ada:componentType': {'const': 'ada:EAIRMSCollection'},\n                    'ada:elementType': {'type': 'string'},\n                    'ada:massConsumed': {'type': 'string'}},\n     'required': ['ada:componentType'],\n     'title': 'EA-IRMS Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:EAIRMSCollection'],\n     'ada:elementType': 'carbon',\n     'ada:massConsumed': '2.5 mg'}"
             }
           ]
         },
@@ -87,7 +89,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 1,
-    "failed": 0
+    "passed": 0,
+    "failed": 1
   }
 }

@@ -27,21 +27,34 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:DSCHeatTabular",
-                            "ada:DSCResultsTabular"
-                          ]
-                        },
-                        {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
                           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.json#/$defs/universalComponentType"
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:DSCResultsTabular"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailDSC/schema.json"
                     }
-                  }
+                  ]
                 }
               }
             }

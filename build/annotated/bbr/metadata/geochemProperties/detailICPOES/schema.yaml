@@ -4,18 +4,17 @@ description: Inductively Coupled Plasma Optical Emission Spectrometry. (Extensio
   type, not in v3 source schema.)
 type: object
 properties:
-  '@type':
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-      - const: ada:ICPOESIntermediateTabular
-      - const: ada:ICPOESProcessedTabular
-      - const: ada:ICPOESRawTabular
+  ada:componentType:
+    anyOf:
+    - const: ada:ICPOESIntermediateTabular
+    - const: ada:ICPOESProcessedTabular
+    - const: ada:ICPOESRawTabular
   ada:mass:
     type: string
   ada:dissolutionFactor:
     type: number
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

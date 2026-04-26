@@ -60,13 +60,12 @@ title: DSC Instrument Detail
 description: Differential Scanning Calorimetry heat tabular data
 type: object
 properties:
-  '@type':
-    type: array
-    contains:
-      const: ada:DSCHeatTabular
-    minItems: 1
+  ada:componentType:
+    const: ada:DSCHeatTabular
   ada:analysisType:
     type: string
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

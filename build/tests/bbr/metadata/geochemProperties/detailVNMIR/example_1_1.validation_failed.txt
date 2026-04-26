@@ -1,0 +1,84 @@
+Validation report for ada.bbr.metadata.geochemProperties.detailVNMIR - VNMIR Instrument Detail
+Generated 2026-04-26T15:13:31.657512+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'ada:componentType' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'description': 'Very-Near Mid-IR spectroscopy with detailed '
+                    'measurement parameters',
+     'properties': {'ada:beamsplitter': {'type': 'string'},
+                    'ada:calibrationStandards': {'type': 'string'},
+                    'ada:comments': {'type': 'string'},
+                    'ada:componentType': {'anyOf': [{'const': 'ada:VNMIRSpectralPoint'},
+                                                    {'const': 'ada:VNMIROverviewImage'},
+                                                    {'const': 'ada:VNMIRSpectralMap'}]},
+                    'ada:detector': {'type': 'string'},
+                    'ada:eMaxFitRegionMax': {'type': 'string'},
+                    'ada:eMaxFitRegionMin': {'type': 'string'},
+                    'ada:emissionAngle': {'type': 'number'},
+                    'ada:emissivityMaximum': {'type': 'string'},
+                    'ada:environmentalPressure': {'type': 'number'},
+                    'ada:incidenceAngle': {'type': 'number'},
+                    'ada:measurement': {'type': 'string'},
+                    'ada:measurementEnvironment': {'type': 'string'},
+                    'ada:numberOfScans': {'type': 'integer'},
+                    'ada:phaseAngle': {'type': 'number'},
+                    'ada:sampleHeated': {'type': 'boolean'},
+                    'ada:samplePreparation': {'type': 'string'},
+                    'ada:sampleTemperature': {'type': 'integer'},
+                    'ada:spectralRangeMax': {'type': 'string'},
+                    'ada:spectralRangeMin': {'type': 'string'},
+                    'ada:spectralResolution': {'type': 'string'},
+                    'ada:spectralSampling': {'type': 'string'},
+                    'ada:spotSize': {'type': 'string'},
+                    'ada:uncertaintyNoise': {'type': 'number'},
+                    'ada:vacuumExposedSample': {'type': 'boolean'}},
+     'required': ['ada:componentType'],
+     'title': 'VNMIR Instrument Detail',
+     'type': 'object',
+     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
+                           'schema': 'http://schema.org/'}}
+
+On instance:
+    {'@type': ['ada:VNMIRSpectralPoint'],
+     'ada:beamsplitter': 'KBr',
+     'ada:calibrationStandards': 'gold mirror',
+     'ada:detector': 'MCT',
+     'ada:emissionAngle': 0.0,
+     'ada:environmentalPressure': 1013.25,
+     'ada:incidenceAngle': 30.0,
+     'ada:measurement': 'reflectance',
+     'ada:measurementEnvironment': 'ambient',
+     'ada:numberOfScans': 256,
+     'ada:phaseAngle': 30.0,
+     'ada:sampleHeated': False,
+     'ada:sampleTemperature': 25,
+     'ada:spectralRangeMax': '4000',
+     'ada:spectralRangeMin': '400',
+     'ada:spectralResolution': '4 cm-1',
+     'ada:spectralSampling': '2 cm-1',
+     'ada:spotSize': '100 micrometer',
+     'ada:uncertaintyNoise': 0.002,
+     'ada:vacuumExposedSample': False}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/geochemProperties/detailVNMIR/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geochemProperties/detailVNMIR/rules.shacl:
+ - Shape cdifd:detailVNMIRShape: *none*
+
+=== End SHACL ===
+

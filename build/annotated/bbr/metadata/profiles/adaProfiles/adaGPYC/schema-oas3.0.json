@@ -501,7 +501,8 @@
           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaGPYC/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure"
         },
         "universalComponentType": {
-          "description": "Component type values valid across all ADA techniques. Used in ada:componentType on hasPart items.",
+          "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def in their hasPart anyOf branches.",
+          "type": "string",
           "enum": [
             "ada:analysisLocation",
             "ada:annotatedImage",
@@ -5687,21 +5688,32 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaGPYC/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
                           "enum": [
                             "ada:GPYCProcessedTabular",
                             "ada:GPYCRawTabular"
                           ]
-                        },
-                        {
-                          "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaGPYC/schema-oas3.0.json#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType"
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
                     }
-                  }
+                  ]
                 }
               }
             }

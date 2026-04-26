@@ -1078,10 +1078,16 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
                     - ada:SEMImageCollection
                     - ada:SEMImageMap
                     - ada:SEMEBSDGrainImage
@@ -1096,7 +1102,8 @@ allOf:
                     - ada:SEMHRCLImage
                     - ada:SEMHRCLMap
                     - ada:SEMHRCLCube
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

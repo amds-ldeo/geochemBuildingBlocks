@@ -40,7 +40,7 @@
   "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailARGT/context.jsonld",
   "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailARGT/resolvedProperties.json",
   "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailARGT/",
-  "validationPassed": true,
+  "validationPassed": false,
   "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/bbr/metadata/geochemProperties/detailARGT/",
   "description": "# ARGT Instrument Detail\n\nARGT (Argon) document type with phase and isotope analysis.\n",
   "examples": [
@@ -69,7 +69,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ARGT Instrument Detail\ndescription: ARGT (Argon) document type with phase and isotope analysis\ntype: object\nproperties:\n  '@type':\n    type: array\n    contains:\n      const: ada:ARGTDocument\n    minItems: 1\n  ada:phaseAnalyzed:\n    type: string\n  ada:isotopeType:\n    type: string\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ARGT Instrument Detail\ndescription: ARGT (Argon) document type with phase and isotope analysis\ntype: object\nproperties:\n  ada:componentType:\n    const: ada:ARGTDocument\n  ada:phaseAnalyzed:\n    type: string\n  ada:isotopeType:\n    type: string\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
   "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
   "gitPath": "_sources/geochemProperties/detailARGT"
 }

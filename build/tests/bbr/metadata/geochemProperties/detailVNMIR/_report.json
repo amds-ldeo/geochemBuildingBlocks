@@ -2,8 +2,8 @@
   "title": "Validation report for ada.bbr.metadata.geochemProperties.detailVNMIR - VNMIR Instrument Detail",
   "bblockName": "VNMIR Instrument Detail",
   "bblockId": "ada.bbr.metadata.geochemProperties.detailVNMIR",
-  "generated": "2026-04-26T05:37:50.164455+00:00",
-  "result": true,
+  "generated": "2026-04-26T15:13:31.657567+00:00",
+  "result": false,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -52,9 +52,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Very-Near Mid-IR spectroscopy with detailed '\n                    'measurement parameters',\n     'properties': {'ada:beamsplitter': {'type': 'string'},\n                    'ada:calibrationStandards': {'type': 'string'},\n                    'ada:comments': {'type': 'string'},\n                    'ada:componentType': {'anyOf': [{'const': 'ada:VNMIRSpectralPoint'},\n                                                    {'const': 'ada:VNMIROverviewImage'},\n                                                    {'const': 'ada:VNMIRSpectralMap'}]},\n                    'ada:detector': {'type': 'string'},\n                    'ada:eMaxFitRegionMax': {'type': 'string'},\n                    'ada:eMaxFitRegionMin': {'type': 'string'},\n                    'ada:emissionAngle': {'type': 'number'},\n                    'ada:emissivityMaximum': {'type': 'string'},\n                    'ada:environmentalPressure': {'type': 'number'},\n                    'ada:incidenceAngle': {'type': 'number'},\n                    'ada:measurement': {'type': 'string'},\n                    'ada:measurementEnvironment': {'type': 'string'},\n                    'ada:numberOfScans': {'type': 'integer'},\n                    'ada:phaseAngle': {'type': 'number'},\n                    'ada:sampleHeated': {'type': 'boolean'},\n                    'ada:samplePreparation': {'type': 'string'},\n                    'ada:sampleTemperature': {'type': 'integer'},\n                    'ada:spectralRangeMax': {'type': 'string'},\n                    'ada:spectralRangeMin': {'type': 'string'},\n                    'ada:spectralResolution': {'type': 'string'},\n                    'ada:spectralSampling': {'type': 'string'},\n                    'ada:spotSize': {'type': 'string'},\n                    'ada:uncertaintyNoise': {'type': 'number'},\n                    'ada:vacuumExposedSample': {'type': 'boolean'}},\n     'required': ['ada:componentType'],\n     'title': 'VNMIR Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:VNMIRSpectralPoint'],\n     'ada:beamsplitter': 'KBr',\n     'ada:calibrationStandards': 'gold mirror',\n     'ada:detector': 'MCT',\n     'ada:emissionAngle': 0.0,\n     'ada:environmentalPressure': 1013.25,\n     'ada:incidenceAngle': 30.0,\n     'ada:measurement': 'reflectance',\n     'ada:measurementEnvironment': 'ambient',\n     'ada:numberOfScans': 256,\n     'ada:phaseAngle': 30.0,\n     'ada:sampleHeated': False,\n     'ada:sampleTemperature': 25,\n     'ada:spectralRangeMax': '4000',\n     'ada:spectralRangeMin': '400',\n     'ada:spectralResolution': '4 cm-1',\n     'ada:spectralSampling': '2 cm-1',\n     'ada:spotSize': '100 micrometer',\n     'ada:uncertaintyNoise': 0.002,\n     'ada:vacuumExposedSample': False}"
             }
           ]
         },
@@ -87,7 +89,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 1,
-    "failed": 0
+    "passed": 0,
+    "failed": 1
   }
 }

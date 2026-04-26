@@ -1052,15 +1052,22 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
-                    - ada:NanoIRBackground
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
                     - ada:NanoIRMap
                     - ada:NanoIRMapCollection
                     - ada:NanoIRPointCollection
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailNanoIR/schema.yaml
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

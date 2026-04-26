@@ -4,12 +4,8 @@
   "description": "X-ray Diffraction tabular data with geometry and wavelength",
   "type": "object",
   "properties": {
-    "@type": {
-      "type": "array",
-      "contains": {
-        "const": "ada:XRDTabular"
-      },
-      "minItems": 1
+    "ada:componentType": {
+      "const": "ada:XRDTabular"
     },
     "ada:geometry": {
       "type": "string"
@@ -27,6 +23,9 @@
       "type": "number"
     }
   },
+  "required": [
+    "ada:componentType"
+  ],
   "x-jsonld-prefixes": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/"

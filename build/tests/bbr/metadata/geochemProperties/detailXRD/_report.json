@@ -2,8 +2,8 @@
   "title": "Validation report for ada.bbr.metadata.geochemProperties.detailXRD - XRD Instrument Detail",
   "bblockName": "XRD Instrument Detail",
   "bblockId": "ada.bbr.metadata.geochemProperties.detailXRD",
-  "generated": "2026-04-26T05:37:50.215869+00:00",
-  "result": true,
+  "generated": "2026-04-26T15:13:31.710364+00:00",
+  "result": false,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -52,9 +52,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'X-ray Diffraction tabular data with geometry and '\n                    'wavelength',\n     'properties': {'ada:componentType': {'const': 'ada:XRDTabular'},\n                    'ada:geometry': {'type': 'string'},\n                    'ada:sampleMount': {'type': 'string'},\n                    'ada:stepSize': {'type': 'number'},\n                    'ada:timePerStep': {'type': 'number'},\n                    'ada:wavelength': {'type': 'number'}},\n     'required': ['ada:componentType'],\n     'title': 'XRD Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:XRDTabular'],\n     'ada:geometry': 'Bragg-Brentano',\n     'ada:sampleMount': 'flat plate',\n     'ada:stepSize': 0.02,\n     'ada:timePerStep': 1.0,\n     'ada:wavelength': 1.5406}"
             }
           ]
         },
@@ -87,7 +89,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 1,
-    "failed": 0
+    "passed": 0,
+    "failed": 1
   }
 }

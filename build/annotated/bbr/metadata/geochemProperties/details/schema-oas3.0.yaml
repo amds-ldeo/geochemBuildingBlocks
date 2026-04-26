@@ -44,16 +44,15 @@ x-defs:
     description: ARGT (Argon) document type with phase and isotope analysis
     type: object
     properties:
-      '@type':
-        type: array
-        contains:
-          enum:
-          - ada:ARGTDocument
-        minItems: 1
+      ada:componentType:
+        enum:
+        - ada:ARGTDocument
       ada:phaseAnalyzed:
         type: string
       ada:isotopeType:
         type: string
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -64,14 +63,13 @@ x-defs:
     description: Differential Scanning Calorimetry heat tabular data
     type: object
     properties:
-      '@type':
-        type: array
-        contains:
-          enum:
-          - ada:DSCHeatTabular
-        minItems: 1
+      ada:componentType:
+        enum:
+        - ada:DSCHeatTabular
       ada:analysisType:
         type: string
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -115,16 +113,15 @@ x-defs:
     description: Elemental Analysis Isotope Ratio Mass Spectrometry collection
     type: object
     properties:
-      '@type':
-        type: array
-        contains:
-          enum:
-          - ada:EAIRMSCollection
-        minItems: 1
+      ada:componentType:
+        enum:
+        - ada:EAIRMSCollection
       ada:massConsumed:
         type: string
       ada:elementType:
         type: string
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -136,21 +133,20 @@ x-defs:
       type, not in v3 source schema.)
     type: object
     properties:
-      '@type':
-        type: array
-        minItems: 1
-        contains:
-          anyOf:
-          - enum:
-            - ada:ICPOESIntermediateTabular
-          - enum:
-            - ada:ICPOESProcessedTabular
-          - enum:
-            - ada:ICPOESRawTabular
+      ada:componentType:
+        anyOf:
+        - enum:
+          - ada:ICPOESIntermediateTabular
+        - enum:
+          - ada:ICPOESProcessedTabular
+        - enum:
+          - ada:ICPOESRawTabular
       ada:mass:
         type: string
       ada:dissolutionFactor:
         type: number
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -161,12 +157,9 @@ x-defs:
     description: Laser-2 Mass Spectrometry cube data with ionization parameters
     type: object
     properties:
-      '@type':
-        type: array
-        contains:
-          enum:
-          - ada:L2MSCube
-        minItems: 1
+      ada:componentType:
+        enum:
+        - ada:L2MSCube
       ada:sampleName:
         type: string
       ada:ionizationTimeDelay:
@@ -181,6 +174,8 @@ x-defs:
         type: string
       ada:wavelengthUnits:
         type: string
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -192,21 +187,20 @@ x-defs:
       in resultTarget.
     type: object
     properties:
-      '@type':
-        type: array
-        minItems: 1
-        contains:
-          anyOf:
-          - enum:
-            - ada:LAFProcessed
-          - enum:
-            - ada:LAFRaw
+      ada:componentType:
+        anyOf:
+        - enum:
+          - ada:LAFProcessed
+        - enum:
+          - ada:LAFRaw
       ada:elementAnalyzed:
         type: string
       ada:sampleMassConsumed:
         type: string
       ada:sampleType:
         type: string
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -217,15 +211,13 @@ x-defs:
     description: Nano-IR spectroscopy collections with phase analysis
     type: object
     properties:
-      '@type':
-        type: array
-        minItems: 1
-        contains:
-          anyOf:
-          - enum:
-            - ada:NanoIRBackground
+      ada:componentType:
+        enum:
+        - ada:NanoIRBackground
       ada:phaseAnalyzed:
         $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/details/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.stringArray
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -236,23 +228,22 @@ x-defs:
     description: Nano Secondary Ion Mass Spectrometry with isotope tracking
     type: object
     properties:
-      '@type':
-        type: array
-        minItems: 1
-        contains:
-          anyOf:
-          - enum:
-            - ada:NanoSIMSCollection
-          - enum:
-            - ada:NanoSIMSImageCollection
-          - enum:
-            - ada:NanoSIMSTabular
-          - enum:
-            - ada:NanoSIMSMap
+      ada:componentType:
+        anyOf:
+        - enum:
+          - ada:NanoSIMSCollection
+        - enum:
+          - ada:NanoSIMSImageCollection
+        - enum:
+          - ada:NanoSIMSTabular
+        - enum:
+          - ada:NanoSIMSMap
       ada:phaseAnalyzed:
         $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/details/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.stringArray
       ada:isotopeAnalyzed:
         $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/details/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.stringArray
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -263,16 +254,15 @@ x-defs:
     description: Point Spread Function Data with image names and conditions
     type: object
     properties:
-      '@type':
-        type: array
-        contains:
-          enum:
-          - ada:PSFDTabular
-        minItems: 1
+      ada:componentType:
+        enum:
+        - ada:PSFDTabular
       ada:imageName:
         $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/details/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.stringArray
       ada:imageViewingConditions:
         type: string
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -283,17 +273,14 @@ x-defs:
     description: Very-Near Mid-IR spectroscopy with detailed measurement parameters
     type: object
     properties:
-      '@type':
-        type: array
-        minItems: 1
-        contains:
-          anyOf:
-          - enum:
-            - ada:VNMIRSpectralPoint
-          - enum:
-            - ada:VNMIROverviewImage
-          - enum:
-            - ada:VNMIRSpectralMap
+      ada:componentType:
+        anyOf:
+        - enum:
+          - ada:VNMIRSpectralPoint
+        - enum:
+          - ada:VNMIROverviewImage
+        - enum:
+          - ada:VNMIRSpectralMap
       ada:detector:
         type: string
       ada:beamsplitter:
@@ -342,6 +329,8 @@ x-defs:
         type: number
       ada:vacuumExposedSample:
         type: boolean
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -353,15 +342,12 @@ x-defs:
       type, not in v3 source schema.)
     type: object
     properties:
-      '@type':
-        type: array
-        minItems: 1
-        contains:
-          anyOf:
-          - enum:
-            - ada:QRISCalibrated
-          - enum:
-            - ada:QRISRaw
+      ada:componentType:
+        anyOf:
+        - enum:
+          - ada:QRISCalibrated
+        - enum:
+          - ada:QRISRaw
       ada:calibrationFile:
         type: string
       ada:pipelineVersion:
@@ -379,6 +365,8 @@ x-defs:
         type: integer
       ada:target:
         type: string
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -389,15 +377,12 @@ x-defs:
     description: Structured Light Scanning shape models and partial scans
     type: object
     properties:
-      '@type':
-        type: array
-        minItems: 1
-        contains:
-          anyOf:
-          - enum:
-            - ada:SLSShapeModel
-          - enum:
-            - ada:SLSPartialScan
+      ada:componentType:
+        anyOf:
+        - enum:
+          - ada:SLSShapeModel
+        - enum:
+          - ada:SLSPartialScan
       ada:countScans:
         type: integer
       ada:facets:
@@ -410,6 +395,8 @@ x-defs:
         type: integer
       ada:watertight:
         type: boolean
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -421,12 +408,9 @@ x-defs:
       type, not in v3 source schema.)
     type: object
     properties:
-      '@type':
-        type: array
-        contains:
-          enum:
-          - ada:XCTImageCollection
-        minItems: 1
+      ada:componentType:
+        enum:
+        - ada:XCTImageCollection
       ada:beamFilterMaterial:
         type: string
       ada:beamFilterThickness:
@@ -491,6 +475,8 @@ x-defs:
         type: number
       ada:xrayTubePower:
         type: number
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -501,12 +487,9 @@ x-defs:
     description: X-ray Diffraction tabular data with geometry and wavelength
     type: object
     properties:
-      '@type':
-        type: array
-        contains:
-          enum:
-          - ada:XRDTabular
-        minItems: 1
+      ada:componentType:
+        enum:
+        - ada:XRDTabular
       ada:geometry:
         type: string
       ada:sampleMount:
@@ -517,6 +500,8 @@ x-defs:
         type: number
       ada:wavelength:
         type: number
+    required:
+    - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/

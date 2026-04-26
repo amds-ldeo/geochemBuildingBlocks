@@ -79,11 +79,8 @@ title: L2MS Instrument Detail
 description: Laser-2 Mass Spectrometry cube data with ionization parameters
 type: object
 properties:
-  '@type':
-    type: array
-    contains:
-      const: ada:L2MSCube
-    minItems: 1
+  ada:componentType:
+    const: ada:L2MSCube
   ada:sampleName:
     type: string
   ada:ionizationTimeDelay:
@@ -98,6 +95,8 @@ properties:
     type: string
   ada:wavelengthUnits:
     type: string
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

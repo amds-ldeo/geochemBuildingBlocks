@@ -76,13 +76,10 @@ title: SLS Instrument Detail
 description: Structured Light Scanning shape models and partial scans
 type: object
 properties:
-  '@type':
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-      - const: ada:SLSShapeModel
-      - const: ada:SLSPartialScan
+  ada:componentType:
+    anyOf:
+    - const: ada:SLSShapeModel
+    - const: ada:SLSPartialScan
   ada:countScans:
     type: integer
   ada:facets:
@@ -95,6 +92,8 @@ properties:
     type: integer
   ada:watertight:
     type: boolean
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

@@ -29,22 +29,21 @@
               "schema:hasPart": {
                 "items": {
                   "type": "object",
-                  "properties": {
-                    "ada:componentType": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "ada:ICPOESIntermediateTabular",
-                            "ada:ICPOESProcessedTabular",
-                            "ada:ICPOESRawTabular"
-                          ]
-                        },
-                        {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "ada:componentType": {
                           "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.json#/$defs/universalComponentType"
                         }
+                      },
+                      "required": [
+                        "ada:componentType"
                       ]
+                    },
+                    {
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailICPOES/schema.json"
                     }
-                  }
+                  ]
                 }
               }
             }

@@ -113,11 +113,20 @@
       "schema:readonlyValue": true,
       "schema:valueRequired": true,
       "schema:defaultValue": "Yes",
-      "ada:enumeration": [
-        "Yes",
-        "No"
-      ],
-      "ada:tier": "M"
+      "ada:tier": "M",
+      "schema:inDefinedTermSet": {
+        "@type": "schema:DefinedTermSet",
+        "schema:hasDefinedTerm": [
+          {
+            "@type": "schema:DefinedTerm",
+            "schema:termCode": "Yes"
+          },
+          {
+            "@type": "schema:DefinedTerm",
+            "schema:termCode": "No"
+          }
+        ]
+      }
     },
     {
       "@type": [
@@ -131,11 +140,20 @@
       "schema:readonlyValue": true,
       "schema:valueRequired": true,
       "schema:defaultValue": "No",
-      "ada:enumeration": [
-        "Yes",
-        "No"
-      ],
-      "ada:tier": "M"
+      "ada:tier": "M",
+      "schema:inDefinedTermSet": {
+        "@type": "schema:DefinedTermSet",
+        "schema:hasDefinedTerm": [
+          {
+            "@type": "schema:DefinedTerm",
+            "schema:termCode": "Yes"
+          },
+          {
+            "@type": "schema:DefinedTerm",
+            "schema:termCode": "No"
+          }
+        ]
+      }
     }
   ],
   "schema:actionProcess": {
@@ -321,11 +339,6 @@
             "schema:readonlyValue": true,
             "schema:valueRequired": true,
             "schema:defaultValue": "Focused beam",
-            "ada:enumeration": [
-              "Focused",
-              "Defocused",
-              "Raster"
-            ],
             "ada:tier": "M"
           },
           {
@@ -398,15 +411,6 @@
             "schema:readonlyValue": true,
             "schema:valueRequired": true,
             "schema:defaultValue": "CITZAF",
-            "ada:enumeration": [
-              "PAP",
-              "XPP",
-              "PhiRhoZ",
-              "ZAF",
-              "CITZAF",
-              "Armstrong",
-              "Other"
-            ],
             "ada:tier": "M"
           }
         ],
@@ -500,14 +504,6 @@
         },
         "ada:dataType": "string",
         "schema:valueRequired": true,
-        "ada:enumeration": [
-          "LIF",
-          "LIFH",
-          "LiF",
-          "PET",
-          "PETJ",
-          "TAP"
-        ],
         "ada:tier": "M"
       },
       {
@@ -521,13 +517,6 @@
         },
         "ada:dataType": "string",
         "schema:valueRequired": true,
-        "ada:enumeration": [
-          "Ka",
-          "Kb",
-          "La",
-          "Lb",
-          "Ma"
-        ],
         "ada:tier": "M"
       },
       {

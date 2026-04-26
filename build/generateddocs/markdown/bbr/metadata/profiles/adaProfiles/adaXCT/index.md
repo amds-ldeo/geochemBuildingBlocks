@@ -1047,12 +1047,13 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
-                    - ada:XCTImageCollection
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailXCT/schema.yaml
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

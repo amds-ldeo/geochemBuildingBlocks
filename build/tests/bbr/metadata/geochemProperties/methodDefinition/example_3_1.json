@@ -392,12 +392,6 @@
             "schema:readonlyValue": false,
             "schema:valueRequired": true,
             "schema:defaultValue": "point",
-            "ada:enumeration": [
-              "Point",
-              "Transect",
-              "Area",
-              "Map"
-            ],
             "ada:tier": "M"
           },
           {
@@ -574,12 +568,24 @@
         "schema:valueName": "detectionLimitUnit",
         "ada:dataType": "string",
         "schema:valueRequired": false,
-        "ada:enumeration": [
-          "ppm",
-          "ppb",
-          "weight percent (%m/m)"
-        ],
-        "ada:tier": "R"
+        "ada:tier": "R",
+        "schema:inDefinedTermSet": {
+          "@type": "schema:DefinedTermSet",
+          "schema:hasDefinedTerm": [
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "ppm"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "ppb"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "weight percent (%m/m)"
+            }
+          ]
+        }
       }
     ],
     "ada:defaultAnalytes": [

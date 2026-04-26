@@ -2,8 +2,8 @@
   "title": "Validation report for ada.bbr.metadata.geochemProperties.detailSLS - SLS Instrument Detail",
   "bblockName": "SLS Instrument Detail",
   "bblockId": "ada.bbr.metadata.geochemProperties.detailSLS",
-  "generated": "2026-04-26T05:37:50.132403+00:00",
-  "result": true,
+  "generated": "2026-04-26T15:13:31.624627+00:00",
+  "result": false,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -52,9 +52,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Structured Light Scanning shape models and partial '\n                    'scans',\n     'properties': {'ada:componentType': {'anyOf': [{'const': 'ada:SLSShapeModel'},\n                                                    {'const': 'ada:SLSPartialScan'}]},\n                    'ada:countScans': {'type': 'integer'},\n                    'ada:facets': {'type': 'integer'},\n                    'ada:unitsOfMeasurement': {'type': 'string'},\n                    'ada:version': {'type': 'integer'},\n                    'ada:vertices': {'type': 'integer'},\n                    'ada:watertight': {'type': 'boolean'}},\n     'required': ['ada:componentType'],\n     'title': 'SLS Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:SLSShapeModel'],\n     'ada:countScans': 24,\n     'ada:facets': 524288,\n     'ada:unitsOfMeasurement': 'millimeter',\n     'ada:version': 3,\n     'ada:vertices': 262145,\n     'ada:watertight': True}"
             }
           ]
         },
@@ -87,7 +89,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 1,
-    "failed": 0
+    "passed": 0,
+    "failed": 1
   }
 }

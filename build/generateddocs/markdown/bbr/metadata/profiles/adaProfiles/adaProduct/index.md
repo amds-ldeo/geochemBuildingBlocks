@@ -1360,8 +1360,10 @@ $defs:
   QualityMeasure:
     $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
   universalComponentType:
-    description: Component type values valid across all ADA techniques. Used in ada:componentType
-      on hasPart items.
+    description: ada:componentType values valid across all ADA techniques. As a string,
+      directly assignable to the part's ada:componentType property. Profiles use this
+      $def in their hasPart anyOf branches.
+    type: string
     enum:
     - ada:analysisLocation
     - ada:annotatedImage

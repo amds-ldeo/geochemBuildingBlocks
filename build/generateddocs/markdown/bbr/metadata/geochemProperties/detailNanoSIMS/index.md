@@ -75,19 +75,18 @@ title: NanoSIMS Instrument Detail
 description: Nano Secondary Ion Mass Spectrometry with isotope tracking
 type: object
 properties:
-  '@type':
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-      - const: ada:NanoSIMSCollection
-      - const: ada:NanoSIMSImageCollection
-      - const: ada:NanoSIMSTabular
-      - const: ada:NanoSIMSMap
+  ada:componentType:
+    anyOf:
+    - const: ada:NanoSIMSCollection
+    - const: ada:NanoSIMSImageCollection
+    - const: ada:NanoSIMSTabular
+    - const: ada:NanoSIMSMap
   ada:phaseAnalyzed:
     $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/stringArray/schema.yaml
   ada:isotopeAnalyzed:
     $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/stringArray/schema.yaml
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

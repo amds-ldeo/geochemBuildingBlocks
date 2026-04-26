@@ -383,8 +383,10 @@ x-defs:
       QualityMeasure:
         $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaDSC/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
       universalComponentType:
-        description: Component type values valid across all ADA techniques. Used in
-          ada:componentType on hasPart items.
+        description: ada:componentType values valid across all ADA techniques. As
+          a string, directly assignable to the part's ada:componentType property.
+          Profiles use this $def in their hasPart anyOf branches.
+        type: string
         enum:
         - ada:analysisLocation
         - ada:annotatedImage
@@ -420,6 +422,23 @@ x-defs:
       geosparql: http://www.opengis.net/ont/geosparql#
     x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml
     x-schema-id: https://w3id.org/adaJSONLD/schema/3.0
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ada.bbr.metadata.geochemProperties.detailDSC:
+    title: DSC Instrument Detail
+    description: Differential Scanning Calorimetry heat tabular data
+    type: object
+    properties:
+      ada:componentType:
+        enum:
+        - ada:DSCHeatTabular
+      ada:analysisType:
+        type: string
+    required:
+    - ada:componentType
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+      ada: https://ada.astromat.org/metadata/
+    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailDSC/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifProperties.cdifCore:
     type: object
@@ -4053,13 +4072,20 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
-                    - ada:DSCHeatTabular
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaDSC/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
                     - ada:DSCResultsTabular
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaDSC/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaDSC/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.geochemProperties.detailDSC
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

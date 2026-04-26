@@ -40,7 +40,7 @@
   "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailXRD/context.jsonld",
   "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailXRD/resolvedProperties.json",
   "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailXRD/",
-  "validationPassed": true,
+  "validationPassed": false,
   "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/bbr/metadata/geochemProperties/detailXRD/",
   "description": "# XRD Instrument Detail\n\nX-ray Diffraction tabular data with geometry and wavelength.\n",
   "examples": [
@@ -69,7 +69,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: XRD Instrument Detail\ndescription: X-ray Diffraction tabular data with geometry and wavelength\ntype: object\nproperties:\n  '@type':\n    type: array\n    contains:\n      const: ada:XRDTabular\n    minItems: 1\n  ada:geometry:\n    type: string\n  ada:sampleMount:\n    type: string\n  ada:stepSize:\n    type: number\n  ada:timePerStep:\n    type: number\n  ada:wavelength:\n    type: number\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: XRD Instrument Detail\ndescription: X-ray Diffraction tabular data with geometry and wavelength\ntype: object\nproperties:\n  ada:componentType:\n    const: ada:XRDTabular\n  ada:geometry:\n    type: string\n  ada:sampleMount:\n    type: string\n  ada:stepSize:\n    type: number\n  ada:timePerStep:\n    type: number\n  ada:wavelength:\n    type: number\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
   "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
   "gitPath": "_sources/geochemProperties/detailXRD"
 }

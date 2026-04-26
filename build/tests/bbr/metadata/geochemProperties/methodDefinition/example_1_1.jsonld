@@ -311,15 +311,6 @@
             "schema:readonlyValue": true,
             "schema:valueRequired": true,
             "schema:defaultValue": "Armstrong/Packwood-Brown 1981 MAS Phi(pz) with CITZMU MACs",
-            "ada:enumeration": [
-              "PAP",
-              "XPP",
-              "PhiRhoZ",
-              "ZAF",
-              "CITZAF",
-              "Armstrong",
-              "Other"
-            ],
             "ada:tier": "M"
           }
         ],
@@ -423,14 +414,6 @@
         },
         "ada:dataType": "string",
         "schema:valueRequired": true,
-        "ada:enumeration": [
-          "PET",
-          "PETJ",
-          "LIF",
-          "LIFH",
-          "TAP",
-          "RAP"
-        ],
         "ada:tier": "M"
       },
       {
@@ -441,14 +424,32 @@
         "schema:valueName": "detectorType",
         "ada:dataType": "string",
         "schema:valueRequired": false,
-        "ada:enumeration": [
-          "xenon",
-          "P-10",
-          "SDD",
-          "Si(Li)",
-          "Other"
-        ],
-        "ada:tier": "R"
+        "ada:tier": "R",
+        "schema:inDefinedTermSet": {
+          "@type": "schema:DefinedTermSet",
+          "schema:hasDefinedTerm": [
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "xenon"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "P-10"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "SDD"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Si(Li)"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Other"
+            }
+          ]
+        }
       },
       {
         "@type": [
@@ -461,13 +462,6 @@
         },
         "ada:dataType": "string",
         "schema:valueRequired": true,
-        "ada:enumeration": [
-          "Ka",
-          "Kb",
-          "La",
-          "Lb",
-          "Ma"
-        ],
         "ada:tier": "M"
       },
       {
@@ -515,11 +509,20 @@
         "schema:valueName": "phaSettings",
         "ada:dataType": "string",
         "schema:valueRequired": false,
-        "ada:enumeration": [
-          "Integral",
-          "Differential"
-        ],
-        "ada:tier": "R"
+        "ada:tier": "R",
+        "schema:inDefinedTermSet": {
+          "@type": "schema:DefinedTermSet",
+          "schema:hasDefinedTerm": [
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Integral"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Differential"
+            }
+          ]
+        }
       },
       {
         "@type": [

@@ -128,11 +128,8 @@ description: X-ray Computed Tomography images with detailed scan parameters. (Ex
   type, not in v3 source schema.)
 type: object
 properties:
-  '@type':
-    type: array
-    contains:
-      const: ada:XCTImageCollection
-    minItems: 1
+  ada:componentType:
+    const: ada:XCTImageCollection
   ada:beamFilterMaterial:
     type: string
   ada:beamFilterThickness:
@@ -197,6 +194,8 @@ properties:
     type: number
   ada:xrayTubePower:
     type: number
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

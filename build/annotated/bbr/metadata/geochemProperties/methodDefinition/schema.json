@@ -472,7 +472,7 @@
           ]
         },
         "schema:inDefinedTermSet": {
-          "description": "SKOS ConceptScheme providing the controlled vocabulary for allowed values of this parameter. When present, form renders a dropdown/select populated from the vocabulary. Can be an object reference (@id URI), a labeled link (LinkRole with name and URL), or a plain URI string.",
+          "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
           "anyOf": [
             {
               "type": "string",
@@ -493,6 +493,38 @@
             },
             {
               "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.json"
+            },
+            {
+              "type": "object",
+              "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+              "properties": {
+                "@type": {
+                  "const": "schema:DefinedTermSet"
+                },
+                "schema:hasDefinedTerm": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "const": "schema:DefinedTerm"
+                      },
+                      "schema:termCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:termCode"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "@type",
+                "schema:hasDefinedTerm"
+              ]
             }
           ]
         },
@@ -569,20 +601,6 @@
             "uri"
           ],
           "description": "Expected data type for the parameter value."
-        },
-        "ada:enumeration": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "number"
-              }
-            ]
-          },
-          "description": "Inline list of allowed values. Fallback when no SKOS vocabulary exists yet. If inDefinedTermSet is also present, this list is ignored in favour of the vocabulary."
         },
         "schema:unitText": {
           "type": "string",
@@ -697,7 +715,7 @@
           ]
         },
         "schema:inDefinedTermSet": {
-          "description": "SKOS ConceptScheme providing the controlled vocabulary for allowed values in this column.",
+          "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
           "anyOf": [
             {
               "type": "string",
@@ -718,6 +736,38 @@
             },
             {
               "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.json"
+            },
+            {
+              "type": "object",
+              "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+              "properties": {
+                "@type": {
+                  "const": "schema:DefinedTermSet"
+                },
+                "schema:hasDefinedTerm": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "const": "schema:DefinedTerm"
+                      },
+                      "schema:termCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:termCode"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "@type",
+                "schema:hasDefinedTerm"
+              ]
             }
           ]
         },
@@ -762,20 +812,6 @@
             "date",
             "uri"
           ]
-        },
-        "ada:enumeration": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "number"
-              }
-            ]
-          },
-          "description": "Inline allowed values list (fallback when no SKOS vocabulary exists)."
         },
         "schema:unitText": {
           "type": "string"

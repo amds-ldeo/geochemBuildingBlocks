@@ -63,15 +63,14 @@ title: EA-IRMS Instrument Detail
 description: Elemental Analysis Isotope Ratio Mass Spectrometry collection
 type: object
 properties:
-  '@type':
-    type: array
-    contains:
-      const: ada:EAIRMSCollection
-    minItems: 1
+  ada:componentType:
+    const: ada:EAIRMSCollection
   ada:massConsumed:
     type: string
   ada:elementType:
     type: string
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

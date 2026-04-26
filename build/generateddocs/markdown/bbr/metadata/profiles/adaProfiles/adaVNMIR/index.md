@@ -1032,15 +1032,20 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
-                    - ada:VNMIRSpectralPoint
-                    - ada:VNMIROverviewImage
-                    - ada:VNMIRSpectralMap
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
                     - ada:VNMIRSpectraPlot
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailVNMIR/schema.yaml
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

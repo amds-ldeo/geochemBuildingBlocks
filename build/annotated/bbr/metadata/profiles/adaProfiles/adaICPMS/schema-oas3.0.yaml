@@ -383,8 +383,10 @@ x-defs:
       QualityMeasure:
         $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaICPMS/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
       universalComponentType:
-        description: Component type values valid across all ADA techniques. Used in
-          ada:componentType on hasPart items.
+        description: ada:componentType values valid across all ADA techniques. As
+          a string, directly assignable to the part's ada:componentType property.
+          Profiles use this $def in their hasPart anyOf branches.
+        type: string
         enum:
         - ada:analysisLocation
         - ada:annotatedImage
@@ -4060,10 +4062,16 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  anyOf:
-                  - enum:
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaICPMS/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType
+                required:
+                - ada:componentType
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
                     - ada:HRICPMSProcessed
                     - ada:HRICPMSRaw
                     - ada:QICPMSProcessedTabular
@@ -4071,7 +4079,8 @@ allOf:
                     - ada:MCICPMSTabular
                     - ada:MCICPMSCollection
                     - ada:MCICPMSRaw
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaICPMS/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.profiles.adaProfiles.adaProduct/$defs/universalComponentType
+                required:
+                - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

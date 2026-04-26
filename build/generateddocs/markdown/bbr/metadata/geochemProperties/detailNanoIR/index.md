@@ -64,14 +64,12 @@ title: NanoIR Instrument Detail
 description: Nano-IR spectroscopy collections with phase analysis
 type: object
 properties:
-  '@type':
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-      - const: ada:NanoIRBackground
+  ada:componentType:
+    const: ada:NanoIRBackground
   ada:phaseAnalyzed:
     $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/stringArray/schema.yaml
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/
