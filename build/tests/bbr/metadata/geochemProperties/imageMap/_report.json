@@ -2,8 +2,8 @@
   "title": "Validation report for ada.bbr.metadata.geochemProperties.imageMap - Image Map Type",
   "bblockName": "Image Map Type",
   "bblockId": "ada.bbr.metadata.geochemProperties.imageMap",
-  "generated": "2026-04-24T19:57:47.839573+00:00",
-  "result": true,
+  "generated": "2026-04-26T05:37:50.430347+00:00",
+  "result": false,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -52,9 +52,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "{'@type': 'ada:SEMEDSElementalMap'} is not of type 'string'",
+              "isError": true,
+              "message": "ValidationError: {'@type': 'ada:SEMEDSElementalMap'} is not of type 'string'\n\nFailed validating 'type' in schema['properties']['ada:componentType']:\n    {'description': 'ADA componentType for an imageMap, as a single '\n                    'string. Allowed values are constrained by the '\n                    'technique profile (via its hasPart anyOf), which '\n                    'either lists universal componentTypes inline or $refs '\n                    'a detail schema enumerating technique-specific '\n                    'imageMap componentTypes.',\n     'enum': ['ada:EMPAImageMap',\n              'ada:NanoIRMap',\n              'ada:SEMEBSDGrainImageMap',\n              'ada:SEMEDSElementalMap',\n              'ada:SEMHRCLMap',\n              'ada:SEMImageMap',\n              'ada:SLSTextureMap',\n              'ada:basemap',\n              'ada:supplementalBasemap'],\n     'type': 'string'}\n\nOn instance['ada:componentType']:\n    {'@type': 'ada:SEMEDSElementalMap'}"
             }
           ]
         },
@@ -95,23 +97,6 @@
               },
               "isError": false,
               "message": "Focus nodes for _sources/geochemProperties/spatialRegistration/rules.shacl:\n - Shape cdifd:spatialRegistrationShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/geochemProperties/detailEMPA/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/geochemProperties/detailEMPA/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/geochemProperties/detailEMPA/rules.shacl",
-              "focusNodes": {
-                "cdifd:detailEMPAShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/geochemProperties/detailEMPA/rules.shacl:\n - Shape cdifd:detailEMPAShape: *none*\n"
             }
           ]
         }
@@ -121,7 +106,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 1,
-    "failed": 0
+    "passed": 0,
+    "failed": 1
   }
 }

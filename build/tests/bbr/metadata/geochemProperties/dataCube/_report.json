@@ -2,7 +2,7 @@
   "title": "Validation report for ada.bbr.metadata.geochemProperties.dataCube - Data Cube Type",
   "bblockName": "Data Cube Type",
   "bblockId": "ada.bbr.metadata.geochemProperties.dataCube",
-  "generated": "2026-04-24T19:57:48.216307+00:00",
+  "generated": "2026-04-26T05:37:50.590753+00:00",
   "result": false,
   "items": [
     {
@@ -52,9 +52,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "{'@type': 'ada:SEMEDSElementalMapsCube'} is not of type 'string'",
+              "isError": true,
+              "message": "ValidationError: {'@type': 'ada:SEMEDSElementalMapsCube'} is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['properties']['ada:componentType']:\n    {'description': 'ADA componentType for this file type, as a single '\n                    'string. Allowed values are derived from the ADA '\n                    'Components mapping.',\n     'enum': ['ada:FTICRMSCube',\n              'ada:GCMSCube',\n              'ada:L2MSCube',\n              'ada:LCMSRawData',\n              'ada:STEMEDSCube',\n              'ada:STEMEDSTomo',\n              'ada:STEMEELSCube'],\n     'type': 'string'}\n\nOn instance['ada:componentType']:\n    {'@type': 'ada:SEMEDSElementalMapsCube'}"
             }
           ]
         },
@@ -91,12 +93,12 @@
               "focusNodes": {
                 "cdifd:dataCubeShape": {
                   "nodes": [
-                    "_:Nce8a4f54b705436292227b2fd4fbf361"
+                    "_:Nba145355f4fe416585e6b918312f3dd9"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifDataCube/rules.shacl:\n - Shape cdifd:dataCubeShape: _:Nce8a4f54b705436292227b2fd4fbf361\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifDataCube/rules.shacl:\n - Shape cdifd:dataCubeShape: _:Nba145355f4fe416585e6b918312f3dd9\n"
             },
             {
               "op": "shacl-report",
@@ -114,23 +116,6 @@
               },
               "isError": false,
               "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifPhysicalMapping/rules.shacl:\n - Shape cdifd:physicalMappingShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/geochemProperties/detailL2MS/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/geochemProperties/detailL2MS/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/geochemProperties/detailL2MS/rules.shacl",
-              "focusNodes": {
-                "cdifd:detailL2MSShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/geochemProperties/detailL2MS/rules.shacl:\n - Shape cdifd:detailL2MSShape: *none*\n"
             }
           ]
         }

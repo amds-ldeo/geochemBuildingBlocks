@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-04-24",
+  "dateOfLastChange": "2026-04-26",
   "link": "https://github.com/usgin/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -30,24 +30,6 @@
     "ada.bbr.metadata.geochemProperties.tabularData": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/tabularData/rules.shacl"
     ],
-    "ada.bbr.metadata.geochemProperties.detailEMPA": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailEMPA/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailDSC": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailDSC/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailNanoIR": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailNanoIR/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.stringArray": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/stringArray/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailPSFD": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailPSFD/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailVNMIR": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailVNMIR/rules.shacl"
-    ],
     "cdif.bbr.metadata.cdifProperties.cdifTabularData": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifTabularData/rules.shacl"
     ],
@@ -56,32 +38,11 @@
     ],
     "ada.bbr.metadata.geochemProperties.spatialRegistration": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/spatialRegistration/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailEAIRMS": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailEAIRMS/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailNanoSIMS": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailNanoSIMS/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailXRD": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailXRD/rules.shacl"
-    ],
-    "ada.bbr.metadata.geochemProperties.detailLAF": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/detailLAF/rules.shacl"
     ]
   },
   "dependsOn": [
-    "ada.bbr.metadata.geochemProperties.detailEMPA",
-    "ada.bbr.metadata.geochemProperties.detailDSC",
-    "ada.bbr.metadata.geochemProperties.detailNanoIR",
-    "ada.bbr.metadata.geochemProperties.detailPSFD",
-    "ada.bbr.metadata.geochemProperties.detailVNMIR",
     "cdif.bbr.metadata.cdifProperties.cdifTabularData",
-    "ada.bbr.metadata.geochemProperties.spatialRegistration",
-    "ada.bbr.metadata.geochemProperties.detailEAIRMS",
-    "ada.bbr.metadata.geochemProperties.detailNanoSIMS",
-    "ada.bbr.metadata.geochemProperties.detailXRD",
-    "ada.bbr.metadata.geochemProperties.detailLAF"
+    "ada.bbr.metadata.geochemProperties.spatialRegistration"
   ],
   "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/tabularData/context.jsonld",
   "schema": {
@@ -123,7 +84,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Tabular Data Type\ndescription: Tabular data type aligned with CDIF 2026 schema using DDI-CDI and CSVW\n  properties. Typed as cdi:TabularTextDataSet and ada:tabularData.\nallOf:\n- type: object\n  properties:\n    '@type':\n      type: array\n      items:\n        type: string\n      minItems: 2\n      allOf:\n      - contains:\n          const: cdi:TabularTextDataSet\n      - contains:\n          const: ada:tabularData\n    ada:componentType:\n      anyOf:\n      - type: object\n        properties:\n          '@type':\n            type: string\n            enum:\n            - ada:AMSRawData\n            - ada:AMSProcessedData\n            - ada:DSCResultsTabular\n            - ada:FTICRMSTabular\n            - ada:GPYCProcessedTabular\n            - ada:GPYCRawTabular\n            - ada:HRICPMSProcessed\n            - ada:HRICPMSRaw\n            - ada:ICPOESIntermediateTabular\n            - ada:ICPOESProcessedTabular\n            - ada:ICPOESRawTabular\n            - ada:EMPAESPCTabular\n            - ada:ICTabular\n            - ada:MCICPMSTabular\n            - ada:NGNSMSRaw\n            - ada:NGNSMSProcessed\n            - ada:QICPMSProcessedTabular\n            - ada:QICPMSRawTabular\n            - ada:RAMANRawTabular\n            - ada:RITOFNGMSTabular\n            - ada:RITOFNGMSCollection\n            - ada:SEMEDSPointData\n            - ada:SIMSTabular\n            - ada:STEMEDSTabular\n            - ada:STEMEELSTabular\n            - ada:SVRUECTabular\n            - ada:XANESRawTabular\n            - ada:XANESProcessedTabular\n        required:\n        - '@type'\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailDSC/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailEAIRMS/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailEMPA/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailLAF/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailNanoSIMS/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailNanoIR/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailPSFD/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailVNMIR/schema.yaml\n      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailXRD/schema.yaml\n    ada:xCoordCol:\n      description: The column names are redundant, they are lists in the hasPhysicalMapping\n        array. Include here for convenience.\n      type: string\n    ada:yCoordCol:\n      type: string\n    ada:zCoordCol:\n      type: string\n    ada:coordUnits:\n      type: string\n    ada:spatialRegistration:\n      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/spatialRegistration/schema.yaml\n  required:\n  - '@type'\n  - ada:componentType\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifTabularData/schema.yaml\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Tabular Data Type\ndescription: Tabular data type aligned with CDIF 2026 schema using DDI-CDI and CSVW\n  properties. Typed as cdi:TabularTextDataSet and ada:tabularData.\nallOf:\n- type: object\n  properties:\n    '@type':\n      type: array\n      items:\n        type: string\n      minItems: 2\n      allOf:\n      - contains:\n          const: cdi:TabularTextDataSet\n      - contains:\n          const: ada:tabularData\n    ada:componentType:\n      type: string\n      enum:\n      - ada:AMSProcessedData\n      - ada:AMSRawData\n      - ada:ARGTCaptionData\n      - ada:ARGTRawData\n      - ada:ARGTSummaryData\n      - ada:DSCHeatFlow\n      - ada:DSCIndividualMeasurements\n      - ada:DSCProcessedHeatFlux\n      - ada:DSCRawHeatFlux\n      - ada:DSCResultsTabular\n      - ada:EAIRMSProcessedData\n      - ada:EAIRMSRawData\n      - ada:EMPAESPCTabular\n      - ada:EMPAQEATabular\n      - ada:FTICRMSTabular\n      - ada:GPYCProcessedTabular\n      - ada:GPYCRawTabular\n      - ada:HRICPMSProcessed\n      - ada:HRICPMSRaw\n      - ada:ICPOESIntermediateTabular\n      - ada:ICPOESProcessedTabular\n      - ada:ICPOESRawTabular\n      - ada:ICTabular\n      - ada:LAFProcessed\n      - ada:LAFRaw\n      - ada:LITPolarPlotData\n      - ada:LITTabularData\n      - ada:MCICPMSTabular\n      - ada:NGNSMSProcessed\n      - ada:NGNSMSRaw\n      - ada:NanoIRPointData\n      - ada:NanoSIMSRaw\n      - ada:NanoSIMSTabular\n      - ada:PSFDTabular\n      - ada:QICPMSProcessedTabular\n      - ada:QICPMSRawTabular\n      - ada:RAMANRawTabular\n      - ada:RITOFNGMSSpectra\n      - ada:RITOFNGMSTabular\n      - ada:SEMEDSPointData\n      - ada:SEMEDSPointSpectraData\n      - ada:SIMSTabular\n      - ada:STEMEDSTabular\n      - ada:STEMEELSTabular\n      - ada:SVRUECTabular\n      - ada:SVRUECWaveformData\n      - ada:TOFSIMSMassSpectrumData\n      - ada:VNMIRSpectralPoint\n      - ada:XRDTabular\n      description: ADA componentType for a tabular data file, as a single string.\n        Allowed values are constrained by the technique profile (via its hasPart anyOf),\n        which either lists universal componentTypes inline or $refs a detail schema\n        enumerating technique-specific tabular componentTypes.\n    ada:xCoordCol:\n      description: The column names are redundant, they are lists in the hasPhysicalMapping\n        array. Include here for convenience.\n      type: string\n    ada:yCoordCol:\n      type: string\n    ada:zCoordCol:\n      type: string\n    ada:coordUnits:\n      type: string\n    ada:spatialRegistration:\n      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/spatialRegistration/schema.yaml\n  required:\n  - '@type'\n  - ada:componentType\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifTabularData/schema.yaml\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\n",
   "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
   "gitPath": "_sources/geochemProperties/tabularData"
 }

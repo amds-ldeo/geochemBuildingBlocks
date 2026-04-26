@@ -327,13 +327,7 @@
           "ada:channel1": "Mg K\u03b1",
           "ada:illuminationType": "Electron beam",
           "ada:imageType": "Wavelength-dispersive X-ray intensity map",
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAImageMap"
-            ],
-            "ada:spectrometersUsed": "WDS #2 (TAP crystal), WDS #3 (PET crystal)",
-            "ada:signalUsed": "Mg K\u03b1 characteristic X-ray"
-          },
+          "ada:componentType": "ada:EMPAImageMap",
           "ada:spatialRegistration": {
             "ada:originX": 0,
             "ada:originY": 0,
@@ -343,7 +337,9 @@
             "ada:originLocation": "upperLeft",
             "ada:coordDef": "pixel-defined, upperLeftPixel",
             "ada:coordUnits": "micrometer"
-          }
+          },
+          "ada:spectrometersUsed": "WDS #2 (TAP crystal), WDS #3 (PET crystal)",
+          "ada:signalUsed": "BSE"
         },
         {
           "@id": "ex:adaEMPA-part-image",
@@ -371,13 +367,11 @@
             "spdx:checksumValue": "e0aa021e21dddbd6d8cecec71e9cf564"
           },
           "ada:acquisitionTime": "2026-01-10T09:35:00",
-          "ada:channel1": "Backscattered electrons",
+          "ada:signalUsed": "BSE",
           "ada:pixelSize": "0.5 micrometer",
           "ada:illuminationType": "Electron beam",
           "ada:imageType": "Backscattered electron atomic-number contrast",
-          "ada:componentType": {
-            "@type": "ada:EMPAImage"
-          }
+          "ada:componentType": "ada:EMPAImage"
         },
         {
           "@id": "ex:adaEMPA-part-qea",
@@ -407,14 +401,10 @@
           "ada:xCoordCol": "position_x_um",
           "ada:yCoordCol": "position_y_um",
           "ada:coordUnits": "micrometer",
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAQEATabular"
-            ],
-            "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
-            "ada:signalUsed": "Characteristic X-rays: Si K\u03b1, Ti K\u03b1, Al K\u03b1, Fe K\u03b1, Mn K\u03b1, Mg K\u03b1, Ca K\u03b1, Na K\u03b1, K K\u03b1, Cr K\u03b1"
-          },
-          "cdi:isDelimited": true
+          "ada:componentType": "ada:EMPAQEATabular",
+          "cdi:isDelimited": true,
+          "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
+          "ada:signalUsed": "Characteristic X-rays: Si K\u03b1, Ti K\u03b1, Al K\u03b1, Fe K\u03b1, Mn K\u03b1, Mg K\u03b1, Ca K\u03b1, Na K\u03b1, K K\u03b1, Cr K\u03b1"
         },
         {
           "@id": "ex:adaEMPA-part-imagecollection",
@@ -434,9 +424,7 @@
             "schema:value": 26214400,
             "schema:unitText": "byte"
           },
-          "ada:componentType": {
-            "@type": "ada:EMPAImageCollection"
-          },
+          "ada:componentType": "ada:EMPAImageCollection",
           "ada:memberTypes": [
             "ada:EMPAImageMap"
           ],
@@ -474,14 +462,10 @@
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "3b0c44298fc1c149afbf4c8996fb9242"
           },
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAESPCTabular"
-            ],
-            "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
-            "ada:signalUsed": "Full X-ray spectrum, 0\u201320 keV, 10 eV channel width"
-          },
-          "cdi:isDelimited": true
+          "ada:componentType": "ada:EMPAESPCTabular",
+          "cdi:isDelimited": true,
+          "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
+          "ada:signalUsed": "Full X-ray spectrum, 0\u201320 keV, 10 eV channel width"
         },
         {
           "@id": "ex:adaEMPA-part-espcplot",
@@ -524,9 +508,7 @@
             }
           ],
           "ada:imageType": "Annotated line plot of X-ray spectrum",
-          "ada:componentType": {
-            "@type": "ada:EMPAESPCPlot"
-          }
+          "ada:componentType": "ada:EMPAESPCPlot"
         }
       ]
     }

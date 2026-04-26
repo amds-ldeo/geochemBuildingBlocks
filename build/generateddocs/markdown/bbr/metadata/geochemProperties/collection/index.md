@@ -90,10 +90,10 @@ A collection of SEM-EDS elemental map images with file listing.
     ada:componentType [ a ada:SEMEDSElementalMaps ] ;
     ada:filelist [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Fe_Ka.tif" ],
+            ada:fileName "map_Si_Ka.tif" ],
         [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Si_Ka.tif" ] ;
+            ada:fileName "map_Fe_Ka.tif" ] ;
     ada:memberTypes "ada:SEMEDSElementalMap" ;
     ada:nFiles 5 .
 
@@ -122,39 +122,16 @@ properties:
         const: https://schema.org/Collection
     description: GeneralType for collections
   ada:componentType:
-    type: object
-    properties:
-      '@type':
-        type: string
-        enum:
-        - ada:AIVAImageCollection
-        - ada:ARGTCollection
-        - ada:EAIRMSCollection
-        - ada:EMPAImageCollection
-        - ada:GCMSCollection
-        - ada:GCGCMSCollection
-        - ada:LCMSCollection
-        - ada:LCMSMSCollection
-        - ada:LIT2DDataCollection
-        - ada:LITPolarDataCollection
-        - ada:MCICPMSCollection
-        - ada:NanoIRMapCollection
-        - ada:NanoIRPointCollection
-        - ada:NanoSIMSCollection
-        - ada:NanoSIMSImageCollection
-        - ada:QRISCalibratedCollection
-        - ada:QRISRawCollection
-        - ada:RITOFNGMSCollection
-        - ada:SEMEDSElementalMaps
-        - ada:SEMEDSPointDataCollection
-        - ada:SEMImageCollection
-        - ada:SIMSCollection
-        - ada:TEMEDSImageCollection
-        - ada:TOFSIMSCollection
-        - ada:UVFMImageCollection
-        - ada:VLMImageCollection
-        - ada:XANESCollection
-        - ada:XCTImageCollection
+    type: string
+    enum:
+    - ada:EMPAImageCollection
+    - ada:PSFDShapeFile
+    - ada:XCTImageCollection
+    - ada:shapefile
+    description: ADA componentType for a collection, as a single string. Allowed values
+      are constrained by the technique profile (via its hasPart anyOf), which either
+      lists universal componentTypes inline or $refs a detail schema enumerating technique-specific
+      collection componentTypes.
   ada:memberTypes:
     description: List of the component types in the collection
     $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/stringArray/schema.yaml
@@ -174,8 +151,10 @@ properties:
           description: Pattern for collection members with differentiating suffix
             at '*'
         ada:componentType:
-          description: The component type for the file(s)
           type: string
+          description: componentType of an individual file within the collection.
+            Not constrained to the collection-level enum, since a collection holds
+            heterogeneous files (each carrying its own file-type componentType).
         schema:encodingFormat:
           type: string
           description: MIME type with extension

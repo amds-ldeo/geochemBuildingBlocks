@@ -1,0 +1,73 @@
+Validation report for ada.bbr.metadata.geochemProperties.document - Document Type
+Generated 2026-04-26T05:37:50.234005+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'@type': 'ada:calibrationFile'} is not of type 'string'
+
+Failed validating 'type' in schema['properties']['ada:componentType']:
+    {'description': 'ADA componentType for a document, as a single string. '
+                    'Allowed values are constrained by the technique '
+                    'profile (via its hasPart anyOf), which either lists '
+                    'universal componentTypes inline or $refs a detail '
+                    'schema enumerating technique-specific document '
+                    'componentTypes.',
+     'enum': ['ada:ARGTDocument',
+              'ada:FTICRMSDataPlot',
+              'ada:GCMSChromatogram',
+              'ada:GCMSPeaks',
+              'ada:GCMSSpectraPlot',
+              'ada:L2MSSpectraPlot',
+              'ada:LCMSChromatogram',
+              'ada:LCMSPeaks',
+              'ada:LCMSVisualization',
+              'ada:MCICPMSRaw',
+              'ada:NGNSMSRunLog',
+              'ada:NanoIRBackground',
+              'ada:NanoSIMSRawText',
+              'ada:SEMEDSPointSpectraPlot',
+              'ada:SLSMaterialTemplate',
+              'ada:SLSPartialScan',
+              'ada:SLSShapeModel',
+              'ada:SLSTransformation',
+              'ada:STEMEDSSpectraPlot',
+              'ada:STEMEELSSpectraPlot',
+              'ada:SVRUECWaveformPlot',
+              'ada:TOFSIMS',
+              'ada:TOFSIMSIonImages',
+              'ada:TOFSIMSMassSpectrumPlot',
+              'ada:VNMIRSpectraPlot',
+              'ada:calibrationFile',
+              'ada:code',
+              'ada:inputFile',
+              'ada:instrumentMetadata',
+              'ada:logFile',
+              'ada:methodDescription',
+              'ada:plot',
+              'ada:processingMethod',
+              'ada:report',
+              'ada:samplePreparation',
+              'ada:worldFile'],
+     'type': 'string'}
+
+On instance['ada:componentType']:
+    {'@type': 'ada:calibrationFile'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/geochemProperties/document/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geochemProperties/document/rules.shacl:
+ - Shape cdifd:documentShape: *none*
+
+=== End SHACL ===
+

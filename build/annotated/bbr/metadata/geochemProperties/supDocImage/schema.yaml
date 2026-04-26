@@ -16,23 +16,16 @@ properties:
         const: schema:DigitalDocument
     description: GeneralType for supplemental document images
   ada:componentType:
-    type: object
-    properties:
-      '@type':
-        enum:
-        - ada:analysisLocation
-        - ada:annotatedProduct
-        - ada:contextPhotography
-        - ada:areaOfInterest
-        - ada:instrumentMetadata
-        - ada:supplementalBasemap
-        - ada:other
-        - ada:plot
-        - ada:quickLook
-        - ada:report
-        - ada:visImage
-    required:
-    - '@type'
+    type: string
+    enum:
+    - ada:analysisLocation
+    - ada:annotatedImage
+    - ada:areaOfInterest
+    - ada:contextPhotography
+    - ada:quickLook
+    - ada:supplementaryImage
+    description: ADA componentType for this file type, as a single string. Allowed
+      values are derived from the ADA Components mapping.
   ada:numPixelsX:
     type: integer
   ada:numPixelsY:

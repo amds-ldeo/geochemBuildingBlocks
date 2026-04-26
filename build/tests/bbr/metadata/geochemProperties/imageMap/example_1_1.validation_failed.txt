@@ -1,0 +1,53 @@
+Validation report for ada.bbr.metadata.geochemProperties.imageMap - Image Map Type
+Generated 2026-04-26T05:37:50.430291+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'@type': 'ada:SEMEDSElementalMap'} is not of type 'string'
+
+Failed validating 'type' in schema['properties']['ada:componentType']:
+    {'description': 'ADA componentType for an imageMap, as a single '
+                    'string. Allowed values are constrained by the '
+                    'technique profile (via its hasPart anyOf), which '
+                    'either lists universal componentTypes inline or $refs '
+                    'a detail schema enumerating technique-specific '
+                    'imageMap componentTypes.',
+     'enum': ['ada:EMPAImageMap',
+              'ada:NanoIRMap',
+              'ada:SEMEBSDGrainImageMap',
+              'ada:SEMEDSElementalMap',
+              'ada:SEMHRCLMap',
+              'ada:SEMImageMap',
+              'ada:SLSTextureMap',
+              'ada:basemap',
+              'ada:supplementalBasemap'],
+     'type': 'string'}
+
+On instance['ada:componentType']:
+    {'@type': 'ada:SEMEDSElementalMap'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/geochemProperties/imageMap/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geochemProperties/imageMap/rules.shacl:
+ - Shape cdifd:imageMapShape: *none*
+
+Validation result for _sources/geochemProperties/spatialRegistration/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geochemProperties/spatialRegistration/rules.shacl:
+ - Shape cdifd:spatialRegistrationShape: *none*
+
+=== End SHACL ===
+

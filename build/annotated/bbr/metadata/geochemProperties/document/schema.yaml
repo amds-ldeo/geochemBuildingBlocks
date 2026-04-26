@@ -16,26 +16,48 @@ properties:
     - contains:
         const: schema:DigitalDocument
   ada:componentType:
-    description: One of the supplemental document types if applicable
-    anyOf:
-    - type: object
-      properties:
-        '@type':
-          enum:
-          - ada:calibrationFile
-          - ada:contextVideo
-          - ada:instrumentMetadata
-          - ada:logFile
-          - ada:methodDescription
-          - ada:peaks
-          - ada:plot
-          - ada:processingMethod
-          - ada:QRISCalibrationFile
-          - ada:report
-          - ada:samplePreparation
-          - ada:shapefile
-          - ada:worldFile
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailARGT/schema.yaml
+    type: string
+    enum:
+    - ada:ARGTDocument
+    - ada:FTICRMSDataPlot
+    - ada:GCMSChromatogram
+    - ada:GCMSPeaks
+    - ada:GCMSSpectraPlot
+    - ada:L2MSSpectraPlot
+    - ada:LCMSChromatogram
+    - ada:LCMSPeaks
+    - ada:LCMSVisualization
+    - ada:MCICPMSRaw
+    - ada:NGNSMSRunLog
+    - ada:NanoIRBackground
+    - ada:NanoSIMSRawText
+    - ada:SEMEDSPointSpectraPlot
+    - ada:SLSMaterialTemplate
+    - ada:SLSPartialScan
+    - ada:SLSShapeModel
+    - ada:SLSTransformation
+    - ada:STEMEDSSpectraPlot
+    - ada:STEMEELSSpectraPlot
+    - ada:SVRUECWaveformPlot
+    - ada:TOFSIMS
+    - ada:TOFSIMSIonImages
+    - ada:TOFSIMSMassSpectrumPlot
+    - ada:VNMIRSpectraPlot
+    - ada:calibrationFile
+    - ada:code
+    - ada:inputFile
+    - ada:instrumentMetadata
+    - ada:logFile
+    - ada:methodDescription
+    - ada:plot
+    - ada:processingMethod
+    - ada:report
+    - ada:samplePreparation
+    - ada:worldFile
+    description: ADA componentType for a document, as a single string. Allowed values
+      are constrained by the technique profile (via its hasPart anyOf), which either
+      lists universal componentTypes inline or $refs a detail schema enumerating technique-specific
+      document componentTypes.
   schema:version:
     type: string
   schema:isBasedOn:

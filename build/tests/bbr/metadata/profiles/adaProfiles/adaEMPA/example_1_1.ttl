@@ -102,8 +102,7 @@ ex:adaEMPA-example-001 a schema1:Dataset,
                     schema1:name "Example EMPA Instrument" ] ] .
 
 ex:adaEMPA-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
-        ada:image ;
+        ada:imageMap ;
     schema1:additionalType "ada:EMPAImageMap" ;
     schema1:description "EMPA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
@@ -114,7 +113,7 @@ ex:adaEMPA-file-001 a schema1:ImageObject,
     spdx:checksum [ a spdx:Checksum ;
             spdx:algorithm "MD5" ;
             spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
-    ada:componentType [ a ada:EMPAImageMap ] .
+    ada:componentType "ada:EMPAImageMap" .
 
 ex:adaEMPA-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
@@ -126,7 +125,7 @@ ex:adaEMPA-file-002 a schema1:DigitalDocument,
     schema1:size [ a schema1:QuantitativeValue ;
             schema1:unitText "byte" ;
             schema1:value 524288 ] ;
-    ada:componentType [ a ada:methodDescription ] .
+    ada:componentType "ada:methodDescription" .
 
 ex:adaEMPA-metadata-001 a schema1:Dataset ;
     dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,

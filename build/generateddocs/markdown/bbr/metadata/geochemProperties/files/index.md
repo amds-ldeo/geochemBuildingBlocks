@@ -235,15 +235,6 @@ allOf:
           const: Metadata
     required:
     - '@type'
-  - type: object
-    description: Generic media object (fallback for unrecognized file types)
-    properties:
-      '@type':
-        type: array
-        contains:
-          const: schema:MediaObject
-    required:
-    - '@type'
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

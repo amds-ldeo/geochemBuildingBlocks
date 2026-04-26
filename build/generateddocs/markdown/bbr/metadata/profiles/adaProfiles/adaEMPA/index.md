@@ -325,9 +325,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaEMPA-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "ada:imageMap",
+            "schema:ImageObject"
           ],
           "schema:name": "ALH84001_EMPA_001.tif",
           "schema:description": "EMPA data file for ALH 84001 thin section",
@@ -351,9 +350,7 @@ Mock data for validation and testing.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": {
-            "@type": "ada:EMPAImageMap"
-          }
+          "ada:componentType": "ada:EMPAImageMap"
         },
         {
           "@id": "ex:adaEMPA-file-002",
@@ -377,9 +374,7 @@ Mock data for validation and testing.
             "schema:value": 524288,
             "schema:unitText": "byte"
           },
-          "ada:componentType": {
-            "@type": "ada:methodDescription"
-          }
+          "ada:componentType": "ada:methodDescription"
         }
       ]
     }
@@ -735,9 +730,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaEMPA-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "ada:imageMap",
+            "schema:ImageObject"
           ],
           "schema:name": "ALH84001_EMPA_001.tif",
           "schema:description": "EMPA data file for ALH 84001 thin section",
@@ -761,9 +755,7 @@ Mock data for validation and testing.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": {
-            "@type": "ada:EMPAImageMap"
-          }
+          "ada:componentType": "ada:EMPAImageMap"
         },
         {
           "@id": "ex:adaEMPA-file-002",
@@ -787,9 +779,7 @@ Mock data for validation and testing.
             "schema:value": 524288,
             "schema:unitText": "byte"
           },
-          "ada:componentType": {
-            "@type": "ada:methodDescription"
-          }
+          "ada:componentType": "ada:methodDescription"
         }
       ]
     }
@@ -953,8 +943,7 @@ ex:adaEMPA-example-001 a schema1:Dataset,
                     schema1:name "Example EMPA Instrument" ] ] .
 
 ex:adaEMPA-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
-        ada:image ;
+        ada:imageMap ;
     schema1:additionalType "ada:EMPAImageMap" ;
     schema1:description "EMPA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
@@ -965,7 +954,7 @@ ex:adaEMPA-file-001 a schema1:ImageObject,
     spdx:checksum [ a spdx:Checksum ;
             spdx:algorithm "MD5" ;
             spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
-    ada:componentType [ a ada:EMPAImageMap ] .
+    ada:componentType "ada:EMPAImageMap" .
 
 ex:adaEMPA-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
@@ -977,7 +966,7 @@ ex:adaEMPA-file-002 a schema1:DigitalDocument,
     schema1:size [ a schema1:QuantitativeValue ;
             schema1:unitText "byte" ;
             schema1:value 524288 ] ;
-    ada:componentType [ a ada:methodDescription ] .
+    ada:componentType "ada:methodDescription" .
 
 ex:adaEMPA-metadata-001 a schema1:Dataset ;
     dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
@@ -1352,13 +1341,7 @@ on parts whose underlying file-shape schemas wire detailEMPA.
           "ada:channel1": "Mg Kα",
           "ada:illuminationType": "Electron beam",
           "ada:imageType": "Wavelength-dispersive X-ray intensity map",
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAImageMap"
-            ],
-            "ada:spectrometersUsed": "WDS #2 (TAP crystal), WDS #3 (PET crystal)",
-            "ada:signalUsed": "Mg Kα characteristic X-ray"
-          },
+          "ada:componentType": "ada:EMPAImageMap",
           "ada:spatialRegistration": {
             "ada:originX": 0,
             "ada:originY": 0,
@@ -1368,7 +1351,9 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "ada:originLocation": "upperLeft",
             "ada:coordDef": "pixel-defined, upperLeftPixel",
             "ada:coordUnits": "micrometer"
-          }
+          },
+          "ada:spectrometersUsed": "WDS #2 (TAP crystal), WDS #3 (PET crystal)",
+          "ada:signalUsed": "BSE"
         },
         {
           "@id": "ex:adaEMPA-part-image",
@@ -1396,13 +1381,11 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "spdx:checksumValue": "e0aa021e21dddbd6d8cecec71e9cf564"
           },
           "ada:acquisitionTime": "2026-01-10T09:35:00",
-          "ada:channel1": "Backscattered electrons",
+          "ada:signalUsed": "BSE",
           "ada:pixelSize": "0.5 micrometer",
           "ada:illuminationType": "Electron beam",
           "ada:imageType": "Backscattered electron atomic-number contrast",
-          "ada:componentType": {
-            "@type": "ada:EMPAImage"
-          }
+          "ada:componentType": "ada:EMPAImage"
         },
         {
           "@id": "ex:adaEMPA-part-qea",
@@ -1432,14 +1415,10 @@ on parts whose underlying file-shape schemas wire detailEMPA.
           "ada:xCoordCol": "position_x_um",
           "ada:yCoordCol": "position_y_um",
           "ada:coordUnits": "micrometer",
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAQEATabular"
-            ],
-            "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
-            "ada:signalUsed": "Characteristic X-rays: Si Kα, Ti Kα, Al Kα, Fe Kα, Mn Kα, Mg Kα, Ca Kα, Na Kα, K Kα, Cr Kα"
-          },
-          "cdi:isDelimited": true
+          "ada:componentType": "ada:EMPAQEATabular",
+          "cdi:isDelimited": true,
+          "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
+          "ada:signalUsed": "Characteristic X-rays: Si Kα, Ti Kα, Al Kα, Fe Kα, Mn Kα, Mg Kα, Ca Kα, Na Kα, K Kα, Cr Kα"
         },
         {
           "@id": "ex:adaEMPA-part-imagecollection",
@@ -1459,9 +1438,7 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "schema:value": 26214400,
             "schema:unitText": "byte"
           },
-          "ada:componentType": {
-            "@type": "ada:EMPAImageCollection"
-          },
+          "ada:componentType": "ada:EMPAImageCollection",
           "ada:memberTypes": [
             "ada:EMPAImageMap"
           ],
@@ -1499,14 +1476,10 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "3b0c44298fc1c149afbf4c8996fb9242"
           },
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAESPCTabular"
-            ],
-            "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
-            "ada:signalUsed": "Full X-ray spectrum, 0–20 keV, 10 eV channel width"
-          },
-          "cdi:isDelimited": true
+          "ada:componentType": "ada:EMPAESPCTabular",
+          "cdi:isDelimited": true,
+          "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
+          "ada:signalUsed": "Full X-ray spectrum, 0–20 keV, 10 eV channel width"
         },
         {
           "@id": "ex:adaEMPA-part-espcplot",
@@ -1549,9 +1522,7 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             }
           ],
           "ada:imageType": "Annotated line plot of X-ray spectrum",
-          "ada:componentType": {
-            "@type": "ada:EMPAESPCPlot"
-          }
+          "ada:componentType": "ada:EMPAESPCPlot"
         }
       ]
     }
@@ -1941,13 +1912,7 @@ on parts whose underlying file-shape schemas wire detailEMPA.
           "ada:channel1": "Mg K\u03b1",
           "ada:illuminationType": "Electron beam",
           "ada:imageType": "Wavelength-dispersive X-ray intensity map",
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAImageMap"
-            ],
-            "ada:spectrometersUsed": "WDS #2 (TAP crystal), WDS #3 (PET crystal)",
-            "ada:signalUsed": "Mg K\u03b1 characteristic X-ray"
-          },
+          "ada:componentType": "ada:EMPAImageMap",
           "ada:spatialRegistration": {
             "ada:originX": 0,
             "ada:originY": 0,
@@ -1957,7 +1922,9 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "ada:originLocation": "upperLeft",
             "ada:coordDef": "pixel-defined, upperLeftPixel",
             "ada:coordUnits": "micrometer"
-          }
+          },
+          "ada:spectrometersUsed": "WDS #2 (TAP crystal), WDS #3 (PET crystal)",
+          "ada:signalUsed": "BSE"
         },
         {
           "@id": "ex:adaEMPA-part-image",
@@ -1985,13 +1952,11 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "spdx:checksumValue": "e0aa021e21dddbd6d8cecec71e9cf564"
           },
           "ada:acquisitionTime": "2026-01-10T09:35:00",
-          "ada:channel1": "Backscattered electrons",
+          "ada:signalUsed": "BSE",
           "ada:pixelSize": "0.5 micrometer",
           "ada:illuminationType": "Electron beam",
           "ada:imageType": "Backscattered electron atomic-number contrast",
-          "ada:componentType": {
-            "@type": "ada:EMPAImage"
-          }
+          "ada:componentType": "ada:EMPAImage"
         },
         {
           "@id": "ex:adaEMPA-part-qea",
@@ -2021,14 +1986,10 @@ on parts whose underlying file-shape schemas wire detailEMPA.
           "ada:xCoordCol": "position_x_um",
           "ada:yCoordCol": "position_y_um",
           "ada:coordUnits": "micrometer",
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAQEATabular"
-            ],
-            "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
-            "ada:signalUsed": "Characteristic X-rays: Si K\u03b1, Ti K\u03b1, Al K\u03b1, Fe K\u03b1, Mn K\u03b1, Mg K\u03b1, Ca K\u03b1, Na K\u03b1, K K\u03b1, Cr K\u03b1"
-          },
-          "cdi:isDelimited": true
+          "ada:componentType": "ada:EMPAQEATabular",
+          "cdi:isDelimited": true,
+          "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
+          "ada:signalUsed": "Characteristic X-rays: Si K\u03b1, Ti K\u03b1, Al K\u03b1, Fe K\u03b1, Mn K\u03b1, Mg K\u03b1, Ca K\u03b1, Na K\u03b1, K K\u03b1, Cr K\u03b1"
         },
         {
           "@id": "ex:adaEMPA-part-imagecollection",
@@ -2048,9 +2009,7 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "schema:value": 26214400,
             "schema:unitText": "byte"
           },
-          "ada:componentType": {
-            "@type": "ada:EMPAImageCollection"
-          },
+          "ada:componentType": "ada:EMPAImageCollection",
           "ada:memberTypes": [
             "ada:EMPAImageMap"
           ],
@@ -2088,14 +2047,10 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "3b0c44298fc1c149afbf4c8996fb9242"
           },
-          "ada:componentType": {
-            "@type": [
-              "ada:EMPAESPCTabular"
-            ],
-            "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
-            "ada:signalUsed": "Full X-ray spectrum, 0\u201320 keV, 10 eV channel width"
-          },
-          "cdi:isDelimited": true
+          "ada:componentType": "ada:EMPAESPCTabular",
+          "cdi:isDelimited": true,
+          "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
+          "ada:signalUsed": "Full X-ray spectrum, 0\u201320 keV, 10 eV channel width"
         },
         {
           "@id": "ex:adaEMPA-part-espcplot",
@@ -2138,9 +2093,7 @@ on parts whose underlying file-shape schemas wire detailEMPA.
             }
           ],
           "ada:imageType": "Annotated line plot of X-ray spectrum",
-          "ada:componentType": {
-            "@type": "ada:EMPAESPCPlot"
-          }
+          "ada:componentType": "ada:EMPAESPCPlot"
         }
       ]
     }
@@ -2346,7 +2299,7 @@ ex:adaEMPA-part-espcplot a schema1:ImageObject,
     spdx:checksum [ a spdx:Checksum ;
             spdx:algorithm "MD5" ;
             spdx:checksumValue "5ebe2294ecd0e0f08eab7690d2a6ee69" ] ;
-    ada:componentType [ a ada:EMPAESPCPlot ] ;
+    ada:componentType "ada:EMPAESPCPlot" ;
     ada:imageType "Annotated line plot of X-ray spectrum" .
 
 ex:adaEMPA-part-espctable a cdi:TabularTextDataSet,
@@ -2361,9 +2314,9 @@ ex:adaEMPA-part-espctable a cdi:TabularTextDataSet,
     spdx:checksum [ a spdx:Checksum ;
             spdx:algorithm "MD5" ;
             spdx:checksumValue "3b0c44298fc1c149afbf4c8996fb9242" ] ;
-    ada:componentType [ a ada:EMPAESPCTabular ;
-            ada:signalUsed "Full X-ray spectrum, 0–20 keV, 10 eV channel width" ;
-            ada:spectrometersUsed "Energy-dispersive Si(Li) detector" ] .
+    ada:componentType "ada:EMPAESPCTabular" ;
+    ada:signalUsed "Full X-ray spectrum, 0–20 keV, 10 eV channel width" ;
+    ada:spectrometersUsed "Energy-dispersive Si(Li) detector" .
 
 ex:adaEMPA-part-image a schema1:ImageObject,
         ada:image ;
@@ -2377,11 +2330,11 @@ ex:adaEMPA-part-image a schema1:ImageObject,
             spdx:algorithm "MD5" ;
             spdx:checksumValue "e0aa021e21dddbd6d8cecec71e9cf564" ] ;
     ada:acquisitionTime "2026-01-10T09:35:00" ;
-    ada:channel1 "Backscattered electrons" ;
-    ada:componentType [ a ada:EMPAImage ] ;
+    ada:componentType "ada:EMPAImage" ;
     ada:illuminationType "Electron beam" ;
     ada:imageType "Backscattered electron atomic-number contrast" ;
-    ada:pixelSize "0.5 micrometer" .
+    ada:pixelSize "0.5 micrometer" ;
+    ada:signalUsed "BSE" .
 
 ex:adaEMPA-part-imagecollection a ada:collection,
         schema:Collection ;
@@ -2391,7 +2344,7 @@ ex:adaEMPA-part-imagecollection a ada:collection,
     schema1:size [ a schema1:QuantitativeValue ;
             schema1:unitText "byte" ;
             schema1:value 26214400 ] ;
-    ada:componentType [ a ada:EMPAImageCollection ] ;
+    ada:componentType "ada:EMPAImageCollection" ;
     ada:filelist [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:EMPAImageMap" ;
             ada:fileNamePattern "ALH84001_*_map.tif" ] ;
@@ -2411,13 +2364,12 @@ ex:adaEMPA-part-imagemap a schema1:ImageObject,
             spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
     ada:acquisitionTime "2026-01-10T09:45:00" ;
     ada:channel1 "Mg Kα" ;
-    ada:componentType [ a ada:EMPAImageMap ;
-            ada:signalUsed "Mg Kα characteristic X-ray" ;
-            ada:spectrometersUsed "WDS #2 (TAP crystal), WDS #3 (PET crystal)" ] ;
+    ada:componentType "ada:EMPAImageMap" ;
     ada:illuminationType "Electron beam" ;
     ada:imageType "Wavelength-dispersive X-ray intensity map" ;
     ada:numPixelsX 1024 ;
     ada:numPixelsY 1024 ;
+    ada:signalUsed "BSE" ;
     ada:spatialRegistration [ ada:coordDef "pixel-defined, upperLeftPixel" ;
             ada:coordUnits "micrometer" ;
             ada:originLocation "upperLeft" ;
@@ -2425,7 +2377,8 @@ ex:adaEMPA-part-imagemap a schema1:ImageObject,
             ada:originY 0 ;
             ada:pixelScaleX 1.5e+00 ;
             ada:pixelScaleY 1.5e+00 ;
-            ada:pixelUnits "micrometer" ] .
+            ada:pixelUnits "micrometer" ] ;
+    ada:spectrometersUsed "WDS #2 (TAP crystal), WDS #3 (PET crystal)" .
 
 ex:adaEMPA-part-qea a cdi:TabularTextDataSet,
         ada:tabularData ;
@@ -2439,10 +2392,10 @@ ex:adaEMPA-part-qea a cdi:TabularTextDataSet,
     spdx:checksum [ a spdx:Checksum ;
             spdx:algorithm "MD5" ;
             spdx:checksumValue "7d793037a0760186574b0282f2f435e7" ] ;
-    ada:componentType [ a ada:EMPAQEATabular ;
-            ada:signalUsed "Characteristic X-rays: Si Kα, Ti Kα, Al Kα, Fe Kα, Mn Kα, Mg Kα, Ca Kα, Na Kα, K Kα, Cr Kα" ;
-            ada:spectrometersUsed "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)" ] ;
+    ada:componentType "ada:EMPAQEATabular" ;
     ada:coordUnits "micrometer" ;
+    ada:signalUsed "Characteristic X-rays: Si Kα, Ti Kα, Al Kα, Fe Kα, Mn Kα, Mg Kα, Ca Kα, Na Kα, K Kα, Cr Kα" ;
+    ada:spectrometersUsed "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)" ;
     ada:xCoordCol "position_x_um" ;
     ada:yCoordCol "position_y_um" .
 
@@ -2497,8 +2450,11 @@ allOf:
         - Electron Microprobe Analysis (EMPA)
         - Electron microprobe analysis
     schema:distribution:
-      description: Distribution items for adaEMPA. Archive hasPart items must have
-        ada:componentType from technique-specific or universal values.
+      description: Distribution items for adaEMPA. Each archive hasPart item must
+        declare ada:componentType as a single string, drawn either from the universal
+        componentType enum or from the EMPA-specific set defined by detailEMPA. EMPA-specific
+        parts may also carry ada:spectrometersUsed and ada:signalUsed as siblings
+        (per detailEMPA).
       type: array
       items:
         type: object
@@ -2506,36 +2462,36 @@ allOf:
           schema:hasPart:
             items:
               type: object
-              properties:
-                ada:componentType:
-                  description: Part's componentType must carry an @type drawn from
-                    the EMPA-specific or universal componentType enums. The @type
-                    may be a single string (image/tabularData/collection enum form)
-                    or an array (detailEMPA form).
-                  type: object
-                  properties:
-                    '@type':
-                      anyOf:
-                      - enum:
-                        - ada:EMPAImageMap
-                        - ada:EMPAImage
-                        - ada:EMPAQEATabular
-                        - ada:EMPAImageCollection
-                        - ada:EMPAESPCTabular
-                        - ada:EMPAESPCPlot
-                      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
-                      - type: array
-                        minItems: 1
-                        contains:
-                          anyOf:
-                          - enum:
-                            - ada:EMPAImageMap
-                            - ada:EMPAImage
-                            - ada:EMPAQEATabular
-                            - ada:EMPAImageCollection
-                            - ada:EMPAESPCTabular
-                            - ada:EMPAESPCPlot
-                          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentType
+              anyOf:
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
+                    - ada:analysisLocation
+                    - ada:annotatedImage
+                    - ada:areaOfInterest
+                    - ada:basemap
+                    - ada:calibrationFile
+                    - ada:code
+                    - ada:contextPhotography
+                    - ada:contextVideo
+                    - ada:inputFile
+                    - ada:instrumentMetadata
+                    - ada:logFile
+                    - ada:methodDescription
+                    - ada:other
+                    - ada:plot
+                    - ada:processingMethod
+                    - ada:quickLook
+                    - ada:report
+                    - ada:samplePreparation
+                    - ada:shapefile
+                    - ada:supplementalBasemap
+                    - ada:supplementaryImage
+                    - ada:worldFile
+                required:
+                - ada:componentType
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailEMPA/schema.yaml
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

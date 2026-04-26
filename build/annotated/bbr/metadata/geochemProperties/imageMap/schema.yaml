@@ -17,31 +17,21 @@ properties:
   ada:acquisitionTime:
     type: string
   ada:componentType:
-    anyOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailEMPA/schema.yaml
-    - type: object
-      properties:
-        '@type':
-          enum:
-          - ada:basemap
-          - ada:supplementalBasemap
-          - ada:L2MSOverviewImage
-          - ada:NanoIRMap
-          - ada:LITImage
-          - ada:UVFMImage
-          - ada:VLMImage
-          - ada:SEMEBSDGrainImageMap
-          - ada:SEMEDSElementalMap
-          - ada:SEMHRCLMap
-          - ada:SEMImageMap
-          - ada:STEMImage
-          - ada:TEMImage
-          - ada:TEMPatternsImage
-          - ada:NanoSIMSMap
-          - ada:XANESimage
-          - ada:VNMIROverviewImage
-      required:
-      - '@type'
+    type: string
+    enum:
+    - ada:EMPAImageMap
+    - ada:NanoIRMap
+    - ada:SEMEBSDGrainImageMap
+    - ada:SEMEDSElementalMap
+    - ada:SEMHRCLMap
+    - ada:SEMImageMap
+    - ada:SLSTextureMap
+    - ada:basemap
+    - ada:supplementalBasemap
+    description: ADA componentType for an imageMap, as a single string. Allowed values
+      are constrained by the technique profile (via its hasPart anyOf), which either
+      lists universal componentTypes inline or $refs a detail schema enumerating technique-specific
+      imageMap componentTypes.
   ada:channel1:
     type: string
   ada:channel2:

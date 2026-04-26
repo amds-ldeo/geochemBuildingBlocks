@@ -1,24 +1,25 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: EMPA Instrument Detail
-description: Electron Microprobe Analysis with spectrometer and signal details.
+description: Detail block for Electron Microprobe Analysis hasPart items. Discriminates
+  on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed
+  as sibling properties on the hasPart item.
 type: object
 properties:
-  '@type':
-    type: array
-    minItems: 1
-    contains:
-      anyOf:
-      - const: ada:EMPAImage
-      - const: ada:EMPAImageMap
-      - const: ada:EMPAQEATabular
-      - const: ada:EMPAImageCollection
-      - const: ada:EMPAESPCTabular
-      - const: ada:EMPAESPCPlot
+  ada:componentType:
+    anyOf:
+    - const: ada:EMPAImage
+    - const: ada:EMPAImageMap
+    - const: ada:EMPAQEATabular
+    - const: ada:EMPAImageCollection
+    - const: ada:EMPAESPCTabular
+    - const: ada:EMPAESPCPlot
   ada:spectrometersUsed:
     type: string
     description: Spectrometers used in analysis
   ada:signalUsed:
     type: string
+required:
+- ada:componentType
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

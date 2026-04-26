@@ -1336,12 +1336,14 @@ allOf:
               - type: object
                 properties:
                   ada:componentType:
-                    type: object
-                    description: ADA file type classification object. Contains an
-                      @type (string or array) drawn from technique-specific or universal
-                      componentType values, plus any detail-block properties (e.g.
-                      spectrometersUsed, signalUsed) for technique-specific shapes.
-                      Technique profiles constrain which @type values are valid.
+                    type: string
+                    description: 'ADA file-type classification, expressed as a single
+                      string drawn from a universal set or a technique-specific set.
+                      Technique profiles add an anyOf at the hasPart level: one branch
+                      declares the universal componentType enum; other branches $ref
+                      technique-specific detail schemas (e.g. detailEMPA) that enumerate
+                      technique componentType values and contribute detail-specific
+                      sibling properties (e.g. ada:spectrometersUsed).'
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

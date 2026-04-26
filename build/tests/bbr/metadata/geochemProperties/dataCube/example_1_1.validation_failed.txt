@@ -1,5 +1,5 @@
 Validation report for ada.bbr.metadata.geochemProperties.dataCube - Data Cube Type
-Generated 2026-04-24T19:57:48.216238+00:00
+Generated 2026-04-26T05:37:50.590690+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -8,7 +8,25 @@ Output Turtle example_1_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: {'@type': 'ada:SEMEDSElementalMapsCube'} is not of type 'string'
+
+Failed validating 'type' in schema['allOf'][0]['properties']['ada:componentType']:
+    {'description': 'ADA componentType for this file type, as a single '
+                    'string. Allowed values are derived from the ADA '
+                    'Components mapping.',
+     'enum': ['ada:FTICRMSCube',
+              'ada:GCMSCube',
+              'ada:L2MSCube',
+              'ada:LCMSRawData',
+              'ada:STEMEDSCube',
+              'ada:STEMEDSTomo',
+              'ada:STEMEELSCube'],
+     'type': 'string'}
+
+On instance['ada:componentType']:
+    {'@type': 'ada:SEMEDSElementalMapsCube'}
 === End JSON Schema ===
 
 === SHACL ===
@@ -33,7 +51,7 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Message: A StructuredDataSet should have physical mappings (cdi:hasPhysicalMapping) linking variables to their physical representation.
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifDataCube/rules.shacl:
- - Shape cdifd:dataCubeShape: _:Nce8a4f54b705436292227b2fd4fbf361
+ - Shape cdifd:dataCubeShape: _:Nba145355f4fe416585e6b918312f3dd9
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifPhysicalMapping/rules.shacl:
   Validation Report
@@ -41,13 +59,6 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifPhysicalMapping/rules.shacl:
  - Shape cdifd:physicalMappingShape: *none*
-
-Validation result for _sources/geochemProperties/detailL2MS/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for _sources/geochemProperties/detailL2MS/rules.shacl:
- - Shape cdifd:detailL2MSShape: *none*
 
 === End SHACL ===
 

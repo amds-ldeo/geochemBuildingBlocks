@@ -85,26 +85,17 @@ allOf:
       - contains:
           const: cdi:StructuredDataSet
     ada:componentType:
-      anyOf:
-      - type: object
-        properties:
-          '@type':
-            enum:
-            - ada:GCMSCollection
-            - ada:GCMSCube
-            - ada:FTICRMSCube
-            - ada:LCMSCollection
-            - ada:SEMEBSDGrainImageMapCube
-            - ada:SEMEDSElementalMapsCube
-            - ada:SEMEDSPointDataCube
-            - ada:SEMHRCLCube
-            - ada:STEMEDSCube
-            - ada:STEMEDSTomo
-            - ada:STEMEELSCube
-            - ada:VNMIRSpectralMap
-        required:
-        - '@type'
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/detailL2MS/schema.yaml
+      type: string
+      enum:
+      - ada:FTICRMSCube
+      - ada:GCMSCube
+      - ada:L2MSCube
+      - ada:LCMSRawData
+      - ada:STEMEDSCube
+      - ada:STEMEDSTomo
+      - ada:STEMEELSCube
+      description: ADA componentType for this file type, as a single string. Allowed
+        values are derived from the ADA Components mapping.
     ada:dataComponentResource:
       type: string
 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifDataCube/schema.yaml
