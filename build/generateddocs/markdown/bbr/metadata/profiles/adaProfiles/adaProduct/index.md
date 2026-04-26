@@ -213,7 +213,7 @@ Mock data for validation and testing.
           "nxs:BaseClass/NXsource"
         ]
       },
-      "schema:mainEntity": [
+      "schema:object": [
         {
           "@type": [
             "schema:Thing",
@@ -612,7 +612,7 @@ Mock data for validation and testing.
           "nxs:BaseClass/NXsource"
         ]
       },
-      "schema:mainEntity": [
+      "schema:object": [
         {
           "@type": [
             "schema:Thing",
@@ -905,7 +905,7 @@ ex:adaProduct-example-001 a schema1:Dataset,
                     schema1:additionalType "nxs:BaseClass/NXsource" ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
-            schema1:mainEntity [ a schema1:Thing,
+            schema1:object [ a schema1:Thing,
                         <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalType "MaterialSample" ;
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
@@ -1210,7 +1210,7 @@ allOf:
               $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/instrument/schema.yaml
           schema:location:
             $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/laboratory/schema.yaml
-          schema:mainEntity:
+          schema:object:
             type: array
             description: Samples analyzed
             items:
