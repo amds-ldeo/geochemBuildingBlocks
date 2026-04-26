@@ -1205,9 +1205,13 @@ allOf:
         properties:
           prov:used:
             type: array
-            description: Instruments used in the analysis
+            description: Instruments and/or analytical method definitions used in
+              the analysis. Each item is either an instrument BB instance or a methodDefinition
+              BB instance.
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/instrument/schema.yaml
+              anyOf:
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/instrument/schema.yaml
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema.yaml
           schema:location:
             $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/laboratory/schema.yaml
           schema:object:
@@ -1425,6 +1429,8 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "xas": "https://xas.org/dictionary/",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#",
     "time": "http://www.w3.org/2006/time#",
     "@version": 1.1
   }

@@ -242,9 +242,16 @@
             "properties": {
               "prov:used": {
                 "type": "array",
-                "description": "Instruments used in the analysis",
+                "description": "Instruments and/or analytical method definitions used in the analysis. Each item is either an instrument BB instance or a methodDefinition BB instance.",
                 "items": {
-                  "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/instrument/schema.json"
+                  "anyOf": [
+                    {
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/instrument/schema.json"
+                    },
+                    {
+                      "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/geochemProperties/methodDefinition/schema.json"
+                    }
+                  ]
                 }
               },
               "schema:location": {

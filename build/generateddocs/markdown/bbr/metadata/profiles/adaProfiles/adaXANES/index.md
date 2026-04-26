@@ -1115,6 +1115,8 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "xas": "https://xas.org/dictionary/",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#",
     "time": "http://www.w3.org/2006/time#",
     "@version": 1.1
   }
