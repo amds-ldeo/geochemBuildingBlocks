@@ -30,7 +30,7 @@ Each archive `hasPart` item carries an `ada:componentType` (a single string like
 
 1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping). E.g. `ada:EMPAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
 
-2. **Profile-level constraint** — a technique profile's `schema:hasPart.items` uses a schema-level `anyOf`: one branch lists the universal componentTypes (a string `enum`); other branches `$ref` technique-specific *detail* schemas. A detail schema constrains `ada:componentType` to its technique consts (e.g. `detailEMPA` allows only the six EMPA componentTypes) and contributes detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) on the same hasPart item — flat, not nested inside componentType.
+2. **Profile-level constraint** — a technique profile's `schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref` to `adaProduct/$defs/universalComponentTypeBranch` (factored once, used everywhere) for universal componentTypes; (b) inline string-enum for technique-specific componentTypes that have no detail block; (c) `$ref` to a technique-specific *detail* schema (e.g. `detailEMPA`) which pins `ada:componentType` to its technique consts and contributes detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) flat on the hasPart item — not nested inside componentType.
 
 ### Refreshing the mapping
 
