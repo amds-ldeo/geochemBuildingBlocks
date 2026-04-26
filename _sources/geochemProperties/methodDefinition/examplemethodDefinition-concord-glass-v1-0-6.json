@@ -19,50 +19,69 @@
   "schema:version": "1.0.6",
   "schema:datePublished": "2011-10-20",
   "schema:measurementTechnique": {
-    "@type": ["schema:DefinedTerm"],
+    "@type": [
+      "schema:DefinedTerm"
+    ],
     "schema:name": "EPMA-WDS",
     "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/techniques"
   },
   "schema:object": [
     {
-      "@type": ["schema:DefinedTerm"],
+      "@type": [
+        "schema:DefinedTerm"
+      ],
       "schema:name": "silicate glass",
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
   "schema:instrument": {
-    "@type": ["schema:Product", "schema:Thing"],
+    "@type": [
+      "schema:Product",
+      "schema:Thing"
+    ],
     "schema:name": "ARL SEMQ",
     "schema:additionalType": [
       "ada:EPMAInstrument"
     ],
     "schema:manufacturer": {
-      "@type": ["schema:Organization"],
+      "@type": [
+        "schema:Organization"
+      ],
       "schema:name": "ARL"
     },
     "schema:model": {
-      "@type": ["schema:ProductModel"],
+      "@type": [
+        "schema:ProductModel"
+      ],
       "schema:name": "SEMQ"
     },
     "schema:hasPart": [
       {
-        "@type": ["schema:Thing"],
+        "@type": [
+          "schema:Thing"
+        ],
         "schema:name": "WDS Spectrometer Array",
         "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows"
       }
     ]
   },
   "schema:location": {
-    "@type": ["schema:Place"],
+    "@type": [
+      "schema:Place"
+    ],
     "schema:name": "Concord University, Athens, West Virginia, USA"
   },
   "schema:agent": {
-    "@type": ["schema:Organization"],
+    "@type": [
+      "schema:Organization"
+    ],
     "schema:name": "Concord University"
   },
   "bios:computationalTool": [
     {
-      "@type": ["schema:SoftwareApplication"],
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
       "schema:name": "Probe for EPMA",
       "schema:version": "9.6.4",
       "ada:toolRole": "acquisition"
@@ -70,7 +89,9 @@
   ],
   "ada:methodParameters": [
     {
-      "@type": ["schema:PropertyValueSpecification"],
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
       "schema:name": "Additional Notes",
       "schema:valueName": "additionalNotes",
       "ada:fieldScope": "method",
@@ -83,18 +104,27 @@
     }
   ],
   "schema:actionProcess": {
-    "@type": ["schema:HowTo"],
+    "@type": [
+      "schema:HowTo"
+    ],
     "schema:name": "EPMA WDS tephra glass analytical workflow",
     "schema:step": [
       {
-        "@type": ["cdi:Activity", "schema:Action"],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Sample preparation",
         "schema:position": 1,
-        "schema:additionalType": ["bios:LabProcess"],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
         "schema:description": "Tephra glass grains mounted, polished, and carbon coated for EPMA.",
         "bios:reagent": [
           {
-            "@type": ["schema:Thing"],
+            "@type": [
+              "schema:Thing"
+            ],
             "schema:name": "Carbon",
             "ada:reagentRole": "coatingMaterial"
           }
@@ -104,47 +134,67 @@
         }
       },
       {
-        "@type": ["cdi:Activity", "schema:Action"],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Instrument calibration",
         "schema:position": 2,
         "schema:description": "Calibrate WDS spectrometers on primary standards. Verify on secondary standards at start and end of session.",
-        "schema:object": {"@id": "#preparedMount"},
+        "schema:object": {
+          "@id": "#preparedMount"
+        },
         "bios:reagent": [
           {
-            "@type": ["schema:Thing"],
+            "@type": [
+              "schema:Thing"
+            ],
             "schema:name": "Albite",
             "ada:reagentRole": "primaryStandard"
           },
           {
-            "@type": ["schema:Thing"],
+            "@type": [
+              "schema:Thing"
+            ],
             "schema:name": "Kaersutite amphibole",
             "ada:reagentRole": "primaryStandard"
           },
           {
-            "@type": ["schema:Thing"],
+            "@type": [
+              "schema:Thing"
+            ],
             "schema:name": "Lipari obsidian ID3506",
             "ada:reagentRole": "secondaryStandard"
           },
           {
-            "@type": ["schema:Thing"],
+            "@type": [
+              "schema:Thing"
+            ],
             "schema:name": "USGS BHVO-2g",
             "ada:reagentRole": "secondaryStandard"
           },
           {
-            "@type": ["schema:Thing"],
+            "@type": [
+              "schema:Thing"
+            ],
             "schema:name": "USGS NKT-1g",
             "ada:reagentRole": "secondaryStandard"
           }
         ]
       },
       {
-        "@type": ["cdi:Activity", "schema:Action"],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "WDS data acquisition",
         "schema:position": 3,
         "schema:description": "Quantitative WDS analysis at 15 kV / 6 nA. Si, Al, Na acquired first to minimize beam damage with TDI correction.",
         "ada:methodParameters": [
           {
-            "@type": ["schema:PropertyValueSpecification"],
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
             "schema:name": "Accelerating Voltage",
             "schema:valueName": "acceleratingVoltage",
             "ada:fieldScope": "method",
@@ -157,7 +207,9 @@
             "ada:tier": "M"
           },
           {
-            "@type": ["schema:PropertyValueSpecification"],
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
             "schema:name": "Beam Current",
             "schema:valueName": "beamCurrent",
             "ada:fieldScope": "method",
@@ -172,7 +224,9 @@
             "ada:tier": "M"
           },
           {
-            "@type": ["schema:PropertyValueSpecification"],
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
             "schema:name": "Beam Diameter",
             "schema:valueName": "beamDiameter",
             "ada:fieldScope": "session",
@@ -187,7 +241,9 @@
             "ada:tier": "M"
           },
           {
-            "@type": ["schema:PropertyValueSpecification"],
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
             "schema:name": "Beam Damage Minimization",
             "schema:valueName": "beamDamageMinimization",
             "schema:inDefinedTermSet": {
@@ -207,14 +263,21 @@
         }
       },
       {
-        "@type": ["cdi:Activity", "schema:Action"],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Data processing",
         "schema:position": 4,
         "schema:description": "Matrix correction, blank correction, and standards-based normalization using Probe for EPMA.",
-        "schema:object": {"@id": "#rawAnalyses"},
+        "schema:object": {
+          "@id": "#rawAnalyses"
+        },
         "bios:computationalTool": [
           {
-            "@type": ["schema:SoftwareApplication"],
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
             "schema:name": "Probe for EPMA",
             "schema:version": "9.6.4",
             "ada:toolRole": "reduction"
@@ -222,7 +285,9 @@
         ],
         "ada:methodParameters": [
           {
-            "@type": ["schema:PropertyValueSpecification"],
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
             "schema:name": "Matrix Correction Model",
             "schema:valueName": "matrixCorrectionModel",
             "schema:propertyID": "https://vocab.onegeochemistry.org/epma/matrix-correction",
@@ -235,7 +300,6 @@
             "schema:readonlyValue": true,
             "schema:valueRequired": true,
             "schema:defaultValue": "Armstrong/Packwood-Brown 1981 MAS Phi(pz) with CITZMU MACs",
-            "ada:enumeration": ["PAP", "XPP", "PhiRhoZ", "ZAF", "CITZAF", "Armstrong", "Other"],
             "ada:tier": "M"
           }
         ],
@@ -244,14 +308,21 @@
         }
       },
       {
-        "@type": ["cdi:Activity", "schema:Action"],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Quality control",
         "schema:position": 5,
         "schema:description": "Secondary standards analysed at start and end of every session. Drift correction by interpolation of primary standard calibrations.",
-        "schema:object": {"@id": "#quantifiedResults"},
+        "schema:object": {
+          "@id": "#quantifiedResults"
+        },
         "ada:methodParameters": [
           {
-            "@type": ["schema:PropertyValueSpecification"],
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
             "schema:name": "Drift Correction",
             "schema:valueName": "driftCorrection",
             "ada:fieldScope": "session",
@@ -265,7 +336,9 @@
         ],
         "dqv:hasQualityMeasurement": [
           {
-            "@type": ["dqv:QualityMeasurement"],
+            "@type": [
+              "dqv:QualityMeasurement"
+            ],
             "dqv:isMeasurementOf": "analytical precision (1-sigma)",
             "dqv:value": "Reported per element on secondary standards; see relatedLink publications"
           }
@@ -276,7 +349,9 @@
   "ada:analyteTemplate": {
     "ada:analyteColumns": [
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Analysed Oxide/Element",
         "schema:valueName": "analysedOxide",
         "ada:dataType": "string",
@@ -285,7 +360,9 @@
         "ada:cdifPropertyPath": "cdifVariableMeasured: cdi:name"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Beam Current (nA)",
         "schema:valueName": "beamCurrent",
         "ada:dataType": "number",
@@ -296,7 +373,9 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Spectrometer",
         "schema:valueName": "spectrometer",
         "ada:dataType": "string",
@@ -304,7 +383,9 @@
         "ada:tier": "R"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Sequence",
         "schema:valueName": "sequence",
         "ada:dataType": "integer",
@@ -312,7 +393,9 @@
         "ada:tier": "R"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Diffracting Crystal",
         "schema:valueName": "diffractingCrystal",
         "schema:inDefinedTermSet": {
@@ -320,20 +403,47 @@
         },
         "ada:dataType": "string",
         "schema:valueRequired": true,
-        "ada:enumeration": ["PET", "PETJ", "LIF", "LIFH", "TAP", "RAP"],
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Detector Type",
         "schema:valueName": "detectorType",
         "ada:dataType": "string",
         "schema:valueRequired": false,
-        "ada:enumeration": ["xenon", "P-10", "SDD", "Si(Li)", "Other"],
-        "ada:tier": "R"
+        "ada:tier": "R",
+        "schema:inDefinedTermSet": {
+          "@type": "schema:DefinedTermSet",
+          "schema:hasDefinedTerm": [
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "xenon"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "P-10"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "SDD"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Si(Li)"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Other"
+            }
+          ]
+        }
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "X-ray Line",
         "schema:valueName": "xrayLine",
         "schema:inDefinedTermSet": {
@@ -341,11 +451,12 @@
         },
         "ada:dataType": "string",
         "schema:valueRequired": true,
-        "ada:enumeration": ["Ka", "Kb", "La", "Lb", "Ma"],
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Peak Counting Time (s)",
         "schema:valueName": "peakCountingTime",
         "ada:dataType": "number",
@@ -355,7 +466,9 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Background Method",
         "schema:valueName": "backgroundMethod",
         "schema:inDefinedTermSet": {
@@ -366,7 +479,9 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Background Counting Time (s)",
         "schema:valueName": "backgroundCountingTime",
         "ada:dataType": "number",
@@ -376,16 +491,32 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "WDS PHA Setting",
         "schema:valueName": "phaSettings",
         "ada:dataType": "string",
         "schema:valueRequired": false,
-        "ada:enumeration": ["Integral", "Differential"],
-        "ada:tier": "R"
+        "ada:tier": "R",
+        "schema:inDefinedTermSet": {
+          "@type": "schema:DefinedTermSet",
+          "schema:hasDefinedTerm": [
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Integral"
+            },
+            {
+              "@type": "schema:DefinedTerm",
+              "schema:termCode": "Differential"
+            }
+          ]
+        }
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Calibration Standard Name",
         "schema:valueName": "calibrationStandardName",
         "ada:dataType": "string",
@@ -393,7 +524,9 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Normalization Method",
         "schema:valueName": "normalizationMethod",
         "ada:dataType": "string",
@@ -401,7 +534,9 @@
         "ada:tier": "O"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Normalization Standards",
         "schema:valueName": "normalizationStandards",
         "ada:dataType": "string",
@@ -409,7 +544,9 @@
         "ada:tier": "O"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Detection Limit",
         "schema:valueName": "detectionLimit",
         "ada:dataType": "number",
@@ -417,7 +554,9 @@
         "ada:tier": "R"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Detection Limit Unit",
         "schema:valueName": "detectionLimitUnit",
         "ada:dataType": "string",
@@ -425,7 +564,9 @@
         "ada:tier": "R"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Detection Limit Method",
         "schema:valueName": "detectionLimitMethod",
         "ada:dataType": "string",
