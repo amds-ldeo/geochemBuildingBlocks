@@ -217,7 +217,9 @@
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -237,7 +239,9 @@
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -279,9 +283,8 @@
         {
           "@id": "ex:adaDSC-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "cdi:TabularTextDataSet",
+            "ada:tabularData"
           ],
           "schema:name": "ALH84001_DSC_001.tif",
           "schema:description": "DSC data file for ALH 84001 thin section",
@@ -305,14 +308,14 @@
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": "ada:DSCHeatTabular"
+          "ada:componentType": "ada:DSCHeatTabular",
+          "cdi:isDelimited": true
         },
         {
           "@id": "ex:adaDSC-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_DSC_methods.pdf",
           "schema:description": "Method description document for this analysis",
