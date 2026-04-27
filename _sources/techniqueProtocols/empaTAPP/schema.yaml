@@ -1,0 +1,34 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: EMPA Technique-Aligned Protocol Profile (empaTAPP)
+description: EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), a parameter vocabulary in ada:methodParameters, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability; the resolved schema can inline references where used. Generated from docs/TAPP_EPMA_filled.xlsx by tools/_build_empaTAPP.py.
+allOf:
+  - $ref: ../tappDefinition/schema.yaml
+  - type: object
+    properties:
+      ada:beamMode:
+        description: Whether the beam was focused, defocused, or rastered over an area.
+        type: string
+        enum:
+          - Focused
+          - Defocused
+          - Raster
+      ada:beamDiameterDefault:
+        description: Diameter of the focused or defocused electron beam in micrometers.
+        type: string
+      ada:beamCurrentDefault:
+        description: Probe current in nanoamperes (nA).
+        type: string
+      ada:matrixCorrectionMethod:
+        description: X-ray matrix correction algorithm applied during data reduction.
+        type: string
+        enum:
+          - PAP (Pouchou & Pichoir Full)
+          - XPP (Simplified PAP)
+          - PhiRhoZ Bastin (EPQ-91)
+          - Love-Scott I
+          - Love-Scott II
+          - Armstrong/Love-Scott
+          - Heinrich/Duncumb-Reed
+          - Conventional Philibert/Duncumb-Reed
+          - Other
+          - Unknown

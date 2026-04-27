@@ -4,9 +4,11 @@ Modular metadata schema components for the [Astromat Data Archive (ADA)](https:/
 
 ## Structure
 
-### geochemProperties (30 schema components) + techniqueProtocols (1)
+### geochemProperties (30 schema components) + techniqueProtocols (2)
 
-`techniqueProtocols/tappDefinition` was previously `geochemProperties/methodDefinition`; it was renamed and moved to a sibling top-level folder to reflect the broader "Technique-Aligned Protocol Profile (TAPP)" terminology. JSON-LD class is now `ada:TAPPDefinition`.
+`techniqueProtocols/` houses TAPP-related building blocks:
+- `tappDefinition` — base TAPP definition (was previously `geochemProperties/methodDefinition`). JSON-LD class is `ada:TAPPDefinition`.
+- `empaTAPP` — EMPA-specific extension of tappDefinition. Adds top-level EPMA properties (`ada:beamMode`, `ada:beamDiameterDefault`, `ada:beamCurrentDefault`, `ada:matrixCorrectionMethod`), plus parameter and analyte-column templates as separate JSON files under `parameters/`, `analyteColumns/`, and `vocab/`. Generated from `docs/TAPP_EPMA_filled.xlsx` by `tools/build_empaTAPP_from_spreadsheet.py`.
 
 ### geochemProperties (30 schema components)
 
