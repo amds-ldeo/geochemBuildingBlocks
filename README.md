@@ -8,7 +8,7 @@ Modular metadata schema components for the [Astromat Data Archive (ADA)](https:/
 
 `techniqueProtocols/` houses TAPP-related building blocks:
 - `tappDefinition` — base TAPP definition (was previously `geochemProperties/methodDefinition`). JSON-LD class is `ada:TAPPDefinition`.
-- `empaTAPP` — EMPA-specific extension of tappDefinition. Adds top-level EPMA properties (`ada:beamMode`, `ada:beamDiameterDefault`, `ada:beamCurrentDefault`, `ada:matrixCorrectionMethod`), plus parameter and analyte-column templates as separate JSON files under `parameters/`, `analyteColumns/`, and `vocab/`. Generated from `docs/TAPP_EPMA_filled.xlsx` by `tools/build_empaTAPP_from_spreadsheet.py`.
+- `empaTAPP` — EMPA-specific extension of tappDefinition. Adds top-level EPMA properties (`ada:beamMode`, `ada:beamDiameterDefault`, `ada:beamCurrentDefault`, `ada:matrixCorrectionMethod`), plus parameter and analyte-column templates as separate JSON files under `parameters/`, `analyteColumns/`, and `vocab/`. Generated from `docs/TAPP_EPMA_filled.xlsx` by `tools/build_empaTAPP_from_spreadsheet.py`. Examples include 10 publication-derived instances (`exampleempaTAPP-P1.json` … `-P10.json`) plus a comprehensive synthetic example (`exampleempaTAPP-all.json`) that exercises every property allowed by the resolved schema.
 
 ### geochemProperties (30 schema components)
 
@@ -109,6 +109,8 @@ Example files use the sibling `example<bbName>-<variant>.json` pattern (validate
 - `exampletappDefinition-concord-glass-v1-0-6.json` — EPMA WDS tephra glass (Concord University)
 - `exampletappDefinition-nmnh-spinel-oxybar-v1.json` — EPMA WDS spinel oxybarometry (Smithsonian NMNH)
 - `exampletappDefinition-uoc-laicpms-glass-v1.json` — LA-ICP-MS volcanic glass trace elements (University of Cologne)
+
+For the empaTAPP profile: 10 publication-derived examples (`exampleempaTAPP-P1.json` … `exampleempaTAPP-P10.json`) plus `exampleempaTAPP-all.json`, a hand-authored comprehensive synthetic instance that exercises every property allowed by the resolved schema. Use the latter as a structural reference when authoring new TAPP profiles or onboarding new authors.
 
 ### Vocabularies used
 

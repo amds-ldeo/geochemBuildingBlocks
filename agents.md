@@ -139,8 +139,9 @@ Lives at `_sources/techniqueProtocols/tappDefinition/`. Was previously `geochemP
   - `vocab/<name>.json` — DefinedTermSet for each enum (12 vocabularies).
   - `parameters/<Name>.json` — PropertyValueSpecification template per parameter (11 parameters).
   - `analyteColumns/<col>.json` — PropertyValueSpecification template per analyte column (26 columns).
-- **Examples:** `exampleempaTAPP-P1.json` … `exampleempaTAPP-P10.json`, derived from the publication-data columns of the worksheet (Chi 2015, Hu 2020, Liu 2016, Ma 2017, Frank 2023, Broussard 2026, Seifert 2026, Zega 2025, McCoy 2025, Pang 2016).
+- **Examples:** `exampleempaTAPP-P1.json` … `exampleempaTAPP-P10.json`, derived from the publication-data columns of the worksheet (Chi 2015, Hu 2020, Liu 2016, Ma 2017, Frank 2023, Broussard 2026, Seifert 2026, Zega 2025, McCoy 2025, Pang 2016). Plus `exampleempaTAPP-all.json` — a hand-authored comprehensive synthetic example that exercises every property allowed by tappDefinition + the empaTAPP overlay (all 4 EMPA top-level props, 6 methodParameters, 14-column analyteTemplate with 3 default analyte rows, full instrument hierarchy, geosparql-qualified location, agent, HowTo workflow, quality measurements, related links, funding). Use this example as a reference when adding new top-level shapes.
 - **Validation rule for examples:** when a publication's value for an enum-constrained property doesn't exactly match an enum entry (the publications often use free text), the generator skips that property in the example rather than emitting an invalid value.
+- **Authoring gotchas (surfaced building exampleempaTAPP-all.json):** `schema:inDefinedTermSet` is `type: string`, not an `@id` object; `schema:instrument.schema:identifier` is an array; `schema:hasPart` items must contain `schema:Thing` in `@type`; `schema:location.schema:additionalType` must contain `nxs:BaseClass/NXsource`; `geosparql:asWKT` is `{@type:[geosparql:wktLiteral], @value:...}` and `geosparql:crs` is `{@id:...}`; `dqv:isMeasurementOf` is required on every quality measurement; `schema:relatedLink` items are `schema:CreativeWork`, not LinkRoles.
 
 ## Common tasks
 
