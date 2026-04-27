@@ -1,0 +1,78 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<ex:empaTAPP-p6> a cdi:Activity,
+        schema1:Action,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:agent [ a schema1:Person ;
+            schema1:name "Broussard et al." ] ;
+    schema1:description "empaTAPP example derived from Broussard et al. 2026 (OC002 CI chondrite, MAPS)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing,
+                <https://w3id.org/nfdi4ing/metadata4ing#Instrument> ;
+            schema1:additionalType "ada:EPMAInstrument",
+                "nxs:BaseClass/NXinstrument" ;
+            schema1:manufacturer [ a schema1:Organization ;
+                    schema1:name "JEOL" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "JXA-8200" ] ;
+            schema1:name "JEOL JXA-8200" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Washington University in St. Louis" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Electron Microprobe Analysis - WDS" ;
+            schema1:termCode "EPMA-WDS" ] ;
+    schema1:name "EPMA-WDS major/minor element minerals" ;
+    ada:beamCurrentDefault "25 nA" ;
+    ada:beamDiameterDefault "0 (focused)" ;
+    ada:beamMode "Focused" ;
+    ada:methodParameters [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Yes (F correction for fluorine-bearing phosphates; CO2 by stoichiometry for carbonates)" ;
+            schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
+            schema1:name "Halogen Correction on Oxygen" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "halogenOxygenCorrection" ;
+            ada:dataType "boolean" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "readOnly" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "F measurement with polynomial background fit (LDE1 crystal)" ;
+            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
+            schema1:name "Beam Damage Minimization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "BeamDamageMinimization" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "0 (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ] .
+
