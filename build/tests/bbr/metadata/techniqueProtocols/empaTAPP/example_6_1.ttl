@@ -31,33 +31,6 @@
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "F measurement with polynomial background fit (LDE1 crystal)" ;
-            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
-            schema1:name "Beam Damage Minimization" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "BeamDamageMinimization" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "0 (focused)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Yes (F correction for fluorine-bearing phosphates; CO2 by stoichiometry for carbonates)" ;
             schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
             schema1:name "Halogen Correction on Oxygen" ;
@@ -72,6 +45,33 @@
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "readOnly" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "F measurement with polynomial background fit (LDE1 crystal)" ;
+            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
+            schema1:name "Beam Damage Minimization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "BeamDamageMinimization" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "0 (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .

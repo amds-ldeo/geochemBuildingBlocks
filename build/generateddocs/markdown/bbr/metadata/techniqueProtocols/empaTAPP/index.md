@@ -318,20 +318,20 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "0 (focused)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "0 (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -856,6 +856,15 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
     ada:beamCurrentDefault "20 nA (silicates/oxides); 10 nA (glass/maskelynite/phosphate)" ;
     ada:beamDiameterDefault "1–2 µm focused (silicates/oxides); 5–10 µm defocused (glass/maskelynite)" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "1–2 µm focused (silicates/oxides); 5–10 µm defocused (glass/maskelynite)" ;
             schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
             schema1:name "Default Beam Diameter" ;
@@ -870,15 +879,6 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -1154,6 +1154,15 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
             schema1:valueName "readOnly" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
@@ -1164,15 +1173,6 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
             schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
             schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -1444,11 +1444,11 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
     ada:beamDiameterDefault "1 µm (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "20" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
+            schema1:defaultValue "1 µm (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
@@ -1462,11 +1462,11 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "1 µm (focused)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
+            schema1:defaultValue "20" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
+            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -1790,33 +1790,6 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "F measurement with polynomial background fit (LDE1 crystal)" ;
-            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
-            schema1:name "Beam Damage Minimization" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "BeamDamageMinimization" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "0 (focused)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Yes (F correction for fluorine-bearing phosphates; CO2 by stoichiometry for carbonates)" ;
             schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
             schema1:name "Halogen Correction on Oxygen" ;
@@ -1831,6 +1804,33 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "readOnly" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "F measurement with polynomial background fit (LDE1 crystal)" ;
+            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
+            schema1:name "Beam Damage Minimization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "BeamDamageMinimization" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "0 (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -2151,6 +2151,33 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
     ada:beamCurrentDefault "20 nA" ;
     ada:beamDiameterDefault "2 µm" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Yes (F measured; Cl measured; OH by difference)" ;
+            schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
+            schema1:name "Halogen Correction on Oxygen" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "halogenOxygenCorrection" ;
+            ada:dataType "boolean" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "readOnly" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "2 µm" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
@@ -2165,33 +2192,6 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
             schema1:name "Beam Damage Minimization" ;
             schema1:readonlyValue true ;
             schema1:valueName "BeamDamageMinimization" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Yes (F measured; Cl measured; OH by difference)" ;
-            schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
-            schema1:name "Halogen Correction on Oxygen" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "halogenOxygenCorrection" ;
-            ada:dataType "boolean" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "2 µm" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -2473,7 +2473,7 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu mineralogy, N
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
+            schema1:valueName "readOnly" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
@@ -2482,7 +2482,7 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu mineralogy, N
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
+            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -3046,15 +3046,6 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
             schema1:valueName "readOnly" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
@@ -3065,6 +3056,15 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
             schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
             schema1:valueName "beamDiameter" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
