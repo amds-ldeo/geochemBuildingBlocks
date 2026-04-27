@@ -217,7 +217,9 @@
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -237,7 +239,9 @@
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -279,9 +283,8 @@
         {
           "@id": "ex:adaL2MS-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "ada:dataCube",
+            "cdi:StructuredDataSet"
           ],
           "schema:name": "ALH84001_L2MS_001.tif",
           "schema:description": "L2MS data file for ALH 84001 thin section",
@@ -311,8 +314,7 @@
           "@id": "ex:adaL2MS-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_L2MS_methods.pdf",
           "schema:description": "Method description document for this analysis",

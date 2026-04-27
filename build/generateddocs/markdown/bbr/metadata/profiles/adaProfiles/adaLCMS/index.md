@@ -268,7 +268,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -288,7 +290,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -330,9 +334,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaLCMS-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "ada:collection",
+            "https://schema.org/Collection"
           ],
           "schema:name": "ALH84001_LC-MS_001.tif",
           "schema:description": "LC-MS data file for ALH 84001 thin section",
@@ -362,8 +365,7 @@ Mock data for validation and testing.
           "@id": "ex:adaLCMS-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_LC-MS_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -669,7 +671,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -689,7 +693,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -731,9 +737,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaLCMS-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "ada:collection",
+            "https://schema.org/Collection"
           ],
           "schema:name": "ALH84001_LC-MS_001.tif",
           "schema:description": "LC-MS data file for ALH 84001 thin section",
@@ -763,8 +768,7 @@ Mock data for validation and testing.
           "@id": "ex:adaLCMS-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_LC-MS_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -847,6 +851,7 @@ Mock data for validation and testing.
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -943,9 +948,8 @@ ex:adaLCMS-example-001 a schema1:Dataset,
                     schema1:identifier "ex:instrument-lc-ms-001" ;
                     schema1:name "Example LC-MS Instrument" ] ] .
 
-ex:adaLCMS-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
-        ada:image ;
+ex:adaLCMS-file-001 a ada:collection,
+        schema:Collection ;
     schema1:additionalType "ada:LCMSCollection" ;
     schema1:description "LC-MS data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
@@ -959,7 +963,6 @@ ex:adaLCMS-file-001 a schema1:ImageObject,
     ada:componentType "ada:LCMSCollection" .
 
 ex:adaLCMS-file-002 a schema1:DigitalDocument,
-        schema1:MediaObject,
         ada:document ;
     schema1:additionalType "ada:methodDescription" ;
     schema1:description "Method description document for this analysis" ;

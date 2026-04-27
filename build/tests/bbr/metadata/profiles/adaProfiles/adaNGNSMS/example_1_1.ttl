@@ -100,9 +100,9 @@ ex:adaNGNSMS-example-001 a schema1:Dataset,
                     schema1:identifier "ex:instrument-ng-ns-ms-001" ;
                     schema1:name "Example NG-NS-MS Instrument" ] ] .
 
-ex:adaNGNSMS-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
-        ada:image ;
+ex:adaNGNSMS-file-001 a cdi:TabularTextDataSet,
+        ada:tabularData ;
+    cdi:isDelimited true ;
     schema1:additionalType "ada:NGNSMSRaw" ;
     schema1:description "NG-NS-MS data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
@@ -116,7 +116,6 @@ ex:adaNGNSMS-file-001 a schema1:ImageObject,
     ada:componentType "ada:NGNSMSRaw" .
 
 ex:adaNGNSMS-file-002 a schema1:DigitalDocument,
-        schema1:MediaObject,
         ada:document ;
     schema1:additionalType "ada:methodDescription" ;
     schema1:description "Method description document for this analysis" ;

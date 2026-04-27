@@ -100,9 +100,9 @@ ex:adaRITOFNGMS-example-001 a schema1:Dataset,
                     schema1:identifier "ex:instrument-ri-tof-ngms-001" ;
                     schema1:name "Example RI-TOF-NGMS Instrument" ] ] .
 
-ex:adaRITOFNGMS-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
-        ada:image ;
+ex:adaRITOFNGMS-file-001 a cdi:TabularTextDataSet,
+        ada:tabularData ;
+    cdi:isDelimited true ;
     schema1:additionalType "ada:RITOFNGMSTabular" ;
     schema1:description "RI-TOF-NGMS data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
@@ -116,7 +116,6 @@ ex:adaRITOFNGMS-file-001 a schema1:ImageObject,
     ada:componentType "ada:RITOFNGMSTabular" .
 
 ex:adaRITOFNGMS-file-002 a schema1:DigitalDocument,
-        schema1:MediaObject,
         ada:document ;
     schema1:additionalType "ada:methodDescription" ;
     schema1:description "Method description document for this analysis" ;

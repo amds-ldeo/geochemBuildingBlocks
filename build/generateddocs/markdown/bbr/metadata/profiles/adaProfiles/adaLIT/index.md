@@ -271,7 +271,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -291,7 +293,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -334,8 +338,7 @@ Mock data for validation and testing.
           "@id": "ex:adaLIT-file-001",
           "@type": [
             "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "schema:ImageObject"
           ],
           "schema:name": "ALH84001_LIT_001.tif",
           "schema:description": "LIT data file for ALH 84001 thin section",
@@ -365,8 +368,7 @@ Mock data for validation and testing.
           "@id": "ex:adaLIT-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_LIT_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -673,7 +675,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -693,7 +697,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -736,8 +742,7 @@ Mock data for validation and testing.
           "@id": "ex:adaLIT-file-001",
           "@type": [
             "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "schema:ImageObject"
           ],
           "schema:name": "ALH84001_LIT_001.tif",
           "schema:description": "LIT data file for ALH 84001 thin section",
@@ -767,8 +772,7 @@ Mock data for validation and testing.
           "@id": "ex:adaLIT-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_LIT_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -949,7 +953,6 @@ ex:adaLIT-example-001 a schema1:Dataset,
                     schema1:name "Example LIT Instrument" ] ] .
 
 ex:adaLIT-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
         ada:image ;
     schema1:additionalType "ada:LITImage" ;
     schema1:description "LIT data file for ALH 84001 thin section" ;
@@ -964,7 +967,6 @@ ex:adaLIT-file-001 a schema1:ImageObject,
     ada:componentType "ada:LITImage" .
 
 ex:adaLIT-file-002 a schema1:DigitalDocument,
-        schema1:MediaObject,
         ada:document ;
     schema1:additionalType "ada:methodDescription" ;
     schema1:description "Method description document for this analysis" ;

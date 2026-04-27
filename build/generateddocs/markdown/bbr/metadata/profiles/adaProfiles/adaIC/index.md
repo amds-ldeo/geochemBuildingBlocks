@@ -267,7 +267,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -287,7 +289,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -329,9 +333,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaIC-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "cdi:TabularTextDataSet",
+            "ada:tabularData"
           ],
           "schema:name": "ALH84001_IC_001.tif",
           "schema:description": "IC data file for ALH 84001 thin section",
@@ -355,14 +358,14 @@ Mock data for validation and testing.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": "ada:ICTabular"
+          "ada:componentType": "ada:ICTabular",
+          "cdi:isDelimited": true
         },
         {
           "@id": "ex:adaIC-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_IC_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -669,7 +672,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -689,7 +694,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -731,9 +738,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaIC-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "cdi:TabularTextDataSet",
+            "ada:tabularData"
           ],
           "schema:name": "ALH84001_IC_001.tif",
           "schema:description": "IC data file for ALH 84001 thin section",
@@ -757,14 +763,14 @@ Mock data for validation and testing.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": "ada:ICTabular"
+          "ada:componentType": "ada:ICTabular",
+          "cdi:isDelimited": true
         },
         {
           "@id": "ex:adaIC-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_IC_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -944,9 +950,9 @@ ex:adaIC-example-001 a schema1:Dataset,
                     schema1:identifier "ex:instrument-ic-001" ;
                     schema1:name "Example IC Instrument" ] ] .
 
-ex:adaIC-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
-        ada:image ;
+ex:adaIC-file-001 a cdi:TabularTextDataSet,
+        ada:tabularData ;
+    cdi:isDelimited true ;
     schema1:additionalType "ada:ICTabular" ;
     schema1:description "IC data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
@@ -960,7 +966,6 @@ ex:adaIC-file-001 a schema1:ImageObject,
     ada:componentType "ada:ICTabular" .
 
 ex:adaIC-file-002 a schema1:DigitalDocument,
-        schema1:MediaObject,
         ada:document ;
     schema1:additionalType "ada:methodDescription" ;
     schema1:description "Method description document for this analysis" ;

@@ -272,7 +272,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -292,7 +294,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -334,9 +338,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaARGT-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "ada:document",
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_ARGT_001.tif",
           "schema:description": "ARGT data file for ALH 84001 thin section",
@@ -366,8 +369,7 @@ Mock data for validation and testing.
           "@id": "ex:adaARGT-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_ARGT_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -674,7 +676,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ],
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts"
     },
@@ -694,7 +698,9 @@ Mock data for validation and testing.
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float",
+      "cdi:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ],
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um"
     }
@@ -736,9 +742,8 @@ Mock data for validation and testing.
         {
           "@id": "ex:adaARGT-file-001",
           "@type": [
-            "ada:image",
-            "schema:ImageObject",
-            "schema:MediaObject"
+            "ada:document",
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_ARGT_001.tif",
           "schema:description": "ARGT data file for ALH 84001 thin section",
@@ -768,8 +773,7 @@ Mock data for validation and testing.
           "@id": "ex:adaARGT-file-002",
           "@type": [
             "ada:document",
-            "schema:DigitalDocument",
-            "schema:MediaObject"
+            "schema:DigitalDocument"
           ],
           "schema:name": "ALH84001_ARGT_methods.pdf",
           "schema:description": "Method description document for this analysis",
@@ -949,9 +953,8 @@ ex:adaARGT-example-001 a schema1:Dataset,
                     schema1:identifier "ex:instrument-argt-001" ;
                     schema1:name "Example ARGT Instrument" ] ] .
 
-ex:adaARGT-file-001 a schema1:ImageObject,
-        schema1:MediaObject,
-        ada:image ;
+ex:adaARGT-file-001 a schema1:DigitalDocument,
+        ada:document ;
     schema1:additionalType "ada:ARGTDocument" ;
     schema1:description "ARGT data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
@@ -965,7 +968,6 @@ ex:adaARGT-file-001 a schema1:ImageObject,
     ada:componentType "ada:ARGTDocument" .
 
 ex:adaARGT-file-002 a schema1:DigitalDocument,
-        schema1:MediaObject,
         ada:document ;
     schema1:additionalType "ada:methodDescription" ;
     schema1:description "Method description document for this analysis" ;

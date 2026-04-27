@@ -103,6 +103,7 @@ allOf:
       - ada:ARGTRawData
       - ada:ARGTSummaryData
       - ada:DSCHeatFlow
+      - ada:DSCHeatTabular
       - ada:DSCIndividualMeasurements
       - ada:DSCProcessedHeatFlux
       - ada:DSCRawHeatFlux
