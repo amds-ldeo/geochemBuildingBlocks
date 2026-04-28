@@ -113,7 +113,23 @@ def write_json(path: Path, data: dict):
 
 
 def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
-    """Hybrid JSON Schema + canonical instance for one DefinedTermSet."""
+    """Hybrid JSON Schema + canonical instance for one DefinedTermSet.
+
+    Each term is a full schema:DefinedTerm with its own @id ("ada:{termCode}"
+    by convention for now; data producers supplement schema:name and
+    schema:description). The schema pins each term's (@id, termCode) pair
+    via a oneOf branch — termCode alone is no longer a flat enum, so the
+    @id convention is enforced.
+    """
+    canonical_terms = [
+        OrderedDict([
+            ("@type", "schema:DefinedTerm"),
+            ("@id", f"ada:{t}"),
+            ("schema:termCode", t),
+            ("schema:name", t),
+        ])
+        for t in terms
+    ]
     canonical = OrderedDict([
         ("@context", {
             "schema": "http://schema.org/",
@@ -123,11 +139,19 @@ def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
         ("@type", "schema:DefinedTermSet"),
         ("schema:name", label),
         ("schema:description", desc or f"Allowed values for {label}."),
-        ("schema:hasDefinedTerm", [
-            {"@type": "schema:DefinedTerm", "schema:termCode": t, "schema:name": t}
-            for t in terms
-        ]),
+        ("schema:hasDefinedTerm", canonical_terms),
     ])
+
+    term_branches = [
+        {
+            "properties": OrderedDict([
+                ("@id", {"const": f"ada:{t}"}),
+                ("schema:termCode", {"const": t}),
+            ])
+        }
+        for t in terms
+    ]
+
     properties = OrderedDict([
         ("@type", {"const": "schema:DefinedTermSet"}),
         ("schema:name", {"const": label}),
@@ -138,9 +162,11 @@ def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
                 "type": "object",
                 "properties": {
                     "@type": {"const": "schema:DefinedTerm"},
-                    "schema:termCode": {"enum": list(terms)},
+                    "schema:name": {"type": "string"},
+                    "schema:description": {"type": "string"},
                 },
-                "required": ["@type", "schema:termCode"],
+                "required": ["@type", "@id", "schema:termCode"],
+                "oneOf": term_branches,
             },
         }),
     ])
