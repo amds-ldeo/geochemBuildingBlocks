@@ -18,44 +18,48 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-
   "schema:name": "Comprehensive EPMA-WDS TAPP example v3.0 (synthetic, exercises every property)",
   "schema:identifier": {
-    "@type": ["schema:PropertyValue"],
+    "@type": [
+      "schema:PropertyValue"
+    ],
     "schema:propertyID": "https://registry.identifiers.org/registry/doi",
     "schema:value": "10.99999/empaTAPP-all-v3",
     "schema:url": "https://doi.org/10.99999/empaTAPP-all-v3"
   },
-  "schema:description": "Synthetic comprehensive empaTAPP example. Populates every top-level property allowed by tappDefinition + the empaTAPP overlay (ada:beamMode, ada:beamDiameterDefault, ada:beamCurrentDefault, ada:matrixCorrectionMethod), every parameter template, a representative analyte template, plus quality measurements, related links, and funding. Mock data — not a real protocol.",
+  "schema:description": "Synthetic comprehensive empaTAPP example. Populates every top-level property allowed by tappDefinition + the empaTAPP overlay (ada:beamMode, ada:beamDiameterDefault, ada:beamCurrentDefault, ada:matrixCorrectionMethod), every parameter template, a representative analyte template, plus quality measurements, related links, and funding. Mock data â€” not a real protocol.",
   "schema:version": "3.0.0",
   "schema:datePublished": "2026-04-26",
   "schema:dateModified": "2026-04-27",
   "schema:additionalType": [
     "schema:CreateAction"
   ],
-
   "schema:measurementTechnique": {
-    "@type": ["schema:DefinedTerm"],
+    "@type": [
+      "schema:DefinedTerm"
+    ],
     "schema:termCode": "EPMA-WDS",
     "schema:name": "Electron Microprobe Analysis - WDS",
     "schema:description": "Wavelength-dispersive electron microprobe analysis",
     "schema:inDefinedTermSet": "ada:vocab/empaTAPP/Technique"
   },
-
   "schema:object": [
     {
-      "@type": ["schema:DefinedTerm"],
+      "@type": [
+        "schema:DefinedTerm"
+      ],
       "schema:name": "Silicate glass",
       "schema:termCode": "silicateGlass",
       "schema:inDefinedTermSet": "https://vocab.example.org/materials"
     },
     {
-      "@type": ["schema:DefinedTerm"],
+      "@type": [
+        "schema:DefinedTerm"
+      ],
       "schema:name": "Olivine"
     },
     "Spinel"
   ],
-
   "schema:instrument": {
     "@type": [
       "schema:Thing",
@@ -67,42 +71,66 @@
       "ada:EPMAInstrument"
     ],
     "schema:name": "JEOL JXA-8530F (Caltech GPS)",
-    "schema:identifier": ["instr:caltech-jeol-jxa8530f"],
+    "schema:identifier": [
+      "instr:caltech-jeol-jxa8530f"
+    ],
     "schema:manufacturer": {
-      "@type": ["schema:Organization"],
+      "@type": [
+        "schema:Organization"
+      ],
       "schema:name": "JEOL Ltd."
     },
     "schema:model": {
-      "@type": ["schema:ProductModel"],
+      "@type": [
+        "schema:ProductModel"
+      ],
       "schema:name": "JXA-8530F",
       "schema:identifier": "JXA-8530F"
     },
     "schema:owner": {
-      "@type": ["schema:Organization"],
+      "@type": [
+        "schema:Organization"
+      ],
       "schema:name": "California Institute of Technology"
     },
     "schema:hasPart": [
       {
-        "@type": ["schema:Thing", "schema:Product"],
+        "@type": [
+          "schema:Thing",
+          "schema:Product"
+        ],
         "schema:name": "WDS spectrometer ch.1 (TAP)",
-        "schema:additionalType": ["WDS spectrometer"]
+        "schema:additionalType": [
+          "WDS spectrometer"
+        ]
       },
       {
-        "@type": ["schema:Thing", "schema:Product"],
+        "@type": [
+          "schema:Thing",
+          "schema:Product"
+        ],
         "schema:name": "WDS spectrometer ch.2 (PET)",
-        "schema:additionalType": ["WDS spectrometer"]
+        "schema:additionalType": [
+          "WDS spectrometer"
+        ]
       },
       {
-        "@type": ["schema:Thing", "schema:Product"],
+        "@type": [
+          "schema:Thing",
+          "schema:Product"
+        ],
         "schema:name": "EDS detector (Oxford X-Max 80)",
-        "schema:additionalType": ["EDS detector"]
+        "schema:additionalType": [
+          "EDS detector"
+        ]
       }
     ]
   },
-
   "bios:computationalTool": [
     {
-      "@type": ["schema:SoftwareApplication"],
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
       "schema:name": "Probe for EPMA",
       "schema:version": "12.9.5",
       "schema:description": "WDS acquisition control + matrix correction.",
@@ -110,60 +138,83 @@
       "ada:toolRole": "acquisition"
     },
     {
-      "@type": ["schema:SoftwareApplication"],
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
       "schema:name": "CITZAF",
       "schema:version": "Armstrong/Packwood-Brown 1981",
       "schema:description": "Matrix correction algorithm used in data reduction.",
       "ada:toolRole": "reduction"
     },
     {
-      "@type": ["schema:SoftwareApplication"],
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
       "schema:name": "Iolite",
       "schema:version": "4.5",
       "schema:description": "Post-processing visualization and quality control.",
       "ada:toolRole": "visualization"
     }
   ],
-
   "bios:reagent": [
     {
-      "@type": ["schema:Thing", "schema:Product"],
+      "@type": [
+        "schema:Thing",
+        "schema:Product"
+      ],
       "@id": "ex:reagent-san-carlos-olivine",
       "schema:name": "San Carlos olivine",
       "schema:description": "Reference olivine, USNM-111312/444",
       "schema:identifier": {
-        "@type": ["schema:PropertyValue"],
+        "@type": [
+          "schema:PropertyValue"
+        ],
         "schema:propertyID": "https://registry.identifiers.org/registry/igsn",
         "schema:value": "IEDA000111312"
       },
       "ada:reagentRole": "primaryStandard",
       "schema:citation": {
-        "@type": ["schema:CreativeWork"],
+        "@type": [
+          "schema:CreativeWork"
+        ],
         "schema:name": "Jarosewich, Nelen & Norberg 1980 Geostandards Newsletter",
         "schema:url": "https://doi.org/10.1111/j.1751-908X.1980.tb00273.x"
       }
     },
     {
-      "@type": ["schema:Thing", "schema:Product"],
+      "@type": [
+        "schema:Thing",
+        "schema:Product"
+      ],
       "schema:name": "Smithsonian Spinel USNM-117075",
       "ada:reagentRole": "secondaryStandard"
     }
   ],
-
   "schema:location": {
-    "@type": ["schema:Place"],
+    "@type": [
+      "schema:Place"
+    ],
     "schema:name": "Caltech GPS Division Analytical Facility",
     "schema:identifier": "lab:caltech-gps-microprobe",
-    "schema:additionalType": ["academic-laboratory", "nxs:BaseClass/NXsource"],
+    "schema:additionalType": [
+      "academic-laboratory",
+      "nxs:BaseClass/NXsource"
+    ],
     "schema:geo": {
-      "@type": ["schema:GeoCoordinates"],
+      "@type": [
+        "schema:GeoCoordinates"
+      ],
       "schema:latitude": 34.137,
       "schema:longitude": -118.125
     },
     "geosparql:hasGeometry": {
-      "@type": ["geosparql:Geometry"],
+      "@type": [
+        "geosparql:Geometry"
+      ],
       "geosparql:asWKT": {
-        "@type": ["geosparql:wktLiteral"],
+        "@type": [
+          "geosparql:wktLiteral"
+        ],
         "@value": "POINT(-118.125 34.137)"
       },
       "geosparql:crs": {
@@ -171,65 +222,94 @@
       }
     }
   },
-
   "schema:agent": {
-    "@type": ["schema:Person"],
+    "@type": [
+      "schema:Person"
+    ],
     "schema:name": "Maria Analytica",
     "schema:identifier": "https://orcid.org/0000-0001-2345-6789",
     "schema:affiliation": {
-      "@type": ["schema:Organization"],
+      "@type": [
+        "schema:Organization"
+      ],
       "schema:name": "California Institute of Technology"
     },
     "schema:contactPoint": {
-      "@type": ["schema:ContactPoint"],
+      "@type": [
+        "schema:ContactPoint"
+      ],
       "schema:email": "manalytica@example.org"
     }
   },
-
   "schema:actionProcess": {
-    "@type": ["schema:HowTo"],
+    "@type": [
+      "schema:HowTo"
+    ],
     "@id": "ex:howto-empaTAPP-all-workflow",
     "schema:name": "EPMA WDS analytical workflow (5 steps)",
     "schema:description": "Standard EPMA-WDS workflow exercising sample prep, calibration, acquisition, processing, QC.",
     "schema:url": "https://example.org/protocols/empaTAPP-all",
     "schema:step": [
       {
-        "@type": ["schema:HowToStep", "cdi:Activity", "schema:Action"],
+        "@type": [
+          "schema:HowToStep",
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Sample preparation",
         "schema:description": "Polished thin section, carbon coated.",
         "schema:position": 1,
-        "schema:additionalType": ["bios:LabProcess"]
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ]
       },
       {
-        "@type": ["schema:HowToStep", "cdi:Activity", "schema:Action"],
+        "@type": [
+          "schema:HowToStep",
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Instrument calibration",
         "schema:description": "Primary calibration on natural-mineral standards.",
         "schema:position": 2
       },
       {
-        "@type": ["schema:HowToStep", "cdi:Activity", "schema:Action"],
+        "@type": [
+          "schema:HowToStep",
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "WDS acquisition",
         "schema:description": "Per-element peak/background acquisition.",
         "schema:position": 3
       },
       {
-        "@type": ["schema:HowToStep", "cdi:Activity", "schema:Action"],
+        "@type": [
+          "schema:HowToStep",
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Data processing",
         "schema:description": "Matrix correction (PAP), TDI correction.",
         "schema:position": 4
       },
       {
-        "@type": ["schema:HowToStep", "cdi:Activity", "schema:Action"],
+        "@type": [
+          "schema:HowToStep",
+          "cdi:Activity",
+          "schema:Action"
+        ],
         "schema:name": "Quality control",
         "schema:description": "Drift monitoring; precision/accuracy assessment vs secondary standards.",
         "schema:position": 5
       }
     ]
   },
-
   "ada:methodParameters": [
     {
-      "@type": ["schema:PropertyValueSpecification"],
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
       "schema:name": "Beam Raster Dimensions",
       "schema:valueName": "BeamRasterDimensions",
       "schema:description": "X x Y dimensions of beam raster area (when ada:beamMode is Raster).",
@@ -241,7 +321,9 @@
       "schema:unitText": "um x um"
     },
     {
-      "@type": ["schema:PropertyValueSpecification"],
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
       "schema:name": "Beam Damage Minimization",
       "schema:valueName": "BeamDamageMinimization",
       "schema:description": "Strategy used to limit beam damage (e.g. defocused beam on labile elements).",
@@ -251,7 +333,9 @@
       "ada:tier": "R"
     },
     {
-      "@type": ["schema:PropertyValueSpecification"],
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
       "schema:name": "Drift Correction",
       "schema:valueName": "DriftCorrection",
       "schema:description": "Drift correction approach applied during acquisition.",
@@ -261,7 +345,9 @@
       "ada:tier": "R"
     },
     {
-      "@type": ["schema:PropertyValueSpecification"],
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
       "schema:name": "Mass Absorption Coefficients (MACs)",
       "schema:valueName": "massAbsorptionCoefficients",
       "schema:description": "MAC table used for matrix correction.",
@@ -273,7 +359,9 @@
       "schema:inDefinedTermSet": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
     },
     {
-      "@type": ["schema:PropertyValueSpecification"],
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
       "schema:name": "Halogen Correction on Oxygen",
       "schema:valueName": "halogenOxygenCorrection",
       "schema:description": "Whether oxygen counts are corrected for halogen interference.",
@@ -284,7 +372,9 @@
       "schema:defaultValue": "true"
     },
     {
-      "@type": ["schema:PropertyValueSpecification"],
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
       "schema:name": "EDS Spectral Processing Type",
       "schema:valueName": "edsSpectralProcessingType",
       "schema:description": "Type of EDS spectral processing applied.",
@@ -296,11 +386,25 @@
       "schema:inDefinedTermSet": "ada:vocab/empaTAPP/edsSpectralProcessingType"
     }
   ],
-
   "ada:analyteTemplate": {
     "ada:analyteColumns": [
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      },
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "EPMA Technique per Element",
         "schema:valueName": "epmaTechnique",
         "schema:description": "WDS or EDS for this analyte.",
@@ -310,7 +414,9 @@
         "schema:inDefinedTermSet": "ada:vocab/empaTAPP/epmaTechnique"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "WDS Spectrometer Channel",
         "schema:valueName": "spectrometerNumber",
         "ada:dataType": "integer",
@@ -320,7 +426,9 @@
         "schema:maxValue": 5
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Sequence (analysis order)",
         "schema:valueName": "analysisOrder",
         "ada:dataType": "integer",
@@ -328,7 +436,9 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Diffracting Crystal",
         "schema:valueName": "monochromatorCrystal",
         "ada:dataType": "string",
@@ -337,7 +447,9 @@
         "schema:inDefinedTermSet": "ada:vocab/empaTAPP/monochromatorCrystal"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "WDS PHA Setting",
         "schema:valueName": "pulseHeightAnalyzeSetting",
         "ada:dataType": "string",
@@ -345,7 +457,9 @@
         "ada:tier": "R"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "X-ray Line",
         "schema:valueName": "xrayEmissionLine",
         "ada:dataType": "string",
@@ -353,7 +467,9 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Default Peak Counting Time",
         "schema:valueName": "peakCountingTime",
         "ada:dataType": "number",
@@ -362,7 +478,9 @@
         "schema:unitText": "s"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Background Counting Time",
         "schema:valueName": "backgroundCountingTime",
         "ada:dataType": "number",
@@ -371,7 +489,9 @@
         "schema:unitText": "s"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Background Correction Method",
         "schema:valueName": "backgroundCorrectionMethod",
         "ada:dataType": "string",
@@ -380,7 +500,9 @@
         "schema:inDefinedTermSet": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Time-Dependent Intensity Correction",
         "schema:valueName": "timeDependentIntensityCorrection",
         "ada:dataType": "string",
@@ -389,7 +511,9 @@
         "schema:inDefinedTermSet": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Element Estimation Method",
         "schema:valueName": "elementEstimationMethod",
         "ada:dataType": "string",
@@ -398,7 +522,9 @@
         "schema:inDefinedTermSet": "ada:vocab/empaTAPP/elementEstimationMethod"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Primary Calibration Standard",
         "schema:valueName": "primaryCalibrationStandard",
         "ada:dataType": "string",
@@ -406,7 +532,9 @@
         "ada:tier": "M"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Typical Detection Limit",
         "schema:valueName": "typicalDetectionLimit",
         "ada:dataType": "string",
@@ -415,7 +543,9 @@
         "schema:unitText": "ppm"
       },
       {
-        "@type": ["schema:PropertyValueSpecification"],
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "Typical Analytical Precision",
         "schema:valueName": "typicalAnalyticalPrecision",
         "ada:dataType": "string",
@@ -425,6 +555,7 @@
     ],
     "ada:defaultAnalytes": [
       {
+        "analyte": "K",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 1,
         "analysisOrder": 1,
@@ -438,6 +569,7 @@
         "primaryCalibrationStandard": "San Carlos olivine"
       },
       {
+        "analyte": "Na",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 2,
         "analysisOrder": 2,
@@ -450,6 +582,7 @@
         "primaryCalibrationStandard": "San Carlos olivine"
       },
       {
+        "analyte": "Ca",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 3,
         "analysisOrder": 3,
@@ -462,48 +595,56 @@
       }
     ]
   },
-
   "dqv:hasQualityMeasurement": [
     {
-      "@type": ["dqv:QualityMeasurement"],
-      "schema:name": "Analytical precision (1σ)",
+      "@type": [
+        "dqv:QualityMeasurement"
+      ],
+      "schema:name": "Analytical precision (1Ïƒ)",
       "dqv:isMeasurementOf": "https://www.w3.org/ns/dqv#precision",
       "dqv:value": "1-2% relative",
       "schema:description": "Standard deviation of repeated measurements on a single point under stable beam."
     },
     {
-      "@type": ["dqv:QualityMeasurement"],
+      "@type": [
+        "dqv:QualityMeasurement"
+      ],
       "schema:name": "Detection limit",
       "dqv:isMeasurementOf": "https://www.w3.org/ns/dqv#Metric/detectionLimit",
-      "dqv:value": "100-300 ppm (3σ background)",
-      "schema:description": "Typical 3σ detection limit at standard counting times."
+      "dqv:value": "100-300 ppm (3Ïƒ background)",
+      "schema:description": "Typical 3Ïƒ detection limit at standard counting times."
     }
   ],
-
   "schema:relatedLink": [
     {
-      "@type": ["schema:CreativeWork"],
+      "@type": [
+        "schema:CreativeWork"
+      ],
       "schema:name": "Original method publication",
       "schema:description": "Source paper underlying this synthetic example.",
       "schema:url": "https://doi.org/10.99999/empaTAPP-source-paper"
     }
   ],
-
   "schema:funding": [
     {
-      "@type": ["schema:MonetaryGrant"],
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
       "schema:name": "NASA Astromaterials Curation NNX-12345",
       "schema:identifier": {
-        "@type": ["schema:PropertyValue"],
+        "@type": [
+          "schema:PropertyValue"
+        ],
         "schema:value": "NNX-12345"
       },
       "schema:funder": {
-        "@type": ["schema:Organization"],
+        "@type": [
+          "schema:Organization"
+        ],
         "schema:name": "National Aeronautics and Space Administration"
       }
     }
   ],
-
   "ada:beamMode": "Focused",
   "ada:beamDiameterDefault": "1 um",
   "ada:beamCurrentDefault": "20 nA",

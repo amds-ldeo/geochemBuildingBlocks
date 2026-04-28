@@ -298,7 +298,7 @@
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397–429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
           },
           {
             "@type": [
@@ -307,7 +307,7 @@
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397–429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
           },
           {
             "@type": [
@@ -336,7 +336,7 @@
         ],
         "schema:name": "Laser ablation data acquisition",
         "schema:position": 4,
-        "schema:description": "Ablate sample in point mode with 15–20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device.",
+        "schema:description": "Ablate sample in point mode with 15â€“20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device.",
         "schema:object": {
           "@id": "#preparedMount"
         },
@@ -499,11 +499,13 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Measured Isotope",
-        "schema:valueName": "measuredIsotope",
-        "ada:dataType": "string",
-        "schema:valueRequired": true,
+        "schema:valueName": "analyte",
         "schema:description": "Element symbol with mass number (e.g. Si29, Ba138, U238).",
-        "ada:tier": "M"
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -584,7 +586,7 @@
     ],
     "ada:defaultAnalytes": [
       {
-        "measuredIsotope": "Si29",
+        "analyte": "Si29",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -592,7 +594,7 @@
         "detectionLimitUnit": ""
       },
       {
-        "measuredIsotope": "Ca43",
+        "analyte": "Ca43",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -600,7 +602,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Rb85",
+        "analyte": "Rb85",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -608,7 +610,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Sr88",
+        "analyte": "Sr88",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -616,7 +618,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Y89",
+        "analyte": "Y89",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -624,7 +626,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Zr90",
+        "analyte": "Zr90",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -632,7 +634,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Nb93",
+        "analyte": "Nb93",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -640,7 +642,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Ba138",
+        "analyte": "Ba138",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -648,7 +650,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "La139",
+        "analyte": "La139",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -656,7 +658,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Ce140",
+        "analyte": "Ce140",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -664,7 +666,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Nd146",
+        "analyte": "Nd146",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -672,7 +674,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Sm147",
+        "analyte": "Sm147",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -680,7 +682,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Eu153",
+        "analyte": "Eu153",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -688,7 +690,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Gd157",
+        "analyte": "Gd157",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -696,7 +698,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Dy163",
+        "analyte": "Dy163",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -704,7 +706,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Er166",
+        "analyte": "Er166",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -712,7 +714,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Yb172",
+        "analyte": "Yb172",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -720,7 +722,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Lu175",
+        "analyte": "Lu175",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -728,7 +730,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Hf178",
+        "analyte": "Hf178",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -736,7 +738,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Th232",
+        "analyte": "Th232",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -744,7 +746,7 @@
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "U238",
+        "analyte": "U238",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
