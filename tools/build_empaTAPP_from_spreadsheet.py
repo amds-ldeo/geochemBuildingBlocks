@@ -340,51 +340,110 @@ def _split_pipe_enum(s: str | None) -> list[str]:
     return [v.strip() for v in s.split("|") if v.strip()]
 
 
+def _haspart_known_branch(addtype: str, enum_vals: list[str] | None) -> dict:
+    """Build one explicit oneOf branch for a spreadsheet-listed hasPart type."""
+    props = OrderedDict([
+        ("@type", {
+            "type": "array",
+            "items": {"type": "string"},
+            "contains": {"const": "schema:Thing"},
+        }),
+        ("schema:additionalType", {
+            "type": "array",
+            "items": {"type": "string"},
+            "contains": {"const": addtype},
+        }),
+    ])
+    required = ["@type", "schema:additionalType"]
+    if enum_vals:
+        props["schema:name"] = {"type": "string", "enum": list(enum_vals)}
+        required.append("schema:name")
+    return OrderedDict([
+        ("type", "object"),
+        ("properties", props),
+        ("required", required),
+    ])
+
+
+def _haspart_catchall_branch(known_addtypes: list[str]) -> dict:
+    """Build the catch-all oneOf branch for sub-component types not enumerated
+    above. Explicitly excludes the known types via `not: anyOf [contains: ...]`
+    so it can't bypass the name-enum constraints carried by the known
+    branches (oneOf requires mutually exclusive matches)."""
+    return OrderedDict([
+        ("type", "object"),
+        ("description", (
+            "Catch-all for instrument sub-component types not enumerated above. "
+            "Authors may use any schema:additionalType outside the known set; "
+            "schema:name is unconstrained on this branch."
+        )),
+        ("properties", OrderedDict([
+            ("@type", {
+                "type": "array",
+                "items": {"type": "string"},
+                "contains": {"const": "schema:Thing"},
+            }),
+            ("schema:additionalType", OrderedDict([
+                ("type", "array"),
+                ("items", {"type": "string"}),
+                ("minItems", 1),
+                ("not", OrderedDict([
+                    ("anyOf", [{"contains": {"const": at}} for at in known_addtypes]),
+                ])),
+            ])),
+        ])),
+        ("required", ["@type", "schema:additionalType"]),
+    ])
+
+
 def build_haspart_constraint(rows: list[dict]) -> dict | None:
-    """Scan rows for cdif paths matching
-    schema:instrument.schema:hasPart[].additionalType = '<X>' and produce an
-    items.anyOf constraint enumerating the allowed hasPart shapes. For rows
-    whose Data Type is "Controlled list" with a pipe-delimited example column,
-    schema:name is constrained to that enum on the matching branch."""
-    branches = []
+    """Build the empaTAPP overlay's schema:instrument.schema:hasPart constraint.
+
+    Strategy:
+    - For each spreadsheet row whose CDIF-geochem schema path matches
+      "schema:instrument.schema:hasPart[].additionalType = '<X>'" emit an
+      explicit oneOf branch pinning schema:additionalType to contain <X>
+      (helps UI/forms tooling enumerate the known sub-component types).
+      Rows whose Data Type is "Controlled list" with a pipe-delimited example
+      additionally pin schema:name to that enum.
+    - Append a catch-all oneOf branch that matches sub-components whose
+      schema:additionalType contains NONE of the known consts. This lets
+      authors add custom sub-component types we haven't thought of, without
+      letting them bypass the known-branch name enums (mutual exclusion via
+      `not: anyOf [...]`).
+    """
+    rows_meta = []
     for row in rows:
         cdif = row.get("cdif_path") or ""
         m = HASPART_RE.search(cdif)
         if not m:
             continue
         addtype = m.group(1)
-        branch_props = OrderedDict([
-            ("@type", {
-                "type": "array",
-                "items": {"type": "string"},
-                "contains": {"const": "schema:Thing"},
-            }),
-            ("schema:additionalType", {
-                "type": "array",
-                "items": {"type": "string"},
-                "contains": {"const": addtype},
-            }),
-        ])
-        required = ["@type", "schema:additionalType"]
+        enum_vals = None
         dtype_col = (row.get("dtype_col") or "").lower()
         if "controlled" in dtype_col:
-            enum_vals = _split_pipe_enum(row.get("example"))
-            if enum_vals:
-                branch_props["schema:name"] = {"type": "string", "enum": enum_vals}
-                required.append("schema:name")
-        branches.append(OrderedDict([
-            ("type", "object"),
-            ("properties", branch_props),
-            ("required", required),
-        ]))
-    if not branches:
+            enum_vals = _split_pipe_enum(row.get("example")) or None
+        rows_meta.append((addtype, enum_vals))
+
+    if not rows_meta:
         return None
+
+    branches = [_haspart_known_branch(at, ev) for at, ev in rows_meta]
+    branches.append(_haspart_catchall_branch([at for at, _ in rows_meta]))
+
     return OrderedDict([
         ("type", "object"),
         ("properties", OrderedDict([
             ("schema:hasPart", OrderedDict([
                 ("type", "array"),
-                ("items", OrderedDict([("anyOf", branches)])),
+                ("description", (
+                    "Instrument sub-components. Each item is a schema:Thing "
+                    "with at least one schema:additionalType. Spreadsheet-"
+                    "known types: " + ", ".join(sorted(at for at, _ in rows_meta))
+                    + ". Other additionalType values are accepted via the "
+                    "catch-all branch."
+                )),
+                ("items", OrderedDict([("oneOf", branches)])),
             ])),
         ])),
     ])
