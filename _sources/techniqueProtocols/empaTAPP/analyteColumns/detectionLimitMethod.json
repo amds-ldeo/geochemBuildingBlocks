@@ -1,16 +1,51 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:analyteColumn/empaTAPP/detectionLimitMethod",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/empaTAPP/detectionLimitMethod",
+  "title": "Detection Limit Method",
+  "description": "Method used to compute detection limits.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"
+    }
   ],
-  "schema:name": "Detection Limit Method",
-  "schema:valueName": "detectionLimitMethod",
-  "schema:description": "Method used to compute detection limits.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "M"
+  "properties": {
+    "schema:valueName": {
+      "const": "detectionLimitMethod"
+    },
+    "schema:name": {
+      "const": "Detection Limit Method"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/empaTAPP/detectionLimitMethod",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Detection Limit Method",
+      "schema:valueName": "detectionLimitMethod",
+      "schema:description": "Method used to compute detection limits.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
 }

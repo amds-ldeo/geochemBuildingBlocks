@@ -1,16 +1,51 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting",
+  "title": "WDS PHA Setting",
+  "description": "Pulse height analyzer setting used for the WDS detector.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"
+    }
   ],
-  "schema:name": "WDS PHA Setting",
-  "schema:valueName": "pulseHeightAnalyzeSetting",
-  "schema:description": "Pulse height analyzer setting used for the WDS detector.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "M"
+  "properties": {
+    "schema:valueName": {
+      "const": "pulseHeightAnalyzeSetting"
+    },
+    "schema:name": {
+      "const": "WDS PHA Setting"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "WDS PHA Setting",
+      "schema:valueName": "pulseHeightAnalyzeSetting",
+      "schema:description": "Pulse height analyzer setting used for the WDS detector.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
 }

@@ -1,16 +1,51 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard",
+  "title": "Interference Correction Standard",
+  "description": "Reference material used to quantify and calibrate the interference correction.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"
+    }
   ],
-  "schema:name": "Interference Correction Standard",
-  "schema:valueName": "interferenceCorrectionStandard",
-  "schema:description": "Reference material used to quantify and calibrate the interference correction.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "M"
+  "properties": {
+    "schema:valueName": {
+      "const": "interferenceCorrectionStandard"
+    },
+    "schema:name": {
+      "const": "Interference Correction Standard"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Interference Correction Standard",
+      "schema:valueName": "interferenceCorrectionStandard",
+      "schema:description": "Reference material used to quantify and calibrate the interference correction.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
 }

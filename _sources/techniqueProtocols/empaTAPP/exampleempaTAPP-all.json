@@ -407,11 +407,13 @@
         ],
         "schema:name": "EPMA Technique per Element",
         "schema:valueName": "epmaTechnique",
-        "schema:description": "WDS or EDS for this analyte.",
+        "schema:description": "Whether this element was measured by WDS or EDS.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "ada:tier": "M",
-        "schema:inDefinedTermSet": "ada:vocab/empaTAPP/epmaTechnique"
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/epmaTechnique"
+        }
       },
       {
         "@type": [
@@ -419,18 +421,18 @@
         ],
         "schema:name": "WDS Spectrometer Channel",
         "schema:valueName": "spectrometerNumber",
+        "schema:description": "WDS spectrometer number used for this element.",
         "ada:dataType": "integer",
         "schema:readonlyValue": true,
-        "ada:tier": "M",
-        "schema:minValue": 1,
-        "schema:maxValue": 5
+        "ada:tier": "M"
       },
       {
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Sequence (analysis order)",
+        "schema:name": "Sequence",
         "schema:valueName": "analysisOrder",
+        "schema:description": "Order of analysis on spectormeter.",
         "ada:dataType": "integer",
         "schema:readonlyValue": true,
         "ada:tier": "M"
@@ -441,10 +443,13 @@
         ],
         "schema:name": "Diffracting Crystal",
         "schema:valueName": "monochromatorCrystal",
+        "schema:description": "Analysing crystal (monochromator) used in the WDS spectrometer for this element.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "ada:tier": "M",
-        "schema:inDefinedTermSet": "ada:vocab/empaTAPP/monochromatorCrystal"
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/monochromatorCrystal"
+        }
       },
       {
         "@type": [
@@ -452,9 +457,10 @@
         ],
         "schema:name": "WDS PHA Setting",
         "schema:valueName": "pulseHeightAnalyzeSetting",
+        "schema:description": "Pulse height analyzer setting used for the WDS detector.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
-        "ada:tier": "R"
+        "ada:tier": "M"
       },
       {
         "@type": [
@@ -462,6 +468,7 @@
         ],
         "schema:name": "X-ray Line",
         "schema:valueName": "xrayEmissionLine",
+        "schema:description": "The X-ray emission line measured for this element.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "ada:tier": "M"
@@ -472,21 +479,21 @@
         ],
         "schema:name": "Default Peak Counting Time",
         "schema:valueName": "peakCountingTime",
+        "schema:description": "Time spent counting X-ray intensity at the peak position in seconds.",
         "ada:dataType": "number",
         "schema:readonlyValue": true,
-        "ada:tier": "M",
-        "schema:unitText": "s"
+        "ada:tier": "M"
       },
       {
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Background Counting Time",
+        "schema:name": "Default Background Counting Time",
         "schema:valueName": "backgroundCountingTime",
+        "schema:description": "Total time spent counting at background position(s) in seconds.",
         "ada:dataType": "number",
         "schema:readonlyValue": true,
-        "ada:tier": "M",
-        "schema:unitText": "s"
+        "ada:tier": "M"
       },
       {
         "@type": [
@@ -494,10 +501,13 @@
         ],
         "schema:name": "Background Correction Method",
         "schema:valueName": "backgroundCorrectionMethod",
+        "schema:description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "ada:tier": "M",
-        "schema:inDefinedTermSet": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
+        }
       },
       {
         "@type": [
@@ -505,10 +515,13 @@
         ],
         "schema:name": "Time-Dependent Intensity Correction",
         "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:description": "Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
-        "ada:tier": "R",
-        "schema:inDefinedTermSet": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
+        }
       },
       {
         "@type": [
@@ -516,17 +529,21 @@
         ],
         "schema:name": "Element Estimation Method",
         "schema:valueName": "elementEstimationMethod",
+        "schema:description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
-        "ada:tier": "R",
-        "schema:inDefinedTermSet": "ada:vocab/empaTAPP/elementEstimationMethod"
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
+        }
       },
       {
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Primary Calibration Standard",
+        "schema:name": "Primary Calibration Standard Name",
         "schema:valueName": "primaryCalibrationStandard",
+        "schema:description": "Primary reference material used for element standardization (calibration).",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "ada:tier": "M"
@@ -537,10 +554,10 @@
         ],
         "schema:name": "Typical Detection Limit",
         "schema:valueName": "typicalDetectionLimit",
+        "schema:description": "Method detection limit at 99% confidence (3σ) for each measured element.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
-        "ada:tier": "R",
-        "schema:unitText": "ppm"
+        "ada:tier": "M"
       },
       {
         "@type": [
@@ -548,9 +565,10 @@
         ],
         "schema:name": "Typical Analytical Precision",
         "schema:valueName": "typicalAnalyticalPrecision",
+        "schema:description": "Reproducibility of repeated measurements on the same or equivalent standard, expressed as 1σ relative standard deviation (%).",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
-        "ada:tier": "R"
+        "ada:tier": "M"
       }
     ],
     "ada:defaultAnalytes": [

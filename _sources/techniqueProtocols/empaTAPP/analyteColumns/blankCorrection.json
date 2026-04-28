@@ -1,16 +1,51 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:analyteColumn/empaTAPP/blankCorrection",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/empaTAPP/blankCorrection",
+  "title": "Blank Correction",
+  "description": "Method and reference materials used to determine and apply blank corrections.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"
+    }
   ],
-  "schema:name": "Blank Correction",
-  "schema:valueName": "blankCorrection",
-  "schema:description": "Method and reference materials used to determine and apply blank corrections.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "M"
+  "properties": {
+    "schema:valueName": {
+      "const": "blankCorrection"
+    },
+    "schema:name": {
+      "const": "Blank Correction"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/empaTAPP/blankCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Blank Correction",
+      "schema:valueName": "blankCorrection",
+      "schema:description": "Method and reference materials used to determine and apply blank corrections.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
 }

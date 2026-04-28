@@ -1,16 +1,51 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:analyteColumn/empaTAPP/backgroundCountingPosition",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/empaTAPP/backgroundCountingPosition",
+  "title": "Typical Background Position(s)",
+  "description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"
+    }
   ],
-  "schema:name": "Typical Background Position(s)",
-  "schema:valueName": "backgroundCountingPosition",
-  "schema:description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "M"
+  "properties": {
+    "schema:valueName": {
+      "const": "backgroundCountingPosition"
+    },
+    "schema:name": {
+      "const": "Typical Background Position(s)"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/empaTAPP/backgroundCountingPosition",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Typical Background Position(s)",
+      "schema:valueName": "backgroundCountingPosition",
+      "schema:description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
 }

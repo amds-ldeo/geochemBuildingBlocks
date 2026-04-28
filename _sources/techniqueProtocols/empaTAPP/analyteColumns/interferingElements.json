@@ -1,16 +1,51 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:analyteColumn/empaTAPP/interferingElements",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/empaTAPP/interferingElements",
+  "title": "Interfering Elements",
+  "description": "List of elements whose X-ray lines overlap with the measured line for this element.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"
+    }
   ],
-  "schema:name": "Interfering Elements",
-  "schema:valueName": "interferingElements",
-  "schema:description": "List of elements whose X-ray lines overlap with the measured line for this element.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "M"
+  "properties": {
+    "schema:valueName": {
+      "const": "interferingElements"
+    },
+    "schema:name": {
+      "const": "Interfering Elements"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/empaTAPP/interferingElements",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Interfering Elements",
+      "schema:valueName": "interferingElements",
+      "schema:description": "List of elements whose X-ray lines overlap with the measured line for this element.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
 }

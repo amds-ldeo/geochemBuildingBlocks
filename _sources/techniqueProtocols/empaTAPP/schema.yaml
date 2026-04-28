@@ -1,6 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: EMPA Technique-Aligned Protocol Profile (empaTAPP)
-description: EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), a parameter vocabulary in ada:methodParameters, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability; the resolved schema can inline references where used. Generated from docs/TAPP_EPMA_filled.xlsx by tools/_build_empaTAPP.py.
+description: EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), a parameter vocabulary in ada:methodParameters, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.
 allOf:
   - $ref: ../tappDefinition/schema.yaml
   - type: object
@@ -35,3 +35,37 @@ allOf:
           - Conventional Philibert/Duncumb-Reed
           - Other
           - Unknown
+      ada:analyteTemplate:
+        type: object
+        properties:
+          ada:analyteColumns:
+            type: array
+            items:
+              oneOf:
+                - $ref: ../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+                - $ref: analyteColumns/analysisOrder.json
+                - $ref: analyteColumns/backgroundCorrectionMethod.json
+                - $ref: analyteColumns/backgroundCountingPosition.json
+                - $ref: analyteColumns/backgroundCountingTime.json
+                - $ref: analyteColumns/blankCorrection.json
+                - $ref: analyteColumns/detectionLimitMethod.json
+                - $ref: analyteColumns/edsDeadTime.json
+                - $ref: analyteColumns/elementEstimationMethod.json
+                - $ref: analyteColumns/epmaTechnique.json
+                - $ref: analyteColumns/interferenceCorrection.json
+                - $ref: analyteColumns/interferenceCorrectionStandard.json
+                - $ref: analyteColumns/interferingElements.json
+                - $ref: analyteColumns/monochromatorCrystal.json
+                - $ref: analyteColumns/normalization-standardsCorrection.json
+                - $ref: analyteColumns/peakCountingTime.json
+                - $ref: analyteColumns/primaryCalibrationStandard.json
+                - $ref: analyteColumns/pulseHeightAnalyzeSetting.json
+                - $ref: analyteColumns/secondaryReferenceMaterial.json
+                - $ref: analyteColumns/spectrometerNumber.json
+                - $ref: analyteColumns/timeDependentIntensityCorrection.json
+                - $ref: analyteColumns/typicalAnalyticalAccuracy.json
+                - $ref: analyteColumns/typicalAnalyticalPrecision.json
+                - $ref: analyteColumns/typicalCountingStatisticsError.json
+                - $ref: analyteColumns/typicalDetectionLimit.json
+                - $ref: analyteColumns/wdsDetectorType.json
+                - $ref: analyteColumns/xrayEmissionLine.json
