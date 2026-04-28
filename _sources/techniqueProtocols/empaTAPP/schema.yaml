@@ -234,8 +234,9 @@ allOf:
         properties:
           schema:hasPart:
             type: array
+            description: 'Instrument sub-components. Each item is a schema:Thing with at least one schema:additionalType. Spreadsheet-known types: ElectronSource, edsDetector, wdsSpectrometer. Other additionalType values are accepted via the catch-all branch.'
             items:
-              anyOf:
+              oneOf:
                 - type: object
                   properties:
                     '@type':
@@ -293,6 +294,31 @@ allOf:
                         type: string
                       contains:
                         const: edsDetector
+                  required:
+                    - '@type'
+                    - schema:additionalType
+                - type: object
+                  description: Catch-all for instrument sub-component types not enumerated above. Authors may use any schema:additionalType outside the known set; schema:name is unconstrained on this branch.
+                  properties:
+                    '@type':
+                      type: array
+                      items:
+                        type: string
+                      contains:
+                        const: schema:Thing
+                    schema:additionalType:
+                      type: array
+                      items:
+                        type: string
+                      minItems: 1
+                      not:
+                        anyOf:
+                          - contains:
+                              const: ElectronSource
+                          - contains:
+                              const: wdsSpectrometer
+                          - contains:
+                              const: edsDetector
                   required:
                     - '@type'
                     - schema:additionalType
