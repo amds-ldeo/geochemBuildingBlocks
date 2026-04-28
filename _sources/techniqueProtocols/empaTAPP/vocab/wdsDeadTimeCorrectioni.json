@@ -1,62 +1,113 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:vocab/empaTAPP/wdsDeadTimeCorrectioni",
+  "title": "WDS Dead Time Correction",
+  "description": "Method used to correct WDS proportional counter dead time at high count rates.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "const": "schema:DefinedTermSet"
+    },
+    "schema:name": {
+      "const": "WDS Dead Time Correction"
+    },
+    "schema:hasDefinedTerm": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "const": "schema:DefinedTerm"
+          },
+          "schema:termCode": {
+            "enum": [
+              "Default constant 3µs (Cameca)",
+              "Adjusted constant (Cameca)",
+              "Default constant (JEOL)",
+              "Adjusted constant (JEOL)",
+              "High-precision (Probe for EPMA)",
+              "Logarithmic",
+              "Super-precision",
+              "Simple",
+              "Other",
+              "Unknown"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "schema:termCode"
+        ]
+      }
+    }
   },
-  "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrectioni",
-  "@type": "schema:DefinedTermSet",
-  "schema:name": "WDS Dead Time Correction",
-  "schema:description": "Method used to correct WDS proportional counter dead time at high count rates.",
-  "schema:hasDefinedTerm": [
+  "required": [
+    "@type",
+    "schema:hasDefinedTerm"
+  ],
+  "examples": [
     {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Default constant 3µs (Cameca)",
-      "schema:name": "Default constant 3µs (Cameca)"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Adjusted constant (Cameca)",
-      "schema:name": "Adjusted constant (Cameca)"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Default constant (JEOL)",
-      "schema:name": "Default constant (JEOL)"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Adjusted constant (JEOL)",
-      "schema:name": "Adjusted constant (JEOL)"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "High-precision (Probe for EPMA)",
-      "schema:name": "High-precision (Probe for EPMA)"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Logarithmic",
-      "schema:name": "Logarithmic"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Super-precision",
-      "schema:name": "Super-precision"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Simple",
-      "schema:name": "Simple"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Other",
-      "schema:name": "Other"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrectioni",
+      "@type": "schema:DefinedTermSet",
+      "schema:name": "WDS Dead Time Correction",
+      "schema:description": "Method used to correct WDS proportional counter dead time at high count rates.",
+      "schema:hasDefinedTerm": [
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Default constant 3µs (Cameca)",
+          "schema:name": "Default constant 3µs (Cameca)"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Adjusted constant (Cameca)",
+          "schema:name": "Adjusted constant (Cameca)"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Default constant (JEOL)",
+          "schema:name": "Default constant (JEOL)"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Adjusted constant (JEOL)",
+          "schema:name": "Adjusted constant (JEOL)"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "High-precision (Probe for EPMA)",
+          "schema:name": "High-precision (Probe for EPMA)"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Logarithmic",
+          "schema:name": "Logarithmic"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Super-precision",
+          "schema:name": "Super-precision"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Simple",
+          "schema:name": "Simple"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Other",
+          "schema:name": "Other"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Unknown",
+          "schema:name": "Unknown"
+        }
+      ]
     }
   ]
 }

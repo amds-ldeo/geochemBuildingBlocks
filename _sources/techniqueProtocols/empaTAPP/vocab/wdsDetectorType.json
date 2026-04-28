@@ -1,47 +1,95 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:vocab/empaTAPP/wdsDetectorType",
+  "title": "Proportional Counter / Detector",
+  "description": "Type of detector used in the WDS spectrometer for this element.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "const": "schema:DefinedTermSet"
+    },
+    "schema:name": {
+      "const": "Proportional Counter / Detector"
+    },
+    "schema:hasDefinedTerm": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "const": "schema:DefinedTerm"
+          },
+          "schema:termCode": {
+            "enum": [
+              "High Pressure P10 Flow",
+              "Low Pressure P10 Flow",
+              "Xe Sealed",
+              "SDD",
+              "Si(Li)",
+              "Other",
+              "Unknown"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "schema:termCode"
+        ]
+      }
+    }
   },
-  "@id": "ada:vocab/empaTAPP/wdsDetectorType",
-  "@type": "schema:DefinedTermSet",
-  "schema:name": "Proportional Counter / Detector",
-  "schema:description": "Type of detector used in the WDS spectrometer for this element.",
-  "schema:hasDefinedTerm": [
+  "required": [
+    "@type",
+    "schema:hasDefinedTerm"
+  ],
+  "examples": [
     {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "High Pressure P10 Flow",
-      "schema:name": "High Pressure P10 Flow"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Low Pressure P10 Flow",
-      "schema:name": "Low Pressure P10 Flow"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Xe Sealed",
-      "schema:name": "Xe Sealed"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "SDD",
-      "schema:name": "SDD"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Si(Li)",
-      "schema:name": "Si(Li)"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Other",
-      "schema:name": "Other"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:vocab/empaTAPP/wdsDetectorType",
+      "@type": "schema:DefinedTermSet",
+      "schema:name": "Proportional Counter / Detector",
+      "schema:description": "Type of detector used in the WDS spectrometer for this element.",
+      "schema:hasDefinedTerm": [
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "High Pressure P10 Flow",
+          "schema:name": "High Pressure P10 Flow"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Low Pressure P10 Flow",
+          "schema:name": "Low Pressure P10 Flow"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Xe Sealed",
+          "schema:name": "Xe Sealed"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "SDD",
+          "schema:name": "SDD"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Si(Li)",
+          "schema:name": "Si(Li)"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Other",
+          "schema:name": "Other"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Unknown",
+          "schema:name": "Unknown"
+        }
+      ]
     }
   ]
 }

@@ -1,16 +1,56 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:parameter/empaTAPP/beamDiameter",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:parameter/empaTAPP/beamDiameter",
+  "title": "Default Beam Diameter",
+  "description": "Diameter of the focused or defocused electron beam in micrometers.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/MethodParameter"
+    }
   ],
-  "schema:name": "Default Beam Diameter",
-  "schema:valueName": "beamDiameter",
-  "schema:description": "Diameter of the focused or defocused electron beam in micrometers.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "R"
+  "properties": {
+    "schema:valueName": {
+      "const": "beamDiameter"
+    },
+    "schema:name": {
+      "const": "Default Beam Diameter"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "ada:fieldScope": {
+      "const": "session"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "R"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType",
+    "ada:fieldScope"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/beamDiameter",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Default Beam Diameter",
+      "schema:valueName": "beamDiameter",
+      "schema:description": "Diameter of the focused or defocused electron beam in micrometers.",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R"
+    }
+  ]
 }

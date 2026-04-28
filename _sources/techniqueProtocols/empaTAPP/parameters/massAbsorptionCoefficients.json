@@ -1,19 +1,64 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:parameter/empaTAPP/massAbsorptionCoefficients",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:parameter/empaTAPP/massAbsorptionCoefficients",
+  "title": "Mass Absorption Coefficients (MACs)",
+  "description": "Database of mass absorption coefficients used in the matrix correction.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/MethodParameter"
+    }
   ],
-  "schema:name": "Mass Absorption Coefficients (MACs)",
-  "schema:valueName": "massAbsorptionCoefficients",
-  "schema:description": "Database of mass absorption coefficients used in the matrix correction.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": true,
-  "ada:tier": "R",
-  "schema:inDefinedTermSet": {
-    "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
-  }
+  "properties": {
+    "schema:valueName": {
+      "const": "massAbsorptionCoefficients"
+    },
+    "schema:name": {
+      "const": "Mass Absorption Coefficients (MACs)"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "ada:fieldScope": {
+      "const": "session"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "R"
+    },
+    "schema:inDefinedTermSet": {
+      "const": {
+        "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
+      }
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType",
+    "ada:fieldScope"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/massAbsorptionCoefficients",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Mass Absorption Coefficients (MACs)",
+      "schema:valueName": "massAbsorptionCoefficients",
+      "schema:description": "Database of mass absorption coefficients used in the matrix correction.",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:inDefinedTermSet": {
+        "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
+      }
+    }
+  ]
 }

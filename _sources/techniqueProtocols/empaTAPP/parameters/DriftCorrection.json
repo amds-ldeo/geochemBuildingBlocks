@@ -1,16 +1,56 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:parameter/empaTAPP/DriftCorrection",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:parameter/empaTAPP/DriftCorrection",
+  "title": "Drift Correction",
+  "description": "Describe method used to monitor and correct for instrument drift",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/MethodParameter"
+    }
   ],
-  "schema:name": "Drift Correction",
-  "schema:valueName": "DriftCorrection",
-  "schema:description": "Describe method used to monitor and correct for instrument drift",
-  "ada:dataType": "string",
-  "schema:readonlyValue": false,
-  "ada:tier": "R"
+  "properties": {
+    "schema:valueName": {
+      "const": "DriftCorrection"
+    },
+    "schema:name": {
+      "const": "Drift Correction"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "ada:fieldScope": {
+      "const": "session"
+    },
+    "schema:readonlyValue": {
+      "const": false
+    },
+    "ada:tier": {
+      "const": "R"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType",
+    "ada:fieldScope"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/DriftCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Drift Correction",
+      "schema:valueName": "DriftCorrection",
+      "schema:description": "Describe method used to monitor and correct for instrument drift",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R"
+    }
+  ]
 }

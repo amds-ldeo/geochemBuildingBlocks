@@ -1,16 +1,56 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:parameter/empaTAPP/BeamRasterDimenstion",
-  "@type": [
-    "schema:PropertyValueSpecification"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:parameter/empaTAPP/BeamRasterDimenstion",
+  "title": "Beam Raster Dimensions",
+  "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+  "allOf": [
+    {
+      "$ref": "../../tappDefinition/schema.yaml#/$defs/MethodParameter"
+    }
   ],
-  "schema:name": "Beam Raster Dimensions",
-  "schema:valueName": "BeamRasterDimenstion",
-  "schema:description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
-  "ada:dataType": "string",
-  "schema:readonlyValue": false,
-  "ada:tier": "R"
+  "properties": {
+    "schema:valueName": {
+      "const": "BeamRasterDimenstion"
+    },
+    "schema:name": {
+      "const": "Beam Raster Dimensions"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "ada:fieldScope": {
+      "const": "session"
+    },
+    "schema:readonlyValue": {
+      "const": false
+    },
+    "ada:tier": {
+      "const": "R"
+    }
+  },
+  "required": [
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType",
+    "ada:fieldScope"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/BeamRasterDimenstion",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Beam Raster Dimensions",
+      "schema:valueName": "BeamRasterDimenstion",
+      "schema:description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R"
+    }
+  ]
 }

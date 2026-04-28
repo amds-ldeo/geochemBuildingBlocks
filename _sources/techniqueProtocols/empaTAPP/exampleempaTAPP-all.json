@@ -311,13 +311,13 @@
         "schema:PropertyValueSpecification"
       ],
       "schema:name": "Beam Raster Dimensions",
-      "schema:valueName": "BeamRasterDimensions",
-      "schema:description": "X x Y dimensions of beam raster area (when ada:beamMode is Raster).",
+      "schema:valueName": "BeamRasterDimenstion",
+      "schema:description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
       "ada:dataType": "string",
-      "schema:readonlyValue": false,
-      "schema:valueRequired": false,
       "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
       "ada:tier": "R",
+      "schema:valueRequired": false,
       "schema:unitText": "um x um"
     },
     {
@@ -326,10 +326,10 @@
       ],
       "schema:name": "Beam Damage Minimization",
       "schema:valueName": "BeamDamageMinimization",
-      "schema:description": "Strategy used to limit beam damage (e.g. defocused beam on labile elements).",
+      "schema:description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
       "ada:dataType": "string",
+      "ada:fieldScope": "session",
       "schema:readonlyValue": true,
-      "ada:fieldScope": "method",
       "ada:tier": "R"
     },
     {
@@ -338,10 +338,10 @@
       ],
       "schema:name": "Drift Correction",
       "schema:valueName": "DriftCorrection",
-      "schema:description": "Drift correction approach applied during acquisition.",
+      "schema:description": "Describe method used to monitor and correct for instrument drift",
       "ada:dataType": "string",
-      "schema:readonlyValue": true,
-      "ada:fieldScope": "method",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
       "ada:tier": "R"
     },
     {
@@ -350,13 +350,15 @@
       ],
       "schema:name": "Mass Absorption Coefficients (MACs)",
       "schema:valueName": "massAbsorptionCoefficients",
-      "schema:description": "MAC table used for matrix correction.",
+      "schema:description": "Database of mass absorption coefficients used in the matrix correction.",
       "ada:dataType": "string",
+      "ada:fieldScope": "session",
       "schema:readonlyValue": true,
-      "ada:fieldScope": "method",
-      "ada:tier": "M",
-      "schema:defaultValue": "CITZMU",
-      "schema:inDefinedTermSet": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
+      "ada:tier": "R",
+      "schema:inDefinedTermSet": {
+        "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
+      },
+      "schema:defaultValue": "CITZMU"
     },
     {
       "@type": [
@@ -364,11 +366,11 @@
       ],
       "schema:name": "Halogen Correction on Oxygen",
       "schema:valueName": "halogenOxygenCorrection",
-      "schema:description": "Whether oxygen counts are corrected for halogen interference.",
+      "schema:description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
       "ada:dataType": "boolean",
+      "ada:fieldScope": "session",
       "schema:readonlyValue": true,
-      "ada:fieldScope": "method",
-      "ada:tier": "O",
+      "ada:tier": "R",
       "schema:defaultValue": "true"
     },
     {
@@ -377,13 +379,15 @@
       ],
       "schema:name": "EDS Spectral Processing Type",
       "schema:valueName": "edsSpectralProcessingType",
-      "schema:description": "Type of EDS spectral processing applied.",
+      "schema:description": "Method used to process EDS spectra and extract net peak intensities.",
       "ada:dataType": "string",
+      "ada:fieldScope": "session",
       "schema:readonlyValue": true,
-      "ada:fieldScope": "method",
-      "ada:tier": "O",
-      "schema:defaultValue": "Background fitting",
-      "schema:inDefinedTermSet": "ada:vocab/empaTAPP/edsSpectralProcessingType"
+      "ada:tier": "R",
+      "schema:inDefinedTermSet": {
+        "@id": "ada:vocab/empaTAPP/edsSpectralProcessingType"
+      },
+      "schema:defaultValue": "Background fitting"
     }
   ],
   "ada:analyteTemplate": {

@@ -1,52 +1,101 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:vocab/empaTAPP/massAbsorptionCoefficients",
+  "title": "Mass Absorption Coefficients (MACs)",
+  "description": "Database of mass absorption coefficients used in the matrix correction.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "const": "schema:DefinedTermSet"
+    },
+    "schema:name": {
+      "const": "Mass Absorption Coefficients (MACs)"
+    },
+    "schema:hasDefinedTerm": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "const": "schema:DefinedTerm"
+          },
+          "schema:termCode": {
+            "enum": [
+              "LINEMU",
+              "CITZMU",
+              "MCMASTER",
+              "MAC30",
+              "MACJTA",
+              "FFAST",
+              "Other",
+              "Unknown"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "schema:termCode"
+        ]
+      }
+    }
   },
-  "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients",
-  "@type": "schema:DefinedTermSet",
-  "schema:name": "Mass Absorption Coefficients (MACs)",
-  "schema:description": "Database of mass absorption coefficients used in the matrix correction.",
-  "schema:hasDefinedTerm": [
+  "required": [
+    "@type",
+    "schema:hasDefinedTerm"
+  ],
+  "examples": [
     {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "LINEMU",
-      "schema:name": "LINEMU"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "CITZMU",
-      "schema:name": "CITZMU"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "MCMASTER",
-      "schema:name": "MCMASTER"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "MAC30",
-      "schema:name": "MAC30"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "MACJTA",
-      "schema:name": "MACJTA"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "FFAST",
-      "schema:name": "FFAST"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Other",
-      "schema:name": "Other"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients",
+      "@type": "schema:DefinedTermSet",
+      "schema:name": "Mass Absorption Coefficients (MACs)",
+      "schema:description": "Database of mass absorption coefficients used in the matrix correction.",
+      "schema:hasDefinedTerm": [
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "LINEMU",
+          "schema:name": "LINEMU"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "CITZMU",
+          "schema:name": "CITZMU"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "MCMASTER",
+          "schema:name": "MCMASTER"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "MAC30",
+          "schema:name": "MAC30"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "MACJTA",
+          "schema:name": "MACJTA"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "FFAST",
+          "schema:name": "FFAST"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Other",
+          "schema:name": "Other"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Unknown",
+          "schema:name": "Unknown"
+        }
+      ]
     }
   ]
 }

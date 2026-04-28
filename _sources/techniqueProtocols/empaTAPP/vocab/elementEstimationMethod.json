@@ -1,27 +1,71 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:vocab/empaTAPP/elementEstimationMethod",
+  "title": "Element Estimation Method",
+  "description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "const": "schema:DefinedTermSet"
+    },
+    "schema:name": {
+      "const": "Element Estimation Method"
+    },
+    "schema:hasDefinedTerm": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "const": "schema:DefinedTerm"
+          },
+          "schema:termCode": {
+            "enum": [
+              "Direct (measured)",
+              "Estimated via cation stoichiometry",
+              "Unknown"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "schema:termCode"
+        ]
+      }
+    }
   },
-  "@id": "ada:vocab/empaTAPP/elementEstimationMethod",
-  "@type": "schema:DefinedTermSet",
-  "schema:name": "Element Estimation Method",
-  "schema:description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
-  "schema:hasDefinedTerm": [
+  "required": [
+    "@type",
+    "schema:hasDefinedTerm"
+  ],
+  "examples": [
     {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Direct (measured)",
-      "schema:name": "Direct (measured)"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Estimated via cation stoichiometry",
-      "schema:name": "Estimated via cation stoichiometry"
-    },
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:vocab/empaTAPP/elementEstimationMethod",
+      "@type": "schema:DefinedTermSet",
+      "schema:name": "Element Estimation Method",
+      "schema:description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
+      "schema:hasDefinedTerm": [
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Direct (measured)",
+          "schema:name": "Direct (measured)"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Estimated via cation stoichiometry",
+          "schema:name": "Estimated via cation stoichiometry"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "Unknown",
+          "schema:name": "Unknown"
+        }
+      ]
     }
   ]
 }

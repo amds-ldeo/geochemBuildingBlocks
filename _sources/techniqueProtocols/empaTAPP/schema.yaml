@@ -69,3 +69,17 @@ allOf:
                 - $ref: analyteColumns/typicalDetectionLimit.json
                 - $ref: analyteColumns/wdsDetectorType.json
                 - $ref: analyteColumns/xrayEmissionLine.json
+      ada:methodParameters:
+        type: array
+        items:
+          oneOf:
+            - $ref: parameters/BeamDamageMinimization.json
+            - $ref: parameters/BeamRasterDimenstion.json
+            - $ref: parameters/DriftCorrection.json
+            - $ref: parameters/acceleratingVoltage.json
+            - $ref: parameters/beamDiameter.json
+            - $ref: parameters/edsSpectralProcessingType.json
+            - $ref: parameters/halogenOxygenCorrection.json
+            - $ref: parameters/massAbsorptionCoefficients.json
+            - $ref: parameters/reportedAnalyte.json
+            - $ref: parameters/wdsDeadTimeCorrectioni.json

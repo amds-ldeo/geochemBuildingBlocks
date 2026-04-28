@@ -1,22 +1,65 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ada:vocab/empaTAPP/epmaTechnique",
-  "@type": "schema:DefinedTermSet",
-  "schema:name": "EPMA Technique per Element",
-  "schema:description": "Whether this element was measured by WDS or EDS.",
-  "schema:hasDefinedTerm": [
-    {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "WDS",
-      "schema:name": "WDS"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:vocab/empaTAPP/epmaTechnique",
+  "title": "EPMA Technique per Element",
+  "description": "Whether this element was measured by WDS or EDS.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "const": "schema:DefinedTermSet"
     },
+    "schema:name": {
+      "const": "EPMA Technique per Element"
+    },
+    "schema:hasDefinedTerm": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "const": "schema:DefinedTerm"
+          },
+          "schema:termCode": {
+            "enum": [
+              "WDS",
+              "EDS"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "schema:termCode"
+        ]
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "schema:hasDefinedTerm"
+  ],
+  "examples": [
     {
-      "@type": "schema:DefinedTerm",
-      "schema:termCode": "EDS",
-      "schema:name": "EDS"
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:vocab/empaTAPP/epmaTechnique",
+      "@type": "schema:DefinedTermSet",
+      "schema:name": "EPMA Technique per Element",
+      "schema:description": "Whether this element was measured by WDS or EDS.",
+      "schema:hasDefinedTerm": [
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "WDS",
+          "schema:name": "WDS"
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "EDS",
+          "schema:name": "EDS"
+        }
+      ]
     }
   ]
 }
