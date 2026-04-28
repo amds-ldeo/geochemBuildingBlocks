@@ -28,6 +28,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 REPO_ROOT = Path(__file__).resolve().parent.parent
 XLSX = REPO_ROOT / "docs" / "TAPP_EPMA_filled.xlsx"
 BB = REPO_ROOT / "_sources" / "techniqueProtocols" / "empaTAPP"
+DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / "detailEMPA"
 
 # Column letters in the spreadsheet (1-indexed: A=1)
 COL = {
@@ -62,21 +63,61 @@ HASPART_RE = re.compile(
 
 
 def parse_impl(impl: str) -> dict:
-    """Return {tags: [(kind, name), ...], dtype: str|None, enum: [str]|None, readOnly: bool|None}."""
+    """Parse an impl-notes cell into a list of per-tag records.
+
+    A single cell can carry multiple (kind, name) tags, each with its own
+    readOnly / dtype / enum tokens in the chunk of text up to the next tag.
+    Returns:
+      {
+        "tags": [(kind, name), ...],         # back-compat list
+        "tag_records": [{"kind", "name", "readOnly", "dtype", "enum"}, ...],
+        "dtype": <first row-level dtype>,    # back-compat for non-tag rows
+        "enum":  <first row-level enum>,
+        "readOnly": <first row-level readOnly>,
+      }
+    Per-tag fields are scoped to the substring of impl from the tag's start
+    up to the next tag's start (or end of cell). This fixes the bug where
+    a `property: X readonly:true` line on the same row as
+    `parameter: Y readOnly:false` would clobber Y's readOnly value.
+    """
     if not impl:
-        return {"tags": [], "dtype": None, "enum": None, "readOnly": None}
-    tags = [(k.lower(), n) for k, n in TAG_RE.findall(impl)]
-    dt = DTYPE_RE.search(impl)
-    dtype = dt.group(1).strip() if dt else None
-    em = ENUM_RE.search(impl)
-    enum_vals = None
-    if em:
-        enum_vals = [v.strip() for v in em.group(1).split("|") if v.strip()]
-    ro = READONLY_RE.search(impl)
-    read_only = None
-    if ro:
-        read_only = ro.group(1).lower() == "true"
-    return {"tags": tags, "dtype": dtype, "enum": enum_vals, "readOnly": read_only}
+        return {"tags": [], "tag_records": [], "dtype": None, "enum": None, "readOnly": None}
+
+    matches = list(TAG_RE.finditer(impl))
+
+    def _scan_chunk(chunk: str) -> tuple[str | None, list[str] | None, bool | None]:
+        dt = DTYPE_RE.search(chunk)
+        dtype = dt.group(1).strip() if dt else None
+        em = ENUM_RE.search(chunk)
+        enum_vals = [v.strip() for v in em.group(1).split("|") if v.strip()] if em else None
+        ro_m = READONLY_RE.search(chunk)
+        ro = ro_m.group(1).lower() == "true" if ro_m else None
+        return dtype, enum_vals, ro
+
+    tag_records = []
+    for i, m in enumerate(matches):
+        kind = m.group(1).lower()
+        name = m.group(2)
+        chunk_end = matches[i + 1].start() if i + 1 < len(matches) else len(impl)
+        chunk = impl[m.start():chunk_end]
+        dtype, enum_vals, ro = _scan_chunk(chunk)
+        tag_records.append({
+            "kind": kind,
+            "name": name,
+            "dtype": dtype,
+            "enum": enum_vals,
+            "readOnly": ro,
+        })
+
+    # Row-level fallbacks for anything that scans the whole cell (legacy callers).
+    row_dtype, row_enum, row_ro = _scan_chunk(impl)
+    return {
+        "tags": [(t["kind"], t["name"]) for t in tag_records],
+        "tag_records": tag_records,
+        "dtype": row_dtype,
+        "enum": row_enum,
+        "readOnly": row_ro,
+    }
 
 
 # ---------- spreadsheet reader ----------
@@ -252,6 +293,109 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
             "@id", "@type",
             "schema:valueName", "schema:name", "ada:dataType", "ada:fieldScope",
         ]),
+        ("examples", [canonical]),
+    ])
+
+
+def _value_type_for(dtype_col: str | None) -> tuple[str | list[str], str | None]:
+    """Map the spreadsheet's Data Type column ('Numeric (kV)', 'Text (free)', ...) to a JSON Schema
+    type for schema:value, plus an optional unit token (e.g. 'kV') extracted from parens."""
+    if not dtype_col:
+        return "string", None
+    s = dtype_col.strip()
+    unit = None
+    m = re.search(r"\(([^)]+)\)", s)
+    if m:
+        unit = m.group(1).strip()
+    low = s.lower()
+    if "numeric" in low or "number" in low or "decimal" in low or "float" in low:
+        return "number", unit
+    if "integer" in low or low.startswith("int"):
+        return "integer", unit
+    if "boolean" in low or low.startswith("bool"):
+        return "boolean", unit
+    if "date" in low:
+        return "date", unit
+    return "string", unit
+
+
+def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | None,
+                            enum_vname: str | None, dtype_impl: str | None) -> dict:
+    """Hybrid JSON Schema + canonical instance for one detailEMPA additionalProperty.
+
+    Models a schema:PropertyValue entry that carries an actual reading (per-dataset)
+    rather than a parameter template. Pinned: @type, @context, schema:propertyID
+    (= ada:parameter/empaTAPP/<name>), schema:name. schema:value type comes from the
+    spreadsheet's Data Type column. schema:unitText pinned when the dtype carries a
+    parenthesised unit (e.g. 'Numeric (kV)' → unitText 'kV').
+    """
+    val_type, unit = _value_type_for(dtype_col)
+    canonical_value = {
+        "number": 0,
+        "integer": 0,
+        "boolean": False,
+        "date": "1970-01-01",
+        "string": "",
+    }.get(val_type, "")
+
+    parameter_uri = f"ada:parameter/empaTAPP/{name}"
+
+    canonical = OrderedDict([
+        ("@context", {
+            "schema": "http://schema.org/",
+            "ada": "https://ada.astromat.org/metadata/",
+        }),
+        ("@id", parameter_uri),
+        ("@type", ["schema:PropertyValue"]),
+        ("schema:propertyID", parameter_uri),
+        ("schema:name", label),
+        ("schema:description", desc or label),
+        ("schema:value", canonical_value),
+    ])
+    if unit:
+        canonical["schema:unitText"] = unit
+    if enum_vname:
+        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+
+    # schema.org's PropertyValue.value is a union of Number/Boolean/StructuredValue/Text.
+    # For numeric/integer we accept either a typed number OR a string (publication-style
+    # qualified values like "0 (focused)" or "1-2 um defocused" appear regularly in the
+    # source data). Authors providing clean machine-readable instances should use the
+    # numeric form; qualified-text form is allowed for fidelity to source publications.
+    if val_type in ("number", "integer"):
+        value_schema = {"anyOf": [{"type": val_type}, {"type": "string"}]}
+    elif val_type == "date":
+        value_schema = {"type": "string", "format": "date"}
+    elif val_type == "boolean":
+        value_schema = {"type": "boolean"}
+    else:
+        value_schema = {"type": "string"}
+
+    properties = OrderedDict([
+        ("@context", {"const": _ADA_CONTEXT}),
+        ("@id", {"const": parameter_uri}),
+        ("@type", {"const": ["schema:PropertyValue"]}),
+        ("schema:propertyID", {"const": parameter_uri}),
+        ("schema:name", {"const": label}),
+        ("schema:value", value_schema),
+    ])
+    required = ["@id", "@type", "schema:propertyID", "schema:name", "schema:value"]
+    if unit:
+        properties["schema:unitText"] = {"const": unit}
+        required.append("schema:unitText")
+    if enum_vname:
+        properties["schema:inDefinedTermSet"] = {
+            "const": {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+        }
+
+    return OrderedDict([
+        ("$schema", "https://json-schema.org/draft/2020-12/schema"),
+        ("$id", parameter_uri),
+        ("title", label),
+        ("description", desc or label),
+        ("type", "object"),
+        ("properties", properties),
+        ("required", required),
         ("examples", [canonical]),
     ])
 
@@ -449,6 +593,92 @@ def build_haspart_constraint(rows: list[dict]) -> dict | None:
     ])
 
 
+def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
+    """Write _sources/geochemProperties/detailEMPA/parametersConstraint.yaml — a
+    JSON Schema fragment carrying schema:additionalProperty.items.oneOf
+    referencing each detailEMPA/parameters/<name>.json catalog file plus a
+    catch-all branch so authors can attach arbitrary additional schema:PropertyValue
+    entries beyond the spreadsheet-listed ones. detailEMPA/schema.yaml is expected
+    to allOf this snippet alongside its hand-authored componentType constraints."""
+    yaml = YAML()
+    yaml.preserve_quotes = True
+    yaml.width = 4096
+    yaml.indent(mapping=2, sequence=4, offset=2)
+
+    out = DETAIL_EMPA / "parametersConstraint.yaml"
+    if not detail_param_names:
+        if out.exists():
+            out.unlink()
+        return
+
+    branches = CommentedSeq()
+    for n in sorted(detail_param_names):
+        branches.append({"$ref": f"parameters/{n}.json"})
+    # Catch-all so an author can attach arbitrary other PropertyValue items
+    catch_all = CommentedMap()
+    catch_all["type"] = "object"
+    catch_all["description"] = (
+        "Catch-all for additional schema:PropertyValue entries beyond those "
+        "enumerated in the empaTAPP-derived catalog above."
+    )
+    catch_all_props = CommentedMap()
+    catch_all_props["@type"] = {
+        "type": "array",
+        "items": {"type": "string"},
+        "contains": {"const": "schema:PropertyValue"},
+    }
+    catch_all_props["schema:propertyID"] = {
+        "type": "string",
+        "not": {
+            "enum": [f"ada:parameter/empaTAPP/{n}" for n in sorted(detail_param_names)]
+        },
+    }
+    catch_all["properties"] = catch_all_props
+    catch_all["required"] = CommentedSeq(["@type", "schema:propertyID"])
+    branches.append(catch_all)
+
+    items = CommentedMap()
+    items["oneOf"] = branches
+
+    add_prop = CommentedMap()
+    add_prop["type"] = "array"
+    add_prop["description"] = (
+        "Per-dataset schema:PropertyValue entries for this EMPA dataset. "
+        "Each item is one of the empaTAPP-derived parameter types or "
+        "(via the catch-all branch) any other PropertyValue."
+    )
+    add_prop["items"] = items
+
+    doc = CommentedMap()
+    doc["$schema"] = "https://json-schema.org/draft/2020-12/schema"
+    doc["title"] = "detailEMPA additionalProperty constraint (generated from empaTAPP spreadsheet)"
+    doc["type"] = "object"
+    doc["properties"] = CommentedMap([("schema:additionalProperty", add_prop)])
+
+    DETAIL_EMPA.mkdir(parents=True, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as f:
+        yaml.dump(doc, f)
+    print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(detail_param_names)} additionalProperty types)")
+
+
+def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: list[str]) -> None:
+    """Delete any *.json under empaTAPP/parameters/ or detailEMPA/parameters/ that
+    don't correspond to a current spreadsheet parameter row in the appropriate
+    bucket (avoids stale orphans after spreadsheet edits or readOnly toggles)."""
+    keep_empa = set(empa_param_names)
+    keep_detail = set(detail_param_names)
+    for fp in (BB / "parameters").glob("*.json"):
+        if fp.stem not in keep_empa:
+            fp.unlink()
+            print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+    detail_params_dir = DETAIL_EMPA / "parameters"
+    if detail_params_dir.exists():
+        for fp in detail_params_dir.glob("*.json"):
+            if fp.stem not in keep_detail:
+                fp.unlink()
+                print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+
+
 def build_schema_yaml(properties: list[tuple[str, dict]],
                       analyte_column_names: list[str],
                       parameter_names: list[str],
@@ -575,8 +805,42 @@ def looks_like_number(s: str) -> bool:
         return False
 
 
-def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> dict:
-    """Build one empaTAPP instance from publication column data."""
+def _coerce_value(val, dtype_col: str | None):
+    """Coerce a spreadsheet cell value to the JSON type implied by Data Type."""
+    if val is None:
+        return None
+    s = str(val).strip()
+    if not s:
+        return None
+    val_type, _ = _value_type_for(dtype_col)
+    try:
+        if val_type == "integer":
+            return int(s)
+        if val_type == "number":
+            try:
+                return int(s)
+            except ValueError:
+                return float(s)
+        if val_type == "boolean":
+            return s.lower() in ("true", "yes", "1")
+    except ValueError:
+        pass
+    return s
+
+
+def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[dict, dict]:
+    """Build a paired (empaTAPP, detailEMPA) example from one publication column.
+
+    empaTAPP carries the protocol definition (top-level ada:* properties from
+    `property:` tags + readOnly:true ada:methodParameters templates).
+    detailEMPA carries the per-dataset values (schema:additionalProperty entries
+    for readOnly:false parameters with a value in this publication's column),
+    pointing back at the empaTAPP via schema:measurementTechnique by @id.
+    """
+    pub_code = PUBS[pub_index][0].lower()
+    empa_id = f"ex:empaTAPP-{pub_code}"
+    detail_id = f"ex:detailEMPA-{pub_code}"
+
     parts = OrderedDict()
     parts["@context"] = {
         "schema": "http://schema.org/",
@@ -584,19 +848,28 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> dict:
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
         "bios": "https://bioschemas.org/",
     }
-    pub_code = PUBS[pub_index][0].lower()
-    parts["@id"] = f"ex:empaTAPP-{pub_code}"
+    parts["@id"] = empa_id
     parts["@type"] = [
         "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
     ]
-    parts["schema:name"] = ""  # filled below if Method Name present
+    parts["schema:name"] = ""
     parts["schema:description"] = f"empaTAPP example derived from {pub_label}."
     parts["schema:measurementTechnique"] = {
         "@type": ["schema:DefinedTerm"],
         "schema:termCode": "EPMA-WDS",
         "schema:name": "Electron Microprobe Analysis - WDS",
     }
+
+    detail = OrderedDict()
+    detail["@context"] = dict(_ADA_CONTEXT)
+    detail["@id"] = detail_id
+    detail["@type"] = ["schema:Thing"]
+    detail["ada:componentType"] = "ada:EMPAQEATabular"
+    detail["schema:measurementTechnique"] = {"@id": empa_id}
+    detail["schema:additionalProperty"] = []
+
     method_params = []
+
     for row in rows:
         val = row["pubs"][pub_index] if pub_index < len(row["pubs"]) else None
         if val is None or (isinstance(val, str) and not val.strip()):
@@ -604,12 +877,11 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> dict:
         item = row["item"]
         if not item:
             continue
-        # Method Name special-case
         if item == "Method Name":
             parts["schema:name"] = str(val).strip()
             continue
         if item == "Method Author":
-            parts["schema:agent"] = {
+            parts["schema:creator"] = {
                 "@type": ["schema:Person"],
                 "schema:name": str(val).strip(),
             }
@@ -632,43 +904,59 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> dict:
                 inst["schema:model"] = {"@type": ["schema:ProductModel"], "schema:name": str(val).strip()}
                 inst["schema:name"] = inst.get("schema:manufacturer", {}).get("schema:name", "EPMA") + " " + str(val).strip()
             continue
-        # Now process by impl tag
-        for kind, name in row["parsed"]["tags"]:
+
+        # Use per-tag records so a row's property: and parameter: tags get the right readOnly each.
+        for tr in row["parsed"]["tag_records"]:
+            kind = tr["kind"]
+            name = tr["name"]
+            ro = tr["readOnly"]
+            tag_dtype = tr["dtype"] or row["parsed"]["dtype"]
+            tag_enum = tr["enum"] or row["parsed"]["enum"]
+
             if kind == "property":
                 if name in ("analyteTemplate", "description"):
                     continue
-                # Set top-level ada:<name>. Keep value as string (the schema declares
-                # type: string for these). For enum-constrained properties, only emit
-                # the value if it matches the enum; otherwise skip (publication data is
-                # often free-text rather than a clean enum match).
                 key = f"ada:{name}"
                 v = str(val).strip()
-                allowed = row["parsed"]["enum"]
-                if allowed and v not in allowed:
-                    # value doesn't match the strict enum — skip rather than fail validation
+                if tag_enum and v not in tag_enum:
                     continue
                 parts[key] = v
             elif kind == "parameter":
-                # add a methodParameters entry referencing the parameter template
-                method_params.append(OrderedDict([
-                    ("@context", dict(_ADA_CONTEXT)),
-                    ("@id", f"ada:parameter/empaTAPP/{name}"),
-                    ("@type", ["schema:PropertyValueSpecification"]),
-                    ("schema:name", item),
-                    ("schema:valueName", name),
-                    ("schema:description", row["desc"] or item),
-                    ("ada:dataType", map_dtype(row["parsed"]["dtype"])),
-                    ("ada:fieldScope", "session"),
-                    ("schema:readonlyValue", bool(row["parsed"]["readOnly"]) if row["parsed"]["readOnly"] is not None else False),
-                    ("ada:tier", "R"),
-                    ("schema:defaultValue", str(val).strip()),
-                ]))
-            # analyteColumn: per-element data not in the publication columns; skip for examples
+                if ro:
+                    method_params.append(OrderedDict([
+                        ("@context", dict(_ADA_CONTEXT)),
+                        ("@id", f"ada:parameter/empaTAPP/{name}"),
+                        ("@type", ["schema:PropertyValueSpecification"]),
+                        ("schema:name", item),
+                        ("schema:valueName", name),
+                        ("schema:description", row["desc"] or item),
+                        ("ada:dataType", map_dtype(tag_dtype)),
+                        ("ada:fieldScope", "session"),
+                        ("schema:readonlyValue", True),
+                        ("ada:tier", "R"),
+                        ("schema:defaultValue", str(val).strip()),
+                    ]))
+                else:
+                    coerced = _coerce_value(val, row.get("dtype_col"))
+                    if coerced is None:
+                        continue
+                    val_type, unit = _value_type_for(row.get("dtype_col"))
+                    entry = OrderedDict([
+                        ("@id", f"ada:parameter/empaTAPP/{name}"),
+                        ("@type", ["schema:PropertyValue"]),
+                        ("schema:propertyID", f"ada:parameter/empaTAPP/{name}"),
+                        ("schema:name", item),
+                        ("schema:value", coerced),
+                    ])
+                    if unit:
+                        entry["schema:unitText"] = unit
+                    detail["schema:additionalProperty"].append(entry)
+
     if method_params:
         parts["ada:methodParameters"] = method_params
     if not parts["schema:name"]:
         parts["schema:name"] = f"EPMA TAPP example {PUBS[pub_index][0]}"
-    return parts
+    return parts, detail
 
 
 # ---------- main ----------
@@ -679,9 +967,10 @@ def main():
 
     schema_properties: list[tuple[str, dict]] = []
     analyte_column_names: list[str] = []
-    parameter_names: list[str] = []
+    parameter_names: list[str] = []          # readOnly:true → empaTAPP/parameters/
+    detail_param_names: list[str] = []       # readOnly:false → detailEMPA/parameters/
     enum_to_vocab_name: dict[tuple[str, ...], str] = {}
-    counts = {"vocab": 0, "parameter": 0, "analyteColumn": 0, "property": 0}
+    counts = {"vocab": 0, "parameter": 0, "detailParameter": 0, "analyteColumn": 0, "property": 0}
 
     # Deduplicate vocab by (sorted enum tuple)
     for row in rows:
@@ -711,18 +1000,38 @@ def main():
             return None
         return enum_to_vocab_name.get(tuple(sorted(p["enum"])))
 
-    # Emit parameter and analyteColumn JSON, and collect properties for schema.yaml
+    # Emit parameter and analyteColumn JSON, and collect properties for schema.yaml.
+    # Use per-tag records so a row carrying both `property: X readOnly:true` and
+    # `parameter: Y readOnly:false` gets the right value applied to each tag.
     for row in rows:
         p = row["parsed"]
-        for kind, name in p["tags"]:
+        for tr in p["tag_records"]:
+            kind = tr["kind"]
+            name = tr["name"]
+            ro = tr["readOnly"]
+            tag_dtype = tr["dtype"] or p["dtype"]
+            tag_enum = tr["enum"] or p["enum"]
+            vocab_name = enum_to_vocab_name.get(tuple(sorted(tag_enum))) if tag_enum else None
+
             if kind == "parameter":
-                path = BB / "parameters" / f"{name}.json"
-                write_json(path, parameter_obj(name, row["item"], row["desc"], p["dtype"], vocab_for(p), p["readOnly"]))
-                counts["parameter"] += 1
-                parameter_names.append(name)
+                if ro:
+                    # readOnly:true → empaTAPP method-level template (PropertyValueSpecification)
+                    path = BB / "parameters" / f"{name}.json"
+                    write_json(path, parameter_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
+                    parameter_names.append(name)
+                    counts["parameter"] += 1
+                else:
+                    # readOnly:false → detailEMPA per-dataset value (PropertyValue)
+                    path = DETAIL_EMPA / "parameters" / f"{name}.json"
+                    write_json(path, additional_property_obj(
+                        name, row["item"], row["desc"],
+                        row.get("dtype_col"), vocab_name, tag_dtype,
+                    ))
+                    detail_param_names.append(name)
+                    counts["detailParameter"] += 1
             elif kind == "analytecolumn":
                 path = BB / "analyteColumns" / f"{name}.json"
-                write_json(path, analyte_column_obj(name, row["item"], row["desc"], p["dtype"], vocab_for(p), p["readOnly"]))
+                write_json(path, analyte_column_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
                 counts["analyteColumn"] += 1
                 analyte_column_names.append(name)
             elif kind == "property":
@@ -736,11 +1045,11 @@ def main():
                 block = OrderedDict()
                 if row["desc"]:
                     block["description"] = row["desc"]
-                if p["enum"]:
+                if tag_enum:
                     block["type"] = "string"
-                    block["enum"] = list(p["enum"])
+                    block["enum"] = list(tag_enum)
                 else:
-                    block["type"] = map_dtype(p["dtype"]) if map_dtype(p["dtype"]) != "string" else "string"
+                    block["type"] = map_dtype(tag_dtype) if map_dtype(tag_dtype) != "string" else "string"
                 schema_properties.append((f"ada:{name}", block))
                 counts["property"] += 1
 
@@ -752,16 +1061,18 @@ def main():
 
     instrument_haspart = build_haspart_constraint(rows)
     build_schema_yaml(schema_properties, analyte_column_names, parameter_names, instrument_haspart)
+    write_detail_empa_constraint(detail_param_names)
+    cleanup_orphan_param_files(parameter_names, detail_param_names)
 
-    # Generate examples for each publication
-    examples_dir = BB
+    # Generate paired empaTAPP + detailEMPA examples for each publication.
     examples_yaml = []
     for i, (pcode, plabel) in enumerate(PUBS):
-        ex = example_for_pub(i, plabel, rows)
-        path = examples_dir / f"exampleempaTAPP-{pcode}.json"
-        write_json(path, ex)
+        empa_ex, detail_ex = example_for_pub(i, plabel, rows)
+        write_json(BB / f"exampleempaTAPP-{pcode}.json", empa_ex)
+        if detail_ex.get("schema:additionalProperty"):
+            write_json(DETAIL_EMPA / f"exampledetailEMPA-{pcode}.json", detail_ex)
         examples_yaml.append((pcode, plabel))
-    print(f"  wrote {len(PUBS)} per-publication examples")
+    print(f"  wrote {len(PUBS)} per-publication empaTAPP + detailEMPA examples")
 
     # Update examples.yaml
     yaml = YAML()
