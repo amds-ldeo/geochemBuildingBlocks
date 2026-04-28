@@ -71,3 +71,47 @@ cdifd:tappDefinitionShape
     ] ;
     sh:message "TAPP definition nodes (ada:TAPPDefinition) must have name and technique." ;
     .
+
+
+# Within any schema:HowTo workflow, every step's schema:name and schema:position must be unique.
+# JSON Schema can't express per-property uniqueness across array items; SHACL does it via SPARQL.
+cdifd:WorkflowStepUniqueNamesShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX schema: <http://schema.org/>
+            SELECT DISTINCT ?this
+            WHERE { ?howto schema:step ?this . }
+        """ ;
+    ] ;
+    sh:sparql [
+        sh:select """
+            PREFIX schema: <http://schema.org/>
+            SELECT $this ?value
+            WHERE {
+                ?howto schema:step $this .
+                $this schema:name ?value .
+                ?other schema:name ?value .
+                ?howto schema:step ?other .
+                FILTER ( ?other != $this )
+            }
+        """ ;
+        sh:message "schema:name {$value} is duplicated across workflow steps; step names must be unique within a schema:HowTo." ;
+    ] ;
+    sh:sparql [
+        sh:select """
+            PREFIX schema: <http://schema.org/>
+            SELECT $this ?value
+            WHERE {
+                ?howto schema:step $this .
+                $this schema:position ?value .
+                ?other schema:position ?value .
+                ?howto schema:step ?other .
+                FILTER ( ?other != $this )
+            }
+        """ ;
+        sh:message "schema:position {$value} is duplicated across workflow steps; step positions must be unique within a schema:HowTo." ;
+    ] ;
+    .
+
