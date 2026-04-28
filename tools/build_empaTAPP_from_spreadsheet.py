@@ -56,6 +56,9 @@ TAG_RE = re.compile(r"\b(property|parameter|analyteColumn)\s*:\s*([A-Za-z][A-Za-
 DTYPE_RE = re.compile(r"\b(?:dataType|datatype|data:type)\s*:?\s*([A-Za-z:][A-Za-z0-9:_-]+)", re.IGNORECASE)
 ENUM_RE = re.compile(r"enum\s*\{([^}]+)\}", re.IGNORECASE)
 READONLY_RE = re.compile(r"\breadOnly\s*:?\s*(true|false)", re.IGNORECASE)
+HASPART_RE = re.compile(
+    r"schema:instrument\.schema:hasPart\[\]\.additionalType\s*=\s*['\"]([A-Za-z0-9_]+)['\"]"
+)
 
 
 def parse_impl(impl: str) -> dict:
@@ -314,9 +317,83 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
 
 # ---------- schema.yaml writer ----------
 
+def _to_commented(obj):
+    """Recursively convert nested dicts/lists into CommentedMap/CommentedSeq so
+    ruamel.yaml emits them as plain YAML mappings/sequences instead of !!python tags."""
+    if isinstance(obj, dict):
+        cm = CommentedMap()
+        for k, v in obj.items():
+            cm[k] = _to_commented(v)
+        return cm
+    if isinstance(obj, list):
+        cs = CommentedSeq()
+        for x in obj:
+            cs.append(_to_commented(x))
+        return cs
+    return obj
+
+
+def _split_pipe_enum(s: str | None) -> list[str]:
+    """Parse a 'A | B | C' style example value into a list of options."""
+    if not s:
+        return []
+    return [v.strip() for v in s.split("|") if v.strip()]
+
+
+def build_haspart_constraint(rows: list[dict]) -> dict | None:
+    """Scan rows for cdif paths matching
+    schema:instrument.schema:hasPart[].additionalType = '<X>' and produce an
+    items.anyOf constraint enumerating the allowed hasPart shapes. For rows
+    whose Data Type is "Controlled list" with a pipe-delimited example column,
+    schema:name is constrained to that enum on the matching branch."""
+    branches = []
+    for row in rows:
+        cdif = row.get("cdif_path") or ""
+        m = HASPART_RE.search(cdif)
+        if not m:
+            continue
+        addtype = m.group(1)
+        branch_props = OrderedDict([
+            ("@type", {
+                "type": "array",
+                "items": {"type": "string"},
+                "contains": {"const": "schema:Thing"},
+            }),
+            ("schema:additionalType", {
+                "type": "array",
+                "items": {"type": "string"},
+                "contains": {"const": addtype},
+            }),
+        ])
+        required = ["@type", "schema:additionalType"]
+        dtype_col = (row.get("dtype_col") or "").lower()
+        if "controlled" in dtype_col:
+            enum_vals = _split_pipe_enum(row.get("example"))
+            if enum_vals:
+                branch_props["schema:name"] = {"type": "string", "enum": enum_vals}
+                required.append("schema:name")
+        branches.append(OrderedDict([
+            ("type", "object"),
+            ("properties", branch_props),
+            ("required", required),
+        ]))
+    if not branches:
+        return None
+    return OrderedDict([
+        ("type", "object"),
+        ("properties", OrderedDict([
+            ("schema:hasPart", OrderedDict([
+                ("type", "array"),
+                ("items", OrderedDict([("anyOf", branches)])),
+            ])),
+        ])),
+    ])
+
+
 def build_schema_yaml(properties: list[tuple[str, dict]],
                       analyte_column_names: list[str],
-                      parameter_names: list[str]) -> None:
+                      parameter_names: list[str],
+                      instrument_haspart: dict | None) -> None:
     """Rebuild empaTAPP/schema.yaml with the new property set in allOf[1].properties
     and oneOf constraints on ada:analyteColumns[] and ada:methodParameters[]
     referencing the catalog files."""
@@ -413,6 +490,9 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         mp_array["allOf"] = mp_unique
 
         props["ada:methodParameters"] = mp_array
+
+    if instrument_haspart:
+        props["schema:instrument"] = _to_commented(instrument_haspart)
 
     overlay["properties"] = props
     allof.append(overlay)
@@ -611,7 +691,8 @@ def main():
         seen[prop_name] = block
     schema_properties = list(seen.items())
 
-    build_schema_yaml(schema_properties, analyte_column_names, parameter_names)
+    instrument_haspart = build_haspart_constraint(rows)
+    build_schema_yaml(schema_properties, analyte_column_names, parameter_names, instrument_haspart)
 
     # Generate examples for each publication
     examples_dir = BB
