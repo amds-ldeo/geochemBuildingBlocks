@@ -184,8 +184,13 @@
       "properties": {
         "ada:analyteColumns": {
           "type": "array",
+          "description": "Columns of the per-analyte parameter table. Must include at least one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
+          "minItems": 1,
           "items": {
             "$ref": "#/$defs/AnalyteColumn"
+          },
+          "contains": {
+            "$ref": "#/$defs/AnalyteIdentifierColumn"
           }
         },
         "ada:defaultAnalytes": {
@@ -832,6 +837,45 @@
       "required": [
         "schema:name",
         "ada:dataType"
+      ]
+    },
+    "AnalyteIdentifierColumn": {
+      "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AnalyteColumn"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema:valueName": {
+              "const": "analyte"
+            },
+            "ada:dataType": {
+              "const": "string"
+            },
+            "schema:readonlyValue": {
+              "const": true
+            },
+            "schema:valueRequired": {
+              "const": true
+            },
+            "ada:tier": {
+              "const": "M"
+            },
+            "ada:cdifPropertyPath": {
+              "const": "#/schema:variableMeasured/schema:name"
+            }
+          },
+          "required": [
+            "schema:valueName",
+            "ada:dataType",
+            "schema:readonlyValue",
+            "schema:valueRequired",
+            "ada:tier",
+            "ada:cdifPropertyPath"
+          ]
+        }
       ]
     },
     "ComputationalTool": {

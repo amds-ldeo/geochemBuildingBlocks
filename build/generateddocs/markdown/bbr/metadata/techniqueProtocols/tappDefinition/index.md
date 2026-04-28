@@ -438,11 +438,13 @@ parameters, reagents, and quality measurements.
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Analysed Oxide/Element",
-        "schema:valueName": "analysedOxide",
+        "schema:valueName": "analyte",
+        "schema:description": "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings.",
         "ada:dataType": "string",
+        "schema:readonlyValue": true,
         "schema:valueRequired": true,
         "ada:tier": "M",
-        "ada:cdifPropertyPath": "cdifVariableMeasured: cdi:name"
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -661,7 +663,7 @@ parameters, reagents, and quality measurements.
     ],
     "ada:defaultAnalytes": [
       {
-        "analysedOxide": "SiO2",
+        "analyte": "SiO2",
         "beamCurrent": 6,
         "spectrometer": "WDS 1",
         "sequence": 1,
@@ -680,7 +682,7 @@ parameters, reagents, and quality measurements.
         "detectionLimitMethod": "Mean of WDS detection limits at 99% confidence"
       },
       {
-        "analysedOxide": "TiO2",
+        "analyte": "TiO2",
         "beamCurrent": 6,
         "spectrometer": "WDS 1",
         "sequence": 3,
@@ -1072,11 +1074,13 @@ parameters, reagents, and quality measurements.
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Analysed Oxide/Element",
-        "schema:valueName": "analysedOxide",
+        "schema:valueName": "analyte",
+        "schema:description": "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings.",
         "ada:dataType": "string",
+        "schema:readonlyValue": true,
         "schema:valueRequired": true,
         "ada:tier": "M",
-        "ada:cdifPropertyPath": "cdifVariableMeasured: cdi:name"
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -1295,7 +1299,7 @@ parameters, reagents, and quality measurements.
     ],
     "ada:defaultAnalytes": [
       {
-        "analysedOxide": "SiO2",
+        "analyte": "SiO2",
         "beamCurrent": 6,
         "spectrometer": "WDS 1",
         "sequence": 1,
@@ -1314,7 +1318,7 @@ parameters, reagents, and quality measurements.
         "detectionLimitMethod": "Mean of WDS detection limits at 99% confidence"
       },
       {
-        "analysedOxide": "TiO2",
+        "analyte": "TiO2",
         "beamCurrent": 6,
         "spectrometer": "WDS 1",
         "sequence": 3,
@@ -1359,15 +1363,17 @@ parameters, reagents, and quality measurements.
                     schema1:position 3 ;
                     schema1:result <file:///github/workspace/#rawAnalyses> ;
                     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 15 ;
-                            schema1:name "Accelerating Voltage" ;
-                            schema1:readonlyValue true ;
-                            schema1:unitText "kV" ;
-                            schema1:valueName "acceleratingVoltage" ;
+                            schema1:defaultValue 10 ;
+                            schema1:maxValue 50 ;
+                            schema1:minValue 0 ;
+                            schema1:name "Beam Diameter" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "um" ;
+                            schema1:valueName "beamDiameter" ;
                             schema1:valueRequired true ;
                             ada:category "Beam Conditions" ;
                             ada:dataType "number" ;
-                            ada:fieldScope "method" ;
+                            ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "Si, Al, Na acquired first; 6-7 time intervals for TDI correction" ;
@@ -1381,17 +1387,15 @@ parameters, reagents, and quality measurements.
                             ada:fieldScope "method" ;
                             ada:tier "R" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 10 ;
-                            schema1:maxValue 50 ;
-                            schema1:minValue 0 ;
-                            schema1:name "Beam Diameter" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "um" ;
-                            schema1:valueName "beamDiameter" ;
+                            schema1:defaultValue 15 ;
+                            schema1:name "Accelerating Voltage" ;
+                            schema1:readonlyValue true ;
+                            schema1:unitText "kV" ;
+                            schema1:valueName "acceleratingVoltage" ;
                             schema1:valueRequired true ;
                             ada:category "Beam Conditions" ;
                             ada:dataType "number" ;
-                            ada:fieldScope "session" ;
+                            ada:fieldScope "method" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 6 ;
@@ -1406,56 +1410,6 @@ parameters, reagents, and quality measurements.
                             ada:dataType "number" ;
                             ada:fieldScope "method" ;
                             ada:tier "M" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Tephra glass grains mounted, polished, and carbon coated for EPMA." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ;
-                    bios:reagent [ a schema1:Thing ;
-                            schema1:name "Carbon" ;
-                            ada:reagentRole "coatingMaterial" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:description "Secondary standards analysed at start and end of every session. Drift correction by interpolation of primary standard calibrations." ;
-                    schema1:name "Quality control" ;
-                    schema1:object <file:///github/workspace/#quantifiedResults> ;
-                    schema1:position 5 ;
-                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "analytical precision (1-sigma)" ;
-                            dqv:value "Reported per element on secondary standards; see relatedLink publications" ] ;
-                    ada:methodParameters [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Primary reference materials at start/end of session; calibration interpolated" ;
-                            schema1:name "Drift Correction" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "driftCorrection" ;
-                            schema1:valueRequired false ;
-                            ada:category "Quality Control" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "R" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:description "Calibrate WDS spectrometers on primary standards. Verify on secondary standards at start and end of session." ;
-                    schema1:name "Instrument calibration" ;
-                    schema1:object <file:///github/workspace/#preparedMount> ;
-                    schema1:position 2 ;
-                    bios:reagent [ a schema1:Thing ;
-                            schema1:name "Kaersutite amphibole" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:name "USGS BHVO-2g" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:name "Lipari obsidian ID3506" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:name "USGS NKT-1g" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:name "Albite" ;
-                            ada:reagentRole "primaryStandard" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:description "Matrix correction, blank correction, and standards-based normalization using Probe for EPMA." ;
@@ -1478,7 +1432,57 @@ parameters, reagents, and quality measurements.
                     bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Probe for EPMA" ;
                             schema1:version "9.6.4" ;
-                            ada:toolRole "reduction" ] ] ] ;
+                            ada:toolRole "reduction" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:description "Secondary standards analysed at start and end of every session. Drift correction by interpolation of primary standard calibrations." ;
+                    schema1:name "Quality control" ;
+                    schema1:object <file:///github/workspace/#quantifiedResults> ;
+                    schema1:position 5 ;
+                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "analytical precision (1-sigma)" ;
+                            dqv:value "Reported per element on secondary standards; see relatedLink publications" ] ;
+                    ada:methodParameters [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Primary reference materials at start/end of session; calibration interpolated" ;
+                            schema1:name "Drift Correction" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "driftCorrection" ;
+                            schema1:valueRequired false ;
+                            ada:category "Quality Control" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "R" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Tephra glass grains mounted, polished, and carbon coated for EPMA." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ;
+                    bios:reagent [ a schema1:Thing ;
+                            schema1:name "Carbon" ;
+                            ada:reagentRole "coatingMaterial" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:description "Calibrate WDS spectrometers on primary standards. Verify on secondary standards at start and end of session." ;
+                    schema1:name "Instrument calibration" ;
+                    schema1:object <file:///github/workspace/#preparedMount> ;
+                    schema1:position 2 ;
+                    bios:reagent [ a schema1:Thing ;
+                            schema1:name "Lipari obsidian ID3506" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:name "USGS NKT-1g" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:name "Albite" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:name "USGS BHVO-2g" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:name "Kaersutite amphibole" ;
+                            ada:reagentRole "primaryStandard" ] ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "Concord University" ] ;
     schema1:datePublished "2011-10-20" ;
@@ -1504,48 +1508,8 @@ parameters, reagents, and quality measurements.
             schema1:name "silicate glass" ] ;
     schema1:version "1.0.6" ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Sequence" ;
-                    schema1:valueName "sequence" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "integer" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Analysed Oxide/Element" ;
-                    schema1:valueName "analysedOxide" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "cdifVariableMeasured: cdi:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:name "Normalization Method" ;
                     schema1:valueName "normalizationMethod" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "O" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Background Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "backgroundCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Calibration Standard Name" ;
-                    schema1:valueName "calibrationStandardName" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
-                    schema1:name "Diffracting Crystal" ;
-                    schema1:valueName "diffractingCrystal" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Normalization Standards" ;
-                    schema1:valueName "normalizationStandards" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "O" ],
@@ -1558,35 +1522,32 @@ parameters, reagents, and quality measurements.
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
-                    schema1:name "Background Method" ;
-                    schema1:valueName "backgroundMethod" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "SDD" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Si(Li)" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Other" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "xenon" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "P-10" ] ] ;
-                    schema1:name "Detector Type" ;
-                    schema1:valueName "detectorType" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:name "Detection Limit Unit" ;
                     schema1:valueName "detectionLimitUnit" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Detection Limit" ;
+                    schema1:valueName "detectionLimit" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "number" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Normalization Standards" ;
+                    schema1:valueName "normalizationStandards" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "O" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings." ;
+                    schema1:name "Analysed Oxide/Element" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
                     schema1:name "X-ray Line" ;
@@ -1594,6 +1555,35 @@ parameters, reagents, and quality measurements.
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Sequence" ;
+                    schema1:valueName "sequence" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "integer" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Detection Limit Method" ;
+                    schema1:valueName "detectionLimitMethod" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Calibration Standard Name" ;
+                    schema1:valueName "calibrationStandardName" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Integral" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Differential" ] ] ;
+                    schema1:name "WDS PHA Setting" ;
+                    schema1:valueName "phaSettings" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:maxValue 200 ;
                     schema1:minValue 1 ;
@@ -1604,31 +1594,47 @@ parameters, reagents, and quality measurements.
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Detection Limit" ;
-                    schema1:valueName "detectionLimit" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "number" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Detection Limit Method" ;
-                    schema1:valueName "detectionLimitMethod" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:name "Spectrometer" ;
                     schema1:valueName "spectrometer" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
+                    schema1:name "Diffracting Crystal" ;
+                    schema1:valueName "diffractingCrystal" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
+                    schema1:name "Background Method" ;
+                    schema1:valueName "backgroundMethod" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:minValue 1 ;
+                    schema1:name "Background Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "backgroundCountingTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
                     schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                             schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Differential" ],
+                                    schema1:termCode "P-10" ],
                                 [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Integral" ] ] ;
-                    schema1:name "WDS PHA Setting" ;
-                    schema1:valueName "phaSettings" ;
+                                    schema1:termCode "SDD" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "xenon" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Other" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Si(Li)" ] ] ;
+                    schema1:name "Detector Type" ;
+                    schema1:valueName "detectorType" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ] ;
@@ -1865,7 +1871,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 111312/444"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
           },
           {
             "@type": [
@@ -1880,7 +1886,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 117075"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
           },
           {
             "@type": [
@@ -1895,7 +1901,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 143965"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
           },
           {
             "@type": [
@@ -1940,7 +1946,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:Thing"
             ],
             "schema:name": "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320",
-            "schema:description": "Secondary spinel standards for Fe3+/ΣFe calibration",
+            "schema:description": "Secondary spinel standards for Fe3+/Î£Fe calibration",
             "ada:reagentRole": "secondaryStandard",
             "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)."
           }
@@ -2044,7 +2050,7 @@ catalog identifiers and citations. Multiple target materials
         ],
         "schema:name": "Data processing",
         "schema:position": 4,
-        "schema:description": "Matrix correction using CITZAF. Fe3+/ΣFe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known Mössbauer Fe3+/ΣFe ratios.",
+        "schema:description": "Matrix correction using CITZAF. Fe3+/Î£Fe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known MÃ¶ssbauer Fe3+/Î£Fe ratios.",
         "schema:object": {
           "@id": "#rawAnalyses"
         },
@@ -2127,11 +2133,13 @@ catalog identifiers and citations. Multiple target materials
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Analysed Oxide/Element",
-        "schema:valueName": "analysedOxide",
+        "schema:valueName": "analyte",
+        "schema:description": "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings.",
         "ada:dataType": "string",
+        "schema:readonlyValue": true,
         "schema:valueRequired": true,
         "ada:tier": "M",
-        "ada:cdifPropertyPath": "cdifVariableMeasured: cdi:name"
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -2252,7 +2260,7 @@ catalog identifiers and citations. Multiple target materials
     ],
     "ada:defaultAnalytes": [
       {
-        "analysedOxide": "SiO2",
+        "analyte": "SiO2",
         "beamCurrent": 40,
         "spectrometer": "WDS 4",
         "diffractingCrystal": "TAP",
@@ -2262,10 +2270,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
       },
       {
-        "analysedOxide": "TiO2",
+        "analyte": "TiO2",
         "beamCurrent": 40,
         "spectrometer": "WDS 3",
         "diffractingCrystal": "PETJ",
@@ -2275,10 +2283,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 40,
         "calibrationStandardName": "Kakanui Hornblende",
         "calibrationStandardID": "NMNH 143965",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
       },
       {
-        "analysedOxide": "Al2O3",
+        "analyte": "Al2O3",
         "beamCurrent": 40,
         "spectrometer": "WDS 4",
         "diffractingCrystal": "TAP",
@@ -2291,7 +2299,7 @@ catalog identifiers and citations. Multiple target materials
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "Cr2O3",
+        "analyte": "Cr2O3",
         "beamCurrent": 40,
         "spectrometer": "WDS 2",
         "diffractingCrystal": "LiFH",
@@ -2301,10 +2309,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "Tiebaghi Mine chromite",
         "calibrationStandardID": "NMNH 117075",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
       },
       {
-        "analysedOxide": "FeOT",
+        "analyte": "FeOT",
         "beamCurrent": 40,
         "spectrometer": "WDS 2",
         "diffractingCrystal": "LiFH",
@@ -2314,10 +2322,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
       },
       {
-        "analysedOxide": "MnO",
+        "analyte": "MnO",
         "beamCurrent": 40,
         "spectrometer": "WDS 1",
         "diffractingCrystal": "LiF",
@@ -2330,7 +2338,7 @@ catalog identifiers and citations. Multiple target materials
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "MgO",
+        "analyte": "MgO",
         "beamCurrent": 40,
         "spectrometer": "WDS 1",
         "diffractingCrystal": "TAP",
@@ -2340,10 +2348,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
       },
       {
-        "analysedOxide": "CaO",
+        "analyte": "CaO",
         "beamCurrent": 40,
         "spectrometer": "WDS 3",
         "diffractingCrystal": "PETJ",
@@ -2355,7 +2363,7 @@ catalog identifiers and citations. Multiple target materials
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "NiO",
+        "analyte": "NiO",
         "beamCurrent": 40,
         "spectrometer": "WDS 5",
         "diffractingCrystal": "LiF",
@@ -2365,7 +2373,7 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 40,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
       }
     ]
   },
@@ -2583,7 +2591,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 111312/444"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
           },
           {
             "@type": [
@@ -2598,7 +2606,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 117075"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
           },
           {
             "@type": [
@@ -2613,7 +2621,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 143965"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
           },
           {
             "@type": [
@@ -2658,7 +2666,7 @@ catalog identifiers and citations. Multiple target materials
               "schema:Thing"
             ],
             "schema:name": "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320",
-            "schema:description": "Secondary spinel standards for Fe3+/\u03a3Fe calibration",
+            "schema:description": "Secondary spinel standards for Fe3+/\u00ce\u00a3Fe calibration",
             "ada:reagentRole": "secondaryStandard",
             "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)."
           }
@@ -2762,7 +2770,7 @@ catalog identifiers and citations. Multiple target materials
         ],
         "schema:name": "Data processing",
         "schema:position": 4,
-        "schema:description": "Matrix correction using CITZAF. Fe3+/\u03a3Fe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known M\u00f6ssbauer Fe3+/\u03a3Fe ratios.",
+        "schema:description": "Matrix correction using CITZAF. Fe3+/\u00ce\u00a3Fe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known M\u00c3\u00b6ssbauer Fe3+/\u00ce\u00a3Fe ratios.",
         "schema:object": {
           "@id": "#rawAnalyses"
         },
@@ -2845,11 +2853,13 @@ catalog identifiers and citations. Multiple target materials
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Analysed Oxide/Element",
-        "schema:valueName": "analysedOxide",
+        "schema:valueName": "analyte",
+        "schema:description": "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings.",
         "ada:dataType": "string",
+        "schema:readonlyValue": true,
         "schema:valueRequired": true,
         "ada:tier": "M",
-        "ada:cdifPropertyPath": "cdifVariableMeasured: cdi:name"
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -2970,7 +2980,7 @@ catalog identifiers and citations. Multiple target materials
     ],
     "ada:defaultAnalytes": [
       {
-        "analysedOxide": "SiO2",
+        "analyte": "SiO2",
         "beamCurrent": 40,
         "spectrometer": "WDS 4",
         "diffractingCrystal": "TAP",
@@ -2980,10 +2990,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "TiO2",
+        "analyte": "TiO2",
         "beamCurrent": 40,
         "spectrometer": "WDS 3",
         "diffractingCrystal": "PETJ",
@@ -2993,10 +3003,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 40,
         "calibrationStandardName": "Kakanui Hornblende",
         "calibrationStandardID": "NMNH 143965",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "Al2O3",
+        "analyte": "Al2O3",
         "beamCurrent": 40,
         "spectrometer": "WDS 4",
         "diffractingCrystal": "TAP",
@@ -3009,7 +3019,7 @@ catalog identifiers and citations. Multiple target materials
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "Cr2O3",
+        "analyte": "Cr2O3",
         "beamCurrent": 40,
         "spectrometer": "WDS 2",
         "diffractingCrystal": "LiFH",
@@ -3019,10 +3029,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "Tiebaghi Mine chromite",
         "calibrationStandardID": "NMNH 117075",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "FeOT",
+        "analyte": "FeOT",
         "beamCurrent": 40,
         "spectrometer": "WDS 2",
         "diffractingCrystal": "LiFH",
@@ -3032,10 +3042,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "MnO",
+        "analyte": "MnO",
         "beamCurrent": 40,
         "spectrometer": "WDS 1",
         "diffractingCrystal": "LiF",
@@ -3048,7 +3058,7 @@ catalog identifiers and citations. Multiple target materials
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "MgO",
+        "analyte": "MgO",
         "beamCurrent": 40,
         "spectrometer": "WDS 1",
         "diffractingCrystal": "TAP",
@@ -3058,10 +3068,10 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "CaO",
+        "analyte": "CaO",
         "beamCurrent": 40,
         "spectrometer": "WDS 3",
         "diffractingCrystal": "PETJ",
@@ -3073,7 +3083,7 @@ catalog identifiers and citations. Multiple target materials
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "NiO",
+        "analyte": "NiO",
         "beamCurrent": 40,
         "spectrometer": "WDS 5",
         "diffractingCrystal": "LiF",
@@ -3083,7 +3093,7 @@ catalog identifiers and citations. Multiple target materials
         "backgroundCountingTime": 40,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       }
     ]
   },
@@ -3108,68 +3118,14 @@ catalog identifiers and citations. Multiple target materials
             schema1:name "EPMA WDS spinel oxybarometry workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:description "Quantitative WDS analysis at 15 kV / 40 nA, focused beam. 5 spectrometers measuring SiO2, TiO2, Al2O3, Cr2O3, FeOT, MnO, MgO, CaO, NiO simultaneously." ;
-                    schema1:name "WDS data acquisition" ;
-                    schema1:position 3 ;
-                    schema1:result <file:///github/workspace/#rawAnalyses> ;
-                    ada:methodParameters [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Focused beam" ;
-                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/beam-modes> ;
-                            schema1:name "Beam Diameter" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "beamDiameter" ;
-                            schema1:valueRequired true ;
-                            ada:category "Beam Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "not applicable" ;
-                            schema1:name "Beam Damage Minimization" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "beamDamageMinimization" ;
-                            schema1:valueRequired false ;
-                            ada:category "Beam Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "R" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "none" ;
-                            schema1:name "Beam Raster" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "beamRaster" ;
-                            schema1:valueRequired false ;
-                            ada:category "Beam Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "R" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 40 ;
-                            schema1:maxValue 200 ;
-                            schema1:minValue 1 ;
-                            schema1:name "Beam Current" ;
-                            schema1:readonlyValue true ;
-                            schema1:unitText "nA" ;
-                            schema1:valueName "beamCurrent" ;
-                            schema1:valueRequired true ;
-                            ada:category "Beam Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 15 ;
-                            schema1:name "Accelerating Voltage" ;
-                            schema1:readonlyValue true ;
-                            schema1:unitText "kV" ;
-                            schema1:valueName "acceleratingVoltage" ;
-                            schema1:valueRequired true ;
-                            ada:category "Beam Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "M" ] ],
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Spinel-bearing peridotite samples mounted in epoxy, polished, and carbon coated." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:description "Matrix correction using CITZAF. Fe3+/ΣFe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known Mössbauer Fe3+/ΣFe ratios." ;
+                    schema1:description "Matrix correction using CITZAF. Fe3+/Î£Fe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known MÃ¶ssbauer Fe3+/Î£Fe ratios." ;
                     schema1:name "Data processing" ;
                     schema1:object <file:///github/workspace/#rawAnalyses> ;
                     schema1:position 4 ;
@@ -3191,6 +3147,117 @@ catalog identifiers and citations. Multiple target materials
                             ada:toolRole "reduction" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:description "Calibrate WDS spectrometers on primary Smithsonian standards. Verify with secondary spinel standards from Wood & Virgo (1989), Bryndzia & Wood (1990), and Ionov & Wood (1992)." ;
+                    schema1:name "Instrument calibration" ;
+                    schema1:object <file:///github/workspace/#preparedMount> ;
+                    schema1:position 2 ;
+                    bios:reagent [ a schema1:Thing ;
+                            schema1:citation "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)." ;
+                            schema1:description "Secondary spinel standards for Fe3+/Î£Fe calibration" ;
+                            schema1:name "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 111312/444" ] ;
+                            schema1:name "San Carlos olivine" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 117075" ] ;
+                            schema1:name "Tiebaghi Mine chromite" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
+                            schema1:name "Wollastonite (synthetic, F.R. Boyd)" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 136041" ] ;
+                            schema1:name "Spinel" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 143965" ] ;
+                            schema1:name "Kakanui Hornblende" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 114887" ] ;
+                            schema1:name "Manganite" ;
+                            ada:reagentRole "primaryStandard" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:description "Quantitative WDS analysis at 15 kV / 40 nA, focused beam. 5 spectrometers measuring SiO2, TiO2, Al2O3, Cr2O3, FeOT, MnO, MgO, CaO, NiO simultaneously." ;
+                    schema1:name "WDS data acquisition" ;
+                    schema1:position 3 ;
+                    schema1:result <file:///github/workspace/#rawAnalyses> ;
+                    ada:methodParameters [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 40 ;
+                            schema1:maxValue 200 ;
+                            schema1:minValue 1 ;
+                            schema1:name "Beam Current" ;
+                            schema1:readonlyValue true ;
+                            schema1:unitText "nA" ;
+                            schema1:valueName "beamCurrent" ;
+                            schema1:valueRequired true ;
+                            ada:category "Beam Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "none" ;
+                            schema1:name "Beam Raster" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "beamRaster" ;
+                            schema1:valueRequired false ;
+                            ada:category "Beam Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 15 ;
+                            schema1:name "Accelerating Voltage" ;
+                            schema1:readonlyValue true ;
+                            schema1:unitText "kV" ;
+                            schema1:valueName "acceleratingVoltage" ;
+                            schema1:valueRequired true ;
+                            ada:category "Beam Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "not applicable" ;
+                            schema1:name "Beam Damage Minimization" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "beamDamageMinimization" ;
+                            schema1:valueRequired false ;
+                            ada:category "Beam Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Focused beam" ;
+                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/beam-modes> ;
+                            schema1:name "Beam Diameter" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "beamDiameter" ;
+                            schema1:valueRequired true ;
+                            ada:category "Beam Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:description "Primary and secondary standards run at start and end of session; subset run regularly during session." ;
                     schema1:name "Quality control" ;
                     schema1:object <file:///github/workspace/#quantifiedResults> ;
@@ -3207,64 +3274,7 @@ catalog identifiers and citations. Multiple target materials
                             ada:category "Quality Control" ;
                             ada:dataType "string" ;
                             ada:fieldScope "session" ;
-                            ada:tier "R" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:description "Calibrate WDS spectrometers on primary Smithsonian standards. Verify with secondary spinel standards from Wood & Virgo (1989), Bryndzia & Wood (1990), and Ionov & Wood (1992)." ;
-                    schema1:name "Instrument calibration" ;
-                    schema1:object <file:///github/workspace/#preparedMount> ;
-                    schema1:position 2 ;
-                    bios:reagent [ a schema1:Thing ;
-                            schema1:citation "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)." ;
-                            schema1:description "Secondary spinel standards for Fe3+/ΣFe calibration" ;
-                            schema1:name "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 143965" ] ;
-                            schema1:name "Kakanui Hornblende" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 136041" ] ;
-                            schema1:name "Spinel" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
-                            schema1:name "Wollastonite (synthetic, F.R. Boyd)" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 117075" ] ;
-                            schema1:name "Tiebaghi Mine chromite" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43–47." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 111312/444" ] ;
-                            schema1:name "San Carlos olivine" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 114887" ] ;
-                            schema1:name "Manganite" ;
-                            ada:reagentRole "primaryStandard" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Spinel-bearing peridotite samples mounted in epoxy, polished, and carbon coated." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ] ] ;
+                            ada:tier "R" ] ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "Smithsonian Institution, Department of Mineral Sciences" ] ;
     schema1:datePublished "2013-11-08" ;
@@ -3296,12 +3306,20 @@ catalog identifiers and citations. Multiple target materials
             schema1:name "orthopyroxene" ] ;
     schema1:version "1.0" ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
-                    schema1:name "X-ray Line" ;
-                    schema1:valueName "xrayLine" ;
+                    schema1:description "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings." ;
+                    schema1:name "Analysed Oxide/Element" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
                     schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Spectrometer" ;
+                    schema1:valueName "spectrometer" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:minValue 1 ;
                     schema1:name "Background Counting Time (s)" ;
@@ -3311,11 +3329,20 @@ catalog identifiers and citations. Multiple target materials
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Calibration Standard ID" ;
-                    schema1:valueName "calibrationStandardID" ;
-                    schema1:valueRequired false ;
+                    schema1:minValue 1 ;
+                    schema1:name "Peak Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "peakCountingTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
+                    schema1:name "X-ray Line" ;
+                    schema1:valueName "xrayLine" ;
+                    schema1:valueRequired true ;
                     ada:dataType "string" ;
-                    ada:tier "R" ],
+                    ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
                     schema1:name "Diffracting Crystal" ;
@@ -3323,6 +3350,18 @@ catalog identifiers and citations. Multiple target materials
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Citation for Standard" ;
+                    schema1:valueName "citationForStandard" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Calibration Standard ID" ;
+                    schema1:valueName "calibrationStandardID" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:maxValue 200 ;
                     schema1:minValue 1 ;
@@ -3344,34 +3383,7 @@ catalog identifiers and citations. Multiple target materials
                     schema1:valueName "backgroundMethod" ;
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Citation for Standard" ;
-                    schema1:valueName "citationForStandard" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Peak Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "peakCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Analysed Oxide/Element" ;
-                    schema1:valueName "analysedOxide" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "cdifVariableMeasured: cdi:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Spectrometer" ;
-                    schema1:valueName "spectrometer" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ] ;
+                    ada:tier "M" ] ;
             ada:defaultAnalytes [ ],
                 [ ],
                 [ ],
@@ -3382,21 +3394,6 @@ catalog identifiers and citations. Multiple target materials
                 [ ],
                 [ ] ] ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "No" ;
-            schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                    schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                            schema1:termCode "Yes" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:termCode "No" ] ] ;
-            schema1:name "EDS Utilization" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "edsUtilization" ;
-            schema1:valueRequired true ;
-            ada:category "Instrument & Software" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "M" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Yes" ;
             schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                     schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
@@ -3406,6 +3403,21 @@ catalog identifiers and citations. Multiple target materials
             schema1:name "WDS Utilization" ;
             schema1:readonlyValue true ;
             schema1:valueName "wdsUtilization" ;
+            schema1:valueRequired true ;
+            ada:category "Instrument & Software" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "M" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "No" ;
+            schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                    schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                            schema1:termCode "No" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:termCode "Yes" ] ] ;
+            schema1:name "EDS Utilization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "edsUtilization" ;
             schema1:valueRequired true ;
             ada:category "Instrument & Software" ;
             ada:dataType "string" ;
@@ -3730,7 +3742,7 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397–429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
           },
           {
             "@type": [
@@ -3739,7 +3751,7 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397–429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
           },
           {
             "@type": [
@@ -3768,7 +3780,7 @@ template, and TAPP-level funding/references.
         ],
         "schema:name": "Laser ablation data acquisition",
         "schema:position": 4,
-        "schema:description": "Ablate sample in point mode with 15–20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device.",
+        "schema:description": "Ablate sample in point mode with 15â€“20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device.",
         "schema:object": {
           "@id": "#preparedMount"
         },
@@ -3931,11 +3943,13 @@ template, and TAPP-level funding/references.
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Measured Isotope",
-        "schema:valueName": "measuredIsotope",
-        "ada:dataType": "string",
-        "schema:valueRequired": true,
+        "schema:valueName": "analyte",
         "schema:description": "Element symbol with mass number (e.g. Si29, Ba138, U238).",
-        "ada:tier": "M"
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -4016,7 +4030,7 @@ template, and TAPP-level funding/references.
     ],
     "ada:defaultAnalytes": [
       {
-        "measuredIsotope": "Si29",
+        "analyte": "Si29",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4024,7 +4038,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": ""
       },
       {
-        "measuredIsotope": "Ca43",
+        "analyte": "Ca43",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4032,7 +4046,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Rb85",
+        "analyte": "Rb85",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4040,7 +4054,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Sr88",
+        "analyte": "Sr88",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4048,7 +4062,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Y89",
+        "analyte": "Y89",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4056,7 +4070,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Zr90",
+        "analyte": "Zr90",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4064,7 +4078,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Nb93",
+        "analyte": "Nb93",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4072,7 +4086,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Ba138",
+        "analyte": "Ba138",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4080,7 +4094,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "La139",
+        "analyte": "La139",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4088,7 +4102,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Ce140",
+        "analyte": "Ce140",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4096,7 +4110,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Nd146",
+        "analyte": "Nd146",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4104,7 +4118,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Sm147",
+        "analyte": "Sm147",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4112,7 +4126,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Eu153",
+        "analyte": "Eu153",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4120,7 +4134,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Gd157",
+        "analyte": "Gd157",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4128,7 +4142,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Dy163",
+        "analyte": "Dy163",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4136,7 +4150,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Er166",
+        "analyte": "Er166",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4144,7 +4158,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Yb172",
+        "analyte": "Yb172",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4152,7 +4166,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Lu175",
+        "analyte": "Lu175",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4160,7 +4174,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Hf178",
+        "analyte": "Hf178",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4168,7 +4182,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Th232",
+        "analyte": "Th232",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4176,7 +4190,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "U238",
+        "analyte": "U238",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4494,7 +4508,7 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u2013429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
           },
           {
             "@type": [
@@ -4503,7 +4517,7 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u2013429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
           },
           {
             "@type": [
@@ -4532,7 +4546,7 @@ template, and TAPP-level funding/references.
         ],
         "schema:name": "Laser ablation data acquisition",
         "schema:position": 4,
-        "schema:description": "Ablate sample in point mode with 15\u201320 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device.",
+        "schema:description": "Ablate sample in point mode with 15\u00e2\u20ac\u201c20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device.",
         "schema:object": {
           "@id": "#preparedMount"
         },
@@ -4695,11 +4709,13 @@ template, and TAPP-level funding/references.
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Measured Isotope",
-        "schema:valueName": "measuredIsotope",
-        "ada:dataType": "string",
-        "schema:valueRequired": true,
+        "schema:valueName": "analyte",
         "schema:description": "Element symbol with mass number (e.g. Si29, Ba138, U238).",
-        "ada:tier": "M"
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -4780,7 +4796,7 @@ template, and TAPP-level funding/references.
     ],
     "ada:defaultAnalytes": [
       {
-        "measuredIsotope": "Si29",
+        "analyte": "Si29",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4788,7 +4804,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": ""
       },
       {
-        "measuredIsotope": "Ca43",
+        "analyte": "Ca43",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4796,7 +4812,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Rb85",
+        "analyte": "Rb85",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4804,7 +4820,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Sr88",
+        "analyte": "Sr88",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4812,7 +4828,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Y89",
+        "analyte": "Y89",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4820,7 +4836,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Zr90",
+        "analyte": "Zr90",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4828,7 +4844,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Nb93",
+        "analyte": "Nb93",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4836,7 +4852,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Ba138",
+        "analyte": "Ba138",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4844,7 +4860,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "La139",
+        "analyte": "La139",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4852,7 +4868,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Ce140",
+        "analyte": "Ce140",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4860,7 +4876,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Nd146",
+        "analyte": "Nd146",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4868,7 +4884,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Sm147",
+        "analyte": "Sm147",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4876,7 +4892,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Eu153",
+        "analyte": "Eu153",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4884,7 +4900,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Gd157",
+        "analyte": "Gd157",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4892,7 +4908,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Dy163",
+        "analyte": "Dy163",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4900,7 +4916,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Er166",
+        "analyte": "Er166",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4908,7 +4924,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Yb172",
+        "analyte": "Yb172",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4916,7 +4932,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Lu175",
+        "analyte": "Lu175",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4924,7 +4940,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Hf178",
+        "analyte": "Hf178",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4932,7 +4948,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "Th232",
+        "analyte": "Th232",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4940,7 +4956,7 @@ template, and TAPP-level funding/references.
         "detectionLimitUnit": "ppm"
       },
       {
-        "measuredIsotope": "U238",
+        "analyte": "U238",
         "spectrometerDwellTime": "1e-8",
         "analysisCountTime": 40,
         "backgroundCountTime": 30,
@@ -4969,29 +4985,88 @@ template, and TAPP-level funding/references.
             schema1:name "LA-ICP-MS volcanic glass trace element workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:description "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G." ;
-                    schema1:name "Laser ablation calibration" ;
-                    schema1:position 3 ;
-                    bios:reagent [ a schema1:Thing ;
-                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397–429." ;
-                            schema1:description "Trace Elements in Glass (nominal 500 ppm)" ;
-                            schema1:name "NIST SRM 610" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397–429." ;
-                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
-                            schema1:name "NIST SRM 612" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
-                            schema1:description "MPI-DING Icelandic rhyolite glass" ;
-                            schema1:name "ATHO-G" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:Thing ;
-                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
-                            schema1:description "MPI-DING St. Helens dacite glass" ;
-                            schema1:name "StHs6/80-G" ;
-                            ada:reagentRole "secondaryStandard" ] ],
+                    schema1:description "Ablate sample in point mode with 15â€“20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device." ;
+                    schema1:name "Laser ablation data acquisition" ;
+                    schema1:object <file:///github/workspace/#preparedMount> ;
+                    schema1:position 4 ;
+                    schema1:result <file:///github/workspace/#rawSignals> ;
+                    ada:methodParameters [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 5 ;
+                            schema1:name "Repetition Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "Hz" ;
+                            schema1:valueName "repetitionRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "7 ns" ;
+                            schema1:name "Laser Pulse Time" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "laserPulseTime" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "15; 20" ;
+                            schema1:description "Spot width in um; multiple values if varied during session." ;
+                            schema1:name "Laser Spot Width" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "um" ;
+                            schema1:valueName "laserSpotWidth" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "193 nm (ArF excimer)" ;
+                            schema1:name "Laser Wavelength" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "laserWavelength" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "point" ;
+                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
+                            schema1:name "Laser Spot Path Geometry" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "laserSpotPathGeometry" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 1e-03 ;
+                            schema1:name "Laser Energy" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "mJ" ;
+                            schema1:valueName "laserEnergy" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:description "Secondary standards (NIST610, ATHO-G, StHs6/80-G) analysed interspersed with unknowns in ratio 2 calibration / 4 QC / 15 unknowns. Drift monitored via repeated NIST612 analyses throughout session." ;
+                    schema1:name "Quality control" ;
+                    schema1:object <file:///github/workspace/#quantifiedConcentrations> ;
+                    schema1:position 6 ;
+                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "oxide production" ;
+                            dqv:value "ThO/Th ca. 0.7%" ],
+                        [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "detection limit method" ;
+                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:description "Process raw time-resolved signals in Iolite 4. Background subtraction using 30 s pre-ablation gas blank. Normalize to NIST612 with Si as internal standard. Calculate concentrations and sample-individual detection limits per Pettke et al. (2012)." ;
@@ -5005,20 +5080,17 @@ template, and TAPP-level funding/references.
                             ada:toolRole "reduction" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Volcanic glass shards or tephra grains mounted in epoxy, polished to expose flat surfaces, and carbon coated for prior EPMA analysis of major elements (Si used as internal standard)." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
                     schema1:name "ICP-MS tuning and optimization" ;
                     schema1:position 2 ;
                     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "ca. 0.7%" ;
-                            schema1:name "Oxide Production (ThO/Th)" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "oxideProduction" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 1200 ;
                             schema1:name "RF Power" ;
                             schema1:readonlyValue false ;
@@ -5030,11 +5102,11 @@ template, and TAPP-level funding/references.
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 8e-01 ;
-                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
+                            schema1:defaultValue 9e-01 ;
+                            schema1:name "Carrier Gas (He) Flow Rate" ;
                             schema1:readonlyValue false ;
                             schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasArFlowRate" ;
+                            schema1:valueName "carrierGasHeFlowRate" ;
                             schema1:valueRequired true ;
                             ada:category "ICP-MS Conditions" ;
                             ada:dataType "number" ;
@@ -5051,11 +5123,21 @@ template, and TAPP-level funding/references.
                             ada:fieldScope "method" ;
                             ada:tier "R" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 9e-01 ;
-                            schema1:name "Carrier Gas (He) Flow Rate" ;
+                            schema1:defaultValue "ca. 0.7%" ;
+                            schema1:name "Oxide Production (ThO/Th)" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "oxideProduction" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 8e-01 ;
+                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
                             schema1:readonlyValue false ;
                             schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasHeFlowRate" ;
+                            schema1:valueName "carrierGasArFlowRate" ;
                             schema1:valueRequired true ;
                             ada:category "ICP-MS Conditions" ;
                             ada:dataType "number" ;
@@ -5063,95 +5145,29 @@ template, and TAPP-level funding/references.
                             ada:tier "M" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:description "Ablate sample in point mode with 15–20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device." ;
-                    schema1:name "Laser ablation data acquisition" ;
-                    schema1:object <file:///github/workspace/#preparedMount> ;
-                    schema1:position 4 ;
-                    schema1:result <file:///github/workspace/#rawSignals> ;
-                    ada:methodParameters [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "7 ns" ;
-                            schema1:name "Laser Pulse Time" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "laserPulseTime" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "193 nm (ArF excimer)" ;
-                            schema1:name "Laser Wavelength" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "laserWavelength" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 5 ;
-                            schema1:name "Repetition Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "Hz" ;
-                            schema1:valueName "repetitionRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "15; 20" ;
-                            schema1:description "Spot width in um; multiple values if varied during session." ;
-                            schema1:name "Laser Spot Width" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "um" ;
-                            schema1:valueName "laserSpotWidth" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 1e-03 ;
-                            schema1:name "Laser Energy" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "mJ" ;
-                            schema1:valueName "laserEnergy" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "point" ;
-                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
-                            schema1:name "Laser Spot Path Geometry" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "laserSpotPathGeometry" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Volcanic glass shards or tephra grains mounted in epoxy, polished to expose flat surfaces, and carbon coated for prior EPMA analysis of major elements (Si used as internal standard)." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:description "Secondary standards (NIST610, ATHO-G, StHs6/80-G) analysed interspersed with unknowns in ratio 2 calibration / 4 QC / 15 unknowns. Drift monitored via repeated NIST612 analyses throughout session." ;
-                    schema1:name "Quality control" ;
-                    schema1:object <file:///github/workspace/#quantifiedConcentrations> ;
-                    schema1:position 6 ;
-                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "oxide production" ;
-                            dqv:value "ThO/Th ca. 0.7%" ],
-                        [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "detection limit method" ;
-                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ] ] ] ;
+                    schema1:description "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G." ;
+                    schema1:name "Laser ablation calibration" ;
+                    schema1:position 3 ;
+                    bios:reagent [ a schema1:Thing ;
+                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
+                            schema1:description "MPI-DING St. Helens dacite glass" ;
+                            schema1:name "StHs6/80-G" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
+                            schema1:description "Trace Elements in Glass (nominal 500 ppm)" ;
+                            schema1:name "NIST SRM 610" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
+                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
+                            schema1:name "NIST SRM 612" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Thing ;
+                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
+                            schema1:description "MPI-DING Icelandic rhyolite glass" ;
+                            schema1:name "ATHO-G" ;
+                            ada:reagentRole "secondaryStandard" ] ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "University of Cologne, Institute of Geology and Mineralogy" ] ;
     schema1:datePublished "2022-04-22" ;
@@ -5187,27 +5203,27 @@ template, and TAPP-level funding/references.
             schema1:name "volcanic glass" ] ;
     schema1:version "1.0" ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
+                    schema1:name "Measured Isotope" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
                     schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                             schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                                    schema1:termCode "ppm" ],
+                                [ a schema1:DefinedTerm ;
                                     schema1:termCode "weight percent (%m/m)" ],
                                 [ a schema1:DefinedTerm ;
-                                    schema1:termCode "ppb" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "ppm" ] ] ;
+                                    schema1:termCode "ppb" ] ] ;
                     schema1:name "Detection Limit Unit" ;
                     schema1:valueName "detectionLimitUnit" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Gas blank measurement time before ablation in seconds." ;
-                    schema1:minValue 1 ;
-                    schema1:name "Background Count Time" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "backgroundCountTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:description "Total signal integration time during ablation in seconds." ;
                     schema1:minValue 1 ;
@@ -5218,27 +5234,29 @@ template, and TAPP-level funding/references.
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Typical detection limit at 99% confidence (3-sigma)." ;
-                    schema1:name "Detection Limit" ;
-                    schema1:valueName "detectionLimit" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
-                    schema1:name "Measured Isotope" ;
-                    schema1:valueName "measuredIsotope" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:description "Dwell time per isotope per sweep in seconds." ;
                     schema1:name "Spectrometer Dwell Time" ;
                     schema1:unitText "seconds" ;
                     schema1:valueName "spectrometerDwellTime" ;
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
-                    ada:tier "M" ] ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Gas blank measurement time before ablation in seconds." ;
+                    schema1:minValue 1 ;
+                    schema1:name "Background Count Time" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "backgroundCountTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Typical detection limit at 99% confidence (3-sigma)." ;
+                    schema1:name "Detection Limit" ;
+                    schema1:valueName "detectionLimit" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ] ;
             ada:defaultAnalytes [ ],
                 [ ],
                 [ ],
@@ -5261,27 +5279,6 @@ template, and TAPP-level funding/references.
                 [ ],
                 [ ] ] ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "2/4/15" ;
-            schema1:description "Ratio of calibration standard / QC standard / unknown analyses in a repeating block." ;
-            schema1:name "Calibration/QC/Unknown Sequence" ;
-            schema1:readonlyValue false ;
-            schema1:valueName "analysisSequenceRatio" ;
-            schema1:valueRequired false ;
-            ada:category "Quality Control" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
-            schema1:name "Element Fractionation Correction" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "elementFractionationCorrection" ;
-            schema1:valueRequired false ;
-            ada:category "Data Processing" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Si analyzed by EPMA or EDS" ;
             schema1:description "Internal standard element and how its concentration is derived for each unknown." ;
             schema1:name "Internal Standard" ;
@@ -5293,6 +5290,16 @@ template, and TAPP-level funding/references.
             ada:fieldScope "method" ;
             ada:tier "M" ],
         [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
+            schema1:name "Element Fractionation Correction" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "elementFractionationCorrection" ;
+            schema1:valueRequired false ;
+            ada:category "Data Processing" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Sample individual LOD calculation according to Pettke et al. (2012)" ;
             schema1:name "Detection Limit Method" ;
             schema1:readonlyValue true ;
@@ -5301,6 +5308,17 @@ template, and TAPP-level funding/references.
             ada:category "Quality Control" ;
             ada:dataType "string" ;
             ada:fieldScope "method" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "2/4/15" ;
+            schema1:description "Ratio of calibration standard / QC standard / unknown analyses in a repeating block." ;
+            schema1:name "Calibration/QC/Unknown Sequence" ;
+            schema1:readonlyValue false ;
+            schema1:valueName "analysisSequenceRatio" ;
+            schema1:valueRequired false ;
+            ada:category "Quality Control" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
             ada:tier "R" ] ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
             schema1:name "Iolite" ;
@@ -5465,8 +5483,14 @@ properties:
     properties:
       ada:analyteColumns:
         type: array
+        description: Columns of the per-analyte parameter table. Must include at least
+          one column with schema:valueName "analyte" that identifies the analyzed
+          constituent named in each row.
+        minItems: 1
         items:
           $ref: '#/$defs/AnalyteColumn'
+        contains:
+          $ref: '#/$defs/AnalyteIdentifierColumn'
       ada:defaultAnalytes:
         type: array
         description: Pre-populated analyte rows for this method. Each entry is an
@@ -5935,6 +5959,36 @@ $defs:
     required:
     - schema:name
     - ada:dataType
+  AnalyteIdentifierColumn:
+    description: 'The mandatory analyte-identifier column. Each row in the analyte
+      table must carry a value for this column naming the analyzed constituent (e.g.
+      "SiO2", "Fe"). Pinned constants enforce the column''s role: readonly (the identifier
+      of a row, not an editable parameter), required, mandatory tier, and a fixed
+      mapping into schema:variableMeasured/schema:name. Long-term the value space
+      should be a DefinedTermSet; for now a string.'
+    allOf:
+    - $ref: '#/$defs/AnalyteColumn'
+    - type: object
+      properties:
+        schema:valueName:
+          const: analyte
+        ada:dataType:
+          const: string
+        schema:readonlyValue:
+          const: true
+        schema:valueRequired:
+          const: true
+        ada:tier:
+          const: M
+        ada:cdifPropertyPath:
+          const: '#/schema:variableMeasured/schema:name'
+      required:
+      - schema:valueName
+      - ada:dataType
+      - schema:readonlyValue
+      - schema:valueRequired
+      - ada:tier
+      - ada:cdifPropertyPath
   ComputationalTool:
     type: object
     description: Software application used for data acquisition, reduction, or processing.

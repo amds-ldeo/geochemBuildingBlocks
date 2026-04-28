@@ -110,6 +110,7 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 (focused)",
   "ada:beamCurrentDefault": "5",
   "ada:methodParameters": [
@@ -119,19 +120,6 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -228,6 +216,7 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 (focused)",
   "ada:beamCurrentDefault": "5",
   "ada:methodParameters": [
@@ -237,19 +226,6 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -305,15 +281,16 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element minerals" ;
+    ada:acceleratingVoltageDefault "15" ;
     ada:beamCurrentDefault "5" ;
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
+            schema1:defaultValue "0 (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
@@ -323,15 +300,6 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "0 (focused)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -404,6 +372,7 @@ empaTAPP instance derived from publication Hu et al. 2020 (Coesite NWA8657, GCA)
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamCurrentDefault": "10",
   "ada:methodParameters": [
     {
@@ -412,19 +381,6 @@ empaTAPP instance derived from publication Hu et al. 2020 (Coesite NWA8657, GCA)
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -508,6 +464,7 @@ empaTAPP instance derived from publication Hu et al. 2020 (Coesite NWA8657, GCA)
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamCurrentDefault": "10",
   "ada:methodParameters": [
     {
@@ -516,19 +473,6 @@ empaTAPP instance derived from publication Hu et al. 2020 (Coesite NWA8657, GCA)
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -571,6 +515,7 @@ empaTAPP instance derived from publication Hu et al. 2020 (Coesite NWA8657, GCA)
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element minerals and glass" ;
+    ada:acceleratingVoltageDefault "15" ;
     ada:beamCurrentDefault "10" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
@@ -579,15 +524,6 @@ empaTAPP instance derived from publication Hu et al. 2020 (Coesite NWA8657, GCA)
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -659,8 +595,9 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
       "schema:name": "SX100 (Univ. Tennessee); JXA-8200 (Caltech)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "1–2 µm focused (silicates/oxides); 5–10 µm defocused (glass/maskelynite)",
-  "ada:beamCurrentDefault": "20 nA (silicates/oxides); 10 nA (glass/maskelynite/phosphate)",
+  "ada:beamCurrentDefault": "20 nA (silicates/oxides); \n10 nA (glass/maskelynite/phosphate)",
   "ada:methodParameters": [
     {
       "@type": [
@@ -668,19 +605,6 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -776,8 +700,9 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
       "schema:name": "SX100 (Univ. Tennessee); JXA-8200 (Caltech)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "1\u20132 \u00b5m focused (silicates/oxides); 5\u201310 \u00b5m defocused (glass/maskelynite)",
-  "ada:beamCurrentDefault": "20 nA (silicates/oxides); 10 nA (glass/maskelynite/phosphate)",
+  "ada:beamCurrentDefault": "20 nA (silicates/oxides); \n10 nA (glass/maskelynite/phosphate)",
   "ada:methodParameters": [
     {
       "@type": [
@@ -785,19 +710,6 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -853,7 +765,9 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element minerals and glass" ;
-    ada:beamCurrentDefault "20 nA (silicates/oxides); 10 nA (glass/maskelynite/phosphate)" ;
+    ada:acceleratingVoltageDefault "15" ;
+    ada:beamCurrentDefault """20 nA (silicates/oxides); 
+10 nA (glass/maskelynite/phosphate)""" ;
     ada:beamDiameterDefault "1–2 µm focused (silicates/oxides); 5–10 µm defocused (glass/maskelynite)" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
@@ -870,15 +784,6 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
             schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
             schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -951,6 +856,7 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 (focused)",
   "ada:beamCurrentDefault": "5",
   "ada:methodParameters": [
@@ -960,19 +866,6 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -1069,6 +962,7 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 (focused)",
   "ada:beamCurrentDefault": "5",
   "ada:methodParameters": [
@@ -1078,19 +972,6 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -1146,6 +1027,7 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element minerals" ;
+    ada:acceleratingVoltageDefault "15" ;
     ada:beamCurrentDefault "5" ;
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
@@ -1155,15 +1037,6 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
@@ -1245,6 +1118,7 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "20",
   "ada:beamDiameterDefault": "1 µm (focused)",
   "ada:beamCurrentDefault": "20",
   "ada:methodParameters": [
@@ -1254,19 +1128,6 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "20"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -1363,6 +1224,7 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "20",
   "ada:beamDiameterDefault": "1 \u00b5m (focused)",
   "ada:beamCurrentDefault": "20",
   "ada:methodParameters": [
@@ -1372,19 +1234,6 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "20"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -1440,33 +1289,25 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element minerals" ;
+    ada:acceleratingVoltageDefault "20" ;
     ada:beamCurrentDefault "20" ;
     ada:beamDiameterDefault "1 µm (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "1 µm (focused)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "20" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "20" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "1 µm (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -1539,6 +1380,7 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 (focused)",
   "ada:beamCurrentDefault": "25 nA",
   "ada:methodParameters": [
@@ -1548,19 +1390,6 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -1683,6 +1512,7 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
     }
   },
   "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 (focused)",
   "ada:beamCurrentDefault": "25 nA",
   "ada:methodParameters": [
@@ -1692,19 +1522,6 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -1786,34 +1603,26 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element minerals" ;
+    ada:acceleratingVoltageDefault "15" ;
     ada:beamCurrentDefault "25 nA" ;
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Yes (F correction for fluorine-bearing phosphates; CO2 by stoichiometry for carbonates)" ;
-            schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
-            schema1:name "Halogen Correction on Oxygen" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "halogenOxygenCorrection" ;
-            ada:dataType "boolean" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Yes (F correction for fluorine-bearing phosphates; CO2 by stoichiometry for carbonates)" ;
+            schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
+            schema1:name "Halogen Correction on Oxygen" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "halogenOxygenCorrection" ;
+            ada:dataType "boolean" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
@@ -1902,6 +1711,7 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
       "schema:name": "JEOL 8530 EMPA (Field Emission)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "2 µm",
   "ada:beamCurrentDefault": "20 nA",
   "ada:methodParameters": [
@@ -1911,19 +1721,6 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -2045,6 +1842,7 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
       "schema:name": "JEOL 8530 EMPA (Field Emission)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "2 \u00b5m",
   "ada:beamCurrentDefault": "20 nA",
   "ada:methodParameters": [
@@ -2054,19 +1852,6 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -2148,24 +1933,25 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EMPA major element apatite (phosphate)" ;
+    ada:acceleratingVoltageDefault "15" ;
     ada:beamCurrentDefault "20 nA" ;
     ada:beamDiameterDefault "2 µm" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 µm and 10 µm spot conditions" ;
+            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
+            schema1:name "Beam Damage Minimization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "BeamDamageMinimization" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Yes (F measured; Cl measured; OH by difference)" ;
             schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
             schema1:name "Halogen Correction on Oxygen" ;
             schema1:readonlyValue true ;
             schema1:valueName "halogenOxygenCorrection" ;
             ada:dataType "boolean" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
@@ -2183,15 +1969,6 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 µm and 10 µm spot conditions" ;
-            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
-            schema1:name "Beam Damage Minimization" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "BeamDamageMinimization" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -2263,8 +2040,9 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu mineralogy, N
       "schema:name": "Cameca SX-100 Ultra (U of Arizona); JEOL 7600F SEM with WDS (JSC)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "~1 µm focused (silicates/sulfides/oxides); variable for carbonates/phosphates",
-  "ada:beamCurrentDefault": "20 nA (X-ray maps/BSE); 20 nA silicates/sulfides/oxides; 8 nA phosphates; 4 nA carbonates",
+  "ada:beamCurrentDefault": "20 nA (X-ray maps/BSE); \n20 nA silicates/sulfides/oxides;\n8 nA phosphates; \n4 nA carbonates",
   "ada:methodParameters": [
     {
       "@type": [
@@ -2272,19 +2050,6 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu mineralogy, N
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -2380,8 +2145,9 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu mineralogy, N
       "schema:name": "Cameca SX-100 Ultra (U of Arizona); JEOL 7600F SEM with WDS (JSC)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "~1 \u00b5m focused (silicates/sulfides/oxides); variable for carbonates/phosphates",
-  "ada:beamCurrentDefault": "20 nA (X-ray maps/BSE); 20 nA silicates/sulfides/oxides; 8 nA phosphates; 4 nA carbonates",
+  "ada:beamCurrentDefault": "20 nA (X-ray maps/BSE); \n20 nA silicates/sulfides/oxides;\n8 nA phosphates; \n4 nA carbonates",
   "ada:methodParameters": [
     {
       "@type": [
@@ -2389,19 +2155,6 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu mineralogy, N
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -2457,32 +2210,27 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu mineralogy, N
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EMPA major element minerals (silicates, sulfides, oxides, carbonates, phosphates)" ;
-    ada:beamCurrentDefault "20 nA (X-ray maps/BSE); 20 nA silicates/sulfides/oxides; 8 nA phosphates; 4 nA carbonates" ;
+    ada:acceleratingVoltageDefault "15" ;
+    ada:beamCurrentDefault """20 nA (X-ray maps/BSE); 
+20 nA silicates/sulfides/oxides;
+8 nA phosphates; 
+4 nA carbonates""" ;
     ada:beamDiameterDefault "~1 µm focused (silicates/sulfides/oxides); variable for carbonates/phosphates" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "~1 µm focused (silicates/sulfides/oxides); variable for carbonates/phosphates" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "~1 µm focused (silicates/sulfides/oxides); variable for carbonates/phosphates" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -2554,8 +2302,9 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu evaporites, 
       "schema:name": "JEOL 8530 F+ Hyperprobe FEG (Smithsonian); Cameca SX-100 (U of Arizona)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)",
-  "ada:beamCurrentDefault": "10 nA (carbonate/Mg,Na phosphate); 10 nA (oxides/olivine, 1 µm)",
+  "ada:beamCurrentDefault": "10 nA (carbonate/Mg,Na phosphate); \n10 nA (oxides/olivine, 1 µm)",
   "ada:methodParameters": [
     {
       "@type": [
@@ -2563,19 +2312,6 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu evaporites, 
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -2671,8 +2407,9 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu evaporites, 
       "schema:name": "JEOL 8530 F+ Hyperprobe FEG (Smithsonian); Cameca SX-100 (U of Arizona)"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "1 \u00b5m (oxides/olivine); 5 \u00b5m (carbonates); 2 \u00b5m (Mg,Na phosphate)",
-  "ada:beamCurrentDefault": "10 nA (carbonate/Mg,Na phosphate); 10 nA (oxides/olivine, 1 \u00b5m)",
+  "ada:beamCurrentDefault": "10 nA (carbonate/Mg,Na phosphate); \n10 nA (oxides/olivine, 1 \u00b5m)",
   "ada:methodParameters": [
     {
       "@type": [
@@ -2680,19 +2417,6 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu evaporites, 
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -2748,32 +2472,25 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu evaporites, 
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EMPA major element minerals (carbonates, phosphates, silicates, oxides)" ;
-    ada:beamCurrentDefault "10 nA (carbonate/Mg,Na phosphate); 10 nA (oxides/olivine, 1 µm)" ;
+    ada:acceleratingVoltageDefault "15" ;
+    ada:beamCurrentDefault """10 nA (carbonate/Mg,Na phosphate); 
+10 nA (oxides/olivine, 1 µm)""" ;
     ada:beamDiameterDefault "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)" ;
             schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
             schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
             schema1:valueName "beamDiameter" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -2845,6 +2562,7 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
       "schema:name": "JEOL 8100"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 focused (most minerals); 2–5 µm defocused (plagioclase and polymorphs)",
   "ada:beamCurrentDefault": "20 nA",
   "ada:methodParameters": [
@@ -2854,19 +2572,6 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -2962,6 +2667,7 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
       "schema:name": "JEOL 8100"
     }
   },
+  "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 focused (most minerals); 2\u20135 \u00b5m defocused (plagioclase and polymorphs)",
   "ada:beamCurrentDefault": "20 nA",
   "ada:methodParameters": [
@@ -2971,19 +2677,6 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
       ],
       "schema:name": "Default Accelerating Voltage",
       "schema:valueName": "acceleratingVoltage",
-      "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "15"
-    },
-    {
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:name": "Default Accelerating Voltage",
-      "schema:valueName": "readOnly",
       "schema:description": "Electron beam accelerating voltage in kilovolts (kV).",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -3039,18 +2732,10 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element minerals" ;
+    ada:acceleratingVoltageDefault "15" ;
     ada:beamCurrentDefault "20 nA" ;
     ada:beamDiameterDefault "0 focused (most minerals); 2–5 µm defocused (plagioclase and polymorphs)" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "0 focused (most minerals); 2–5 µm defocused (plagioclase and polymorphs)" ;
             schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
             schema1:name "Default Beam Diameter" ;
@@ -3095,6 +2780,9 @@ allOf:
       - Focused
       - Defocused
       - Raster
+    ada:acceleratingVoltageDefault:
+      description: Electron beam accelerating voltage in kilovolts (kV).
+      type: string
     ada:beamDiameterDefault:
       description: Diameter of the focused or defocused electron beam in micrometers.
       type: string

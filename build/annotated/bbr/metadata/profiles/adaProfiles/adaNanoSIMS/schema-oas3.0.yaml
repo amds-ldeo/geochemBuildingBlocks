@@ -1202,8 +1202,14 @@ x-defs:
         properties:
           ada:analyteColumns:
             type: array
+            description: Columns of the per-analyte parameter table. Must include
+              at least one column with schema:valueName "analyte" that identifies
+              the analyzed constituent named in each row.
+            minItems: 1
             items:
               $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaNanoSIMS/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/AnalyteColumn
+            contains:
+              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaNanoSIMS/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/AnalyteIdentifierColumn
           ada:defaultAnalytes:
             type: array
             description: Pre-populated analyte rows for this method. Each entry is
@@ -1687,6 +1693,42 @@ x-defs:
         required:
         - schema:name
         - ada:dataType
+      AnalyteIdentifierColumn:
+        description: 'The mandatory analyte-identifier column. Each row in the analyte
+          table must carry a value for this column naming the analyzed constituent
+          (e.g. "SiO2", "Fe"). Pinned constants enforce the column''s role: readonly
+          (the identifier of a row, not an editable parameter), required, mandatory
+          tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term
+          the value space should be a DefinedTermSet; for now a string.'
+        allOf:
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/profiles/adaProfiles/adaNanoSIMS/schema-oas3.0.yaml#/x-defs/ada.bbr.metadata.techniqueProtocols.tappDefinition/$defs/AnalyteColumn
+        - type: object
+          properties:
+            schema:valueName:
+              enum:
+              - analyte
+            ada:dataType:
+              enum:
+              - string
+            schema:readonlyValue:
+              enum:
+              - true
+            schema:valueRequired:
+              enum:
+              - true
+            ada:tier:
+              enum:
+              - M
+            ada:cdifPropertyPath:
+              enum:
+              - '#/schema:variableMeasured/schema:name'
+          required:
+          - schema:valueName
+          - ada:dataType
+          - schema:readonlyValue
+          - schema:valueRequired
+          - ada:tier
+          - ada:cdifPropertyPath
       ComputationalTool:
         type: object
         description: Software application used for data acquisition, reduction, or

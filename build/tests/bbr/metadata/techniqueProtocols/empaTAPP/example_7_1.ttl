@@ -27,24 +27,25 @@
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EMPA major element apatite (phosphate)" ;
+    ada:acceleratingVoltageDefault "15" ;
     ada:beamCurrentDefault "20 nA" ;
     ada:beamDiameterDefault "2 µm" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 µm and 10 µm spot conditions" ;
+            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
+            schema1:name "Beam Damage Minimization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "BeamDamageMinimization" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Yes (F measured; Cl measured; OH by difference)" ;
             schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
             schema1:name "Halogen Correction on Oxygen" ;
             schema1:readonlyValue true ;
             schema1:valueName "halogenOxygenCorrection" ;
             ada:dataType "boolean" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
@@ -62,15 +63,6 @@
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 µm and 10 µm spot conditions" ;
-            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
-            schema1:name "Beam Damage Minimization" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "BeamDamageMinimization" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .

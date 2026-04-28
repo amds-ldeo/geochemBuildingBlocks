@@ -364,11 +364,13 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Analysed Oxide/Element",
-        "schema:valueName": "analysedOxide",
+        "schema:valueName": "analyte",
+        "schema:description": "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings.",
         "ada:dataType": "string",
+        "schema:readonlyValue": true,
         "schema:valueRequired": true,
         "ada:tier": "M",
-        "ada:cdifPropertyPath": "cdifVariableMeasured: cdi:name"
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -587,7 +589,7 @@
     ],
     "ada:defaultAnalytes": [
       {
-        "analysedOxide": "SiO2",
+        "analyte": "SiO2",
         "beamCurrent": 6,
         "spectrometer": "WDS 1",
         "sequence": 1,
@@ -606,7 +608,7 @@
         "detectionLimitMethod": "Mean of WDS detection limits at 99% confidence"
       },
       {
-        "analysedOxide": "TiO2",
+        "analyte": "TiO2",
         "beamCurrent": 6,
         "spectrometer": "WDS 1",
         "sequence": 3,

@@ -27,32 +27,27 @@
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EMPA major element minerals (silicates, sulfides, oxides, carbonates, phosphates)" ;
-    ada:beamCurrentDefault "20 nA (X-ray maps/BSE); 20 nA silicates/sulfides/oxides; 8 nA phosphates; 4 nA carbonates" ;
+    ada:acceleratingVoltageDefault "15" ;
+    ada:beamCurrentDefault """20 nA (X-ray maps/BSE); 
+20 nA silicates/sulfides/oxides;
+8 nA phosphates; 
+4 nA carbonates""" ;
     ada:beamDiameterDefault "~1 µm focused (silicates/sulfides/oxides); variable for carbonates/phosphates" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "~1 µm focused (silicates/sulfides/oxides); variable for carbonates/phosphates" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "~1 µm focused (silicates/sulfides/oxides); variable for carbonates/phosphates" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .

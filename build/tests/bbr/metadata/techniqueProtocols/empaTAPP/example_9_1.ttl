@@ -27,32 +27,25 @@
             schema1:name "Electron Microprobe Analysis - WDS" ;
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EMPA major element minerals (carbonates, phosphates, silicates, oxides)" ;
-    ada:beamCurrentDefault "10 nA (carbonate/Mg,Na phosphate); 10 nA (oxides/olivine, 1 µm)" ;
+    ada:acceleratingVoltageDefault "15" ;
+    ada:beamCurrentDefault """10 nA (carbonate/Mg,Na phosphate); 
+10 nA (oxides/olivine, 1 µm)""" ;
     ada:beamDiameterDefault "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "readOnly" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)" ;
             schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
             schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
             schema1:valueName "beamDiameter" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .

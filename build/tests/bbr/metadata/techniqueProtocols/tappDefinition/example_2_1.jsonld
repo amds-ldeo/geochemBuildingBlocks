@@ -205,7 +205,7 @@
               "schema:value": "NMNH 111312/444"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
           },
           {
             "@type": [
@@ -220,7 +220,7 @@
               "schema:value": "NMNH 117075"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
           },
           {
             "@type": [
@@ -235,7 +235,7 @@
               "schema:value": "NMNH 143965"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
           },
           {
             "@type": [
@@ -280,7 +280,7 @@
               "schema:Thing"
             ],
             "schema:name": "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320",
-            "schema:description": "Secondary spinel standards for Fe3+/\u03a3Fe calibration",
+            "schema:description": "Secondary spinel standards for Fe3+/\u00ce\u00a3Fe calibration",
             "ada:reagentRole": "secondaryStandard",
             "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)."
           }
@@ -384,7 +384,7 @@
         ],
         "schema:name": "Data processing",
         "schema:position": 4,
-        "schema:description": "Matrix correction using CITZAF. Fe3+/\u03a3Fe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known M\u00f6ssbauer Fe3+/\u03a3Fe ratios.",
+        "schema:description": "Matrix correction using CITZAF. Fe3+/\u00ce\u00a3Fe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known M\u00c3\u00b6ssbauer Fe3+/\u00ce\u00a3Fe ratios.",
         "schema:object": {
           "@id": "#rawAnalyses"
         },
@@ -467,11 +467,13 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "Analysed Oxide/Element",
-        "schema:valueName": "analysedOxide",
+        "schema:valueName": "analyte",
+        "schema:description": "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings.",
         "ada:dataType": "string",
+        "schema:readonlyValue": true,
         "schema:valueRequired": true,
         "ada:tier": "M",
-        "ada:cdifPropertyPath": "cdifVariableMeasured: cdi:name"
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
       },
       {
         "@type": [
@@ -592,7 +594,7 @@
     ],
     "ada:defaultAnalytes": [
       {
-        "analysedOxide": "SiO2",
+        "analyte": "SiO2",
         "beamCurrent": 40,
         "spectrometer": "WDS 4",
         "diffractingCrystal": "TAP",
@@ -602,10 +604,10 @@
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "TiO2",
+        "analyte": "TiO2",
         "beamCurrent": 40,
         "spectrometer": "WDS 3",
         "diffractingCrystal": "PETJ",
@@ -615,10 +617,10 @@
         "backgroundCountingTime": 40,
         "calibrationStandardName": "Kakanui Hornblende",
         "calibrationStandardID": "NMNH 143965",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "Al2O3",
+        "analyte": "Al2O3",
         "beamCurrent": 40,
         "spectrometer": "WDS 4",
         "diffractingCrystal": "TAP",
@@ -631,7 +633,7 @@
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "Cr2O3",
+        "analyte": "Cr2O3",
         "beamCurrent": 40,
         "spectrometer": "WDS 2",
         "diffractingCrystal": "LiFH",
@@ -641,10 +643,10 @@
         "backgroundCountingTime": 30,
         "calibrationStandardName": "Tiebaghi Mine chromite",
         "calibrationStandardID": "NMNH 117075",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "FeOT",
+        "analyte": "FeOT",
         "beamCurrent": 40,
         "spectrometer": "WDS 2",
         "diffractingCrystal": "LiFH",
@@ -654,10 +656,10 @@
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "MnO",
+        "analyte": "MnO",
         "beamCurrent": 40,
         "spectrometer": "WDS 1",
         "diffractingCrystal": "LiF",
@@ -670,7 +672,7 @@
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "MgO",
+        "analyte": "MgO",
         "beamCurrent": 40,
         "spectrometer": "WDS 1",
         "diffractingCrystal": "TAP",
@@ -680,10 +682,10 @@
         "backgroundCountingTime": 30,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       },
       {
-        "analysedOxide": "CaO",
+        "analyte": "CaO",
         "beamCurrent": 40,
         "spectrometer": "WDS 3",
         "diffractingCrystal": "PETJ",
@@ -695,7 +697,7 @@
         "citationForStandard": "Davis et al. (2017), American Mineralogist."
       },
       {
-        "analysedOxide": "NiO",
+        "analyte": "NiO",
         "beamCurrent": 40,
         "spectrometer": "WDS 5",
         "diffractingCrystal": "LiF",
@@ -705,7 +707,7 @@
         "backgroundCountingTime": 40,
         "calibrationStandardName": "San Carlos olivine",
         "calibrationStandardID": "NMNH 111312/444",
-        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u201347."
+        "citationForStandard": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
       }
     ]
   },
