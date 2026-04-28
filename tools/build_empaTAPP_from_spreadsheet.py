@@ -358,17 +358,29 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         props[ada_prop] = cm
 
     if analyte_column_names:
-        oneof = CommentedSeq()
-        oneof.append({"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
+        anyof = CommentedSeq()
+        anyof.append({"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
         for col_name in sorted(analyte_column_names):
-            oneof.append({"$ref": f"analyteColumns/{col_name}.json"})
+            anyof.append({"$ref": f"analyteColumns/{col_name}.json"})
 
         ac_items = CommentedMap()
-        ac_items["oneOf"] = oneof
+        ac_items["anyOf"] = anyof
+
+        # Per-catalog uniqueness: at most one occurrence of each column type.
+        # (The identifier column's exactly-once constraint lives in tappDefinition
+        # via contains + maxContains: 1.)
+        ac_unique = CommentedSeq()
+        for col_name in sorted(analyte_column_names):
+            cm = CommentedMap()
+            cm["contains"] = {"$ref": f"analyteColumns/{col_name}.json"}
+            cm["minContains"] = 0
+            cm["maxContains"] = 1
+            ac_unique.append(cm)
 
         ac_columns = CommentedMap()
         ac_columns["type"] = "array"
         ac_columns["items"] = ac_items
+        ac_columns["allOf"] = ac_unique
 
         ac_template_props = CommentedMap()
         ac_template_props["ada:analyteColumns"] = ac_columns
@@ -380,16 +392,25 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         props["ada:analyteTemplate"] = ac_template
 
     if parameter_names:
-        mp_oneof = CommentedSeq()
+        mp_anyof = CommentedSeq()
         for param_name in sorted(parameter_names):
-            mp_oneof.append({"$ref": f"parameters/{param_name}.json"})
+            mp_anyof.append({"$ref": f"parameters/{param_name}.json"})
 
         mp_items = CommentedMap()
-        mp_items["oneOf"] = mp_oneof
+        mp_items["anyOf"] = mp_anyof
+
+        mp_unique = CommentedSeq()
+        for param_name in sorted(parameter_names):
+            cm = CommentedMap()
+            cm["contains"] = {"$ref": f"parameters/{param_name}.json"}
+            cm["minContains"] = 0
+            cm["maxContains"] = 1
+            mp_unique.append(cm)
 
         mp_array = CommentedMap()
         mp_array["type"] = "array"
         mp_array["items"] = mp_items
+        mp_array["allOf"] = mp_unique
 
         props["ada:methodParameters"] = mp_array
 
