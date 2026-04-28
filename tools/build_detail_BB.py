@@ -29,9 +29,12 @@ def main():
                         help="TAPP name (e.g. empaTAPP). Default: empaTAPP.")
     parser.add_argument("xlsx", nargs="?", default="docs/TAPP_EPMA_filled.xlsx",
                         help="Path to the filled TAPP spreadsheet. Default: docs/TAPP_EPMA_filled.xlsx.")
+    parser.add_argument("--pub", action="append",
+                        help="Only regen examples for these publication codes (e.g. --pub P0). "
+                             "Repeat for multiple. Schema/catalog artifacts always rebuild.")
     args = parser.parse_args()
     _tapp_lib.configure(args.tapp_name, args.xlsx)
-    _tapp_lib.build_detail_artifacts()
+    _tapp_lib.build_detail_artifacts(pub_filter=args.pub)
 
 
 if __name__ == "__main__":

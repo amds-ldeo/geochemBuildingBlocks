@@ -12,8 +12,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS major/minor element silicate and oxide, all properties",
-  "schema:description": "empaTAPP example P0 — synthetic WDS protocol exercising all properties.",
+  "schema:name": "EPMA-WDS major/minor element silicate and oxide| all properties",
+  "schema:description": "empaTAPP example derived from Richard & Deng 2026 (synthetic comprehensive WDS example).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -25,13 +25,13 @@
     "@type": [
       "schema:Person"
     ],
-    "schema:name": "Richard, S.M. ORCID:0000-0001-6041-5302; Deng, Ruolin ORCID:0000-0001-5383-3039"
+    "schema:name": "Richard| S.M. ORCID:0000-0001-6041-5302; Deng| Ruolin ORCID:0000-0001-5383-3039"
   },
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "IEDA, Columbia University"
+    "schema:name": "IEDA| Columbia University"
   },
   "schema:datePublished": "2026-04-28",
   "schema:funding": [
@@ -82,6 +82,18 @@
       "ada:EPMAInstrument"
     ],
     "schema:name": "Cameca SXFiveFE",
+    "schema:manufacturer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "Cameca"
+    },
+    "schema:model": {
+      "@type": [
+        "schema:ProductModel"
+      ],
+      "schema:name": "SXFiveFE"
+    },
     "schema:hasPart": [
       {
         "@type": [
@@ -100,22 +112,104 @@
         "schema:additionalType": [
           "wdsSpectrometer"
         ],
-        "schema:name": "Spectrometer number|Orientation|Crystals|Notes",
-        "schema:description": "Spectrometer number|Orientation|Crystals|Notes\nSP1|Inclined|LiF, PET, TAP, PC2|Less sensitive to specimen height; good for rough surfaces; low pressure\nSP2|Vertical|LLiF, LPET|High pressure for greater sensitivity; large crystals for trace/light elements\nSP3|Vertical|TAP, PC0|Low pressure; light element coverage\nSP4|Vertical|LPET, TAP|Low pressure"
+        "schema:name": "SP1",
+        "schema:additionalProperty": [
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Orientation",
+            "schema:value": "Inclined"
+          },
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Crystals",
+            "schema:value": "LiF, PET, TAP, PC2"
+          }
+        ],
+        "schema:description": "Less sensitive to specimen height; good for rough surfaces; low pressure"
+      },
+      {
+        "@type": [
+          "schema:Thing"
+        ],
+        "schema:additionalType": [
+          "wdsSpectrometer"
+        ],
+        "schema:name": "SP2",
+        "schema:additionalProperty": [
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Orientation",
+            "schema:value": "Vertical"
+          },
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Crystals",
+            "schema:value": "LLiF,LPET"
+          }
+        ],
+        "schema:description": "High pressure for greater sensitivity; large crystals for trace/light elements"
+      },
+      {
+        "@type": [
+          "schema:Thing"
+        ],
+        "schema:additionalType": [
+          "wdsSpectrometer"
+        ],
+        "schema:name": "SP3",
+        "schema:additionalProperty": [
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Orientation",
+            "schema:value": "Vertical"
+          },
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Crystals",
+            "schema:value": "TAP, PC0"
+          }
+        ],
+        "schema:description": "Low pressure; light element coverage"
+      },
+      {
+        "@type": [
+          "schema:Thing"
+        ],
+        "schema:additionalType": [
+          "wdsSpectrometer"
+        ],
+        "schema:name": "SP4",
+        "schema:additionalProperty": [
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Orientation",
+            "schema:value": "Vertical"
+          },
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Crystals",
+            "schema:value": "LPET, TAP"
+          }
+        ],
+        "schema:description": "Low pressure"
       }
-    ],
-    "schema:manufacturer": {
-      "@type": [
-        "schema:Organization"
-      ],
-      "schema:name": "Cameca"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
-      ],
-      "schema:name": "SXFiveFE"
-    }
+    ]
   },
   "bios:computationalTool": [
     {
@@ -608,8 +702,8 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.",
-        "typicalAnalyticalPrecision": "0.5% (1σ",
+        "detectionLimitMethod": "A.B.(1997)",
+        "typicalAnalyticalPrecision": "0.5% (1σ, n=20 for SiO2)",
         "typicalAnalyticalAccuracy": "1.2% relative to GeoReM preferred value for VG-2 SiO2",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -617,7 +711,7 @@
         "analyte": "Al",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 2,
-        "analysisOrder": 4,
+        "analysisOrder": 3,
         "monochromatorCrystal": "LPET",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -637,15 +731,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": 1997,
-        "typicalAnalyticalPrecision": "n=20 for SiO2)",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "K",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 2,
-        "analysisOrder": 3,
+        "analysisOrder": 2,
         "monochromatorCrystal": "LLIF",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -665,13 +758,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "Ca",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 2,
-        "analysisOrder": 2,
+        "analysisOrder": 4,
         "monochromatorCrystal": "LLIF",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -691,12 +785,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "Na",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 2,
+        "analysisOrder": 5,
         "monochromatorCrystal": "LPET",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -716,12 +812,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "Fe",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 4,
+        "analysisOrder": 1,
         "monochromatorCrystal": "LPET",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -741,12 +839,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "Mg",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 3,
+        "analysisOrder": 1,
         "monochromatorCrystal": "TAP",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -766,12 +866,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "Ti",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 1,
+        "analysisOrder": 2,
         "monochromatorCrystal": "LiF",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -791,12 +893,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "Cr",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 1,
+        "analysisOrder": 3,
         "monochromatorCrystal": "LiF",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -816,12 +920,14 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
       {
         "analyte": "Mn",
         "epmaTechnique": "WDS",
         "spectrometerNumber": 1,
+        "analysisOrder": 1,
         "monochromatorCrystal": "LiF",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
@@ -841,6 +947,7 @@
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
         "typicalDetectionLimit": "0.01 wt%",
+        "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       }
     ]

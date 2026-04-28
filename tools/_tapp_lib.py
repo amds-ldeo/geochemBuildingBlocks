@@ -1064,6 +1064,68 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                 inst["schema:model"] = {"@type": ["schema:ProductModel"], "schema:name": str(val).strip()}
                 inst["schema:name"] = inst.get("schema:manufacturer", {}).get("schema:name", "EPMA") + " " + str(val).strip()
             continue
+        if item == "Electron Source":
+            inst = parts.setdefault("schema:instrument", {"@type": ["schema:Thing"]})
+            inst.setdefault("schema:hasPart", []).append({
+                "@type": ["schema:Thing", "schema:Product"],
+                "schema:additionalType": ["ElectronSource"],
+                "schema:name": str(val).strip(),
+            })
+            continue
+        if item == "WDS Spectrometer Configuration":
+            inst = parts.setdefault("schema:instrument", {"@type": ["schema:Thing"]})
+            inst.setdefault("schema:hasPart", []).extend(_parse_wds_table(val))
+            continue
+        if item == "EDS Detector Configuration":
+            # Per current spec, blank EDS cells stay out of the JSON.
+            # Non-blank values get one hasPart entry of additionalType "edsDetector".
+            inst = parts.setdefault("schema:instrument", {"@type": ["schema:Thing"]})
+            inst.setdefault("schema:hasPart", []).append({
+                "@type": ["schema:Thing"],
+                "schema:additionalType": ["edsDetector"],
+                "schema:name": str(val).strip().split("\n")[0],
+                "schema:description": str(val).strip(),
+            })
+            continue
+        if item == "Target Material":
+            for m in [t.strip() for t in str(val).split("|") if t.strip()]:
+                parts.setdefault("schema:object", []).append({
+                    "@type": ["schema:DefinedTerm"], "schema:name": m,
+                })
+            continue
+        if item == "Method Start Date":
+            parts["schema:datePublished"] = str(val).strip().split(" ")[0]
+            continue
+        if item == "Funding Source":
+            for f in [t.strip() for t in str(val).split("|") if t.strip()]:
+                parts.setdefault("schema:funding", []).append({
+                    "@type": ["schema:MonetaryGrant"], "schema:name": f,
+                })
+            continue
+        if item == "Method Reference(s)":
+            for url in [t.strip() for t in str(val).split("|") if t.strip()]:
+                parts.setdefault("schema:relatedLink", []).append({
+                    "@type": ["schema:CreativeWork"],
+                    "schema:url": url,
+                    "schema:name": "Method reference",
+                })
+            continue
+        if item == "Analytical Software":
+            for tool in [t.strip() for t in str(val).split("|") if t.strip()]:
+                parts.setdefault("bios:computationalTool", []).append({
+                    "@type": ["schema:SoftwareApplication"],
+                    "schema:name": tool,
+                    "ada:toolRole": "acquisition",
+                })
+            continue
+        if item == "Data Reduction Software":
+            for tool in [t.strip() for t in str(val).split("|") if t.strip()]:
+                parts.setdefault("bios:computationalTool", []).append({
+                    "@type": ["schema:SoftwareApplication"],
+                    "schema:name": tool,
+                    "ada:toolRole": "reduction",
+                })
+            continue
 
         # Use per-tag records so a row's property: and parameter: tags get the right readOnly each.
         for tr in row["parsed"]["tag_records"]:
@@ -1189,6 +1251,54 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         ])
 
     return parts, detail
+
+
+def _parse_wds_table(text) -> list:
+    """Parse the WDS Spectrometer Configuration cell into a list of hasPart
+    entries. The cell is a multi-line pipe-delimited table whose header row
+    names the target field per column. Each subsequent line is one
+    wdsSpectrometer instance.
+
+    Header tokens supported:
+      - bare names: 'name', 'description', 'additionalType' map to
+        schema:<token> directly
+      - 'additionalProperty/name=<X>' maps the column's value into a
+        schema:additionalProperty entry as a PropertyValue with
+        schema:name=<X> and schema:value=<cell>.
+      - any other token is dropped into the entry under that token name
+    """
+    if text is None:
+        return []
+    lines = [ln for ln in str(text).split("\n") if ln.strip()]
+    if not lines:
+        return []
+    headers = [h.strip() for h in lines[0].split("|")]
+
+    entries = []
+    for line in lines[1:]:
+        cells = [c.strip() for c in line.split("|")]
+        entry = OrderedDict([
+            ("@type", ["schema:Thing"]),
+            ("schema:additionalType", ["wdsSpectrometer"]),
+        ])
+        for h, v in zip(headers, cells):
+            if not v:
+                continue
+            if h in ("name", "description"):
+                entry[f"schema:{h}"] = v
+            elif h == "additionalType":
+                entry["schema:additionalType"] = list(set(entry["schema:additionalType"] + [v]))
+            elif h.startswith("additionalProperty/name="):
+                ap_name = h[len("additionalProperty/name="):]
+                entry.setdefault("schema:additionalProperty", []).append(OrderedDict([
+                    ("@type", ["schema:PropertyValue"]),
+                    ("schema:name", ap_name),
+                    ("schema:value", v),
+                ]))
+            else:
+                entry[h] = v
+        entries.append(entry)
+    return entries
 
 
 def parse_per_analyte(cell_value, n: int) -> list:
@@ -1359,11 +1469,14 @@ def _write_examples_yaml(examples_yaml: list[tuple[str, str]]) -> None:
     print(f"  wrote examples.yaml with {len(examples_yaml)} entries")
 
 
-def build_tapp_artifacts() -> dict:
+def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
     """Generate the TAPP-side artifacts only:
     - shared catalog files in techniqueProtocols/{analyteColumns,parameterTemplates,vocab}/
     - TAPP BB schema.yaml at techniqueProtocols/<TAPP_NAME>/
     - per-publication TAPP examples + examples.yaml
+    pub_filter, if given, restricts which publication codes (e.g. ['P0']) get
+    their example regenerated; the others are left untouched. Schema/catalog
+    artifacts are always rebuilt regardless of pub_filter.
     Per-tag readOnly:false rows are tracked but their PropertyValue catalog is NOT
     written (the detail-builder writes those). Returns the classification dict."""
     rows = read_rows()
@@ -1392,25 +1505,30 @@ def build_tapp_artifacts() -> dict:
                     fp.unlink()
                     print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
 
-    # Per-publication TAPP examples
+    # Per-publication TAPP examples — pub_filter restricts which to regen
     examples_yaml = []
+    written = 0
     for i, (pcode, plabel) in enumerate(PUBS):
+        if pub_filter and pcode not in pub_filter:
+            examples_yaml.append((pcode, plabel))
+            continue
         empa_ex, _ = example_for_pub(i, plabel, rows)
         write_json(BB / f"example{TAPP_NAME}-{pcode}.json", empa_ex)
         examples_yaml.append((pcode, plabel))
-    print(f"  wrote {len(PUBS)} per-publication {TAPP_NAME} examples")
+        written += 1
+    print(f"  wrote {written} per-publication {TAPP_NAME} examples"
+          + (f" (filtered to {pub_filter})" if pub_filter else ""))
 
     _write_examples_yaml(examples_yaml)
     print(f"\nCounts: {cls['counts']}")
     return cls
 
 
-def build_detail_artifacts() -> dict:
-    """Generate the detail-side artifacts only:
-    - shared parameterValues/<name>.json catalog files
-    - detailXXX/parametersConstraint.yaml ($ref'd by hand-authored detailXXX/schema.yaml)
-    - per-publication detailXXX examples
-    Returns the classification dict."""
+def build_detail_artifacts(pub_filter: list[str] | None = None) -> dict:
+    """Generate the detail-side artifacts only.
+    pub_filter, if given, restricts which publication codes get their example
+    regenerated; the others are left untouched. Schema/catalog artifacts are
+    always rebuilt regardless of pub_filter."""
     rows = read_rows()
     print(f"Read {len(rows)} non-empty rows from TAPP worksheet.")
 
@@ -1433,14 +1551,17 @@ def build_detail_artifacts() -> dict:
                     fp.unlink()
                     print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
 
-    # Per-publication detail examples
+    # Per-publication detail examples — pub_filter restricts which to regen
     written = 0
     for i, (pcode, _plabel) in enumerate(PUBS):
+        if pub_filter and pcode not in pub_filter:
+            continue
         _, detail_ex = example_for_pub(i, _plabel, rows)
         if detail_ex.get("schema:additionalProperty"):
             write_json(DETAIL_EMPA / f"example{DETAIL_NAME}-{pcode}.json", detail_ex)
             written += 1
-    print(f"  wrote {written} per-publication {DETAIL_NAME} examples")
+    print(f"  wrote {written} per-publication {DETAIL_NAME} examples"
+          + (f" (filtered to {pub_filter})" if pub_filter else ""))
 
     print(f"\nCounts: {cls['counts']}")
     return cls
