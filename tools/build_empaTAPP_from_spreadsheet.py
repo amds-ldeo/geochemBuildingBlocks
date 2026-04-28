@@ -113,20 +113,47 @@ def write_json(path: Path, data: dict):
 
 
 def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
-    return {
-        "@context": {
+    """Hybrid JSON Schema + canonical instance for one DefinedTermSet."""
+    canonical = OrderedDict([
+        ("@context", {
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
-        },
-        "@id": f"ada:vocab/empaTAPP/{vname}",
-        "@type": "schema:DefinedTermSet",
-        "schema:name": label,
-        "schema:description": desc or f"Allowed values for {label}.",
-        "schema:hasDefinedTerm": [
+        }),
+        ("@id", f"ada:vocab/empaTAPP/{vname}"),
+        ("@type", "schema:DefinedTermSet"),
+        ("schema:name", label),
+        ("schema:description", desc or f"Allowed values for {label}."),
+        ("schema:hasDefinedTerm", [
             {"@type": "schema:DefinedTerm", "schema:termCode": t, "schema:name": t}
             for t in terms
-        ],
-    }
+        ]),
+    ])
+    properties = OrderedDict([
+        ("@type", {"const": "schema:DefinedTermSet"}),
+        ("schema:name", {"const": label}),
+        ("schema:hasDefinedTerm", {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"const": "schema:DefinedTerm"},
+                    "schema:termCode": {"enum": list(terms)},
+                },
+                "required": ["@type", "schema:termCode"],
+            },
+        }),
+    ])
+    return OrderedDict([
+        ("$schema", "https://json-schema.org/draft/2020-12/schema"),
+        ("$id", f"ada:vocab/empaTAPP/{vname}"),
+        ("title", label),
+        ("description", desc or f"Allowed values for {label}."),
+        ("type", "object"),
+        ("properties", properties),
+        ("required", ["@type", "schema:hasDefinedTerm"]),
+        ("examples", [canonical]),
+    ])
 
 
 def map_dtype(dtype: str | None) -> str:
@@ -150,7 +177,16 @@ def map_dtype(dtype: str | None) -> str:
 
 def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str | None,
                   readOnly: bool | None, tier: str = "R") -> dict:
-    obj = OrderedDict([
+    """Hybrid JSON Schema + canonical instance for one method parameter.
+
+    Mirrors analyte_column_obj() but allOf-references MethodParameter and
+    pins ada:fieldScope to "session" (the conventional default for empaTAPP
+    method parameters; per-instance values can override defaultValue).
+    """
+    dt = map_dtype(dtype)
+    ro = bool(readOnly) if readOnly is not None else False
+
+    canonical = OrderedDict([
         ("@context", {
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
@@ -160,13 +196,39 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         ("schema:name", label),
         ("schema:valueName", name),
         ("schema:description", desc or label),
-        ("ada:dataType", map_dtype(dtype)),
-        ("schema:readonlyValue", bool(readOnly) if readOnly is not None else False),
+        ("ada:dataType", dt),
+        ("ada:fieldScope", "session"),
+        ("schema:readonlyValue", ro),
         ("ada:tier", tier),
     ])
     if enum_vname:
-        obj["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
-    return obj
+        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+
+    properties = OrderedDict([
+        ("schema:valueName", {"const": name}),
+        ("schema:name", {"const": label}),
+        ("ada:dataType", {"const": dt}),
+        ("ada:fieldScope", {"const": "session"}),
+        ("schema:readonlyValue", {"const": ro}),
+        ("ada:tier", {"const": tier}),
+    ])
+    if enum_vname:
+        properties["schema:inDefinedTermSet"] = {
+            "const": {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+        }
+
+    return OrderedDict([
+        ("$schema", "https://json-schema.org/draft/2020-12/schema"),
+        ("$id", f"ada:parameter/empaTAPP/{name}"),
+        ("title", label),
+        ("description", desc or label),
+        ("allOf", [
+            {"$ref": "../../tappDefinition/schema.yaml#/$defs/MethodParameter"}
+        ]),
+        ("properties", properties),
+        ("required", ["schema:valueName", "schema:name", "ada:dataType", "ada:fieldScope"]),
+        ("examples", [canonical]),
+    ])
 
 
 def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str | None,
@@ -227,9 +289,11 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
 # ---------- schema.yaml writer ----------
 
 def build_schema_yaml(properties: list[tuple[str, dict]],
-                      analyte_column_names: list[str]) -> None:
+                      analyte_column_names: list[str],
+                      parameter_names: list[str]) -> None:
     """Rebuild empaTAPP/schema.yaml with the new property set in allOf[1].properties
-    and a oneOf constraint on ada:analyteColumns[] referencing the catalog files."""
+    and oneOf constraints on ada:analyteColumns[] and ada:methodParameters[]
+    referencing the catalog files."""
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
@@ -289,6 +353,20 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
 
         props["ada:analyteTemplate"] = ac_template
 
+    if parameter_names:
+        mp_oneof = CommentedSeq()
+        for param_name in sorted(parameter_names):
+            mp_oneof.append({"$ref": f"parameters/{param_name}.json"})
+
+        mp_items = CommentedMap()
+        mp_items["oneOf"] = mp_oneof
+
+        mp_array = CommentedMap()
+        mp_array["type"] = "array"
+        mp_array["items"] = mp_items
+
+        props["ada:methodParameters"] = mp_array
+
     overlay["properties"] = props
     allof.append(overlay)
     doc["allOf"] = allof
@@ -297,7 +375,8 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     with open(out, "w", encoding="utf-8") as f:
         yaml.dump(doc, f)
     print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(properties)} properties, "
-          f"{len(analyte_column_names)} analyte columns)")
+          f"{len(analyte_column_names)} analyte columns, "
+          f"{len(parameter_names)} parameters)")
 
 
 # ---------- example builder ----------
@@ -412,6 +491,7 @@ def main():
 
     schema_properties: list[tuple[str, dict]] = []
     analyte_column_names: list[str] = []
+    parameter_names: list[str] = []
     enum_to_vocab_name: dict[tuple[str, ...], str] = {}
     counts = {"vocab": 0, "parameter": 0, "analyteColumn": 0, "property": 0}
 
@@ -451,6 +531,7 @@ def main():
                 path = BB / "parameters" / f"{name}.json"
                 write_json(path, parameter_obj(name, row["item"], row["desc"], p["dtype"], vocab_for(p), p["readOnly"]))
                 counts["parameter"] += 1
+                parameter_names.append(name)
             elif kind == "analytecolumn":
                 path = BB / "analyteColumns" / f"{name}.json"
                 write_json(path, analyte_column_obj(name, row["item"], row["desc"], p["dtype"], vocab_for(p), p["readOnly"]))
@@ -481,7 +562,7 @@ def main():
         seen[prop_name] = block
     schema_properties = list(seen.items())
 
-    build_schema_yaml(schema_properties, analyte_column_names)
+    build_schema_yaml(schema_properties, analyte_column_names, parameter_names)
 
     # Generate examples for each publication
     examples_dir = BB
