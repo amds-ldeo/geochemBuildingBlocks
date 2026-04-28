@@ -64,11 +64,12 @@ VOCAB_DIR = TECH_PROTOCOLS / "vocab"
 # Column letters in the spreadsheet (1-indexed: A=1)
 COL = {
     "item": 0, "desc": 1, "basic": 2, "dtype": 3, "example": 4,
-    "p_start": 7,  # column H = index 7
-    "p_end": 16,   # column Q = index 16 (inclusive)
+    "p_start": 6,  # column G = index 6 (P0 — synthetic comprehensive example)
+    "p_end": 16,   # column Q = index 16 (inclusive; P10)
     "level": 17, "cdif_path": 18, "matchComment": 19, "impl": 20,
 }
 PUBS = [
+    ("P0", "Richard & Deng 2026 (synthetic comprehensive WDS example)"),
     ("P1", "Chi et al. 2015 (Tissintite, EPSL)"),
     ("P2", "Hu et al. 2020 (Coesite NWA8657, GCA)"),
     ("P3", "Liu et al. 2016 (Tissint mineral chem., MAPS)"),
@@ -1115,7 +1116,98 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         parts["ada:methodParameters"] = method_params
     if not parts["schema:name"]:
         parts["schema:name"] = f"EPMA TAPP example {PUBS[pub_index][0]}"
+
+    # ---- Build ada:analyteTemplate.ada:defaultAnalytes from per-analyte data ----
+    # The "Target Element" row's column value defines the analyte axis (pipe-delim
+    # list, e.g. "Si|Al|K|Ca|Na|Fe|Mg|Ti|Cr|Mn"). Each analyteColumn row's column
+    # value is parsed by parse_per_analyte() — single value applies to all
+    # analytes; pipe-delim list maps positionally; missing or empty entries
+    # leave the field absent on that row.
+    analyte_names: list[str] = []
+    for row in rows:
+        if row.get("item") == "Target Element":
+            v = row["pubs"][pub_index] if pub_index < len(row["pubs"]) else None
+            if v is not None and isinstance(v, str) and v.strip():
+                sep = "|" if "|" in v else ","
+                analyte_names = [a.strip() for a in v.split(sep) if a.strip()]
+            break
+
+    if analyte_names:
+        n = len(analyte_names)
+        default_rows = [OrderedDict([("analyte", a)]) for a in analyte_names]
+        for row in rows:
+            for tr in row["parsed"]["tag_records"]:
+                if tr["kind"] != "analytecolumn":
+                    continue
+                col_name = tr["name"]
+                cell = row["pubs"][pub_index] if pub_index < len(row["pubs"]) else None
+                per_a = parse_per_analyte(cell, n)
+                for i, v in enumerate(per_a):
+                    if v is None:
+                        continue
+                    v2 = v
+                    if isinstance(v, str):
+                        try:
+                            v2 = int(v)
+                        except ValueError:
+                            try:
+                                v2 = float(v)
+                            except ValueError:
+                                pass
+                    default_rows[i][col_name] = v2
+
+        # Build the analyteColumns array: identifier-column first, then catalog
+        # canonicals for each analyteColumn name actually used by this example.
+        catalog_dir = ANALYTE_COLUMNS_DIR
+        analyte_cols = [OrderedDict([
+            ("@type", ["schema:PropertyValueSpecification"]),
+            ("schema:name", "Analyzed constituent"),
+            ("schema:valueName", "analyte"),
+            ("schema:description", "Analyzed constituent identified by the analyte row."),
+            ("ada:dataType", "string"),
+            ("schema:readonlyValue", True),
+            ("schema:valueRequired", True),
+            ("ada:tier", "M"),
+            ("ada:cdifPropertyPath", "#/schema:variableMeasured/schema:name"),
+        ])]
+        seen: set[str] = set()
+        for row in rows:
+            for tr in row["parsed"]["tag_records"]:
+                if tr["kind"] != "analytecolumn" or tr["name"] in seen:
+                    continue
+                seen.add(tr["name"])
+                cf = catalog_dir / f'{tr["name"]}.json'
+                if cf.exists():
+                    cd = json.loads(cf.read_text(encoding="utf-8"))
+                    ex = (cd.get("examples") or [{}])[0]
+                    ex_clean = OrderedDict((k, v) for k, v in ex.items() if k != "@context")
+                    analyte_cols.append(ex_clean)
+
+        parts["ada:analyteTemplate"] = OrderedDict([
+            ("ada:analyteColumns", analyte_cols),
+            ("ada:defaultAnalytes", default_rows),
+        ])
+
     return parts, detail
+
+
+def parse_per_analyte(cell_value, n: int) -> list:
+    """Parse a per-analyte cell value into a list of N positional values.
+
+    - empty cell → all None (caller skips fields with None)
+    - single value (no pipe) → repeated N times (applies to every analyte)
+    - pipe-delimited list → one value per position; missing positions and
+      empty entries within the list → None on those rows
+    """
+    if cell_value is None:
+        return [None] * n
+    s = str(cell_value).strip()
+    if not s:
+        return [None] * n
+    if "|" not in s:
+        return [s] * n
+    parts = [p.strip() for p in s.split("|")]
+    return [(parts[i] if i < len(parts) and parts[i] else None) for i in range(n)]
 
 
 # ---------- main ----------
