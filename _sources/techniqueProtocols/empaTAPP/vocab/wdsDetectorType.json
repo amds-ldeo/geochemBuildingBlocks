@@ -1,170 +1,71 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ada:vocab/empaTAPP/wdsDetectorType",
-  "title": "Proportional Counter / Detector",
-  "description": "Type of detector used in the WDS spectrometer for this element.",
-  "type": "object",
-  "properties": {
-    "@type": {
-      "const": "schema:DefinedTermSet"
-    },
-    "schema:name": {
-      "const": "Proportional Counter / Detector"
-    },
-    "schema:hasDefinedTerm": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "const": "schema:DefinedTerm"
-          },
-          "schema:name": {
-            "type": "string"
-          },
-          "schema:description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@type",
-          "@id",
-          "schema:termCode"
-        ],
-        "oneOf": [
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:High Pressure P10 Flow"
-              },
-              "schema:termCode": {
-                "const": "High Pressure P10 Flow"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Low Pressure P10 Flow"
-              },
-              "schema:termCode": {
-                "const": "Low Pressure P10 Flow"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Xe Sealed"
-              },
-              "schema:termCode": {
-                "const": "Xe Sealed"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:SDD"
-              },
-              "schema:termCode": {
-                "const": "SDD"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Si(Li)"
-              },
-              "schema:termCode": {
-                "const": "Si(Li)"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Other"
-              },
-              "schema:termCode": {
-                "const": "Other"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Unknown"
-              },
-              "schema:termCode": {
-                "const": "Unknown"
-              }
-            }
-          }
-        ]
-      }
-    }
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
   },
-  "required": [
-    "@type",
-    "schema:hasDefinedTerm"
+  "@id": "ada:vocab/empaTAPP/wdsDetectorType",
+  "@type": [
+    "schema:DefinedTermSet"
   ],
-  "examples": [
+  "schema:name": "Proportional Counter / Detector",
+  "schema:description": "Type of detector used in the WDS spectrometer for this element.",
+  "schema:hasDefinedTerm": [
     {
-      "@context": {
-        "schema": "http://schema.org/",
-        "ada": "https://ada.astromat.org/metadata/"
-      },
-      "@id": "ada:vocab/empaTAPP/wdsDetectorType",
-      "@type": "schema:DefinedTermSet",
-      "schema:name": "Proportional Counter / Detector",
-      "schema:description": "Type of detector used in the WDS spectrometer for this element.",
-      "schema:hasDefinedTerm": [
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:High Pressure P10 Flow",
-          "schema:termCode": "High Pressure P10 Flow",
-          "schema:name": "High Pressure P10 Flow"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Low Pressure P10 Flow",
-          "schema:termCode": "Low Pressure P10 Flow",
-          "schema:name": "Low Pressure P10 Flow"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Xe Sealed",
-          "schema:termCode": "Xe Sealed",
-          "schema:name": "Xe Sealed"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:SDD",
-          "schema:termCode": "SDD",
-          "schema:name": "SDD"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Si(Li)",
-          "schema:termCode": "Si(Li)",
-          "schema:name": "Si(Li)"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Other",
-          "schema:termCode": "Other",
-          "schema:name": "Other"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Unknown",
-          "schema:termCode": "Unknown",
-          "schema:name": "Unknown"
-        }
-      ]
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:High Pressure P10 Flow",
+      "schema:termCode": "High Pressure P10 Flow",
+      "schema:name": "High Pressure P10 Flow"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Low Pressure P10 Flow",
+      "schema:termCode": "Low Pressure P10 Flow",
+      "schema:name": "Low Pressure P10 Flow"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Xe Sealed",
+      "schema:termCode": "Xe Sealed",
+      "schema:name": "Xe Sealed"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:SDD",
+      "schema:termCode": "SDD",
+      "schema:name": "SDD"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Si(Li)",
+      "schema:termCode": "Si(Li)",
+      "schema:name": "Si(Li)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Other",
+      "schema:termCode": "Other",
+      "schema:name": "Other"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Unknown",
+      "schema:termCode": "Unknown",
+      "schema:name": "Unknown"
     }
   ]
 }

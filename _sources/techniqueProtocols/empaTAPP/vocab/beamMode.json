@@ -1,106 +1,39 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ada:vocab/empaTAPP/beamMode",
-  "title": "Beam Mode",
-  "description": "Whether the beam was focused, defocused, or rastered over an area.",
-  "type": "object",
-  "properties": {
-    "@type": {
-      "const": "schema:DefinedTermSet"
-    },
-    "schema:name": {
-      "const": "Beam Mode"
-    },
-    "schema:hasDefinedTerm": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "const": "schema:DefinedTerm"
-          },
-          "schema:name": {
-            "type": "string"
-          },
-          "schema:description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@type",
-          "@id",
-          "schema:termCode"
-        ],
-        "oneOf": [
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Focused"
-              },
-              "schema:termCode": {
-                "const": "Focused"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Defocused"
-              },
-              "schema:termCode": {
-                "const": "Defocused"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Raster"
-              },
-              "schema:termCode": {
-                "const": "Raster"
-              }
-            }
-          }
-        ]
-      }
-    }
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
   },
-  "required": [
-    "@type",
-    "schema:hasDefinedTerm"
+  "@id": "ada:vocab/empaTAPP/beamMode",
+  "@type": [
+    "schema:DefinedTermSet"
   ],
-  "examples": [
+  "schema:name": "Beam Mode",
+  "schema:description": "Whether the beam was focused, defocused, or rastered over an area.",
+  "schema:hasDefinedTerm": [
     {
-      "@context": {
-        "schema": "http://schema.org/",
-        "ada": "https://ada.astromat.org/metadata/"
-      },
-      "@id": "ada:vocab/empaTAPP/beamMode",
-      "@type": "schema:DefinedTermSet",
-      "schema:name": "Beam Mode",
-      "schema:description": "Whether the beam was focused, defocused, or rastered over an area.",
-      "schema:hasDefinedTerm": [
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Focused",
-          "schema:termCode": "Focused",
-          "schema:name": "Focused"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Defocused",
-          "schema:termCode": "Defocused",
-          "schema:name": "Defocused"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Raster",
-          "schema:termCode": "Raster",
-          "schema:name": "Raster"
-        }
-      ]
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Focused",
+      "schema:termCode": "Focused",
+      "schema:name": "Focused"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Defocused",
+      "schema:termCode": "Defocused",
+      "schema:name": "Defocused"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Raster",
+      "schema:termCode": "Raster",
+      "schema:name": "Raster"
     }
   ]
 }

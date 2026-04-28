@@ -1,186 +1,79 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ada:vocab/empaTAPP/massAbsorptionCoefficients",
-  "title": "Mass Absorption Coefficients (MACs)",
-  "description": "Database of mass absorption coefficients used in the matrix correction.",
-  "type": "object",
-  "properties": {
-    "@type": {
-      "const": "schema:DefinedTermSet"
-    },
-    "schema:name": {
-      "const": "Mass Absorption Coefficients (MACs)"
-    },
-    "schema:hasDefinedTerm": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "const": "schema:DefinedTerm"
-          },
-          "schema:name": {
-            "type": "string"
-          },
-          "schema:description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@type",
-          "@id",
-          "schema:termCode"
-        ],
-        "oneOf": [
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:LINEMU"
-              },
-              "schema:termCode": {
-                "const": "LINEMU"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:CITZMU"
-              },
-              "schema:termCode": {
-                "const": "CITZMU"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:MCMASTER"
-              },
-              "schema:termCode": {
-                "const": "MCMASTER"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:MAC30"
-              },
-              "schema:termCode": {
-                "const": "MAC30"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:MACJTA"
-              },
-              "schema:termCode": {
-                "const": "MACJTA"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:FFAST"
-              },
-              "schema:termCode": {
-                "const": "FFAST"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Other"
-              },
-              "schema:termCode": {
-                "const": "Other"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Unknown"
-              },
-              "schema:termCode": {
-                "const": "Unknown"
-              }
-            }
-          }
-        ]
-      }
-    }
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
   },
-  "required": [
-    "@type",
-    "schema:hasDefinedTerm"
+  "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients",
+  "@type": [
+    "schema:DefinedTermSet"
   ],
-  "examples": [
+  "schema:name": "Mass Absorption Coefficients (MACs)",
+  "schema:description": "Database of mass absorption coefficients used in the matrix correction.",
+  "schema:hasDefinedTerm": [
     {
-      "@context": {
-        "schema": "http://schema.org/",
-        "ada": "https://ada.astromat.org/metadata/"
-      },
-      "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients",
-      "@type": "schema:DefinedTermSet",
-      "schema:name": "Mass Absorption Coefficients (MACs)",
-      "schema:description": "Database of mass absorption coefficients used in the matrix correction.",
-      "schema:hasDefinedTerm": [
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:LINEMU",
-          "schema:termCode": "LINEMU",
-          "schema:name": "LINEMU"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:CITZMU",
-          "schema:termCode": "CITZMU",
-          "schema:name": "CITZMU"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:MCMASTER",
-          "schema:termCode": "MCMASTER",
-          "schema:name": "MCMASTER"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:MAC30",
-          "schema:termCode": "MAC30",
-          "schema:name": "MAC30"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:MACJTA",
-          "schema:termCode": "MACJTA",
-          "schema:name": "MACJTA"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:FFAST",
-          "schema:termCode": "FFAST",
-          "schema:name": "FFAST"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Other",
-          "schema:termCode": "Other",
-          "schema:name": "Other"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Unknown",
-          "schema:termCode": "Unknown",
-          "schema:name": "Unknown"
-        }
-      ]
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:LINEMU",
+      "schema:termCode": "LINEMU",
+      "schema:name": "LINEMU"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:CITZMU",
+      "schema:termCode": "CITZMU",
+      "schema:name": "CITZMU"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:MCMASTER",
+      "schema:termCode": "MCMASTER",
+      "schema:name": "MCMASTER"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:MAC30",
+      "schema:termCode": "MAC30",
+      "schema:name": "MAC30"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:MACJTA",
+      "schema:termCode": "MACJTA",
+      "schema:name": "MACJTA"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:FFAST",
+      "schema:termCode": "FFAST",
+      "schema:name": "FFAST"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Other",
+      "schema:termCode": "Other",
+      "schema:name": "Other"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Unknown",
+      "schema:termCode": "Unknown",
+      "schema:name": "Unknown"
     }
   ]
 }

@@ -1,218 +1,95 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ada:vocab/empaTAPP/matrixCorrectionMethod",
-  "title": "Matrix Correction Method",
-  "description": "X-ray matrix correction algorithm applied during data reduction.",
-  "type": "object",
-  "properties": {
-    "@type": {
-      "const": "schema:DefinedTermSet"
-    },
-    "schema:name": {
-      "const": "Matrix Correction Method"
-    },
-    "schema:hasDefinedTerm": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "const": "schema:DefinedTerm"
-          },
-          "schema:name": {
-            "type": "string"
-          },
-          "schema:description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@type",
-          "@id",
-          "schema:termCode"
-        ],
-        "oneOf": [
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:PAP (Pouchou & Pichoir Full)"
-              },
-              "schema:termCode": {
-                "const": "PAP (Pouchou & Pichoir Full)"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:XPP (Simplified PAP)"
-              },
-              "schema:termCode": {
-                "const": "XPP (Simplified PAP)"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:PhiRhoZ Bastin (EPQ-91)"
-              },
-              "schema:termCode": {
-                "const": "PhiRhoZ Bastin (EPQ-91)"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Love-Scott I"
-              },
-              "schema:termCode": {
-                "const": "Love-Scott I"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Love-Scott II"
-              },
-              "schema:termCode": {
-                "const": "Love-Scott II"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Armstrong/Love-Scott"
-              },
-              "schema:termCode": {
-                "const": "Armstrong/Love-Scott"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Heinrich/Duncumb-Reed"
-              },
-              "schema:termCode": {
-                "const": "Heinrich/Duncumb-Reed"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Conventional Philibert/Duncumb-Reed"
-              },
-              "schema:termCode": {
-                "const": "Conventional Philibert/Duncumb-Reed"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Other"
-              },
-              "schema:termCode": {
-                "const": "Other"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Unknown"
-              },
-              "schema:termCode": {
-                "const": "Unknown"
-              }
-            }
-          }
-        ]
-      }
-    }
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
   },
-  "required": [
-    "@type",
-    "schema:hasDefinedTerm"
+  "@id": "ada:vocab/empaTAPP/matrixCorrectionMethod",
+  "@type": [
+    "schema:DefinedTermSet"
   ],
-  "examples": [
+  "schema:name": "Matrix Correction Method",
+  "schema:description": "X-ray matrix correction algorithm applied during data reduction.",
+  "schema:hasDefinedTerm": [
     {
-      "@context": {
-        "schema": "http://schema.org/",
-        "ada": "https://ada.astromat.org/metadata/"
-      },
-      "@id": "ada:vocab/empaTAPP/matrixCorrectionMethod",
-      "@type": "schema:DefinedTermSet",
-      "schema:name": "Matrix Correction Method",
-      "schema:description": "X-ray matrix correction algorithm applied during data reduction.",
-      "schema:hasDefinedTerm": [
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:PAP (Pouchou & Pichoir Full)",
-          "schema:termCode": "PAP (Pouchou & Pichoir Full)",
-          "schema:name": "PAP (Pouchou & Pichoir Full)"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:XPP (Simplified PAP)",
-          "schema:termCode": "XPP (Simplified PAP)",
-          "schema:name": "XPP (Simplified PAP)"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:PhiRhoZ Bastin (EPQ-91)",
-          "schema:termCode": "PhiRhoZ Bastin (EPQ-91)",
-          "schema:name": "PhiRhoZ Bastin (EPQ-91)"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Love-Scott I",
-          "schema:termCode": "Love-Scott I",
-          "schema:name": "Love-Scott I"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Love-Scott II",
-          "schema:termCode": "Love-Scott II",
-          "schema:name": "Love-Scott II"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Armstrong/Love-Scott",
-          "schema:termCode": "Armstrong/Love-Scott",
-          "schema:name": "Armstrong/Love-Scott"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Heinrich/Duncumb-Reed",
-          "schema:termCode": "Heinrich/Duncumb-Reed",
-          "schema:name": "Heinrich/Duncumb-Reed"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Conventional Philibert/Duncumb-Reed",
-          "schema:termCode": "Conventional Philibert/Duncumb-Reed",
-          "schema:name": "Conventional Philibert/Duncumb-Reed"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Other",
-          "schema:termCode": "Other",
-          "schema:name": "Other"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Unknown",
-          "schema:termCode": "Unknown",
-          "schema:name": "Unknown"
-        }
-      ]
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:PAP (Pouchou & Pichoir Full)",
+      "schema:termCode": "PAP (Pouchou & Pichoir Full)",
+      "schema:name": "PAP (Pouchou & Pichoir Full)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:XPP (Simplified PAP)",
+      "schema:termCode": "XPP (Simplified PAP)",
+      "schema:name": "XPP (Simplified PAP)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:PhiRhoZ Bastin (EPQ-91)",
+      "schema:termCode": "PhiRhoZ Bastin (EPQ-91)",
+      "schema:name": "PhiRhoZ Bastin (EPQ-91)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Love-Scott I",
+      "schema:termCode": "Love-Scott I",
+      "schema:name": "Love-Scott I"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Love-Scott II",
+      "schema:termCode": "Love-Scott II",
+      "schema:name": "Love-Scott II"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Armstrong/Love-Scott",
+      "schema:termCode": "Armstrong/Love-Scott",
+      "schema:name": "Armstrong/Love-Scott"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Heinrich/Duncumb-Reed",
+      "schema:termCode": "Heinrich/Duncumb-Reed",
+      "schema:name": "Heinrich/Duncumb-Reed"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Conventional Philibert/Duncumb-Reed",
+      "schema:termCode": "Conventional Philibert/Duncumb-Reed",
+      "schema:name": "Conventional Philibert/Duncumb-Reed"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Other",
+      "schema:termCode": "Other",
+      "schema:name": "Other"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Unknown",
+      "schema:termCode": "Unknown",
+      "schema:name": "Unknown"
     }
   ]
 }

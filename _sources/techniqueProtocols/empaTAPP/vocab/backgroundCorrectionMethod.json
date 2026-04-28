@@ -1,234 +1,103 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ada:vocab/empaTAPP/backgroundCorrectionMethod",
-  "title": "Background Correction Method",
-  "description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
-  "type": "object",
-  "properties": {
-    "@type": {
-      "const": "schema:DefinedTermSet"
-    },
-    "schema:name": {
-      "const": "Background Correction Method"
-    },
-    "schema:hasDefinedTerm": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "const": "schema:DefinedTerm"
-          },
-          "schema:name": {
-            "type": "string"
-          },
-          "schema:description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@type",
-          "@id",
-          "schema:termCode"
-        ],
-        "oneOf": [
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:2-point off-peak linear"
-              },
-              "schema:termCode": {
-                "const": "2-point off-peak linear"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:2-point off-peak exponential"
-              },
-              "schema:termCode": {
-                "const": "2-point off-peak exponential"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:2-point off-peak polynomial"
-              },
-              "schema:termCode": {
-                "const": "2-point off-peak polynomial"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:1-point high with slope factor"
-              },
-              "schema:termCode": {
-                "const": "1-point high with slope factor"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:1-point low with slope factor"
-              },
-              "schema:termCode": {
-                "const": "1-point low with slope factor"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Multi-point linear"
-              },
-              "schema:termCode": {
-                "const": "Multi-point linear"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Multi-point exponential"
-              },
-              "schema:termCode": {
-                "const": "Multi-point exponential"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:Mean Atomic Number (MAN)"
-              },
-              "schema:termCode": {
-                "const": "Mean Atomic Number (MAN)"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:EDS background fit"
-              },
-              "schema:termCode": {
-                "const": "EDS background fit"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:other"
-              },
-              "schema:termCode": {
-                "const": "other"
-              }
-            }
-          },
-          {
-            "properties": {
-              "@id": {
-                "const": "ada:N/A"
-              },
-              "schema:termCode": {
-                "const": "N/A"
-              }
-            }
-          }
-        ]
-      }
-    }
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
   },
-  "required": [
-    "@type",
-    "schema:hasDefinedTerm"
+  "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod",
+  "@type": [
+    "schema:DefinedTermSet"
   ],
-  "examples": [
+  "schema:name": "Background Correction Method",
+  "schema:description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
+  "schema:hasDefinedTerm": [
     {
-      "@context": {
-        "schema": "http://schema.org/",
-        "ada": "https://ada.astromat.org/metadata/"
-      },
-      "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod",
-      "@type": "schema:DefinedTermSet",
-      "schema:name": "Background Correction Method",
-      "schema:description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
-      "schema:hasDefinedTerm": [
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:2-point off-peak linear",
-          "schema:termCode": "2-point off-peak linear",
-          "schema:name": "2-point off-peak linear"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:2-point off-peak exponential",
-          "schema:termCode": "2-point off-peak exponential",
-          "schema:name": "2-point off-peak exponential"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:2-point off-peak polynomial",
-          "schema:termCode": "2-point off-peak polynomial",
-          "schema:name": "2-point off-peak polynomial"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:1-point high with slope factor",
-          "schema:termCode": "1-point high with slope factor",
-          "schema:name": "1-point high with slope factor"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:1-point low with slope factor",
-          "schema:termCode": "1-point low with slope factor",
-          "schema:name": "1-point low with slope factor"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Multi-point linear",
-          "schema:termCode": "Multi-point linear",
-          "schema:name": "Multi-point linear"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Multi-point exponential",
-          "schema:termCode": "Multi-point exponential",
-          "schema:name": "Multi-point exponential"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:Mean Atomic Number (MAN)",
-          "schema:termCode": "Mean Atomic Number (MAN)",
-          "schema:name": "Mean Atomic Number (MAN)"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:EDS background fit",
-          "schema:termCode": "EDS background fit",
-          "schema:name": "EDS background fit"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:other",
-          "schema:termCode": "other",
-          "schema:name": "other"
-        },
-        {
-          "@type": "schema:DefinedTerm",
-          "@id": "ada:N/A",
-          "schema:termCode": "N/A",
-          "schema:name": "N/A"
-        }
-      ]
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:2-point off-peak linear",
+      "schema:termCode": "2-point off-peak linear",
+      "schema:name": "2-point off-peak linear"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:2-point off-peak exponential",
+      "schema:termCode": "2-point off-peak exponential",
+      "schema:name": "2-point off-peak exponential"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:2-point off-peak polynomial",
+      "schema:termCode": "2-point off-peak polynomial",
+      "schema:name": "2-point off-peak polynomial"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:1-point high with slope factor",
+      "schema:termCode": "1-point high with slope factor",
+      "schema:name": "1-point high with slope factor"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:1-point low with slope factor",
+      "schema:termCode": "1-point low with slope factor",
+      "schema:name": "1-point low with slope factor"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Multi-point linear",
+      "schema:termCode": "Multi-point linear",
+      "schema:name": "Multi-point linear"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Multi-point exponential",
+      "schema:termCode": "Multi-point exponential",
+      "schema:name": "Multi-point exponential"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:Mean Atomic Number (MAN)",
+      "schema:termCode": "Mean Atomic Number (MAN)",
+      "schema:name": "Mean Atomic Number (MAN)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:EDS background fit",
+      "schema:termCode": "EDS background fit",
+      "schema:name": "EDS background fit"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:other",
+      "schema:termCode": "other",
+      "schema:name": "other"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "@id": "ada:N/A",
+      "schema:termCode": "N/A",
+      "schema:name": "N/A"
     }
   ]
 }
