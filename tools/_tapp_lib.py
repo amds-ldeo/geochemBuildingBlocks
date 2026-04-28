@@ -734,6 +734,91 @@ def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
     print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(detail_param_names)} additionalProperty types)")
 
 
+def scaffold_detail_bb_if_missing() -> None:
+    """Phase 4: when a brand-new detail BB directory has no schema.yaml or
+    bblock.json yet, scaffold them so build_detail_artifacts() has somewhere
+    to write parametersConstraint.yaml. Existing files are never overwritten —
+    the user maintains the hand-authored componentType enum and any
+    technique-specific properties on schema.yaml directly."""
+    DETAIL_EMPA.mkdir(parents=True, exist_ok=True)
+    schema_path = DETAIL_EMPA / "schema.yaml"
+    if not schema_path.exists():
+        yaml = YAML()
+        yaml.preserve_quotes = True
+        yaml.width = 4096
+        yaml.indent(mapping=2, sequence=4, offset=2)
+        doc = CommentedMap()
+        doc["$schema"] = "https://json-schema.org/draft/2020-12/schema"
+        doc["title"] = f"{DETAIL_NAME} Instrument Detail"
+        doc["description"] = (
+            f"Detail block for {DETAIL_NAME} hasPart items. Discriminates on "
+            f"ada:componentType (string). schema:measurementTechnique points "
+            f"at the {TAPP_NAME} TAPP definition either by @id reference or "
+            f"inline. Per-dataset schema:additionalProperty entries are "
+            f"constrained by the generated parametersConstraint.yaml."
+        )
+        allof = CommentedSeq()
+        # Hand-authored slot: componentType + measurementTechnique. componentType
+        # enum is a TODO placeholder — fill in technique-specific values.
+        hand = CommentedMap()
+        hand["type"] = "object"
+        props = CommentedMap()
+        ct = CommentedMap()
+        ct["description"] = (
+            "Technique-specific component-type identifier. Replace this list "
+            "with the actual ada:<technique>... consts for this BB."
+        )
+        ct["anyOf"] = CommentedSeq([{"const": "ada:TODO_ComponentType"}])
+        props["ada:componentType"] = ct
+        mt = CommentedMap()
+        mt["description"] = (
+            f"The {TAPP_NAME} TAPP definition this detail conforms to. Either "
+            f"an @id reference or an inline definition."
+        )
+        mt_anyof = CommentedSeq()
+        ref_branch = CommentedMap()
+        ref_branch["type"] = "object"
+        ref_props = CommentedMap()
+        ref_props["@id"] = {"type": "string", "format": "uri"}
+        ref_branch["properties"] = ref_props
+        ref_branch["required"] = CommentedSeq(["@id"])
+        mt_anyof.append(ref_branch)
+        mt_anyof.append({"$ref": f"../../techniqueProtocols/{TAPP_NAME}/schema.yaml"})
+        mt["anyOf"] = mt_anyof
+        props["schema:measurementTechnique"] = mt
+        hand["properties"] = props
+        hand["required"] = CommentedSeq(["ada:componentType"])
+        allof.append(hand)
+        allof.append({"$ref": "parametersConstraint.yaml"})
+        doc["allOf"] = allof
+        with open(schema_path, "w", encoding="utf-8") as f:
+            yaml.dump(doc, f)
+        print(f"  scaffolded {schema_path.relative_to(REPO_ROOT)} (fill in ada:componentType)")
+
+    bblock_path = DETAIL_EMPA / "bblock.json"
+    if not bblock_path.exists():
+        bblock = OrderedDict([
+            ("$schema", "metaschema.yaml"),
+            ("name", f"{DETAIL_NAME} Detail"),
+            ("abstract", (
+                f"Detail block for {DETAIL_NAME} hasPart items. Carries "
+                f"per-dataset schema:additionalProperty entries (constrained "
+                f"by parametersConstraint.yaml, generated from the {TAPP_NAME} "
+                f"spreadsheet) and references the {TAPP_NAME} TAPP definition "
+                f"via schema:measurementTechnique."
+            )),
+            ("status", "under-development"),
+            ("itemClass", "schema"),
+            ("register", "ada-building-block-register"),
+            ("version", "0.1"),
+            ("maturity", "draft"),
+            ("scope", "unstable"),
+            ("tags", ["ada", "geochem", DETAIL_NAME.lower()]),
+        ])
+        write_json(bblock_path, bblock)
+        print(f"  scaffolded {bblock_path.relative_to(REPO_ROOT)}")
+
+
 def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: list[str]) -> None:
     """Delete *.json under techniqueProtocols/parameterTemplates/ or
     techniqueProtocols/parameterValues/ that don't correspond to a current
@@ -1239,6 +1324,7 @@ def build_detail_artifacts() -> dict:
 
     cls = _classify_rows(rows, emit_tapp=False, emit_detail=True)
 
+    scaffold_detail_bb_if_missing()
     write_detail_empa_constraint(cls["detail_param_names"])
 
     # Orphan cleanup for parameterValues — only files owned by THIS TAPP get deleted.
@@ -1266,6 +1352,100 @@ def build_detail_artifacts() -> dict:
 
     print(f"\nCounts: {cls['counts']}")
     return cls
+
+
+def build_profile_BB() -> None:
+    """Phase 5: scaffold _sources/profiles/geochemProfiles/<short>Profile/
+    referencing the detail BB and the TAPP definition. Existing files are
+    never overwritten — re-runs are no-ops once the user starts editing.
+
+    The profile schema extends the base ada product profile with two
+    technique-specific constraints:
+      - schema:measurementTechnique anyOf [{@id ref}, inline TAPP]
+      - schema:distribution[*].schema:hasPart[*] anyOf includes detailXXX
+    """
+    short = TAPP_NAME.replace("TAPP", "")  # e.g. "empa", "xrd"
+    profile_dir = REPO_ROOT / "_sources" / "profiles" / "geochemProfiles" / f"{short}Profile"
+    profile_dir.mkdir(parents=True, exist_ok=True)
+
+    schema_path = profile_dir / "schema.yaml"
+    if not schema_path.exists():
+        yaml = YAML()
+        yaml.preserve_quotes = True
+        yaml.width = 4096
+        yaml.indent(mapping=2, sequence=4, offset=2)
+        doc = CommentedMap()
+        doc["$schema"] = "https://json-schema.org/draft/2020-12/schema"
+        doc["title"] = f"{short.upper()} Geochem Profile"
+        doc["description"] = (
+            f"Geochem dataset profile for {short.upper()}. Extends adaProduct "
+            f"with a {DETAIL_NAME} detail block and a schema:measurementTechnique "
+            f"that points at a {TAPP_NAME} TAPP definition."
+        )
+        allof = CommentedSeq()
+        allof.append({"$ref": "../../adaProfiles/adaProduct/schema.yaml"})
+        overlay = CommentedMap()
+        overlay["type"] = "object"
+        ovprops = CommentedMap()
+        # measurementTechnique points at the TAPP
+        mt = CommentedMap()
+        mt["description"] = f"TAPP definition reference or inline."
+        mt_anyof = CommentedSeq()
+        ref_branch = CommentedMap()
+        ref_branch["type"] = "object"
+        ref_branch["properties"] = CommentedMap([("@id", {"type": "string", "format": "uri"})])
+        ref_branch["required"] = CommentedSeq(["@id"])
+        mt_anyof.append(ref_branch)
+        mt_anyof.append({"$ref": f"../../../techniqueProtocols/{TAPP_NAME}/schema.yaml"})
+        mt["anyOf"] = mt_anyof
+        ovprops["schema:measurementTechnique"] = mt
+        # distribution.hasPart includes the detail BB
+        dist = CommentedMap()
+        dist["type"] = "array"
+        dist_items = CommentedMap()
+        dist_items["type"] = "object"
+        dist_props = CommentedMap()
+        hp = CommentedMap()
+        hp["items"] = CommentedMap([("anyOf", CommentedSeq([
+            {"$ref": "../../adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
+            {"$ref": f"../../../geochemProperties/{DETAIL_NAME}/schema.yaml"},
+        ]))])
+        dist_props["schema:hasPart"] = hp
+        dist_items["properties"] = dist_props
+        dist["items"] = dist_items
+        ovprops["schema:distribution"] = dist
+        overlay["properties"] = ovprops
+        allof.append(overlay)
+        doc["allOf"] = allof
+        with open(schema_path, "w", encoding="utf-8") as f:
+            yaml.dump(doc, f)
+        print(f"  scaffolded {schema_path.relative_to(REPO_ROOT)}")
+    else:
+        print(f"  {schema_path.relative_to(REPO_ROOT)} already exists — skipping")
+
+    bblock_path = profile_dir / "bblock.json"
+    if not bblock_path.exists():
+        bblock = OrderedDict([
+            ("$schema", "metaschema.yaml"),
+            ("name", f"{short.upper()} Geochem Profile"),
+            ("abstract", (
+                f"Technique-specific dataset profile for {short.upper()}. "
+                f"Extends adaProduct with constraints on schema:measurementTechnique "
+                f"(pointing at {TAPP_NAME}) and schema:distribution.schema:hasPart "
+                f"(allowing {DETAIL_NAME} entries)."
+            )),
+            ("status", "under-development"),
+            ("itemClass", "schema"),
+            ("register", "ada-building-block-register"),
+            ("version", "0.1"),
+            ("maturity", "draft"),
+            ("scope", "unstable"),
+            ("tags", ["ada", "geochem", "profile", short.lower()]),
+        ])
+        write_json(bblock_path, bblock)
+        print(f"  scaffolded {bblock_path.relative_to(REPO_ROOT)}")
+    else:
+        print(f"  {bblock_path.relative_to(REPO_ROOT)} already exists — skipping")
 
 
 def main():
