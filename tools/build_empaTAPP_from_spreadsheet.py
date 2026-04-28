@@ -224,7 +224,7 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
 
     properties = OrderedDict([
         ("@context", {"const": _ADA_CONTEXT}),
-        ("@id", {"type": "string"}),
+        ("@id", {"const": f"ada:parameter/empaTAPP/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
         ("schema:name", {"const": label}),
@@ -246,7 +246,7 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         ("type", "object"),
         ("properties", properties),
         ("required", [
-            "@context", "@id", "@type",
+            "@id", "@type",
             "schema:valueName", "schema:name", "ada:dataType", "ada:fieldScope",
         ]),
         ("examples", [canonical]),
@@ -284,7 +284,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
 
     properties = OrderedDict([
         ("@context", {"const": _ADA_CONTEXT}),
-        ("@id", {"type": "string"}),
+        ("@id", {"const": f"ada:analyteColumn/empaTAPP/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
         ("schema:name", {"const": label}),
@@ -305,7 +305,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         ("type", "object"),
         ("properties", properties),
         ("required", [
-            "@context", "@id", "@type",
+            "@id", "@type",
             "schema:valueName", "schema:name", "ada:dataType",
         ]),
         ("examples", [canonical]),
