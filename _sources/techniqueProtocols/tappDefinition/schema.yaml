@@ -269,9 +269,25 @@ $defs:
         type: array
         description: >-
           Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a
-          distinct phase of the analytical procedure.
+          distinct phase of the analytical procedure. Must include a sample-preparation step at position 1
+          with schema:additionalType "bios:LabProcess".
         items:
           $ref: '#/$defs/WorkflowStep'
+        contains:
+          type: object
+          properties:
+            'schema:name':
+              const: Sample preparation
+            'schema:position':
+              const: 1
+            'schema:additionalType':
+              type: array
+              contains:
+                const: bios:LabProcess
+          required:
+          - 'schema:name'
+          - 'schema:position'
+          - 'schema:additionalType'
     required:
     - '@type'
     - schema:step
