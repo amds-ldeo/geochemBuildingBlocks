@@ -112,73 +112,43 @@ def write_json(path: Path, data: dict):
         f.write("\n")
 
 
-def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
-    """Hybrid JSON Schema + canonical instance for one DefinedTermSet.
+DEFINED_TERM_SET_SCHEMA_URI = (
+    "https://cross-domain-interoperability-framework.github.io/"
+    "metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml"
+)
 
-    Each term is a full schema:DefinedTerm with its own @id ("ada:{termCode}"
-    by convention for now; data producers supplement schema:name and
-    schema:description). The schema pins each term's (@id, termCode) pair
-    via a oneOf branch — termCode alone is no longer a flat enum, so the
-    @id convention is enforced.
+
+def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
+    """Canonical schema:DefinedTermSet instance, declaring conformance to the
+    upstream CDIF schemaorgProperties/definedTermSet schema via $schema.
+
+    Each term is a schema:DefinedTerm with its own @id ("ada:{termCode}"
+    placeholder until the project adopts a real IRI scheme), schema:termCode,
+    and schema:name. Data producers supplement schema:name (human-readable
+    label) and schema:description per term.
+
+    @type fields use the array form to match the upstream schema's contains
+    constraint on schema:DefinedTermSet / schema:DefinedTerm.
     """
-    canonical_terms = [
-        OrderedDict([
-            ("@type", "schema:DefinedTerm"),
-            ("@id", f"ada:{t}"),
-            ("schema:termCode", t),
-            ("schema:name", t),
-        ])
-        for t in terms
-    ]
-    canonical = OrderedDict([
+    return OrderedDict([
+        ("$schema", DEFINED_TERM_SET_SCHEMA_URI),
         ("@context", {
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
         }),
         ("@id", f"ada:vocab/empaTAPP/{vname}"),
-        ("@type", "schema:DefinedTermSet"),
+        ("@type", ["schema:DefinedTermSet"]),
         ("schema:name", label),
         ("schema:description", desc or f"Allowed values for {label}."),
-        ("schema:hasDefinedTerm", canonical_terms),
-    ])
-
-    term_branches = [
-        {
-            "properties": OrderedDict([
-                ("@id", {"const": f"ada:{t}"}),
-                ("schema:termCode", {"const": t}),
+        ("schema:hasDefinedTerm", [
+            OrderedDict([
+                ("@type", ["schema:DefinedTerm"]),
+                ("@id", f"ada:{t}"),
+                ("schema:termCode", t),
+                ("schema:name", t),
             ])
-        }
-        for t in terms
-    ]
-
-    properties = OrderedDict([
-        ("@type", {"const": "schema:DefinedTermSet"}),
-        ("schema:name", {"const": label}),
-        ("schema:hasDefinedTerm", {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "@type": {"const": "schema:DefinedTerm"},
-                    "schema:name": {"type": "string"},
-                    "schema:description": {"type": "string"},
-                },
-                "required": ["@type", "@id", "schema:termCode"],
-                "oneOf": term_branches,
-            },
-        }),
-    ])
-    return OrderedDict([
-        ("$schema", "https://json-schema.org/draft/2020-12/schema"),
-        ("$id", f"ada:vocab/empaTAPP/{vname}"),
-        ("title", label),
-        ("description", desc or f"Allowed values for {label}."),
-        ("type", "object"),
-        ("properties", properties),
-        ("required", ["@type", "schema:hasDefinedTerm"]),
-        ("examples", [canonical]),
+            for t in terms
+        ]),
     ])
 
 
