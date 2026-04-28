@@ -286,20 +286,20 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "0 (focused)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "0 (focused)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -770,20 +770,20 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint mineral chem
 10 nA (glass/maskelynite/phosphate)""" ;
     ada:beamDiameterDefault "1–2 µm focused (silicates/oxides); 5–10 µm defocused (glass/maskelynite)" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "1–2 µm focused (silicates/oxides); 5–10 µm defocused (glass/maskelynite)" ;
             schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
             schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
             schema1:valueName "beamDiameter" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -1032,20 +1032,20 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "15" ;
-            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
-            schema1:name "Default Accelerating Voltage" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "acceleratingVoltage" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "0 (focused)" ;
             schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
             schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
             schema1:valueName "beamDiameter" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "15" ;
+            schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
+            schema1:name "Default Accelerating Voltage" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "acceleratingVoltage" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -1937,11 +1937,11 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
     ada:beamCurrentDefault "20 nA" ;
     ada:beamDiameterDefault "2 µm" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 µm and 10 µm spot conditions" ;
-            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
-            schema1:name "Beam Damage Minimization" ;
+            schema1:defaultValue "2 µm" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
             schema1:readonlyValue true ;
-            schema1:valueName "BeamDamageMinimization" ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
@@ -1955,11 +1955,11 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "2 µm" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
+            schema1:defaultValue "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 µm and 10 µm spot conditions" ;
+            schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
+            schema1:name "Beam Damage Minimization" ;
             schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
+            schema1:valueName "BeamDamageMinimization" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ],
@@ -2477,20 +2477,20 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu evaporites, 
 10 nA (oxides/olivine, 1 µm)""" ;
     ada:beamDiameterDefault "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)" ;
-            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
-            schema1:name "Default Beam Diameter" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDiameter" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "15" ;
             schema1:description "Electron beam accelerating voltage in kilovolts (kV)." ;
             schema1:name "Default Accelerating Voltage" ;
             schema1:readonlyValue true ;
             schema1:valueName "acceleratingVoltage" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "1 µm (oxides/olivine); 5 µm (carbonates); 2 µm (Mg,Na phosphate)" ;
+            schema1:description "Diameter of the focused or defocused electron beam in micrometers." ;
+            schema1:name "Default Beam Diameter" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDiameter" ;
             ada:dataType "string" ;
             ada:fieldScope "session" ;
             ada:tier "R" ] .
@@ -2765,10 +2765,10 @@ title: EMPA Technique-Aligned Protocol Profile (empaTAPP)
 description: EMPA-specific extension of the base TAPP definition. Adds top-level EPMA
   properties (beam mode, accelerating voltage default, matrix correction method, etc.),
   a parameter vocabulary in ada:methodParameters, and an analyte-column template covering
-  EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates,
-  and analyte-column templates ship as separate JSON files under vocab/, parameters/,
-  and analyteColumns/ for maintainability; the resolved schema can inline references
-  where used. Generated from docs/TAPP_EPMA_filled.xlsx by tools/_build_empaTAPP.py.
+  EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry
+  must match one of the catalog files in analyteColumns/ (or the inherited identifier
+  column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0]
+  carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.
 allOf:
 - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema.yaml
 - type: object
@@ -2803,6 +2803,40 @@ allOf:
       - Conventional Philibert/Duncumb-Reed
       - Other
       - Unknown
+    ada:analyteTemplate:
+      type: object
+      properties:
+        ada:analyteColumns:
+          type: array
+          items:
+            oneOf:
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/analysisOrder.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/backgroundCorrectionMethod.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/backgroundCountingPosition.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/backgroundCountingTime.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/blankCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/detectionLimitMethod.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/edsDeadTime.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/elementEstimationMethod.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/epmaTechnique.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/interferenceCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/interferenceCorrectionStandard.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/interferingElements.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/monochromatorCrystal.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/normalization-standardsCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/peakCountingTime.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/primaryCalibrationStandard.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/pulseHeightAnalyzeSetting.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/secondaryReferenceMaterial.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/spectrometerNumber.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/timeDependentIntensityCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalAnalyticalAccuracy.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalAnalyticalPrecision.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalCountingStatisticsError.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalDetectionLimit.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/wdsDetectorType.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/xrayEmissionLine.json
 
 ```
 

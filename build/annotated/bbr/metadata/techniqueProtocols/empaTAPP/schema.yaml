@@ -3,10 +3,10 @@ title: EMPA Technique-Aligned Protocol Profile (empaTAPP)
 description: EMPA-specific extension of the base TAPP definition. Adds top-level EPMA
   properties (beam mode, accelerating voltage default, matrix correction method, etc.),
   a parameter vocabulary in ada:methodParameters, and an analyte-column template covering
-  EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates,
-  and analyte-column templates ship as separate JSON files under vocab/, parameters/,
-  and analyteColumns/ for maintainability; the resolved schema can inline references
-  where used. Generated from docs/TAPP_EPMA_filled.xlsx by tools/_build_empaTAPP.py.
+  EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry
+  must match one of the catalog files in analyteColumns/ (or the inherited identifier
+  column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0]
+  carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.
 allOf:
 - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema.yaml
 - type: object
@@ -41,3 +41,37 @@ allOf:
       - Conventional Philibert/Duncumb-Reed
       - Other
       - Unknown
+    ada:analyteTemplate:
+      type: object
+      properties:
+        ada:analyteColumns:
+          type: array
+          items:
+            oneOf:
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/bbr/metadata/techniqueProtocols/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/analysisOrder.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/backgroundCorrectionMethod.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/backgroundCountingPosition.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/backgroundCountingTime.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/blankCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/detectionLimitMethod.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/edsDeadTime.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/elementEstimationMethod.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/epmaTechnique.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/interferenceCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/interferenceCorrectionStandard.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/interferingElements.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/monochromatorCrystal.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/normalization-standardsCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/peakCountingTime.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/primaryCalibrationStandard.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/pulseHeightAnalyzeSetting.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/secondaryReferenceMaterial.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/spectrometerNumber.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/timeDependentIntensityCorrection.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalAnalyticalAccuracy.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalAnalyticalPrecision.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalCountingStatisticsError.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/typicalDetectionLimit.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/wdsDetectorType.json
+            - $ref: https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/empaTAPP/analyteColumns/xrayEmissionLine.json
