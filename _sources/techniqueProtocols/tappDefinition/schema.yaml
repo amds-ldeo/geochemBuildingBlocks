@@ -198,14 +198,15 @@ properties:
       'ada:analyteColumns':
         type: array
         description: >-
-          Columns of the per-analyte parameter table. Must include at
-          least one column with schema:valueName "analyte" that
+          Columns of the per-analyte parameter table. Must include
+          exactly one column with schema:valueName "analyte" that
           identifies the analyzed constituent named in each row.
         minItems: 1
         items:
           $ref: '#/$defs/AnalyteColumn'
         contains:
           $ref: '#/$defs/AnalyteIdentifierColumn'
+        maxContains: 1
       'ada:defaultAnalytes':
         type: array
         description: >-
