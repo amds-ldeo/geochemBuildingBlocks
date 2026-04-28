@@ -171,7 +171,17 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
 
 def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str | None,
                        readOnly: bool | None, tier: str = "M") -> dict:
-    obj = OrderedDict([
+    """Hybrid JSON Schema + canonical instance for one analyte column.
+
+    Top-level keywords form a JSON Schema constraining how this column must
+    appear in a TAPP instance's ada:analyteColumns[]. The standard `examples`
+    annotation carries the canonical JSON-LD instance — authoring apps read
+    examples[0] to pre-fill forms; validators apply the schema body.
+    """
+    dt = map_dtype(dtype)
+    ro = bool(readOnly) if readOnly is not None else True
+
+    canonical = OrderedDict([
         ("@context", {
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
@@ -181,19 +191,45 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         ("schema:name", label),
         ("schema:valueName", name),
         ("schema:description", desc or label),
-        ("ada:dataType", map_dtype(dtype)),
-        ("schema:readonlyValue", bool(readOnly) if readOnly is not None else True),
+        ("ada:dataType", dt),
+        ("schema:readonlyValue", ro),
         ("ada:tier", tier),
     ])
     if enum_vname:
-        obj["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
-    return obj
+        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+
+    properties = OrderedDict([
+        ("schema:valueName", {"const": name}),
+        ("schema:name", {"const": label}),
+        ("ada:dataType", {"const": dt}),
+        ("schema:readonlyValue", {"const": ro}),
+        ("ada:tier", {"const": tier}),
+    ])
+    if enum_vname:
+        properties["schema:inDefinedTermSet"] = {
+            "const": {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+        }
+
+    return OrderedDict([
+        ("$schema", "https://json-schema.org/draft/2020-12/schema"),
+        ("$id", f"ada:analyteColumn/empaTAPP/{name}"),
+        ("title", label),
+        ("description", desc or label),
+        ("allOf", [
+            {"$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"}
+        ]),
+        ("properties", properties),
+        ("required", ["schema:valueName", "schema:name", "ada:dataType"]),
+        ("examples", [canonical]),
+    ])
 
 
 # ---------- schema.yaml writer ----------
 
-def build_schema_yaml(properties: list[tuple[str, dict]]) -> None:
-    """Rebuild empaTAPP/schema.yaml with the new property set in allOf[1].properties."""
+def build_schema_yaml(properties: list[tuple[str, dict]],
+                      analyte_column_names: list[str]) -> None:
+    """Rebuild empaTAPP/schema.yaml with the new property set in allOf[1].properties
+    and a oneOf constraint on ada:analyteColumns[] referencing the catalog files."""
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
@@ -207,11 +243,11 @@ def build_schema_yaml(properties: list[tuple[str, dict]]) -> None:
         "properties (beam mode, accelerating voltage default, matrix correction "
         "method, etc.), a parameter vocabulary in ada:methodParameters, and an "
         "analyte-column template covering EPMA per-element acquisition and "
-        "reporting fields. Vocabularies, parameter templates, and analyte-column "
-        "templates ship as separate JSON files under vocab/, parameters/, and "
-        "analyteColumns/ for maintainability; the resolved schema can inline "
-        "references where used. Generated from docs/TAPP_EPMA_filled.xlsx by "
-        "tools/_build_empaTAPP.py."
+        "reporting fields. Each ada:analyteColumns[] entry must match one of the "
+        "catalog files in analyteColumns/ (or the inherited identifier column from "
+        "tappDefinition); each catalog file is itself a JSON Schema whose "
+        "examples[0] carries the canonical instance. Generated from "
+        "docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py."
     )
     allof = CommentedSeq()
     allof.append({"$ref": "../tappDefinition/schema.yaml"})
@@ -230,6 +266,29 @@ def build_schema_yaml(properties: list[tuple[str, dict]]) -> None:
             else:
                 cm[k] = v
         props[ada_prop] = cm
+
+    if analyte_column_names:
+        oneof = CommentedSeq()
+        oneof.append({"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
+        for col_name in sorted(analyte_column_names):
+            oneof.append({"$ref": f"analyteColumns/{col_name}.json"})
+
+        ac_items = CommentedMap()
+        ac_items["oneOf"] = oneof
+
+        ac_columns = CommentedMap()
+        ac_columns["type"] = "array"
+        ac_columns["items"] = ac_items
+
+        ac_template_props = CommentedMap()
+        ac_template_props["ada:analyteColumns"] = ac_columns
+
+        ac_template = CommentedMap()
+        ac_template["type"] = "object"
+        ac_template["properties"] = ac_template_props
+
+        props["ada:analyteTemplate"] = ac_template
+
     overlay["properties"] = props
     allof.append(overlay)
     doc["allOf"] = allof
@@ -237,7 +296,8 @@ def build_schema_yaml(properties: list[tuple[str, dict]]) -> None:
     out = BB / "schema.yaml"
     with open(out, "w", encoding="utf-8") as f:
         yaml.dump(doc, f)
-    print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(properties)} properties)")
+    print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(properties)} properties, "
+          f"{len(analyte_column_names)} analyte columns)")
 
 
 # ---------- example builder ----------
@@ -351,6 +411,7 @@ def main():
     print(f"Read {len(rows)} non-empty rows from TAPP worksheet.")
 
     schema_properties: list[tuple[str, dict]] = []
+    analyte_column_names: list[str] = []
     enum_to_vocab_name: dict[tuple[str, ...], str] = {}
     counts = {"vocab": 0, "parameter": 0, "analyteColumn": 0, "property": 0}
 
@@ -394,6 +455,7 @@ def main():
                 path = BB / "analyteColumns" / f"{name}.json"
                 write_json(path, analyte_column_obj(name, row["item"], row["desc"], p["dtype"], vocab_for(p), p["readOnly"]))
                 counts["analyteColumn"] += 1
+                analyte_column_names.append(name)
             elif kind == "property":
                 # Skip non-property markers: "analyteTemplate" references the existing
                 # ada:analyteTemplate structure inherited from tappDefinition (not a
@@ -419,7 +481,7 @@ def main():
         seen[prop_name] = block
     schema_properties = list(seen.items())
 
-    build_schema_yaml(schema_properties)
+    build_schema_yaml(schema_properties, analyte_column_names)
 
     # Generate examples for each publication
     examples_dir = BB
