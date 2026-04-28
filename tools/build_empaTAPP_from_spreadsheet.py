@@ -118,14 +118,28 @@ DEFINED_TERM_SET_SCHEMA_URI = (
 )
 
 
+def slugify_term_code(t: str) -> str:
+    """Make a termCode string safe to embed in a URI fragment after `ada:`.
+
+    Replaces any character outside the RFC 3986 unreserved set
+    (ALPHA / DIGIT / `-` / `.` / `_` / `~`) with `_`, collapses runs of `_`,
+    and strips leading/trailing `_`. The original termCode value is kept
+    intact in schema:termCode; only the @id derived from it is slugified.
+    """
+    s = re.sub(r'[^A-Za-z0-9._~-]', '_', t)
+    s = re.sub(r'_+', '_', s)
+    return s.strip('_')
+
+
 def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
     """Canonical schema:DefinedTermSet instance, declaring conformance to the
     upstream CDIF schemaorgProperties/definedTermSet schema via $schema.
 
-    Each term is a schema:DefinedTerm with its own @id ("ada:{termCode}"
-    placeholder until the project adopts a real IRI scheme), schema:termCode,
-    and schema:name. Data producers supplement schema:name (human-readable
-    label) and schema:description per term.
+    Each term is a schema:DefinedTerm with its own @id of the form
+    `ada:{slugify(termCode)}` (placeholder until the project adopts a real
+    IRI scheme), schema:termCode (preserving the original spelling, including
+    any special characters), and schema:name. Data producers supplement
+    schema:name (human-readable label) and schema:description per term.
 
     @type fields use the array form to match the upstream schema's contains
     constraint on schema:DefinedTermSet / schema:DefinedTerm.
@@ -143,7 +157,7 @@ def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
         ("schema:hasDefinedTerm", [
             OrderedDict([
                 ("@type", ["schema:DefinedTerm"]),
-                ("@id", f"ada:{t}"),
+                ("@id", f"ada:{slugify_term_code(t)}"),
                 ("schema:termCode", t),
                 ("schema:name", t),
             ])
@@ -175,9 +189,12 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
                   readOnly: bool | None, tier: str = "R") -> dict:
     """Hybrid JSON Schema + canonical instance for one method parameter.
 
-    Mirrors analyte_column_obj() but allOf-references MethodParameter and
-    pins ada:fieldScope to "session" (the conventional default for empaTAPP
-    method parameters; per-instance values can override defaultValue).
+    Pins ada:fieldScope to "session" (the conventional default for empaTAPP
+    method parameters). The parent MethodParameter shape is enforced via
+    the empaTAPP wrapper schema's items: $ref: MethodParameter that
+    applies alongside this catalog file's discriminator constraints in
+    the wrapper's oneOf — so the catalog file itself stays self-contained
+    (no cross-folder $ref that the OGC bblocks postprocessor mishandles).
     """
     dt = map_dtype(dtype)
     ro = bool(readOnly) if readOnly is not None else False
@@ -218,9 +235,7 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         ("$id", f"ada:parameter/empaTAPP/{name}"),
         ("title", label),
         ("description", desc or label),
-        ("allOf", [
-            {"$ref": "../../tappDefinition/schema.yaml#/$defs/MethodParameter"}
-        ]),
+        ("type", "object"),
         ("properties", properties),
         ("required", ["schema:valueName", "schema:name", "ada:dataType", "ada:fieldScope"]),
         ("examples", [canonical]),
@@ -273,9 +288,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         ("$id", f"ada:analyteColumn/empaTAPP/{name}"),
         ("title", label),
         ("description", desc or label),
-        ("allOf", [
-            {"$ref": "../../tappDefinition/schema.yaml#/$defs/AnalyteColumn"}
-        ]),
+        ("type", "object"),
         ("properties", properties),
         ("required", ["schema:valueName", "schema:name", "ada:dataType"]),
         ("examples", [canonical]),
