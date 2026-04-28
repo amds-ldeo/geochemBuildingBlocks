@@ -5,6 +5,20 @@
   "description": "Describe method used to monitor and correct for instrument drift",
   "type": "object",
   "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
     "schema:valueName": {
       "const": "DriftCorrection"
     },
@@ -25,6 +39,9 @@
     }
   },
   "required": [
+    "@context",
+    "@id",
+    "@type",
     "schema:valueName",
     "schema:name",
     "ada:dataType",

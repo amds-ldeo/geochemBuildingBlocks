@@ -5,6 +5,20 @@
   "description": "Method used to compute detection limits.",
   "type": "object",
   "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
     "schema:valueName": {
       "const": "detectionLimitMethod"
     },
@@ -22,6 +36,9 @@
     }
   },
   "required": [
+    "@context",
+    "@id",
+    "@type",
     "schema:valueName",
     "schema:name",
     "ada:dataType"

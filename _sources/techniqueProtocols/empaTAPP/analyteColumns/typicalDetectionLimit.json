@@ -5,6 +5,20 @@
   "description": "Method detection limit at 99% confidence (3σ) for each measured element.",
   "type": "object",
   "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
     "schema:valueName": {
       "const": "typicalDetectionLimit"
     },
@@ -22,6 +36,9 @@
     }
   },
   "required": [
+    "@context",
+    "@id",
+    "@type",
     "schema:valueName",
     "schema:name",
     "ada:dataType"

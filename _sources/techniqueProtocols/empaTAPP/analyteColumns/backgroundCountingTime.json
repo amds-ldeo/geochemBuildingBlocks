@@ -5,6 +5,20 @@
   "description": "Total time spent counting at background position(s) in seconds.",
   "type": "object",
   "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
     "schema:valueName": {
       "const": "backgroundCountingTime"
     },
@@ -22,6 +36,9 @@
     }
   },
   "required": [
+    "@context",
+    "@id",
+    "@type",
     "schema:valueName",
     "schema:name",
     "ada:dataType"
