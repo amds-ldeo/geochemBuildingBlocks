@@ -4,9 +4,9 @@ type: object
 properties:
   schema:additionalProperty:
     type: array
-    description: Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is one of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue.
+    description: Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional — include only the parameters you have values for.
     items:
-      oneOf:
+      anyOf:
         - $ref: ../../techniqueProtocols/parameterValues/BeamRasterDimension.json
         - $ref: ../../techniqueProtocols/parameterValues/acceleratingVoltage.json
         - $ref: ../../techniqueProtocols/parameterValues/beamDiameter.json

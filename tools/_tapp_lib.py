@@ -669,11 +669,13 @@ def build_haspart_constraint(rows: list[dict]) -> dict | None:
 
 def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
     """Write _sources/geochemProperties/detailEMPA/parametersConstraint.yaml — a
-    JSON Schema fragment carrying schema:additionalProperty.items.oneOf
+    JSON Schema fragment carrying schema:additionalProperty.items.anyOf
     referencing each detailEMPA/parameters/<name>.json catalog file plus a
     catch-all branch so authors can attach arbitrary additional schema:PropertyValue
-    entries beyond the spreadsheet-listed ones. detailEMPA/schema.yaml is expected
-    to allOf this snippet alongside its hand-authored componentType constraints."""
+    entries beyond the spreadsheet-listed ones. All entries are optional —
+    a detailEMPA instance can include any subset (or none) of the catalog
+    parameters. detailEMPA/schema.yaml is expected to allOf this snippet
+    alongside its hand-authored componentType constraints."""
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
@@ -712,14 +714,15 @@ def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
     branches.append(catch_all)
 
     items = CommentedMap()
-    items["oneOf"] = branches
+    items["anyOf"] = branches
 
     add_prop = CommentedMap()
     add_prop["type"] = "array"
     add_prop["description"] = (
         "Per-dataset schema:PropertyValue entries for this EMPA dataset. "
-        "Each item is one of the empaTAPP-derived parameter types or "
-        "(via the catch-all branch) any other PropertyValue."
+        "Each item is any of the empaTAPP-derived parameter types or "
+        "(via the catch-all branch) any other PropertyValue. All entries "
+        "are optional — include only the parameters you have values for."
     )
     add_prop["items"] = items
 
