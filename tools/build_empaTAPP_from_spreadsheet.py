@@ -117,6 +117,11 @@ DEFINED_TERM_SET_SCHEMA_URI = (
     "metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml"
 )
 
+_ADA_CONTEXT = OrderedDict([
+    ("schema", "http://schema.org/"),
+    ("ada", "https://ada.astromat.org/metadata/"),
+])
+
 
 def slugify_term_code(t: str) -> str:
     """Make a termCode string safe to embed in a URI fragment after `ada:`.
@@ -218,6 +223,9 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
 
     properties = OrderedDict([
+        ("@context", {"const": _ADA_CONTEXT}),
+        ("@id", {"type": "string"}),
+        ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
         ("schema:name", {"const": label}),
         ("ada:dataType", {"const": dt}),
@@ -237,7 +245,10 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         ("description", desc or label),
         ("type", "object"),
         ("properties", properties),
-        ("required", ["schema:valueName", "schema:name", "ada:dataType", "ada:fieldScope"]),
+        ("required", [
+            "@context", "@id", "@type",
+            "schema:valueName", "schema:name", "ada:dataType", "ada:fieldScope",
+        ]),
         ("examples", [canonical]),
     ])
 
@@ -272,6 +283,9 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
 
     properties = OrderedDict([
+        ("@context", {"const": _ADA_CONTEXT}),
+        ("@id", {"type": "string"}),
+        ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
         ("schema:name", {"const": label}),
         ("ada:dataType", {"const": dt}),
@@ -290,7 +304,10 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         ("description", desc or label),
         ("type", "object"),
         ("properties", properties),
-        ("required", ["schema:valueName", "schema:name", "ada:dataType"]),
+        ("required", [
+            "@context", "@id", "@type",
+            "schema:valueName", "schema:name", "ada:dataType",
+        ]),
         ("examples", [canonical]),
     ])
 
@@ -473,17 +490,19 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> dict:
                 parts[key] = v
             elif kind == "parameter":
                 # add a methodParameters entry referencing the parameter template
-                method_params.append({
-                    "@type": ["schema:PropertyValueSpecification"],
-                    "schema:name": item,
-                    "schema:valueName": name,
-                    "schema:description": row["desc"] or item,
-                    "ada:dataType": map_dtype(row["parsed"]["dtype"]),
-                    "ada:fieldScope": "session",
-                    "schema:readonlyValue": bool(row["parsed"]["readOnly"]) if row["parsed"]["readOnly"] is not None else False,
-                    "ada:tier": "R",
-                    "schema:defaultValue": str(val).strip(),
-                })
+                method_params.append(OrderedDict([
+                    ("@context", dict(_ADA_CONTEXT)),
+                    ("@id", f"ada:parameter/empaTAPP/{name}"),
+                    ("@type", ["schema:PropertyValueSpecification"]),
+                    ("schema:name", item),
+                    ("schema:valueName", name),
+                    ("schema:description", row["desc"] or item),
+                    ("ada:dataType", map_dtype(row["parsed"]["dtype"])),
+                    ("ada:fieldScope", "session"),
+                    ("schema:readonlyValue", bool(row["parsed"]["readOnly"]) if row["parsed"]["readOnly"] is not None else False),
+                    ("ada:tier", "R"),
+                    ("schema:defaultValue", str(val).strip()),
+                ]))
             # analyteColumn: per-element data not in the publication columns; skip for examples
     if method_params:
         parts["ada:methodParameters"] = method_params
