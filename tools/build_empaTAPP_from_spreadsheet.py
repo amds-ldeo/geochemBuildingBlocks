@@ -30,6 +30,16 @@ XLSX = REPO_ROOT / "docs" / "TAPP_EPMA_filled.xlsx"
 BB = REPO_ROOT / "_sources" / "techniqueProtocols" / "empaTAPP"
 DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / "detailEMPA"
 
+# Phase 1 dictionary directories — analyteColumns/parameterTemplates/parameterValues/vocab
+# live at the techniqueProtocols root so multiple TAPPs can reference the same catalog
+# entries by $ref. The generator writes catalog files here; per-TAPP schema.yaml files
+# point at them with relative paths (e.g. ../analyteColumns/<name>.json from a TAPP folder).
+TECH_PROTOCOLS = REPO_ROOT / "_sources" / "techniqueProtocols"
+ANALYTE_COLUMNS_DIR = TECH_PROTOCOLS / "analyteColumns"
+PARAMETER_TEMPLATES_DIR = TECH_PROTOCOLS / "parameterTemplates"
+PARAMETER_VALUES_DIR = TECH_PROTOCOLS / "parameterValues"
+VOCAB_DIR = TECH_PROTOCOLS / "vocab"
+
 # Column letters in the spreadsheet (1-indexed: A=1)
 COL = {
     "item": 0, "desc": 1, "basic": 2, "dtype": 3, "example": 4,
@@ -613,7 +623,7 @@ def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
 
     branches = CommentedSeq()
     for n in sorted(detail_param_names):
-        branches.append({"$ref": f"parameters/{n}.json"})
+        branches.append({"$ref": f"../../techniqueProtocols/parameterValues/{n}.json"})
     # Catch-all so an author can attach arbitrary other PropertyValue items
     catch_all = CommentedMap()
     catch_all["type"] = "object"
@@ -662,18 +672,19 @@ def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
 
 
 def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: list[str]) -> None:
-    """Delete any *.json under empaTAPP/parameters/ or detailEMPA/parameters/ that
-    don't correspond to a current spreadsheet parameter row in the appropriate
-    bucket (avoids stale orphans after spreadsheet edits or readOnly toggles)."""
+    """Delete *.json under techniqueProtocols/parameterTemplates/ or
+    techniqueProtocols/parameterValues/ that don't correspond to a current
+    spreadsheet parameter row in the appropriate bucket. Avoids stale
+    orphans after spreadsheet edits or readOnly toggles."""
     keep_empa = set(empa_param_names)
     keep_detail = set(detail_param_names)
-    for fp in (BB / "parameters").glob("*.json"):
-        if fp.stem not in keep_empa:
-            fp.unlink()
-            print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
-    detail_params_dir = DETAIL_EMPA / "parameters"
-    if detail_params_dir.exists():
-        for fp in detail_params_dir.glob("*.json"):
+    if PARAMETER_TEMPLATES_DIR.exists():
+        for fp in PARAMETER_TEMPLATES_DIR.glob("*.json"):
+            if fp.stem not in keep_empa:
+                fp.unlink()
+                print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+    if PARAMETER_VALUES_DIR.exists():
+        for fp in PARAMETER_VALUES_DIR.glob("*.json"):
             if fp.stem not in keep_detail:
                 fp.unlink()
                 print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
@@ -727,7 +738,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         anyof = CommentedSeq()
         anyof.append({"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
         for col_name in sorted(analyte_column_names):
-            anyof.append({"$ref": f"analyteColumns/{col_name}.json"})
+            anyof.append({"$ref": f"../analyteColumns/{col_name}.json"})
 
         ac_items = CommentedMap()
         ac_items["anyOf"] = anyof
@@ -738,7 +749,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         ac_unique = CommentedSeq()
         for col_name in sorted(analyte_column_names):
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"analyteColumns/{col_name}.json"}
+            cm["contains"] = {"$ref": f"../analyteColumns/{col_name}.json"}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             ac_unique.append(cm)
@@ -760,7 +771,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     if parameter_names:
         mp_anyof = CommentedSeq()
         for param_name in sorted(parameter_names):
-            mp_anyof.append({"$ref": f"parameters/{param_name}.json"})
+            mp_anyof.append({"$ref": f"../parameterTemplates/{param_name}.json"})
 
         mp_items = CommentedMap()
         mp_items["anyOf"] = mp_anyof
@@ -768,7 +779,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         mp_unique = CommentedSeq()
         for param_name in sorted(parameter_names):
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"parameters/{param_name}.json"}
+            cm["contains"] = {"$ref": f"../parameterTemplates/{param_name}.json"}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             mp_unique.append(cm)
@@ -991,7 +1002,7 @@ def main():
             continue
         enum_to_vocab_name[key] = name
         # Write vocab file
-        path = BB / "vocab" / f"{name}.json"
+        path = VOCAB_DIR / f"{name}.json"
         write_json(path, vocab_obj(name, row["item"] or name, row["desc"], p["enum"]))
         counts["vocab"] += 1
 
@@ -1016,13 +1027,13 @@ def main():
             if kind == "parameter":
                 if ro:
                     # readOnly:true → empaTAPP method-level template (PropertyValueSpecification)
-                    path = BB / "parameters" / f"{name}.json"
+                    path = PARAMETER_TEMPLATES_DIR / f"{name}.json"
                     write_json(path, parameter_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
                     parameter_names.append(name)
                     counts["parameter"] += 1
                 else:
-                    # readOnly:false → detailEMPA per-dataset value (PropertyValue)
-                    path = DETAIL_EMPA / "parameters" / f"{name}.json"
+                    # readOnly:false → shared parameterValues catalog (PropertyValue)
+                    path = PARAMETER_VALUES_DIR / f"{name}.json"
                     write_json(path, additional_property_obj(
                         name, row["item"], row["desc"],
                         row.get("dtype_col"), vocab_name, tag_dtype,
@@ -1030,7 +1041,7 @@ def main():
                     detail_param_names.append(name)
                     counts["detailParameter"] += 1
             elif kind == "analytecolumn":
-                path = BB / "analyteColumns" / f"{name}.json"
+                path = ANALYTE_COLUMNS_DIR / f"{name}.json"
                 write_json(path, analyte_column_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
                 counts["analyteColumn"] += 1
                 analyte_column_names.append(name)
