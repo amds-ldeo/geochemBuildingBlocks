@@ -20,17 +20,49 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "Focused",
-              "Defocused",
-              "Raster"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Focused"
+              },
+              "schema:termCode": {
+                "const": "Focused"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Defocused"
+              },
+              "schema:termCode": {
+                "const": "Defocused"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Raster"
+              },
+              "schema:termCode": {
+                "const": "Raster"
+              }
+            }
+          }
         ]
       }
     }
@@ -52,16 +84,19 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Focused",
           "schema:termCode": "Focused",
           "schema:name": "Focused"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Defocused",
           "schema:termCode": "Defocused",
           "schema:name": "Defocused"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Raster",
           "schema:termCode": "Raster",
           "schema:name": "Raster"
         }

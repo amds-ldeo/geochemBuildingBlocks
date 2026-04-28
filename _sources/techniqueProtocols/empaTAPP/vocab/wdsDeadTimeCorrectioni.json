@@ -20,24 +20,119 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "Default constant 3µs (Cameca)",
-              "Adjusted constant (Cameca)",
-              "Default constant (JEOL)",
-              "Adjusted constant (JEOL)",
-              "High-precision (Probe for EPMA)",
-              "Logarithmic",
-              "Super-precision",
-              "Simple",
-              "Other",
-              "Unknown"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Default constant 3µs (Cameca)"
+              },
+              "schema:termCode": {
+                "const": "Default constant 3µs (Cameca)"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Adjusted constant (Cameca)"
+              },
+              "schema:termCode": {
+                "const": "Adjusted constant (Cameca)"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Default constant (JEOL)"
+              },
+              "schema:termCode": {
+                "const": "Default constant (JEOL)"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Adjusted constant (JEOL)"
+              },
+              "schema:termCode": {
+                "const": "Adjusted constant (JEOL)"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:High-precision (Probe for EPMA)"
+              },
+              "schema:termCode": {
+                "const": "High-precision (Probe for EPMA)"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Logarithmic"
+              },
+              "schema:termCode": {
+                "const": "Logarithmic"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Super-precision"
+              },
+              "schema:termCode": {
+                "const": "Super-precision"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Simple"
+              },
+              "schema:termCode": {
+                "const": "Simple"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Other"
+              },
+              "schema:termCode": {
+                "const": "Other"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Unknown"
+              },
+              "schema:termCode": {
+                "const": "Unknown"
+              }
+            }
+          }
         ]
       }
     }
@@ -59,51 +154,61 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Default constant 3µs (Cameca)",
           "schema:termCode": "Default constant 3µs (Cameca)",
           "schema:name": "Default constant 3µs (Cameca)"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Adjusted constant (Cameca)",
           "schema:termCode": "Adjusted constant (Cameca)",
           "schema:name": "Adjusted constant (Cameca)"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Default constant (JEOL)",
           "schema:termCode": "Default constant (JEOL)",
           "schema:name": "Default constant (JEOL)"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Adjusted constant (JEOL)",
           "schema:termCode": "Adjusted constant (JEOL)",
           "schema:name": "Adjusted constant (JEOL)"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:High-precision (Probe for EPMA)",
           "schema:termCode": "High-precision (Probe for EPMA)",
           "schema:name": "High-precision (Probe for EPMA)"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Logarithmic",
           "schema:termCode": "Logarithmic",
           "schema:name": "Logarithmic"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Super-precision",
           "schema:termCode": "Super-precision",
           "schema:name": "Super-precision"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Simple",
           "schema:termCode": "Simple",
           "schema:name": "Simple"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Other",
           "schema:termCode": "Other",
           "schema:name": "Other"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Unknown",
           "schema:termCode": "Unknown",
           "schema:name": "Unknown"
         }

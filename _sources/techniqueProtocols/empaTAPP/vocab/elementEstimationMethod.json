@@ -20,17 +20,49 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "Direct (measured)",
-              "Estimated via cation stoichiometry",
-              "Unknown"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Direct (measured)"
+              },
+              "schema:termCode": {
+                "const": "Direct (measured)"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Estimated via cation stoichiometry"
+              },
+              "schema:termCode": {
+                "const": "Estimated via cation stoichiometry"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Unknown"
+              },
+              "schema:termCode": {
+                "const": "Unknown"
+              }
+            }
+          }
         ]
       }
     }
@@ -52,16 +84,19 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Direct (measured)",
           "schema:termCode": "Direct (measured)",
           "schema:name": "Direct (measured)"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Estimated via cation stoichiometry",
           "schema:termCode": "Estimated via cation stoichiometry",
           "schema:name": "Estimated via cation stoichiometry"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Unknown",
           "schema:termCode": "Unknown",
           "schema:name": "Unknown"
         }

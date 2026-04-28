@@ -20,16 +20,39 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "WDS",
-              "EDS"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:WDS"
+              },
+              "schema:termCode": {
+                "const": "WDS"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:EDS"
+              },
+              "schema:termCode": {
+                "const": "EDS"
+              }
+            }
+          }
         ]
       }
     }
@@ -51,11 +74,13 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:WDS",
           "schema:termCode": "WDS",
           "schema:name": "WDS"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:EDS",
           "schema:termCode": "EDS",
           "schema:name": "EDS"
         }

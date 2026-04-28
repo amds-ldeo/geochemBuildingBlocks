@@ -20,21 +20,89 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "Background fitting",
-              "Peak deconvolution",
-              "Top hat",
-              "Gaussian",
-              "Filter fit",
-              "Other",
-              "Unknown"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Background fitting"
+              },
+              "schema:termCode": {
+                "const": "Background fitting"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Peak deconvolution"
+              },
+              "schema:termCode": {
+                "const": "Peak deconvolution"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Top hat"
+              },
+              "schema:termCode": {
+                "const": "Top hat"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Gaussian"
+              },
+              "schema:termCode": {
+                "const": "Gaussian"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Filter fit"
+              },
+              "schema:termCode": {
+                "const": "Filter fit"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Other"
+              },
+              "schema:termCode": {
+                "const": "Other"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Unknown"
+              },
+              "schema:termCode": {
+                "const": "Unknown"
+              }
+            }
+          }
         ]
       }
     }
@@ -56,36 +124,43 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Background fitting",
           "schema:termCode": "Background fitting",
           "schema:name": "Background fitting"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Peak deconvolution",
           "schema:termCode": "Peak deconvolution",
           "schema:name": "Peak deconvolution"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Top hat",
           "schema:termCode": "Top hat",
           "schema:name": "Top hat"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Gaussian",
           "schema:termCode": "Gaussian",
           "schema:name": "Gaussian"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Filter fit",
           "schema:termCode": "Filter fit",
           "schema:name": "Filter fit"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Other",
           "schema:termCode": "Other",
           "schema:name": "Other"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Unknown",
           "schema:termCode": "Unknown",
           "schema:name": "Unknown"
         }

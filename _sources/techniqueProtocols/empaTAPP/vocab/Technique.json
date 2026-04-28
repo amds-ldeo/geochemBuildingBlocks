@@ -20,18 +20,59 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "EPMA-WDS",
-              "EPMA-EDS",
-              "EPMA-WDS+EDS",
-              "other"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:EPMA-WDS"
+              },
+              "schema:termCode": {
+                "const": "EPMA-WDS"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:EPMA-EDS"
+              },
+              "schema:termCode": {
+                "const": "EPMA-EDS"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:EPMA-WDS+EDS"
+              },
+              "schema:termCode": {
+                "const": "EPMA-WDS+EDS"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:other"
+              },
+              "schema:termCode": {
+                "const": "other"
+              }
+            }
+          }
         ]
       }
     }
@@ -53,21 +94,25 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:EPMA-WDS",
           "schema:termCode": "EPMA-WDS",
           "schema:name": "EPMA-WDS"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:EPMA-EDS",
           "schema:termCode": "EPMA-EDS",
           "schema:name": "EPMA-EDS"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:EPMA-WDS+EDS",
           "schema:termCode": "EPMA-WDS+EDS",
           "schema:name": "EPMA-WDS+EDS"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:other",
           "schema:termCode": "other",
           "schema:name": "other"
         }

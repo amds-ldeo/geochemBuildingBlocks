@@ -20,22 +20,99 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "LINEMU",
-              "CITZMU",
-              "MCMASTER",
-              "MAC30",
-              "MACJTA",
-              "FFAST",
-              "Other",
-              "Unknown"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:LINEMU"
+              },
+              "schema:termCode": {
+                "const": "LINEMU"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:CITZMU"
+              },
+              "schema:termCode": {
+                "const": "CITZMU"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:MCMASTER"
+              },
+              "schema:termCode": {
+                "const": "MCMASTER"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:MAC30"
+              },
+              "schema:termCode": {
+                "const": "MAC30"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:MACJTA"
+              },
+              "schema:termCode": {
+                "const": "MACJTA"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:FFAST"
+              },
+              "schema:termCode": {
+                "const": "FFAST"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Other"
+              },
+              "schema:termCode": {
+                "const": "Other"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Unknown"
+              },
+              "schema:termCode": {
+                "const": "Unknown"
+              }
+            }
+          }
         ]
       }
     }
@@ -57,41 +134,49 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:LINEMU",
           "schema:termCode": "LINEMU",
           "schema:name": "LINEMU"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:CITZMU",
           "schema:termCode": "CITZMU",
           "schema:name": "CITZMU"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:MCMASTER",
           "schema:termCode": "MCMASTER",
           "schema:name": "MCMASTER"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:MAC30",
           "schema:termCode": "MAC30",
           "schema:name": "MAC30"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:MACJTA",
           "schema:termCode": "MACJTA",
           "schema:name": "MACJTA"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:FFAST",
           "schema:termCode": "FFAST",
           "schema:name": "FFAST"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Other",
           "schema:termCode": "Other",
           "schema:name": "Other"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Unknown",
           "schema:termCode": "Unknown",
           "schema:name": "Unknown"
         }

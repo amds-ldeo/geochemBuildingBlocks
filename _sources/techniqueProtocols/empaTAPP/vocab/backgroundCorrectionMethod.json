@@ -20,25 +20,129 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "2-point off-peak linear",
-              "2-point off-peak exponential",
-              "2-point off-peak polynomial",
-              "1-point high with slope factor",
-              "1-point low with slope factor",
-              "Multi-point linear",
-              "Multi-point exponential",
-              "Mean Atomic Number (MAN)",
-              "EDS background fit",
-              "other",
-              "N/A"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:2-point off-peak linear"
+              },
+              "schema:termCode": {
+                "const": "2-point off-peak linear"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:2-point off-peak exponential"
+              },
+              "schema:termCode": {
+                "const": "2-point off-peak exponential"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:2-point off-peak polynomial"
+              },
+              "schema:termCode": {
+                "const": "2-point off-peak polynomial"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:1-point high with slope factor"
+              },
+              "schema:termCode": {
+                "const": "1-point high with slope factor"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:1-point low with slope factor"
+              },
+              "schema:termCode": {
+                "const": "1-point low with slope factor"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Multi-point linear"
+              },
+              "schema:termCode": {
+                "const": "Multi-point linear"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Multi-point exponential"
+              },
+              "schema:termCode": {
+                "const": "Multi-point exponential"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Mean Atomic Number (MAN)"
+              },
+              "schema:termCode": {
+                "const": "Mean Atomic Number (MAN)"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:EDS background fit"
+              },
+              "schema:termCode": {
+                "const": "EDS background fit"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:other"
+              },
+              "schema:termCode": {
+                "const": "other"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:N/A"
+              },
+              "schema:termCode": {
+                "const": "N/A"
+              }
+            }
+          }
         ]
       }
     }
@@ -60,56 +164,67 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:2-point off-peak linear",
           "schema:termCode": "2-point off-peak linear",
           "schema:name": "2-point off-peak linear"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:2-point off-peak exponential",
           "schema:termCode": "2-point off-peak exponential",
           "schema:name": "2-point off-peak exponential"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:2-point off-peak polynomial",
           "schema:termCode": "2-point off-peak polynomial",
           "schema:name": "2-point off-peak polynomial"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:1-point high with slope factor",
           "schema:termCode": "1-point high with slope factor",
           "schema:name": "1-point high with slope factor"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:1-point low with slope factor",
           "schema:termCode": "1-point low with slope factor",
           "schema:name": "1-point low with slope factor"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Multi-point linear",
           "schema:termCode": "Multi-point linear",
           "schema:name": "Multi-point linear"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Multi-point exponential",
           "schema:termCode": "Multi-point exponential",
           "schema:name": "Multi-point exponential"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Mean Atomic Number (MAN)",
           "schema:termCode": "Mean Atomic Number (MAN)",
           "schema:name": "Mean Atomic Number (MAN)"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:EDS background fit",
           "schema:termCode": "EDS background fit",
           "schema:name": "EDS background fit"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:other",
           "schema:termCode": "other",
           "schema:name": "other"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:N/A",
           "schema:termCode": "N/A",
           "schema:name": "N/A"
         }

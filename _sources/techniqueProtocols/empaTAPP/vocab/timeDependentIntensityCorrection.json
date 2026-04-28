@@ -20,20 +20,79 @@
           "@type": {
             "const": "schema:DefinedTerm"
           },
-          "schema:termCode": {
-            "enum": [
-              "None",
-              "Linear",
-              "Exponential",
-              "Double exponential",
-              "Other",
-              "Unknown"
-            ]
+          "schema:name": {
+            "type": "string"
+          },
+          "schema:description": {
+            "type": "string"
           }
         },
         "required": [
           "@type",
+          "@id",
           "schema:termCode"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:None"
+              },
+              "schema:termCode": {
+                "const": "None"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Linear"
+              },
+              "schema:termCode": {
+                "const": "Linear"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Exponential"
+              },
+              "schema:termCode": {
+                "const": "Exponential"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Double exponential"
+              },
+              "schema:termCode": {
+                "const": "Double exponential"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Other"
+              },
+              "schema:termCode": {
+                "const": "Other"
+              }
+            }
+          },
+          {
+            "properties": {
+              "@id": {
+                "const": "ada:Unknown"
+              },
+              "schema:termCode": {
+                "const": "Unknown"
+              }
+            }
+          }
         ]
       }
     }
@@ -55,31 +114,37 @@
       "schema:hasDefinedTerm": [
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:None",
           "schema:termCode": "None",
           "schema:name": "None"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Linear",
           "schema:termCode": "Linear",
           "schema:name": "Linear"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Exponential",
           "schema:termCode": "Exponential",
           "schema:name": "Exponential"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Double exponential",
           "schema:termCode": "Double exponential",
           "schema:name": "Double exponential"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Other",
           "schema:termCode": "Other",
           "schema:name": "Other"
         },
         {
           "@type": "schema:DefinedTerm",
+          "@id": "ada:Unknown",
           "schema:termCode": "Unknown",
           "schema:name": "Unknown"
         }
