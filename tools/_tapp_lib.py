@@ -26,9 +26,30 @@ from ruamel.yaml import YAML
 from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+# Module-level configuration set by configure(). Defaults target empaTAPP for
+# backward-compat — new TAPP profiles call configure(tapp_name, xlsx_path)
+# before invoking build_tapp_artifacts() or build_detail_artifacts().
+TAPP_NAME = "empaTAPP"
+DETAIL_NAME = "detailEMPA"
 XLSX = REPO_ROOT / "docs" / "TAPP_EPMA_filled.xlsx"
-BB = REPO_ROOT / "_sources" / "techniqueProtocols" / "empaTAPP"
-DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / "detailEMPA"
+BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
+DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
+
+
+def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
+    """Set module globals for a build run. tapp_name like 'empaTAPP' / 'xrdTAPP'.
+    The detail BB name is derived as 'detail' + uppercase(strip-'TAPP'(tapp_name))
+    — e.g. 'empaTAPP' → 'detailEMPA', 'xrdTAPP' → 'detailXRD'."""
+    global TAPP_NAME, DETAIL_NAME, XLSX, BB, DETAIL_EMPA
+    TAPP_NAME = tapp_name
+    short = tapp_name.replace("TAPP", "").upper()
+    DETAIL_NAME = f"detail{short}"
+    if xlsx_path is not None:
+        p = Path(xlsx_path)
+        XLSX = p if p.is_absolute() else REPO_ROOT / p
+    BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
+    DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
 
 # Phase 1 dictionary directories — analyteColumns/parameterTemplates/parameterValues/vocab
 # live at the techniqueProtocols root so multiple TAPPs can reference the same catalog
@@ -166,6 +187,48 @@ def write_json(path: Path, data: dict):
         f.write("\n")
 
 
+def share_or_write_catalog(path: Path, data: dict) -> None:
+    """Phase 3 reuse-detection. The shared catalog dirs at
+    techniqueProtocols/{analyteColumns,parameterTemplates,parameterValues,vocab}/
+    can be written by any TAPP's regen. Ownership is implied by the catalog
+    file's $id: if the existing $id contains '/<this TAPP>/' the regen owns
+    the entry and overwrites freely (handles spreadsheet edits in the owning
+    TAPP). Otherwise the entry was originated by another TAPP — the new
+    content must match exactly (sharing) or the regen errors out (collision).
+    """
+    if not path.exists():
+        write_json(path, data)
+        return
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            existing = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        # Unreadable existing file — overwrite.
+        write_json(path, data)
+        return
+
+    new_id = data.get("$id", "") or ""
+    existing_id = existing.get("$id", "") or ""
+
+    # If the existing file is owned by THIS TAPP's regen, overwrite.
+    if f"/{TAPP_NAME}/" in existing_id:
+        write_json(path, data)
+        return
+
+    # Foreign owner — must match exactly to share.
+    if existing == data:
+        return
+
+    raise ValueError(
+        f"Catalog conflict at {path}:\n"
+        f"  existing $id={existing_id!r} (owned by another TAPP)\n"
+        f"  new      $id={new_id!r}\n"
+        f"  Either change the spreadsheet to match the existing definition "
+        f"(sharing) or rename the entry in the spreadsheet to avoid the "
+        f"collision."
+    )
+
+
 DEFINED_TERM_SET_SCHEMA_URI = (
     "https://cross-domain-interoperability-framework.github.io/"
     "metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml"
@@ -209,7 +272,7 @@ def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
         }),
-        ("@id", f"ada:vocab/empaTAPP/{vname}"),
+        ("@id", f"ada:vocab/{TAPP_NAME}/{vname}"),
         ("@type", ["schema:DefinedTermSet"]),
         ("schema:name", label),
         ("schema:description", desc or f"Allowed values for {label}."),
@@ -263,7 +326,7 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
         }),
-        ("@id", f"ada:parameter/empaTAPP/{name}"),
+        ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
         ("@type", ["schema:PropertyValueSpecification"]),
         ("schema:name", label),
         ("schema:valueName", name),
@@ -274,11 +337,11 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         ("ada:tier", tier),
     ])
     if enum_vname:
-        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     properties = OrderedDict([
         ("@context", {"const": _ADA_CONTEXT}),
-        ("@id", {"const": f"ada:parameter/empaTAPP/{name}"}),
+        ("@id", {"const": f"ada:parameter/{TAPP_NAME}/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
         ("schema:name", {"const": label}),
@@ -289,12 +352,12 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
     ])
     if enum_vname:
         properties["schema:inDefinedTermSet"] = {
-            "const": {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+            "const": {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
         }
 
     return OrderedDict([
         ("$schema", "https://json-schema.org/draft/2020-12/schema"),
-        ("$id", f"ada:parameter/empaTAPP/{name}"),
+        ("$id", f"ada:parameter/{TAPP_NAME}/{name}"),
         ("title", label),
         ("description", desc or label),
         ("type", "object"),
@@ -348,7 +411,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
         "string": "",
     }.get(val_type, "")
 
-    parameter_uri = f"ada:parameter/empaTAPP/{name}"
+    parameter_uri = f"ada:parameter/{TAPP_NAME}/{name}"
 
     canonical = OrderedDict([
         ("@context", {
@@ -365,7 +428,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
     if unit:
         canonical["schema:unitText"] = unit
     if enum_vname:
-        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     # schema.org's PropertyValue.value is a union of Number/Boolean/StructuredValue/Text.
     # For numeric/integer we accept either a typed number OR a string (publication-style
@@ -395,7 +458,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
         required.append("schema:unitText")
     if enum_vname:
         properties["schema:inDefinedTermSet"] = {
-            "const": {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+            "const": {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
         }
 
     return OrderedDict([
@@ -427,7 +490,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
         }),
-        ("@id", f"ada:analyteColumn/empaTAPP/{name}"),
+        ("@id", f"ada:analyteColumn/{TAPP_NAME}/{name}"),
         ("@type", ["schema:PropertyValueSpecification"]),
         ("schema:name", label),
         ("schema:valueName", name),
@@ -437,11 +500,11 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         ("ada:tier", tier),
     ])
     if enum_vname:
-        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+        canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     properties = OrderedDict([
         ("@context", {"const": _ADA_CONTEXT}),
-        ("@id", {"const": f"ada:analyteColumn/empaTAPP/{name}"}),
+        ("@id", {"const": f"ada:analyteColumn/{TAPP_NAME}/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
         ("schema:name", {"const": label}),
@@ -451,12 +514,12 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
     ])
     if enum_vname:
         properties["schema:inDefinedTermSet"] = {
-            "const": {"@id": f"ada:vocab/empaTAPP/{enum_vname}"}
+            "const": {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
         }
 
     return OrderedDict([
         ("$schema", "https://json-schema.org/draft/2020-12/schema"),
-        ("$id", f"ada:analyteColumn/empaTAPP/{name}"),
+        ("$id", f"ada:analyteColumn/{TAPP_NAME}/{name}"),
         ("title", label),
         ("description", desc or label),
         ("type", "object"),
@@ -640,7 +703,7 @@ def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
     catch_all_props["schema:propertyID"] = {
         "type": "string",
         "not": {
-            "enum": [f"ada:parameter/empaTAPP/{n}" for n in sorted(detail_param_names)]
+            "enum": [f"ada:parameter/{TAPP_NAME}/{n}" for n in sorted(detail_param_names)]
         },
     }
     catch_all["properties"] = catch_all_props
@@ -849,8 +912,8 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
     pointing back at the empaTAPP via schema:measurementTechnique by @id.
     """
     pub_code = PUBS[pub_index][0].lower()
-    empa_id = f"ex:empaTAPP-{pub_code}"
-    detail_id = f"ex:detailEMPA-{pub_code}"
+    empa_id = f"ex:{TAPP_NAME}-{pub_code}"
+    detail_id = f"ex:{DETAIL_NAME}-{pub_code}"
 
     parts = OrderedDict()
     parts["@context"] = {
@@ -936,7 +999,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                 if ro:
                     method_params.append(OrderedDict([
                         ("@context", dict(_ADA_CONTEXT)),
-                        ("@id", f"ada:parameter/empaTAPP/{name}"),
+                        ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("@type", ["schema:PropertyValueSpecification"]),
                         ("schema:name", item),
                         ("schema:valueName", name),
@@ -953,9 +1016,9 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                         continue
                     val_type, unit = _value_type_for(row.get("dtype_col"))
                     entry = OrderedDict([
-                        ("@id", f"ada:parameter/empaTAPP/{name}"),
+                        ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("@type", ["schema:PropertyValue"]),
-                        ("schema:propertyID", f"ada:parameter/empaTAPP/{name}"),
+                        ("schema:propertyID", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("schema:name", item),
                         ("schema:value", coerced),
                     ])
@@ -972,14 +1035,16 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
 
 # ---------- main ----------
 
-def main():
-    rows = read_rows()
-    print(f"Read {len(rows)} non-empty rows from TAPP worksheet.")
-
+def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
+    """Walk parsed rows, emit catalog files to the appropriate shared dirs, and
+    return (schema_properties, analyte_column_names, parameter_names,
+    detail_param_names, counts). Toggle emit_tapp / emit_detail to skip writing
+    the side that's not needed by the caller (TAPP-builder vs. detail-builder)
+    while still tracking names for downstream constraint generation."""
     schema_properties: list[tuple[str, dict]] = []
     analyte_column_names: list[str] = []
-    parameter_names: list[str] = []          # readOnly:true → empaTAPP/parameters/
-    detail_param_names: list[str] = []       # readOnly:false → detailEMPA/parameters/
+    parameter_names: list[str] = []
+    detail_param_names: list[str] = []
     enum_to_vocab_name: dict[tuple[str, ...], str] = {}
     counts = {"vocab": 0, "parameter": 0, "detailParameter": 0, "analyteColumn": 0, "property": 0}
 
@@ -1001,9 +1066,12 @@ def main():
         if key in enum_to_vocab_name:
             continue
         enum_to_vocab_name[key] = name
-        # Write vocab file
+        # Write vocab file (or share with an existing one matching this content).
+        # Vocabs are referenced from both TAPP and detail catalogs, so emit them
+        # whenever either side is being built.
         path = VOCAB_DIR / f"{name}.json"
-        write_json(path, vocab_obj(name, row["item"] or name, row["desc"], p["enum"]))
+        if emit_tapp or emit_detail:
+            share_or_write_catalog(path, vocab_obj(name, row["item"] or name, row["desc"], p["enum"]))
         counts["vocab"] += 1
 
     def vocab_for(p):
@@ -1026,23 +1094,29 @@ def main():
 
             if kind == "parameter":
                 if ro:
-                    # readOnly:true → empaTAPP method-level template (PropertyValueSpecification)
-                    path = PARAMETER_TEMPLATES_DIR / f"{name}.json"
-                    write_json(path, parameter_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
+                    # readOnly:true → method-level template (PropertyValueSpecification);
+                    # only emitted when building the TAPP side.
+                    if emit_tapp:
+                        path = PARAMETER_TEMPLATES_DIR / f"{name}.json"
+                        share_or_write_catalog(path, parameter_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
                     parameter_names.append(name)
                     counts["parameter"] += 1
                 else:
-                    # readOnly:false → shared parameterValues catalog (PropertyValue)
-                    path = PARAMETER_VALUES_DIR / f"{name}.json"
-                    write_json(path, additional_property_obj(
-                        name, row["item"], row["desc"],
-                        row.get("dtype_col"), vocab_name, tag_dtype,
-                    ))
+                    # readOnly:false → per-dataset value (PropertyValue);
+                    # only emitted when building the detail side.
+                    if emit_detail:
+                        path = PARAMETER_VALUES_DIR / f"{name}.json"
+                        share_or_write_catalog(path, additional_property_obj(
+                            name, row["item"], row["desc"],
+                            row.get("dtype_col"), vocab_name, tag_dtype,
+                        ))
                     detail_param_names.append(name)
                     counts["detailParameter"] += 1
             elif kind == "analytecolumn":
-                path = ANALYTE_COLUMNS_DIR / f"{name}.json"
-                write_json(path, analyte_column_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
+                # analyteColumns are TAPP-side artifacts.
+                if emit_tapp:
+                    path = ANALYTE_COLUMNS_DIR / f"{name}.json"
+                    share_or_write_catalog(path, analyte_column_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
                 counts["analyteColumn"] += 1
                 analyte_column_names.append(name)
             elif kind == "property":
@@ -1070,22 +1144,16 @@ def main():
         seen[prop_name] = block
     schema_properties = list(seen.items())
 
-    instrument_haspart = build_haspart_constraint(rows)
-    build_schema_yaml(schema_properties, analyte_column_names, parameter_names, instrument_haspart)
-    write_detail_empa_constraint(detail_param_names)
-    cleanup_orphan_param_files(parameter_names, detail_param_names)
+    return {
+        "schema_properties": schema_properties,
+        "analyte_column_names": analyte_column_names,
+        "parameter_names": parameter_names,
+        "detail_param_names": detail_param_names,
+        "counts": counts,
+    }
 
-    # Generate paired empaTAPP + detailEMPA examples for each publication.
-    examples_yaml = []
-    for i, (pcode, plabel) in enumerate(PUBS):
-        empa_ex, detail_ex = example_for_pub(i, plabel, rows)
-        write_json(BB / f"exampleempaTAPP-{pcode}.json", empa_ex)
-        if detail_ex.get("schema:additionalProperty"):
-            write_json(DETAIL_EMPA / f"exampledetailEMPA-{pcode}.json", detail_ex)
-        examples_yaml.append((pcode, plabel))
-    print(f"  wrote {len(PUBS)} per-publication empaTAPP + detailEMPA examples")
 
-    # Update examples.yaml
+def _write_examples_yaml(examples_yaml: list[tuple[str, str]]) -> None:
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
@@ -1093,10 +1161,10 @@ def main():
     ex_doc = CommentedSeq()
     for pcode, plabel in examples_yaml:
         e = CommentedMap()
-        e["title"] = f"empaTAPP example {pcode}: {plabel}"
+        e["title"] = f"{TAPP_NAME} example {pcode}: {plabel}"
         e["content"] = (
-            f"empaTAPP instance derived from publication {plabel}. Property and parameter values "
-            "taken from the corresponding column of the TAPP_EPMA_filled.xlsx 'TAPP' worksheet."
+            f"{TAPP_NAME} instance derived from publication {plabel}. Property and parameter values "
+            f"taken from the corresponding column of the {XLSX.name} 'TAPP' worksheet."
         )
         e["prefixes"] = {
             "ada": "https://ada.astromat.org/metadata/",
@@ -1106,14 +1174,104 @@ def main():
         }
         snip = CommentedMap()
         snip["language"] = "json"
-        snip["ref"] = f"exampleempaTAPP-{pcode}.json"
+        snip["ref"] = f"example{TAPP_NAME}-{pcode}.json"
         e["snippets"] = [snip]
         ex_doc.append(e)
     with open(BB / "examples.yaml", "w", encoding="utf-8") as f:
         yaml.dump(ex_doc, f)
-    print(f"  wrote examples.yaml with {len(PUBS)} entries")
+    print(f"  wrote examples.yaml with {len(examples_yaml)} entries")
 
-    print(f"\nCounts: {counts}")
+
+def build_tapp_artifacts() -> dict:
+    """Generate the TAPP-side artifacts only:
+    - shared catalog files in techniqueProtocols/{analyteColumns,parameterTemplates,vocab}/
+    - TAPP BB schema.yaml at techniqueProtocols/<TAPP_NAME>/
+    - per-publication TAPP examples + examples.yaml
+    Per-tag readOnly:false rows are tracked but their PropertyValue catalog is NOT
+    written (the detail-builder writes those). Returns the classification dict."""
+    rows = read_rows()
+    print(f"Read {len(rows)} non-empty rows from TAPP worksheet.")
+
+    cls = _classify_rows(rows, emit_tapp=True, emit_detail=False)
+
+    instrument_haspart = build_haspart_constraint(rows)
+    build_schema_yaml(
+        cls["schema_properties"], cls["analyte_column_names"],
+        cls["parameter_names"], instrument_haspart,
+    )
+
+    # Orphan cleanup for templates only — keep parameterValues alone (detail-builder owns it).
+    keep_templates = set(cls["parameter_names"])
+    if PARAMETER_TEMPLATES_DIR.exists():
+        for fp in PARAMETER_TEMPLATES_DIR.glob("*.json"):
+            if fp.stem not in keep_templates:
+                # Foreign-owned templates (other TAPPs) — never touch.
+                try:
+                    with open(fp, "r", encoding="utf-8") as f:
+                        existing_id = (json.load(f) or {}).get("$id", "") or ""
+                except (OSError, json.JSONDecodeError):
+                    continue
+                if f"/{TAPP_NAME}/" in existing_id:
+                    fp.unlink()
+                    print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+
+    # Per-publication TAPP examples
+    examples_yaml = []
+    for i, (pcode, plabel) in enumerate(PUBS):
+        empa_ex, _ = example_for_pub(i, plabel, rows)
+        write_json(BB / f"example{TAPP_NAME}-{pcode}.json", empa_ex)
+        examples_yaml.append((pcode, plabel))
+    print(f"  wrote {len(PUBS)} per-publication {TAPP_NAME} examples")
+
+    _write_examples_yaml(examples_yaml)
+    print(f"\nCounts: {cls['counts']}")
+    return cls
+
+
+def build_detail_artifacts() -> dict:
+    """Generate the detail-side artifacts only:
+    - shared parameterValues/<name>.json catalog files
+    - detailXXX/parametersConstraint.yaml ($ref'd by hand-authored detailXXX/schema.yaml)
+    - per-publication detailXXX examples
+    Returns the classification dict."""
+    rows = read_rows()
+    print(f"Read {len(rows)} non-empty rows from TAPP worksheet.")
+
+    cls = _classify_rows(rows, emit_tapp=False, emit_detail=True)
+
+    write_detail_empa_constraint(cls["detail_param_names"])
+
+    # Orphan cleanup for parameterValues — only files owned by THIS TAPP get deleted.
+    keep_values = set(cls["detail_param_names"])
+    if PARAMETER_VALUES_DIR.exists():
+        for fp in PARAMETER_VALUES_DIR.glob("*.json"):
+            if fp.stem not in keep_values:
+                try:
+                    with open(fp, "r", encoding="utf-8") as f:
+                        existing_id = (json.load(f) or {}).get("$id", "") or ""
+                except (OSError, json.JSONDecodeError):
+                    continue
+                if f"/{TAPP_NAME}/" in existing_id:
+                    fp.unlink()
+                    print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+
+    # Per-publication detail examples
+    written = 0
+    for i, (pcode, _plabel) in enumerate(PUBS):
+        _, detail_ex = example_for_pub(i, _plabel, rows)
+        if detail_ex.get("schema:additionalProperty"):
+            write_json(DETAIL_EMPA / f"example{DETAIL_NAME}-{pcode}.json", detail_ex)
+            written += 1
+    print(f"  wrote {written} per-publication {DETAIL_NAME} examples")
+
+    print(f"\nCounts: {cls['counts']}")
+    return cls
+
+
+def main():
+    """Backward-compat: run both sides and write examples.yaml."""
+    build_tapp_artifacts()
+    build_detail_artifacts()
 
 
 if __name__ == "__main__":
