@@ -16,35 +16,36 @@
     },
     "@type": {
       "const": [
-        "schema:PropertyValueSpecification"
+        "schema:PropertyValue"
       ]
     },
-    "schema:valueName": {
-      "const": "BeamRasterDimenstion"
+    "schema:propertyID": {
+      "const": "ada:parameter/empaTAPP/BeamRasterDimenstion"
     },
     "schema:name": {
       "const": "Beam Raster Dimensions"
     },
-    "ada:dataType": {
-      "const": "string"
+    "schema:value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
-    "ada:fieldScope": {
-      "const": "session"
-    },
-    "schema:readonlyValue": {
-      "const": false
-    },
-    "ada:tier": {
-      "const": "R"
+    "schema:unitText": {
+      "const": "µm × µm"
     }
   },
   "required": [
     "@id",
     "@type",
-    "schema:valueName",
+    "schema:propertyID",
     "schema:name",
-    "ada:dataType",
-    "ada:fieldScope"
+    "schema:value",
+    "schema:unitText"
   ],
   "examples": [
     {
@@ -54,15 +55,13 @@
       },
       "@id": "ada:parameter/empaTAPP/BeamRasterDimenstion",
       "@type": [
-        "schema:PropertyValueSpecification"
+        "schema:PropertyValue"
       ],
+      "schema:propertyID": "ada:parameter/empaTAPP/BeamRasterDimenstion",
       "schema:name": "Beam Raster Dimensions",
-      "schema:valueName": "BeamRasterDimenstion",
       "schema:description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R"
+      "schema:value": 0,
+      "schema:unitText": "µm × µm"
     }
   ]
 }

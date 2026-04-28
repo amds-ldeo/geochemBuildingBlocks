@@ -1,0 +1,33 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: detailEMPA additionalProperty constraint (generated from empaTAPP spreadsheet)
+type: object
+properties:
+  schema:additionalProperty:
+    type: array
+    description: Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is one of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue.
+    items:
+      oneOf:
+        - $ref: parameters/BeamRasterDimenstion.json
+        - $ref: parameters/acceleratingVoltage.json
+        - $ref: parameters/beamDiameter.json
+        - $ref: parameters/reportedAnalyte.json
+        - type: object
+          description: Catch-all for additional schema:PropertyValue entries beyond those enumerated in the empaTAPP-derived catalog above.
+          properties:
+            '@type':
+              type: array
+              items:
+                type: string
+              contains:
+                const: schema:PropertyValue
+            schema:propertyID:
+              type: string
+              not:
+                enum:
+                  - ada:parameter/empaTAPP/BeamRasterDimenstion
+                  - ada:parameter/empaTAPP/acceleratingVoltage
+                  - ada:parameter/empaTAPP/beamDiameter
+                  - ada:parameter/empaTAPP/reportedAnalyte
+          required:
+            - '@type'
+            - schema:propertyID

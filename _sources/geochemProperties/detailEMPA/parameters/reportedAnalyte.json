@@ -16,35 +16,25 @@
     },
     "@type": {
       "const": [
-        "schema:PropertyValueSpecification"
+        "schema:PropertyValue"
       ]
     },
-    "schema:valueName": {
-      "const": "reportedAnalyte"
+    "schema:propertyID": {
+      "const": "ada:parameter/empaTAPP/reportedAnalyte"
     },
     "schema:name": {
       "const": "Target Element"
     },
-    "ada:dataType": {
-      "const": "string"
-    },
-    "ada:fieldScope": {
-      "const": "session"
-    },
-    "schema:readonlyValue": {
-      "const": true
-    },
-    "ada:tier": {
-      "const": "R"
+    "schema:value": {
+      "type": "string"
     }
   },
   "required": [
     "@id",
     "@type",
-    "schema:valueName",
+    "schema:propertyID",
     "schema:name",
-    "ada:dataType",
-    "ada:fieldScope"
+    "schema:value"
   ],
   "examples": [
     {
@@ -54,15 +44,12 @@
       },
       "@id": "ada:parameter/empaTAPP/reportedAnalyte",
       "@type": [
-        "schema:PropertyValueSpecification"
+        "schema:PropertyValue"
       ],
+      "schema:propertyID": "ada:parameter/empaTAPP/reportedAnalyte",
       "schema:name": "Target Element",
-      "schema:valueName": "reportedAnalyte",
       "schema:description": "The element or oxide measured in this row of the element table.",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R"
+      "schema:value": ""
     }
   ]
 }

@@ -179,14 +179,10 @@ allOf:
         items:
           anyOf:
             - $ref: parameters/BeamDamageMinimization.json
-            - $ref: parameters/BeamRasterDimenstion.json
             - $ref: parameters/DriftCorrection.json
-            - $ref: parameters/acceleratingVoltage.json
-            - $ref: parameters/beamDiameter.json
             - $ref: parameters/edsSpectralProcessingType.json
             - $ref: parameters/halogenOxygenCorrection.json
             - $ref: parameters/massAbsorptionCoefficients.json
-            - $ref: parameters/reportedAnalyte.json
             - $ref: parameters/wdsDeadTimeCorrection.json
         allOf:
           - contains:
@@ -194,19 +190,7 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: parameters/BeamRasterDimenstion.json
-            minContains: 0
-            maxContains: 1
-          - contains:
               $ref: parameters/DriftCorrection.json
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: parameters/acceleratingVoltage.json
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: parameters/beamDiameter.json
             minContains: 0
             maxContains: 1
           - contains:
@@ -219,10 +203,6 @@ allOf:
             maxContains: 1
           - contains:
               $ref: parameters/massAbsorptionCoefficients.json
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: parameters/reportedAnalyte.json
             minContains: 0
             maxContains: 1
           - contains:
