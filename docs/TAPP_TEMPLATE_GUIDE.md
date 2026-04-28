@@ -178,18 +178,35 @@ Each vocabulary file declares conformance to the upstream CDIF `definedTermSet` 
 
 ---
 
-## Publication columns (worked-example data)
+## Publication columns (worked-example data) — your test suite
 
-Columns **H through Q** (P1–P10) carry actual values from real publications. Each column is one publication; the column header is something like `P3: Liu et al. 2016 (Tissint mineral chem., MAPS)`. The build pipeline uses these to generate paired example instances:
+Columns **H through Q** (P1–P10) carry actual values from real publications. Each column is one publication; the column header is something like `P3: Liu et al. 2016 (Tissint mineral chem., MAPS)`.
 
-- `exampleempaTAPP-P3.json` — TAPP definition with the protocol's method-level constants from P3.
-- `exampledetailEMPA-P3.json` — per-dataset detail block with the per-session readings from P3 (only the readOnly:false parameters and only when the cell is non-empty).
+> **This is how a new TAPP profile gets tested.** Each filled-in publication column becomes a *paired test instance* that the validator runs against the generated schemas. The publication examples are the primary mechanism for catching schema bugs, missing constraints, and impl-notes typos before the BB ships. **Fill in at least 2–3 publication columns with real data** before considering the TAPP profile ready.
 
-When a publication's value for an enum-constrained property doesn't exactly match an enum entry, the generator skips that property in the example rather than emitting invalid data (publications often use free text where an enum is expected).
+For each non-empty publication column the build pipeline produces two paired files:
 
-For numeric `schema:value` fields, qualified strings like `"0 (focused)"` or `"1–2 μm focused; 5–10 μm defocused"` are accepted via the catalog's `anyOf [number, string]` relaxation, preserving fidelity to the source publication.
+- `_sources/techniqueProtocols/<TAPP>/example<TAPP>-P{N}.json` — the TAPP definition populated with the protocol's method-level constants and `readOnly:true` parameters from column P{N}.
+- `_sources/geochemProperties/detail<XXX>/exampledetail<XXX>-P{N}.json` — the per-dataset detail block populated with `readOnly:false` parameter values from the same column, pointing back at the empaTAPP example via `schema:measurementTechnique` `@id`.
 
-You don't need ten publications. Use as many as you have real data for; leave the rest blank.
+`tools/validate_examples.py` validates every generated example against the schemas the build pipeline just wrote. If a publication column reveals a mismatch — a value the schema constraint rejects, a parameter the catalog hasn't defined yet, an enum entry that doesn't quite line up — validation fails on that example file. That's exactly the signal you want; it tells you what to fix in either the spreadsheet or the schema (whichever side is wrong).
+
+### Per-publication generation behaviour
+
+- **Empty cells skip the row.** A cell with no value contributes nothing — it doesn't produce an empty `additionalProperty` entry or a missing-required-field validation failure.
+- **Enum mismatches skip the property.** When a publication's value for an enum-constrained property doesn't exactly match an enum entry (the publications often use free text where an enum is expected), the example generator skips that property rather than emit invalid data. So if validation passes but you don't see a property in an example, look at the spreadsheet's enum vs. what the publication actually wrote.
+- **Numeric values can carry qualifiers.** Qualified strings like `"0 (focused)"` or `"1–2 μm focused; 5–10 μm defocused"` are accepted via the catalog's `schema:value: anyOf [number, string]` relaxation — fidelity to the source publication is preserved without loss to validation strictness for clean numeric data.
+- **You don't need all ten columns.** Use as many as you have well-documented data for; leave the rest blank. Two or three diverse publications is usually enough to exercise most of a TAPP's surface area.
+
+### Picking publications for good coverage
+
+Aim for diversity along the axes that vary across your TAPP:
+
+- **Different value ranges** for parameters (e.g. low-vs-high accelerating voltage, focused-vs-defocused beam diameter) so range constraints get exercised.
+- **Different enum picks** for controlled-list properties so each enum branch gets used in at least one example.
+- **Different sample materials / instrument configurations** so any conditional constraints fire.
+
+If you find yourself unable to fill in a parameter for any of the publications you have, that's often a sign the parameter row is too narrow / too wide and worth revisiting in the spreadsheet.
 
 ---
 
@@ -246,7 +263,7 @@ For a brand-new technique TAPP (let's say XRD):
    - Rows for analyte columns (with `analyteColumn:` impl-notes tag).
    - Pipe-delimited enums in column E + `enum {…}` token in impl-notes for controlled lists.
    - The instrument hasPart pattern in column S for sub-components (electron source, detectors, …).
-   - Real publication data in P1…P10 (as many as you have).
+   - **Real publication data in at least 2–3 of P1…P10.** This is the test suite for the new TAPP — every filled column becomes a paired example that the validator checks against the generated schemas. Aim for variety in parameter values and enum picks so coverage is broad. See [Publication columns](#publication-columns-worked-example-data--your-test-suite) for how to choose pubs.
 3. **Run the TAPP build:** `python tools/build_TAPP_from_spreadsheet.py xrdTAPP docs/TAPP_XRD_filled.xlsx`.
    - Inspect the output: did all your parameters / analyteColumns / vocabs land in the right shared dirs? Any conflict errors with empaTAPP-originated entries?
 4. **Run the detail build:** `python tools/build_detail_BB.py xrdTAPP docs/TAPP_XRD_filled.xlsx`. Then edit the scaffolded `_sources/geochemProperties/detailXRD/schema.yaml` to fill in the technique-specific `ada:componentType` enum.
