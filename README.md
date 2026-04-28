@@ -4,11 +4,37 @@ Modular metadata schema components for the [Astromat Data Archive (ADA)](https:/
 
 ## Structure
 
-### geochemProperties (30 schema components) + techniqueProtocols (2)
+### techniqueProtocols (TAPP definitions + shared catalogs)
 
-`techniqueProtocols/` houses TAPP-related building blocks:
-- `tappDefinition` — base TAPP definition (was previously `geochemProperties/methodDefinition`). JSON-LD class is `ada:TAPPDefinition`.
-- `empaTAPP` — EMPA-specific extension of tappDefinition. Adds top-level EPMA properties (`ada:beamMode`, `ada:beamDiameterDefault`, `ada:beamCurrentDefault`, `ada:matrixCorrectionMethod`), plus parameter and analyte-column templates as separate JSON files under `parameters/`, `analyteColumns/`, and `vocab/`. Generated from `docs/TAPP_EPMA_filled.xlsx` by `tools/build_empaTAPP_from_spreadsheet.py`. Examples include 10 publication-derived instances (`exampleempaTAPP-P1.json` … `-P10.json`) plus a comprehensive synthetic example (`exampleempaTAPP-all.json`) that exercises every property allowed by the resolved schema.
+```
+_sources/techniqueProtocols/
+  analyteColumns/        ← shared: schema:PropertyValueSpecification per analyte column
+  parameterTemplates/    ← shared: PropertyValueSpecification (readOnly:true params)
+  parameterValues/       ← shared: schema:PropertyValue (readOnly:false params)
+  vocab/                 ← shared: schema:DefinedTermSet per vocabulary
+  tappDefinition/        ← base TAPP definition (JSON-LD class ada:TAPPDefinition)
+  empaTAPP/              ← first concrete TAPP profile (EMPA)
+  <future>TAPP/          ← additional TAPPs `$ref` the four catalog dirs above
+```
+
+The four catalog dirs are **shared dictionary resources** — multiple TAPP profiles `$ref` the same files when their definitions match. The tooling's `share_or_write_catalog` helper lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
+
+- `tappDefinition` — base TAPP. Defines the `WorkflowHowTo` / `WorkflowStep` / `MethodParameter` / `AnalyteColumn` / `AnalyteIdentifierColumn` `$defs` that concrete TAPP profiles extend.
+- `empaTAPP` — Electron Microprobe Analysis. Extends `tappDefinition` via `allOf` with EPMA top-level properties + `ada:methodParameters` / `ada:analyteTemplate.ada:analyteColumns` constraints referencing the shared catalog dirs. Generated from `docs/TAPP_EPMA_filled.xlsx` (the canonical TAPP template). 11 examples ship with the BB (10 publication-derived instances + a comprehensive synthetic example).
+
+### geochemProperties detail blocks (per-dataset values)
+
+Per-dataset detail blocks pair with a TAPP definition and carry the per-instance values:
+
+- `detailEMPA` — paired with `empaTAPP`. Carries `readOnly:false` parameter values as `schema:additionalProperty[]` PropertyValue entries (catalog at `parameterValues/`). References the empaTAPP definition via `schema:measurementTechnique` `anyOf` (by `@id` ref or inline). 11 paired examples (`exampledetailEMPA-P1.json` … `-P10.json` + `-all.json`).
+
+The split was made on 2026-04-28: parameters in the TAPP spreadsheet route to `empaTAPP/methodParameters[]` (readOnly:true) or `detailEMPA/schema:additionalProperty[]` (readOnly:false). Method-level constants (the `ada:xxxDefault` top-level properties) stay on the TAPP.
+
+### profiles/geochemProfiles (technique-specific dataset profiles)
+
+`profiles/geochemProfiles/` (alongside `profiles/adaProfiles/`) holds technique profiles that compose a TAPP definition + detail block on top of `adaProduct`:
+
+- `empaProfile` — extends `adaProduct` with `schema:measurementTechnique` `anyOf` pointing at empaTAPP and a `schema:distribution.schema:hasPart` branch that lets `detailEMPA` appear.
 
 ### geochemProperties (30 schema components)
 
@@ -61,6 +87,20 @@ This repository imports shared schema.org and CDIF property building blocks from
 Browse the building blocks at: https://usgin.github.io/geochemBuildingBlocks/
 
 ## Tools
+
+### TAPP / detail / profile generation pipeline (4 scripts)
+
+The end-to-end pipeline for adding a new technique profile from a filled-in TAPP template spreadsheet. See [docs/TAPP_TEMPLATE_GUIDE.md](docs/TAPP_TEMPLATE_GUIDE.md) for what to put in the spreadsheet.
+
+```
+python tools/build_TAPP_from_spreadsheet.py [TAPP_NAME]  [XLSX_PATH]   # 1. TAPP BB + catalogs
+python tools/build_detail_BB.py             [TAPP_NAME]  [XLSX_PATH]   # 2. detail BB + parameterValues
+python tools/build_profile_BB.py            [TAPP_NAME]                # 3. profile BB scaffold
+python tools/build_dataset_template.py      <tapp-instance.json>       # 4. xlsx data-entry template
+                                            [<out.xlsx>]
+```
+
+All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-compat. The shared library at `tools/_tapp_lib.py` does the heavy lifting (parser, catalog emit helpers, scaffolders); the four drivers are thin wrappers.
 
 ### Schema generation and resolution
 

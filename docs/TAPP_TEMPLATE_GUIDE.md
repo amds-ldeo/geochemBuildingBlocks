@@ -1,0 +1,264 @@
+# TAPP Template Workbook — User Guide
+
+This guide explains how to fill in a TAPP template spreadsheet (xlsx) so the build pipeline can produce a complete technique-specific building-block stack: a TAPP definition, a per-dataset detail block, a dataset profile, and a dataset-entry xlsx template.
+
+The canonical reference is **`docs/TAPP_EPMA_filled.xlsx`** — clone it as the starting point for any new technique (e.g. `docs/TAPP_XRD_filled.xlsx`, `docs/TAPP_LAICPMS_filled.xlsx`).
+
+---
+
+## Table of contents
+
+1. [What is a TAPP?](#what-is-a-tapp)
+2. [Workbook structure](#workbook-structure)
+3. [Filling in the TAPP worksheet](#filling-in-the-tapp-worksheet)
+4. [The implementation-notes column (the heart of the spec)](#the-implementation-notes-column-the-heart-of-the-spec)
+5. [Where rows route to](#where-rows-route-to)
+6. [Special CDIF-geochem schema path patterns](#special-cdif-geochem-schema-path-patterns)
+7. [Vocabularies and term sets](#vocabularies-and-term-sets)
+8. [Publication columns (worked-example data)](#publication-columns-worked-example-data)
+9. [Running the build](#running-the-build)
+10. [Sharing catalog entries with existing TAPPs](#sharing-catalog-entries-with-existing-tapps)
+11. [End-to-end workflow checklist](#end-to-end-workflow-checklist)
+
+---
+
+## What is a TAPP?
+
+A **Technique-Aligned Protocol Profile (TAPP)** is a registered specification of an analytical method — what kind of measurement is performed, what instruments / parameters / sample preparation steps are involved, and what variables are reported. The schema is `_sources/techniqueProtocols/tappDefinition/schema.yaml` (JSON-LD class `ada:TAPPDefinition`). A concrete TAPP profile (like `empaTAPP` for Electron Microprobe Analysis) extends `tappDefinition` via JSON Schema `allOf`, adding technique-specific top-level properties and constraining the `ada:methodParameters` and `ada:analyteTemplate.ada:analyteColumns` arrays to a curated catalog.
+
+The template workbook is the **single source of truth** for what goes in the TAPP profile, the paired per-dataset detail block, and the corresponding dataset profile. Instead of authoring four building blocks by hand, you fill in one spreadsheet and the four `tools/build_*.py` scripts produce the rest.
+
+---
+
+## Workbook structure
+
+The active worksheet is named **`TAPP`**. It uses fixed columns that the parser depends on — don't rename headers, reorder, or insert/remove columns from the structural region (A–F, R–U). Publication columns (H–Q) are flexible.
+
+```
+A   Metadata Item                      ← human label (e.g. "Default Accelerating Voltage")
+B   Description / Purpose              ← human description (used as schema:description)
+C   Basic / Advanced                   ← informational, not consumed by the parser
+D   Data Type                          ← e.g. "Numeric (kV)", "Text (free)", "Controlled list"
+E   Example / Allowed Content          ← pipe-separated enum values for "Controlled list" rows
+F   (last update / blank)              ← informational
+G   (blank divider)                    ← skip
+H   P1                                 ← publication 1 — actual values from a real paper
+I   P2                                 ← publication 2 …
+…   …                                  … up to ten publications
+Q   P10                                ← publication 10
+R   Level of Completeness              ← informational
+S   CDIF-geochem schema path           ← target path in the building-block schema
+T   matchComment                       ← informational
+U   implementation notes               ← THE TAGS — see the dedicated section below
+```
+
+The "Components" worksheet (used elsewhere in the project for `ada:componentType` enum mapping) is separate from the TAPP worksheet and is not consumed by the TAPP build scripts.
+
+---
+
+## Filling in the TAPP worksheet
+
+Each row describes one *thing* that should land somewhere in the generated TAPP. The kind of thing is set by the implementation-notes tag:
+
+- A **property** of the TAPP definition (e.g. a default value baked into the protocol).
+- A **parameter** (a knob — either a method-level constant or a per-dataset setting).
+- An **analyteColumn** (a column in the per-element table of a TAPP analysis).
+
+A single row may carry multiple tags — for example a row labelled "Default Accelerating Voltage" carries *both* a `property:` (the method-level constant) *and* a `parameter:` (the per-dataset value). Each tag has its own `readOnly` flag.
+
+Rows that don't carry any of those three tags are processed by special-case logic in the example generator only (e.g. `Method Name`, `Method Author`, `Laboratory`, `Instrument Manufacturer`, `Instrument Model`).
+
+---
+
+## The implementation-notes column (the heart of the spec)
+
+Column **U** carries one or more *tags* per row. Each tag declares what the row produces and supplies modifiers. The parser scans the cell text for these patterns:
+
+### Tag syntax
+
+```
+property:    <name>
+parameter:   <name>
+analyteColumn: <name>
+```
+
+The `<name>` must start with an ASCII letter and may contain letters, digits, hyphens, and underscores. **No spaces, no special characters.** It will appear in URIs (e.g. `ada:parameter/empaTAPP/<name>`) so it must be URI-safe — see the `slugify_term_code` helper note in [Vocabularies](#vocabularies-and-term-sets) for what's allowed.
+
+A row may carry **multiple tags**:
+
+```
+property:  acceleratingVoltageDefault
+  dataType: schema:PropertyValue
+  readOnly: true
+
+parameter: acceleratingVoltage
+  dataType: schema:PropertyValue
+  readOnly: false
+```
+
+The parser slices the cell at each tag boundary, so each tag's modifier tokens (`dataType`, `readOnly`, `enum {…}`) are scoped to its own chunk — they don't leak across tags.
+
+### Modifier tokens
+
+Each tag may carry these modifiers in the lines that follow it (until the next tag or the end of the cell):
+
+- `readOnly: true | false` — see [Where rows route to](#where-rows-route-to). Default is `false`.
+- `dataType: <token>` — the JSON-Schema-flavoured type name. Common values: `schema:PropertyValue`, `string`, `number`, `integer`, `boolean`, `date`, `uri`. Unknown tokens fall back to `string`.
+- `enum {A | B | C}` — pipe-separated allowed values. The first row that introduces a given enum becomes the canonical vocabulary file at `techniqueProtocols/vocab/<name>.json`; subsequent rows with the same enum reuse it.
+
+### A complete row example
+
+| Col | Value |
+|---|---|
+| A | Default Beam Diameter |
+| B | Diameter of the focused or defocused electron beam in micrometers. |
+| D | Numeric (μm) |
+| H (P1) | `0 (focused)` |
+| S (cdif-path) | `$MethodDefinition.ada:beamDiameterDefault` |
+| U (impl notes) | ```property: beamDiameterDefault```<br>```  readOnly: true```<br>```  dataType: schema:PropertyValue```<br>```parameter: beamDiameter```<br>```  dataType: schema:PropertyValue```<br>```  readOnly: false``` |
+
+What this produces:
+
+- `ada:beamDiameterDefault` becomes a top-level property on the empaTAPP schema (string-typed).
+- `parameterTemplates/beamDiameter.json` is **not** written (because `readOnly:false` routes parameters away from the TAPP); instead `parameterValues/beamDiameter.json` is written as a `schema:PropertyValue` with `schema:value: {type: number}` (numeric from "Numeric (μm)") and `schema:unitText: "μm"`.
+- The detailEMPA `parametersConstraint.yaml` gets a `oneOf` branch for this PropertyValue.
+- Each publication column with a value (e.g. P1's `"0 (focused)"`) appears as a `schema:additionalProperty` entry on the corresponding `exampledetailEMPA-P1.json` instance, with `schema:value` coerced to a number where possible (qualified strings like `"0 (focused)"` validate via the schema's `anyOf [number, string]` relaxation).
+
+---
+
+## Where rows route to
+
+The build pipeline routes each row's outputs based on the tag kind and `readOnly` flag:
+
+| Tag | readOnly | Output                                                                           | Lives at |
+|---|---|---|---|
+| `property:` | true | Top-level property block in TAPP `schema.yaml` (e.g. `ada:beamDiameterDefault`) | `_sources/techniqueProtocols/<TAPP>/schema.yaml` |
+| `parameter:` | true | `PropertyValueSpecification` template (method-level constant)                   | `_sources/techniqueProtocols/parameterTemplates/<name>.json` (shared) |
+| `parameter:` | false | `PropertyValue` instance (per-dataset reading)                                  | `_sources/techniqueProtocols/parameterValues/<name>.json` (shared) |
+| `analyteColumn:` | (true) | `PropertyValueSpecification` per-element column template                        | `_sources/techniqueProtocols/analyteColumns/<name>.json` (shared) |
+| any with `enum {…}` | — | `DefinedTermSet` vocabulary                                                     | `_sources/techniqueProtocols/vocab/<name>.json` (shared) |
+
+**Special-case names handled in the property branch:**
+- `property: analyteTemplate` — recognised but not emitted; refers to the inherited `ada:analyteTemplate` structure on `tappDefinition`.
+- `property: description` — recognised but not emitted; refers to the inherited `schema:description`.
+
+---
+
+## Special CDIF-geochem schema path patterns
+
+Most rows put text in column **S** (`CDIF-geochem schema path`) for documentation. One pattern is **machine-read** by the build pipeline:
+
+```
+$MethodDefinition.schema:instrument.schema:hasPart[].additionalType = '<XYZ>'
+```
+
+When a row has this pattern in column S, the build script generates a `oneOf` branch on the TAPP's `schema:instrument.schema:hasPart.items` constraint that pins `schema:additionalType` to contain `'<XYZ>'`. If the row's data type is `Controlled list`, column E's pipe-separated values become an enum constraint on `schema:name` for that branch.
+
+For example (rows from the EMPA template):
+- `Electron Source` → `additionalType: 'ElectronSource'` with `schema:name` enum from `Field Emission (FEG) | LaB6/CeB6 | Tungsten (W) | Other | Unknown`.
+- `WDS Spectrometer Configuration` → `additionalType: 'wdsSpectrometer'` (no name enum).
+- `EDS Detector Configuration` → `additionalType: 'edsDetector'` (no name enum).
+
+The generator also emits a catch-all branch (`not: anyOf [contains: <known>...]`) so authors can attach instrument sub-components beyond the listed types, while still enforcing the name enum on known ones.
+
+Other CDIF-geochem schema path values are informational — they document where the row's data should appear in the generated structure but don't drive code paths.
+
+---
+
+## Vocabularies and term sets
+
+Any row whose impl-notes carries `enum {A | B | C}` introduces a controlled vocabulary. The first row to declare a given enum (compared by sorted set of values) names the vocabulary file. The vocabulary is emitted to `_sources/techniqueProtocols/vocab/<name>.json` as a `schema:DefinedTermSet` with one `schema:DefinedTerm` per value, where each term's `@id` is `ada:<slugify(termCode)>` (RFC 3986 unreserved characters only — special characters like `+`, `(`, ` ` are replaced with `_`).
+
+Term values may include spaces, parentheses, slashes, etc.; the slugify helper handles URI-safety automatically. For example:
+- `EPMA-WDS+EDS` → `@id: "ada:EPMA-WDS_EDS"`
+- `PAP (Pouchou & Pichoir Full)` → `@id: "ada:PAP_Pouchou_Pichoir_Full"`
+- `Si(Li)` → `@id: "ada:Si_Li"`
+
+Each vocabulary file declares conformance to the upstream CDIF `definedTermSet` BB via `$schema`, and is used by reference (string URI in `schema:inDefinedTermSet`) from the parameter and analyteColumn catalog entries that share the term set.
+
+---
+
+## Publication columns (worked-example data)
+
+Columns **H through Q** (P1–P10) carry actual values from real publications. Each column is one publication; the column header is something like `P3: Liu et al. 2016 (Tissint mineral chem., MAPS)`. The build pipeline uses these to generate paired example instances:
+
+- `exampleempaTAPP-P3.json` — TAPP definition with the protocol's method-level constants from P3.
+- `exampledetailEMPA-P3.json` — per-dataset detail block with the per-session readings from P3 (only the readOnly:false parameters and only when the cell is non-empty).
+
+When a publication's value for an enum-constrained property doesn't exactly match an enum entry, the generator skips that property in the example rather than emitting invalid data (publications often use free text where an enum is expected).
+
+For numeric `schema:value` fields, qualified strings like `"0 (focused)"` or `"1–2 μm focused; 5–10 μm defocused"` are accepted via the catalog's `anyOf [number, string]` relaxation, preserving fidelity to the source publication.
+
+You don't need ten publications. Use as many as you have real data for; leave the rest blank.
+
+---
+
+## Running the build
+
+After filling in (or editing) the spreadsheet, run the four scripts. From the repo root:
+
+```bash
+# 1. Generate the TAPP BB + shared analyteColumns / parameterTemplates / vocab catalogs
+python tools/build_TAPP_from_spreadsheet.py <TAPP_NAME> <docs/TAPP_<TECH>_filled.xlsx>
+
+# 2. Generate the per-dataset detail BB (scaffolds <_sources/geochemProperties/detail<XXX>/>
+#    on first run if it doesn't exist) plus parameterValues catalog + parametersConstraint.yaml
+python tools/build_detail_BB.py <TAPP_NAME> <docs/TAPP_<TECH>_filled.xlsx>
+
+# 3. (One-time per technique) Edit _sources/geochemProperties/detail<XXX>/schema.yaml
+#    to fill in technique-specific ada:componentType enum (placeholder is "ada:TODO_ComponentType").
+
+# 4. Scaffold the geochem profile (one-time per technique; idempotent thereafter)
+python tools/build_profile_BB.py <TAPP_NAME>
+
+# 5. Validate
+python tools/resolve_schema.py --all
+python tools/validate_examples.py
+
+# 6. (Optional) Generate a dataset-entry xlsx template from a specific TAPP instance
+python tools/build_dataset_template.py <path-to-TAPP-instance.json> <out.xlsx>
+```
+
+For empaTAPP all four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx`, so a no-arg invocation regenerates the EPMA stack.
+
+---
+
+## Sharing catalog entries with existing TAPPs
+
+The four catalog dirs at `techniqueProtocols/{analyteColumns,parameterTemplates,parameterValues,vocab}/` are **shared dictionary resources**. Multiple TAPP profiles can `$ref` the same files. The build pipeline enforces this via `share_or_write_catalog`:
+
+- **File doesn't exist** → write normally (your TAPP originates the entry).
+- **File exists, owned by your TAPP** (the existing `$id` contains `/<your-TAPP>/`) → overwrite freely. This is what happens when you edit the spreadsheet for an existing TAPP and re-run.
+- **File exists, owned by another TAPP** (the existing `$id` contains a different TAPP name) → match content exactly to share, otherwise raise `ValueError`.
+
+So if your new `xrdTAPP` defines `peakCountingTime` identically to the empaTAPP version, the regen reuses the empaTAPP-originated file (no new write, no error). If your `xrdTAPP` definition differs even slightly (e.g., different unit, different enum), the regen errors out with a "rename or reconcile" message — you'd then either rename the parameter in your spreadsheet (e.g. `xrdPeakCountingTime`) or update the spreadsheet to match the existing definition.
+
+---
+
+## End-to-end workflow checklist
+
+For a brand-new technique TAPP (let's say XRD):
+
+1. **Clone the template:** `cp docs/TAPP_EPMA_filled.xlsx docs/TAPP_XRD_filled.xlsx`.
+2. **Fill in the TAPP worksheet:**
+   - Rows for top-level properties (with `property:` impl-notes tag).
+   - Rows for method parameters (with `parameter:` impl-notes tag, `readOnly` per case).
+   - Rows for analyte columns (with `analyteColumn:` impl-notes tag).
+   - Pipe-delimited enums in column E + `enum {…}` token in impl-notes for controlled lists.
+   - The instrument hasPart pattern in column S for sub-components (electron source, detectors, …).
+   - Real publication data in P1…P10 (as many as you have).
+3. **Run the TAPP build:** `python tools/build_TAPP_from_spreadsheet.py xrdTAPP docs/TAPP_XRD_filled.xlsx`.
+   - Inspect the output: did all your parameters / analyteColumns / vocabs land in the right shared dirs? Any conflict errors with empaTAPP-originated entries?
+4. **Run the detail build:** `python tools/build_detail_BB.py xrdTAPP docs/TAPP_XRD_filled.xlsx`. Then edit the scaffolded `_sources/geochemProperties/detailXRD/schema.yaml` to fill in the technique-specific `ada:componentType` enum.
+5. **Run the profile scaffold:** `python tools/build_profile_BB.py xrdTAPP`. Edit `_sources/profiles/geochemProfiles/xrdProfile/schema.yaml` if you want extra profile-level constraints.
+6. **Validate:** `python tools/resolve_schema.py --all && python tools/validate_examples.py`.
+7. **Generate a dataset template** from one of the example TAPP instances: `python tools/build_dataset_template.py _sources/techniqueProtocols/xrdTAPP/exampleXRDTAPP-P1.json`.
+8. **Iterate** by editing the spreadsheet and re-running steps 3–6. The reuse-detection means re-runs are idempotent for entries owned by your TAPP and surface conflicts for foreign-owned entries.
+
+---
+
+## Reference
+
+- `tools/_tapp_lib.py` — the shared library; everything here is parameterized on `TAPP_NAME` set by `configure(tapp_name, xlsx)`.
+- `_sources/techniqueProtocols/empaTAPP/` — the canonical example. Inspect alongside `docs/TAPP_EPMA_filled.xlsx` to see how spreadsheet rows map to BB outputs.
+- `AGENTS.md` (repo root) — agent-oriented technical reference covering the wider building-block ecosystem, the catalog routing rules, and the deferred Phase D work in ada_metadata_forms.
