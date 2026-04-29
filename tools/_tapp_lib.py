@@ -413,8 +413,10 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
     Models a schema:PropertyValue entry that carries an actual reading (per-dataset)
     rather than a parameter template. Pinned: @type, @context, schema:propertyID
     (= ada:parameter/empaTAPP/<name>), schema:name. schema:value type comes from the
-    spreadsheet's Data Type column. schema:unitText pinned when the dtype carries a
-    parenthesised unit (e.g. 'Numeric (kV)' → unitText 'kV').
+    spreadsheet's Data Type column. schema:unitText is required (when the dtype
+    carries a parenthesised unit like 'Numeric (kV)') but only type-checked as
+    string — different authors may write 'µm' / 'um' / 'micrometer' / 'µm × µm'
+    etc. The canonical form lives in the example instance, not as a const.
     """
     val_type, unit = _value_type_for(dtype_col)
     canonical_value = {
@@ -468,7 +470,10 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
     ])
     required = ["@id", "@type", "schema:propertyID", "schema:name", "schema:value"]
     if unit:
-        properties["schema:unitText"] = {"const": unit}
+        # type-only (not const): authors often render the same unit different ways
+        # ("µm" vs "um" vs "micrometer", "µm × µm" vs "µm x µm", etc.). The canonical
+        # form is captured in the example instance below.
+        properties["schema:unitText"] = {"type": "string"}
         required.append("schema:unitText")
     if enum_vname:
         properties["schema:inDefinedTermSet"] = {
@@ -1277,6 +1282,278 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         ])
 
     return parts, detail
+
+
+# ---------- profile-level (adaEMPA) example builder ----------
+
+def variable_measured_from_default_analytes(pub_label: str, default_analytes: list,
+                                             unit_text: str = "wt%") -> list:
+    """Map a TAPP's ada:defaultAnalytes -> profile-level schema:variableMeasured.
+
+    Each defaultAnalytes entry becomes one schema:PropertyValue+cdi:InstanceVariable.
+    Per-analyte protocol detail (x-ray emission line, counting times, calibration
+    standard) folds into schema:description so the variable's measurement context
+    is preserved without forcing a consumer to read both the profile record and
+    the TAPP definition.
+
+    Defaults to 'wt%' for schema:unitText (EMPA QEA convention). Other techniques
+    pass their own unit (e.g. 'ppm' for trace LA-ICP-MS).
+    """
+    out = []
+    for da in default_analytes:
+        analyte = da.get("analyte", "?")
+        bits = []
+        if da.get("xrayEmissionLine"):
+            bits.append(f"{da['xrayEmissionLine']} emission line")
+        if da.get("peakCountingTime") is not None:
+            bits.append(f"{da['peakCountingTime']} s peak counting")
+        if da.get("backgroundCountingTime") is not None:
+            bits.append(f"{da['backgroundCountingTime']} s background counting")
+        if da.get("primaryCalibrationStandard"):
+            bits.append(f"calibrated against {da['primaryCalibrationStandard']}")
+        detail = "; ".join(bits)
+        desc = f"{analyte} abundance measured by EMPA WDS"
+        if detail:
+            desc += f" ({detail})"
+        desc += "."
+        out.append(OrderedDict([
+            ("@id", f"ex:adaEMPA-{pub_label}-var-{analyte}"),
+            ("@type", ["schema:PropertyValue", "cdi:InstanceVariable"]),
+            ("schema:name", analyte),
+            ("schema:description", desc),
+            ("schema:propertyID", [f"https://ada.astromat.org/vocabulary/analytes/{analyte}"]),
+            ("schema:unitText", unit_text),
+            ("cdi:intendedDataType", "https://www.w3.org/TR/xmlschema-2/#decimal"),
+            ("cdi:physicalDataType", ["https://www.w3.org/TR/xmlschema-2/#double"]),
+            ("cdi:role", "MeasureComponent"),
+            ("cdi:simpleUnitOfMeasure", unit_text),
+        ]))
+    return out
+
+
+def _instrument_for_provused(tapp_instrument: dict | None) -> dict:
+    """Adapt a TAPP-level schema:instrument record into a prov:used entry. Adds
+    schema:Thing + schema:Product to @type and ensures the additionalType
+    contains the instrument-class markers expected by the profile schema."""
+    base = OrderedDict([
+        ("@type", ["schema:Thing", "schema:Product"]),
+        ("schema:additionalType", [
+            "nxs:BaseClass/NXinstrument", "ada:EMPAInstrument",
+        ]),
+        ("schema:name", "EMPA Instrument"),
+        ("schema:identifier", ["ex:instrument-empa-001"]),
+    ])
+    if isinstance(tapp_instrument, dict):
+        if tapp_instrument.get("schema:name"):
+            base["schema:name"] = tapp_instrument["schema:name"]
+        manuf = tapp_instrument.get("schema:manufacturer")
+        if isinstance(manuf, dict) and manuf.get("schema:name"):
+            base["schema:manufacturer"] = manuf
+    return base
+
+
+def _location_for_provused(tapp_location: dict | None) -> dict:
+    """Adapt schema:Place from the TAPP into a profile-level prov:wasGeneratedBy
+    schema:location entry. Profile schema requires NXsource in additionalType."""
+    name = "Analytical Sciences Laboratory"
+    if isinstance(tapp_location, dict) and tapp_location.get("schema:name"):
+        name = tapp_location["schema:name"]
+    return OrderedDict([
+        ("@type", ["schema:Place"]),
+        ("schema:name", name),
+        ("schema:additionalType", ["nxs:BaseClass/NXsource"]),
+    ])
+
+
+def _sample_for_provused(tapp_object_first: dict | None, pub_label: str) -> dict:
+    """Build a single MaterialSample for prov:wasGeneratedBy.schema:object.
+    The TAPP's schema:object describes the sample type (DefinedTerm); the
+    profile-level needs a concrete instance with an @id, igsn, etc."""
+    desc = "Material sample analyzed in this protocol session."
+    if isinstance(tapp_object_first, dict) and tapp_object_first.get("schema:name"):
+        desc = f"Sample of: {tapp_object_first['schema:name']}"
+    return OrderedDict([
+        ("@type", [
+            "schema:Thing",
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        ]),
+        ("schema:additionalType", ["MaterialSample"]),
+        ("schema:name", f"Sample analyzed in {pub_label}"),
+        ("schema:identifier", [f"igsn:10.60471/PLACEHOLDER-{pub_label}"]),
+        ("schema:description", desc),
+    ])
+
+
+_REQUIRED_CONFORMS_TO = [
+    "https://w3id.org/cdif/core/1.0",
+    "https://w3id.org/cdif/discovery/1.0",
+    "https://w3id.org/cdif/data_description/1.0",
+    "https://w3id.org/cdif/provenance/1.0",
+    "https://w3id.org/cdif/manifest/1.0",
+    "https://w3id.org/geochem/metadata/profiles/adaEMPA",
+    "https://w3id.org/geochem/metadata/profiles/adaProduct",
+]
+
+
+def profile_example_for_pub(pub_label: str, pub_citation: str,
+                            tapp_ex: dict, detail_ex: dict) -> dict:
+    """Build an adaEMPA profile-level schema:Dataset example for one publication.
+
+    Composes:
+      - schema:variableMeasured: derived from tapp.ada:analyteTemplate.ada:defaultAnalytes
+      - prov:wasGeneratedBy[].prov:used: from tapp.schema:instrument
+      - prov:wasGeneratedBy[].schema:location: from tapp.schema:location
+      - prov:wasGeneratedBy[].schema:object: synthesized MaterialSample referencing tapp.schema:object
+      - schema:distribution[].schema:hasPart[]: an EMPAQEATabular file carrying
+        the detailEMPA fields (componentType, spectrometersUsed, signalUsed,
+        schema:additionalProperty, schema:measurementTechnique → tapp_ex.@id)
+      - schema:subjectOf: catalog-record metadata with the required dcterms:conformsTo URIs
+
+    Synthetic placeholders (not derivable from TAPP+detail data alone): DOI,
+    schema:url, file size, checksum, dates. These are clearly marked as
+    placeholders so authors can override them per-pub.
+    """
+    da_list = tapp_ex.get("ada:analyteTemplate", {}).get("ada:defaultAnalytes", [])
+    variable_measured = variable_measured_from_default_analytes(pub_label, da_list)
+
+    tapp_id = tapp_ex.get("@id", f"ex:{TAPP_NAME}-{pub_label.lower()}")
+
+    detail_componenttype = detail_ex.get("ada:componentType", "ada:EMPAQEATabular")
+    detail_spectrometers = detail_ex.get("ada:spectrometersUsed", "5x WDS")
+    detail_signal = detail_ex.get("ada:signalUsed", "Kα x-ray lines")
+    detail_addprops = detail_ex.get("schema:additionalProperty", [])
+
+    haspart = OrderedDict([
+        ("@id", f"ex:adaEMPA-{pub_label}-data-001"),
+        ("@type", ["ada:tabularData", "cdi:TabularTextDataSet", "schema:Thing"]),
+        ("schema:name", f"adaEMPA-{pub_label}-data.csv"),
+        ("schema:description", f"Per-point quantitative EMPA analyses ({pub_citation})."),
+        ("schema:additionalType", ["ada:EMPAQEATabular"]),
+        ("schema:encodingFormat", ["text/csv"]),
+        ("cdi:isDelimited", True),
+        ("cdi:isFixedWidth", False),
+        ("csvw:delimiter", ","),
+        ("csvw:header", True),
+        ("ada:componentType", detail_componenttype),
+        ("ada:spectrometersUsed", detail_spectrometers),
+        ("ada:signalUsed", detail_signal),
+        ("schema:measurementTechnique", {"@id": tapp_id}),
+        ("schema:additionalProperty", detail_addprops),
+    ])
+
+    # Build top-level Dataset
+    out = OrderedDict()
+    out["@context"] = OrderedDict([
+        ("schema", "http://schema.org/"),
+        ("ada", "https://ada.astromat.org/metadata/"),
+        ("cdi", "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"),
+        ("csvw", "http://www.w3.org/ns/csvw#"),
+        ("prov", "http://www.w3.org/ns/prov#"),
+        ("spdx", "http://spdx.org/rdf/terms#"),
+        ("nxs", "http://purl.org/nexusformat/definitions/"),
+        ("dcterms", "http://purl.org/dc/terms/"),
+        ("ex", "https://example.org/"),
+        ("dcat", "http://www.w3.org/ns/dcat#"),
+    ])
+    out["@id"] = f"ex:adaEMPA-{pub_label}"
+    out["@type"] = ["schema:Dataset", "schema:Product"]
+    out["schema:name"] = f"adaEMPA dataset for {pub_label} ({pub_citation})"
+    out["schema:description"] = (
+        f"Auto-generated adaEMPA profile-level Dataset for publication {pub_label}: "
+        f"{pub_citation}. The schema:hasPart entry under schema:distribution "
+        f"carries detailEMPA fields and points at the empaTAPP TAPP definition "
+        f"({tapp_id}); schema:variableMeasured is derived from the TAPP's "
+        f"ada:defaultAnalytes."
+    )
+    out["schema:additionalType"] = [
+        "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
+        "ada:DataDeliveryPackage",
+    ]
+    out["schema:identifier"] = OrderedDict([
+        ("@type", ["schema:PropertyValue"]),
+        ("schema:propertyID", "https://registry.identifiers.org/registry/doi"),
+        ("schema:value", f"10.PLACEHOLDER/adaempa-{pub_label.lower()}"),
+    ])
+    out["schema:url"] = f"https://astromat.org/products/adaempa-{pub_label.lower()}"
+    out["schema:dateModified"] = "2026-04-29"
+    out["schema:version"] = "0.1"
+    out["schema:license"] = ["https://creativecommons.org/licenses/by/4.0/"]
+    out["schema:creativeWorkStatus"] = "Draft"
+    out["schema:measurementTechnique"] = OrderedDict([
+        ("@type", ["schema:DefinedTerm"]),
+        ("schema:name", "Electron Microprobe Analysis (EMPA)"),
+        ("schema:identifier", "https://ada.astromat.org/vocabulary/techniques/EMPA"),
+    ])
+    tapp_object_first = (tapp_ex.get("schema:object") or [None])[0]
+    out["prov:wasGeneratedBy"] = [OrderedDict([
+        ("@type", ["prov:Activity", "schema:Action"]),
+        ("schema:identifier", f"session-empa-{pub_label.lower()}"),
+        ("schema:startDate", "2026-04-29"),
+        ("prov:used", [_instrument_for_provused(tapp_ex.get("schema:instrument"))]),
+        ("schema:location", _location_for_provused(tapp_ex.get("schema:location"))),
+        ("schema:object", [_sample_for_provused(tapp_object_first, pub_label)]),
+    ])]
+    out["schema:variableMeasured"] = variable_measured
+    out["schema:distribution"] = [OrderedDict([
+        ("@type", ["schema:DataDownload"]),
+        ("schema:name", f"adaEMPA-{pub_label}-archive.zip"),
+        ("schema:description", f"Archive containing tabular EMPA data for {pub_label}."),
+        ("schema:contentUrl", f"https://astromat.org/downloads/adaempa-{pub_label.lower()}.zip"),
+        ("schema:encodingFormat", ["application/zip"]),
+        ("spdx:checksum", OrderedDict([
+            ("@type", ["spdx:Checksum"]),
+            ("spdx:algorithm", "SHA256"),
+            ("spdx:checksumValue", "0" * 64),
+        ])),
+        ("schema:size", OrderedDict([
+            ("@type", ["schema:QuantitativeValue"]),
+            ("schema:value", 1048576),
+            ("schema:unitText", "byte"),
+        ])),
+        ("schema:hasPart", [haspart]),
+    ])]
+    out["schema:subjectOf"] = OrderedDict([
+        ("@type", ["schema:Dataset"]),
+        ("schema:additionalType", ["dcat:CatalogRecord"]),
+        ("@id", f"ex:adaEMPA-{pub_label}-metadata"),
+        ("schema:about", {"@id": f"ex:adaEMPA-{pub_label}"}),
+        ("schema:dateModified", "2026-04-29"),
+        ("dcterms:conformsTo", [{"@id": uri} for uri in _REQUIRED_CONFORMS_TO]),
+        ("schema:maintainer", OrderedDict([
+            ("@type", ["schema:Organization"]),
+            ("schema:name", "Astromat Data Archive"),
+        ])),
+        ("schema:sdDatePublished", "2026-04-29T12:00:00Z"),
+    ])
+    return out
+
+
+def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
+    """For each pub with a paired (empaTAPP, detailEMPA) example pair on disk,
+    emit _sources/profiles/adaProfiles/adaEMPA/exampleadaEMPA-<pub>.json. Returns
+    a counts dict {written: int, skipped: int}."""
+    profile_dir = REPO_ROOT / "_sources" / "profiles" / "adaProfiles" / "adaEMPA"
+    profile_dir.mkdir(parents=True, exist_ok=True)
+    tapp_dir = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
+    detail_dir = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
+
+    written, skipped = 0, 0
+    for pub_code, pub_citation in PUBS:
+        if pub_filter and pub_code not in pub_filter:
+            continue
+        tapp_path = tapp_dir / f"example{TAPP_NAME}-{pub_code}.json"
+        detail_path = detail_dir / f"example{DETAIL_NAME}-{pub_code}.json"
+        if not tapp_path.exists() or not detail_path.exists():
+            skipped += 1
+            continue
+        tapp_ex = json.loads(tapp_path.read_text(encoding="utf-8"))
+        detail_ex = json.loads(detail_path.read_text(encoding="utf-8"))
+        profile_ex = profile_example_for_pub(pub_code, pub_citation, tapp_ex, detail_ex)
+        out_path = profile_dir / f"exampleadaEMPA-{pub_code}.json"
+        out_path.write_text(json.dumps(profile_ex, indent=2, ensure_ascii=False) + "\n",
+                            encoding="utf-8")
+        written += 1
+    return {"written": written, "skipped": skipped}
 
 
 def _parse_wds_table(text) -> list:

@@ -1,41 +1,282 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "EMPA Instrument Detail",
-  "description": "Electron Microprobe Analysis with spectrometer and signal details.",
-  "type": "object",
-  "properties": {
-    "@type": {
-      "type": "array",
-      "minItems": 1,
-      "contains": {
-        "anyOf": [
-          {
-            "const": "ada:EMPAImage"
+  "description": "Detail block for Electron Microprobe Analysis hasPart items. Discriminates on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed as sibling properties on the hasPart item. Per-dataset schema:additionalProperty entries are constrained by the generated parametersConstraint.yaml (one schema:PropertyValue branch per readOnly:false empaTAPP parameter, plus a catch-all). schema:measurementTechnique is an @id reference to a registered empaTAPP TAPP definition.",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "ada:componentType": {
+          "anyOf": [
+            {
+              "const": "ada:EMPAImage"
+            },
+            {
+              "const": "ada:EMPAImageMap"
+            },
+            {
+              "const": "ada:EMPAQEATabular"
+            },
+            {
+              "const": "ada:EMPAImageCollection"
+            },
+            {
+              "const": "ada:EMPAESPCTabular"
+            },
+            {
+              "const": "ada:EMPAESPCPlot"
+            }
+          ]
+        },
+        "ada:spectrometersUsed": {
+          "type": "string",
+          "description": "Spectrometers used in analysis"
+        },
+        "ada:signalUsed": {
+          "type": "string"
+        },
+        "schema:measurementTechnique": {
+          "type": "object",
+          "description": "@id reference to a registered empaTAPP TAPP definition.",
+          "properties": {
+            "@id": {
+              "type": "string",
+              "format": "uri"
+            }
           },
-          {
-            "const": "ada:EMPAImageMap"
-          },
-          {
-            "const": "ada:EMPAQEATabular"
-          },
-          {
-            "const": "ada:EMPAImageCollection"
-          },
-          {
-            "const": "ada:EMPAESPCTabular"
-          },
-          {
-            "const": "ada:EMPAESPCPlot"
+          "required": [
+            "@id"
+          ]
+        }
+      },
+      "required": [
+        "ada:componentType"
+      ]
+    },
+    {
+      "title": "detailEMPA additionalProperty constraint (generated from empaTAPP spreadsheet)",
+      "type": "object",
+      "properties": {
+        "schema:additionalProperty": {
+          "type": "array",
+          "description": "Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional — include only the parameters you have values for.",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Beam Raster Dimensions",
+                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/BeamRasterDimension"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/empaTAPP/BeamRasterDimension"
+                  },
+                  "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              {
+                "title": "Default Accelerating Voltage",
+                "description": "Electron beam accelerating voltage in kilovolts (kV).",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/acceleratingVoltage"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/empaTAPP/acceleratingVoltage"
+                  },
+                  "schema:name": {
+                    "const": "Default Accelerating Voltage"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              {
+                "title": "Default Beam Diameter",
+                "description": "Diameter of the focused or defocused electron beam in micrometers.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/beamDiameter"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/empaTAPP/beamDiameter"
+                  },
+                  "schema:name": {
+                    "const": "Default Beam Diameter"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              {
+                "title": "Target Element",
+                "description": "The element or oxide measured in this row of the element table.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/reportedAnalyte"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/empaTAPP/reportedAnalyte"
+                  },
+                  "schema:name": {
+                    "const": "Target Element"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "type": "object",
+                "description": "Catch-all for additional schema:PropertyValue entries beyond those enumerated in the empaTAPP-derived catalog above.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValue"
+                    }
+                  },
+                  "schema:propertyID": {
+                    "type": "string",
+                    "not": {
+                      "enum": [
+                        "ada:parameter/empaTAPP/BeamRasterDimension",
+                        "ada:parameter/empaTAPP/acceleratingVoltage",
+                        "ada:parameter/empaTAPP/beamDiameter",
+                        "ada:parameter/empaTAPP/reportedAnalyte"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "@type",
+                  "schema:propertyID"
+                ]
+              }
+            ]
           }
-        ]
+        }
       }
-    },
-    "ada:spectrometersUsed": {
-      "type": "string",
-      "description": "Spectrometers used in analysis"
-    },
-    "ada:signalUsed": {
-      "type": "string"
     }
-  }
+  ]
 }
