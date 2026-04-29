@@ -65,21 +65,27 @@ VOCAB_DIR = TECH_PROTOCOLS / "vocab"
 COL = {
     "item": 0, "desc": 1, "basic": 2, "dtype": 3, "example": 4,
     "p_start": 6,  # column G = index 6 (P0 — synthetic comprehensive example)
-    "p_end": 16,   # column Q = index 16 (inclusive; P10)
-    "level": 17, "cdif_path": 18, "matchComment": 19, "impl": 20,
+    "p_end": 22,   # column W = index 22 (inclusive; P10plag)
+    "level": 23, "cdif_path": 24, "matchComment": 25, "impl": 26,
 }
 PUBS = [
     ("P0", "Richard & Deng 2026 (synthetic comprehensive WDS example)"),
     ("P1", "Chi et al. 2015 (Tissintite, EPSL)"),
     ("P2", "Hu et al. 2020 (Coesite NWA8657, GCA)"),
-    ("P3", "Liu et al. 2016 (Tissint mineral chem., MAPS)"),
+    ("P3sil", "Liu et al. 2016 (Tissint silicate mineral chem., MAPS)"),
+    ("P3phos", "Liu et al. 2016 (Tissint phosphate mineral chem., MAPS)"),
     ("P4", "Ma et al. 2017 (Liebermannite, MAPS)"),
     ("P5", "Frank et al. 2023 (Ivuna CAI, MAPS)"),
     ("P6", "Broussard et al. 2026 (OC002 CI chondrite, MAPS)"),
     ("P7", "Seifert et al. 2026 (Bennu apatite, MAPS)"),
-    ("P8", "Zega et al. 2025 (Bennu mineralogy, Nat. Geosci.)"),
-    ("P9", "McCoy et al. 2025 (Bennu evaporites, Nature)"),
+    ("P8sil", "Zega et al. 2025 (Bennu silicates, Nat. Geosci.)"),
+    ("P8carb", "Zega et al. 2025 (Bennu carbonates, Nat. Geosci.)"),
+    ("P8phos", "Zega et al. 2025 (Bennu phosphates, Nat. Geosci.)"),
+    ("P9sil", "McCoy et al. 2025 (Bennu silicates, Nature)"),
+    ("P9carb", "McCoy et al. 2025 (Bennu carbonates, Nature)"),
+    ("P9phos", "McCoy et al. 2025 (Bennu phosphates, Nature)"),
     ("P10", "Pang et al. 2016 (NWA 8003 eucrite, Sci. Rep.)"),
+    ("P10plag", "Pang et al. 2016 (NWA 8003 eucrite plagioclase, Sci. Rep.)"),
 ]
 
 # ---------- impl-notes parser ----------
