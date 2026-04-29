@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "ada:analyteColumn/empaTAPP/analysisOrder",
   "title": "Sequence",
-  "description": "Order of analysis on spectormeter.",
+  "description": "Order of analysis on spectormeter. To give an example, if there are 5 detectors, 5 analytes (elements) will be measured simultaneously on the first pass (i.e., Sequence = 1 for all of them), then 5 other analytes will be measured simultaneously on the second pass (i.e., Sequence = 2 for these 5 analytes), etc. The numbering depends on the order of these analytes being measured during an analysis. Also, if there are 20 analytes, there will be at least 4 passes in this case.",
   "type": "object",
   "properties": {
     "@context": {
@@ -54,7 +54,7 @@
       ],
       "schema:name": "Sequence",
       "schema:valueName": "analysisOrder",
-      "schema:description": "Order of analysis on spectormeter.",
+      "schema:description": "Order of analysis on spectormeter. To give an example, if there are 5 detectors, 5 analytes (elements) will be measured simultaneously on the first pass (i.e., Sequence = 1 for all of them), then 5 other analytes will be measured simultaneously on the second pass (i.e., Sequence = 2 for these 5 analytes), etc. The numbering depends on the order of these analytes being measured during an analysis. Also, if there are 20 analytes, there will be at least 4 passes in this case.",
       "ada:dataType": "integer",
       "schema:readonlyValue": true,
       "ada:tier": "M"

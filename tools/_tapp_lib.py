@@ -61,12 +61,19 @@ PARAMETER_TEMPLATES_DIR = TECH_PROTOCOLS / "parameterTemplates"
 PARAMETER_VALUES_DIR = TECH_PROTOCOLS / "parameterValues"
 VOCAB_DIR = TECH_PROTOCOLS / "vocab"
 
-# Column letters in the spreadsheet (1-indexed: A=1)
+# Column indices in the spreadsheet (0-indexed; openpyxl uses 1-indexed +1).
+# Layout (post-2026-04-29 reorder): structural columns are now adjacent to the
+# A-F metadata block, so pub columns can grow at the end without disturbing
+# anything else.
+#   A-E (0..4):  item / desc / basic / dtype / example
+#   F   (5):     "Last update" header (no data)
+#   G-J (6..9):  level / cdif_path / matchComment / impl
+#   K-AA (10..26): P0..P10plag (17 pubs; can extend right indefinitely)
 COL = {
     "item": 0, "desc": 1, "basic": 2, "dtype": 3, "example": 4,
-    "p_start": 6,  # column G = index 6 (P0 — synthetic comprehensive example)
-    "p_end": 22,   # column W = index 22 (inclusive; P10plag)
-    "level": 23, "cdif_path": 24, "matchComment": 25, "impl": 26,
+    "level": 6, "cdif_path": 7, "matchComment": 8, "impl": 9,
+    "p_start": 10,  # column K = index 10 (P0 — synthetic comprehensive example)
+    "p_end": 26,    # column AA = index 26 (inclusive; P10plag)
 }
 PUBS = [
     ("P0", "Richard & Deng 2026 (synthetic comprehensive WDS example)"),

@@ -32,7 +32,7 @@ The template workbook is the **single source of truth** for what goes in the TAP
 
 ## Workbook structure
 
-The active worksheet is named **`TAPP`**. It uses fixed columns that the parser depends on — don't rename headers, reorder, or insert/remove columns from the structural region (A–F, R–U). Publication columns (H–Q) are flexible.
+The active worksheet is named **`TAPP`**. It uses fixed columns that the parser depends on — don't rename headers, reorder, or insert/remove columns from the structural region (A–J). Publication columns (K onward) are flexible: add as many as you have well-documented sources for, no upper bound.
 
 ```
 A   Metadata Item                      ← human label (e.g. "Default Accelerating Voltage")
@@ -41,16 +41,17 @@ C   Basic / Advanced                   ← informational, not consumed by the pa
 D   Data Type                          ← e.g. "Numeric (kV)", "Text (free)", "Controlled list"
 E   Example / Allowed Content          ← pipe-separated enum values for "Controlled list" rows
 F   (last update / blank)              ← informational
-G   (blank divider)                    ← skip
-H   P1                                 ← publication 1 — actual values from a real paper
-I   P2                                 ← publication 2 …
-…   …                                  … up to ten publications
-Q   P10                                ← publication 10
-R   Level of Completeness              ← informational
-S   CDIF-geochem schema path           ← target path in the building-block schema
-T   matchComment                       ← informational
-U   implementation notes               ← THE TAGS — see the dedicated section below
+G   Level of Completeness              ← informational
+H   CDIF-geochem schema path           ← target path in the building-block schema
+I   matchComment                       ← informational
+J   implementation notes               ← THE TAGS — see the dedicated section below
+K   P0                                 ← publication 0 — actual values from a real paper (or a synthetic comprehensive example)
+L   P1                                 ← publication 1 …
+…   …                                  … as many as you have data for
+AA  P10plag                            ← (current EPMA template extends to col AA — 17 pubs)
 ```
+
+> **Layout note (2026-04-29).** Earlier revisions of this template kept the structural columns (Level / CDIF path / matchComment / impl notes) in cols X–AA, after the pub block. They were moved to G–J so the pub block can grow rightward without disturbing anything else. If you have an older TAPP workbook in the X–AA layout, run `python tools/_reorder_tapp_columns.py <your.xlsx>` once to migrate it.
 
 The "Components" worksheet (used elsewhere in the project for `ada:componentType` enum mapping) is separate from the TAPP worksheet and is not consumed by the TAPP build scripts.
 
@@ -72,7 +73,7 @@ Rows that don't carry any of those three tags are processed by special-case logi
 
 ## The implementation-notes column (the heart of the spec)
 
-Column **U** carries one or more *tags* per row. Each tag declares what the row produces and supplies modifiers. The parser scans the cell text for these patterns:
+Column **J** carries one or more *tags* per row. Each tag declares what the row produces and supplies modifiers. The parser scans the cell text for these patterns:
 
 ### Tag syntax
 
@@ -113,9 +114,9 @@ Each tag may carry these modifiers in the lines that follow it (until the next t
 | A | Default Beam Diameter |
 | B | Diameter of the focused or defocused electron beam in micrometers. |
 | D | Numeric (μm) |
-| H (P1) | `0 (focused)` |
-| S (cdif-path) | `$MethodDefinition.ada:beamDiameterDefault` |
-| U (impl notes) | ```property: beamDiameterDefault```<br>```  readOnly: true```<br>```  dataType: schema:PropertyValue```<br>```parameter: beamDiameter```<br>```  dataType: schema:PropertyValue```<br>```  readOnly: false``` |
+| H (cdif-path) | `$MethodDefinition.ada:beamDiameterDefault` |
+| J (impl notes) | ```property: beamDiameterDefault```<br>```  readOnly: true```<br>```  dataType: schema:PropertyValue```<br>```parameter: beamDiameter```<br>```  dataType: schema:PropertyValue```<br>```  readOnly: false``` |
+| L (P1) | `0 (focused)` |
 
 What this produces:
 
@@ -146,13 +147,13 @@ The build pipeline routes each row's outputs based on the tag kind and `readOnly
 
 ## Special CDIF-geochem schema path patterns
 
-Most rows put text in column **S** (`CDIF-geochem schema path`) for documentation. One pattern is **machine-read** by the build pipeline:
+Most rows put text in column **H** (`CDIF-geochem schema path`) for documentation. One pattern is **machine-read** by the build pipeline:
 
 ```
 $MethodDefinition.schema:instrument.schema:hasPart[].additionalType = '<XYZ>'
 ```
 
-When a row has this pattern in column S, the build script generates a `oneOf` branch on the TAPP's `schema:instrument.schema:hasPart.items` constraint that pins `schema:additionalType` to contain `'<XYZ>'`. If the row's data type is `Controlled list`, column E's pipe-separated values become an enum constraint on `schema:name` for that branch.
+When a row has this pattern in column H, the build script generates a `oneOf` branch on the TAPP's `schema:instrument.schema:hasPart.items` constraint that pins `schema:additionalType` to contain `'<XYZ>'`. If the row's data type is `Controlled list`, column E's pipe-separated values become an enum constraint on `schema:name` for that branch.
 
 For example (rows from the EMPA template):
 - `Electron Source` → `additionalType: 'ElectronSource'` with `schema:name` enum from `Field Emission (FEG) | LaB6/CeB6 | Tungsten (W) | Other | Unknown`.
@@ -180,7 +181,9 @@ Each vocabulary file declares conformance to the upstream CDIF `definedTermSet` 
 
 ## Publication columns (worked-example data) — your test suite
 
-Columns **H through Q** (P1–P10) carry actual values from real publications. Each column is one publication; the column header is something like `P3: Liu et al. 2016 (Tissint mineral chem., MAPS)`.
+Columns **K onward** (P0, P1, …) carry actual values from real publications. Each column is one publication; the column header is something like `P3: Liu et al. 2016 (Tissint mineral chem., MAPS)`. The current EPMA template has 17 pubs running K..AA — add more by extending right past AA.
+
+The pub-column label may carry a suffix to distinguish multiple subsets pulled from the same source paper (e.g. `P3sil` / `P3phos` for silicate vs. phosphate analyses in Liu et al. 2016, or `P10` / `P10plag` for whole-rock vs. plagioclase-only entries in Pang et al. 2016). The label is free-form; only the `^P\d` prefix is required for the parser to recognise the column.
 
 > **This is how a new TAPP profile gets tested.** Each filled-in publication column becomes a *paired test instance* that the validator runs against the generated schemas. The publication examples are the primary mechanism for catching schema bugs, missing constraints, and impl-notes typos before the BB ships. **Fill in at least 2–3 publication columns with real data** before considering the TAPP profile ready.
 
@@ -196,7 +199,7 @@ For each non-empty publication column the build pipeline produces two paired fil
 - **Empty cells skip the row.** A cell with no value contributes nothing — it doesn't produce an empty `additionalProperty` entry or a missing-required-field validation failure.
 - **Enum mismatches skip the property.** When a publication's value for an enum-constrained property doesn't exactly match an enum entry (the publications often use free text where an enum is expected), the example generator skips that property rather than emit invalid data. So if validation passes but you don't see a property in an example, look at the spreadsheet's enum vs. what the publication actually wrote.
 - **Numeric values can carry qualifiers.** Qualified strings like `"0 (focused)"` or `"1–2 μm focused; 5–10 μm defocused"` are accepted via the catalog's `schema:value: anyOf [number, string]` relaxation — fidelity to the source publication is preserved without loss to validation strictness for clean numeric data.
-- **You don't need all ten columns.** Use as many as you have well-documented data for; leave the rest blank. Two or three diverse publications is usually enough to exercise most of a TAPP's surface area.
+- **There's no fixed pub-column count.** Use as many as you have well-documented data for; leave the rest blank or trim them. Two or three diverse publications is usually enough to exercise most of a TAPP's surface area; the EPMA reference template ships with 17 to give the build pipeline a thorough workout.
 
 ### Picking publications for good coverage
 
@@ -262,8 +265,8 @@ For a brand-new technique TAPP (let's say XRD):
    - Rows for method parameters (with `parameter:` impl-notes tag, `readOnly` per case).
    - Rows for analyte columns (with `analyteColumn:` impl-notes tag).
    - Pipe-delimited enums in column E + `enum {…}` token in impl-notes for controlled lists.
-   - The instrument hasPart pattern in column S for sub-components (electron source, detectors, …).
-   - **Real publication data in at least 2–3 of P1…P10.** This is the test suite for the new TAPP — every filled column becomes a paired example that the validator checks against the generated schemas. Aim for variety in parameter values and enum picks so coverage is broad. See [Publication columns](#publication-columns-worked-example-data--your-test-suite) for how to choose pubs.
+   - The instrument hasPart pattern in column H for sub-components (electron source, detectors, …).
+   - **Real publication data in at least 2–3 pub columns** (col K onward). This is the test suite for the new TAPP — every filled column becomes a paired example that the validator checks against the generated schemas. Aim for variety in parameter values and enum picks so coverage is broad. See [Publication columns](#publication-columns-worked-example-data--your-test-suite) for how to choose pubs.
 3. **Run the TAPP build:** `python tools/build_TAPP_from_spreadsheet.py xrdTAPP docs/TAPP_XRD_filled.xlsx`.
    - Inspect the output: did all your parameters / analyteColumns / vocabs land in the right shared dirs? Any conflict errors with empaTAPP-originated entries?
 4. **Run the detail build:** `python tools/build_detail_BB.py xrdTAPP docs/TAPP_XRD_filled.xlsx`. Then edit the scaffolded `_sources/geochemProperties/detailXRD/schema.yaml` to fill in the technique-specific `ada:componentType` enum.
