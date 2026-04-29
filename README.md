@@ -93,14 +93,28 @@ Browse the building blocks at: https://usgin.github.io/geochemBuildingBlocks/
 The end-to-end pipeline for adding a new technique profile from a filled-in TAPP template spreadsheet. See [docs/TAPP_TEMPLATE_GUIDE.md](docs/TAPP_TEMPLATE_GUIDE.md) for what to put in the spreadsheet.
 
 ```
-python tools/build_TAPP_from_spreadsheet.py [TAPP_NAME]  [XLSX_PATH]   # 1. TAPP BB + catalogs
-python tools/build_detail_BB.py             [TAPP_NAME]  [XLSX_PATH]   # 2. detail BB + parameterValues
-python tools/build_profile_BB.py            [TAPP_NAME]                # 3. profile BB scaffold
-python tools/build_dataset_template.py      <tapp-instance.json>       # 4. xlsx data-entry template
+python tools/build_TAPP_from_spreadsheet.py [TAPP_NAME]  [XLSX_PATH] [--pub Pn]…  # 1. TAPP BB + catalogs
+python tools/build_detail_BB.py             [TAPP_NAME]  [XLSX_PATH] [--pub Pn]…  # 2. detail BB + parameterValues
+python tools/build_profile_BB.py            [TAPP_NAME]                            # 3. profile BB scaffold
+python tools/build_dataset_template.py      <tapp-instance.json>                   # 4. xlsx data-entry template
                                             [<out.xlsx>]
 ```
 
 All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-compat. The shared library at `tools/_tapp_lib.py` does the heavy lifting (parser, catalog emit helpers, scaffolders); the four drivers are thin wrappers.
+
+`--pub <code>` (repeatable) on scripts 1 and 2 limits which publication-derived examples get regenerated — useful when migrating pub columns one at a time.
+
+### Publication migration helper
+
+```
+python tools/interpret_pub_analytes.py     # heuristic analyte-axis inference
+```
+
+Reads publication columns whose analyte axis isn't explicitly populated and infers it from rows 48 / 59 / 64 (Halogen Correction / Primary Calibration Standard / Typical Detection Limit). Writes:
+- `docs/TAPP_EPMA_filled-interp.xlsx` — side workbook with each `<pub>-interp` column inserted right after its source pub for side-by-side review.
+- `build/interp-review/example<empaTAPP|detailEMPA>-<pub>-interp.json` — paired review JSON instances built from the inferred data.
+
+Review, merge interp values back into the source xlsx, then run the regular pipeline to produce production examples.
 
 ### Schema generation and resolution
 

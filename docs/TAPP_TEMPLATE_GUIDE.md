@@ -274,6 +274,40 @@ For a brand-new technique TAPP (let's say XRD):
 
 ---
 
+## Migrating an existing publication-style spreadsheet
+
+If you're starting from an xlsx where the publication columns hold free-text descriptions instead of clean pipe-delimited data, the inference helper saves a lot of hand work:
+
+```bash
+python tools/interpret_pub_analytes.py
+```
+
+It scans every pub column and tries to recover the analyte axis from:
+
+- **Row 32 (Target Element)** — used directly when explicitly populated (pipe- or comma-delim).
+- **Row 59 (Primary Calibration Standard Name)** — entries like `"Anorthite (Si Kα, Al Kα, Ca Kα); Albite (Na Kα); …"` are parsed for `(element, x-ray line, standard)` triples.
+- **Row 64 (Typical Detection Limit)** — `"Compound: value"` and `"<value> for X, Y, Z"` shapes are both recognised. Oxide formulas (`SiO2`, `Cr2O3`, `FeO`, `P2O5`, …) have the element extracted (the non-O part).
+- **Row 48 (Halogen Correction on Oxygen)** — mentions of `F`, `Cl`, `OH`, `CO2`, `S`, `H2O` get treated as additional analytes.
+
+Outputs:
+
+- `docs/TAPP_EPMA_filled-interp.xlsx` — a side workbook where each pub column is followed immediately by a `<pub>-interp` column carrying:
+  - Row 32: inferred analyte list (pipe-delim).
+  - Row 40: x-ray line per analyte.
+  - Row 59: calibration standard per analyte.
+  - Row 64: detection limit per analyte.
+  - All other rows: verbatim copy of the source pub.
+- `build/interp-review/exampleempaTAPP-<pub>-interp.json` and `exampledetailEMPA-<pub>-interp.json` — paired JSON instances produced by feeding the interp column data through the regular `example_for_pub` builder. Easier to spot-check the inferred analyteTemplate / defaultAnalytes than to read the spreadsheet rows directly.
+
+Workflow:
+
+1. Open the side xlsx in Excel — each `<pub>-interp` column sits next to its source pub for side-by-side review.
+2. Open the corresponding JSON files to see how the inference produces the analyteTemplate.
+3. When satisfied, copy the `<pub>-interp` column's values into the source pub column in `TAPP_EPMA_filled.xlsx` (replacing the original free-text rows).
+4. Re-run the regular pipeline (`build_TAPP_from_spreadsheet.py` / `build_detail_BB.py`) to produce production examples.
+
+Pubs whose calibration-standard text is too generic (e.g. "natural and synthetic materials") to extract an element list will produce an empty interp column — fill in their Target Element row manually before re-running.
+
 ## Reference
 
 - `tools/_tapp_lib.py` — the shared library; everything here is parameterized on `TAPP_NAME` set by `configure(tapp_name, xlsx)`.
