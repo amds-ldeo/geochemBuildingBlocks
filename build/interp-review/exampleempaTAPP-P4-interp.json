@@ -1,0 +1,527 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:empaTAPP-P4-interp",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "EPMA-WDS major/minor element minerals",
+  "schema:description": "empaTAPP example derived from P4 (interp).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "EPMA-WDS",
+    "schema:name": "Electron Microprobe Analysis - WDS"
+  },
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": "Chi Ma et al."
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Caltech GPS Division Analytical Facility"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Liebermannite, lingunite, maskelynite (K-feldspar, plagioclase high-pressure polymorphs)"
+    }
+  ],
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product",
+      "https://w3id.org/nfdi4ing/metadata4ing#Instrument"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument",
+      "ada:EPMAInstrument"
+    ],
+    "schema:name": "JEOL JXA-8200",
+    "schema:manufacturer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "JEOL"
+    },
+    "schema:model": {
+      "@type": [
+        "schema:ProductModel"
+      ],
+      "schema:name": "JXA-8200"
+    }
+  },
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "ada:toolRole": "acquisition"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "CITZAF correction procedure (Armstrong, 1995)",
+      "ada:toolRole": "reduction"
+    }
+  ],
+  "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
+  "ada:beamDiameterDefault": "0 (focused)",
+  "ada:beamCurrentDefault": "5",
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/epmaTechnique",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "EPMA Technique per Element",
+        "schema:valueName": "epmaTechnique",
+        "schema:description": "Whether this element was measured by WDS or EDS.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/epmaTechnique"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/spectrometerNumber",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "WDS Spectrometer Channel",
+        "schema:valueName": "spectrometerNumber",
+        "schema:description": "WDS spectrometer number used for this element.",
+        "ada:dataType": "integer",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/analysisOrder",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Sequence",
+        "schema:valueName": "analysisOrder",
+        "schema:description": "Order of analysis on spectormeter.",
+        "ada:dataType": "integer",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/monochromatorCrystal",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Diffracting Crystal",
+        "schema:valueName": "monochromatorCrystal",
+        "schema:description": "Analysing crystal (monochromator) used in the WDS spectrometer for this element.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/monochromatorCrystal"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/wdsDetectorType",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Proportional Counter / Detector",
+        "schema:valueName": "wdsDetectorType",
+        "schema:description": "Type of detector used in the WDS spectrometer for this element.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/wdsDetectorType"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "WDS PHA Setting",
+        "schema:valueName": "pulseHeightAnalyzeSetting",
+        "schema:description": "Pulse height analyzer setting used for the WDS detector.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/xrayEmissionLine",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "X-ray Line",
+        "schema:valueName": "xrayEmissionLine",
+        "schema:description": "The X-ray emission line measured for this element.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Default Peak Counting Time",
+        "schema:valueName": "peakCountingTime",
+        "schema:description": "Time spent counting X-ray intensity at the peak position in seconds.",
+        "ada:dataType": "number",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Default Background Counting Time",
+        "schema:valueName": "backgroundCountingTime",
+        "schema:description": "Total time spent counting at background position(s) in seconds.",
+        "ada:dataType": "number",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingPosition",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Typical Background Position(s)",
+        "schema:valueName": "backgroundCountingPosition",
+        "schema:description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Blank Correction",
+        "schema:valueName": "blankCorrection",
+        "schema:description": "Method and reference materials used to determine and apply blank corrections.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/normalization-standardsCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Normalization / Standards-Based Correction",
+        "schema:valueName": "normalization-standardsCorrection",
+        "schema:description": "Post-acquisition normalization applied using secondary reference materials.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/edsDeadTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "EDS Dead Time",
+        "schema:valueName": "edsDeadTime",
+        "schema:description": "Percent dead time reported by the EDS spectrometer",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/backgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Background Correction Method",
+        "schema:valueName": "backgroundCorrectionMethod",
+        "schema:description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Time-Dependent Intensity Correction",
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:description": "Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/elementEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Element Estimation Method",
+        "schema:valueName": "elementEstimationMethod",
+        "schema:description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "primaryCalibrationStandard",
+        "schema:description": "Primary reference material used for element standardization (calibration).",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Secondary Reference Materials",
+        "schema:valueName": "secondaryReferenceMaterial",
+        "schema:description": "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/interferenceCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Interference Corrections Applied",
+        "schema:valueName": "interferenceCorrection",
+        "schema:description": "Flag indicating whether a spectral interference correction was applied for this element.",
+        "ada:dataType": "boolean",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Interfering Elements",
+        "schema:valueName": "interferingElements",
+        "schema:description": "List of elements whose X-ray lines overlap with the measured line for this element.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Interference Correction Standard",
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:description": "Reference material used to quantify and calibrate the interference correction.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/typicalDetectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Typical Detection Limit",
+        "schema:valueName": "typicalDetectionLimit",
+        "schema:description": "Method detection limit at 99% confidence (3σ) for each measured element.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Detection Limit Method",
+        "schema:valueName": "detectionLimitMethod",
+        "schema:description": "Method used to compute detection limits.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/typicalAnalyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Typical Analytical Precision",
+        "schema:valueName": "typicalAnalyticalPrecision",
+        "schema:description": "Reproducibility of repeated measurements on the same or equivalent standard, expressed as 1σ relative standard deviation (%).",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/typicalAnalyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Typical Analytical Accuracy",
+        "schema:valueName": "typicalAnalyticalAccuracy",
+        "schema:description": "Offset between measured and accepted reference values for secondary standards, expressed as % relative bias.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/typicalCountingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Typical Counting Statistics Error",
+        "schema:valueName": "typicalCountingStatisticsError",
+        "schema:description": "1σ uncertainty propagated from counting statistics on peak and background intensities.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "Si",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Asbestos microcline",
+        "typicalDetectionLimit": "0.05 wt%"
+      },
+      {
+        "analyte": "Al",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Asbestos microcline",
+        "typicalDetectionLimit": "0.06 wt%"
+      },
+      {
+        "analyte": "K",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Asbestos microcline",
+        "typicalDetectionLimit": "0.02 wt%"
+      },
+      {
+        "analyte": "Ca",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Synthetic anorthite",
+        "typicalDetectionLimit": "0.02 wt%"
+      },
+      {
+        "analyte": "Na",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Amelia albite",
+        "typicalDetectionLimit": "0.03 wt%"
+      },
+      {
+        "analyte": "Fe",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Synthetic fayalite",
+        "typicalDetectionLimit": "0.06 wt%"
+      },
+      {
+        "analyte": "Mg",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Synthetic forsterite",
+        "typicalDetectionLimit": "0.02 wt%"
+      },
+      {
+        "analyte": "Ti",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Synthetic TiO2",
+        "typicalDetectionLimit": "0.04 wt%"
+      },
+      {
+        "analyte": "Cr",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Synthetic Cr2O3",
+        "typicalDetectionLimit": "0.05 wt%"
+      },
+      {
+        "analyte": "Mn",
+        "epmaTechnique": "√",
+        "xrayEmissionLine": "Kα",
+        "peakCountingTime": 20,
+        "backgroundCountingTime": 10,
+        "primaryCalibrationStandard": "Synthetic Mn-olivine",
+        "typicalDetectionLimit": "0.06 wt%"
+      }
+    ]
+  }
+}
