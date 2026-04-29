@@ -1228,7 +1228,14 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                     default_rows[i][col_name] = v2
 
         # Build the analyteColumns array: identifier-column first, then catalog
-        # canonicals for each analyteColumn name actually used by this example.
+        # canonicals for ONLY the analyteColumns that have at least one value
+        # populated across the defaultAnalytes rows. Columns with no values in
+        # this example are omitted to keep the analyteTemplate focused on the
+        # protocol's actual reporting axis for this dataset.
+        used_col_names: set[str] = set()
+        for r in default_rows:
+            used_col_names.update(k for k in r.keys() if k != "analyte")
+
         catalog_dir = ANALYTE_COLUMNS_DIR
         analyte_cols = [OrderedDict([
             ("@type", ["schema:PropertyValueSpecification"]),
@@ -1244,10 +1251,13 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         seen: set[str] = set()
         for row in rows:
             for tr in row["parsed"]["tag_records"]:
-                if tr["kind"] != "analytecolumn" or tr["name"] in seen:
+                name = tr["name"]
+                if tr["kind"] != "analytecolumn" or name in seen:
                     continue
-                seen.add(tr["name"])
-                cf = catalog_dir / f'{tr["name"]}.json'
+                seen.add(name)
+                if name not in used_col_names:
+                    continue  # skip columns with no value in any defaultAnalytes row
+                cf = catalog_dir / f'{name}.json'
                 if cf.exists():
                     cd = json.loads(cf.read_text(encoding="utf-8"))
                     ex = (cd.get("examples") or [{}])[0]
