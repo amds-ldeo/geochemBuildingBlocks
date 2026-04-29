@@ -67,11 +67,11 @@ VOCAB_DIR = TECH_PROTOCOLS / "vocab"
 # anything else.
 #   A-E (0..4):  item / desc / basic / dtype / example
 #   F   (5):     "Last update" header (no data)
-#   G-J (6..9):  level / cdif_path / matchComment / impl
+#   G-J (6..9):  level / schema_path / matchComment / impl
 #   K-AA (10..26): P0..P10plag (17 pubs; can extend right indefinitely)
 COL = {
     "item": 0, "desc": 1, "basic": 2, "dtype": 3, "example": 4,
-    "level": 6, "cdif_path": 7, "matchComment": 8, "impl": 9,
+    "level": 6, "schema_path": 7, "matchComment": 8, "impl": 9,
     "p_start": 10,  # column K = index 10 (P0 — synthetic comprehensive example)
     "p_end": 26,    # column AA = index 26 (inclusive; P10plag)
 }
@@ -182,7 +182,7 @@ def read_rows() -> list[dict]:
             "desc": str(r[COL["desc"]]).strip() if r[COL["desc"]] is not None else None,
             "dtype_col": str(r[COL["dtype"]]).strip() if r[COL["dtype"]] is not None else None,
             "example": str(r[COL["example"]]).strip() if r[COL["example"]] is not None else None,
-            "cdif_path": str(r[COL["cdif_path"]]).strip() if r[COL["cdif_path"]] is not None else None,
+            "schema_path": str(r[COL["schema_path"]]).strip() if r[COL["schema_path"]] is not None else None,
             "matchComment": str(r[COL["matchComment"]]).strip() if r[COL["matchComment"]] is not None else None,
             "impl": str(r[COL["impl"]]).strip() if r[COL["impl"]] is not None else None,
             "pubs": [r[i] for i in range(COL["p_start"], COL["p_end"] + 1)],
@@ -631,7 +631,7 @@ def build_haspart_constraint(rows: list[dict]) -> dict | None:
     """Build the empaTAPP overlay's schema:instrument.schema:hasPart constraint.
 
     Strategy:
-    - For each spreadsheet row whose CDIF-geochem schema path matches
+    - For each spreadsheet row whose schema path matches
       "schema:instrument.schema:hasPart[].additionalType = '<X>'" emit an
       explicit oneOf branch pinning schema:additionalType to contain <X>
       (helps UI/forms tooling enumerate the known sub-component types).
@@ -645,8 +645,8 @@ def build_haspart_constraint(rows: list[dict]) -> dict | None:
     """
     rows_meta = []
     for row in rows:
-        cdif = row.get("cdif_path") or ""
-        m = HASPART_RE.search(cdif)
+        schema_path = row.get("schema_path") or ""
+        m = HASPART_RE.search(schema_path)
         if not m:
             continue
         addtype = m.group(1)
@@ -1436,7 +1436,7 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
                 # Skip non-property markers: "analyteTemplate" references the existing
                 # ada:analyteTemplate structure inherited from tappDefinition (not a
                 # new top-level property); "description" maps to the existing
-                # schema:description (the cdif_path confirms this for the relevant row).
+                # schema:description (the schema_path confirms this for the relevant row).
                 if name in ("analyteTemplate", "description"):
                     continue
                 # Build schema.yaml property block

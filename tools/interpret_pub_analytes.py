@@ -235,14 +235,14 @@ def generate_interp_examples(layout_xlsx: Path, interp_dst_col_by_label: dict):
     ws = wb["TAPP"]
 
     # Locate structural columns by header (they shifted right after layout A)
-    cdif_col = mc_col = impl_col = None
+    schema_path_col = mc_col = impl_col = None
     for c in range(1, ws.max_column + 1):
         h = ws.cell(row=1, column=c).value
         if not isinstance(h, str):
             continue
         h = h.strip()
-        if h == "CDIF-geochem schema path":
-            cdif_col = c
+        if h == "schema path":
+            schema_path_col = c
         elif h == "matchComment":
             mc_col = c
         elif h == "implementation notes":
@@ -267,8 +267,8 @@ def generate_interp_examples(layout_xlsx: Path, interp_dst_col_by_label: dict):
                              if ws.cell(row=r, column=4).value else None,
                 "example": str(ws.cell(row=r, column=5).value).strip()
                            if ws.cell(row=r, column=5).value else None,
-                "cdif_path": (str(ws.cell(row=r, column=cdif_col).value).strip()
-                              if cdif_col and ws.cell(row=r, column=cdif_col).value else None),
+                "schema_path": (str(ws.cell(row=r, column=schema_path_col).value).strip()
+                                if schema_path_col and ws.cell(row=r, column=schema_path_col).value else None),
                 "matchComment": (str(ws.cell(row=r, column=mc_col).value).strip()
                                  if mc_col and ws.cell(row=r, column=mc_col).value else None),
                 "impl": str(impl).strip() if impl is not None else None,

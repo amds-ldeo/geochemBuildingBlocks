@@ -1,8 +1,8 @@
 # TAPP Template Workbook — User Guide
 
-This guide explains how to fill in a TAPP template spreadsheet (xlsx) so the build pipeline can produce a complete technique-specific building-block stack: a TAPP definition, a per-dataset detail block, a dataset profile, and a dataset-entry xlsx template.
+This guide explains how to fill in a **Technique-Aligned Protocol Profile (TAPP)** template spreadsheet (a Microsoft Excel.xlsx file) that is used to produce a machine-readable, technique-specific set of JSON files that document the TAPP, provide a per-dataset detail block to insert in metadata records, and a dataset-entry xlsx template.
 
-The canonical reference is **`docs/TAPP_EPMA_filled.xlsx`** — clone it as the starting point for any new technique (e.g. `docs/TAPP_XRD_filled.xlsx`, `docs/TAPP_LAICPMS_filled.xlsx`).
+The canonical reference is **`docs/TAPP_template.xlsx`** — clone it as the starting point for any new technique (e.g. `docs/TAPP_XRD.xlsx`, `docs/TAPP_LAICPMS.xlsx`).
 
 ---
 
@@ -10,23 +10,31 @@ The canonical reference is **`docs/TAPP_EPMA_filled.xlsx`** — clone it as the 
 
 1. [What is a TAPP?](#what-is-a-tapp)
 2. [Workbook structure](#workbook-structure)
-3. [Filling in the TAPP worksheet](#filling-in-the-tapp-worksheet)
-4. [The implementation-notes column (the heart of the spec)](#the-implementation-notes-column-the-heart-of-the-spec)
-5. [Where rows route to](#where-rows-route-to)
-6. [Special CDIF-geochem schema path patterns](#special-cdif-geochem-schema-path-patterns)
-7. [Vocabularies and term sets](#vocabularies-and-term-sets)
-8. [Publication columns (worked-example data)](#publication-columns-worked-example-data)
-9. [Running the build](#running-the-build)
-10. [Sharing catalog entries with existing TAPPs](#sharing-catalog-entries-with-existing-tapps)
-11. [End-to-end workflow checklist](#end-to-end-workflow-checklist)
+3. [Filling in the TAPP worksheet: Science content](#filling-in-the-tapp-worksheet-science-content)
+4. [Filling in the TAPP worksheet: Protocol examples](#filling-in-the-tapp-worksheet-protocol-examples)
+5. [Filling in the TAPP worksheet: JSON implementation](#filling-in-the-tapp-worksheet-json-implementation)
+6. [The implementation-notes column (the heart of the spec)](#the-implementation-notes-column-the-heart-of-the-spec)
+7. [Where rows route to](#where-rows-route-to)
+8. [Special schema path patterns](#special-schema-path-patterns)
+9. [Vocabularies and term sets](#vocabularies-and-term-sets)
+10. [Publication columns (protocol example data)](#publication-columns-protocol-example-data)
+11. [Running the build](#running-the-build)
+12. [Sharing catalog entries with existing TAPPs](#sharing-catalog-entries-with-existing-tapps)
+13. [End-to-end workflow checklist](#end-to-end-workflow-checklist)
+14. [Migrating an existing publication-style spreadsheet](#migrating-an-existing-publication-style-spreadsheet)
+15. [Reference](#reference)
 
 ---
 
 ## What is a TAPP?
 
-A **Technique-Aligned Protocol Profile (TAPP)** is a registered specification of an analytical method — what kind of measurement is performed, what instruments / parameters / sample preparation steps are involved, and what variables are reported. The schema is `_sources/techniqueProtocols/tappDefinition/schema.yaml` (JSON-LD class `ada:TAPPDefinition`). A concrete TAPP profile (like `empaTAPP` for Electron Microprobe Analysis) extends `tappDefinition` via JSON Schema `allOf`, adding technique-specific top-level properties and constraining the `ada:methodParameters` and `ada:analyteTemplate.ada:analyteColumns` arrays to a curated catalog.
+A **Technique-Aligned Protocol Profile (TAPP)** is a registered specification of an analysis protocol. Protocol as used here is an implementation of a technique, which we define as a set of chemical or physical principles utilised on an apparatus, instrument, or collection of instruments which can be applied to a sample, material or other medium to yield qualitative or quantitative data. A protocol is a set of stringent guidelines that specify a procedure that an analyst must follow. Protocols describe analysis procedures followed in a particular laboratory for specific kinds of analyses. The protocol definition specifies the kind of measurement performed, what instruments are used, parameter values, sample preparation steps, and the variables that are reported. The profile documentation includes information identifying the protocol, specifies the kind of samples analyzed with the protocol, instruments and software used, details on measurement parameters, description of data processing, and properties for reporting data quality.  
+
+Many of the properties have fixed values that are characteristic of the protocol, these are considered 'readOnly' in the protocol defintion. Some properties are given a standard default value that might vary within some range of values for specific executions of the protocol. 
 
 The template workbook is the **single source of truth** for what goes in the TAPP profile, the paired per-dataset detail block, and the corresponding dataset profile. Instead of authoring four building blocks by hand, you fill in one spreadsheet and the four `tools/build_*.py` scripts produce the rest.
+
+Documentation of a the TAPP framework is implemented in a base JSON schema, `..tappDefinition/schema.yaml` (JSON-LD class `ada:TAPPDefinition`). A TAPP profile for a group of related protocols, e.g. for Electron Microprobe Analysis, extends the base `tappDefinition`, adding technique-specific top-level properties and constraining the paramaters and expected analytes.
 
 ---
 
@@ -34,30 +42,38 @@ The template workbook is the **single source of truth** for what goes in the TAP
 
 The active worksheet is named **`TAPP`**. It uses fixed columns that the parser depends on — don't rename headers, reorder, or insert/remove columns from the structural region (A–J). Publication columns (K onward) are flexible: add as many as you have well-documented sources for, no upper bound.
 
-```
-A   Metadata Item                      ← human label (e.g. "Default Accelerating Voltage")
-B   Description / Purpose              ← human description (used as schema:description)
-C   Basic / Advanced                   ← informational, not consumed by the parser
-D   Data Type                          ← e.g. "Numeric (kV)", "Text (free)", "Controlled list"
-E   Example / Allowed Content          ← pipe-separated enum values for "Controlled list" rows
-F   (last update / blank)              ← informational
-G   Level of Completeness              ← informational
-H   CDIF-geochem schema path           ← target path in the building-block schema
-I   matchComment                       ← informational
-J   implementation notes               ← THE TAGS — see the dedicated section below
-K   P0                                 ← publication 0 — actual values from a real paper (or a synthetic comprehensive example)
-L   P1                                 ← publication 1 …
-…   …                                  … as many as you have data for
-AA  P10plag                            ← (current EPMA template extends to col AA — 17 pubs)
-```
+| Column | Name | Description |
+|--------|------|-------------|
+| A | Metadata Item | Human-readable label (e.g. "Default Accelerating Voltage") |
+| B | Description / Purpose | Human description; used as `schema:description` |
+| C | Basic / Advanced | Informational; not consumed by the parser |
+| D | Data Type | e.g. "Numeric (kV)", "Text (free)", "Controlled list" |
+| E | Example / Allowed Content | Pipe-separated enum values for "Controlled list" rows |
+| F | Last Update | Informational |
+| G | Level of Completeness | Informational; statistics for the frequency that values for a property are reported in the literature |
+| H | Schema Path | Target path in the building-block schema |
+| I | Match Comment | Informational |
+| J | Implementation Notes | The tags (parameter, property, analyteColumn), dataTypes, other details for implementation — see dedicated section |
+| K | P0 | Publication 0 — actual values for the protocol reported in a publication (or a synthetic test example) |
+| L | P1 | Publication 1 |
+| … | … | … as many columns as there are example protocol descriptions |
+
 
 > **Layout note (2026-04-29).** Earlier revisions of this template kept the structural columns (Level / CDIF path / matchComment / impl notes) in cols X–AA, after the pub block. They were moved to G–J so the pub block can grow rightward without disturbing anything else. If you have an older TAPP workbook in the X–AA layout, run `python tools/_reorder_tapp_columns.py <your.xlsx>` once to migrate it.
 
 ---
 
-## Filling in the TAPP worksheet
+## Filling in the TAPP worksheet: Science content
 
-Each row describes one fact or aspect of the protocol that needs to be specified in the implementation. The 'Metadata Item' is a user-friendly label for this protocol property, the 'Description/Purpose' provides an explanation of what it documents. The JSON  implementation of this protocol property is specified in the 'CDIF-geochem schema path' and 'implementation notes' columns. The implemenation notes have tags for protocol properties that are treated differently:
+Columns A-E in the template contain information defining a protocol property from the science perspective, and should be completed and reviewed by practitioners using the protocol. Each row describes one fact or aspect of the protocol that needs to be specified in the implementation. The 'Metadata Item' is a user-friendly label for this protocol property, the 'Description/Purpose' provides an explanation of what it documents. 'Basic/Advanced' provided guidance on what properties should be considered mandatory in the implementation. Data Type provides guidance on the data types assigned to properties in the implementation. 'Example/Allowed Content' provides example content for text fields. For properties that should be populated from a controlled vocabulary, provide a list of proposed allowed values, using the pipe ('|') character as a delimiter.  The 'Last Update' is only populated in the first row, and should be update whenever the spreadsheet is edited; it provides a way to keep track of the latest version if multiple copies exist. The 'Level of Completeness' is a calculated field, based on the protocol examples column K and columns left of K, used to indicate the frequency that a property is assigned a value in publications. This is useful for guidance in the JSON implementation.
+
+## Filling in the TAPP worksheet: Protocol examples
+
+Part of testing the protocol design is collecting examples of research reported in data repositories or publications that document usage of the protocol. The properties reported in the publication should be filled out in columns K onward. More examples are better. The JSON implementation will be tested using these examples, with python code that generates JSON instance documents from the cells in the example column. In order for this code to work, the syntax for some of the cells must conform to guidance provided later in this document (see particularly sections 6-8).
+
+## Filling in the TAPP worksheet: JSON implementation
+
+The JSON  implementation of protocol properties is specified in the 'schema path' and 'implementation notes' columns. The implemenation notes have tags for protocol properties that are treated differently:
 
 - A **property** of the TAPP definition (e.g. a default value baked into the protocol).
 - A **parameter** (a knob — either a method-level constant or a per-dataset setting).
@@ -112,7 +128,7 @@ Each tag may carry these modifiers in the lines that follow it (until the next t
 | A | Default Beam Diameter |
 | B | Diameter of the focused or defocused electron beam in micrometers. |
 | D | Numeric (μm) |
-| H (cdif-path) | `$MethodDefinition.ada:beamDiameterDefault` |
+| H (schema path) | `$MethodDefinition.ada:beamDiameterDefault` |
 | J (impl notes) | ```property: beamDiameterDefault```<br>```  readOnly: true```<br>```  dataType: schema:PropertyValue```<br>```parameter: beamDiameter```<br>```  dataType: schema:PropertyValue```<br>```  readOnly: false``` |
 | L (P1) | `0 (focused)` |
 
@@ -143,9 +159,9 @@ The build pipeline routes each row's outputs based on the tag kind and `readOnly
 
 ---
 
-## Special CDIF-geochem schema path patterns
+## Special schema path patterns
 
-Most rows put text in column **H** (`CDIF-geochem schema path`) for documentation. One pattern is **machine-read** by the build pipeline:
+Most rows put text in column **H** (`schema path`) for documentation. One pattern is **machine-read** by the build pipeline:
 
 ```
 $MethodDefinition.schema:instrument.schema:hasPart[].additionalType = '<XYZ>'
@@ -160,7 +176,7 @@ For example (rows from the EMPA template):
 
 The generator also emits a catch-all branch (`not: anyOf [contains: <known>...]`) so authors can attach instrument sub-components beyond the listed types, while still enforcing the name enum on known ones.
 
-Other CDIF-geochem schema path values are informational — they document where the row's data should appear in the generated structure but don't drive code paths.
+Other schema path values are informational — they document where the row's data should appear in the generated structure but don't drive code paths.
 
 ---
 
@@ -177,7 +193,7 @@ Each vocabulary file declares conformance to the upstream CDIF `definedTermSet` 
 
 ---
 
-## Publication columns (worked-example data) — your test suite
+## Publication columns (protocol example data) 
 
 Columns **K onward** (P0, P1, …) carry actual values from real publications. Each column is one publication; the column header is something like `P3: Liu et al. 2016 (Tissint mineral chem., MAPS)`. The current EPMA template has 17 pubs running K..AA — add more by extending right past AA.
 
@@ -257,17 +273,17 @@ So if your new `xrdTAPP` defines `peakCountingTime` identically to the empaTAPP 
 
 For a brand-new technique TAPP (let's say XRD):
 
-1. **Clone the template:** `cp docs/TAPP_EPMA_filled.xlsx docs/TAPP_XRD_filled.xlsx`.
+1. **Clone the template:** `cp docs/TAPP_template.xlsx docs/TAPP_XRD.xlsx`.
 2. **Fill in the TAPP worksheet:**
    - Rows for top-level properties (with `property:` impl-notes tag).
    - Rows for method parameters (with `parameter:` impl-notes tag, `readOnly` per case).
    - Rows for analyte columns (with `analyteColumn:` impl-notes tag).
    - Pipe-delimited enums in column E + `enum {…}` token in impl-notes for controlled lists.
    - The instrument hasPart pattern in column H for sub-components (electron source, detectors, …).
-   - **Real publication data in at least 2–3 pub columns** (col K onward). This is the test suite for the new TAPP — every filled column becomes a paired example that the validator checks against the generated schemas. Aim for variety in parameter values and enum picks so coverage is broad. See [Publication columns](#publication-columns-worked-example-data--your-test-suite) for how to choose pubs.
-3. **Run the TAPP build:** `python tools/build_TAPP_from_spreadsheet.py xrdTAPP docs/TAPP_XRD_filled.xlsx`.
+   - **Real publication data in at least 2–3 pub columns** (col K onward). This is the test suite for the new TAPP — every filled column becomes a paired example that the validator checks against the generated schemas. Aim for variety in parameter values and enum picks so coverage is broad. See [Publication columns](#publication-columns-protocol-example-data) for how to choose pubs.
+3. **Run the TAPP build:** `python tools/build_TAPP_from_spreadsheet.py xrdTAPP docs/TAPP_XRD.xlsx`.
    - Inspect the output: did all your parameters / analyteColumns / vocabs land in the right shared dirs? Any conflict errors with empaTAPP-originated entries?
-4. **Run the detail build:** `python tools/build_detail_BB.py xrdTAPP docs/TAPP_XRD_filled.xlsx`. Then edit the scaffolded `_sources/geochemProperties/detailXRD/schema.yaml` to fill in the technique-specific `ada:componentType` enum.
+4. **Run the detail build:** `python tools/build_detail_BB.py xrdTAPP docs/TAPP_XRD.xlsx`. Then edit the scaffolded `_sources/geochemProperties/detailXRD/schema.yaml` to fill in the technique-specific `ada:componentType` enum.
 5. **Run the profile scaffold:** `python tools/build_profile_BB.py xrdTAPP`. Edit `_sources/profiles/geochemProfiles/xrdProfile/schema.yaml` if you want extra profile-level constraints.
 6. **Validate:** `python tools/resolve_schema.py --all && python tools/validate_examples.py`.
 7. **Generate a dataset template** from one of the example TAPP instances: `python tools/build_dataset_template.py _sources/techniqueProtocols/xrdTAPP/exampleXRDTAPP-P1.json`.
