@@ -107,14 +107,17 @@ All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-c
 ### Publication migration helper
 
 ```
-python tools/interpret_pub_analytes.py     # heuristic analyte-axis inference
+python tools/interpret_pub_analytes.py            # preview only (review files)
+python tools/interpret_pub_analytes.py --apply    # also rewrite source xlsx
 ```
 
-Reads publication columns whose analyte axis isn't explicitly populated and infers it from rows 48 / 59 / 64 (Halogen Correction / Primary Calibration Standard / Typical Detection Limit). Writes:
+Reads publication columns whose analyte axis isn't explicitly populated and infers it from rows 48 / 59 / 64 (Halogen Correction / Primary Calibration Standard / Typical Detection Limit). Default-mode outputs:
 - `docs/TAPP_EPMA_filled-interp.xlsx` — side workbook with each `<pub>-interp` column inserted right after its source pub for side-by-side review.
 - `build/interp-review/example<empaTAPP|detailEMPA>-<pub>-interp.json` — paired review JSON instances built from the inferred data.
 
-Review, merge interp values back into the source xlsx, then run the regular pipeline to produce production examples.
+With `--apply`, additionally rewrites rows 32 / 40 / 59 / 64 of each inferred pub column in `docs/TAPP_EPMA_filled.xlsx` to the pipe-delim convention. After migration, the regular pipeline (`build_TAPP_from_spreadsheet.py` etc.) reproduces the same rich examples directly from the source — no interp loop needed.
+
+Detection-limit values keep their full text per element (e.g. `"SiO2: 0.02 wt%"`, `"<0.03 wt% for TiO2"`) so context isn't lost in the migration.
 
 ### Schema generation and resolution
 
