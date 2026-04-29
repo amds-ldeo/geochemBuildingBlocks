@@ -33,6 +33,7 @@ the inferred analyte axis and per-analyte mappings before merging the
 interp column data back into the source spreadsheet.
 """
 from __future__ import annotations
+import argparse
 import json
 import re
 import sys
@@ -103,6 +104,11 @@ def parse_calibration(text: str):
 
 
 def parse_detection_limits(text: str):
+    """Returns [(element, full_segment), ...] where full_segment is the original
+    text fragment that scopes the limit to that element — preserving context like
+    "SiO2: 0.02 wt%" or "<0.03 wt% for TiO2" rather than reducing to a bare value.
+    Pattern A "Compound: value" emits "<Compound>: <value>". Pattern B
+    "<value> for X, Y, Z" fabricates "<value> for <Compound>" per element."""
     if not text:
         return []
     out, seen = [], set()
@@ -118,7 +124,7 @@ def parse_detection_limits(text: str):
         if element in seen:
             continue
         seen.add(element)
-        out.append((element, value))
+        out.append((element, f"{compound}: {value}"))
     for m in LIMIT_FOR_RE.finditer(text):
         value = m.group(1).strip(" ;,")
         for piece in re.split(r"[,;]", m.group(2)):
@@ -126,14 +132,16 @@ def parse_detection_limits(text: str):
             ox = OXIDE_RE.match(piece)
             if ox and ox.group(1) in KNOWN_ELEMENTS:
                 element = ox.group(1)
+                compound = piece
             elif piece in KNOWN_ELEMENTS:
                 element = piece
+                compound = piece
             else:
                 continue
             if element in seen:
                 continue
             seen.add(element)
-            out.append((element, value))
+            out.append((element, f"{value} for {compound}"))
     return out
 
 
@@ -299,7 +307,45 @@ def generate_interp_examples(layout_xlsx: Path, interp_dst_col_by_label: dict):
 
 # ---------- main ----------
 
+def apply_to_source(src_path: Path, pub_cols, interp_data, label_to_row):
+    """Write the inferred pipe-delim values back into the source xlsx at
+    rows 32/40/59/64 of each pub column that has interp data. The original
+    publication-style free text is overwritten — git history preserves it.
+    Only pubs with non-empty inferred analytes are touched; pubs that
+    produced empty interp data are left untouched."""
+    try:
+        wb = openpyxl.load_workbook(src_path)
+    except PermissionError:
+        sys.exit(f"\n[--apply] {src_path} is locked by Excel — close it and re-run.")
+    ws = wb["TAPP"]
+
+    R_TARGET = label_to_row.get("Target Element")
+    R_XRAY = label_to_row.get("X-ray Line")
+    R_CALIB = label_to_row.get("Primary Calibration Standard Name")
+    R_DETLIM = label_to_row.get("Typical Detection Limit")
+
+    touched = 0
+    for src_col, label, _ in pub_cols:
+        per_pub = interp_data.get(label) or {}
+        if not per_pub:
+            continue
+        for r, val in per_pub.items():
+            ws.cell(row=r, column=src_col, value=val)
+        touched += 1
+    wb.save(src_path)
+    print(f"\n[--apply] migrated {touched} pub columns in {src_path.relative_to(REPO)} "
+          f"(rows 32/40/59/64 overwritten with pipe-delim values where inferred)")
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__.split("\n\n", 1)[0])
+    parser.add_argument("--apply", action="store_true",
+                        help="In addition to writing the side xlsx + JSON review files, "
+                             "overwrite rows 32 / 40 / 59 / 64 of the source spreadsheet "
+                             "(docs/TAPP_EPMA_filled.xlsx) with the inferred pipe-delim "
+                             "values per pub column. Source xlsx must be closed in Excel.")
+    args = parser.parse_args()
+
     if not SRC.exists():
         sys.exit(f"source not found: {SRC}")
 
@@ -374,6 +420,9 @@ def main():
     print(f"\nwrote {len(written)} review JSON files under {REVIEW_DIR.relative_to(REPO)}/")
     for p in written:
         print(f"  {p.relative_to(REPO)}")
+
+    if args.apply:
+        apply_to_source(SRC, pub_cols, interp_data, label_to_row)
 
 
 if __name__ == "__main__":
