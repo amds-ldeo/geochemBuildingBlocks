@@ -46,7 +46,7 @@ def resolve_for_validation(schema_path: Path) -> dict:
 
 def validate_example(example_path: Path, schema: dict):
     """Validate a JSON example against a resolved schema. Returns list of error strings."""
-    with open(example_path) as f:
+    with open(example_path, encoding="utf-8") as f:
         instance = json.load(f)
 
     validator = Draft202012Validator(schema)
@@ -58,6 +58,12 @@ def validate_example(example_path: Path, schema: dict):
 
 
 def main():
+    # Avoid UnicodeEncodeError when printing diagnostics that contain non-cp1252
+    # characters on Windows (e.g. Greek letters in schema descriptions).
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, OSError):
+        pass
     parser = argparse.ArgumentParser(description="Validate all example JSON files against their schemas.")
     parser.add_argument("--verbose", "-v", action="store_true", help="Show pass/fail for each example")
     parser.add_argument("--filter", "-f", type=str, default="", help="Only validate paths containing this string")
