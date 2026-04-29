@@ -53,13 +53,11 @@ AA  P10plag                            ← (current EPMA template extends to col
 
 > **Layout note (2026-04-29).** Earlier revisions of this template kept the structural columns (Level / CDIF path / matchComment / impl notes) in cols X–AA, after the pub block. They were moved to G–J so the pub block can grow rightward without disturbing anything else. If you have an older TAPP workbook in the X–AA layout, run `python tools/_reorder_tapp_columns.py <your.xlsx>` once to migrate it.
 
-The "Components" worksheet (used elsewhere in the project for `ada:componentType` enum mapping) is separate from the TAPP worksheet and is not consumed by the TAPP build scripts.
-
 ---
 
 ## Filling in the TAPP worksheet
 
-Each row describes one *thing* that should land somewhere in the generated TAPP. The kind of thing is set by the implementation-notes tag:
+Each row describes one fact or aspect of the protocol that needs to be specified in the implementation. The 'Metadata Item' is a user-friendly label for this protocol property, the 'Description/Purpose' provides an explanation of what it documents. The JSON  implementation of this protocol property is specified in the 'CDIF-geochem schema path' and 'implementation notes' columns. The implemenation notes have tags for protocol properties that are treated differently:
 
 - A **property** of the TAPP definition (e.g. a default value baked into the protocol).
 - A **parameter** (a knob — either a method-level constant or a per-dataset setting).
