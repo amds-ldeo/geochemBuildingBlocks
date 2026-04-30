@@ -203,7 +203,8 @@
           "X-ray Computed Tomography (XCT) Image Collection",
           "X-ray computed tomography",
           "X-ray Diffraction (XRD) Tabular",
-          "X-ray diffraction"
+          "X-ray diffraction",
+          "Visible Light Microscopy Basemap"
         ]
       },
       "minItems": 2
@@ -404,7 +405,7 @@
               "allOf": [
                 {
                   "title": "Files Type",
-                  "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive — they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
+                  "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive \u2014 they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
                   "allOf": [
                     {
                       "type": "object",
@@ -558,44 +559,6 @@
                             },
                             "ada:componentType": {
                               "type": "string",
-                              "enum": [
-                                "ada:AIVAImage",
-                                "ada:EMPAESPCPlot",
-                                "ada:EMPAImage",
-                                "ada:GCMSChromatogram",
-                                "ada:GCMSSpectraPlot",
-                                "ada:L2MSOverviewImage",
-                                "ada:L2MSSpectraPlot",
-                                "ada:LCMSChromatogram",
-                                "ada:LCMSVisualization",
-                                "ada:LITImage",
-                                "ada:NanoIRBackground",
-                                "ada:NanoSIMSImage",
-                                "ada:PSFDContextImage",
-                                "ada:QRISCalibratedImage",
-                                "ada:QRISFlatFieldImage",
-                                "ada:QRISRawImage",
-                                "ada:SEMEDSPointSpectraPlot",
-                                "ada:SEMHRCLimage",
-                                "ada:SEMImage",
-                                "ada:SLSShapeModelImage",
-                                "ada:STEMEDSSpectraPlot",
-                                "ada:STEMEELSSpectraPlot",
-                                "ada:STEMImage",
-                                "ada:SVRUECWaveformPlot",
-                                "ada:TEMImage",
-                                "ada:TEMPatternsImage",
-                                "ada:TOFSIMSIonImages",
-                                "ada:TOFSIMSMassSpectrumPlot",
-                                "ada:UVFMImage",
-                                "ada:VLMImage",
-                                "ada:VNMIRSpectraPlot",
-                                "ada:XANESImageStack",
-                                "ada:XANESStackOverviewImage",
-                                "ada:XRDDiffractionPattern",
-                                "ada:XRDIndexedImage",
-                                "ada:plot"
-                              ],
                               "description": "ADA componentType for an image, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific image componentTypes."
                             },
                             "ada:channel1": {
@@ -653,17 +616,6 @@
                             },
                             "ada:componentType": {
                               "type": "string",
-                              "enum": [
-                                "ada:EMPAImageMap",
-                                "ada:NanoIRMap",
-                                "ada:SEMEBSDGrainImageMap",
-                                "ada:SEMEDSElementalMap",
-                                "ada:SEMHRCLMap",
-                                "ada:SEMImageMap",
-                                "ada:SLSTextureMap",
-                                "ada:basemap",
-                                "ada:supplementalBasemap"
-                              ],
                               "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific imageMap componentTypes."
                             },
                             "ada:channel1": {
@@ -772,57 +724,6 @@
                                 },
                                 "ada:componentType": {
                                   "type": "string",
-                                  "enum": [
-                                    "ada:AMSProcessedData",
-                                    "ada:AMSRawData",
-                                    "ada:ARGTCaptionData",
-                                    "ada:ARGTRawData",
-                                    "ada:ARGTSummaryData",
-                                    "ada:DSCHeatFlow",
-                                    "ada:DSCIndividualMeasurements",
-                                    "ada:DSCProcessedHeatFlux",
-                                    "ada:DSCRawHeatFlux",
-                                    "ada:DSCResultsTabular",
-                                    "ada:EAIRMSProcessedData",
-                                    "ada:EAIRMSRawData",
-                                    "ada:EMPAESPCTabular",
-                                    "ada:EMPAQEATabular",
-                                    "ada:FTICRMSTabular",
-                                    "ada:GPYCProcessedTabular",
-                                    "ada:GPYCRawTabular",
-                                    "ada:HRICPMSProcessed",
-                                    "ada:HRICPMSRaw",
-                                    "ada:ICPOESIntermediateTabular",
-                                    "ada:ICPOESProcessedTabular",
-                                    "ada:ICPOESRawTabular",
-                                    "ada:ICTabular",
-                                    "ada:LAFProcessed",
-                                    "ada:LAFRaw",
-                                    "ada:LITPolarPlotData",
-                                    "ada:LITTabularData",
-                                    "ada:MCICPMSTabular",
-                                    "ada:NGNSMSProcessed",
-                                    "ada:NGNSMSRaw",
-                                    "ada:NanoIRPointData",
-                                    "ada:NanoSIMSRaw",
-                                    "ada:NanoSIMSTabular",
-                                    "ada:PSFDTabular",
-                                    "ada:QICPMSProcessedTabular",
-                                    "ada:QICPMSRawTabular",
-                                    "ada:RAMANRawTabular",
-                                    "ada:RITOFNGMSSpectra",
-                                    "ada:RITOFNGMSTabular",
-                                    "ada:SEMEDSPointData",
-                                    "ada:SEMEDSPointSpectraData",
-                                    "ada:SIMSTabular",
-                                    "ada:STEMEDSTabular",
-                                    "ada:STEMEELSTabular",
-                                    "ada:SVRUECTabular",
-                                    "ada:SVRUECWaveformData",
-                                    "ada:TOFSIMSMassSpectrumData",
-                                    "ada:VNMIRSpectralPoint",
-                                    "ada:XRDTabular"
-                                  ],
                                   "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific tabular componentTypes."
                                 },
                                 "ada:xCoordCol": {
@@ -1145,12 +1046,6 @@
                             },
                             "ada:componentType": {
                               "type": "string",
-                              "enum": [
-                                "ada:EMPAImageCollection",
-                                "ada:PSFDShapeFile",
-                                "ada:XCTImageCollection",
-                                "ada:shapefile"
-                              ],
                               "description": "ADA componentType for a collection, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific collection componentTypes."
                             },
                             "ada:memberTypes": {
@@ -1239,15 +1134,6 @@
                                 },
                                 "ada:componentType": {
                                   "type": "string",
-                                  "enum": [
-                                    "ada:FTICRMSCube",
-                                    "ada:GCMSCube",
-                                    "ada:L2MSCube",
-                                    "ada:LCMSRawData",
-                                    "ada:STEMEDSCube",
-                                    "ada:STEMEDSTomo",
-                                    "ada:STEMEELSCube"
-                                  ],
                                   "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
                                 },
                                 "ada:dataComponentResource": {
@@ -1377,44 +1263,6 @@
                             },
                             "ada:componentType": {
                               "type": "string",
-                              "enum": [
-                                "ada:ARGTDocument",
-                                "ada:FTICRMSDataPlot",
-                                "ada:GCMSChromatogram",
-                                "ada:GCMSPeaks",
-                                "ada:GCMSSpectraPlot",
-                                "ada:L2MSSpectraPlot",
-                                "ada:LCMSChromatogram",
-                                "ada:LCMSPeaks",
-                                "ada:LCMSVisualization",
-                                "ada:MCICPMSRaw",
-                                "ada:NGNSMSRunLog",
-                                "ada:NanoIRBackground",
-                                "ada:NanoSIMSRawText",
-                                "ada:SEMEDSPointSpectraPlot",
-                                "ada:SLSMaterialTemplate",
-                                "ada:SLSPartialScan",
-                                "ada:SLSShapeModel",
-                                "ada:SLSTransformation",
-                                "ada:STEMEDSSpectraPlot",
-                                "ada:STEMEELSSpectraPlot",
-                                "ada:SVRUECWaveformPlot",
-                                "ada:TOFSIMS",
-                                "ada:TOFSIMSIonImages",
-                                "ada:TOFSIMSMassSpectrumPlot",
-                                "ada:VNMIRSpectraPlot",
-                                "ada:calibrationFile",
-                                "ada:code",
-                                "ada:inputFile",
-                                "ada:instrumentMetadata",
-                                "ada:logFile",
-                                "ada:methodDescription",
-                                "ada:plot",
-                                "ada:processingMethod",
-                                "ada:report",
-                                "ada:samplePreparation",
-                                "ada:worldFile"
-                              ],
                               "description": "ADA componentType for a document, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific document componentTypes."
                             },
                             "schema:version": {
@@ -1457,14 +1305,6 @@
                             },
                             "ada:componentType": {
                               "type": "string",
-                              "enum": [
-                                "ada:analysisLocation",
-                                "ada:annotatedImage",
-                                "ada:areaOfInterest",
-                                "ada:contextPhotography",
-                                "ada:quickLook",
-                                "ada:supplementaryImage"
-                              ],
                               "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
                             },
                             "ada:numPixelsX": {
@@ -1500,11 +1340,6 @@
                             },
                             "ada:componentType": {
                               "type": "string",
-                              "enum": [
-                                "ada:VLMVideo",
-                                "ada:XCTVideo",
-                                "ada:contextVideo"
-                              ],
                               "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
                             },
                             "schema:encodingFormat": {
@@ -8397,7 +8232,7 @@
                                 "type": "array",
                                 "items": {
                                   "type": "object",
-                                  "description": "A schema:PropertyValue carrying a parameter setting for a workflow step. Simpler than MethodParameter — just name, value, and optional unit.",
+                                  "description": "A schema:PropertyValue carrying a parameter setting for a workflow step. Simpler than MethodParameter \u2014 just name, value, and optional unit.",
                                   "properties": {
                                     "@type": {
                                       "type": "array",
@@ -12864,7 +12699,7 @@
         "properties": {
           "schema:description": {
             "type": "string",
-            "minLength": 10
+            "minLength": 3
           },
           "schema:alternateName": {
             "type": "array",
@@ -34986,7 +34821,8 @@
                                   "X-ray Computed Tomography (XCT) Image Collection",
                                   "X-ray computed tomography",
                                   "X-ray Diffraction (XRD) Tabular",
-                                  "X-ray diffraction"
+                                  "X-ray diffraction",
+                                  "Visible Light Microscopy Basemap"
                                 ]
                               },
                               "minItems": 2
@@ -48424,7 +48260,7 @@
                                 "properties": {
                                   "schema:description": {
                                     "type": "string",
-                                    "minLength": 10
+                                    "minLength": 3
                                   },
                                   "schema:alternateName": {
                                     "type": "array",
@@ -49597,7 +49433,7 @@
                                       "allOf": [
                                         {
                                           "title": "Files Type",
-                                          "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive — they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
+                                          "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive \u2014 they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
                                           "allOf": [
                                             {
                                               "type": "object",
@@ -49751,44 +49587,6 @@
                                                     },
                                                     "ada:componentType": {
                                                       "type": "string",
-                                                      "enum": [
-                                                        "ada:AIVAImage",
-                                                        "ada:EMPAESPCPlot",
-                                                        "ada:EMPAImage",
-                                                        "ada:GCMSChromatogram",
-                                                        "ada:GCMSSpectraPlot",
-                                                        "ada:L2MSOverviewImage",
-                                                        "ada:L2MSSpectraPlot",
-                                                        "ada:LCMSChromatogram",
-                                                        "ada:LCMSVisualization",
-                                                        "ada:LITImage",
-                                                        "ada:NanoIRBackground",
-                                                        "ada:NanoSIMSImage",
-                                                        "ada:PSFDContextImage",
-                                                        "ada:QRISCalibratedImage",
-                                                        "ada:QRISFlatFieldImage",
-                                                        "ada:QRISRawImage",
-                                                        "ada:SEMEDSPointSpectraPlot",
-                                                        "ada:SEMHRCLimage",
-                                                        "ada:SEMImage",
-                                                        "ada:SLSShapeModelImage",
-                                                        "ada:STEMEDSSpectraPlot",
-                                                        "ada:STEMEELSSpectraPlot",
-                                                        "ada:STEMImage",
-                                                        "ada:SVRUECWaveformPlot",
-                                                        "ada:TEMImage",
-                                                        "ada:TEMPatternsImage",
-                                                        "ada:TOFSIMSIonImages",
-                                                        "ada:TOFSIMSMassSpectrumPlot",
-                                                        "ada:UVFMImage",
-                                                        "ada:VLMImage",
-                                                        "ada:VNMIRSpectraPlot",
-                                                        "ada:XANESImageStack",
-                                                        "ada:XANESStackOverviewImage",
-                                                        "ada:XRDDiffractionPattern",
-                                                        "ada:XRDIndexedImage",
-                                                        "ada:plot"
-                                                      ],
                                                       "description": "ADA componentType for an image, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific image componentTypes."
                                                     },
                                                     "ada:channel1": {
@@ -49846,17 +49644,6 @@
                                                     },
                                                     "ada:componentType": {
                                                       "type": "string",
-                                                      "enum": [
-                                                        "ada:EMPAImageMap",
-                                                        "ada:NanoIRMap",
-                                                        "ada:SEMEBSDGrainImageMap",
-                                                        "ada:SEMEDSElementalMap",
-                                                        "ada:SEMHRCLMap",
-                                                        "ada:SEMImageMap",
-                                                        "ada:SLSTextureMap",
-                                                        "ada:basemap",
-                                                        "ada:supplementalBasemap"
-                                                      ],
                                                       "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific imageMap componentTypes."
                                                     },
                                                     "ada:channel1": {
@@ -49965,57 +49752,6 @@
                                                         },
                                                         "ada:componentType": {
                                                           "type": "string",
-                                                          "enum": [
-                                                            "ada:AMSProcessedData",
-                                                            "ada:AMSRawData",
-                                                            "ada:ARGTCaptionData",
-                                                            "ada:ARGTRawData",
-                                                            "ada:ARGTSummaryData",
-                                                            "ada:DSCHeatFlow",
-                                                            "ada:DSCIndividualMeasurements",
-                                                            "ada:DSCProcessedHeatFlux",
-                                                            "ada:DSCRawHeatFlux",
-                                                            "ada:DSCResultsTabular",
-                                                            "ada:EAIRMSProcessedData",
-                                                            "ada:EAIRMSRawData",
-                                                            "ada:EMPAESPCTabular",
-                                                            "ada:EMPAQEATabular",
-                                                            "ada:FTICRMSTabular",
-                                                            "ada:GPYCProcessedTabular",
-                                                            "ada:GPYCRawTabular",
-                                                            "ada:HRICPMSProcessed",
-                                                            "ada:HRICPMSRaw",
-                                                            "ada:ICPOESIntermediateTabular",
-                                                            "ada:ICPOESProcessedTabular",
-                                                            "ada:ICPOESRawTabular",
-                                                            "ada:ICTabular",
-                                                            "ada:LAFProcessed",
-                                                            "ada:LAFRaw",
-                                                            "ada:LITPolarPlotData",
-                                                            "ada:LITTabularData",
-                                                            "ada:MCICPMSTabular",
-                                                            "ada:NGNSMSProcessed",
-                                                            "ada:NGNSMSRaw",
-                                                            "ada:NanoIRPointData",
-                                                            "ada:NanoSIMSRaw",
-                                                            "ada:NanoSIMSTabular",
-                                                            "ada:PSFDTabular",
-                                                            "ada:QICPMSProcessedTabular",
-                                                            "ada:QICPMSRawTabular",
-                                                            "ada:RAMANRawTabular",
-                                                            "ada:RITOFNGMSSpectra",
-                                                            "ada:RITOFNGMSTabular",
-                                                            "ada:SEMEDSPointData",
-                                                            "ada:SEMEDSPointSpectraData",
-                                                            "ada:SIMSTabular",
-                                                            "ada:STEMEDSTabular",
-                                                            "ada:STEMEELSTabular",
-                                                            "ada:SVRUECTabular",
-                                                            "ada:SVRUECWaveformData",
-                                                            "ada:TOFSIMSMassSpectrumData",
-                                                            "ada:VNMIRSpectralPoint",
-                                                            "ada:XRDTabular"
-                                                          ],
                                                           "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific tabular componentTypes."
                                                         },
                                                         "ada:xCoordCol": {
@@ -50338,12 +50074,6 @@
                                                     },
                                                     "ada:componentType": {
                                                       "type": "string",
-                                                      "enum": [
-                                                        "ada:EMPAImageCollection",
-                                                        "ada:PSFDShapeFile",
-                                                        "ada:XCTImageCollection",
-                                                        "ada:shapefile"
-                                                      ],
                                                       "description": "ADA componentType for a collection, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific collection componentTypes."
                                                     },
                                                     "ada:memberTypes": {
@@ -50425,15 +50155,6 @@
                                                         },
                                                         "ada:componentType": {
                                                           "type": "string",
-                                                          "enum": [
-                                                            "ada:FTICRMSCube",
-                                                            "ada:GCMSCube",
-                                                            "ada:L2MSCube",
-                                                            "ada:LCMSRawData",
-                                                            "ada:STEMEDSCube",
-                                                            "ada:STEMEDSTomo",
-                                                            "ada:STEMEELSCube"
-                                                          ],
                                                           "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
                                                         },
                                                         "ada:dataComponentResource": {
@@ -50563,44 +50284,6 @@
                                                     },
                                                     "ada:componentType": {
                                                       "type": "string",
-                                                      "enum": [
-                                                        "ada:ARGTDocument",
-                                                        "ada:FTICRMSDataPlot",
-                                                        "ada:GCMSChromatogram",
-                                                        "ada:GCMSPeaks",
-                                                        "ada:GCMSSpectraPlot",
-                                                        "ada:L2MSSpectraPlot",
-                                                        "ada:LCMSChromatogram",
-                                                        "ada:LCMSPeaks",
-                                                        "ada:LCMSVisualization",
-                                                        "ada:MCICPMSRaw",
-                                                        "ada:NGNSMSRunLog",
-                                                        "ada:NanoIRBackground",
-                                                        "ada:NanoSIMSRawText",
-                                                        "ada:SEMEDSPointSpectraPlot",
-                                                        "ada:SLSMaterialTemplate",
-                                                        "ada:SLSPartialScan",
-                                                        "ada:SLSShapeModel",
-                                                        "ada:SLSTransformation",
-                                                        "ada:STEMEDSSpectraPlot",
-                                                        "ada:STEMEELSSpectraPlot",
-                                                        "ada:SVRUECWaveformPlot",
-                                                        "ada:TOFSIMS",
-                                                        "ada:TOFSIMSIonImages",
-                                                        "ada:TOFSIMSMassSpectrumPlot",
-                                                        "ada:VNMIRSpectraPlot",
-                                                        "ada:calibrationFile",
-                                                        "ada:code",
-                                                        "ada:inputFile",
-                                                        "ada:instrumentMetadata",
-                                                        "ada:logFile",
-                                                        "ada:methodDescription",
-                                                        "ada:plot",
-                                                        "ada:processingMethod",
-                                                        "ada:report",
-                                                        "ada:samplePreparation",
-                                                        "ada:worldFile"
-                                                      ],
                                                       "description": "ADA componentType for a document, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific document componentTypes."
                                                     },
                                                     "schema:version": {
@@ -50643,14 +50326,6 @@
                                                     },
                                                     "ada:componentType": {
                                                       "type": "string",
-                                                      "enum": [
-                                                        "ada:analysisLocation",
-                                                        "ada:annotatedImage",
-                                                        "ada:areaOfInterest",
-                                                        "ada:contextPhotography",
-                                                        "ada:quickLook",
-                                                        "ada:supplementaryImage"
-                                                      ],
                                                       "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
                                                     },
                                                     "ada:numPixelsX": {
@@ -50686,11 +50361,6 @@
                                                     },
                                                     "ada:componentType": {
                                                       "type": "string",
-                                                      "enum": [
-                                                        "ada:VLMVideo",
-                                                        "ada:XCTVideo",
-                                                        "ada:contextVideo"
-                                                      ],
                                                       "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
                                                     },
                                                     "schema:encodingFormat": {
@@ -50767,16 +50437,7 @@
                     {
                       "properties": {
                         "ada:componentType": {
-                          "type": "string",
-                          "enum": [
-                            "ada:HRICPMSProcessed",
-                            "ada:HRICPMSRaw",
-                            "ada:QICPMSProcessedTabular",
-                            "ada:QICPMSRawTabular",
-                            "ada:MCICPMSTabular",
-                            "ada:MCICPMSCollection",
-                            "ada:MCICPMSRaw"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [

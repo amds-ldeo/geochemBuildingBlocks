@@ -16,15 +16,9 @@ allOf:
               const: cdi:StructuredDataSet
       'ada:componentType':
         type: string
-        enum:
-          - ada:FTICRMSCube
-          - ada:GCMSCube
-          - ada:L2MSCube
-          - ada:LCMSRawData
-          - ada:STEMEDSCube
-          - ada:STEMEDSTomo
-          - ada:STEMEELSCube
-        description: ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping.
+        description: >-
+          ADA componentType for a data cube, as a single string. Allowed
+          values are constrained at the technique-profile level.
       'ada:dataComponentResource':
         type: string
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifDataCube/schema.yaml

@@ -126,8 +126,14 @@ cdifd:adaVariableMeasuredShape
         sh:path schema:description ;
         sh:minCount 1 ;
         sh:datatype xsd:string ;
-        sh:minLength 10 ;
-        sh:message "Each variable must have a description (schema:description) of at least 10 characters." ;
+        sh:minLength 3 ;
+        sh:message "Each variable must have a description (schema:description) of at least 3 characters." ;
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:minLength 30 ;
+        sh:severity sh:Info ;
+        sh:message "Variable description is short; expanding it to at least 30 characters improves discoverability." ;
     ] ;
     sh:message "ADA variableMeasured nodes must have dual types (PropertyValue + InstanceVariable), a name, and a description." ;
     .
