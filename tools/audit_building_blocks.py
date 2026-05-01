@@ -199,16 +199,32 @@ def normalize_ref(ref_str):
     """Normalize $ref for comparison.
 
     The *Schema.json files rewrite refs from 'dir/schema.yaml' to
-    'dir/dirNameSchema.json', so we normalize to just the directory path.
-    Fragment-only refs (#/$defs/X) and URL refs are compared as-is.
+    'dir/dirNameSchema.json'; the same translation applies to HTTP
+    refs in cross-repo $refs (CDIF, schemaorg upstream BBs). For both
+    relative and HTTP refs, when the basename matches the
+    'schema.yaml' or '<dirname>Schema.json' convention, we normalize
+    to the directory path so the two forms compare equal.
+
+    Fragment-only refs (#/$defs/X) are compared as-is.
     """
     if not ref_str:
         return ref_str
-    if ref_str.startswith("#") or ref_str.startswith("http"):
+    if ref_str.startswith("#"):
         return ref_str
-    # Strip the filename, keep just the directory path
     import posixpath
-    return posixpath.dirname(ref_str)
+    # Split fragment if present (e.g. .../schema.yaml#/$defs/X)
+    base, _, frag = ref_str.partition("#")
+    dirname = posixpath.dirname(base)
+    basename = posixpath.basename(base)
+    last_dir = posixpath.basename(dirname)
+    is_yaml_source = basename == "schema.yaml"
+    is_json_derivative = basename == f"{last_dir}Schema.json"
+    if is_yaml_source or is_json_derivative:
+        # Both forms point to the same building block: collapse to dir + frag
+        normalized = dirname
+    else:
+        normalized = base
+    return normalized + (("#" + frag) if frag else "")
 
 
 def compare_schemas(yaml_schema, json_schema, path=""):
