@@ -155,45 +155,7 @@
             },
             "ada:componentType": {
               "type": "string",
-              "enum": [
-                "ada:AIVAImage",
-                "ada:EMPAESPCPlot",
-                "ada:EMPAImage",
-                "ada:GCMSChromatogram",
-                "ada:GCMSSpectraPlot",
-                "ada:L2MSOverviewImage",
-                "ada:L2MSSpectraPlot",
-                "ada:LCMSChromatogram",
-                "ada:LCMSVisualization",
-                "ada:LITImage",
-                "ada:NanoIRBackground",
-                "ada:NanoSIMSImage",
-                "ada:PSFDContextImage",
-                "ada:QRISCalibratedImage",
-                "ada:QRISFlatFieldImage",
-                "ada:QRISRawImage",
-                "ada:SEMEDSPointSpectraPlot",
-                "ada:SEMHRCLimage",
-                "ada:SEMImage",
-                "ada:SLSShapeModelImage",
-                "ada:STEMEDSSpectraPlot",
-                "ada:STEMEELSSpectraPlot",
-                "ada:STEMImage",
-                "ada:SVRUECWaveformPlot",
-                "ada:TEMImage",
-                "ada:TEMPatternsImage",
-                "ada:TOFSIMSIonImages",
-                "ada:TOFSIMSMassSpectrumPlot",
-                "ada:UVFMImage",
-                "ada:VLMImage",
-                "ada:VNMIRSpectraPlot",
-                "ada:XANESImageStack",
-                "ada:XANESStackOverviewImage",
-                "ada:XRDDiffractionPattern",
-                "ada:XRDIndexedImage",
-                "ada:plot"
-              ],
-              "description": "ADA componentType for an image, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific image componentTypes."
+              "description": "ADA componentType for an image, as a single string. Allowed values are constrained at the technique-profile level."
             },
             "ada:channel1": {
               "type": "string"
@@ -250,18 +212,7 @@
             },
             "ada:componentType": {
               "type": "string",
-              "enum": [
-                "ada:EMPAImageMap",
-                "ada:NanoIRMap",
-                "ada:SEMEBSDGrainImageMap",
-                "ada:SEMEDSElementalMap",
-                "ada:SEMHRCLMap",
-                "ada:SEMImageMap",
-                "ada:SLSTextureMap",
-                "ada:basemap",
-                "ada:supplementalBasemap"
-              ],
-              "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific imageMap componentTypes."
+              "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained at the technique-profile level."
             },
             "ada:channel1": {
               "type": "string"
@@ -369,58 +320,7 @@
                 },
                 "ada:componentType": {
                   "type": "string",
-                  "enum": [
-                    "ada:AMSProcessedData",
-                    "ada:AMSRawData",
-                    "ada:ARGTCaptionData",
-                    "ada:ARGTRawData",
-                    "ada:ARGTSummaryData",
-                    "ada:DSCHeatFlow",
-                    "ada:DSCIndividualMeasurements",
-                    "ada:DSCProcessedHeatFlux",
-                    "ada:DSCRawHeatFlux",
-                    "ada:DSCResultsTabular",
-                    "ada:EAIRMSProcessedData",
-                    "ada:EAIRMSRawData",
-                    "ada:EMPAESPCTabular",
-                    "ada:EMPAQEATabular",
-                    "ada:FTICRMSTabular",
-                    "ada:GPYCProcessedTabular",
-                    "ada:GPYCRawTabular",
-                    "ada:HRICPMSProcessed",
-                    "ada:HRICPMSRaw",
-                    "ada:ICPOESIntermediateTabular",
-                    "ada:ICPOESProcessedTabular",
-                    "ada:ICPOESRawTabular",
-                    "ada:ICTabular",
-                    "ada:LAFProcessed",
-                    "ada:LAFRaw",
-                    "ada:LITPolarPlotData",
-                    "ada:LITTabularData",
-                    "ada:MCICPMSTabular",
-                    "ada:NGNSMSProcessed",
-                    "ada:NGNSMSRaw",
-                    "ada:NanoIRPointData",
-                    "ada:NanoSIMSRaw",
-                    "ada:NanoSIMSTabular",
-                    "ada:PSFDTabular",
-                    "ada:QICPMSProcessedTabular",
-                    "ada:QICPMSRawTabular",
-                    "ada:RAMANRawTabular",
-                    "ada:RITOFNGMSSpectra",
-                    "ada:RITOFNGMSTabular",
-                    "ada:SEMEDSPointData",
-                    "ada:SEMEDSPointSpectraData",
-                    "ada:SIMSTabular",
-                    "ada:STEMEDSTabular",
-                    "ada:STEMEELSTabular",
-                    "ada:SVRUECTabular",
-                    "ada:SVRUECWaveformData",
-                    "ada:TOFSIMSMassSpectrumData",
-                    "ada:VNMIRSpectralPoint",
-                    "ada:XRDTabular"
-                  ],
-                  "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific tabular componentTypes."
+                  "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
                 },
                 "ada:xCoordCol": {
                   "description": "The column names are redundant, they are lists in the hasPhysicalMapping array. Include here for convenience.",
@@ -742,13 +642,7 @@
             },
             "ada:componentType": {
               "type": "string",
-              "enum": [
-                "ada:EMPAImageCollection",
-                "ada:PSFDShapeFile",
-                "ada:XCTImageCollection",
-                "ada:shapefile"
-              ],
-              "description": "ADA componentType for a collection, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific collection componentTypes."
+              "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema."
             },
             "ada:memberTypes": {
               "allOf": [
@@ -836,16 +730,7 @@
                 },
                 "ada:componentType": {
                   "type": "string",
-                  "enum": [
-                    "ada:FTICRMSCube",
-                    "ada:GCMSCube",
-                    "ada:L2MSCube",
-                    "ada:LCMSRawData",
-                    "ada:STEMEDSCube",
-                    "ada:STEMEDSTomo",
-                    "ada:STEMEELSCube"
-                  ],
-                  "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+                  "description": "ADA componentType for a data cube, as a single string. Allowed values are constrained at the technique-profile level."
                 },
                 "ada:dataComponentResource": {
                   "type": "string"
@@ -974,45 +859,7 @@
             },
             "ada:componentType": {
               "type": "string",
-              "enum": [
-                "ada:ARGTDocument",
-                "ada:FTICRMSDataPlot",
-                "ada:GCMSChromatogram",
-                "ada:GCMSPeaks",
-                "ada:GCMSSpectraPlot",
-                "ada:L2MSSpectraPlot",
-                "ada:LCMSChromatogram",
-                "ada:LCMSPeaks",
-                "ada:LCMSVisualization",
-                "ada:MCICPMSRaw",
-                "ada:NGNSMSRunLog",
-                "ada:NanoIRBackground",
-                "ada:NanoSIMSRawText",
-                "ada:SEMEDSPointSpectraPlot",
-                "ada:SLSMaterialTemplate",
-                "ada:SLSPartialScan",
-                "ada:SLSShapeModel",
-                "ada:SLSTransformation",
-                "ada:STEMEDSSpectraPlot",
-                "ada:STEMEELSSpectraPlot",
-                "ada:SVRUECWaveformPlot",
-                "ada:TOFSIMS",
-                "ada:TOFSIMSIonImages",
-                "ada:TOFSIMSMassSpectrumPlot",
-                "ada:VNMIRSpectraPlot",
-                "ada:calibrationFile",
-                "ada:code",
-                "ada:inputFile",
-                "ada:instrumentMetadata",
-                "ada:logFile",
-                "ada:methodDescription",
-                "ada:plot",
-                "ada:processingMethod",
-                "ada:report",
-                "ada:samplePreparation",
-                "ada:worldFile"
-              ],
-              "description": "ADA componentType for a document, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific document componentTypes."
+              "description": "ADA componentType for a document, as a single string. Allowed values are constrained at the technique-profile level."
             },
             "schema:version": {
               "type": "string"
@@ -1054,15 +901,7 @@
             },
             "ada:componentType": {
               "type": "string",
-              "enum": [
-                "ada:analysisLocation",
-                "ada:annotatedImage",
-                "ada:areaOfInterest",
-                "ada:contextPhotography",
-                "ada:quickLook",
-                "ada:supplementaryImage"
-              ],
-              "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+              "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level."
             },
             "ada:numPixelsX": {
               "type": "integer"
@@ -1097,12 +936,7 @@
             },
             "ada:componentType": {
               "type": "string",
-              "enum": [
-                "ada:VLMVideo",
-                "ada:XCTVideo",
-                "ada:contextVideo"
-              ],
-              "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+              "description": "ADA componentType for an other-format file, as a single string. Allowed values are constrained at the technique-profile level."
             },
             "schema:encodingFormat": {
               "description": "One of the approved non-standard file formats: 'Spectral Data Exchange File (.emsa)'-->text/plain; '3D model file (.obj)'-->model/obj; 'Standard Triangle Language (.stl)'-->model/stl; 'Open XML workbook (.xlsx)'-->application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; 'Neptune Plus export (.exp)'-->application/octet-stream",

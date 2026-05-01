@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "EMPA Instrument Detail",
+  "description": "Detail block for Electron Microprobe Analysis hasPart items. Discriminates on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed as sibling properties on the hasPart item. Per-dataset schema:additionalProperty entries are constrained by the generated parametersConstraint.yaml (one schema:PropertyValue branch per readOnly:false empaTAPP parameter, plus a catch-all). schema:measurementTechnique is an @id reference to a registered empaTAPP TAPP definition.",
+  "properties": {
+    "schema:additionalProperty": {
+      "type": "array",
+      "description": "Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional — include only the parameters you have values for.",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/ParameterValues"
+          },
+          {
+            "$ref": "#/$defs/ParameterValues"
+          },
+          {
+            "$ref": "#/$defs/ParameterValues"
+          },
+          {
+            "$ref": "#/$defs/ParameterValues"
+          },
+          {
+            "type": "object",
+            "description": "Catch-all for additional schema:PropertyValue entries beyond those enumerated in the empaTAPP-derived catalog above.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:PropertyValue"
+                }
+              },
+              "schema:propertyID": {
+                "type": "string",
+                "not": {
+                  "enum": [
+                    "ada:parameter/empaTAPP/BeamRasterDimension",
+                    "ada:parameter/empaTAPP/acceleratingVoltage",
+                    "ada:parameter/empaTAPP/beamDiameter",
+                    "ada:parameter/empaTAPP/reportedAnalyte"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "@type",
+              "schema:propertyID"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "ada:componentType": {
+          "anyOf": [
+            {
+              "const": "ada:EMPAImage"
+            },
+            {
+              "const": "ada:EMPAImageMap"
+            },
+            {
+              "const": "ada:EMPAQEATabular"
+            },
+            {
+              "const": "ada:EMPAImageCollection"
+            },
+            {
+              "const": "ada:EMPAESPCTabular"
+            },
+            {
+              "const": "ada:EMPAESPCPlot"
+            }
+          ]
+        },
+        "ada:spectrometersUsed": {
+          "type": "string",
+          "description": "Spectrometers used in analysis"
+        },
+        "ada:signalUsed": {
+          "type": "string"
+        },
+        "schema:measurementTechnique": {
+          "type": "object",
+          "description": "@id reference to a registered empaTAPP TAPP definition.",
+          "properties": {
+            "@id": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        }
+      },
+      "required": [
+        "ada:componentType"
+      ]
+    }
+  ],
+  "$defs": {
+    "ParameterValues": {
+      "title": "Target Element",
+      "description": "The element or oxide measured in this row of the element table.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "const": {
+            "schema": "http://schema.org/",
+            "ada": "https://ada.astromat.org/metadata/"
+          }
+        },
+        "@id": {
+          "const": "ada:parameter/empaTAPP/reportedAnalyte"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValue"
+          ]
+        },
+        "schema:propertyID": {
+          "const": "ada:parameter/empaTAPP/reportedAnalyte"
+        },
+        "schema:name": {
+          "const": "Target Element"
+        },
+        "schema:value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:propertyID",
+        "schema:name",
+        "schema:value"
+      ],
+      "examples": [
+        {
+          "@context": {
+            "schema": "http://schema.org/",
+            "ada": "https://ada.astromat.org/metadata/"
+          },
+          "@id": "ada:parameter/empaTAPP/reportedAnalyte",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": "ada:parameter/empaTAPP/reportedAnalyte",
+          "schema:name": "Target Element",
+          "schema:description": "The element or oxide measured in this row of the element table.",
+          "schema:value": ""
+        }
+      ]
+    }
+  }
+}
