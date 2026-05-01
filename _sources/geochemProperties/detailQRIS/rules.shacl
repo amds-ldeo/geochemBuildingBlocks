@@ -65,4 +65,11 @@ cdifd:detailQRISShape
         sh:severity sh:Warning ;
         sh:message "QRIS detail should specify target." ;
     ] ;
+    sh:property [
+        sh:path ada:componentType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "QRIS detail nodes must declare ada:componentType." ;
+    ] ;
     .

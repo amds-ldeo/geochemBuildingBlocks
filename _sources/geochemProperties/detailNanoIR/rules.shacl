@@ -25,4 +25,11 @@ cdifd:detailNanoIRShape
         sh:message "NanoIR detail should specify phaseAnalyzed." ;
     ] ;
     sh:message "NanoIR detail nodes (ada:NanoIRBackground) should have phaseAnalyzed." ;
+    sh:property [
+        sh:path ada:componentType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "NanoIR detail nodes must declare ada:componentType." ;
+    ] ;
     .

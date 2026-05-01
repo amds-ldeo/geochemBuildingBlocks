@@ -34,4 +34,11 @@ cdifd:detailEAIRMSShape
         sh:message "EA-IRMS detail should specify elementType." ;
     ] ;
     sh:message "EA-IRMS detail nodes should have massConsumed and elementType." ;
+    sh:property [
+        sh:path ada:componentType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "EA-IRMS detail nodes must declare ada:componentType." ;
+    ] ;
     .

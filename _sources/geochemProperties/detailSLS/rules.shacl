@@ -61,4 +61,11 @@ cdifd:detailSLSShape
         sh:severity sh:Warning ;
         sh:message "SLS detail should specify watertight." ;
     ] ;
+    sh:property [
+        sh:path ada:componentType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "SLS detail nodes must declare ada:componentType." ;
+    ] ;
     .

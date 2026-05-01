@@ -34,4 +34,11 @@ cdifd:detailARGTShape
         sh:message "ARGT detail should specify isotopeType." ;
     ] ;
     sh:message "ARGT document detail nodes should have phaseAnalyzed and isotopeType." ;
+    sh:property [
+        sh:path ada:componentType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "ARGT detail nodes must declare ada:componentType." ;
+    ] ;
     .

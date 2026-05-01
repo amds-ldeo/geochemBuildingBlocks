@@ -32,4 +32,11 @@ cdifd:detailPSFDShape
         sh:message "PSFD detail should specify imageViewingConditions." ;
     ] ;
     sh:message "PSFD detail nodes (ada:PSFDTabular) should have imageName and imageViewingConditions." ;
+    sh:property [
+        sh:path ada:componentType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "PSFD detail nodes must declare ada:componentType." ;
+    ] ;
     .
