@@ -775,8 +775,16 @@ def _resolve_ref_structured(ref: str, base_dir: Path, local_defs: dict,
                         ref_path = (file_path.parent / inner_ref).resolve()
                         if ref_path in file_to_def:
                             return {"$ref": f"#/$defs/{file_to_def[ref_path]}"}
-            # Fall through to full resolution
-            return resolve_file(file_path, seen)
+                if target_def is not None:
+                    # Inline $def: resolve the target node with structured
+                    # awareness, exposing the file's raw $defs so sibling
+                    # fragment refs (e.g. universalComponentTypeBranch ->
+                    # universalComponentType) resolve correctly.
+                    return _resolve_node_structured(
+                        copy.deepcopy(target_def), file_path.parent,
+                        raw_schema.get("$defs", {}), file_to_def, seen
+                    )
+            return {"$comment": f"could not resolve fragment {fragment} in {file_path}"}
 
     # Not a known def — resolve fully with def-awareness
     return resolve_def_aware(file_path, file_to_def, seen)
