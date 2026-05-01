@@ -25,12 +25,18 @@ properties:
       'Standard Triangle Language (.stl)'-->model/stl;
       'Open XML workbook (.xlsx)'-->application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
       'Neptune Plus export (.exp)'-->application/octet-stream
-    enum:
-      - "text/plain"
-      - "model/obj"
-      - "model/stl"
-      - "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-      - "application/octet-stream"
+    type: array
+    items:
+      enum:
+        - "text/plain"
+        - "model/obj"
+        - "model/stl"
+        - "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        - "application/octet-stream"
+        - "application/zip"
+        - "video/mp4"
+        - "video/x-m4v"
+        - "video/quicktime"
   'ada:formatDescription':
     type: string
     description: >-
