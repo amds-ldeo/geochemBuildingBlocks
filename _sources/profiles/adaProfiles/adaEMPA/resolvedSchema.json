@@ -20726,6 +20726,7 @@
                   "Accelerator Mass Spectrometry",
                   "Advanced Imaging and Visualization of Astromaterials (AIVA)",
                   "Analysis Advanced Imaging and Visualization of Astromaterials (AIVA)",
+                  "Advanced Imaging & Visualization of Astromaterials",
                   "Basemap",
                   "Differential Scanning Calorimetry (DSC)",
                   "Differential Scanning Calorimetry",
@@ -20757,6 +20758,7 @@
                   "Ion Chromatography",
                   "Laser Assisted Fluorination (LAF) Processed",
                   "Laser Assisted Fluorination (LAF) Raw",
+                  "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements",
                   "Liquid Chromatography - Mass Spectrometry (LCMS) Collection",
                   "Liquid Chromatography-Mass Spectrometry",
                   "Lock-In Thermography (LIT) Collection",
@@ -20785,6 +20787,7 @@
                   "Quadrupole Inductively Coupled Plasma Mass Spectrometry",
                   "Quantitative Reflective Imaging System (QRIS)",
                   "Quantitative Reflective Imaging System (QRIS) Calibrated",
+                  "Quantitative Reflectance Imaging System",
                   "Raman vibrational spectroscopy",
                   "Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS) Processed",
                   "Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS) Spectra",
@@ -20810,11 +20813,13 @@
                   "Structured Light Scanning (SLS) Shape Model",
                   "Structured Light Scanning",
                   "Time-of-flight secondary ion mass spectrometry (TOFSIMS)",
+                  "Time-of-Flight Secondary Ion Mass Spectrometer",
                   "Transmission Electron Microscopy (TEM) Image",
                   "Transmission Electron Microscopy (TEM) Patterns Image",
                   "Transmission Electron Microscopy",
                   "Visible Light Microscopy (VLM) Image",
                   "Visible Light Microscopy",
+                  "Visible Light Microscopy Basemap",
                   "Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point",
                   "Visible, near-, and mid-infrared spectroscopy",
                   "X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)",
@@ -20822,8 +20827,7 @@
                   "X-ray Computed Tomography (XCT) Image Collection",
                   "X-ray computed tomography",
                   "X-ray Diffraction (XRD) Tabular",
-                  "X-ray diffraction",
-                  "Visible Light Microscopy Basemap"
+                  "X-ray diffraction"
                 ]
               },
               "minItems": 2
@@ -35793,7 +35797,7 @@
                       "allOf": [
                         {
                           "title": "Files Type",
-                          "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive \u2014 they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
+                          "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive — they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
                           "allOf": [
                             {
                               "type": "object",
@@ -35947,7 +35951,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for an image, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific image componentTypes."
+                                      "description": "ADA componentType for an image, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "ada:channel1": {
                                       "type": "string"
@@ -36004,7 +36008,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific imageMap componentTypes."
+                                      "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "ada:channel1": {
                                       "type": "string"
@@ -36112,7 +36116,7 @@
                                         },
                                         "ada:componentType": {
                                           "type": "string",
-                                          "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific tabular componentTypes."
+                                          "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
                                         },
                                         "ada:xCoordCol": {
                                           "description": "The column names are redundant, they are lists in the hasPhysicalMapping array. Include here for convenience.",
@@ -36434,7 +36438,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for a collection, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific collection componentTypes."
+                                      "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema."
                                     },
                                     "ada:memberTypes": {
                                       "title": "String Array Type",
@@ -36515,7 +36519,7 @@
                                         },
                                         "ada:componentType": {
                                           "type": "string",
-                                          "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+                                          "description": "ADA componentType for a data cube, as a single string. Allowed values are constrained at the technique-profile level."
                                         },
                                         "ada:dataComponentResource": {
                                           "type": "string"
@@ -36644,7 +36648,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for a document, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific document componentTypes."
+                                      "description": "ADA componentType for a document, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "schema:version": {
                                       "type": "string"
@@ -36686,7 +36690,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+                                      "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "ada:numPixelsX": {
                                       "type": "integer"
@@ -36721,17 +36725,24 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+                                      "description": "ADA componentType for an other-format file, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "schema:encodingFormat": {
                                       "description": "One of the approved non-standard file formats: 'Spectral Data Exchange File (.emsa)'-->text/plain; '3D model file (.obj)'-->model/obj; 'Standard Triangle Language (.stl)'-->model/stl; 'Open XML workbook (.xlsx)'-->application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; 'Neptune Plus export (.exp)'-->application/octet-stream",
-                                      "enum": [
-                                        "text/plain",
-                                        "model/obj",
-                                        "model/stl",
-                                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                                        "application/octet-stream"
-                                      ]
+                                      "type": "array",
+                                      "items": {
+                                        "enum": [
+                                          "text/plain",
+                                          "model/obj",
+                                          "model/stl",
+                                          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                          "application/octet-stream",
+                                          "application/zip",
+                                          "video/mp4",
+                                          "video/x-m4v",
+                                          "video/quicktime"
+                                        ]
+                                      }
                                     },
                                     "ada:formatDescription": {
                                       "type": "string",
@@ -36824,7 +36835,31 @@
                       "properties": {
                         "ada:componentType": {
                           "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def (typically via the universalComponentTypeBranch wrapper) in their hasPart anyOf branches.",
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "ada:analysisLocation",
+                            "ada:annotatedImage",
+                            "ada:areaOfInterest",
+                            "ada:basemap",
+                            "ada:calibrationFile",
+                            "ada:code",
+                            "ada:contextPhotography",
+                            "ada:contextVideo",
+                            "ada:inputFile",
+                            "ada:instrumentMetadata",
+                            "ada:logFile",
+                            "ada:methodDescription",
+                            "ada:other",
+                            "ada:plot",
+                            "ada:processingMethod",
+                            "ada:quickLook",
+                            "ada:report",
+                            "ada:samplePreparation",
+                            "ada:shapefile",
+                            "ada:supplementalBasemap",
+                            "ada:supplementaryImage",
+                            "ada:worldFile"
+                          ]
                         }
                       },
                       "required": [
@@ -36891,12 +36926,12 @@
                           "properties": {
                             "schema:additionalProperty": {
                               "type": "array",
-                              "description": "Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional \u2014 include only the parameters you have values for.",
+                              "description": "Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional — include only the parameters you have values for.",
                               "items": {
                                 "anyOf": [
                                   {
                                     "title": "Beam Raster Dimensions",
-                                    "description": "X \u00d7 Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+                                    "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
                                     "type": "object",
                                     "properties": {
                                       "@context": {
@@ -36953,9 +36988,9 @@
                                         ],
                                         "schema:propertyID": "ada:parameter/empaTAPP/BeamRasterDimension",
                                         "schema:name": "Beam Raster Dimensions",
-                                        "schema:description": "X \u00d7 Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+                                        "schema:description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
                                         "schema:value": 0,
-                                        "schema:unitText": "\u00b5m \u00d7 \u00b5m"
+                                        "schema:unitText": "µm × µm"
                                       }
                                     ]
                                   },
@@ -37085,7 +37120,7 @@
                                         "schema:name": "Default Beam Diameter",
                                         "schema:description": "Diameter of the focused or defocused electron beam in micrometers.",
                                         "schema:value": 0,
-                                        "schema:unitText": "\u00b5m"
+                                        "schema:unitText": "µm"
                                       }
                                     ]
                                   },

@@ -194,6 +194,7 @@
           "Structured Light Scanning (SLS) Shape Model",
           "Structured Light Scanning",
           "Time-of-flight secondary ion mass spectrometry (TOFSIMS)",
+          "Time-of-Flight Secondary Ion Mass Spectrometer",
           "Transmission Electron Microscopy (TEM) Image",
           "Transmission Electron Microscopy (TEM) Patterns Image",
           "Transmission Electron Microscopy",
@@ -1347,13 +1348,20 @@
                             },
                             "schema:encodingFormat": {
                               "description": "One of the approved non-standard file formats: 'Spectral Data Exchange File (.emsa)'-->text/plain; '3D model file (.obj)'-->model/obj; 'Standard Triangle Language (.stl)'-->model/stl; 'Open XML workbook (.xlsx)'-->application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; 'Neptune Plus export (.exp)'-->application/octet-stream",
-                              "enum": [
-                                "text/plain",
-                                "model/obj",
-                                "model/stl",
-                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                                "application/octet-stream"
-                              ]
+                              "type": "array",
+                              "items": {
+                                "enum": [
+                                  "text/plain",
+                                  "model/obj",
+                                  "model/stl",
+                                  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                  "application/octet-stream",
+                                  "application/zip",
+                                  "video/mp4",
+                                  "video/x-m4v",
+                                  "video/quicktime"
+                                ]
+                              }
                             },
                             "ada:formatDescription": {
                               "type": "string",

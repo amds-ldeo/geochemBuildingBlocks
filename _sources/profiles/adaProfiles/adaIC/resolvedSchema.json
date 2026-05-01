@@ -20726,6 +20726,7 @@
                   "Accelerator Mass Spectrometry",
                   "Advanced Imaging and Visualization of Astromaterials (AIVA)",
                   "Analysis Advanced Imaging and Visualization of Astromaterials (AIVA)",
+                  "Advanced Imaging & Visualization of Astromaterials",
                   "Basemap",
                   "Differential Scanning Calorimetry (DSC)",
                   "Differential Scanning Calorimetry",
@@ -20757,6 +20758,7 @@
                   "Ion Chromatography",
                   "Laser Assisted Fluorination (LAF) Processed",
                   "Laser Assisted Fluorination (LAF) Raw",
+                  "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements",
                   "Liquid Chromatography - Mass Spectrometry (LCMS) Collection",
                   "Liquid Chromatography-Mass Spectrometry",
                   "Lock-In Thermography (LIT) Collection",
@@ -20785,6 +20787,7 @@
                   "Quadrupole Inductively Coupled Plasma Mass Spectrometry",
                   "Quantitative Reflective Imaging System (QRIS)",
                   "Quantitative Reflective Imaging System (QRIS) Calibrated",
+                  "Quantitative Reflectance Imaging System",
                   "Raman vibrational spectroscopy",
                   "Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS) Processed",
                   "Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS) Spectra",
@@ -20810,11 +20813,13 @@
                   "Structured Light Scanning (SLS) Shape Model",
                   "Structured Light Scanning",
                   "Time-of-flight secondary ion mass spectrometry (TOFSIMS)",
+                  "Time-of-Flight Secondary Ion Mass Spectrometer",
                   "Transmission Electron Microscopy (TEM) Image",
                   "Transmission Electron Microscopy (TEM) Patterns Image",
                   "Transmission Electron Microscopy",
                   "Visible Light Microscopy (VLM) Image",
                   "Visible Light Microscopy",
+                  "Visible Light Microscopy Basemap",
                   "Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point",
                   "Visible, near-, and mid-infrared spectroscopy",
                   "X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)",
@@ -20822,8 +20827,7 @@
                   "X-ray Computed Tomography (XCT) Image Collection",
                   "X-ray computed tomography",
                   "X-ray Diffraction (XRD) Tabular",
-                  "X-ray diffraction",
-                  "Visible Light Microscopy Basemap"
+                  "X-ray diffraction"
                 ]
               },
               "minItems": 2
@@ -23896,6 +23900,7 @@
                             },
                             "schema:name": {
                               "type": "string",
+                              "title": "Method Name",
                               "description": "Short descriptive name with version (e.g. \"JEOL-8530F WDS Major Element Glass v2.1\")."
                             },
                             "schema:identifier": {
@@ -23965,6 +23970,7 @@
                               "description": "Semantic version string (e.g. \"2.1.0\")."
                             },
                             "schema:datePublished": {
+                              "title": "Method Start Date",
                               "type": "string",
                               "description": "ISO 8601 date when this method configuration was first used."
                             },
@@ -24088,7 +24094,8 @@
                                     }
                                   ]
                                 }
-                              ]
+                              ],
+                              "title": "Technique"
                             },
                             "schema:object": {
                               "description": "Target material(s) this method is designed to analyse (e.g. silicate glass, olivine, spinel). Modeled as DefinedTerm(s) or free text.",
@@ -27232,7 +27239,7 @@
                               }
                             },
                             "schema:location": {
-                              "title": "ADA Analysis Laboratory",
+                              "title": "Laboratory",
                               "description": "Laboratory where this method was developed. Optional; omit for methods that are instrument-generic.",
                               "allOf": [
                                 {
@@ -27841,7 +27848,8 @@
                                 }
                               ]
                             },
-                            "schema:agent": {
+                            "schema:creator": {
+                              "title": "Method Author",
                               "description": "Person or organisation who defined or is responsible for this method.",
                               "anyOf": [
                                 {
@@ -28568,7 +28576,7 @@
                                 },
                                 "schema:step": {
                                   "type": "array",
-                                  "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure.",
+                                  "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
                                   "items": {
                                     "type": "object",
                                     "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
@@ -31598,7 +31606,27 @@
                                       "schema:name",
                                       "schema:position"
                                     ]
-                                  }
+                                  },
+                                  "contains": {
+                                    "type": "object",
+                                    "description": "a sample preparation step is required.",
+                                    "properties": {
+                                      "schema:name": {
+                                        "const": "Sample preparation"
+                                      },
+                                      "schema:additionalType": {
+                                        "type": "array",
+                                        "contains": {
+                                          "const": "bios:LabProcess"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "schema:name",
+                                      "schema:additionalType"
+                                    ]
+                                  },
+                                  "maxContains": 1
                                 }
                               },
                               "required": [
@@ -32172,6 +32200,8 @@
                               "properties": {
                                 "ada:analyteColumns": {
                                   "type": "array",
+                                  "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
+                                  "minItems": 1,
                                   "items": {
                                     "type": "object",
                                     "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
@@ -32465,7 +32495,338 @@
                                       "schema:name",
                                       "ada:dataType"
                                     ]
-                                  }
+                                  },
+                                  "contains": {
+                                    "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+                                    "allOf": [
+                                      {
+                                        "type": "object",
+                                        "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
+                                        "properties": {
+                                          "@type": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "contains": {
+                                              "const": "schema:PropertyValueSpecification"
+                                            },
+                                            "minItems": 1
+                                          },
+                                          "schema:name": {
+                                            "type": "string",
+                                            "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+                                          },
+                                          "schema:valueName": {
+                                            "type": "string",
+                                            "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+                                          },
+                                          "schema:description": {
+                                            "type": "string",
+                                            "description": "Guidance text for this column."
+                                          },
+                                          "schema:propertyID": {
+                                            "description": "URI identifying this column's parameter type in a formal vocabulary.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string",
+                                                "format": "uri"
+                                              },
+                                              {
+                                                "description": "schema.org Defined Term schema",
+                                                "type": "object",
+                                                "properties": {
+                                                  "@type": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "contains": {
+                                                      "const": "schema:DefinedTerm"
+                                                    },
+                                                    "minItems": 1
+                                                  },
+                                                  "schema:name": {
+                                                    "type": "string",
+                                                    "description": "text label for the term that is useful to human user"
+                                                  },
+                                                  "schema:identifier": {
+                                                    "anyOf": [
+                                                      {
+                                                        "type": "string"
+                                                      },
+                                                      {
+                                                        "description": "Properties for a schema.org identifier",
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "@type": {
+                                                            "type": "array",
+                                                            "items": {
+                                                              "type": "string"
+                                                            },
+                                                            "contains": {
+                                                              "const": "schema:PropertyValue"
+                                                            },
+                                                            "minItems": 1
+                                                          },
+                                                          "schema:propertyID": {
+                                                            "type": "string",
+                                                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                                          },
+                                                          "schema:value": {
+                                                            "type": "string",
+                                                            "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                                                          },
+                                                          "schema:url": {
+                                                            "type": "string",
+                                                            "format": "uri",
+                                                            "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                                          }
+                                                        },
+                                                        "allOf": [
+                                                          {
+                                                            "required": [
+                                                              "@type"
+                                                            ]
+                                                          },
+                                                          {
+                                                            "anyOf": [
+                                                              {
+                                                                "required": [
+                                                                  "schema:value"
+                                                                ]
+                                                              },
+                                                              {
+                                                                "required": [
+                                                                  "schema:url"
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  "schema:inDefinedTermSet": {
+                                                    "type": "string",
+                                                    "description": "Name for the controlled vocabulary responsible for this keyword."
+                                                  },
+                                                  "schema:termCode": {
+                                                    "type": "string",
+                                                    "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                                                  }
+                                                },
+                                                "allOf": [
+                                                  {
+                                                    "required": [
+                                                      "@type"
+                                                    ]
+                                                  },
+                                                  {
+                                                    "anyOf": [
+                                                      {
+                                                        "required": [
+                                                          "schema:name"
+                                                        ]
+                                                      },
+                                                      {
+                                                        "required": [
+                                                          "schema:identifier"
+                                                        ]
+                                                      },
+                                                      {
+                                                        "required": [
+                                                          "schema:termCode"
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          "schema:inDefinedTermSet": {
+                                            "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                                            "anyOf": [
+                                              {
+                                                "type": "string",
+                                                "format": "uri"
+                                              },
+                                              {
+                                                "type": "object",
+                                                "description": "Object reference to a vocabulary defined elsewhere.",
+                                                "properties": {
+                                                  "@id": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "@id"
+                                                ]
+                                              },
+                                              {
+                                                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                                                "type": "object",
+                                                "properties": {
+                                                  "@type": {
+                                                    "default": "schema:CreativeWork",
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "contains": {
+                                                      "const": "schema:CreativeWork"
+                                                    },
+                                                    "minItems": 1
+                                                  },
+                                                  "schema:name": {
+                                                    "type": "string"
+                                                  },
+                                                  "schema:description": {
+                                                    "type": "string"
+                                                  },
+                                                  "schema:url": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "@type",
+                                                  "schema:url"
+                                                ]
+                                              },
+                                              {
+                                                "type": "object",
+                                                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                                                "properties": {
+                                                  "@type": {
+                                                    "const": "schema:DefinedTermSet"
+                                                  },
+                                                  "schema:hasDefinedTerm": {
+                                                    "type": "array",
+                                                    "minItems": 1,
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@type": {
+                                                          "const": "schema:DefinedTerm"
+                                                        },
+                                                        "schema:termCode": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@type",
+                                                        "schema:termCode"
+                                                      ]
+                                                    }
+                                                  }
+                                                },
+                                                "required": [
+                                                  "@type",
+                                                  "schema:hasDefinedTerm"
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          "schema:defaultValue": {
+                                            "description": "Default value for this column (pre-filled per row).",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "boolean"
+                                              }
+                                            ]
+                                          },
+                                          "schema:readonlyValue": {
+                                            "type": "boolean",
+                                            "description": "true = constant across all analytes (read-only column)."
+                                          },
+                                          "schema:valueRequired": {
+                                            "type": "boolean",
+                                            "description": "true = must be provided for every analyte row."
+                                          },
+                                          "schema:minValue": {
+                                            "type": "number"
+                                          },
+                                          "schema:maxValue": {
+                                            "type": "number"
+                                          },
+                                          "schema:valuePattern": {
+                                            "type": "string"
+                                          },
+                                          "ada:dataType": {
+                                            "type": "string",
+                                            "enum": [
+                                              "string",
+                                              "number",
+                                              "integer",
+                                              "boolean",
+                                              "date",
+                                              "uri"
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          },
+                                          "ada:tier": {
+                                            "type": "string",
+                                            "enum": [
+                                              "M",
+                                              "R",
+                                              "O"
+                                            ]
+                                          },
+                                          "ada:cdifPropertyPath": {
+                                            "type": "string",
+                                            "description": "How this column maps into the variableMeasured JSON-LD structure."
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:name",
+                                          "ada:dataType"
+                                        ]
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "schema:valueName": {
+                                            "const": "analyte"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "schema:valueRequired": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "M"
+                                          },
+                                          "ada:cdifPropertyPath": {
+                                            "const": "#/schema:variableMeasured/schema:name"
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:valueName",
+                                          "ada:dataType",
+                                          "schema:readonlyValue",
+                                          "schema:valueRequired",
+                                          "ada:tier",
+                                          "ada:cdifPropertyPath"
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  "maxContains": 1
                                 },
                                 "ada:defaultAnalytes": {
                                   "type": "array",
@@ -32752,8 +33113,9 @@
                               }
                             },
                             "schema:relatedLink": {
+                              "title": "Method References",
                               "type": "array",
-                              "description": "Publications, Zenodo records, or other references documenting this method.",
+                              "description": "Publications, Zenodo records, or other references reports describing or evaluating this method.",
                               "items": {
                                 "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
                                 "type": "object",
@@ -32787,6 +33149,7 @@
                               }
                             },
                             "schema:funding": {
+                              "title": "Funding Source",
                               "type": "array",
                               "items": {
                                 "description": "Funding acknowledgement properties, profile of schema.org/MonetaryGrant",
@@ -35434,7 +35797,7 @@
                       "allOf": [
                         {
                           "title": "Files Type",
-                          "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive \u2014 they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
+                          "description": "Properties for any file in an ADA product distribution hasPart. These are component files within an archive — they are NOT individually downloadable (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType provides info based on broad categories of file format (tabular, image, dataCube, document).",
                           "allOf": [
                             {
                               "type": "object",
@@ -35588,7 +35951,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for an image, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific image componentTypes."
+                                      "description": "ADA componentType for an image, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "ada:channel1": {
                                       "type": "string"
@@ -35645,7 +36008,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific imageMap componentTypes."
+                                      "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "ada:channel1": {
                                       "type": "string"
@@ -35753,7 +36116,7 @@
                                         },
                                         "ada:componentType": {
                                           "type": "string",
-                                          "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific tabular componentTypes."
+                                          "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
                                         },
                                         "ada:xCoordCol": {
                                           "description": "The column names are redundant, they are lists in the hasPhysicalMapping array. Include here for convenience.",
@@ -36075,7 +36438,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for a collection, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific collection componentTypes."
+                                      "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema."
                                     },
                                     "ada:memberTypes": {
                                       "title": "String Array Type",
@@ -36156,7 +36519,7 @@
                                         },
                                         "ada:componentType": {
                                           "type": "string",
-                                          "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+                                          "description": "ADA componentType for a data cube, as a single string. Allowed values are constrained at the technique-profile level."
                                         },
                                         "ada:dataComponentResource": {
                                           "type": "string"
@@ -36285,7 +36648,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for a document, as a single string. Allowed values are constrained by the technique profile (via its hasPart anyOf), which either lists universal componentTypes inline or $refs a detail schema enumerating technique-specific document componentTypes."
+                                      "description": "ADA componentType for a document, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "schema:version": {
                                       "type": "string"
@@ -36327,7 +36690,7 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+                                      "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "ada:numPixelsX": {
                                       "type": "integer"
@@ -36362,17 +36725,24 @@
                                     },
                                     "ada:componentType": {
                                       "type": "string",
-                                      "description": "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping."
+                                      "description": "ADA componentType for an other-format file, as a single string. Allowed values are constrained at the technique-profile level."
                                     },
                                     "schema:encodingFormat": {
                                       "description": "One of the approved non-standard file formats: 'Spectral Data Exchange File (.emsa)'-->text/plain; '3D model file (.obj)'-->model/obj; 'Standard Triangle Language (.stl)'-->model/stl; 'Open XML workbook (.xlsx)'-->application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; 'Neptune Plus export (.exp)'-->application/octet-stream",
-                                      "enum": [
-                                        "text/plain",
-                                        "model/obj",
-                                        "model/stl",
-                                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                                        "application/octet-stream"
-                                      ]
+                                      "type": "array",
+                                      "items": {
+                                        "enum": [
+                                          "text/plain",
+                                          "model/obj",
+                                          "model/stl",
+                                          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                          "application/octet-stream",
+                                          "application/zip",
+                                          "video/mp4",
+                                          "video/x-m4v",
+                                          "video/quicktime"
+                                        ]
+                                      }
                                     },
                                     "ada:formatDescription": {
                                       "type": "string",
@@ -36462,7 +36832,31 @@
                       "properties": {
                         "ada:componentType": {
                           "description": "ada:componentType values valid across all ADA techniques. As a string, directly assignable to the part's ada:componentType property. Profiles use this $def (typically via the universalComponentTypeBranch wrapper) in their hasPart anyOf branches.",
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "ada:analysisLocation",
+                            "ada:annotatedImage",
+                            "ada:areaOfInterest",
+                            "ada:basemap",
+                            "ada:calibrationFile",
+                            "ada:code",
+                            "ada:contextPhotography",
+                            "ada:contextVideo",
+                            "ada:inputFile",
+                            "ada:instrumentMetadata",
+                            "ada:logFile",
+                            "ada:methodDescription",
+                            "ada:other",
+                            "ada:plot",
+                            "ada:processingMethod",
+                            "ada:quickLook",
+                            "ada:report",
+                            "ada:samplePreparation",
+                            "ada:shapefile",
+                            "ada:supplementalBasemap",
+                            "ada:supplementaryImage",
+                            "ada:worldFile"
+                          ]
                         }
                       },
                       "required": [
@@ -36472,7 +36866,10 @@
                     {
                       "properties": {
                         "ada:componentType": {
-                          "type": "string"
+                          "type": "string",
+                          "enum": [
+                            "ada:ICTabular"
+                          ]
                         }
                       },
                       "required": [

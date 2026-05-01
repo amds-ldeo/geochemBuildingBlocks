@@ -72,6 +72,7 @@
     },
     "schema:name": {
       "type": "string",
+      "title": "Method Name",
       "description": "Short descriptive name with version (e.g. \"JEOL-8530F WDS Major Element Glass v2.1\")."
     },
     "schema:identifier": {
@@ -141,6 +142,7 @@
       "description": "Semantic version string (e.g. \"2.1.0\")."
     },
     "schema:datePublished": {
+      "title": "Method Start Date",
       "type": "string",
       "description": "ISO 8601 date when this method configuration was first used."
     },
@@ -264,7 +266,8 @@
             }
           ]
         }
-      ]
+      ],
+      "title": "Technique"
     },
     "schema:object": {
       "description": "Target material(s) this method is designed to analyse (e.g. silicate glass, olivine, spinel). Modeled as DefinedTerm(s) or free text.",
@@ -3408,7 +3411,7 @@
       }
     },
     "schema:location": {
-      "title": "ADA Analysis Laboratory",
+      "title": "Laboratory",
       "description": "Laboratory where this method was developed. Optional; omit for methods that are instrument-generic.",
       "allOf": [
         {
@@ -4017,7 +4020,8 @@
         }
       ]
     },
-    "schema:agent": {
+    "schema:creator": {
+      "title": "Method Author",
       "description": "Person or organisation who defined or is responsible for this method.",
       "anyOf": [
         {
@@ -4744,7 +4748,7 @@
         },
         "schema:step": {
           "type": "array",
-          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure.",
+          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
           "items": {
             "type": "object",
             "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
@@ -7774,7 +7778,27 @@
               "schema:name",
               "schema:position"
             ]
-          }
+          },
+          "contains": {
+            "type": "object",
+            "description": "a sample preparation step is required.",
+            "properties": {
+              "schema:name": {
+                "const": "Sample preparation"
+              },
+              "schema:additionalType": {
+                "type": "array",
+                "contains": {
+                  "const": "bios:LabProcess"
+                }
+              }
+            },
+            "required": [
+              "schema:name",
+              "schema:additionalType"
+            ]
+          },
+          "maxContains": 1
         }
       },
       "required": [
@@ -8348,6 +8372,8 @@
       "properties": {
         "ada:analyteColumns": {
           "type": "array",
+          "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
+          "minItems": 1,
           "items": {
             "type": "object",
             "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
@@ -8641,7 +8667,338 @@
               "schema:name",
               "ada:dataType"
             ]
-          }
+          },
+          "contains": {
+            "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+            "allOf": [
+              {
+                "type": "object",
+                "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValueSpecification"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+                  },
+                  "schema:valueName": {
+                    "type": "string",
+                    "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+                  },
+                  "schema:description": {
+                    "type": "string",
+                    "description": "Guidance text for this column."
+                  },
+                  "schema:propertyID": {
+                    "description": "URI identifying this column's parameter type in a formal vocabulary.",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      {
+                        "description": "schema.org Defined Term schema",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:DefinedTerm"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "text label for the term that is useful to human user"
+                          },
+                          "schema:identifier": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "description": "Properties for a schema.org identifier",
+                                "type": "object",
+                                "properties": {
+                                  "@type": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:PropertyValue"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:propertyID": {
+                                    "type": "string",
+                                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                  },
+                                  "schema:value": {
+                                    "type": "string",
+                                    "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                                  },
+                                  "schema:url": {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                  }
+                                },
+                                "allOf": [
+                                  {
+                                    "required": [
+                                      "@type"
+                                    ]
+                                  },
+                                  {
+                                    "anyOf": [
+                                      {
+                                        "required": [
+                                          "schema:value"
+                                        ]
+                                      },
+                                      {
+                                        "required": [
+                                          "schema:url"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "schema:inDefinedTermSet": {
+                            "type": "string",
+                            "description": "Name for the controlled vocabulary responsible for this keyword."
+                          },
+                          "schema:termCode": {
+                            "type": "string",
+                            "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                          }
+                        },
+                        "allOf": [
+                          {
+                            "required": [
+                              "@type"
+                            ]
+                          },
+                          {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "schema:name"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:identifier"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:termCode"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      {
+                        "type": "object",
+                        "description": "Object reference to a vocabulary defined elsewhere.",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ]
+                      },
+                      {
+                        "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "default": "schema:CreativeWork",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:CreativeWork"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string"
+                          },
+                          "schema:description": {
+                            "type": "string"
+                          },
+                          "schema:url": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:url"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                        "properties": {
+                          "@type": {
+                            "const": "schema:DefinedTermSet"
+                          },
+                          "schema:hasDefinedTerm": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "@type": {
+                                  "const": "schema:DefinedTerm"
+                                },
+                                "schema:termCode": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@type",
+                                "schema:termCode"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:hasDefinedTerm"
+                        ]
+                      }
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "description": "Default value for this column (pre-filled per row).",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      }
+                    ]
+                  },
+                  "schema:readonlyValue": {
+                    "type": "boolean",
+                    "description": "true = constant across all analytes (read-only column)."
+                  },
+                  "schema:valueRequired": {
+                    "type": "boolean",
+                    "description": "true = must be provided for every analyte row."
+                  },
+                  "schema:minValue": {
+                    "type": "number"
+                  },
+                  "schema:maxValue": {
+                    "type": "number"
+                  },
+                  "schema:valuePattern": {
+                    "type": "string"
+                  },
+                  "ada:dataType": {
+                    "type": "string",
+                    "enum": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "date",
+                      "uri"
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  },
+                  "ada:tier": {
+                    "type": "string",
+                    "enum": [
+                      "M",
+                      "R",
+                      "O"
+                    ]
+                  },
+                  "ada:cdifPropertyPath": {
+                    "type": "string",
+                    "description": "How this column maps into the variableMeasured JSON-LD structure."
+                  }
+                },
+                "required": [
+                  "schema:name",
+                  "ada:dataType"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema:valueName": {
+                    "const": "analyte"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "schema:valueRequired": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "M"
+                  },
+                  "ada:cdifPropertyPath": {
+                    "const": "#/schema:variableMeasured/schema:name"
+                  }
+                },
+                "required": [
+                  "schema:valueName",
+                  "ada:dataType",
+                  "schema:readonlyValue",
+                  "schema:valueRequired",
+                  "ada:tier",
+                  "ada:cdifPropertyPath"
+                ]
+              }
+            ]
+          },
+          "maxContains": 1
         },
         "ada:defaultAnalytes": {
           "type": "array",
@@ -8928,8 +9285,9 @@
       }
     },
     "schema:relatedLink": {
+      "title": "Method References",
       "type": "array",
-      "description": "Publications, Zenodo records, or other references documenting this method.",
+      "description": "Publications, Zenodo records, or other references reports describing or evaluating this method.",
       "items": {
         "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
         "type": "object",
@@ -8963,6 +9321,7 @@
       }
     },
     "schema:funding": {
+      "title": "Funding Source",
       "type": "array",
       "items": {
         "description": "Funding acknowledgement properties, profile of schema.org/MonetaryGrant",
