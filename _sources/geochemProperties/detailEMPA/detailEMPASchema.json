@@ -1,40 +1,60 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "EMPA Instrument Detail",
-    "description": "Detail block for Electron Microprobe Analysis hasPart items. Discriminates on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed as sibling properties on the hasPart item.",
-    "type": "object",
-    "properties": {
-        "ada:componentType": {
-            "anyOf": [
-                {
-                    "const": "ada:EMPAImage"
+    "description": "Detail block for Electron Microprobe Analysis hasPart items. Discriminates on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed as sibling properties on the hasPart item. Per-dataset schema:additionalProperty entries are constrained by the generated parametersConstraint.yaml (one schema:PropertyValue branch per readOnly:false empaTAPP parameter, plus a catch-all). schema:measurementTechnique is an @id reference to a registered empaTAPP TAPP definition.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "ada:componentType": {
+                    "anyOf": [
+                        {
+                            "const": "ada:EMPAImage"
+                        },
+                        {
+                            "const": "ada:EMPAImageMap"
+                        },
+                        {
+                            "const": "ada:EMPAQEATabular"
+                        },
+                        {
+                            "const": "ada:EMPAImageCollection"
+                        },
+                        {
+                            "const": "ada:EMPAESPCTabular"
+                        },
+                        {
+                            "const": "ada:EMPAESPCPlot"
+                        }
+                    ]
                 },
-                {
-                    "const": "ada:EMPAImageMap"
+                "ada:spectrometersUsed": {
+                    "type": "string",
+                    "description": "Spectrometers used in analysis"
                 },
-                {
-                    "const": "ada:EMPAQEATabular"
+                "ada:signalUsed": {
+                    "type": "string"
                 },
-                {
-                    "const": "ada:EMPAImageCollection"
-                },
-                {
-                    "const": "ada:EMPAESPCTabular"
-                },
-                {
-                    "const": "ada:EMPAESPCPlot"
+                "schema:measurementTechnique": {
+                    "type": "object",
+                    "description": "@id reference to a registered empaTAPP TAPP definition.",
+                    "properties": {
+                        "@id": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
                 }
+            },
+            "required": [
+                "ada:componentType"
             ]
         },
-        "ada:spectrometersUsed": {
-            "type": "string",
-            "description": "Spectrometers used in analysis"
-        },
-        "ada:signalUsed": {
-            "type": "string"
+        {
+            "$ref": "parametersConstraint.yaml"
         }
-    },
-    "required": [
-        "ada:componentType"
     ]
 }

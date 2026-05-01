@@ -72,6 +72,7 @@
         },
         "schema:name": {
             "type": "string",
+            "title": "Method Name",
             "description": "Short descriptive name with version (e.g. \"JEOL-8530F WDS Major Element Glass v2.1\")."
         },
         "schema:identifier": {
@@ -94,6 +95,7 @@
             "description": "Semantic version string (e.g. \"2.1.0\")."
         },
         "schema:datePublished": {
+            "title": "Method Start Date",
             "type": "string",
             "description": "ISO 8601 date when this method configuration was first used."
         },
@@ -109,6 +111,7 @@
             }
         },
         "schema:measurementTechnique": {
+            "title": "Technique",
             "description": "The analytical technique this method implements. Must be a DefinedTerm from a controlled vocabulary of techniques.",
             "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"
         },
@@ -118,7 +121,7 @@
             "items": {
                 "anyOf": [
                     {
-                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"
+                        "$ref": "#/$defs/DefinedTerm"
                     },
                     {
                         "type": "string"
@@ -145,10 +148,12 @@
             }
         },
         "schema:location": {
+            "title": "Laboratory",
             "description": "Laboratory where this method was developed. Optional; omit for methods that are instrument-generic.",
             "$ref": "../../geochemProperties/laboratory/laboratorySchema.json"
         },
-        "schema:agent": {
+        "schema:creator": {
+            "title": "Method Author",
             "description": "Person or organisation who defined or is responsible for this method.",
             "anyOf": [
                 {
@@ -184,9 +189,15 @@
             "properties": {
                 "ada:analyteColumns": {
                     "type": "array",
+                    "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
+                    "minItems": 1,
                     "items": {
                         "$ref": "#/$defs/AnalyteColumn"
-                    }
+                    },
+                    "contains": {
+                        "$ref": "#/$defs/AnalyteIdentifierColumn"
+                    },
+                    "maxContains": 1
                 },
                 "ada:defaultAnalytes": {
                     "type": "array",
@@ -209,13 +220,15 @@
             }
         },
         "schema:relatedLink": {
+            "title": "Method References",
             "type": "array",
-            "description": "Publications, Zenodo records, or other references documenting this method.",
+            "description": "Publications, Zenodo records, or other references reports describing or evaluating this method.",
             "items": {
                 "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/labeledLinkSchema.json"
             }
         },
         "schema:funding": {
+            "title": "Funding Source",
             "type": "array",
             "items": {
                 "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/monetaryGrantSchema.json"
@@ -261,10 +274,30 @@
                 },
                 "schema:step": {
                     "type": "array",
-                    "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure.",
+                    "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
                     "items": {
                         "$ref": "#/$defs/WorkflowStep"
-                    }
+                    },
+                    "contains": {
+                        "type": "object",
+                        "description": "a sample preparation step is required.",
+                        "properties": {
+                            "schema:name": {
+                                "const": "Sample preparation"
+                            },
+                            "schema:additionalType": {
+                                "type": "array",
+                                "contains": {
+                                    "const": "bios:LabProcess"
+                                }
+                            }
+                        },
+                        "required": [
+                            "schema:name",
+                            "schema:additionalType"
+                        ]
+                    },
+                    "maxContains": 1
                 }
             },
             "required": [
@@ -467,7 +500,7 @@
                             "format": "uri"
                         },
                         {
-                            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"
+                            "$ref": "#/$defs/DefinedTerm"
                         }
                     ]
                 },
@@ -586,7 +619,7 @@
                             "type": "string"
                         },
                         {
-                            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"
+                            "$ref": "#/$defs/DefinedTerm"
                         }
                     ]
                 },
@@ -613,7 +646,7 @@
                             "type": "string"
                         },
                         {
-                            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"
+                            "$ref": "#/$defs/DefinedTerm"
                         }
                     ]
                 },
@@ -710,7 +743,7 @@
                             "format": "uri"
                         },
                         {
-                            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"
+                            "$ref": "#/$defs/DefinedTerm"
                         }
                     ]
                 },
@@ -832,6 +865,45 @@
             "required": [
                 "schema:name",
                 "ada:dataType"
+            ]
+        },
+        "AnalyteIdentifierColumn": {
+            "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+            "allOf": [
+                {
+                    "$ref": "#/$defs/AnalyteColumn"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "schema:valueName": {
+                            "const": "analyte"
+                        },
+                        "ada:dataType": {
+                            "const": "string"
+                        },
+                        "schema:readonlyValue": {
+                            "const": true
+                        },
+                        "schema:valueRequired": {
+                            "const": true
+                        },
+                        "ada:tier": {
+                            "const": "M"
+                        },
+                        "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                        }
+                    },
+                    "required": [
+                        "schema:valueName",
+                        "ada:dataType",
+                        "schema:readonlyValue",
+                        "schema:valueRequired",
+                        "ada:tier",
+                        "ada:cdifPropertyPath"
+                    ]
+                }
             ]
         },
         "ComputationalTool": {
@@ -975,6 +1047,9 @@
         },
         "QualityMeasure": {
             "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
+        },
+        "DefinedTerm": {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"
         }
     }
 }
