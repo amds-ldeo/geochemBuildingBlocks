@@ -34,8 +34,7 @@ A `schema:HowTo` containing `schema:step` — an ordered array of `cdi:Activity`
 5. **Quality control** — drift monitoring, precision/accuracy assessment
 
 Each workflow step can carry:
-- `ada:methodParameters` — typed parameters with scope, fieldScope, tier
-- `schema:additionalProperty` — simple PropertyValue parameters
+- `schema:additionalProperty` — typed step parameters (MethodParameter shape: scope, fieldScope, tier)
 - `bios:reagent` — step-specific standards and materials
 - `bios:computationalTool` — step-specific software
 - `schema:instrument` — step-specific equipment
