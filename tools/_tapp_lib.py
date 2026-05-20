@@ -4,8 +4,10 @@ Reads docs/TAPP_EPMA_filled.xlsx (sheet 'TAPP') and emits, into
 _sources/techniqueProtocols/empaTAPP/:
 
 - vocab/<name>.json          one schema:DefinedTermSet per enum-typed row
-- parameters/<Name>.json     one schema:PropertyValueSpecification per parameter row
-- analyteColumns/<col>.json  one schema:PropertyValueSpecification per analyteColumn row
+- parameterTemplates/schema.yaml  registered collection BB: one $def per
+                              readOnly:true method-parameter template
+- analyteColumns/schema.yaml      registered collection BB: one $def per
+                              analyteColumn row (schema:PropertyValueSpecification)
 - schema.yaml properties     one entry per property-tagged row (overwrites the existing
                               POC schema.yaml's allOf[1].properties block)
 
@@ -151,6 +153,13 @@ CFG: dict = dict(TAPP_PROFILES["empaTAPP"])
 # owns an entry with semantically different content. Cleared at the start
 # of each top-level build (build_tapp_artifacts / build_detail_artifacts).
 CATALOG_CONFLICTS: list[dict] = []
+
+# In-memory cache of the full analyteColumn catalog objects (incl. examples[0])
+# keyed by name, populated by _classify_rows(emit_tapp=True). example_for_pub()
+# reads canonical instances from here instead of the former flat per-name files
+# (now collapsed into the analyteColumns registry schema.yaml $defs, which strip
+# examples). Cleared/repopulated on each classify run.
+ANALYTE_COLUMN_OBJS: "OrderedDict[str, dict]" = OrderedDict()
 
 
 def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
@@ -836,16 +845,29 @@ def build_haspart_constraint(rows: list[dict]) -> dict | None:
     ])
 
 
-def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") -> None:
-    """Write the registered parameterValues collection BB at
-    _sources/techniqueProtocols/parameterValues/schema.yaml — a $defs library,
-    one entry per readOnly:false parameter (keyed by name). Detail BBs reference
-    these via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally
-    through the building-block register instead of being fetched as plain helper
-    files. Each $def is the parameter's JSON Schema body with $schema/$id/examples
-    stripped (title/description/type/properties/required retained). A sibling
-    bblock.json registers the collection. Existing $defs owned by other TAPPs are
-    preserved; this TAPP's params are merged in."""
+def _write_catalog_registry(
+    catalog_dir: Path,
+    new_defs: "OrderedDict[str, dict]",
+    *,
+    owned_marker: str,
+    title: str,
+    description: str,
+    bblock_name: str,
+    bblock_abstract: str,
+    bblock_tags: list[str],
+) -> int:
+    """Generic registered-collection-BB writer.
+
+    Writes a $defs library at <catalog_dir>/schema.yaml plus a sibling
+    bblock.json so the entries resolve locally through the building-block
+    register (instead of being fetched as plain helper files). Each $def is the
+    entry's JSON Schema body with $schema/$id/examples stripped
+    (title/description/type/properties/required retained). Existing $defs owned
+    by another TAPP are preserved (multi-TAPP union); $defs whose @id const
+    starts with `owned_marker` belong to the active TAPP and are overwritten
+    /inserted, with stale owned entries (no longer in `new_defs`) dropped.
+
+    Returns the number of $defs contributed by this TAPP."""
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
@@ -870,10 +892,10 @@ def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") 
             return seq
         return v
 
-    PARAMETER_VALUES_DIR.mkdir(parents=True, exist_ok=True)
-    out = PARAMETER_VALUES_DIR / "schema.yaml"
+    catalog_dir.mkdir(parents=True, exist_ok=True)
+    out = catalog_dir / "schema.yaml"
 
-    # Load any existing registry so multi-TAPP regen accumulates $defs.
+    # Load any existing registry so multi-TAPP regen accumulates $defs (union).
     existing_defs: "OrderedDict[str, dict]" = OrderedDict()
     if out.exists():
         try:
@@ -884,41 +906,81 @@ def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") 
         except Exception:
             existing_defs = OrderedDict()
 
-    # This TAPP owns its param names — overwrite/insert those, drop stale ones it
-    # previously owned but the spreadsheet no longer lists.
-    owned_marker = f"ada:parameter/{TAPP_NAME}/"
-
     def _is_owned(defn: dict) -> bool:
         try:
             return defn.get("properties", {}).get("@id", {}).get("const", "").startswith(owned_marker)
         except AttributeError:
             return False
 
-    merged: "OrderedDict[str, dict]" = OrderedDict()
-    # keep foreign-owned $defs untouched
-    for k, v in existing_defs.items():
-        if not _is_owned(v):
-            merged[k] = v
-    # add/overwrite this TAPP's $defs (strip $schema/$id/examples)
-    for name, defn in param_value_defs.items():
+    def _normalize_def(d):
+        """Strip the TAPP-namespace token from any ada:vocab|parameter|analyteColumn
+        URI const so two TAPPs' definitions of the same entry compare equal even
+        though their @id/$id/propertyID/inDefinedTermSet differ only by the TAPP
+        segment. Mirrors share_or_write_catalog._normalize so a shared catalog
+        entry keeps a single owner (the first TAPP to define it) instead of being
+        clobbered by a later build of an equivalent entry."""
+        import copy
+        d2 = copy.deepcopy(d)
+
+        def walk(v):
+            if isinstance(v, dict):
+                for k in list(v.keys()):
+                    if k in ("@id", "$id", "schema:propertyID") and isinstance(v[k], str):
+                        v[k] = re.sub(
+                            r"(ada:(?:vocab|parameter|analyteColumn)/)[A-Za-z0-9_]+/",
+                            r"\1__/", v[k])
+                    else:
+                        walk(v[k])
+            elif isinstance(v, list):
+                for x in v:
+                    walk(x)
+        walk(d2)
+        return d2
+
+    # Start from ALL existing $defs (both this TAPP's prior entries and other
+    # TAPPs' entries). This TAPP's own stale entries are pruned below; foreign
+    # entries are preserved (union across TAPPs).
+    merged: "OrderedDict[str, dict]" = OrderedDict(existing_defs)
+    # Drop this TAPP's previously-owned entries so spreadsheet deletions/renames
+    # don't leave stale $defs; they're re-added from new_defs if still present.
+    for k in list(merged.keys()):
+        if _is_owned(merged[k]):
+            del merged[k]
+
+    # Merge in this TAPP's $defs (strip $schema/$id/examples). Ownership semantics
+    # mirror share_or_write_catalog: an entry whose name collides with a
+    # foreign-owned $def is SHARED if the bodies normalize-equal (TAPP token
+    # ignored) — keep the existing owner's $def; or a CONFLICT if they differ —
+    # keep the existing owner's $def and warn (the first TAPP to define a name
+    # owns it; the later TAPP must reconcile via the spreadsheet).
+    for name, defn in new_defs.items():
         body = OrderedDict()
         for key, val in defn.items():
             if key in ("$schema", "$id", "examples"):
                 continue
             body[key] = val
+        existing_same = merged.get(name)
+        if existing_same is not None:
+            # existing_same is foreign-owned (this TAPP's own entries were dropped
+            # above). Keep it; share silently if equal, warn if it conflicts.
+            if _normalize_def(existing_same) != _normalize_def(body):
+                ex_id = ((existing_same.get("properties") or {}).get("@id") or {}).get("const", "")
+                new_id = ((body.get("properties") or {}).get("@id") or {}).get("const", "")
+                CATALOG_CONFLICTS.append({
+                    "path": str(out), "existing_id": ex_id, "new_id": new_id,
+                })
+                print(
+                    f"  CATALOG CONFLICT (kept existing $def {name!r}) in "
+                    f"{out.relative_to(REPO_ROOT)}:\n"
+                    f"    existing id={ex_id!r}\n    new      id={new_id!r}"
+                )
+            continue
         merged[name] = body
 
     doc = CommentedMap()
     doc["$schema"] = "https://json-schema.org/draft/2020-12/schema"
-    doc["title"] = "ADA Analytical Parameter Value Registry"
-    doc["description"] = (
-        "Registry of reusable schema:PropertyValue parameter-value definitions "
-        "derived from technique TAPP spreadsheets. Each $def constrains one "
-        "per-dataset schema:PropertyValue entry. Detail building blocks reference "
-        "these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they "
-        "resolve locally through the building-block register. The root only hosts "
-        "$defs; it has no instantiable properties of its own."
-    )
+    doc["title"] = title
+    doc["description"] = description
     doc["type"] = "object"
     defs_map = CommentedMap()
     for k, v in merged.items():
@@ -928,20 +990,26 @@ def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") 
     with open(out, "w", encoding="utf-8") as f:
         yaml.dump(doc, f)
 
+    # Write resolvedSchema.json. These registries are self-contained $defs
+    # libraries with no external $refs, so the resolved form is identical to
+    # schema.yaml (resolve_schema.py --all skips them, and its --file mode strips
+    # un-promoted inline $defs). The build owns this file so the audit's
+    # "MISSING generated file: resolvedSchema.json" check passes and the resolved
+    # form stays in lockstep with the source. Mirrors parameterValues.
+    resolved = json.loads(json.dumps(doc))  # CommentedMap → plain dict
+    resolved_path = catalog_dir / "resolvedSchema.json"
+    with open(resolved_path, "w", encoding="utf-8") as f:
+        json.dump(resolved, f, indent=4, ensure_ascii=False)
+        f.write("\n")
+
     # Ensure the collection is a registered BB (bblock.json) so $refs resolve
     # locally via the register. Created once; left untouched if present.
-    bblock_path = PARAMETER_VALUES_DIR / "bblock.json"
+    bblock_path = catalog_dir / "bblock.json"
     if not bblock_path.exists():
         bblock = OrderedDict([
             ("$schema", "metaschema.yaml"),
-            ("name", "Analytical Parameter Value Registry"),
-            ("abstract", (
-                "Registry of reusable schema:PropertyValue parameter-value "
-                "definitions derived from technique TAPP spreadsheets. Hosts one "
-                "$def per per-dataset parameter value. Detail building blocks "
-                "reference these definitions via fragment $refs so they resolve "
-                "locally through the register."
-            )),
+            ("name", bblock_name),
+            ("abstract", bblock_abstract),
             ("isTypeLibrary", True),
             ("status", "under-development"),
             ("itemClass", "schema"),
@@ -949,12 +1017,106 @@ def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") 
             ("version", "0.1"),
             ("maturity", "draft"),
             ("scope", "unstable"),
-            ("tags", ["ada", "astromat", "tapp", "parameter", "registry"]),
+            ("tags", bblock_tags),
         ])
         write_json(bblock_path, bblock)
         print(f"  wrote {bblock_path.relative_to(REPO_ROOT)}")
 
-    print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(param_value_defs)} $defs for {TAPP_NAME})")
+    print(f"  wrote {out.relative_to(REPO_ROOT)} "
+          f"({len(new_defs)} $defs for {TAPP_NAME}, {len(merged)} total)")
+    return len(new_defs)
+
+
+def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") -> None:
+    """Write the registered parameterValues collection BB ($defs library) at
+    _sources/techniqueProtocols/parameterValues/schema.yaml — one entry per
+    readOnly:false parameter (keyed by name). Detail BBs reference these via
+    fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through
+    the register. Existing $defs owned by other TAPPs are preserved."""
+    _write_catalog_registry(
+        PARAMETER_VALUES_DIR, param_value_defs,
+        owned_marker=f"ada:parameter/{TAPP_NAME}/",
+        title="ADA Analytical Parameter Value Registry",
+        description=(
+            "Registry of reusable schema:PropertyValue parameter-value definitions "
+            "derived from technique TAPP spreadsheets. Each $def constrains one "
+            "per-dataset schema:PropertyValue entry. Detail building blocks reference "
+            "these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they "
+            "resolve locally through the building-block register. The root only hosts "
+            "$defs; it has no instantiable properties of its own."
+        ),
+        bblock_name="Analytical Parameter Value Registry",
+        bblock_abstract=(
+            "Registry of reusable schema:PropertyValue parameter-value "
+            "definitions derived from technique TAPP spreadsheets. Hosts one "
+            "$def per per-dataset parameter value. Detail building blocks "
+            "reference these definitions via fragment $refs so they resolve "
+            "locally through the register."
+        ),
+        bblock_tags=["ada", "astromat", "tapp", "parameter", "registry"],
+    )
+
+
+def write_analyte_columns_registry(analyte_column_defs: "OrderedDict[str, dict]") -> None:
+    """Write the registered analyteColumns collection BB ($defs library) at
+    _sources/techniqueProtocols/analyteColumns/schema.yaml — one entry per
+    analyteColumn (keyed by name). TAPP BBs reference these via fragment $refs
+    (schema.yaml#/$defs/<name>) so they resolve locally through the register.
+    Existing $defs owned by other TAPPs are preserved (union)."""
+    _write_catalog_registry(
+        ANALYTE_COLUMNS_DIR, analyte_column_defs,
+        owned_marker=f"ada:analyteColumn/{TAPP_NAME}/",
+        title="ADA Analyte-Column Specification Registry",
+        description=(
+            "Registry of reusable schema:PropertyValueSpecification analyte-column "
+            "definitions derived from technique TAPP spreadsheets. Each $def "
+            "constrains one analyte-table reporting column (e.g. detectionLimit, "
+            "xrayEmissionLine). TAPP building blocks reference these definitions via "
+            "fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally "
+            "through the building-block register. The root only hosts $defs; it has "
+            "no instantiable properties of its own."
+        ),
+        bblock_name="Analyte-Column Specification Registry",
+        bblock_abstract=(
+            "Registry of reusable schema:PropertyValueSpecification analyte-column "
+            "definitions derived from technique TAPP spreadsheets. Hosts one $def "
+            "per analyte-table reporting column. TAPP building blocks reference "
+            "these definitions via fragment $refs so they resolve locally through "
+            "the register."
+        ),
+        bblock_tags=["ada", "astromat", "tapp", "analyteColumn", "registry"],
+    )
+
+
+def write_parameter_templates_registry(parameter_template_defs: "OrderedDict[str, dict]") -> None:
+    """Write the registered parameterTemplates collection BB ($defs library) at
+    _sources/techniqueProtocols/parameterTemplates/schema.yaml — one entry per
+    readOnly:true method parameter (keyed by name). TAPP BBs reference these via
+    fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through
+    the register. Existing $defs owned by other TAPPs are preserved (union)."""
+    _write_catalog_registry(
+        PARAMETER_TEMPLATES_DIR, parameter_template_defs,
+        owned_marker=f"ada:parameter/{TAPP_NAME}/",
+        title="ADA Method-Parameter Template Registry",
+        description=(
+            "Registry of reusable schema:PropertyValueSpecification method-parameter "
+            "templates derived from technique TAPP spreadsheets. Each $def constrains "
+            "one method-level (readOnly:true) parameter template (e.g. DriftCorrection, "
+            "massAbsorptionCoefficients). TAPP building blocks reference these "
+            "definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve "
+            "locally through the building-block register. The root only hosts $defs; it "
+            "has no instantiable properties of its own."
+        ),
+        bblock_name="Method-Parameter Template Registry",
+        bblock_abstract=(
+            "Registry of reusable schema:PropertyValueSpecification method-parameter "
+            "template definitions derived from technique TAPP spreadsheets. Hosts one "
+            "$def per method-level parameter template. TAPP building blocks reference "
+            "these definitions via fragment $refs so they resolve locally through the "
+            "register."
+        ),
+        bblock_tags=["ada", "astromat", "tapp", "parameter", "template", "registry"],
+    )
 
 
 def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
@@ -1055,6 +1217,34 @@ def scaffold_detail_bb_if_missing() -> None:
         print(f"  scaffolded {bblock_path.relative_to(REPO_ROOT)}")
 
 
+def _cleanup_legacy_flat_catalog(catalog_dir: Path, dir_basename: str) -> None:
+    """Delete legacy flat per-name <name>.json catalog files owned by THIS TAPP
+    under a now-registered collection BB dir. Preserves the registry artifacts
+    (schema.yaml, bblock.json) and the generated derivatives
+    (<dir>Schema.json, resolvedSchema.json). Foreign-owned flat files (other
+    TAPPs not yet migrated) are left untouched. A flat file is identified by a
+    top-level $id (per-name catalog entry); the registry/generated files don't
+    carry a per-name $id of that form."""
+    if not catalog_dir.exists():
+        return
+    protected = {"bblock.json", f"{dir_basename}Schema.json", "resolvedSchema.json"}
+    for fp in catalog_dir.glob("*.json"):
+        if fp.name in protected:
+            continue
+        try:
+            with open(fp, "r", encoding="utf-8") as f:
+                data = json.load(f) or {}
+        except (OSError, json.JSONDecodeError):
+            continue
+        existing_id = data.get("$id", "") or ""
+        # Only legacy flat per-name catalog files carry an ada:.../<TAPP>/<name>
+        # $id. The generated *Schema.json carries the registry's bblock $id form
+        # (no per-name token), so it won't match this TAPP's ownership marker.
+        if f"/{TAPP_NAME}/" in existing_id and "$defs" not in data:
+            fp.unlink()
+            print(f"  deleted legacy flat {fp.relative_to(REPO_ROOT)} (now a $def)")
+
+
 def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: list[str]) -> None:
     """Delete *.json under techniqueProtocols/parameterTemplates/ or
     techniqueProtocols/parameterValues/ that don't correspond to a current
@@ -1109,7 +1299,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         anyof = CommentedSeq()
         anyof.append({"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
         for col_name in sorted(analyte_column_names):
-            anyof.append({"$ref": f"../analyteColumns/{col_name}.json"})
+            anyof.append({"$ref": f"../analyteColumns/schema.yaml#/$defs/{col_name}"})
 
         ac_items = CommentedMap()
         ac_items["anyOf"] = anyof
@@ -1120,7 +1310,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         ac_unique = CommentedSeq()
         for col_name in sorted(analyte_column_names):
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"../analyteColumns/{col_name}.json"}
+            cm["contains"] = {"$ref": f"../analyteColumns/schema.yaml#/$defs/{col_name}"}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             ac_unique.append(cm)
@@ -1142,7 +1332,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     if parameter_names:
         mp_anyof = CommentedSeq()
         for param_name in sorted(parameter_names):
-            mp_anyof.append({"$ref": f"../parameterTemplates/{param_name}.json"})
+            mp_anyof.append({"$ref": f"../parameterTemplates/schema.yaml#/$defs/{param_name}"})
 
         mp_items = CommentedMap()
         mp_items["anyOf"] = mp_anyof
@@ -1150,7 +1340,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         mp_unique = CommentedSeq()
         for param_name in sorted(parameter_names):
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"../parameterTemplates/{param_name}.json"}
+            cm["contains"] = {"$ref": f"../parameterTemplates/schema.yaml#/$defs/{param_name}"}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             mp_unique.append(cm)
@@ -1453,7 +1643,6 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         for r in default_rows:
             used_col_names.update(k for k in r.keys() if k != "analyte")
 
-        catalog_dir = ANALYTE_COLUMNS_DIR
         analyte_cols = [OrderedDict([
             ("@type", ["schema:PropertyValueSpecification"]),
             ("schema:name", "Analyzed constituent"),
@@ -1474,9 +1663,12 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                 seen.add(name)
                 if name not in used_col_names:
                     continue  # skip columns with no value in any defaultAnalytes row
-                cf = catalog_dir / f'{name}.json'
-                if cf.exists():
-                    cd = json.loads(cf.read_text(encoding="utf-8"))
+                # Pull the canonical instance from the in-memory analyteColumn
+                # cache (populated by _classify_rows). The registry schema.yaml
+                # $defs strip examples, so the cache is the source of truth for
+                # example construction.
+                cd = ANALYTE_COLUMN_OBJS.get(name)
+                if cd:
                     ex = (cd.get("examples") or [{}])[0]
                     ex_clean = OrderedDict((k, v) for k, v in ex.items() if k != "@context")
                     analyte_cols.append(ex_clean)
@@ -1852,6 +2044,13 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
     # readOnly:false parameter-value schemas collected for the parameterValues
     # registry schema.yaml $defs (keyed by name). Only populated when emit_detail.
     param_value_defs: "OrderedDict[str, dict]" = OrderedDict()
+    # readOnly:true method-parameter templates and analyteColumn specs collected
+    # for their registry schema.yaml $defs (keyed by name). Only populated when
+    # emit_tapp. These replace the former flat per-name catalog files.
+    parameter_template_defs: "OrderedDict[str, dict]" = OrderedDict()
+    analyte_column_defs: "OrderedDict[str, dict]" = OrderedDict()
+    if emit_tapp:
+        ANALYTE_COLUMN_OBJS.clear()
     enum_to_vocab_name: dict[tuple[str, ...], str] = {}
     counts = {"vocab": 0, "parameter": 0, "detailParameter": 0, "analyteColumn": 0, "property": 0}
 
@@ -1902,10 +2101,12 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
             if kind == "parameter":
                 if ro:
                     # readOnly:true → method-level template (PropertyValueSpecification);
-                    # only emitted when building the TAPP side.
+                    # only emitted when building the TAPP side. Collected into the
+                    # parameterTemplates registry schema.yaml $defs (one $def per name)
+                    # instead of a flat per-name file.
                     if emit_tapp:
-                        path = PARAMETER_TEMPLATES_DIR / f"{name}.json"
-                        share_or_write_catalog(path, parameter_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
+                        parameter_template_defs[name] = parameter_obj(
+                            name, row["item"], row["desc"], tag_dtype, vocab_name, ro)
                     parameter_names.append(name)
                     counts["parameter"] += 1
                 else:
@@ -1921,10 +2122,14 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
                     detail_param_names.append(name)
                     counts["detailParameter"] += 1
             elif kind == "analytecolumn":
-                # analyteColumns are TAPP-side artifacts.
+                # analyteColumns are TAPP-side artifacts. Collected into the
+                # analyteColumns registry schema.yaml $defs (one $def per name)
+                # instead of a flat per-name file.
                 if emit_tapp:
-                    path = ANALYTE_COLUMNS_DIR / f"{name}.json"
-                    share_or_write_catalog(path, analyte_column_obj(name, row["item"], row["desc"], tag_dtype, vocab_name, ro))
+                    analyte_column_defs[name] = analyte_column_obj(
+                        name, row["item"], row["desc"], tag_dtype, vocab_name, ro)
+                    # Cache the full object (incl. examples) for example_for_pub.
+                    ANALYTE_COLUMN_OBJS[name] = analyte_column_defs[name]
                 counts["analyteColumn"] += 1
                 analyte_column_names.append(name)
             elif kind == "property":
@@ -1958,6 +2163,8 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
         "parameter_names": parameter_names,
         "detail_param_names": detail_param_names,
         "param_value_defs": param_value_defs,
+        "parameter_template_defs": parameter_template_defs,
+        "analyte_column_defs": analyte_column_defs,
         "counts": counts,
     }
 
@@ -2013,20 +2220,19 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
         cls["parameter_names"], instrument_haspart,
     )
 
-    # Orphan cleanup for templates only — keep parameterValues alone (detail-builder owns it).
-    keep_templates = set(cls["parameter_names"])
-    if PARAMETER_TEMPLATES_DIR.exists():
-        for fp in PARAMETER_TEMPLATES_DIR.glob("*.json"):
-            if fp.stem not in keep_templates:
-                # Foreign-owned templates (other TAPPs) — never touch.
-                try:
-                    with open(fp, "r", encoding="utf-8") as f:
-                        existing_id = (json.load(f) or {}).get("$id", "") or ""
-                except (OSError, json.JSONDecodeError):
-                    continue
-                if f"/{TAPP_NAME}/" in existing_id:
-                    fp.unlink()
-                    print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+    # Write the registered analyteColumns + parameterTemplates collection BBs
+    # ($defs libraries). Multi-TAPP runs accumulate the UNION of $defs; this
+    # TAPP's owned entries are overwritten/inserted and stale owned entries
+    # pruned, while other TAPPs' $defs are preserved.
+    write_analyte_columns_registry(cls["analyte_column_defs"])
+    write_parameter_templates_registry(cls["parameter_template_defs"])
+
+    # Clean up any legacy flat per-name catalog files owned by THIS TAPP — they
+    # are superseded by schema.yaml $defs. Foreign-owned flat files (other TAPPs
+    # not yet migrated) are left untouched. The registry schema.yaml/bblock.json
+    # and the generated *Schema.json/resolvedSchema.json are never deleted here.
+    _cleanup_legacy_flat_catalog(ANALYTE_COLUMNS_DIR, "analyteColumns")
+    _cleanup_legacy_flat_catalog(PARAMETER_TEMPLATES_DIR, "parameterTemplates")
 
     # Per-publication TAPP examples — pub_filter restricts which to regen
     examples_yaml = []
