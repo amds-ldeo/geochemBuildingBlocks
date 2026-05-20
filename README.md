@@ -1,6 +1,14 @@
 # ADA Geochemistry Building Blocks
 
-Modular metadata schema components for the [Astromat Data Archive (ADA)](https://astromat.org), built using the [OGC Building Blocks](https://opengeospatial.github.io/bblocks/) pattern.
+Modular metadata schema components for documenting geochemical analytical Methods and Datasets.  Built using the [OGC Building Blocks](https://opengeospatial.github.io/bblocks/) pattern.
+
+The scheme involves three components:
+
+1. A Technique-Aligned protocol (TAPP) that defines a analytical procedure, including kinds of samples used, target analytes, instruments used, sample preparation, analysis workflow and data reduction.  In the TAPP definition, some of these might be specified as fixed, some might have default values, and some are expected to be specified a the individual session level.  The fixed properties are the necessary properties that define the TAPP.  There are also properties that apply as the analytical session (or 'analysis event') level, and properties that are specific to the description of individual analytes. The authoritative protocol definition is in an Excel workbook.  For discussion purposes, the label 'property' is used for properties in the TAPP that are fixed, and 'parameter' for properties that may be adjusted at the session level. Parameters may have default values specified in the TAPP definition.
+
+2. A building block JSON schema specific to the protocol. This protocol definition object is registered in a protocol registry and accessible via its URI. The TAPP definition is referenced as a measurementTechnique in dataset metadata. 
+
+3. A 'details' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. The content of this schema is included in the schema for dataset instances to create a metadat schema for Datasets conforming to the profile. 
 
 ## Structure
 
