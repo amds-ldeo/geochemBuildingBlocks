@@ -48,22 +48,13 @@ except ImportError:
     Draft202012Validator = None
 
 # ---------------------------------------------------------------------------
-# Import resolvers: prefer root SchemaResolver (correct transitive $defs),
+# Import resolvers: prefer schema_resolver.py SchemaResolver (correct transitive $defs),
 # fall back to tools/resolve_schema.py (handles circular refs)
 # ---------------------------------------------------------------------------
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 
-# Root resolver (SchemaResolver class)
-_SchemaResolver = None
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-try:
-    from resolve_schema import SchemaResolver as _SchemaResolver
-except ImportError:
-    pass
-
-# Tools resolver (fallback)
+# Tools resolver (the structured-form resolver is now the canonical artifact)
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 try:
@@ -71,29 +62,15 @@ try:
     _ts = _ilu.spec_from_file_location("tools_resolve", SCRIPT_DIR / "resolve_schema.py")
     _tm = _ilu.module_from_spec(_ts)
     _ts.loader.exec_module(_tm)
-    resolve_file = _tm.resolve_file
-    strip_metadata_keys = _tm.strip_metadata_keys
+    resolve_structured = _tm.resolve_structured
 except Exception:
-    resolve_file = None
-    strip_metadata_keys = None
+    resolve_structured = None
 
 
 def _resolve_for_audit(schema_path: Path) -> dict:
-    """Resolve a schema for audit purposes. Uses root SchemaResolver with
-    fallback to tools resolve_file for circular-ref schemas."""
-    if _SchemaResolver is not None:
-        try:
-            resolver = _SchemaResolver(verbose=False, inline_single_use=False)
-            resolved = resolver.resolve(str(schema_path.resolve()))
-            resolved.pop("$schema", None)
-            return resolved
-        except RecursionError:
-            pass
-    # Fallback to tools resolver
-    if resolve_file is not None:
-        resolved = resolve_file(schema_path.resolve(), set())
-        if strip_metadata_keys:
-            resolved = strip_metadata_keys(resolved)
+    """Resolve a schema (structured form) for audit freshness checks."""
+    if resolve_structured is not None:
+        resolved = resolve_structured(schema_path.resolve())
         resolved.pop("$schema", None)
         return resolved
     return None
@@ -313,7 +290,7 @@ def check_resolved_schema(bb_dir, name):
     if not schema_path.exists() or not resolved_path.exists():
         return issues
 
-    if _SchemaResolver is None and resolve_file is None:
+    if resolve_structured is None:
         issues.append("Cannot check resolvedSchema freshness (resolve_schema not importable)")
         return issues
 
@@ -464,7 +441,7 @@ def extract_schema_properties(schema, prefix=""):
     return props
 
 
-def check_shacl_completeness(bb_dir, name):
+def check_shacl_completeness(bb_dir, name, is_type_library=False):
     """Check if SHACL rules exist and cover key schema properties."""
     issues = []
     info = []
@@ -495,7 +472,13 @@ def check_shacl_completeness(bb_dir, name):
 
     # Check for sh:NodeShape definitions
     if "sh:NodeShape" not in shacl_text:
-        issues.append("rules.shacl has no sh:NodeShape definitions")
+        if is_type_library:
+            # Type libraries have no instantiable root class (e.g. a literal
+            # array, or an anyOf umbrella that delegates to other BBs), so a
+            # NodeShape is not applicable; rules.shacl is an intentional placeholder.
+            info.append("rules.shacl has no sh:NodeShape (isTypeLibrary: SHACL not applicable)")
+        else:
+            issues.append("rules.shacl has no sh:NodeShape definitions")
     else:
         # Count shapes
         shape_count = shacl_text.count("sh:NodeShape")
@@ -670,6 +653,18 @@ def audit_building_block(category, name, bb_dir, checks=None):
     """Run all audit checks on a single building block."""
     result = AuditResult(category, name, bb_dir)
 
+    # Read opt-out flags from bblock.json. isTypeLibrary marks BBs with no
+    # instantiable root class (reusable type defs, anyOf umbrellas); the SHACL
+    # NodeShape requirement does not apply to them.
+    is_type_library = False
+    bblock_path = bb_dir / "bblock.json"
+    if bblock_path.exists():
+        try:
+            with open(bblock_path, encoding="utf-8") as _f:
+                is_type_library = bool(json.load(_f).get("isTypeLibrary", False))
+        except Exception:
+            pass
+
     # Check 1: File completeness
     if not checks or "files" in checks:
         issues, info = check_files(bb_dir, name)
@@ -694,7 +689,7 @@ def audit_building_block(category, name, bb_dir, checks=None):
 
     # Check 5: SHACL completeness
     if not checks or "shacl" in checks:
-        issues, info = check_shacl_completeness(bb_dir, name)
+        issues, info = check_shacl_completeness(bb_dir, name, is_type_library=is_type_library)
         result.add_issues(issues)
         result.add_info(info)
 
