@@ -438,13 +438,6 @@
                     "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step).",
                     "type": "array",
                     "items": {
-                        "$ref": "#/$defs/StepParameter"
-                    }
-                },
-                "ada:methodParameters": {
-                    "description": "Step-specific method parameters with scope and tier metadata. These are parameters that belong to this particular workflow phase.",
-                    "type": "array",
-                    "items": {
                         "$ref": "#/$defs/MethodParameter"
                     }
                 },
@@ -668,45 +661,6 @@
                 "schema:name",
                 "ada:fieldScope",
                 "ada:dataType"
-            ]
-        },
-        "StepParameter": {
-            "type": "object",
-            "description": "A schema:PropertyValue carrying a parameter setting for a workflow step. Simpler than MethodParameter — just name, value, and optional unit.",
-            "properties": {
-                "@type": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "contains": {
-                        "const": "schema:PropertyValue"
-                    },
-                    "minItems": 1
-                },
-                "schema:name": {
-                    "type": "string"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "boolean"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@type",
-                "schema:name"
             ]
         },
         "AnalyteColumn": {

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
-  "description": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as a cdi:Activity and schema:Action. The TAPP identity (name, technique, instrument, location) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
   "type": "object",
+  "title": "LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)",
+  "description": "LA-ICPMS-specific extension of the base TAPP definition. Adds top-level LA-ICPMS properties, a parameter vocabulary in ada:methodParameters, and an analyte-column template covering LA-ICPMS per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_LAICPMS_filled.xlsx by tools/build_TAPP_from_spreadsheet.py.",
   "properties": {
     "@context": {
       "type": "object",
@@ -4762,11 +4762,3060 @@
       }
     }
   },
-  "required": [
-    "@context",
-    "@type",
-    "schema:name",
-    "schema:measurementTechnique"
+  "allOf": [
+    {
+      "required": [
+        "@context",
+        "@type",
+        "schema:name",
+        "schema:measurementTechnique"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "ada:spotGeometryDefault": {
+          "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the protocol. For circular spots, report diameter; for square or rectangular spots, report width × length. The protocol registers the typical geometry; analysts may adjust within protocol-allowed range.",
+          "type": "string"
+        },
+        "ada:spotPath": {
+          "description": "Sampling mode or ablation pattern used during analysis.",
+          "type": "string"
+        },
+        "ada:ablationMode": {
+          "description": "Sampling mode or ablation pattern used during analysis.",
+          "type": "string"
+        },
+        "ada:laserFluenceDefault": {
+          "description": "Laser pulse energy per unit area at the sample surface in J cm⁻², as registered by the protocol. Fluence is the physically meaningful quantity controlling ablation rate, crater morphology, elemental fractionation, and particle size distribution. If the system reports only as % of maximum output, include that value and note the system maximum where known.",
+          "type": "string"
+        },
+        "ada:BeamDamageMinimization": {
+          "description": "Laser pulse repetition rate in hertz registered by the protocol. For mapping methods, repetition rate together with scan speed and spot size determines pixel size and spatial resolution. Analysts may adjust within protocol-allowed bounds.",
+          "type": "string"
+        },
+        "ada:AblationSpotDuration": {
+          "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent protocol-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
+          "type": "string"
+        },
+        "ada:analyteTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:analyteColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:PropertyValueSpecification"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+                          },
+                          "schema:valueName": {
+                            "type": "string",
+                            "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+                          },
+                          "schema:description": {
+                            "type": "string",
+                            "description": "Guidance text for this column."
+                          },
+                          "schema:propertyID": {
+                            "description": "URI identifying this column's parameter type in a formal vocabulary.",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              {
+                                "$ref": "#/$defs/DefinedTerm"
+                              }
+                            ]
+                          },
+                          "schema:inDefinedTermSet": {
+                            "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              {
+                                "type": "object",
+                                "description": "Object reference to a vocabulary defined elsewhere.",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ]
+                              },
+                              {
+                                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                                "type": "object",
+                                "properties": {
+                                  "@type": {
+                                    "default": "schema:CreativeWork",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:CreativeWork"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:name": {
+                                    "type": "string"
+                                  },
+                                  "schema:description": {
+                                    "type": "string"
+                                  },
+                                  "schema:url": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "schema:url"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                                "properties": {
+                                  "@type": {
+                                    "const": "schema:DefinedTermSet"
+                                  },
+                                  "schema:hasDefinedTerm": {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "@type": {
+                                          "const": "schema:DefinedTerm"
+                                        },
+                                        "schema:termCode": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@type",
+                                        "schema:termCode"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "schema:hasDefinedTerm"
+                                ]
+                              }
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "description": "Default value for this column (pre-filled per row).",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "boolean"
+                              }
+                            ]
+                          },
+                          "schema:readonlyValue": {
+                            "type": "boolean",
+                            "description": "true = constant across all analytes (read-only column)."
+                          },
+                          "schema:valueRequired": {
+                            "type": "boolean",
+                            "description": "true = must be provided for every analyte row."
+                          },
+                          "schema:minValue": {
+                            "type": "number"
+                          },
+                          "schema:maxValue": {
+                            "type": "number"
+                          },
+                          "schema:valuePattern": {
+                            "type": "string"
+                          },
+                          "ada:dataType": {
+                            "type": "string",
+                            "enum": [
+                              "string",
+                              "number",
+                              "integer",
+                              "boolean",
+                              "date",
+                              "uri"
+                            ]
+                          },
+                          "schema:unitText": {
+                            "type": "string"
+                          },
+                          "ada:tier": {
+                            "type": "string",
+                            "enum": [
+                              "M",
+                              "R",
+                              "O"
+                            ]
+                          },
+                          "ada:cdifPropertyPath": {
+                            "type": "string",
+                            "description": "How this column maps into the variableMeasured JSON-LD structure."
+                          }
+                        },
+                        "required": [
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "analyte"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "IsobaricInterferenceCorrection"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "boolean"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Isobaric Interference Corrections Applied",
+                        "schema:valueName": "IsobaricInterferenceCorrection",
+                        "schema:description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+                        "ada:dataType": "boolean",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Interference Correction Method",
+                    "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "IsobaricInterferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Interference Correction Method",
+                        "schema:valueName": "IsobaricInterferenceCorrectionMethod",
+                        "schema:description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracy"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analytical Accuracy and Assessment Method",
+                        "schema:valueName": "analyticalAccuracy",
+                        "schema:description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analytical Accuracy and Assessment Method",
+                        "schema:valueName": "analyticalAccuracyMethod",
+                        "schema:description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionReproducibility"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                        "schema:valueName": "betweenSessionReproducibility",
+                        "schema:description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionReproducibilityMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                        "schema:valueName": "betweenSessionReproducibilityMethod",
+                        "schema:description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit",
+                    "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/detectionLimit",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Detection Limit",
+                        "schema:valueName": "detectionLimit",
+                        "schema:description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit Method",
+                    "description": "Method used to compute detection limits.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/empaTAPP/detectionLimitMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Detection Limit Method",
+                        "schema:valueName": "detectionLimitMethod",
+                        "schema:description": "Method used to compute detection limits.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Interfering Species",
+                    "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/interferingSpecies",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Interfering Species",
+                        "schema:valueName": "interferingSpecies",
+                        "schema:description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Limit of Quantification (LOQ) Method",
+                    "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "limitOfQuantification"
+                      },
+                      "schema:name": {
+                        "const": "Limit of Quantification (LOQ) Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Limit of Quantification (LOQ) Method",
+                        "schema:valueName": "limitOfQuantification",
+                        "schema:description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Spectrometer Dwell Time",
+                    "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spectrometerDwellTime"
+                      },
+                      "schema:name": {
+                        "const": "Spectrometer Dwell Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Spectrometer Dwell Time",
+                        "schema:valueName": "spectrometerDwellTime",
+                        "schema:description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+                        "ada:dataType": "number",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Analysis Location/Spot Coordinates",
+                    "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spotIdentifier"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spotIdentifier"
+                      },
+                      "schema:name": {
+                        "const": "Analysis Location/Spot Coordinates"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spotIdentifier",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analysis Location/Spot Coordinates",
+                        "schema:valueName": "spotIdentifier",
+                        "schema:description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Analysis Location/Spot Coordinates",
+                    "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spotXCoordinate"
+                      },
+                      "schema:name": {
+                        "const": "Analysis Location/Spot Coordinates"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analysis Location/Spot Coordinates",
+                        "schema:valueName": "spotXCoordinate",
+                        "schema:description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                        "ada:dataType": "number",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Analysis Location/Spot Coordinates",
+                    "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spotYCoordinate"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spotYCoordinate"
+                      },
+                      "schema:name": {
+                        "const": "Analysis Location/Spot Coordinates"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spotYCoordinate",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analysis Location/Spot Coordinates",
+                        "schema:valueName": "spotYCoordinate",
+                        "schema:description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                        "ada:dataType": "number",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionReproducibility"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+                        "schema:valueName": "withinSessionReproducibility",
+                        "schema:description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionReproducibilityMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+                        "schema:valueName": "withinSessionReproducibilityMethod",
+                        "schema:description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "IsobaricInterferenceCorrection"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "boolean"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Isobaric Interference Corrections Applied",
+                        "schema:valueName": "IsobaricInterferenceCorrection",
+                        "schema:description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+                        "ada:dataType": "boolean",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interference Correction Method",
+                    "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "IsobaricInterferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Interference Correction Method",
+                        "schema:valueName": "IsobaricInterferenceCorrectionMethod",
+                        "schema:description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracy"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analytical Accuracy and Assessment Method",
+                        "schema:valueName": "analyticalAccuracy",
+                        "schema:description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analytical Accuracy and Assessment Method",
+                        "schema:valueName": "analyticalAccuracyMethod",
+                        "schema:description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionReproducibility"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                        "schema:valueName": "betweenSessionReproducibility",
+                        "schema:description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionReproducibilityMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                        "schema:valueName": "betweenSessionReproducibilityMethod",
+                        "schema:description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Detection Limit",
+                    "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/detectionLimit",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Detection Limit",
+                        "schema:valueName": "detectionLimit",
+                        "schema:description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Detection Limit Method",
+                    "description": "Method used to compute detection limits.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/empaTAPP/detectionLimitMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Detection Limit Method",
+                        "schema:valueName": "detectionLimitMethod",
+                        "schema:description": "Method used to compute detection limits.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interfering Species",
+                    "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/interferingSpecies",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Interfering Species",
+                        "schema:valueName": "interferingSpecies",
+                        "schema:description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Limit of Quantification (LOQ) Method",
+                    "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "limitOfQuantification"
+                      },
+                      "schema:name": {
+                        "const": "Limit of Quantification (LOQ) Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Limit of Quantification (LOQ) Method",
+                        "schema:valueName": "limitOfQuantification",
+                        "schema:description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Spectrometer Dwell Time",
+                    "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spectrometerDwellTime"
+                      },
+                      "schema:name": {
+                        "const": "Spectrometer Dwell Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Spectrometer Dwell Time",
+                        "schema:valueName": "spectrometerDwellTime",
+                        "schema:description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+                        "ada:dataType": "number",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Analysis Location/Spot Coordinates",
+                    "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spotIdentifier"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spotIdentifier"
+                      },
+                      "schema:name": {
+                        "const": "Analysis Location/Spot Coordinates"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spotIdentifier",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analysis Location/Spot Coordinates",
+                        "schema:valueName": "spotIdentifier",
+                        "schema:description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Analysis Location/Spot Coordinates",
+                    "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spotXCoordinate"
+                      },
+                      "schema:name": {
+                        "const": "Analysis Location/Spot Coordinates"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analysis Location/Spot Coordinates",
+                        "schema:valueName": "spotXCoordinate",
+                        "schema:description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                        "ada:dataType": "number",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Analysis Location/Spot Coordinates",
+                    "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/spotYCoordinate"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spotYCoordinate"
+                      },
+                      "schema:name": {
+                        "const": "Analysis Location/Spot Coordinates"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/spotYCoordinate",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Analysis Location/Spot Coordinates",
+                        "schema:valueName": "spotYCoordinate",
+                        "schema:description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+                        "ada:dataType": "number",
+                        "schema:readonlyValue": false,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionReproducibility"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+                        "schema:valueName": "withinSessionReproducibility",
+                        "schema:description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                    "type": "object",
+                    "properties": {
+                      "@context": {
+                        "const": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        }
+                      },
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionReproducibilityMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ],
+                    "examples": [
+                      {
+                        "@context": {
+                          "schema": "http://schema.org/",
+                          "ada": "https://ada.astromat.org/metadata/"
+                        },
+                        "@id": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod",
+                        "@type": [
+                          "schema:PropertyValueSpecification"
+                        ],
+                        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+                        "schema:valueName": "withinSessionReproducibilityMethod",
+                        "schema:description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+                        "ada:dataType": "string",
+                        "schema:readonlyValue": true,
+                        "ada:tier": "M"
+                      }
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            }
+          }
+        },
+        "ada:methodParameters": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Multi-Run Sequential Analysis Design",
+                "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "DriftMonitorFrequency"
+                  },
+                  "schema:name": {
+                    "const": "Multi-Run Sequential Analysis Design"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Multi-Run Sequential Analysis Design",
+                    "schema:valueName": "DriftMonitorFrequency",
+                    "schema:description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              {
+                "title": "Laser Pulse Duration",
+                "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/LaserPulseDuration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "LaserPulseDuration"
+                  },
+                  "schema:name": {
+                    "const": "Laser Pulse Duration"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/LaserPulseDuration",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Laser Pulse Duration",
+                    "schema:valueName": "LaserPulseDuration",
+                    "schema:description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              {
+                "title": "Matrix Offset Correction (LIEF)",
+                "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/MatrixOffseCorrection"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "MatrixOffseCorrection"
+                  },
+                  "schema:name": {
+                    "const": "Matrix Offset Correction (LIEF)"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/MatrixOffseCorrection",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Matrix Offset Correction (LIEF)",
+                    "schema:valueName": "MatrixOffseCorrection",
+                    "schema:description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              {
+                "title": "Instrument Warm-up / Session Duration Limit",
+                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/SessionDurationLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "SessionDurationLimit"
+                  },
+                  "schema:name": {
+                    "const": "Instrument Warm-up / Session Duration Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/SessionDurationLimit",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Instrument Warm-up / Session Duration Limit",
+                    "schema:valueName": "SessionDurationLimit",
+                    "schema:description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              {
+                "title": "Instrument Warm-up / Session Duration Limit",
+                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/WarmUpTime"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "WarmUpTime"
+                  },
+                  "schema:name": {
+                    "const": "Instrument Warm-up / Session Duration Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/WarmUpTime",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Instrument Warm-up / Session Duration Limit",
+                    "schema:valueName": "WarmUpTime",
+                    "schema:description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Multi-Run Sequential Analysis Design",
+                "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "DriftMonitorFrequency"
+                  },
+                  "schema:name": {
+                    "const": "Multi-Run Sequential Analysis Design"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Multi-Run Sequential Analysis Design",
+                    "schema:valueName": "DriftMonitorFrequency",
+                    "schema:description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Laser Pulse Duration",
+                "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/LaserPulseDuration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "LaserPulseDuration"
+                  },
+                  "schema:name": {
+                    "const": "Laser Pulse Duration"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/LaserPulseDuration",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Laser Pulse Duration",
+                    "schema:valueName": "LaserPulseDuration",
+                    "schema:description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Matrix Offset Correction (LIEF)",
+                "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/MatrixOffseCorrection"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "MatrixOffseCorrection"
+                  },
+                  "schema:name": {
+                    "const": "Matrix Offset Correction (LIEF)"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/MatrixOffseCorrection",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Matrix Offset Correction (LIEF)",
+                    "schema:valueName": "MatrixOffseCorrection",
+                    "schema:description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Instrument Warm-up / Session Duration Limit",
+                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/SessionDurationLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "SessionDurationLimit"
+                  },
+                  "schema:name": {
+                    "const": "Instrument Warm-up / Session Duration Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/SessionDurationLimit",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Instrument Warm-up / Session Duration Limit",
+                    "schema:valueName": "SessionDurationLimit",
+                    "schema:description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Instrument Warm-up / Session Duration Limit",
+                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                "type": "object",
+                "properties": {
+                  "@context": {
+                    "const": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    }
+                  },
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/WarmUpTime"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "WarmUpTime"
+                  },
+                  "schema:name": {
+                    "const": "Instrument Warm-up / Session Duration Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "examples": [
+                  {
+                    "@context": {
+                      "schema": "http://schema.org/",
+                      "ada": "https://ada.astromat.org/metadata/"
+                    },
+                    "@id": "ada:parameter/laicpmsTAPP/WarmUpTime",
+                    "@type": [
+                      "schema:PropertyValueSpecification"
+                    ],
+                    "schema:name": "Instrument Warm-up / Session Duration Limit",
+                    "schema:valueName": "WarmUpTime",
+                    "schema:description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                    "ada:dataType": "string",
+                    "ada:fieldScope": "session",
+                    "schema:readonlyValue": true,
+                    "ada:tier": "R"
+                  }
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "schema:instrument": {
+          "type": "object",
+          "properties": {
+            "schema:hasPart": {
+              "type": "array",
+              "description": "Instrument sub-components. Each item is a schema:Thing with at least one schema:additionalType. Spreadsheet-known types: Detector. Other additionalType values are accepted via the catch-all branch.",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "const": "schema:Thing"
+                        }
+                      },
+                      "schema:additionalType": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "const": "Detector"
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:additionalType"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "description": "Catch-all for instrument sub-component types not enumerated above. Authors may use any schema:additionalType outside the known set; schema:name is unconstrained on this branch.",
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "const": "schema:Thing"
+                        }
+                      },
+                      "schema:additionalType": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "minItems": 1,
+                        "not": {
+                          "anyOf": [
+                            {
+                              "contains": {
+                                "const": "Detector"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:additionalType"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
   ],
   "$defs": {
     "DefinedTerm": {
