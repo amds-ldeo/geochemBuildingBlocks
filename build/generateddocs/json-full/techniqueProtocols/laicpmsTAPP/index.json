@@ -36,11 +36,14 @@
     "ogch.techniqueProtocols.tappDefinition": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/tappDefinition/rules.shacl"
     ],
-    "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+    "ogch.geochemProperties.instrument": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+    "cdif.bbr.metadata.schemaorgProperties.instrument": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.person": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.identifier": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
@@ -48,17 +51,8 @@
     "cdif.bbr.metadata.schemaorgProperties.organization": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.person": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-    ],
-    "ogch.geochemProperties.instrument": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.instrument": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
     ],
     "cdif.bbr.metadata.cdifProperties.cdifReference": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifReference/rules.shacl"
@@ -75,6 +69,12 @@
     "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
     ],
+    "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+    ],
+    "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+    ],
     "ogch.geochemProperties.laboratory": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/rules.shacl"
     ],
@@ -83,9 +83,9 @@
     ]
   },
   "dependsOn": [
+    "ogch.techniqueProtocols.parameterTemplates",
     "ogch.techniqueProtocols.tappDefinition",
-    "ogch.techniqueProtocols.analyteColumns",
-    "ogch.techniqueProtocols.parameterTemplates"
+    "ogch.techniqueProtocols.analyteColumns"
   ],
   "schema": {
     "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/schema.yaml",

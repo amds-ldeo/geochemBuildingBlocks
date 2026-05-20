@@ -1870,6 +1870,16 @@ ex:empaTAPP-p0 a cdi:Activity,
                 "nxs:BaseClass/NXinstrument" ;
             schema1:hasPart [ a schema1:Thing ;
                     schema1:additionalProperty [ a schema1:PropertyValue ;
+                            schema1:name "Crystals" ;
+                            schema1:value "LiF, PET, TAP, PC2" ],
+                        [ a schema1:PropertyValue ;
+                            schema1:name "Orientation" ;
+                            schema1:value "Inclined" ] ;
+                    schema1:additionalType "wdsSpectrometer" ;
+                    schema1:description "Less sensitive to specimen height; good for rough surfaces; low pressure" ;
+                    schema1:name "SP1" ],
+                [ a schema1:Thing ;
+                    schema1:additionalProperty [ a schema1:PropertyValue ;
                             schema1:name "Orientation" ;
                             schema1:value "Vertical" ],
                         [ a schema1:PropertyValue ;
@@ -1878,6 +1888,16 @@ ex:empaTAPP-p0 a cdi:Activity,
                     schema1:additionalType "wdsSpectrometer" ;
                     schema1:description "High pressure for greater sensitivity; large crystals for trace/light elements" ;
                     schema1:name "SP2" ],
+                [ a schema1:Thing ;
+                    schema1:additionalProperty [ a schema1:PropertyValue ;
+                            schema1:name "Crystals" ;
+                            schema1:value "TAP, PC0" ],
+                        [ a schema1:PropertyValue ;
+                            schema1:name "Orientation" ;
+                            schema1:value "Vertical" ] ;
+                    schema1:additionalType "wdsSpectrometer" ;
+                    schema1:description "Low pressure; light element coverage" ;
+                    schema1:name "SP3" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType "ElectronSource" ;
@@ -1891,27 +1911,7 @@ ex:empaTAPP-p0 a cdi:Activity,
                             schema1:value "LPET, TAP" ] ;
                     schema1:additionalType "wdsSpectrometer" ;
                     schema1:description "Low pressure" ;
-                    schema1:name "SP4" ],
-                [ a schema1:Thing ;
-                    schema1:additionalProperty [ a schema1:PropertyValue ;
-                            schema1:name "Orientation" ;
-                            schema1:value "Vertical" ],
-                        [ a schema1:PropertyValue ;
-                            schema1:name "Crystals" ;
-                            schema1:value "TAP, PC0" ] ;
-                    schema1:additionalType "wdsSpectrometer" ;
-                    schema1:description "Low pressure; light element coverage" ;
-                    schema1:name "SP3" ],
-                [ a schema1:Thing ;
-                    schema1:additionalProperty [ a schema1:PropertyValue ;
-                            schema1:name "Orientation" ;
-                            schema1:value "Inclined" ],
-                        [ a schema1:PropertyValue ;
-                            schema1:name "Crystals" ;
-                            schema1:value "LiF, PET, TAP, PC2" ] ;
-                    schema1:additionalType "wdsSpectrometer" ;
-                    schema1:description "Less sensitive to specimen height; good for rough surfaces; low pressure" ;
-                    schema1:name "SP1" ] ;
+                    schema1:name "SP4" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Cameca" ] ;
             schema1:model [ a schema1:ProductModel ;
@@ -1924,9 +1924,9 @@ ex:empaTAPP-p0 a cdi:Activity,
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element silicate and oxide| all properties" ;
     schema1:object [ a schema1:DefinedTerm ;
-            schema1:name "Olivine" ],
-        [ a schema1:DefinedTerm ;
             schema1:name "Pyroxene" ],
+        [ a schema1:DefinedTerm ;
+            schema1:name "Olivine" ],
         [ a schema1:DefinedTerm ;
             schema1:name "Feldspar" ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -7140,11 +7140,11 @@ ex:empaTAPP-p8sil a cdi:Activity,
     ada:beamDiameterDefault "~1 µm focused" ;
     ada:beamMode "Focused" ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "XMapTools; ZAF correction" ;
-            ada:toolRole "reduction" ],
-        [ a schema1:SoftwareApplication ;
             schema1:name "XMapTools (for phase maps)" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:name "XMapTools; ZAF correction" ;
+            ada:toolRole "reduction" ] .
 
 
 ```
@@ -7381,11 +7381,11 @@ ex:empaTAPP-p8carb a cdi:Activity,
     ada:beamCurrentDefault "4 nA" ;
     ada:beamDiameterDefault "variable" ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "XMapTools (for phase maps)" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
             schema1:name "XMapTools; ZAF correction" ;
-            ada:toolRole "reduction" ] .
+            ada:toolRole "reduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:name "XMapTools (for phase maps)" ;
+            ada:toolRole "acquisition" ] .
 
 
 ```
@@ -7622,11 +7622,11 @@ ex:empaTAPP-p8phos a cdi:Activity,
     ada:beamCurrentDefault "8 nA" ;
     ada:beamDiameterDefault "variable" ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "XMapTools (for phase maps)" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
             schema1:name "XMapTools; ZAF correction" ;
-            ada:toolRole "reduction" ] .
+            ada:toolRole "reduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:name "XMapTools (for phase maps)" ;
+            ada:toolRole "acquisition" ] .
 
 
 ```
