@@ -37,11 +37,129 @@ BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
 DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
 
 
+# ---------- per-TAPP configuration ----------
+# Each entry holds the technique-specific knobs. configure() copies the matching
+# entry into CFG so the rest of the module can read CFG[...] without having to
+# care which TAPP is being built. Default behavior is empaTAPP, so existing
+# callers that don't set configure() still get bit-identical EMPA output.
+
+TAPP_PROFILES: dict[str, dict] = {
+    "empaTAPP": {
+        "pubs": [
+            ("P0", "Richard & Deng 2026 (synthetic comprehensive WDS example)"),
+            ("P1", "Chi et al. 2015 (Tissintite, EPSL)"),
+            ("P2", "Hu et al. 2020 (Coesite NWA8657, GCA)"),
+            ("P3sil", "Liu et al. 2016 (Tissint silicate mineral chem., MAPS)"),
+            ("P3phos", "Liu et al. 2016 (Tissint phosphate mineral chem., MAPS)"),
+            ("P4", "Ma et al. 2017 (Liebermannite, MAPS)"),
+            ("P5", "Frank et al. 2023 (Ivuna CAI, MAPS)"),
+            ("P6", "Broussard et al. 2026 (OC002 CI chondrite, MAPS)"),
+            ("P7", "Seifert et al. 2026 (Bennu apatite, MAPS)"),
+            ("P8sil", "Zega et al. 2025 (Bennu silicates, Nat. Geosci.)"),
+            ("P8carb", "Zega et al. 2025 (Bennu carbonates, Nat. Geosci.)"),
+            ("P8phos", "Zega et al. 2025 (Bennu phosphates, Nat. Geosci.)"),
+            ("P9sil", "McCoy et al. 2025 (Bennu silicates, Nature)"),
+            ("P9carb", "McCoy et al. 2025 (Bennu carbonates, Nature)"),
+            ("P9phos", "McCoy et al. 2025 (Bennu phosphates, Nature)"),
+            ("P10", "Pang et al. 2016 (NWA 8003 eucrite, Sci. Rep.)"),
+            ("P10plag", "Pang et al. 2016 (NWA 8003 eucrite plagioclase, Sci. Rep.)"),
+        ],
+        "p_end_col": 26,
+        "instrument_addl_type": ["nxs:BaseClass/NXinstrument", "ada:EPMAInstrument"],
+        "instrument_name_default": "EPMA instrument",
+        "instrument_name_short": "EPMA",
+        "termcode": "EPMA-WDS",
+        "termname": "Electron Microprobe Analysis - WDS",
+        "example_name_template": "EPMA TAPP example {code}",
+        "detail_componenttype_default": "ada:EMPAQEATabular",
+        "schema_title": "EMPA Technique-Aligned Protocol Profile (empaTAPP)",
+        "schema_description": (
+            "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA "
+            "properties (beam mode, accelerating voltage default, matrix correction "
+            "method, etc.), a parameter vocabulary in ada:methodParameters, and an "
+            "analyte-column template covering EPMA per-element acquisition and "
+            "reporting fields. Each ada:analyteColumns[] entry must match one of the "
+            "catalog files in analyteColumns/ (or the inherited identifier column from "
+            "tappDefinition); each catalog file is itself a JSON Schema whose "
+            "examples[0] carries the canonical instance. Generated from "
+            "docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py."
+        ),
+        "detail_constraint_title": "detailEMPA additionalProperty constraint (generated from empaTAPP spreadsheet)",
+        "detail_constraint_catchall_desc": (
+            "Catch-all for additional schema:PropertyValue entries beyond those "
+            "enumerated in the empaTAPP-derived catalog above."
+        ),
+        "detail_constraint_addprop_desc": (
+            "Per-dataset schema:PropertyValue entries for this EMPA dataset. "
+            "Each item is any of the empaTAPP-derived parameter types or "
+            "(via the catch-all branch) any other PropertyValue. All entries "
+            "are optional — include only the parameters you have values for."
+        ),
+        "example_description_template": "empaTAPP example derived from {pub_label}.",
+        "has_wds_config": True,
+        "emit_profile_examples": True,
+    },
+    "laicpmsTAPP": {
+        "pubs": [
+            ("Spot", "LA-ICPMS spot analysis mode"),
+            ("Transect", "LA-ICPMS transect / line-scan mode"),
+            ("Mapping", "LA-ICPMS 2-D mapping mode"),
+        ],
+        "p_end_col": 12,  # column M (Mapping) — only K, L, M used
+        "instrument_addl_type": ["nxs:BaseClass/NXinstrument", "ada:LAICPMSInstrument"],
+        "instrument_name_default": "LA-ICPMS instrument",
+        "instrument_name_short": "LA-ICPMS",
+        "termcode": "LA-ICPMS",
+        "termname": "Laser Ablation Inductively Coupled Plasma Mass Spectrometry",
+        "example_name_template": "LA-ICPMS TAPP example {code}",
+        "detail_componenttype_default": "ada:LAICPMSTabular",
+        "schema_title": "LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)",
+        "schema_description": (
+            "LA-ICPMS-specific extension of the base TAPP definition. Adds top-level "
+            "LA-ICPMS properties, a parameter vocabulary in ada:methodParameters, and "
+            "an analyte-column template covering LA-ICPMS per-element acquisition and "
+            "reporting fields. Each ada:analyteColumns[] entry must match one of the "
+            "catalog files in analyteColumns/ (or the inherited identifier column from "
+            "tappDefinition); each catalog file is itself a JSON Schema whose "
+            "examples[0] carries the canonical instance. Generated from "
+            "docs/TAPP_LAICPMS_filled.xlsx by tools/build_TAPP_from_spreadsheet.py."
+        ),
+        "detail_constraint_title": "detailLAICPMS additionalProperty constraint (generated from laicpmsTAPP spreadsheet)",
+        "detail_constraint_catchall_desc": (
+            "Catch-all for additional schema:PropertyValue entries beyond those "
+            "enumerated in the laicpmsTAPP-derived catalog above."
+        ),
+        "detail_constraint_addprop_desc": (
+            "Per-dataset schema:PropertyValue entries for this LA-ICPMS dataset. "
+            "Each item is any of the laicpmsTAPP-derived parameter types or "
+            "(via the catch-all branch) any other PropertyValue. All entries "
+            "are optional — include only the parameters you have values for."
+        ),
+        "example_description_template": "laicpmsTAPP example for {pub_label}.",
+        "has_wds_config": False,
+        "emit_profile_examples": False,
+    },
+}
+
+# Active per-TAPP configuration. Defaults to empaTAPP for backward-compat.
+CFG: dict = dict(TAPP_PROFILES["empaTAPP"])
+
+# Catalog conflicts encountered during this build run. Surfaced as warnings
+# by share_or_write_catalog() instead of aborting the build, so a multi-TAPP
+# regen can still emit per-TAPP artifacts when the shared catalog already
+# owns an entry with semantically different content. Cleared at the start
+# of each top-level build (build_tapp_artifacts / build_detail_artifacts).
+CATALOG_CONFLICTS: list[dict] = []
+
+
 def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
-    """Set module globals for a build run. tapp_name like 'empaTAPP' / 'xrdTAPP'.
+    """Set module globals for a build run. tapp_name like 'empaTAPP' / 'laicpmsTAPP'.
     The detail BB name is derived as 'detail' + uppercase(strip-'TAPP'(tapp_name))
-    — e.g. 'empaTAPP' → 'detailEMPA', 'xrdTAPP' → 'detailXRD'."""
-    global TAPP_NAME, DETAIL_NAME, XLSX, BB, DETAIL_EMPA
+    — e.g. 'empaTAPP' → 'detailEMPA', 'laicpmsTAPP' → 'detailLAICPMS'.
+
+    Looks up the per-TAPP knobs in TAPP_PROFILES and copies them into CFG so
+    other functions can read CFG[...] without caring which TAPP is active."""
+    global TAPP_NAME, DETAIL_NAME, XLSX, BB, DETAIL_EMPA, CFG
     TAPP_NAME = tapp_name
     short = tapp_name.replace("TAPP", "").upper()
     DETAIL_NAME = f"detail{short}"
@@ -50,6 +168,12 @@ def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
         XLSX = p if p.is_absolute() else REPO_ROOT / p
     BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
     DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
+    if tapp_name not in TAPP_PROFILES:
+        raise ValueError(
+            f"Unknown TAPP {tapp_name!r}. Add an entry to TAPP_PROFILES in "
+            f"tools/_tapp_lib.py. Known: {sorted(TAPP_PROFILES)}"
+        )
+    CFG = dict(TAPP_PROFILES[tapp_name])
 
 # Phase 1 dictionary directories — analyteColumns/parameterTemplates/parameterValues/vocab
 # live at the techniqueProtocols root so multiple TAPPs can reference the same catalog
@@ -72,28 +196,19 @@ VOCAB_DIR = TECH_PROTOCOLS / "vocab"
 COL = {
     "item": 0, "desc": 1, "basic": 2, "dtype": 3, "example": 4,
     "level": 6, "schema_path": 7, "matchComment": 8, "impl": 9,
-    "p_start": 10,  # column K = index 10 (P0 — synthetic comprehensive example)
-    "p_end": 26,    # column AA = index 26 (inclusive; P10plag)
+    "p_start": 10,  # column K = index 10 (first publication / mode column)
+    # p_end is per-TAPP; read from CFG["p_end_col"] (26 for empaTAPP, 12 for laicpmsTAPP).
 }
-PUBS = [
-    ("P0", "Richard & Deng 2026 (synthetic comprehensive WDS example)"),
-    ("P1", "Chi et al. 2015 (Tissintite, EPSL)"),
-    ("P2", "Hu et al. 2020 (Coesite NWA8657, GCA)"),
-    ("P3sil", "Liu et al. 2016 (Tissint silicate mineral chem., MAPS)"),
-    ("P3phos", "Liu et al. 2016 (Tissint phosphate mineral chem., MAPS)"),
-    ("P4", "Ma et al. 2017 (Liebermannite, MAPS)"),
-    ("P5", "Frank et al. 2023 (Ivuna CAI, MAPS)"),
-    ("P6", "Broussard et al. 2026 (OC002 CI chondrite, MAPS)"),
-    ("P7", "Seifert et al. 2026 (Bennu apatite, MAPS)"),
-    ("P8sil", "Zega et al. 2025 (Bennu silicates, Nat. Geosci.)"),
-    ("P8carb", "Zega et al. 2025 (Bennu carbonates, Nat. Geosci.)"),
-    ("P8phos", "Zega et al. 2025 (Bennu phosphates, Nat. Geosci.)"),
-    ("P9sil", "McCoy et al. 2025 (Bennu silicates, Nature)"),
-    ("P9carb", "McCoy et al. 2025 (Bennu carbonates, Nature)"),
-    ("P9phos", "McCoy et al. 2025 (Bennu phosphates, Nature)"),
-    ("P10", "Pang et al. 2016 (NWA 8003 eucrite, Sci. Rep.)"),
-    ("P10plag", "Pang et al. 2016 (NWA 8003 eucrite plagioclase, Sci. Rep.)"),
-]
+
+
+def _pubs() -> list[tuple[str, str]]:
+    """Return the active TAPP's publication-column list (code, label)."""
+    return CFG["pubs"]
+
+
+def _p_end() -> int:
+    """Return the active TAPP's last publication-column index (inclusive)."""
+    return CFG["p_end_col"]
 
 # ---------- impl-notes parser ----------
 
@@ -185,7 +300,7 @@ def read_rows() -> list[dict]:
             "schema_path": str(r[COL["schema_path"]]).strip() if r[COL["schema_path"]] is not None else None,
             "matchComment": str(r[COL["matchComment"]]).strip() if r[COL["matchComment"]] is not None else None,
             "impl": str(r[COL["impl"]]).strip() if r[COL["impl"]] is not None else None,
-            "pubs": [r[i] for i in range(COL["p_start"], COL["p_end"] + 1)],
+            "pubs": [r[i] for i in range(COL["p_start"], _p_end() + 1)],
         }
         rec["parsed"] = parse_impl(rec["impl"])
         rows.append(rec)
@@ -221,8 +336,10 @@ def share_or_write_catalog(path: Path, data: dict) -> None:
         write_json(path, data)
         return
 
-    new_id = data.get("$id", "") or ""
-    existing_id = existing.get("$id", "") or ""
+    # Ownership marker lives on $id for parameter/analyte catalog entries and on
+    # @id (JSON-LD) for vocab DefinedTermSet entries — check both.
+    new_id = (data.get("$id") or data.get("@id") or "")
+    existing_id = (existing.get("$id") or existing.get("@id") or "")
 
     # If the existing file is owned by THIS TAPP's regen, overwrite.
     if f"/{TAPP_NAME}/" in existing_id:
@@ -233,13 +350,46 @@ def share_or_write_catalog(path: Path, data: dict) -> None:
     if existing == data:
         return
 
-    raise ValueError(
-        f"Catalog conflict at {path}:\n"
-        f"  existing $id={existing_id!r} (owned by another TAPP)\n"
-        f"  new      $id={new_id!r}\n"
-        f"  Either change the spreadsheet to match the existing definition "
-        f"(sharing) or rename the entry in the spreadsheet to avoid the "
-        f"collision."
+    # Soft-share: catalog entries that differ ONLY in their TAPP-namespace
+    # @id/$id/propertyID token (e.g. `ada:vocab/empaTAPP/Technique` vs
+    # `ada:vocab/laicpmsTAPP/Technique`) are still semantically equal. Strip
+    # the TAPP segment from any ada:vocab|parameter|analyteColumn URI in both
+    # records and compare. If equal, leave the existing (foreign-owned) file
+    # untouched — both TAPPs reference it via the same catalog filename.
+    def _normalize(d):
+        import copy
+        d2 = copy.deepcopy(d)
+        def walk(v):
+            if isinstance(v, dict):
+                for k in list(v.keys()):
+                    if k in ("@id", "$id", "schema:propertyID") and isinstance(v[k], str):
+                        v[k] = re.sub(
+                            r"(ada:(?:vocab|parameter|analyteColumn)/)[A-Za-z0-9_]+/",
+                            r"\1__/", v[k])
+                    else:
+                        walk(v[k])
+            elif isinstance(v, list):
+                for x in v:
+                    walk(x)
+        walk(d2)
+        return d2
+    if _normalize(existing) == _normalize(data):
+        return
+
+    # Surface as a warning rather than aborting the build — the existing
+    # foreign-owned file stays put; this TAPP's regen keeps going. Authors
+    # can reconcile the conflict by editing the spreadsheet (match the
+    # existing definition to share, or rename the entry to claim a separate
+    # catalog file).
+    CATALOG_CONFLICTS.append({
+        "path": str(path),
+        "existing_id": existing_id,
+        "new_id": new_id,
+    })
+    print(
+        f"  CATALOG CONFLICT (skipped write) at {path.relative_to(REPO_ROOT)}:\n"
+        f"    existing id={existing_id!r}\n"
+        f"    new      id={new_id!r}"
     )
 
 
@@ -711,10 +861,7 @@ def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
     # Catch-all so an author can attach arbitrary other PropertyValue items
     catch_all = CommentedMap()
     catch_all["type"] = "object"
-    catch_all["description"] = (
-        "Catch-all for additional schema:PropertyValue entries beyond those "
-        "enumerated in the empaTAPP-derived catalog above."
-    )
+    catch_all["description"] = CFG["detail_constraint_catchall_desc"]
     catch_all_props = CommentedMap()
     catch_all_props["@type"] = {
         "type": "array",
@@ -736,17 +883,12 @@ def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
 
     add_prop = CommentedMap()
     add_prop["type"] = "array"
-    add_prop["description"] = (
-        "Per-dataset schema:PropertyValue entries for this EMPA dataset. "
-        "Each item is any of the empaTAPP-derived parameter types or "
-        "(via the catch-all branch) any other PropertyValue. All entries "
-        "are optional — include only the parameters you have values for."
-    )
+    add_prop["description"] = CFG["detail_constraint_addprop_desc"]
     add_prop["items"] = items
 
     doc = CommentedMap()
     doc["$schema"] = "https://json-schema.org/draft/2020-12/schema"
-    doc["title"] = "detailEMPA additionalProperty constraint (generated from empaTAPP spreadsheet)"
+    doc["title"] = CFG["detail_constraint_title"]
     doc["type"] = "object"
     doc["properties"] = CommentedMap([("schema:additionalProperty", add_prop)])
 
@@ -874,18 +1016,8 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
 
     doc = CommentedMap()
     doc["$schema"] = "https://json-schema.org/draft/2020-12/schema"
-    doc["title"] = "EMPA Technique-Aligned Protocol Profile (empaTAPP)"
-    doc["description"] = (
-        "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA "
-        "properties (beam mode, accelerating voltage default, matrix correction "
-        "method, etc.), a parameter vocabulary in ada:methodParameters, and an "
-        "analyte-column template covering EPMA per-element acquisition and "
-        "reporting fields. Each ada:analyteColumns[] entry must match one of the "
-        "catalog files in analyteColumns/ (or the inherited identifier column from "
-        "tappDefinition); each catalog file is itself a JSON Schema whose "
-        "examples[0] carries the canonical instance. Generated from "
-        "docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py."
-    )
+    doc["title"] = CFG["schema_title"]
+    doc["description"] = CFG["schema_description"]
     allof = CommentedSeq()
     allof.append({"$ref": "../tappDefinition/schema.yaml"})
     overlay = CommentedMap()
@@ -969,6 +1101,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     doc["allOf"] = allof
 
     out = BB / "schema.yaml"
+    BB.mkdir(parents=True, exist_ok=True)
     with open(out, "w", encoding="utf-8") as f:
         yaml.dump(doc, f)
     print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(properties)} properties, "
@@ -1018,7 +1151,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
     for readOnly:false parameters with a value in this publication's column),
     pointing back at the empaTAPP via schema:measurementTechnique by @id.
     """
-    pub_code = PUBS[pub_index][0].lower()
+    pub_code = _pubs()[pub_index][0].lower()
     empa_id = f"ex:{TAPP_NAME}-{pub_code}"
     detail_id = f"ex:{DETAIL_NAME}-{pub_code}"
 
@@ -1034,18 +1167,18 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
     ]
     parts["schema:name"] = ""
-    parts["schema:description"] = f"empaTAPP example derived from {pub_label}."
+    parts["schema:description"] = CFG["example_description_template"].format(pub_label=pub_label)
     parts["schema:measurementTechnique"] = {
         "@type": ["schema:DefinedTerm"],
-        "schema:termCode": "EPMA-WDS",
-        "schema:name": "Electron Microprobe Analysis - WDS",
+        "schema:termCode": CFG["termcode"],
+        "schema:name": CFG["termname"],
     }
 
     detail = OrderedDict()
     detail["@context"] = dict(_ADA_CONTEXT)
     detail["@id"] = detail_id
     detail["@type"] = ["schema:Thing"]
-    detail["ada:componentType"] = "ada:EMPAQEATabular"
+    detail["ada:componentType"] = CFG["detail_componenttype_default"]
     detail["schema:measurementTechnique"] = {"@id": empa_id}
     detail["schema:additionalProperty"] = []
 
@@ -1076,14 +1209,14 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         if item == "Instrument Manufacturer" or item == "Instrument Model":
             inst = parts.setdefault("schema:instrument", {
                 "@type": ["schema:Thing", "schema:Product", "https://w3id.org/nfdi4ing/metadata4ing#Instrument"],
-                "schema:additionalType": ["nxs:BaseClass/NXinstrument", "ada:EPMAInstrument"],
-                "schema:name": "EPMA instrument",
+                "schema:additionalType": list(CFG["instrument_addl_type"]),
+                "schema:name": CFG["instrument_name_default"],
             })
             if item == "Instrument Manufacturer":
                 inst["schema:manufacturer"] = {"@type": ["schema:Organization"], "schema:name": str(val).strip()}
             else:
                 inst["schema:model"] = {"@type": ["schema:ProductModel"], "schema:name": str(val).strip()}
-                inst["schema:name"] = inst.get("schema:manufacturer", {}).get("schema:name", "EPMA") + " " + str(val).strip()
+                inst["schema:name"] = inst.get("schema:manufacturer", {}).get("schema:name", CFG["instrument_name_short"]) + " " + str(val).strip()
             continue
         if item == "Electron Source":
             inst = parts.setdefault("schema:instrument", {"@type": ["schema:Thing"]})
@@ -1094,6 +1227,9 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
             })
             continue
         if item == "WDS Spectrometer Configuration":
+            if not CFG.get("has_wds_config", False):
+                # Non-EMPA TAPPs have no WDS spectrometers; skip silently.
+                continue
             inst = parts.setdefault("schema:instrument", {"@type": ["schema:Thing"]})
             inst.setdefault("schema:hasPart", []).extend(_parse_wds_table(val))
             continue
@@ -1198,7 +1334,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
     if method_params:
         parts["ada:methodParameters"] = method_params
     if not parts["schema:name"]:
-        parts["schema:name"] = f"EPMA TAPP example {PUBS[pub_index][0]}"
+        parts["schema:name"] = CFG["example_name_template"].format(code=_pubs()[pub_index][0])
 
     # ---- Build ada:analyteTemplate.ada:defaultAnalytes from per-analyte data ----
     # The "Target Element" row's column value defines the analyte axis (pipe-delim
@@ -1335,6 +1471,10 @@ def _instrument_for_provused(tapp_instrument: dict | None) -> dict:
     """Adapt a TAPP-level schema:instrument record into a prov:used entry. Adds
     schema:Thing + schema:Product to @type and ensures the additionalType
     contains the instrument-class markers expected by the profile schema."""
+    # NOTE: this is only invoked from the empaTAPP profile-example builder
+    # (build_adaEMPA_example / emit_adaEMPA_examples), which is gated by
+    # CFG["emit_profile_examples"] = True for empaTAPP only. The literal
+    # "EMPA Instrument" preserves the legacy adaEMPA profile-example output.
     base = OrderedDict([
         ("@type", ["schema:Thing", "schema:Product"]),
         ("schema:additionalType", [
@@ -1531,14 +1671,19 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
 def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
     """For each pub with a paired (empaTAPP, detailEMPA) example pair on disk,
     emit _sources/profiles/adaProfiles/adaEMPA/exampleadaEMPA-<pub>.json. Returns
-    a counts dict {written: int, skipped: int}."""
+    a counts dict {written: int, skipped: int}.
+
+    EMPA-only — emits nothing when CFG["emit_profile_examples"] is False
+    (e.g. for laicpmsTAPP)."""
+    if not CFG.get("emit_profile_examples", False):
+        return {"written": 0, "skipped": 0}
     profile_dir = REPO_ROOT / "_sources" / "profiles" / "adaProfiles" / "adaEMPA"
     profile_dir.mkdir(parents=True, exist_ok=True)
     tapp_dir = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
     detail_dir = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
 
     written, skipped = 0, 0
-    for pub_code, pub_citation in PUBS:
+    for pub_code, pub_citation in _pubs():
         if pub_filter and pub_code not in pub_filter:
             continue
         tapp_path = tapp_dir / f"example{TAPP_NAME}-{pub_code}.json"
@@ -1782,6 +1927,7 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
     artifacts are always rebuilt regardless of pub_filter.
     Per-tag readOnly:false rows are tracked but their PropertyValue catalog is NOT
     written (the detail-builder writes those). Returns the classification dict."""
+    CATALOG_CONFLICTS.clear()
     rows = read_rows()
     print(f"Read {len(rows)} non-empty rows from TAPP worksheet.")
 
@@ -1811,7 +1957,7 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
     # Per-publication TAPP examples — pub_filter restricts which to regen
     examples_yaml = []
     written = 0
-    for i, (pcode, plabel) in enumerate(PUBS):
+    for i, (pcode, plabel) in enumerate(_pubs()):
         if pub_filter and pcode not in pub_filter:
             examples_yaml.append((pcode, plabel))
             continue
@@ -1824,6 +1970,8 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
 
     _write_examples_yaml(examples_yaml)
     print(f"\nCounts: {cls['counts']}")
+    if CATALOG_CONFLICTS:
+        print(f"\n{len(CATALOG_CONFLICTS)} catalog conflict(s) skipped — see warnings above.")
     return cls
 
 
@@ -1856,7 +2004,7 @@ def build_detail_artifacts(pub_filter: list[str] | None = None) -> dict:
 
     # Per-publication detail examples — pub_filter restricts which to regen
     written = 0
-    for i, (pcode, _plabel) in enumerate(PUBS):
+    for i, (pcode, _plabel) in enumerate(_pubs()):
         if pub_filter and pcode not in pub_filter:
             continue
         _, detail_ex = example_for_pub(i, _plabel, rows)

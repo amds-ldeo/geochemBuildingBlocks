@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification",
+  "title": "Limit of Quantification (LOQ) Method",
+  "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
+    "schema:valueName": {
+      "const": "limitOfQuantification"
+    },
+    "schema:name": {
+      "const": "Limit of Quantification (LOQ) Method"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Limit of Quantification (LOQ) Method",
+      "schema:valueName": "limitOfQuantification",
+      "schema:description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
+}

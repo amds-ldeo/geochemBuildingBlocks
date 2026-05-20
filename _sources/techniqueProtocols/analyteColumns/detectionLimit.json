@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/laicpmsTAPP/detectionLimit",
+  "title": "Detection Limit",
+  "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "const": "ada:analyteColumn/laicpmsTAPP/detectionLimit"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
+    "schema:valueName": {
+      "const": "detectionLimit"
+    },
+    "schema:name": {
+      "const": "Detection Limit"
+    },
+    "ada:dataType": {
+      "const": "string"
+    },
+    "schema:readonlyValue": {
+      "const": true
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/laicpmsTAPP/detectionLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Detection Limit",
+      "schema:valueName": "detectionLimit",
+      "schema:description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+      "ada:dataType": "string",
+      "schema:readonlyValue": true,
+      "ada:tier": "M"
+    }
+  ]
+}

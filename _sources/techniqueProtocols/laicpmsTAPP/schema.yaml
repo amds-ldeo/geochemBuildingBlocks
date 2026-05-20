@@ -1,0 +1,190 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)
+description: LA-ICPMS-specific extension of the base TAPP definition. Adds top-level LA-ICPMS properties, a parameter vocabulary in ada:methodParameters, and an analyte-column template covering LA-ICPMS per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_LAICPMS_filled.xlsx by tools/build_TAPP_from_spreadsheet.py.
+allOf:
+  - $ref: ../tappDefinition/schema.yaml
+  - type: object
+    properties:
+      ada:spotGeometryDefault:
+        description: Shape and dimensions of the laser ablation spot in micrometres registered by the protocol. For circular spots, report diameter; for square or rectangular spots, report width × length. The protocol registers the typical geometry; analysts may adjust within protocol-allowed range.
+        type: string
+      ada:spotPath:
+        description: Sampling mode or ablation pattern used during analysis.
+        type: string
+      ada:ablationMode:
+        description: Sampling mode or ablation pattern used during analysis.
+        type: string
+      ada:laserFluenceDefault:
+        description: Laser pulse energy per unit area at the sample surface in J cm⁻², as registered by the protocol. Fluence is the physically meaningful quantity controlling ablation rate, crater morphology, elemental fractionation, and particle size distribution. If the system reports only as % of maximum output, include that value and note the system maximum where known.
+        type: string
+      ada:BeamDamageMinimization:
+        description: Laser pulse repetition rate in hertz registered by the protocol. For mapping methods, repetition rate together with scan speed and spot size determines pixel size and spatial resolution. Analysts may adjust within protocol-allowed bounds.
+        type: string
+      ada:AblationSpotDuration:
+        description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent protocol-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.'
+        type: string
+      ada:analyteTemplate:
+        type: object
+        properties:
+          ada:analyteColumns:
+            type: array
+            items:
+              anyOf:
+                - $ref: ../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+                - $ref: ../analyteColumns/IsobaricInterferenceCorrection.json
+                - $ref: ../analyteColumns/IsobaricInterferenceCorrectionMethod.json
+                - $ref: ../analyteColumns/analyticalAccuracy.json
+                - $ref: ../analyteColumns/analyticalAccuracyMethod.json
+                - $ref: ../analyteColumns/betweenSessionReproducibility.json
+                - $ref: ../analyteColumns/betweenSessionReproducibilityMethod.json
+                - $ref: ../analyteColumns/detectionLimit.json
+                - $ref: ../analyteColumns/detectionLimitMethod.json
+                - $ref: ../analyteColumns/interferingSpecies.json
+                - $ref: ../analyteColumns/limitOfQuantification.json
+                - $ref: ../analyteColumns/spectrometerDwellTime.json
+                - $ref: ../analyteColumns/spotIdentifier.json
+                - $ref: ../analyteColumns/spotXCoordinate.json
+                - $ref: ../analyteColumns/spotYCoordinate.json
+                - $ref: ../analyteColumns/withinSessionReproducibility.json
+                - $ref: ../analyteColumns/withinSessionReproducibilityMethod.json
+            allOf:
+              - contains:
+                  $ref: ../analyteColumns/IsobaricInterferenceCorrection.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/IsobaricInterferenceCorrectionMethod.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/analyticalAccuracy.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/analyticalAccuracyMethod.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/betweenSessionReproducibility.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/betweenSessionReproducibilityMethod.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/detectionLimit.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/detectionLimitMethod.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/interferingSpecies.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/limitOfQuantification.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/spectrometerDwellTime.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/spotIdentifier.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/spotXCoordinate.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/spotYCoordinate.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/withinSessionReproducibility.json
+                minContains: 0
+                maxContains: 1
+              - contains:
+                  $ref: ../analyteColumns/withinSessionReproducibilityMethod.json
+                minContains: 0
+                maxContains: 1
+      ada:methodParameters:
+        type: array
+        items:
+          anyOf:
+            - $ref: ../parameterTemplates/DriftMonitorFrequency.json
+            - $ref: ../parameterTemplates/LaserPulseDuration.json
+            - $ref: ../parameterTemplates/MatrixOffseCorrection.json
+            - $ref: ../parameterTemplates/SessionDurationLimit.json
+            - $ref: ../parameterTemplates/WarmUpTime.json
+        allOf:
+          - contains:
+              $ref: ../parameterTemplates/DriftMonitorFrequency.json
+            minContains: 0
+            maxContains: 1
+          - contains:
+              $ref: ../parameterTemplates/LaserPulseDuration.json
+            minContains: 0
+            maxContains: 1
+          - contains:
+              $ref: ../parameterTemplates/MatrixOffseCorrection.json
+            minContains: 0
+            maxContains: 1
+          - contains:
+              $ref: ../parameterTemplates/SessionDurationLimit.json
+            minContains: 0
+            maxContains: 1
+          - contains:
+              $ref: ../parameterTemplates/WarmUpTime.json
+            minContains: 0
+            maxContains: 1
+      schema:instrument:
+        type: object
+        properties:
+          schema:hasPart:
+            type: array
+            description: 'Instrument sub-components. Each item is a schema:Thing with at least one schema:additionalType. Spreadsheet-known types: Detector. Other additionalType values are accepted via the catch-all branch.'
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    '@type':
+                      type: array
+                      items:
+                        type: string
+                      contains:
+                        const: schema:Thing
+                    schema:additionalType:
+                      type: array
+                      items:
+                        type: string
+                      contains:
+                        const: Detector
+                  required:
+                    - '@type'
+                    - schema:additionalType
+                - type: object
+                  description: Catch-all for instrument sub-component types not enumerated above. Authors may use any schema:additionalType outside the known set; schema:name is unconstrained on this branch.
+                  properties:
+                    '@type':
+                      type: array
+                      items:
+                        type: string
+                      contains:
+                        const: schema:Thing
+                    schema:additionalType:
+                      type: array
+                      items:
+                        type: string
+                      minItems: 1
+                      not:
+                        anyOf:
+                          - contains:
+                              const: Detector
+                  required:
+                    - '@type'
+                    - schema:additionalType

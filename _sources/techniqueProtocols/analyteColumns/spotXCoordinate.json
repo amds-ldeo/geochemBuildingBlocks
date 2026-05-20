@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate",
+  "title": "Analysis Location/Spot Coordinates",
+  "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "const": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
+    "schema:valueName": {
+      "const": "spotXCoordinate"
+    },
+    "schema:name": {
+      "const": "Analysis Location/Spot Coordinates"
+    },
+    "ada:dataType": {
+      "const": "number"
+    },
+    "schema:readonlyValue": {
+      "const": false
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Analysis Location/Spot Coordinates",
+      "schema:valueName": "spotXCoordinate",
+      "schema:description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+      "ada:dataType": "number",
+      "schema:readonlyValue": false,
+      "ada:tier": "M"
+    }
+  ]
+}

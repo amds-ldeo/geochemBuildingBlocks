@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime",
+  "title": "Spectrometer Dwell Time",
+  "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      }
+    },
+    "@id": {
+      "const": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime"
+    },
+    "@type": {
+      "const": [
+        "schema:PropertyValueSpecification"
+      ]
+    },
+    "schema:valueName": {
+      "const": "spectrometerDwellTime"
+    },
+    "schema:name": {
+      "const": "Spectrometer Dwell Time"
+    },
+    "ada:dataType": {
+      "const": "number"
+    },
+    "schema:readonlyValue": {
+      "const": false
+    },
+    "ada:tier": {
+      "const": "M"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "schema:valueName",
+    "schema:name",
+    "ada:dataType"
+  ],
+  "examples": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Spectrometer Dwell Time",
+      "schema:valueName": "spectrometerDwellTime",
+      "schema:description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+      "ada:dataType": "number",
+      "schema:readonlyValue": false,
+      "ada:tier": "M"
+    }
+  ]
+}
