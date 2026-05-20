@@ -34,7 +34,8 @@ TAPP_NAME = "empaTAPP"
 DETAIL_NAME = "detailEMPA"
 XLSX = REPO_ROOT / "docs" / "TAPP_EPMA_filled.xlsx"
 BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
-DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
+# Detail BBs were relocated from geochemProperties/ to analysisSpecificDetails/.
+DETAIL_EMPA = REPO_ROOT / "_sources" / "analysisSpecificDetails" / DETAIL_NAME
 
 
 # ---------- per-TAPP configuration ----------
@@ -167,7 +168,7 @@ def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
         p = Path(xlsx_path)
         XLSX = p if p.is_absolute() else REPO_ROOT / p
     BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
-    DETAIL_EMPA = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
+    DETAIL_EMPA = REPO_ROOT / "_sources" / "analysisSpecificDetails" / DETAIL_NAME
     if tapp_name not in TAPP_PROFILES:
         raise ValueError(
             f"Unknown TAPP {tapp_name!r}. Add an entry to TAPP_PROFILES in "
@@ -835,67 +836,138 @@ def build_haspart_constraint(rows: list[dict]) -> dict | None:
     ])
 
 
-def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
-    """Write _sources/geochemProperties/detailEMPA/parametersConstraint.yaml — a
-    JSON Schema fragment carrying schema:additionalProperty.items.anyOf
-    referencing each detailEMPA/parameters/<name>.json catalog file plus a
-    catch-all branch so authors can attach arbitrary additional schema:PropertyValue
-    entries beyond the spreadsheet-listed ones. All entries are optional —
-    a detailEMPA instance can include any subset (or none) of the catalog
-    parameters. detailEMPA/schema.yaml is expected to allOf this snippet
-    alongside its hand-authored componentType constraints."""
+def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") -> None:
+    """Write the registered parameterValues collection BB at
+    _sources/techniqueProtocols/parameterValues/schema.yaml — a $defs library,
+    one entry per readOnly:false parameter (keyed by name). Detail BBs reference
+    these via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally
+    through the building-block register instead of being fetched as plain helper
+    files. Each $def is the parameter's JSON Schema body with $schema/$id/examples
+    stripped (title/description/type/properties/required retained). A sibling
+    bblock.json registers the collection. Existing $defs owned by other TAPPs are
+    preserved; this TAPP's params are merged in."""
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
     yaml.indent(mapping=2, sequence=4, offset=2)
+    # Emit identical inline mappings repeatedly rather than YAML anchors/aliases —
+    # JSON Schema $defs are read by json/yaml.safe_load consumers that don't want
+    # &id/*id references.
+    yaml.representer.ignore_aliases = lambda *_args: True
 
-    out = DETAIL_EMPA / "parametersConstraint.yaml"
-    if not detail_param_names:
-        if out.exists():
-            out.unlink()
-        return
+    def _plain(v):
+        """Recursively convert OrderedDict/dict → CommentedMap and list →
+        CommentedSeq so ruamel.yaml emits plain mappings/sequences (no !!omap)."""
+        if isinstance(v, dict):
+            cm = CommentedMap()
+            for k, vv in v.items():
+                cm[k] = _plain(vv)
+            return cm
+        if isinstance(v, (list, tuple)):
+            seq = CommentedSeq()
+            for x in v:
+                seq.append(_plain(x))
+            return seq
+        return v
 
-    branches = CommentedSeq()
-    for n in sorted(detail_param_names):
-        branches.append({"$ref": f"../../techniqueProtocols/parameterValues/{n}.json"})
-    # Catch-all so an author can attach arbitrary other PropertyValue items
-    catch_all = CommentedMap()
-    catch_all["type"] = "object"
-    catch_all["description"] = CFG["detail_constraint_catchall_desc"]
-    catch_all_props = CommentedMap()
-    catch_all_props["@type"] = {
-        "type": "array",
-        "items": {"type": "string"},
-        "contains": {"const": "schema:PropertyValue"},
-    }
-    catch_all_props["schema:propertyID"] = {
-        "type": "string",
-        "not": {
-            "enum": [f"ada:parameter/{TAPP_NAME}/{n}" for n in sorted(detail_param_names)]
-        },
-    }
-    catch_all["properties"] = catch_all_props
-    catch_all["required"] = CommentedSeq(["@type", "schema:propertyID"])
-    branches.append(catch_all)
+    PARAMETER_VALUES_DIR.mkdir(parents=True, exist_ok=True)
+    out = PARAMETER_VALUES_DIR / "schema.yaml"
 
-    items = CommentedMap()
-    items["anyOf"] = branches
+    # Load any existing registry so multi-TAPP regen accumulates $defs.
+    existing_defs: "OrderedDict[str, dict]" = OrderedDict()
+    if out.exists():
+        try:
+            with open(out, "r", encoding="utf-8") as f:
+                existing = YAML(typ="safe").load(f) or {}
+            for k, v in (existing.get("$defs") or {}).items():
+                existing_defs[k] = v
+        except Exception:
+            existing_defs = OrderedDict()
 
-    add_prop = CommentedMap()
-    add_prop["type"] = "array"
-    add_prop["description"] = CFG["detail_constraint_addprop_desc"]
-    add_prop["items"] = items
+    # This TAPP owns its param names — overwrite/insert those, drop stale ones it
+    # previously owned but the spreadsheet no longer lists.
+    owned_marker = f"ada:parameter/{TAPP_NAME}/"
+
+    def _is_owned(defn: dict) -> bool:
+        try:
+            return defn.get("properties", {}).get("@id", {}).get("const", "").startswith(owned_marker)
+        except AttributeError:
+            return False
+
+    merged: "OrderedDict[str, dict]" = OrderedDict()
+    # keep foreign-owned $defs untouched
+    for k, v in existing_defs.items():
+        if not _is_owned(v):
+            merged[k] = v
+    # add/overwrite this TAPP's $defs (strip $schema/$id/examples)
+    for name, defn in param_value_defs.items():
+        body = OrderedDict()
+        for key, val in defn.items():
+            if key in ("$schema", "$id", "examples"):
+                continue
+            body[key] = val
+        merged[name] = body
 
     doc = CommentedMap()
     doc["$schema"] = "https://json-schema.org/draft/2020-12/schema"
-    doc["title"] = CFG["detail_constraint_title"]
+    doc["title"] = "ADA Analytical Parameter Value Registry"
+    doc["description"] = (
+        "Registry of reusable schema:PropertyValue parameter-value definitions "
+        "derived from technique TAPP spreadsheets. Each $def constrains one "
+        "per-dataset schema:PropertyValue entry. Detail building blocks reference "
+        "these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they "
+        "resolve locally through the building-block register. The root only hosts "
+        "$defs; it has no instantiable properties of its own."
+    )
     doc["type"] = "object"
-    doc["properties"] = CommentedMap([("schema:additionalProperty", add_prop)])
+    defs_map = CommentedMap()
+    for k, v in merged.items():
+        defs_map[k] = _plain(v)
+    doc["$defs"] = defs_map
 
-    DETAIL_EMPA.mkdir(parents=True, exist_ok=True)
     with open(out, "w", encoding="utf-8") as f:
         yaml.dump(doc, f)
-    print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(detail_param_names)} additionalProperty types)")
+
+    # Ensure the collection is a registered BB (bblock.json) so $refs resolve
+    # locally via the register. Created once; left untouched if present.
+    bblock_path = PARAMETER_VALUES_DIR / "bblock.json"
+    if not bblock_path.exists():
+        bblock = OrderedDict([
+            ("$schema", "metaschema.yaml"),
+            ("name", "Analytical Parameter Value Registry"),
+            ("abstract", (
+                "Registry of reusable schema:PropertyValue parameter-value "
+                "definitions derived from technique TAPP spreadsheets. Hosts one "
+                "$def per per-dataset parameter value. Detail building blocks "
+                "reference these definitions via fragment $refs so they resolve "
+                "locally through the register."
+            )),
+            ("isTypeLibrary", True),
+            ("status", "under-development"),
+            ("itemClass", "schema"),
+            ("register", "cdif-building-block-register"),
+            ("version", "0.1"),
+            ("maturity", "draft"),
+            ("scope", "unstable"),
+            ("tags", ["ada", "astromat", "tapp", "parameter", "registry"]),
+        ])
+        write_json(bblock_path, bblock)
+        print(f"  wrote {bblock_path.relative_to(REPO_ROOT)}")
+
+    print(f"  wrote {out.relative_to(REPO_ROOT)} ({len(param_value_defs)} $defs for {TAPP_NAME})")
+
+
+def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
+    """No-op for the constraint snippet: the per-dataset additionalProperty
+    constraint now lives INLINE in the hand-authored detail schema.yaml's allOf,
+    referencing the parameterValues registry $defs (schema.yaml#/$defs/<name>).
+    The detail schema.yaml is hand-authored and never regenerated here, so this
+    function only cleans up the legacy generated parametersConstraint.yaml if a
+    stale copy is still present."""
+    stale = DETAIL_EMPA / "parametersConstraint.yaml"
+    if stale.exists():
+        stale.unlink()
+        print(f"  removed legacy {stale.relative_to(REPO_ROOT)} (constraint now inline in schema.yaml)")
 
 
 def scaffold_detail_bb_if_missing() -> None:
@@ -989,17 +1061,14 @@ def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: 
     spreadsheet parameter row in the appropriate bucket. Avoids stale
     orphans after spreadsheet edits or readOnly toggles."""
     keep_empa = set(empa_param_names)
-    keep_detail = set(detail_param_names)
     if PARAMETER_TEMPLATES_DIR.exists():
         for fp in PARAMETER_TEMPLATES_DIR.glob("*.json"):
             if fp.stem not in keep_empa:
                 fp.unlink()
                 print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
-    if PARAMETER_VALUES_DIR.exists():
-        for fp in PARAMETER_VALUES_DIR.glob("*.json"):
-            if fp.stem not in keep_detail:
-                fp.unlink()
-                print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+    # parameterValues is now a registered collection BB (schema.yaml $defs +
+    # bblock.json), not a directory of flat per-name JSON files. Stale-$def
+    # pruning happens inside write_parameter_values_registry; nothing to glob here.
 
 
 def build_schema_yaml(properties: list[tuple[str, dict]],
@@ -1780,6 +1849,9 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
     analyte_column_names: list[str] = []
     parameter_names: list[str] = []
     detail_param_names: list[str] = []
+    # readOnly:false parameter-value schemas collected for the parameterValues
+    # registry schema.yaml $defs (keyed by name). Only populated when emit_detail.
+    param_value_defs: "OrderedDict[str, dict]" = OrderedDict()
     enum_to_vocab_name: dict[tuple[str, ...], str] = {}
     counts = {"vocab": 0, "parameter": 0, "detailParameter": 0, "analyteColumn": 0, "property": 0}
 
@@ -1837,14 +1909,15 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
                     parameter_names.append(name)
                     counts["parameter"] += 1
                 else:
-                    # readOnly:false → per-dataset value (PropertyValue);
-                    # only emitted when building the detail side.
+                    # readOnly:false → per-dataset value (PropertyValue).
+                    # No longer written as a flat per-name file; instead collected
+                    # into the parameterValues registry schema.yaml $defs (one $def
+                    # per name) by build_detail_artifacts → write_parameter_values_registry.
                     if emit_detail:
-                        path = PARAMETER_VALUES_DIR / f"{name}.json"
-                        share_or_write_catalog(path, additional_property_obj(
+                        param_value_defs[name] = additional_property_obj(
                             name, row["item"], row["desc"],
                             row.get("dtype_col"), vocab_name, tag_dtype,
-                        ))
+                        )
                     detail_param_names.append(name)
                     counts["detailParameter"] += 1
             elif kind == "analytecolumn":
@@ -1884,6 +1957,7 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
         "analyte_column_names": analyte_column_names,
         "parameter_names": parameter_names,
         "detail_param_names": detail_param_names,
+        "param_value_defs": param_value_defs,
         "counts": counts,
     }
 
@@ -1986,21 +2060,28 @@ def build_detail_artifacts(pub_filter: list[str] | None = None) -> dict:
     cls = _classify_rows(rows, emit_tapp=False, emit_detail=True)
 
     scaffold_detail_bb_if_missing()
+    # Write the registered parameterValues collection BB ($defs library).
+    write_parameter_values_registry(cls["param_value_defs"])
+    # Clean up the legacy generated parametersConstraint.yaml (constraint is now
+    # inline in the hand-authored detail schema.yaml).
     write_detail_empa_constraint(cls["detail_param_names"])
 
-    # Orphan cleanup for parameterValues — only files owned by THIS TAPP get deleted.
-    keep_values = set(cls["detail_param_names"])
+    # Clean up any legacy flat parameterValues/<name>.json files owned by THIS
+    # TAPP — they are superseded by schema.yaml $defs. Foreign-owned flat files
+    # (other TAPPs not yet migrated) are left untouched. The registry schema.yaml
+    # and bblock.json are never deleted here.
     if PARAMETER_VALUES_DIR.exists():
         for fp in PARAMETER_VALUES_DIR.glob("*.json"):
-            if fp.stem not in keep_values:
-                try:
-                    with open(fp, "r", encoding="utf-8") as f:
-                        existing_id = (json.load(f) or {}).get("$id", "") or ""
-                except (OSError, json.JSONDecodeError):
-                    continue
-                if f"/{TAPP_NAME}/" in existing_id:
-                    fp.unlink()
-                    print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
+            if fp.name == "bblock.json":
+                continue
+            try:
+                with open(fp, "r", encoding="utf-8") as f:
+                    existing_id = (json.load(f) or {}).get("$id", "") or ""
+            except (OSError, json.JSONDecodeError):
+                continue
+            if f"/{TAPP_NAME}/" in existing_id:
+                fp.unlink()
+                print(f"  deleted legacy flat {fp.relative_to(REPO_ROOT)} (now a $def)")
 
     # Per-publication detail examples — pub_filter restricts which to regen
     written = 0

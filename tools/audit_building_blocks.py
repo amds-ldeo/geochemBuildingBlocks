@@ -119,8 +119,12 @@ def discover_building_blocks(sources_dir):
 # Check 1: File completeness
 # ---------------------------------------------------------------------------
 
-def check_files(bb_dir, name):
-    """Check for required, expected, and generated files."""
+def check_files(bb_dir, name, is_type_library=False):
+    """Check for required, expected, and generated files.
+
+    isTypeLibrary BBs have no instantiable root class (they only host reusable
+    $defs referenced by fragment $refs), so the standalone-example requirement
+    does not apply — a missing example is downgraded to info for them."""
     issues = []
     info = []
 
@@ -138,6 +142,8 @@ def check_files(bb_dir, name):
         # Check examples.yaml for inline examples
         if (bb_dir / "examples.yaml").exists():
             info.append("Has examples.yaml but no standalone example*.json files")
+        elif is_type_library:
+            info.append("No example files (isTypeLibrary: $defs library has no instantiable root)")
         else:
             issues.append("No example files found (example*.json or examples.yaml)")
     else:
@@ -667,7 +673,7 @@ def audit_building_block(category, name, bb_dir, checks=None):
 
     # Check 1: File completeness
     if not checks or "files" in checks:
-        issues, info = check_files(bb_dir, name)
+        issues, info = check_files(bb_dir, name, is_type_library=is_type_library)
         result.add_issues(issues)
         result.add_info(info)
 

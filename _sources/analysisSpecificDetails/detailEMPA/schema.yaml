@@ -4,8 +4,8 @@ description: >-
   Detail block for Electron Microprobe Analysis hasPart items. Discriminates
   on ada:componentType (string) and contributes ada:spectrometersUsed and
   ada:signalUsed as sibling properties on the hasPart item. Per-dataset
-  schema:additionalProperty entries are constrained by the generated
-  parametersConstraint.yaml (one schema:PropertyValue branch per readOnly:false
+  schema:additionalProperty entries are constrained inline via $refs to the
+  parameterValues registry (one schema:PropertyValue branch per readOnly:false
   empaTAPP parameter, plus a catch-all). schema:measurementTechnique is an
   @id reference to a registered empaTAPP TAPP definition.
 allOf:
@@ -36,4 +36,34 @@ allOf:
           - '@id'
     required:
       - 'ada:componentType'
-  - $ref: parametersConstraint.yaml
+  - type: object
+    properties:
+      'schema:additionalProperty':
+        type: array
+        description: Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional — include only the parameters you have values for.
+        items:
+          anyOf:
+            - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/acceleratingVoltage
+            - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/beamDiameter
+            - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/BeamRasterDimension
+            - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/reportedAnalyte
+            - type: object
+              description: Catch-all for additional schema:PropertyValue entries beyond those enumerated in the empaTAPP-derived catalog above.
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  contains:
+                    const: schema:PropertyValue
+                schema:propertyID:
+                  type: string
+                  not:
+                    enum:
+                      - ada:parameter/empaTAPP/BeamRasterDimension
+                      - ada:parameter/empaTAPP/acceleratingVoltage
+                      - ada:parameter/empaTAPP/beamDiameter
+                      - ada:parameter/empaTAPP/reportedAnalyte
+              required:
+                - '@type'
+                - schema:propertyID
