@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA Analysis Laboratory",
+  "description": "ADA laboratory or facility building block. Extends the core CDIF spatialExtent (schema:Place) with NeXus NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.",
+  "allOf": [
+    {
+      "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:additionalType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "nxs:BaseClass/NXsource"
+          },
+          "description": "Must include nxs:BaseClass/NXsource for NeXus facility classification.",
+          "x-jsonld-id": "http://schema.org/additionalType"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "nxs": "http://purl.org/nexusformat/definitions/"
+  }
+}

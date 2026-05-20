@@ -1,0 +1,228 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:empaTAPP-p6",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "EPMA-WDS major/minor element minerals",
+  "schema:description": "empaTAPP example derived from Broussard et al. 2026 (OC002 CI chondrite, MAPS).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "EPMA-WDS",
+    "schema:name": "Electron Microprobe Analysis - WDS"
+  },
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": "Broussard et al."
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Washington University in St. Louis"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Phyllosilicates, magnetite, dolomite, magnesite, pyrrhotite, pentlandite, apatite, fluorapatite, hydroxyapatite, ilmenite, chromite"
+    }
+  ],
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product",
+      "https://w3id.org/nfdi4ing/metadata4ing#Instrument"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument",
+      "ada:EPMAInstrument"
+    ],
+    "schema:name": "JEOL JXA-8200",
+    "schema:manufacturer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "JEOL"
+    },
+    "schema:model": {
+      "@type": [
+        "schema:ProductModel"
+      ],
+      "schema:name": "JXA-8200"
+    },
+    "schema:hasPart": [
+      {
+        "@type": [
+          "schema:Thing"
+        ],
+        "schema:additionalType": [
+          "edsDetector"
+        ],
+        "schema:name": "JEOL (e2v/Gresham) silicon-drift EDS spectrometer",
+        "schema:description": "JEOL (e2v/Gresham) silicon-drift EDS spectrometer"
+      }
+    ]
+  },
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "ada:toolRole": "acquisition"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "CITZAF (Armstrong, 1995); CalcImage; Quantitative Microanalysis Explorer",
+      "ada:toolRole": "reduction"
+    }
+  ],
+  "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
+  "ada:beamDiameterDefault": "0 (focused)",
+  "ada:beamCurrentDefault": "25 nA",
+  "ada:methodParameters": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/BeamDamageMinimization",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Beam Damage Minimization",
+      "schema:valueName": "BeamDamageMinimization",
+      "schema:description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "F measurement with polynomial background fit (LDE1 crystal)"
+    },
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/halogenOxygenCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Halogen Correction on Oxygen",
+      "schema:valueName": "halogenOxygenCorrection",
+      "schema:description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
+      "ada:dataType": "boolean",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Yes (F correction for fluorine-bearing phosphates; CO2 by stoichiometry for carbonates)"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/epmaTechnique",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "EPMA Technique per Element",
+        "schema:valueName": "epmaTechnique",
+        "schema:description": "Whether this element was measured by WDS or EDS.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/epmaTechnique"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/monochromatorCrystal",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Diffracting Crystal",
+        "schema:valueName": "monochromatorCrystal",
+        "schema:description": "Analysing crystal (monochromator) used in the WDS spectrometer for this element.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/monochromatorCrystal"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/backgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Background Correction Method",
+        "schema:valueName": "backgroundCorrectionMethod",
+        "schema:description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Secondary Reference Materials",
+        "schema:valueName": "secondaryReferenceMaterial",
+        "schema:description": "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "F",
+        "epmaTechnique": "\u221a",
+        "monochromatorCrystal": "LDE1 (for F)",
+        "backgroundCorrectionMethod": "MAN (mean atomic number) background calibration",
+        "secondaryReferenceMaterial": "Smithsonian Microbeam standards (for analytical accuracy confirmation)"
+      },
+      {
+        "analyte": "CO2",
+        "epmaTechnique": "\u221a",
+        "monochromatorCrystal": "LDE1 (for F)",
+        "backgroundCorrectionMethod": "MAN (mean atomic number) background calibration",
+        "secondaryReferenceMaterial": "Smithsonian Microbeam standards (for analytical accuracy confirmation)"
+      }
+    ]
+  }
+}

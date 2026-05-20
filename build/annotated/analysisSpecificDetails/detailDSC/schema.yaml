@@ -1,0 +1,16 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: DSC Instrument Detail
+description: Differential Scanning Calorimetry heat tabular data
+type: object
+properties:
+  ada:componentType:
+    const: ada:DSCHeatTabular
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:analysisType:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/analysisType
+required:
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/

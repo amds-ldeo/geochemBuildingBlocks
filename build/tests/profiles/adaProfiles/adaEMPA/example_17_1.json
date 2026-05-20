@@ -1,0 +1,452 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "http://purl.org/nexusformat/definitions/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ex": "https://example.org/",
+    "dcat": "http://www.w3.org/ns/dcat#"
+  },
+  "@id": "ex:adaEMPA-P9phos",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "schema:name": "adaEMPA dataset for P9phos (McCoy et al. 2025 (Bennu phosphates, Nature))",
+  "schema:description": "Auto-generated adaEMPA profile-level Dataset for publication P9phos: McCoy et al. 2025 (Bennu phosphates, Nature). The schema:hasPart entry under schema:distribution carries detailEMPA fields and points at the empaTAPP TAPP definition (ex:empaTAPP-p9phos); schema:variableMeasured is derived from the TAPP's ada:defaultAnalytes.",
+  "schema:additionalType": [
+    "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
+    "ada:DataDeliveryPackage"
+  ],
+  "schema:identifier": {
+    "@type": [
+      "schema:PropertyValue"
+    ],
+    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:value": "10.PLACEHOLDER/adaempa-p9phos"
+  },
+  "schema:url": "https://astromat.org/products/adaempa-p9phos",
+  "schema:dateModified": "2026-04-29",
+  "schema:version": "0.1",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "schema:creativeWorkStatus": "Draft",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:name": "Electron Microprobe Analysis (EMPA)",
+    "schema:identifier": "https://ada.astromat.org/vocabulary/techniques/EMPA"
+  },
+  "prov:wasGeneratedBy": [
+    {
+      "@type": [
+        "prov:Activity",
+        "schema:Action"
+      ],
+      "schema:identifier": "session-empa-p9phos",
+      "schema:startDate": "2026-04-29",
+      "prov:used": [
+        {
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
+            "nxs:BaseClass/NXinstrument",
+            "ada:EMPAInstrument"
+          ],
+          "schema:name": "JEOL; Cameca Cameca SX-100 (U of Arizona)",
+          "schema:identifier": [
+            "ex:instrument-empa-001"
+          ],
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "JEOL; Cameca"
+          }
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Smithsonian Institution NMNH; University of Arizona (K-ALFAA)",
+        "schema:additionalType": [
+          "nxs:BaseClass/NXsource"
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "schema:Thing",
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalType": [
+            "MaterialSample"
+          ],
+          "schema:name": "Sample analyzed in P9phos",
+          "schema:identifier": [
+            "igsn:10.60471/PLACEHOLDER-P9phos"
+          ],
+          "schema:description": "Sample of: Mg Phosphate, Na phosphate"
+        }
+      ]
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "@id": "ex:adaEMPA-P9phos-var-F",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "F",
+      "schema:description": "F abundance measured by EMPA WDS (calibrated against fluorapatite).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/F"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-P",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "P",
+      "schema:description": "P abundance measured by EMPA WDS (calibrated against fluorapatite).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/P"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-Ca",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Ca",
+      "schema:description": "Ca abundance measured by EMPA WDS (calibrated against fluorapatite).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/Ca"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-Si",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Si",
+      "schema:description": "Si abundance measured by EMPA WDS (calibrated against Fo92 olivine).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/Si"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-Mg",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Mg",
+      "schema:description": "Mg abundance measured by EMPA WDS (calibrated against Fo92 olivine).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/Mg"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-Mn",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Mn",
+      "schema:description": "Mn abundance measured by EMPA WDS (calibrated against rhodonite).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/Mn"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-Fe",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Fe",
+      "schema:description": "Fe abundance measured by EMPA WDS (calibrated against fayalite).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/Fe"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-Al",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Al",
+      "schema:description": "Al abundance measured by EMPA WDS (calibrated against anorthite).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/Al"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-S",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "S",
+      "schema:description": "S abundance measured by EMPA WDS (calibrated against baryte).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/S"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-K",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "K",
+      "schema:description": "K abundance measured by EMPA WDS (calibrated against K-feldspar).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/K"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P9phos-var-Cl",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Cl",
+      "schema:description": "Cl abundance measured by EMPA WDS (calibrated against scapolite).",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/Cl"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    }
+  ],
+  "schema:distribution": [
+    {
+      "@type": [
+        "schema:DataDownload"
+      ],
+      "schema:name": "adaEMPA-P9phos-archive.zip",
+      "schema:description": "Archive containing tabular EMPA data for P9phos.",
+      "schema:contentUrl": "https://astromat.org/downloads/adaempa-p9phos.zip",
+      "schema:encodingFormat": [
+        "application/zip"
+      ],
+      "spdx:checksum": {
+        "@type": [
+          "spdx:Checksum"
+        ],
+        "spdx:algorithm": "SHA256",
+        "spdx:checksumValue": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "schema:size": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 1048576,
+        "schema:unitText": "byte"
+      },
+      "schema:hasPart": [
+        {
+          "@id": "ex:adaEMPA-P9phos-data-001",
+          "@type": [
+            "schema:MediaObject",
+            "ada:tabularData",
+            "cdi:TabularTextDataSet",
+            "schema:Thing"
+          ],
+          "schema:name": "adaEMPA-P9phos-data.csv",
+          "schema:description": "Per-point quantitative EMPA analyses (McCoy et al. 2025 (Bennu phosphates, Nature)).",
+          "schema:additionalType": [
+            "ada:EMPAQEATabular"
+          ],
+          "schema:encodingFormat": [
+            "text/csv"
+          ],
+          "cdi:isDelimited": true,
+          "cdi:isFixedWidth": false,
+          "csvw:delimiter": ",",
+          "csvw:header": true,
+          "ada:componentType": "ada:EMPAQEATabular",
+          "ada:spectrometersUsed": "5x WDS",
+          "ada:signalUsed": "K\u03b1 x-ray lines",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-p9phos"
+          },
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/empaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/acceleratingVoltage",
+              "schema:name": "Default Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "kV"
+            },
+            {
+              "@id": "ada:parameter/empaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/beamDiameter",
+              "schema:name": "Default Beam Diameter",
+              "schema:value": "2 \u00b5m",
+              "schema:unitText": "\u00b5m"
+            },
+            {
+              "@id": "ada:parameter/empaTAPP/reportedAnalyte",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/reportedAnalyte",
+              "schema:name": "Target Element",
+              "schema:value": "F|P|Ca|Si|Mg|Mn|Fe|Al|S|K|Cl"
+            }
+          ],
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:subjectOf": {
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      "dcat:CatalogRecord"
+    ],
+    "@id": "ex:adaEMPA-P9phos-metadata",
+    "schema:about": {
+      "@id": "ex:adaEMPA-P9phos"
+    },
+    "schema:dateModified": "2026-04-29",
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/provenance/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/manifest/1.0"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+      }
+    ],
+    "schema:maintainer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "Astromat Data Archive"
+    },
+    "schema:sdDatePublished": "2026-04-29T12:00:00Z"
+  }
+}

@@ -1,0 +1,60 @@
+Validation report for ogch.analysisSpecificDetails.detailPSFD - PSFD Instrument Detail
+Generated 2026-05-20T19:15:03.370357+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'ada:componentType' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'description': 'Point Spread Function Data with image names and '
+                    'conditions',
+     'properties': {'ada:componentType': {'const': 'ada:PSFDTabular',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},
+                    'ada:imageName': {'$ref': 'https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml',
+                                      'x-jsonld-id': 'https://ada.astromat.org/metadata/imageName'},
+                    'ada:imageViewingConditions': {'type': 'string',
+                                                   'x-jsonld-id': 'https://ada.astromat.org/metadata/imageViewingConditions'}},
+     'required': ['ada:componentType'],
+     'title': 'PSFD Instrument Detail',
+     'type': 'object',
+     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
+                           'schema': 'http://schema.org/'}}
+
+On instance:
+    {'@type': ['ada:PSFDTabular'],
+     'ada:imageName': ['crater_overview_001.tif',
+                       'crater_overview_002.tif'],
+     'ada:imageViewingConditions': 'nadir, 50m altitude'}
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Validation result for _sources/analysisSpecificDetails/detailPSFD/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("PSFD detail nodes must declare ada:componentType.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path ada:componentType ]
+  	Focus Node: [ ada:imageName Literal("crater_overview_001.tif"), Literal("crater_overview_002.tif") ; ada:imageViewingConditions Literal("nadir, 50m altitude") ; rdf:type ada:PSFDTabular ]
+  	Result Path: ada:componentType
+  	Message: PSFD detail nodes must declare ada:componentType.
+  
+Focus nodes for _sources/analysisSpecificDetails/detailPSFD/rules.shacl:
+ - Shape cdifd:detailPSFDShape: *none*
+
+Validation result for _sources/geochemProperties/stringArray/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+=== End SHACL ===
+

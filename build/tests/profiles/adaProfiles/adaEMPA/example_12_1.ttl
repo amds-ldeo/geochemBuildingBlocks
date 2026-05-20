@@ -1,0 +1,112 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix cdif: <https://cdif.org/0.1/> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:name "Default Accelerating Voltage" ;
+    schema1:propertyID "ada:parameter/empaTAPP/acceleratingVoltage" ;
+    schema1:unitText "kV" ;
+    schema1:value 15 .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/beamDiameter> a schema1:PropertyValue ;
+    schema1:name "Default Beam Diameter" ;
+    schema1:propertyID "ada:parameter/empaTAPP/beamDiameter" ;
+    schema1:unitText "µm" ;
+    schema1:value "~1 µm focused" .
+
+ex:adaEMPA-P8sil a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalType "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
+        "ada:DataDeliveryPackage" ;
+    schema1:creativeWorkStatus "Draft" ;
+    schema1:dateModified "2026-04-29" ;
+    schema1:description "Auto-generated adaEMPA profile-level Dataset for publication P8sil: Zega et al. 2025 (Bennu silicates, Nat. Geosci.). The schema:hasPart entry under schema:distribution carries detailEMPA fields and points at the empaTAPP TAPP definition (ex:empaTAPP-p8sil); schema:variableMeasured is derived from the TAPP's ada:defaultAnalytes." ;
+    schema1:distribution [ a schema1:DataDownload ;
+            schema1:contentUrl "https://astromat.org/downloads/adaempa-p8sil.zip" ;
+            schema1:description "Archive containing tabular EMPA data for P8sil." ;
+            schema1:encodingFormat "application/zip" ;
+            schema1:hasPart ex:adaEMPA-P8sil-data-001 ;
+            schema1:name "adaEMPA-P8sil-archive.zip" ;
+            schema1:size [ a schema1:QuantitativeValue ;
+                    schema1:unitText "byte" ;
+                    schema1:value 1048576 ] ;
+            spdx:checksum [ a spdx:Checksum ;
+                    spdx:algorithm "SHA256" ;
+                    spdx:checksumValue "0000000000000000000000000000000000000000000000000000000000000000" ] ] ;
+    schema1:identifier [ a schema1:PropertyValue ;
+            schema1:propertyID "https://registry.identifiers.org/registry/doi" ;
+            schema1:value "10.PLACEHOLDER/adaempa-p8sil" ] ;
+    schema1:license "https://creativecommons.org/licenses/by/4.0/" ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:identifier "https://ada.astromat.org/vocabulary/techniques/EMPA" ;
+            schema1:name "Electron Microprobe Analysis (EMPA)" ] ;
+    schema1:name "adaEMPA dataset for P8sil (Zega et al. 2025 (Bennu silicates, Nat. Geosci.))" ;
+    schema1:subjectOf ex:adaEMPA-P8sil-metadata ;
+    schema1:url "https://astromat.org/products/adaempa-p8sil" ;
+    schema1:version "0.1" ;
+    prov:wasGeneratedBy [ a schema1:Action,
+                prov:Activity ;
+            schema1:identifier "session-empa-p8sil" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:additionalType "nxs:BaseClass/NXsource" ;
+                    schema1:name "University of Arizona (K-ALFAA); NASA JSC" ] ;
+            schema1:object [ a schema1:Thing,
+                        <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalType "MaterialSample" ;
+                    schema1:description "Sample of: Sheet silicates (serpentine, saponite), sulfides (pyrrhotite, pentlandite), magnetite," ;
+                    schema1:identifier "igsn:10.60471/PLACEHOLDER-P8sil" ;
+                    schema1:name "Sample analyzed in P8sil" ] ;
+            schema1:startDate "2026-04-29" ;
+            prov:used [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType "ada:EMPAInstrument",
+                        "nxs:BaseClass/NXinstrument" ;
+                    schema1:identifier "ex:instrument-empa-001" ;
+                    schema1:manufacturer [ a schema1:Organization ;
+                            schema1:name "Cameca; JEOL" ] ;
+                    schema1:name "Cameca; JEOL Cameca SX-100 Ultra (U of Arizona); JEOL 7600F SEM with WDS (JSC)" ] ] .
+
+ex:adaEMPA-P8sil-data-001 a cdi:TabularTextDataSet,
+        schema1:MediaObject,
+        schema1:Thing,
+        ada:tabularData ;
+    cdi:isDelimited true ;
+    cdi:isFixedWidth false ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDiameter> ;
+    schema1:additionalType "ada:EMPAQEATabular" ;
+    schema1:description "Per-point quantitative EMPA analyses (Zega et al. 2025 (Bennu silicates, Nat. Geosci.))." ;
+    schema1:encodingFormat "text/csv" ;
+    schema1:measurementTechnique ex:empaTAPP-p8sil ;
+    schema1:name "adaEMPA-P8sil-data.csv" ;
+    csvw:delimiter "," ;
+    csvw:header true ;
+    ada:componentType "ada:EMPAQEATabular" ;
+    ada:signalUsed "Kα x-ray lines" ;
+    ada:spectrometersUsed "5x WDS" ;
+    cdif:hasPhysicalMapping [ cdi:nullSequence "NA" ;
+            cdif:index 0 ;
+            cdif:physicalDataType "String" ] .
+
+ex:adaEMPA-P8sil-metadata a schema1:Dataset ;
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
+        <https://w3id.org/cdif/data_description/1.0>,
+        <https://w3id.org/cdif/discovery/1.0>,
+        <https://w3id.org/cdif/manifest/1.0>,
+        <https://w3id.org/cdif/provenance/1.0>,
+        <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
+        <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
+    schema1:about ex:adaEMPA-P8sil ;
+    schema1:additionalType "dcat:CatalogRecord" ;
+    schema1:dateModified "2026-04-29" ;
+    schema1:maintainer [ a schema1:Organization ;
+            schema1:name "Astromat Data Archive" ] ;
+    schema1:sdDatePublished "2026-04-29T12:00:00Z" .
+

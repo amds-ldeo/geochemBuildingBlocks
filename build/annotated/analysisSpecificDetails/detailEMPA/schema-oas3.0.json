@@ -1,0 +1,368 @@
+{
+  "x-defs": {
+    "ogch.techniqueProtocols.parameterValues": {
+      "title": "ADA Analytical Parameter Value Registry",
+      "description": "Registry of reusable schema:PropertyValue parameter-value definitions derived from technique TAPP spreadsheets. Each $def constrains one per-dataset schema:PropertyValue entry. Detail building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
+      "type": "object",
+      "$defs": {
+        "acceleratingVoltage": {
+          "title": "Default Accelerating Voltage",
+          "description": "Electron beam accelerating voltage in kilovolts (kV).",
+          "type": "object",
+          "properties": {
+            "@context": {
+              "enum": [
+                {
+                  "schema": "http://schema.org/",
+                  "ada": "https://ada.astromat.org/metadata/"
+                }
+              ]
+            },
+            "@id": {
+              "enum": [
+                "ada:parameter/empaTAPP/acceleratingVoltage"
+              ]
+            },
+            "@type": {
+              "enum": [
+                [
+                  "schema:PropertyValue"
+                ]
+              ]
+            },
+            "schema:propertyID": {
+              "enum": [
+                "ada:parameter/empaTAPP/acceleratingVoltage"
+              ]
+            },
+            "schema:name": {
+              "enum": [
+                "Default Accelerating Voltage"
+              ]
+            },
+            "schema:value": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "schema:unitText": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "schema:propertyID",
+            "schema:name",
+            "schema:value",
+            "schema:unitText"
+          ]
+        },
+        "beamDiameter": {
+          "title": "Default Beam Diameter",
+          "description": "Diameter of the focused or defocused electron beam in micrometers.",
+          "type": "object",
+          "properties": {
+            "@context": {
+              "enum": [
+                {
+                  "schema": "http://schema.org/",
+                  "ada": "https://ada.astromat.org/metadata/"
+                }
+              ]
+            },
+            "@id": {
+              "enum": [
+                "ada:parameter/empaTAPP/beamDiameter"
+              ]
+            },
+            "@type": {
+              "enum": [
+                [
+                  "schema:PropertyValue"
+                ]
+              ]
+            },
+            "schema:propertyID": {
+              "enum": [
+                "ada:parameter/empaTAPP/beamDiameter"
+              ]
+            },
+            "schema:name": {
+              "enum": [
+                "Default Beam Diameter"
+              ]
+            },
+            "schema:value": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "schema:unitText": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "schema:propertyID",
+            "schema:name",
+            "schema:value",
+            "schema:unitText"
+          ]
+        },
+        "BeamRasterDimension": {
+          "title": "Beam Raster Dimensions",
+          "description": "X \u00d7 Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+          "type": "object",
+          "properties": {
+            "@context": {
+              "enum": [
+                {
+                  "schema": "http://schema.org/",
+                  "ada": "https://ada.astromat.org/metadata/"
+                }
+              ]
+            },
+            "@id": {
+              "enum": [
+                "ada:parameter/empaTAPP/BeamRasterDimension"
+              ]
+            },
+            "@type": {
+              "enum": [
+                [
+                  "schema:PropertyValue"
+                ]
+              ]
+            },
+            "schema:propertyID": {
+              "enum": [
+                "ada:parameter/empaTAPP/BeamRasterDimension"
+              ]
+            },
+            "schema:name": {
+              "enum": [
+                "Beam Raster Dimensions"
+              ]
+            },
+            "schema:value": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "schema:unitText": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "schema:propertyID",
+            "schema:name",
+            "schema:value",
+            "schema:unitText"
+          ]
+        },
+        "reportedAnalyte": {
+          "title": "Target Element",
+          "description": "The element or oxide measured in this row of the element table.",
+          "type": "object",
+          "properties": {
+            "@context": {
+              "enum": [
+                {
+                  "schema": "http://schema.org/",
+                  "ada": "https://ada.astromat.org/metadata/"
+                }
+              ]
+            },
+            "@id": {
+              "enum": [
+                "ada:parameter/empaTAPP/reportedAnalyte"
+              ]
+            },
+            "@type": {
+              "enum": [
+                [
+                  "schema:PropertyValue"
+                ]
+              ]
+            },
+            "schema:propertyID": {
+              "enum": [
+                "ada:parameter/empaTAPP/reportedAnalyte"
+              ]
+            },
+            "schema:name": {
+              "enum": [
+                "Target Element"
+              ]
+            },
+            "schema:value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "schema:propertyID",
+            "schema:name",
+            "schema:value"
+          ]
+        }
+      },
+      "x-schema-source": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.json",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    }
+  },
+  "title": "EMPA Instrument Detail",
+  "description": "Detail block for Electron Microprobe Analysis hasPart items. Discriminates on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed as sibling properties on the hasPart item. Per-dataset schema:additionalProperty entries are constrained inline via $refs to the parameterValues registry (one schema:PropertyValue branch per readOnly:false empaTAPP parameter, plus a catch-all). schema:measurementTechnique is an @id reference to a registered empaTAPP TAPP definition.",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "ada:componentType": {
+          "anyOf": [
+            {
+              "enum": [
+                "ada:EMPAImage"
+              ]
+            },
+            {
+              "enum": [
+                "ada:EMPAImageMap"
+              ]
+            },
+            {
+              "enum": [
+                "ada:EMPAQEATabular"
+              ]
+            },
+            {
+              "enum": [
+                "ada:EMPAImageCollection"
+              ]
+            },
+            {
+              "enum": [
+                "ada:EMPAESPCTabular"
+              ]
+            },
+            {
+              "enum": [
+                "ada:EMPAESPCPlot"
+              ]
+            }
+          ],
+          "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+        },
+        "ada:spectrometersUsed": {
+          "type": "string",
+          "description": "Spectrometers used in analysis",
+          "x-jsonld-id": "https://ada.astromat.org/metadata/spectrometersUsed"
+        },
+        "ada:signalUsed": {
+          "type": "string",
+          "x-jsonld-id": "https://ada.astromat.org/metadata/signalUsed"
+        },
+        "schema:measurementTechnique": {
+          "type": "object",
+          "description": "@id reference to a registered empaTAPP TAPP definition.",
+          "properties": {
+            "@id": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "@id"
+          ],
+          "x-jsonld-id": "http://schema.org/measurementTechnique"
+        }
+      },
+      "required": [
+        "ada:componentType"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:additionalProperty": {
+          "type": "array",
+          "description": "Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional \u2014 include only the parameters you have values for.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema-oas3.0.json#/x-defs/ogch.techniqueProtocols.parameterValues/$defs/acceleratingVoltage"
+              },
+              {
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema-oas3.0.json#/x-defs/ogch.techniqueProtocols.parameterValues/$defs/beamDiameter"
+              },
+              {
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema-oas3.0.json#/x-defs/ogch.techniqueProtocols.parameterValues/$defs/BeamRasterDimension"
+              },
+              {
+                "$ref": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema-oas3.0.json#/x-defs/ogch.techniqueProtocols.parameterValues/$defs/reportedAnalyte"
+              },
+              {
+                "type": "object",
+                "description": "Catch-all for additional schema:PropertyValue entries beyond those enumerated in the empaTAPP-derived catalog above.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "enum": [
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  },
+                  "schema:propertyID": {
+                    "type": "string",
+                    "not": {
+                      "enum": [
+                        "ada:parameter/empaTAPP/BeamRasterDimension",
+                        "ada:parameter/empaTAPP/acceleratingVoltage",
+                        "ada:parameter/empaTAPP/beamDiameter",
+                        "ada:parameter/empaTAPP/reportedAnalyte"
+                      ]
+                    },
+                    "x-jsonld-id": "http://schema.org/propertyID"
+                  }
+                },
+                "required": [
+                  "@type",
+                  "schema:propertyID"
+                ]
+              }
+            ]
+          },
+          "x-jsonld-id": "http://schema.org/additionalProperty"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+}

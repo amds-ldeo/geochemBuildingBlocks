@@ -1,0 +1,95 @@
+{
+  "title": "Validation report for ogch.analysisSpecificDetails.detailXCT - XCT Instrument Detail",
+  "bblockName": "XCT Instrument Detail",
+  "bblockId": "ogch.analysisSpecificDetails.detailXCT",
+  "generated": "2026-05-20T19:15:03.044762+00:00",
+  "result": false,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/analysisSpecificDetails/detailXCT/example_1_1.json",
+        "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailXCT/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 24,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'X-ray Computed Tomography images with detailed scan '\n                    'parameters. (Extension type, not in v3 source '\n                    'schema.)',\n     'properties': {'ada:beamFilterMaterial': {'type': 'string',\n                                               'x-jsonld-id': 'https://ada.astromat.org/metadata/beamFilterMaterial'},\n                    'ada:beamFilterThickness': {'type': 'number',\n                                                'x-jsonld-id': 'https://ada.astromat.org/metadata/beamFilterThickness'},\n                    'ada:componentType': {'const': 'ada:XCTImageCollection',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},\n                    'ada:dataRangeLower': {'type': 'integer',\n                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/dataRangeLower'},\n                    'ada:dataRangeUpper': {'type': 'integer',\n                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/dataRangeUpper'},\n                    'ada:detectorBinning': {'type': 'string',\n                                            'x-jsonld-id': 'https://ada.astromat.org/metadata/detectorBinning'},\n                    'ada:detectorGain': {'type': 'string',\n                                         'x-jsonld-id': 'https://ada.astromat.org/metadata/detectorGain'},\n                    'ada:detectorSize': {'type': 'string',\n                                         'x-jsonld-id': 'https://ada.astromat.org/metadata/detectorSize'},\n                    'ada:detectorType': {'type': 'string',\n                                         'x-jsonld-id': 'https://ada.astromat.org/metadata/detectorType'},\n                    'ada:imageExposure': {'type': 'number',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/imageExposure'},\n                    'ada:imageFPS': {'type': 'string',\n                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/imageFPS'},\n                    'ada:imageGain': {'type': 'number',\n                                      'x-jsonld-id': 'https://ada.astromat.org/metadata/imageGain'},\n                    'ada:imageSize': {'type': 'string',\n                                      'x-jsonld-id': 'https://ada.astromat.org/metadata/imageSize'},\n                    'ada:instrumentType': {'type': 'string',\n                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/instrumentType'},\n                    'ada:nsiBeamHardening': {'type': 'number',\n                                             'x-jsonld-id': 'https://ada.astromat.org/metadata/nsiBeamHardening'},\n                    'ada:numberOfFramesAveragedPerProjection': {'type': 'integer',\n                                                                'x-jsonld-id': 'https://ada.astromat.org/metadata/numberOfFramesAveragedPerProjection'},\n                    'ada:numberOfProjections': {'type': 'integer',\n                                                'x-jsonld-id': 'https://ada.astromat.org/metadata/numberOfProjections'},\n                    'ada:numberOfSlices': {'type': 'integer',\n                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/numberOfSlices'},\n                    'ada:pixelPitch': {'type': 'string',\n                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/pixelPitch'},\n                    'ada:reconstructedDataFormat': {'type': 'string',\n                                                    'x-jsonld-id': 'https://ada.astromat.org/metadata/reconstructedDataFormat'},\n                    'ada:reconstructedVoxelSize': {'type': 'string',\n                                                   'x-jsonld-id': 'https://ada.astromat.org/metadata/reconstructedVoxelSize'},\n                    'ada:reconstructionSoftware': {'type': 'string',\n                                                   'x-jsonld-id': 'https://ada.astromat.org/metadata/reconstructionSoftware'},\n                    'ada:rotationAngle': {'type': 'string',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/rotationAngle'},\n                    'ada:rotationType': {'type': 'string',\n                                         'x-jsonld-id': 'https://ada.astromat.org/metadata/rotationType'},\n                    'ada:sourceToDetectorDistance': {'type': 'string',\n                                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/sourceToDetectorDistance'},\n                    'ada:sourceToObjectDistance': {'type': 'number',\n                                                   'x-jsonld-id': 'https://ada.astromat.org/metadata/sourceToObjectDistance'},\n                    'ada:subPixGrid': {'type': 'string',\n                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/subPixGrid'},\n                    'ada:subPixShift': {'type': 'string',\n                                        'x-jsonld-id': 'https://ada.astromat.org/metadata/subPixShift'},\n                    'ada:xraySource': {'type': 'string',\n                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/xraySource'},\n                    'ada:xrayTargetMaterial': {'type': 'string',\n                                               'x-jsonld-id': 'https://ada.astromat.org/metadata/xrayTargetMaterial'},\n                    'ada:xrayTubeCurrent': {'type': 'number',\n                                            'x-jsonld-id': 'https://ada.astromat.org/metadata/xrayTubeCurrent'},\n                    'ada:xrayTubeEnergy': {'type': 'number',\n                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/xrayTubeEnergy'},\n                    'ada:xrayTubePower': {'type': 'number',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/xrayTubePower'}},\n     'required': ['ada:componentType'],\n     'title': 'XCT Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:XCTImageCollection'],\n     'ada:beamFilterMaterial': 'copper',\n     'ada:beamFilterThickness': 0.5,\n     'ada:detectorBinning': '1x1',\n     'ada:detectorSize': '2048x2048',\n     'ada:detectorType': 'flat panel',\n     'ada:imageExposure': 0.5,\n     'ada:imageSize': '2048x2048',\n     'ada:instrumentType': 'micro-CT',\n     'ada:numberOfFramesAveragedPerProjection': 4,\n     'ada:numberOfProjections': 1440,\n     'ada:numberOfSlices': 2000,\n     'ada:reconstructedDataFormat': '16-bit TIFF',\n     'ada:reconstructedVoxelSize': '5.0 micrometer',\n     'ada:reconstructionSoftware': 'Nikon CT Pro 3D',\n     'ada:rotationAngle': '360 degrees',\n     'ada:rotationType': 'step-and-shoot',\n     'ada:sourceToDetectorDistance': '500 mm',\n     'ada:sourceToObjectDistance': 200.0,\n     'ada:xraySource': 'sealed tube',\n     'ada:xrayTargetMaterial': 'tungsten',\n     'ada:xrayTubeCurrent': 0.1,\n     'ada:xrayTubeEnergy': 120.0,\n     'ada:xrayTubePower': 12.0}"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/analysisSpecificDetails/detailXCT/rules.shacl",
+              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a ada:XCTImageCollection ;\n                    ada:beamFilterMaterial \"copper\" ;\n                    ada:beamFilterThickness 5e-01 ;\n                    ada:detectorBinning \"1x1\" ;\n                    ada:detectorSize \"2048x2048\" ;\n                    ada:detectorType \"flat panel\" ;\n                    ada:imageExposure 5e-01 ;\n                    ada:imageSize \"2048x2048\" ;\n                    ada:instrumentType \"micro-CT\" ;\n                    ada:numberOfFramesAveragedPerProjection 4 ;\n                    ada:numberOfProjections 1440 ;\n                    ada:numberOfSlices 2000 ;\n                    ada:reconstructedDataFormat \"16-bit TIFF\" ;\n                    ada:reconstructedVoxelSize \"5.0 micrometer\" ;\n                    ada:reconstructionSoftware \"Nikon CT Pro 3D\" ;\n                    ada:rotationAngle \"360 degrees\" ;\n                    ada:rotationType \"step-and-shoot\" ;\n                    ada:sourceToDetectorDistance \"500 mm\" ;\n                    ada:sourceToObjectDistance 2e+02 ;\n                    ada:xraySource \"sealed tube\" ;\n                    ada:xrayTargetMaterial \"tungsten\" ;\n                    ada:xrayTubeCurrent 1e-01 ;\n                    ada:xrayTubeEnergy 1.2e+02 ;\n                    ada:xrayTubePower 1.2e+01 ] ;\n            sh:resultMessage \"XCT detail nodes must declare ada:componentType.\" ;\n            sh:resultPath ada:componentType ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:maxCount 1 ;\n                    sh:message \"XCT detail nodes must declare ada:componentType.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:componentType ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/analysisSpecificDetails/detailXCT/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"XCT detail nodes must declare ada:componentType.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:componentType ]\n  \tFocus Node: [ ada:beamFilterMaterial Literal(\"copper\") ; ada:beamFilterThickness Literal(\"0.5\", datatype=xsd:double) ; ada:detectorBinning Literal(\"1x1\") ; ada:detectorSize Literal(\"2048x2048\") ; ada:detectorType Literal(\"flat panel\") ; ada:imageExposure Literal(\"0.5\", datatype=xsd:double) ; ada:imageSize Literal(\"2048x2048\") ; ada:instrumentType Literal(\"micro-CT\") ; ada:numberOfFramesAveragedPerProjection Literal(\"4\", datatype=xsd:integer) ; ada:numberOfProjections Literal(\"1440\", datatype=xsd:integer) ; ada:numberOfSlices Literal(\"2000\", datatype=xsd:integer) ; ada:reconstructedDataFormat Literal(\"16-bit TIFF\") ; ada:reconstructedVoxelSize Literal(\"5.0 micrometer\") ; ada:reconstructionSoftware Literal(\"Nikon CT Pro 3D\") ; ada:rotationAngle Literal(\"360 degrees\") ; ada:rotationType Literal(\"step-and-shoot\") ; ada:sourceToDetectorDistance Literal(\"500 mm\") ; ada:sourceToObjectDistance Literal(\"200.0\", datatype=xsd:double) ; ada:xraySource Literal(\"sealed tube\") ; ada:xrayTargetMaterial Literal(\"tungsten\") ; ada:xrayTubeCurrent Literal(\"0.1\", datatype=xsd:double) ; ada:xrayTubeEnergy Literal(\"120.0\", datatype=xsd:double) ; ada:xrayTubePower Literal(\"12.0\", datatype=xsd:double) ; rdf:type ada:XCTImageCollection ]\n  \tResult Path: ada:componentType\n  \tMessage: XCT detail nodes must declare ada:componentType.\n  "
+            },
+            {
+              "shaclFile": "_sources/analysisSpecificDetails/detailXCT/rules.shacl",
+              "focusNodes": {
+                "cdifd:detailXCTShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/analysisSpecificDetails/detailXCT/rules.shacl:\n - Shape cdifd:detailXCTShape: *none*\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1
+  }
+}

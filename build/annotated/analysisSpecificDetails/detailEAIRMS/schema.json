@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EA-IRMS Instrument Detail",
+  "description": "Elemental Analysis Isotope Ratio Mass Spectrometry collection",
+  "type": "object",
+  "properties": {
+    "ada:componentType": {
+      "const": "ada:EAIRMSCollection",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "ada:massConsumed": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/massConsumed"
+    },
+    "ada:elementType": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/elementType"
+    }
+  },
+  "required": [
+    "ada:componentType"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "title": "Validation report for ogch.analysisSpecificDetails.detailSLS - SLS Instrument Detail",
+  "bblockName": "SLS Instrument Detail",
+  "bblockId": "ogch.analysisSpecificDetails.detailSLS",
+  "generated": "2026-05-20T19:15:02.969864+00:00",
+  "result": false,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/analysisSpecificDetails/detailSLS/example_1_1.json",
+        "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailSLS/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 7,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Structured Light Scanning shape models and partial '\n                    'scans',\n     'properties': {'ada:componentType': {'anyOf': [{'const': 'ada:SLSShapeModel'},\n                                                    {'const': 'ada:SLSPartialScan'}],\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},\n                    'ada:countScans': {'type': 'integer',\n                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/countScans'},\n                    'ada:facets': {'type': 'integer',\n                                   'x-jsonld-id': 'https://ada.astromat.org/metadata/facets'},\n                    'ada:unitsOfMeasurement': {'type': 'string',\n                                               'x-jsonld-id': 'https://ada.astromat.org/metadata/unitsOfMeasurement'},\n                    'ada:version': {'type': 'integer',\n                                    'x-jsonld-id': 'https://ada.astromat.org/metadata/version'},\n                    'ada:vertices': {'type': 'integer',\n                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/vertices'},\n                    'ada:watertight': {'type': 'boolean',\n                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/watertight'}},\n     'required': ['ada:componentType'],\n     'title': 'SLS Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:SLSShapeModel'],\n     'ada:countScans': 24,\n     'ada:facets': 524288,\n     'ada:unitsOfMeasurement': 'millimeter',\n     'ada:version': 3,\n     'ada:vertices': 262145,\n     'ada:watertight': True}"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/analysisSpecificDetails/detailSLS/rules.shacl",
+              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a ada:SLSShapeModel ;\n                    ada:countScans 24 ;\n                    ada:facets 524288 ;\n                    ada:unitsOfMeasurement \"millimeter\" ;\n                    ada:version 3 ;\n                    ada:vertices 262145 ;\n                    ada:watertight true ] ;\n            sh:resultMessage \"SLS detail nodes must declare ada:componentType.\" ;\n            sh:resultPath ada:componentType ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:maxCount 1 ;\n                    sh:message \"SLS detail nodes must declare ada:componentType.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:componentType ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/analysisSpecificDetails/detailSLS/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"SLS detail nodes must declare ada:componentType.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:componentType ]\n  \tFocus Node: [ ada:countScans Literal(\"24\", datatype=xsd:integer) ; ada:facets Literal(\"524288\", datatype=xsd:integer) ; ada:unitsOfMeasurement Literal(\"millimeter\") ; ada:version Literal(\"3\", datatype=xsd:integer) ; ada:vertices Literal(\"262145\", datatype=xsd:integer) ; ada:watertight Literal(\"true\" = True, datatype=xsd:boolean) ; rdf:type ada:SLSShapeModel ]\n  \tResult Path: ada:componentType\n  \tMessage: SLS detail nodes must declare ada:componentType.\n  "
+            },
+            {
+              "shaclFile": "_sources/analysisSpecificDetails/detailSLS/rules.shacl",
+              "focusNodes": {
+                "cdifd:detailSLSShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/analysisSpecificDetails/detailSLS/rules.shacl:\n - Shape cdifd:detailSLSShape: *none*\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1
+  }
+}

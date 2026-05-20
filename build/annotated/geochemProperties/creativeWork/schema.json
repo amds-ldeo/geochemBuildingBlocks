@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Creative Work Type",
+  "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "type": "array",
+      "contains": {
+        "const": "schema:CreativeWork"
+      },
+      "minItems": 1
+    },
+    "schema:name": {
+      "type": "string",
+      "x-jsonld-id": "http://schema.org/name"
+    },
+    "schema:description": {
+      "type": "string",
+      "x-jsonld-id": "http://schema.org/description"
+    },
+    "schema:url": {
+      "type": "string",
+      "x-jsonld-id": "http://schema.org/url"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/"
+  }
+}

@@ -1,0 +1,90 @@
+
+
+{
+  "itemIdentifier": "ogch.geochemProperties.tabularData",
+  "$schema": "metaschema.yaml",
+  "name": "Tabular Data Type",
+  "abstract": "CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEMPA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-05T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-05-20",
+  "link": "https://github.com/usgin/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "tabular",
+    "ddi-cdi"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.geochemProperties.tabularData": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/tabularData/rules.shacl"
+    ],
+    "ogch.geochemProperties.spatialRegistration": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/spatialRegistration/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifProperties.cdifTabularData": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifTabularData/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifProperties.cdifPhysicalMapping": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifPhysicalMapping/rules.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogch.geochemProperties.spatialRegistration",
+    "cdif.bbr.metadata.cdifProperties.cdifTabularData"
+  ],
+  "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/context.jsonld",
+  "schema": {
+    "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml",
+    "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.json"
+  },
+  "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/tabularData/schema.yaml",
+  "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/tabularData/context.jsonld",
+  "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/resolvedProperties.json",
+  "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/tabularData/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/geochemProperties/tabularData/",
+  "description": "# Tabular Data Type\n\nDescribes tabular/structured data files in ADA metadata. Typed as `cdi:PhysicalDataSet` and `ada:tabularData`. Supports DDI-CDI WideDataStructure for column layout description, spatial registration, and various analytical technique-specific component types.\n",
+  "examples": [
+    {
+      "title": "Tabular Data Type Example",
+      "content": "A tabular data file containing MC-ICP-MS isotope ratio results.",
+      "prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "code": "{\n  \"@type\": [\"cdi:TabularTextDataSet\", \"ada:tabularData\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:MCICPMSTabular\"\n  },\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\"\n}\n",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/tabularData/example_1_1.json"
+        },
+        {
+          "language": "jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/context.jsonld\"\n  ],\n  \"@type\": [\n    \"cdi:TabularTextDataSet\",\n    \"ada:tabularData\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:MCICPMSTabular\"\n  },\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\"\n}",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/tabularData/example_1_1.jsonld"
+        },
+        {
+          "language": "ttl",
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a cdi:TabularTextDataSet,\n        ada:tabularData ;\n    cdi:isDelimited true ;\n    ada:componentType [ a ada:MCICPMSTabular ] ;\n    ada:coordUnits \"micrometer\" ;\n    ada:xCoordCol \"X_um\" ;\n    ada:yCoordCol \"Y_um\" .\n\n",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/tabularData/example_1_1.ttl"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Tabular Data Type\ndescription: Tabular data type aligned with CDIF 2026 schema using DDI-CDI and CSVW\n  properties. Typed as cdi:TabularTextDataSet and ada:tabularData.\nallOf:\n- type: object\n  properties:\n    '@type':\n      type: array\n      items:\n        type: string\n      minItems: 2\n      allOf:\n      - contains:\n          const: cdi:TabularTextDataSet\n      - contains:\n          const: ada:tabularData\n    ada:componentType:\n      type: string\n      description: ADA componentType for a tabular data file, as a single string.\n        Allowed values are constrained at the technique-profile level.\n      x-jsonld-id: https://ada.astromat.org/metadata/componentType\n    ada:xCoordCol:\n      description: The column names are redundant, they are lists in the hasPhysicalMapping\n        array. Include here for convenience.\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/xCoordCol\n    ada:yCoordCol:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/yCoordCol\n    ada:zCoordCol:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/zCoordCol\n    ada:coordUnits:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/coordUnits\n    ada:spatialRegistration:\n      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml\n      x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration\n  required:\n  - '@type'\n  - ada:componentType\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifTabularData/schema.yaml\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\n",
+  "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
+  "gitPath": "_sources/geochemProperties/tabularData"
+}

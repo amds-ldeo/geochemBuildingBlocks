@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "XRD Instrument Detail",
+  "description": "X-ray Diffraction tabular data with geometry and wavelength",
+  "type": "object",
+  "properties": {
+    "ada:componentType": {
+      "const": "ada:XRDTabular",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "ada:geometry": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/geometry"
+    },
+    "ada:sampleMount": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/sampleMount"
+    },
+    "ada:stepSize": {
+      "type": "number",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/stepSize"
+    },
+    "ada:timePerStep": {
+      "type": "number",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/timePerStep"
+    },
+    "ada:wavelength": {
+      "type": "number",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/wavelength"
+    }
+  },
+  "required": [
+    "ada:componentType"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

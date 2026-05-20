@@ -1,0 +1,19 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: PSFD Instrument Detail
+description: Point Spread Function Data with image names and conditions
+type: object
+properties:
+  ada:componentType:
+    const: ada:PSFDTabular
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:imageName:
+    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+    x-jsonld-id: https://ada.astromat.org/metadata/imageName
+  ada:imageViewingConditions:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/imageViewingConditions
+required:
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/

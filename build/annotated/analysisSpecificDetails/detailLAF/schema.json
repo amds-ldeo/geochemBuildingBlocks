@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LAF Instrument Detail",
+  "description": "Laser Ablation Fluorescence processed/raw data. elementAnalyzed goes in resultTarget.",
+  "type": "object",
+  "properties": {
+    "ada:componentType": {
+      "anyOf": [
+        {
+          "const": "ada:LAFProcessed"
+        },
+        {
+          "const": "ada:LAFRaw"
+        }
+      ],
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "ada:elementAnalyzed": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/elementAnalyzed"
+    },
+    "ada:sampleMassConsumed": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/sampleMassConsumed"
+    },
+    "ada:sampleType": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/sampleType"
+    }
+  },
+  "required": [
+    "ada:componentType"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

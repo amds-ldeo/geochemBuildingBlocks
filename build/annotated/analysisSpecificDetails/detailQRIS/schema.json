@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QRIS Instrument Detail",
+  "description": "QRIS (Raman) with calibration and illumination parameters. (Extension type, not in v3 source schema.)",
+  "type": "object",
+  "properties": {
+    "ada:componentType": {
+      "anyOf": [
+        {
+          "const": "ada:QRISCalibrated"
+        },
+        {
+          "const": "ada:QRISRaw"
+        }
+      ],
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "ada:calibrationFile": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/calibrationFile"
+    },
+    "ada:pipelineVersion": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/pipelineVersion"
+    },
+    "ada:focalLength": {
+      "type": "integer",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/focalLength"
+    },
+    "ada:illuminationColor": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "string"
+      },
+      "x-jsonld-id": "https://ada.astromat.org/metadata/illuminationColor"
+    },
+    "ada:illuminationLevel": {
+      "type": "integer",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/illuminationLevel"
+    },
+    "ada:exposureTime": {
+      "type": "integer",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/exposureTime"
+    },
+    "ada:target": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/target"
+    }
+  },
+  "required": [
+    "ada:componentType"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

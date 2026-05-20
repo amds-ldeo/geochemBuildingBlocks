@@ -1,0 +1,23 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ICP-OES Instrument Detail
+description: Inductively Coupled Plasma Optical Emission Spectrometry. (Extension
+  type, not in v3 source schema.)
+type: object
+properties:
+  ada:componentType:
+    anyOf:
+    - const: ada:ICPOESIntermediateTabular
+    - const: ada:ICPOESProcessedTabular
+    - const: ada:ICPOESRawTabular
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:mass:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/mass
+  ada:dissolutionFactor:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/dissolutionFactor
+required:
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/

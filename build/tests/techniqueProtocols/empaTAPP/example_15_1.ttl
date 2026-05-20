@@ -1,0 +1,83 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:empaTAPP-p9phos a cdi:Activity,
+        schema1:Action,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "McCoy et al." ] ;
+    schema1:description "empaTAPP example derived from McCoy et al. 2025 (Bennu phosphates, Nature)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing,
+                <https://w3id.org/nfdi4ing/metadata4ing#Instrument> ;
+            schema1:additionalType "ada:EPMAInstrument",
+                "nxs:BaseClass/NXinstrument" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType "ElectronSource" ;
+                    schema1:name "Field Emission (FEG)" ] ;
+            schema1:manufacturer [ a schema1:Organization ;
+                    schema1:name "JEOL; Cameca" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Cameca SX-100 (U of Arizona)" ] ;
+            schema1:name "JEOL; Cameca Cameca SX-100 (U of Arizona)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Smithsonian Institution NMNH; University of Arizona (K-ALFAA)" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Electron Microprobe Analysis - WDS" ;
+            schema1:termCode "EPMA-WDS" ] ;
+    schema1:name "EMPA Bennu evap phosphates" ;
+    schema1:object [ a schema1:DefinedTerm ;
+            schema1:name "Mg Phosphate, Na phosphate" ] ;
+    ada:acceleratingVoltageDefault "15" ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Analyzed constituent identified by the analyte row." ;
+                    schema1:name "Analyzed constituent" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechnique>,
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandard> ;
+            ada:defaultAnalytes [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ] ;
+    ada:beamCurrentDefault "10 nA" ;
+    ada:beamDiameterDefault "2 µm" ;
+    ada:beamMode "Defocused" ;
+    bios:computationalTool [ a schema1:SoftwareApplication ;
+            schema1:name "ZAF correction procedure" ;
+            ada:toolRole "reduction" ] .
+
+<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechnique> a schema1:PropertyValueSpecification ;
+    schema1:description "Whether this element was measured by WDS or EDS." ;
+    schema1:inDefinedTermSet <https://ada.astromat.org/metadata/vocab/empaTAPP/epmaTechnique> ;
+    schema1:name "EPMA Technique per Element" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "epmaTechnique" ;
+    ada:dataType "string" ;
+    ada:tier "M" .
+
+<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:description "Primary reference material used for element standardization (calibration)." ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "primaryCalibrationStandard" ;
+    ada:dataType "string" ;
+    ada:tier "M" .
+

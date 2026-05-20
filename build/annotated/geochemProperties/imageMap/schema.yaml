@@ -1,0 +1,56 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Image Map Type
+description: Spatially registered image maps with pixel coordinates, component type
+  classification, and spatial registration metadata.
+type: object
+properties:
+  '@type':
+    type: array
+    items:
+      type: string
+    minItems: 2
+    allOf:
+    - contains:
+        const: ada:imageMap
+    - contains:
+        const: schema:ImageObject
+  ada:acquisitionTime:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/acquisitionTime
+  ada:componentType:
+    type: string
+    description: ADA componentType for an imageMap, as a single string. Allowed values
+      are constrained at the technique-profile level.
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:channel1:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/channel1
+  ada:channel2:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/channel2
+  ada:channel3:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/channel3
+  ada:illuminationType:
+    type: string
+    description: Type of illumination used to create the image.
+    x-jsonld-id: https://ada.astromat.org/metadata/illuminationType
+  ada:imageType:
+    type: string
+    description: Specifies the nature of the sample's response to the illumination.
+    x-jsonld-id: https://ada.astromat.org/metadata/imageType
+  ada:numPixelsX:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsX
+  ada:numPixelsY:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsY
+  ada:spatialRegistration:
+    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml
+    x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
+required:
+- '@type'
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/

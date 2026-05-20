@@ -1,0 +1,42 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProtocols.parameterValues",
+  "$schema": "metaschema.yaml",
+  "name": "Analytical Parameter Value Registry",
+  "abstract": "Registry of reusable schema:PropertyValue parameter-value definitions derived from technique TAPP spreadsheets. Hosts one $def per per-dataset parameter value (e.g. acceleratingVoltage, beamDiameter, BeamRasterDimension, reportedAnalyte). Detail building blocks reference these definitions via fragment $refs so they resolve locally through the register.",
+  "isTypeLibrary": true,
+  "status": "under-development",
+  "dateTimeAddition": "2026-05-20T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-05-20",
+  "link": "https://github.com/usgin/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "tapp",
+    "parameter",
+    "registry"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {},
+  "schema": {
+    "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml",
+    "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.json"
+  },
+  "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/parameterValues/schema.yaml",
+  "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/parameterValues/",
+  "validationPassed": true,
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analytical Parameter Value Registry\ndescription: Registry of reusable schema:PropertyValue parameter-value definitions\n  derived from technique TAPP spreadsheets. Each $def constrains one per-dataset schema:PropertyValue\n  entry. Detail building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>)\n  so they resolve locally through the building-block register. The root only hosts\n  $defs; it has no instantiable properties of its own.\ntype: object\n$defs:\n  acceleratingVoltage:\n    title: Default Accelerating Voltage\n    description: Electron beam accelerating voltage in kilovolts (kV).\n    type: object\n    properties:\n      '@context':\n        const:\n          schema: http://schema.org/\n          ada: https://ada.astromat.org/metadata/\n      '@id':\n        const: ada:parameter/empaTAPP/acceleratingVoltage\n      '@type':\n        const:\n        - schema:PropertyValue\n      schema:propertyID:\n        const: ada:parameter/empaTAPP/acceleratingVoltage\n      schema:name:\n        const: Default Accelerating Voltage\n      schema:value:\n        anyOf:\n        - type: number\n        - type: string\n      schema:unitText:\n        type: string\n    required:\n    - '@id'\n    - '@type'\n    - schema:propertyID\n    - schema:name\n    - schema:value\n    - schema:unitText\n  beamDiameter:\n    title: Default Beam Diameter\n    description: Diameter of the focused or defocused electron beam in micrometers.\n    type: object\n    properties:\n      '@context':\n        const:\n          schema: http://schema.org/\n          ada: https://ada.astromat.org/metadata/\n      '@id':\n        const: ada:parameter/empaTAPP/beamDiameter\n      '@type':\n        const:\n        - schema:PropertyValue\n      schema:propertyID:\n        const: ada:parameter/empaTAPP/beamDiameter\n      schema:name:\n        const: Default Beam Diameter\n      schema:value:\n        anyOf:\n        - type: number\n        - type: string\n      schema:unitText:\n        type: string\n    required:\n    - '@id'\n    - '@type'\n    - schema:propertyID\n    - schema:name\n    - schema:value\n    - schema:unitText\n  BeamRasterDimension:\n    title: Beam Raster Dimensions\n    description: \"X \\xD7 Y dimensions of beam raster area in micrometers, if beam\n      raster mode was used.\"\n    type: object\n    properties:\n      '@context':\n        const:\n          schema: http://schema.org/\n          ada: https://ada.astromat.org/metadata/\n      '@id':\n        const: ada:parameter/empaTAPP/BeamRasterDimension\n      '@type':\n        const:\n        - schema:PropertyValue\n      schema:propertyID:\n        const: ada:parameter/empaTAPP/BeamRasterDimension\n      schema:name:\n        const: Beam Raster Dimensions\n      schema:value:\n        anyOf:\n        - type: number\n        - type: string\n      schema:unitText:\n        type: string\n    required:\n    - '@id'\n    - '@type'\n    - schema:propertyID\n    - schema:name\n    - schema:value\n    - schema:unitText\n  reportedAnalyte:\n    title: Target Element\n    description: The element or oxide measured in this row of the element table.\n    type: object\n    properties:\n      '@context':\n        const:\n          schema: http://schema.org/\n          ada: https://ada.astromat.org/metadata/\n      '@id':\n        const: ada:parameter/empaTAPP/reportedAnalyte\n      '@type':\n        const:\n        - schema:PropertyValue\n      schema:propertyID:\n        const: ada:parameter/empaTAPP/reportedAnalyte\n      schema:name:\n        const: Target Element\n      schema:value:\n        type: string\n    required:\n    - '@id'\n    - '@type'\n    - schema:propertyID\n    - schema:name\n    - schema:value\n",
+  "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProtocols/parameterValues"
+}

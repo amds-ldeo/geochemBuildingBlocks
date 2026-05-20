@@ -1,0 +1,460 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://w3id.org/adaJSONLD/schema/3.0
+title: Astromat Archive Product Metadata
+description: Schema for JSON metadata documenting products in Astromat Data Archive
+  (ADA). Each project consists of one or more data files and 0 to many supplemental
+  files. Each file MUST have an associated YAML metadata file, with the same name,
+  but '.yaml' as the file extension. Version 3.0 aligned with CDIF 2026 schema for
+  DDI-CDI variable types and CSVW tabular data properties.
+type: object
+allOf:
+- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifCore/schema.yaml
+- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifDataDescription/schema.yaml
+- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifArchiveDistribution/schema.yaml
+- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifProvenance/schema.yaml
+- type: object
+  properties:
+    '@type':
+      type: array
+      items:
+        type: string
+        enum:
+        - schema:Dataset
+        - schema:Product
+    schema:additionalType:
+      type: array
+      description: Should have the ada product type and 'ada:DataDeliveryPackage'
+      items:
+        type: string
+      contains:
+        enum:
+        - 40Ar/39Ar Geochronology and Thermochronology (ARGT)
+        - 40Ar/39Ar geochronology and thermochronology
+        - Accelerator Mass Spectrometry (AMS)
+        - Accelerator Mass Spectrometry
+        - Advanced Imaging and Visualization of Astromaterials (AIVA)
+        - Analysis Advanced Imaging and Visualization of Astromaterials (AIVA)
+        - Advanced Imaging & Visualization of Astromaterials
+        - Basemap
+        - Differential Scanning Calorimetry (DSC)
+        - Differential Scanning Calorimetry
+        - Electron Microprobe Analysis (EMPA) Collection
+        - Electron Microprobe Analysis Image (EMPA)
+        - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
+        - Electron Microprobe Analysis (EMPA)
+        - Electron microprobe analysis
+        - Elemental Analysis-Isotope Ratio Mass Spectrometry (EA-IRMS)
+        - Elemental analysis - isotope ratio mass spectrometry
+        - Fluorescence Microscopy (UVFM) Image
+        - UV Fluorescence Microscopy
+        - Fourier Transform Ion Cyclotron Resonance Mass Spectrometry (FTICRMS) Cube
+        - Fourier Transform Ion Cyclotron Resonance Mass Spectrometry (FTICRMS) Tabular
+        - Fourier Transform Ion Cyclotron Resonance Mass Spectrometry
+        - Gas Chromatography-Mass Spectrometry (GCMS)
+        - Gas Chromatography-Mass Spectrometry
+        - Gas Pycnometry (GPYC) Processed
+        - Gas Pycnometry (GPYC) Raw
+        - Gas pycnometry
+        - High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed
+        - High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Raw
+        - High-resolution inductively coupled plasma mass spectrometry
+        - Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Intermediate
+        - Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Processed
+        - Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Raw
+        - Inductively coupled plasma - optical emission spectrometry
+        - Ion Chromatography (IC)
+        - Ion Chromatography
+        - Laser Assisted Fluorination (LAF) Processed
+        - Laser Assisted Fluorination (LAF) Raw
+        - Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements
+        - Liquid Chromatography - Mass Spectrometry (LCMS) Collection
+        - Liquid Chromatography-Mass Spectrometry
+        - Lock-In Thermography (LIT) Collection
+        - Lock-In Thermography (LIT) image
+        - Lock-In Thermography
+        - Microprobe Two-Step Laser Mass Spectrometry (L2MS)
+        - Microprobe Two-Step Laser Mass Spectrometry
+        - Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed
+        - Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) Raw
+        - Multi-Collector Inductively Coupled Plasma Mass Spectrometry
+        - Nanoscale Infrared Mapping (NanoIR) Background
+        - Nanoscale Infrared Mapping (NanoIR) MapCollection
+        - Nanoscale Infrared Mapping (NanoIR) Point Data
+        - Nanoscale Infrared Mapping
+        - Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) Image
+        - Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) Raw
+        - Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) Tabular
+        - Nanoscale secondary ion mass spectrometry
+        - Noble Gas and Nitrogen Static Mass Spectrometry (NGNSMS) Raw
+        - Noble Gas and Nitrogen Static Mass Spectrometry (NGNSMS) Processed
+        - Noble gas and Nitrogen Static Mass Spectrometry
+        - Particle Size Frequency Distribution (PSFD)
+        - Particle Size Frequency Distribution
+        - Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Processed
+        - Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Raw
+        - Quadrupole Inductively Coupled Plasma Mass Spectrometry
+        - Quantitative Reflective Imaging System (QRIS)
+        - Quantitative Reflective Imaging System (QRIS) Calibrated
+        - Quantitative Reflectance Imaging System
+        - Raman vibrational spectroscopy
+        - Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS)
+          Processed
+        - Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS)
+          Spectra
+        - Resonance ionization time of flight noble gas mass spectrometry
+        - Scanning Electron Microscopy (SEM) Image
+        - Scanning Electron Microscopy Electron Backscatter Diffraction (SEMEBSD)
+          Grain Image
+        - Scanning Electron Microscopy Energy Dispersive X-ray Spectroscopy (SEMEDS)
+          Point Data
+        - Scanning Electron Microscopy Energy Dispersive X-ray Spectroscopy (SEMEDS)
+          image
+        - Scanning Electron Microscopy High Resolution Cathodoluminescence (SEMHRCL)
+          image
+        - Scanning electron microscopy
+        - Focused ion beam-scanning electron microscopy
+        - Scanning Transmission Electron Microscopy (STEM) Image
+        - Scanning Transmission Electron Microscopy Electron Energy-loss Spectra (STEMEELS)
+          Cube
+        - Scanning Transmission Electron Microscopy Electron Energy-loss Spectra (STEMEELS)
+          Tabular
+        - Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy
+          (STEMEDS) Cube
+        - Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy
+          (STEMEDS) Tabular
+        - Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy
+          (STEMEDS) Tomography
+        - Secondary Ion Mass Spectrometry (SIMS) Tabular
+        - Secondary ion mass spectrometry
+        - Seismic Velocities and Rock Ultrasonic Elastic Constants (SVRUEC)
+        - Seismic Velocities and Rock Ultrasonic Elastic Constants
+        - Structured Light Scanning (SLS) Individual Scan Collection
+        - Structured Light Scanning (SLS) Shape Model
+        - Structured Light Scanning
+        - Time-of-flight secondary ion mass spectrometry (TOFSIMS)
+        - Time-of-Flight Secondary Ion Mass Spectrometer
+        - Transmission Electron Microscopy (TEM) Image
+        - Transmission Electron Microscopy (TEM) Patterns Image
+        - Transmission Electron Microscopy
+        - Visible Light Microscopy (VLM) Image
+        - Visible Light Microscopy
+        - Visible Light Microscopy Basemap
+        - Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point
+        - Visible, near-, and mid-infrared spectroscopy
+        - X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)
+        - X-ray absorption near edge structure (XANES) spectroscopy
+        - X-ray Computed Tomography (XCT) Image Collection
+        - X-ray computed tomography
+        - X-ray Diffraction (XRD) Tabular
+        - X-ray diffraction
+      minItems: 2
+      x-jsonld-id: http://schema.org/additionalType
+    submissionType:
+      type: string
+    schema:license:
+      description: Legal statement of conditions for use and access
+      type: array
+      minItems: 0
+      items:
+        anyOf:
+        - type: string
+        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/schema.yaml
+      x-jsonld-id: http://schema.org/license
+    schema:relatedLink:
+      type: array
+      description: Links to related resources at the product level
+      items:
+        type: object
+        properties:
+          '@type':
+            type: array
+            items:
+              type: string
+            contains:
+              const: schema:LinkRole
+            minItems: 1
+          schema:linkRelationship:
+            type: string
+            x-jsonld-id: http://schema.org/linkRelationship
+          schema:target:
+            type: object
+            properties:
+              '@type':
+                type: array
+                items:
+                  type: string
+                contains:
+                  const: schema:EntryPoint
+                minItems: 1
+              schema:encodingFormat:
+                type: string
+                x-jsonld-id: http://schema.org/encodingFormat
+              schema:name:
+                type: string
+                x-jsonld-id: http://schema.org/name
+              schema:url:
+                type: string
+                x-jsonld-id: http://schema.org/url
+            x-jsonld-id: http://schema.org/target
+      x-jsonld-id: http://schema.org/relatedLink
+    schema:creativeWorkStatus:
+      type: string
+      x-jsonld-id: http://schema.org/creativeWorkStatus
+    schema:measurementTechnique:
+      type: object
+      description: Text description of the measurement method
+      properties:
+        '@type':
+          type: array
+          items:
+            type: string
+          contains:
+            const: schema:DefinedTerm
+          minItems: 1
+        schema:name:
+          type: string
+          x-jsonld-id: http://schema.org/name
+        schema:identifier:
+          type: string
+          x-jsonld-id: http://schema.org/identifier
+      x-jsonld-id: http://schema.org/measurementTechnique
+    prov:wasGeneratedBy:
+      description: ADA analysis events. Extends cdifProvActivity (from cdifProvenance)
+        with ADA-specific instrument, laboratory, and sample properties.
+      type: array
+      items:
+        type: object
+        properties:
+          prov:used:
+            type: array
+            description: Instruments and/or Technique-Aligned Protocol Profile (TAPP)
+              definitions used in the analysis. Each item is either an instrument
+              BB instance or a tappDefinition BB instance.
+            items:
+              anyOf:
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml
+            x-jsonld-id: http://www.w3.org/ns/prov#used
+          schema:location:
+            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml
+            x-jsonld-id: http://schema.org/location
+          schema:object:
+            type: array
+            description: Samples analyzed
+            items:
+              type: object
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  allOf:
+                  - contains:
+                      const: schema:Thing
+                  - contains:
+                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  minItems: 2
+                schema:additionalType:
+                  type: array
+                  items:
+                    type: string
+                  x-jsonld-id: http://schema.org/additionalType
+                schema:identifier:
+                  type: array
+                  items:
+                    type: string
+                  x-jsonld-id: http://schema.org/identifier
+            x-jsonld-id: http://schema.org/object
+          schema:startDate:
+            type: string
+            x-jsonld-id: http://schema.org/startDate
+        required:
+        - prov:used
+      x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
+    schema:variableMeasured:
+      description: ADA variable definitions. Extends cdifInstanceVariable (from cdifDataDescription)
+        with additional ADA properties. Requires description with minLength 10.
+      type: array
+      items:
+        type: object
+        properties:
+          schema:description:
+            type: string
+            minLength: 3
+            x-jsonld-id: http://schema.org/description
+          schema:alternateName:
+            type: array
+            items:
+              type: string
+              description: Human intelligible name for variable that conveys semantics
+            x-jsonld-id: http://schema.org/alternateName
+          schema:measurementTechnique:
+            anyOf:
+            - type: string
+            - type: object
+              properties:
+                '@id':
+                  type: string
+            - type: object
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  contains:
+                    const: schema:DefinedTerm
+                  minItems: 1
+                schema:name:
+                  type: string
+                  x-jsonld-id: http://schema.org/name
+              required:
+              - '@type'
+              - schema:name
+            x-jsonld-id: http://schema.org/measurementTechnique
+          schema:unitText:
+            type: string
+            x-jsonld-id: http://schema.org/unitText
+          schema:unitCode:
+            anyOf:
+            - type: string
+            - type: object
+              properties:
+                '@id':
+                  type: string
+            - type: object
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  contains:
+                    const: schema:DefinedTerm
+                  minItems: 1
+                schema:name:
+                  type: string
+                  x-jsonld-id: http://schema.org/name
+              required:
+              - '@type'
+              - schema:name
+            x-jsonld-id: http://schema.org/unitCode
+          schema:minValue:
+            type: number
+            x-jsonld-id: http://schema.org/minValue
+          schema:maxValue:
+            type: number
+            x-jsonld-id: http://schema.org/maxValue
+          schema:url:
+            type: string
+            format: uri
+            x-jsonld-id: http://schema.org/url
+        required:
+        - schema:description
+      x-jsonld-id: http://schema.org/variableMeasured
+    schema:spatialCoverage:
+      description: Geographic extent of resource content.
+      type: array
+      items:
+        $ref: '#/$defs/SpatialExtent'
+      x-jsonld-id: http://schema.org/spatialCoverage
+    schema:temporalCoverage:
+      description: Temporal extent of resource content.
+      type: array
+      items:
+        $ref: '#/$defs/TemporalExtent'
+      x-jsonld-id: http://schema.org/temporalCoverage
+    dqv:hasQualityMeasurement:
+      description: Quality measurements reported to assess the resource.
+      type: array
+      items:
+        $ref: '#/$defs/QualityMeasure'
+    schema:distribution:
+      description: Distribution inherits from cdifCore (DataDownload, WebAPI) and
+        cdifArchiveDistribution (archive with hasPart). ADA file-type classification
+        uses ada:componentType on hasPart items.
+      type: array
+      items:
+        type: object
+        properties:
+          schema:hasPart:
+            items:
+              allOf:
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema.yaml
+              - type: object
+                properties:
+                  ada:componentType:
+                    type: string
+                    description: 'ADA file-type classification, expressed as a single
+                      string drawn from a universal set or a technique-specific set.
+                      Technique profiles add an anyOf at the hasPart level: one branch
+                      declares the universal componentType enum; other branches $ref
+                      technique-specific detail schemas (e.g. detailEMPA) that enumerate
+                      technique componentType values and contribute detail-specific
+                      sibling properties (e.g. ada:spectrometersUsed).'
+            x-jsonld-id: http://schema.org/hasPart
+      x-jsonld-id: http://schema.org/distribution
+    schema:subjectOf:
+      properties:
+        dcterms:conformsTo:
+          contains:
+            type: object
+            properties:
+              '@id':
+                const: https://w3id.org/geochem/metadata/profiles/adaProduct
+          x-jsonld-id: http://purl.org/dc/terms/conformsTo
+      x-jsonld-id: http://schema.org/subjectOf
+$defs:
+  SpatialExtent:
+    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
+  TemporalExtent:
+    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/temporalExtent/schema.yaml
+  QualityMeasure:
+    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
+  universalComponentTypeBranch:
+    description: Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
+      Constrains ada:componentType to the universal enum and marks it required. Factored
+      out of every profile to eliminate the inline boilerplate.
+    properties:
+      ada:componentType:
+        $ref: '#/$defs/universalComponentType'
+        x-jsonld-id: https://ada.astromat.org/metadata/componentType
+    required:
+    - ada:componentType
+  universalComponentType:
+    description: ada:componentType values valid across all ADA techniques. As a string,
+      directly assignable to the part's ada:componentType property. Profiles use this
+      $def (typically via the universalComponentTypeBranch wrapper) in their hasPart
+      anyOf branches.
+    type: string
+    enum:
+    - ada:analysisLocation
+    - ada:annotatedImage
+    - ada:areaOfInterest
+    - ada:basemap
+    - ada:calibrationFile
+    - ada:code
+    - ada:contextPhotography
+    - ada:contextVideo
+    - ada:inputFile
+    - ada:instrumentMetadata
+    - ada:logFile
+    - ada:methodDescription
+    - ada:other
+    - ada:plot
+    - ada:processingMethod
+    - ada:quickLook
+    - ada:report
+    - ada:samplePreparation
+    - ada:shapefile
+    - ada:supplementalBasemap
+    - ada:supplementaryImage
+    - ada:worldFile
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+  csvw: http://www.w3.org/ns/csvw#
+  prov: http://www.w3.org/ns/prov#
+  spdx: http://spdx.org/rdf/terms#
+  nxs: http://purl.org/nexusformat/definitions/
+  dcterms: http://purl.org/dc/terms/
+  geosparql: http://www.opengis.net/ont/geosparql#

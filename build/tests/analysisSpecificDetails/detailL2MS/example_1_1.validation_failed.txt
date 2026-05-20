@@ -1,0 +1,70 @@
+Validation report for ogch.analysisSpecificDetails.detailL2MS - L2MS Instrument Detail
+Generated 2026-05-20T19:15:02.897584+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'ada:componentType' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'description': 'Laser-2 Mass Spectrometry cube data with ionization '
+                    'parameters',
+     'properties': {'ada:componentType': {'const': 'ada:L2MSCube',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},
+                    'ada:ionizationTimeDelay': {'type': 'integer',
+                                                'x-jsonld-id': 'https://ada.astromat.org/metadata/ionizationTimeDelay'},
+                    'ada:massGate': {'type': 'boolean',
+                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/massGate'},
+                    'ada:photoionizationWavelength': {'type': 'integer',
+                                                      'x-jsonld-id': 'https://ada.astromat.org/metadata/photoionizationWavelength'},
+                    'ada:plasmaShutter': {'type': 'boolean',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/plasmaShutter'},
+                    'ada:sampleName': {'type': 'string',
+                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/sampleName'},
+                    'ada:timeDelayUnits': {'type': 'string',
+                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/timeDelayUnits'},
+                    'ada:wavelengthUnits': {'type': 'string',
+                                            'x-jsonld-id': 'https://ada.astromat.org/metadata/wavelengthUnits'}},
+     'required': ['ada:componentType'],
+     'title': 'L2MS Instrument Detail',
+     'type': 'object',
+     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
+                           'schema': 'http://schema.org/'}}
+
+On instance:
+    {'@type': ['ada:L2MSCube'],
+     'ada:ionizationTimeDelay': 500,
+     'ada:massGate': True,
+     'ada:photoionizationWavelength': 266,
+     'ada:plasmaShutter': False,
+     'ada:sampleName': 'Murchison_CM2_grain01',
+     'ada:timeDelayUnits': 'nanoseconds',
+     'ada:wavelengthUnits': 'nm'}
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Validation result for _sources/analysisSpecificDetails/detailL2MS/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("L2MS detail nodes must declare ada:componentType.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path ada:componentType ]
+  	Focus Node: [ ada:ionizationTimeDelay Literal("500", datatype=xsd:integer) ; ada:massGate Literal("true" = True, datatype=xsd:boolean) ; ada:photoionizationWavelength Literal("266", datatype=xsd:integer) ; ada:plasmaShutter Literal("false" = False, datatype=xsd:boolean) ; ada:sampleName Literal("Murchison_CM2_grain01") ; ada:timeDelayUnits Literal("nanoseconds") ; ada:wavelengthUnits Literal("nm") ; rdf:type ada:L2MSCube ]
+  	Result Path: ada:componentType
+  	Message: L2MS detail nodes must declare ada:componentType.
+  
+Focus nodes for _sources/analysisSpecificDetails/detailL2MS/rules.shacl:
+ - Shape cdifd:detailL2MSShape: *none*
+
+=== End SHACL ===
+

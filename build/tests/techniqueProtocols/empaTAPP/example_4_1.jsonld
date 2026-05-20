@@ -1,0 +1,187 @@
+{
+  "@context": [
+    {
+      "ada": "https://ada.astromat.org/metadata/",
+      "schema": "http://schema.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/"
+    },
+    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/"
+    }
+  ],
+  "@id": "ex:empaTAPP-p3sil",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "EPMA-WDS silicates/oxides",
+  "schema:description": "empaTAPP example derived from Liu et al. 2016 (Tissint silicate mineral chem., MAPS).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "EPMA-WDS",
+    "schema:name": "Electron Microprobe Analysis - WDS"
+  },
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": "Yang Liu et al."
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "University of Tennessee (Cameca SX100); Caltech (JEOL JXA-8200)"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Olivine, pyroxene, Fe-Ti-Cr oxides"
+    }
+  ],
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product",
+      "https://w3id.org/nfdi4ing/metadata4ing#Instrument"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument",
+      "ada:EPMAInstrument"
+    ],
+    "schema:name": "Cameca; JEOL SX100 (Univ. Tennessee); JXA-8200 (Caltech)",
+    "schema:manufacturer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "Cameca; JEOL"
+    },
+    "schema:model": {
+      "@type": [
+        "schema:ProductModel"
+      ],
+      "schema:name": "SX100 (Univ. Tennessee); JXA-8200 (Caltech)"
+    }
+  },
+  "ada:beamMode": "Focused",
+  "ada:acceleratingVoltageDefault": "15",
+  "ada:beamDiameterDefault": "1\u20132 \u00b5m focused",
+  "ada:beamCurrentDefault": "20 nA",
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/epmaTechnique",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "EPMA Technique per Element",
+        "schema:valueName": "epmaTechnique",
+        "schema:description": "Whether this element was measured by WDS or EDS.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/epmaTechnique"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/typicalDetectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Typical Detection Limit",
+        "schema:valueName": "typicalDetectionLimit",
+        "schema:description": "Method detection limit at 99% confidence (3\u03c3) for each measured element.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "Si",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.03 wt% for SiO2"
+      },
+      {
+        "analyte": "Ti",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.03 wt% for TiO2"
+      },
+      {
+        "analyte": "Al",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.03 wt% for Al2O3"
+      },
+      {
+        "analyte": "Mg",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.03 wt% for MgO"
+      },
+      {
+        "analyte": "Ca",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.03 wt% for CaO"
+      },
+      {
+        "analyte": "Fe",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.05\u20130.1 wt% for FeO"
+      },
+      {
+        "analyte": "Mn",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.05\u20130.1 wt% for MnO"
+      },
+      {
+        "analyte": "Cr",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.05\u20130.1 wt% for Cr2O3"
+      },
+      {
+        "analyte": "Ni",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.05\u20130.1 wt% for NiO"
+      },
+      {
+        "analyte": "Na",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.05\u20130.1 wt% for Na2O"
+      },
+      {
+        "analyte": "K",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.05\u20130.1 wt% for K2O"
+      },
+      {
+        "analyte": "P",
+        "epmaTechnique": "\u221a",
+        "typicalDetectionLimit": "<0.05\u20130.1 wt% for P2O5"
+      }
+    ]
+  }
+}

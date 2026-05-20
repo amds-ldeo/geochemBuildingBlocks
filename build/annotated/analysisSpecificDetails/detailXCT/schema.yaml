@@ -1,0 +1,110 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: XCT Instrument Detail
+description: X-ray Computed Tomography images with detailed scan parameters. (Extension
+  type, not in v3 source schema.)
+type: object
+properties:
+  ada:componentType:
+    const: ada:XCTImageCollection
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:beamFilterMaterial:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/beamFilterMaterial
+  ada:beamFilterThickness:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/beamFilterThickness
+  ada:dataRangeLower:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/dataRangeLower
+  ada:dataRangeUpper:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/dataRangeUpper
+  ada:detectorGain:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/detectorGain
+  ada:detectorBinning:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/detectorBinning
+  ada:detectorSize:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/detectorSize
+  ada:detectorType:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/detectorType
+  ada:imageExposure:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/imageExposure
+  ada:imageFPS:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/imageFPS
+  ada:imageGain:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/imageGain
+  ada:imageSize:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/imageSize
+  ada:instrumentType:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/instrumentType
+  ada:nsiBeamHardening:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/nsiBeamHardening
+  ada:numberOfFramesAveragedPerProjection:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/numberOfFramesAveragedPerProjection
+  ada:numberOfProjections:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/numberOfProjections
+  ada:numberOfSlices:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/numberOfSlices
+  ada:pixelPitch:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/pixelPitch
+  ada:reconstructedDataFormat:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/reconstructedDataFormat
+  ada:reconstructedVoxelSize:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/reconstructedVoxelSize
+  ada:reconstructionSoftware:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/reconstructionSoftware
+  ada:rotationAngle:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/rotationAngle
+  ada:rotationType:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/rotationType
+  ada:sourceToDetectorDistance:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/sourceToDetectorDistance
+  ada:sourceToObjectDistance:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/sourceToObjectDistance
+  ada:subPixGrid:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/subPixGrid
+  ada:subPixShift:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/subPixShift
+  ada:xraySource:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/xraySource
+  ada:xrayTargetMaterial:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/xrayTargetMaterial
+  ada:xrayTubeCurrent:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/xrayTubeCurrent
+  ada:xrayTubeEnergy:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/xrayTubeEnergy
+  ada:xrayTubePower:
+    type: number
+    x-jsonld-id: https://ada.astromat.org/metadata/xrayTubePower
+required:
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/

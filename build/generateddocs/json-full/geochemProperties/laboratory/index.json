@@ -1,0 +1,87 @@
+
+
+{
+  "itemIdentifier": "ogch.geochemProperties.laboratory",
+  "$schema": "metaschema.yaml",
+  "name": "ADA Analysis Laboratory",
+  "abstract": "ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds nxs:BaseClass/NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-05T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-05-20",
+  "link": "https://github.com/usgin/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "laboratory"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.geochemProperties.laboratory": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.identifier": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+    ]
+  },
+  "dependsOn": [
+    "cdif.bbr.metadata.schemaorgProperties.spatialExtent"
+  ],
+  "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/context.jsonld",
+  "schema": {
+    "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml",
+    "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.json"
+  },
+  "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/schema.yaml",
+  "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/context.jsonld",
+  "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/resolvedProperties.json",
+  "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/geochemProperties/laboratory/",
+  "description": "# ADA Analysis Laboratory\n\nExtends the core CDIF [spatialExtent](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/) building block for ADA laboratory/facility descriptions. Adds `nxs:BaseClass/NXsource` classification via `schema:additionalType`. Inherits place name, identifier, alternateName, geo coordinates, and GeoSPARQL geometry from core spatialExtent.\n",
+  "examples": [
+    {
+      "title": "ADA Analysis Laboratory Example",
+      "content": "A laboratory facility extending core spatialExtent (schema:Place) with\nNeXus NXsource classification in additionalType.",
+      "prefixes": {
+        "schema": "http://schema.org/",
+        "nxs": "http://purl.org/nexusformat/definitions/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "code": "{\n  \"@type\": [\"schema:Place\"],\n  \"schema:additionalType\": [\"nxs:BaseClass/NXsource\"],\n  \"schema:name\": [\"Lunar and Planetary Laboratory Electron Microprobe Facility\"],\n  \"schema:alternateName\": \"LPL EMPA Lab\",\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}\n",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.json"
+        },
+        {
+          "language": "jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"http://purl.org/nexusformat/definitions/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Place\"\n  ],\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXsource\"\n  ],\n  \"schema:name\": [\n    \"Lunar and Planetary Laboratory Electron Microprobe Facility\"\n  ],\n  \"schema:alternateName\": \"LPL EMPA Lab\",\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.jsonld"
+        },
+        {
+          "language": "ttl",
+          "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Place ;\n    schema1:additionalType \"nxs:BaseClass/NXsource\" ;\n    schema1:alternateName \"LPL EMPA Lab\" ;\n    schema1:identifier \"https://ror.org/03m2x1q45\" ;\n    schema1:name \"Lunar and Planetary Laboratory Electron Microprobe Facility\" .\n\n",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.ttl"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analysis Laboratory\ndescription: ADA laboratory or facility building block. Extends the core CDIF spatialExtent\n  (schema:Place) with NeXus NXsource classification via additionalType. Inherits place\n  name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.\nallOf:\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      type: array\n      items:\n        type: string\n      contains:\n        const: nxs:BaseClass/NXsource\n      description: Must include nxs:BaseClass/NXsource for NeXus facility classification.\n      x-jsonld-id: http://schema.org/additionalType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  nxs: http://purl.org/nexusformat/definitions/\n",
+  "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
+  "gitPath": "_sources/geochemProperties/laboratory"
+}

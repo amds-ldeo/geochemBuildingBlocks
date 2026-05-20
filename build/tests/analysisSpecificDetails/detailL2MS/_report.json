@@ -1,0 +1,95 @@
+{
+  "title": "Validation report for ogch.analysisSpecificDetails.detailL2MS - L2MS Instrument Detail",
+  "bblockName": "L2MS Instrument Detail",
+  "bblockId": "ogch.analysisSpecificDetails.detailL2MS",
+  "generated": "2026-05-20T19:15:02.897644+00:00",
+  "result": false,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/analysisSpecificDetails/detailL2MS/example_1_1.json",
+        "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailL2MS/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 8,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Laser-2 Mass Spectrometry cube data with ionization '\n                    'parameters',\n     'properties': {'ada:componentType': {'const': 'ada:L2MSCube',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},\n                    'ada:ionizationTimeDelay': {'type': 'integer',\n                                                'x-jsonld-id': 'https://ada.astromat.org/metadata/ionizationTimeDelay'},\n                    'ada:massGate': {'type': 'boolean',\n                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/massGate'},\n                    'ada:photoionizationWavelength': {'type': 'integer',\n                                                      'x-jsonld-id': 'https://ada.astromat.org/metadata/photoionizationWavelength'},\n                    'ada:plasmaShutter': {'type': 'boolean',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/plasmaShutter'},\n                    'ada:sampleName': {'type': 'string',\n                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/sampleName'},\n                    'ada:timeDelayUnits': {'type': 'string',\n                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/timeDelayUnits'},\n                    'ada:wavelengthUnits': {'type': 'string',\n                                            'x-jsonld-id': 'https://ada.astromat.org/metadata/wavelengthUnits'}},\n     'required': ['ada:componentType'],\n     'title': 'L2MS Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:L2MSCube'],\n     'ada:ionizationTimeDelay': 500,\n     'ada:massGate': True,\n     'ada:photoionizationWavelength': 266,\n     'ada:plasmaShutter': False,\n     'ada:sampleName': 'Murchison_CM2_grain01',\n     'ada:timeDelayUnits': 'nanoseconds',\n     'ada:wavelengthUnits': 'nm'}"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/analysisSpecificDetails/detailL2MS/rules.shacl",
+              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a ada:L2MSCube ;\n                    ada:ionizationTimeDelay 500 ;\n                    ada:massGate true ;\n                    ada:photoionizationWavelength 266 ;\n                    ada:plasmaShutter false ;\n                    ada:sampleName \"Murchison_CM2_grain01\" ;\n                    ada:timeDelayUnits \"nanoseconds\" ;\n                    ada:wavelengthUnits \"nm\" ] ;\n            sh:resultMessage \"L2MS detail nodes must declare ada:componentType.\" ;\n            sh:resultPath ada:componentType ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:maxCount 1 ;\n                    sh:message \"L2MS detail nodes must declare ada:componentType.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:componentType ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/analysisSpecificDetails/detailL2MS/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"L2MS detail nodes must declare ada:componentType.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:componentType ]\n  \tFocus Node: [ ada:ionizationTimeDelay Literal(\"500\", datatype=xsd:integer) ; ada:massGate Literal(\"true\" = True, datatype=xsd:boolean) ; ada:photoionizationWavelength Literal(\"266\", datatype=xsd:integer) ; ada:plasmaShutter Literal(\"false\" = False, datatype=xsd:boolean) ; ada:sampleName Literal(\"Murchison_CM2_grain01\") ; ada:timeDelayUnits Literal(\"nanoseconds\") ; ada:wavelengthUnits Literal(\"nm\") ; rdf:type ada:L2MSCube ]\n  \tResult Path: ada:componentType\n  \tMessage: L2MS detail nodes must declare ada:componentType.\n  "
+            },
+            {
+              "shaclFile": "_sources/analysisSpecificDetails/detailL2MS/rules.shacl",
+              "focusNodes": {
+                "cdifd:detailL2MSShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/analysisSpecificDetails/detailL2MS/rules.shacl:\n - Shape cdifd:detailL2MSShape: *none*\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1
+  }
+}

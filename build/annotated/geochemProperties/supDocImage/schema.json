@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Supplemental Document Image Type",
+  "description": "Supplemental document images including analysis location images, annotated products, context photography, and other supplemental visual materials.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "allOf": [
+        {
+          "contains": {
+            "const": "ada:image"
+          }
+        },
+        {
+          "contains": {
+            "const": "schema:DigitalDocument"
+          }
+        }
+      ],
+      "description": "GeneralType for supplemental document images"
+    },
+    "ada:componentType": {
+      "type": "string",
+      "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level.",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "ada:numPixelsX": {
+      "type": "integer",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsX"
+    },
+    "ada:numPixelsY": {
+      "type": "integer",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsY"
+    },
+    "schema:isBasedOn": {
+      "type": "string",
+      "description": "Original file name before PDS4-compliant renaming",
+      "x-jsonld-id": "http://schema.org/isBasedOn"
+    }
+  },
+  "required": [
+    "@type",
+    "ada:componentType"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

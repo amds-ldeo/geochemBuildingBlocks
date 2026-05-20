@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ARGT Instrument Detail",
+  "description": "ARGT (Argon) document type with phase and isotope analysis",
+  "type": "object",
+  "properties": {
+    "ada:componentType": {
+      "const": "ada:ARGTDocument",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "ada:phaseAnalyzed": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/phaseAnalyzed"
+    },
+    "ada:isotopeType": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/isotopeType"
+    }
+  },
+  "required": [
+    "ada:componentType"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

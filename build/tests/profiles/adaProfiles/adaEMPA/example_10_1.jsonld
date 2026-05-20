@@ -1,0 +1,292 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "csvw": "http://www.w3.org/ns/csvw#",
+      "prov": "http://www.w3.org/ns/prov#",
+      "dcterms": "http://purl.org/dc/terms/"
+    },
+    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaEMPA/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "cdif": "https://cdif.org/0.1/",
+      "csvw": "http://www.w3.org/ns/csvw#",
+      "prov": "http://www.w3.org/ns/prov#",
+      "spdx": "http://spdx.org/rdf/terms#",
+      "nxs": "http://purl.org/nexusformat/definitions/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "ex": "https://example.org/",
+      "dcat": "http://www.w3.org/ns/dcat#"
+    }
+  ],
+  "@id": "ex:adaEMPA-P6",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "schema:name": "adaEMPA dataset for P6 (Broussard et al. 2026 (OC002 CI chondrite, MAPS))",
+  "schema:description": "Auto-generated adaEMPA profile-level Dataset for publication P6: Broussard et al. 2026 (OC002 CI chondrite, MAPS). The schema:hasPart entry under schema:distribution carries detailEMPA fields and points at the empaTAPP TAPP definition (ex:empaTAPP-p6); schema:variableMeasured is derived from the TAPP's ada:defaultAnalytes.",
+  "schema:additionalType": [
+    "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
+    "ada:DataDeliveryPackage"
+  ],
+  "schema:identifier": {
+    "@type": [
+      "schema:PropertyValue"
+    ],
+    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:value": "10.PLACEHOLDER/adaempa-p6"
+  },
+  "schema:url": "https://astromat.org/products/adaempa-p6",
+  "schema:dateModified": "2026-04-29",
+  "schema:version": "0.1",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "schema:creativeWorkStatus": "Draft",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:name": "Electron Microprobe Analysis (EMPA)",
+    "schema:identifier": "https://ada.astromat.org/vocabulary/techniques/EMPA"
+  },
+  "prov:wasGeneratedBy": [
+    {
+      "@type": [
+        "prov:Activity",
+        "schema:Action"
+      ],
+      "schema:identifier": "session-empa-p6",
+      "schema:startDate": "2026-04-29",
+      "prov:used": [
+        {
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
+            "nxs:BaseClass/NXinstrument",
+            "ada:EMPAInstrument"
+          ],
+          "schema:name": "JEOL JXA-8200",
+          "schema:identifier": [
+            "ex:instrument-empa-001"
+          ],
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "JEOL"
+          }
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Washington University in St. Louis",
+        "schema:additionalType": [
+          "nxs:BaseClass/NXsource"
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "schema:Thing",
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalType": [
+            "MaterialSample"
+          ],
+          "schema:name": "Sample analyzed in P6",
+          "schema:identifier": [
+            "igsn:10.60471/PLACEHOLDER-P6"
+          ],
+          "schema:description": "Sample of: Phyllosilicates, magnetite, dolomite, magnesite, pyrrhotite, pentlandite, apatite, fluorapatite, hydroxyapatite, ilmenite, chromite"
+        }
+      ]
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "@id": "ex:adaEMPA-P6-var-F",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "F",
+      "schema:description": "F abundance measured by EMPA WDS.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/F"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:adaEMPA-P6-var-CO2",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "CO2",
+      "schema:description": "CO2 abundance measured by EMPA WDS.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/analytes/CO2"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    }
+  ],
+  "schema:distribution": [
+    {
+      "@type": [
+        "schema:DataDownload"
+      ],
+      "schema:name": "adaEMPA-P6-archive.zip",
+      "schema:description": "Archive containing tabular EMPA data for P6.",
+      "schema:contentUrl": "https://astromat.org/downloads/adaempa-p6.zip",
+      "schema:encodingFormat": [
+        "application/zip"
+      ],
+      "spdx:checksum": {
+        "@type": [
+          "spdx:Checksum"
+        ],
+        "spdx:algorithm": "SHA256",
+        "spdx:checksumValue": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "schema:size": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 1048576,
+        "schema:unitText": "byte"
+      },
+      "schema:hasPart": [
+        {
+          "@id": "ex:adaEMPA-P6-data-001",
+          "@type": [
+            "schema:MediaObject",
+            "ada:tabularData",
+            "cdi:TabularTextDataSet",
+            "schema:Thing"
+          ],
+          "schema:name": "adaEMPA-P6-data.csv",
+          "schema:description": "Per-point quantitative EMPA analyses (Broussard et al. 2026 (OC002 CI chondrite, MAPS)).",
+          "schema:additionalType": [
+            "ada:EMPAQEATabular"
+          ],
+          "schema:encodingFormat": [
+            "text/csv"
+          ],
+          "cdi:isDelimited": true,
+          "cdi:isFixedWidth": false,
+          "csvw:delimiter": ",",
+          "csvw:header": true,
+          "ada:componentType": "ada:EMPAQEATabular",
+          "ada:spectrometersUsed": "5x WDS",
+          "ada:signalUsed": "K\u03b1 x-ray lines",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-p6"
+          },
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/empaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/acceleratingVoltage",
+              "schema:name": "Default Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "kV"
+            },
+            {
+              "@id": "ada:parameter/empaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/beamDiameter",
+              "schema:name": "Default Beam Diameter",
+              "schema:value": "0 (focused)",
+              "schema:unitText": "\u00b5m"
+            },
+            {
+              "@id": "ada:parameter/empaTAPP/reportedAnalyte",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/reportedAnalyte",
+              "schema:name": "Target Element",
+              "schema:value": "F|CO2"
+            }
+          ],
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:subjectOf": {
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      "dcat:CatalogRecord"
+    ],
+    "@id": "ex:adaEMPA-P6-metadata",
+    "schema:about": {
+      "@id": "ex:adaEMPA-P6"
+    },
+    "schema:dateModified": "2026-04-29",
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/provenance/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/manifest/1.0"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+      }
+    ],
+    "schema:maintainer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "Astromat Data Archive"
+    },
+    "schema:sdDatePublished": "2026-04-29T12:00:00Z"
+  }
+}

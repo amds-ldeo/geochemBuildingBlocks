@@ -1,0 +1,33 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: SLS Instrument Detail
+description: Structured Light Scanning shape models and partial scans
+type: object
+properties:
+  ada:componentType:
+    anyOf:
+    - const: ada:SLSShapeModel
+    - const: ada:SLSPartialScan
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:countScans:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/countScans
+  ada:facets:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/facets
+  ada:unitsOfMeasurement:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/unitsOfMeasurement
+  ada:version:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/version
+  ada:vertices:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/vertices
+  ada:watertight:
+    type: boolean
+    x-jsonld-id: https://ada.astromat.org/metadata/watertight
+required:
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/

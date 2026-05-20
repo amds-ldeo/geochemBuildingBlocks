@@ -1,0 +1,69 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+
+ex:empaProfile-minimal-001 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalType "Electron Microprobe Analysis Image (EMPA)",
+        "ada:DataDeliveryPackage" ;
+    schema1:dateModified "2026-05-01" ;
+    schema1:description "Smallest valid empaProfile dataset record. Demonstrates only the required adaProduct fields plus the empaProfile-specific empaTAPP measurement-technique reference and a single detailEMPA hasPart item." ;
+    schema1:distribution [ a schema1:DataDownload ;
+            schema1:contentUrl "https://example.org/downloads/empaprofile-minimal-001.zip" ;
+            schema1:description "Single-file EMPA bundle for the minimal example." ;
+            schema1:encodingFormat "application/zip" ;
+            schema1:hasPart ex:empaProfile-minimal-file-001 ;
+            schema1:name "empaProfile-minimal-archive.zip" ] ;
+    schema1:identifier [ a schema1:PropertyValue ;
+            schema1:propertyID "https://registry.identifiers.org/registry/doi" ;
+            schema1:url "https://doi.org/10.99999/empaprofile-minimal-001" ;
+            schema1:value "10.99999/empaprofile-minimal-001" ] ;
+    schema1:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    schema1:measurementTechnique ex:empaTAPP-minimal ;
+    schema1:name "Minimal empaProfile Example" ;
+    schema1:subjectOf ex:empaProfile-minimal-metadata-001 ;
+    schema1:variableMeasured ex:empaProfile-minimal-var-001 ;
+    prov:wasGeneratedBy [ a schema1:Action,
+                prov:Activity ;
+            schema1:identifier "session-empa-min-001" ;
+            schema1:startDate "2026-05-01T09:00:00" ;
+            prov:used [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType "ada:EMPAInstrument",
+                        "nxs:BaseClass/NXinstrument" ;
+                    schema1:identifier "ex:instrument-empa-min-001" ;
+                    schema1:name "Example EMPA Instrument" ] ] .
+
+ex:empaProfile-minimal-file-001 a schema1:ImageObject,
+        schema1:MediaObject,
+        ada:imageMap ;
+    schema1:additionalType "ada:EMPAImageMap" ;
+    schema1:description "Minimal EMPA imageMap data file." ;
+    schema1:encodingFormat "image/tiff" ;
+    schema1:measurementTechnique ex:empaTAPP-minimal ;
+    schema1:name "minimal_EMPA_001.tif" ;
+    ada:componentType "ada:EMPAImageMap" ;
+    ada:signalUsed "Si Kα" ;
+    ada:spectrometersUsed "WDS" .
+
+ex:empaProfile-minimal-metadata-001 a schema1:Dataset ;
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
+        <https://w3id.org/cdif/data_description/1.0>,
+        <https://w3id.org/cdif/manifest/1.0>,
+        <https://w3id.org/cdif/provenance/1.0>,
+        <https://w3id.org/geochem/metadata/profiles/adaProduct>,
+        <https://w3id.org/geochem/metadata/profiles/empaProfile> ;
+    schema1:about ex:empaProfile-minimal-001 ;
+    schema1:additionalType "dcat:CatalogRecord" ;
+    schema1:dateModified "2026-05-01" .
+
+ex:empaProfile-minimal-var-001 a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:role "MeasureComponent" ;
+    schema1:description "Silicon dioxide concentration in weight percent." ;
+    schema1:name "SiO2_wt_pct" ;
+    schema1:unitText "wt%" .
+

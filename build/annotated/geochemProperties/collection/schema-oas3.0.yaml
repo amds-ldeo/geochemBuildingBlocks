@@ -1,0 +1,81 @@
+x-defs:
+  ogch.geochemProperties.stringArray:
+    title: String Array Type
+    description: Simple reusable array of strings
+    type: array
+    minItems: 0
+    items:
+      type: string
+    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+title: Collection Type
+description: A collection can be a set of files with identical information model and
+  serialization/formatting, or a heterogeneous set of files that together constitute
+  a dataset (a composite dataset).
+type: object
+properties:
+  '@type':
+    type: array
+    items:
+      type: string
+    minItems: 2
+    allOf:
+    - contains:
+        enum:
+        - ada:collection
+    - contains:
+        enum:
+        - https://schema.org/Collection
+    description: GeneralType for collections
+  ada:componentType:
+    type: string
+    description: ADA componentType for a collection, as a single string. Allowed values
+      are constrained at the technique-profile level (each adaProfile's schema:hasPart
+      anyOf enumerates the allowed values for that technique, either inline or via
+      a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes
+      (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to
+      this branch schema.
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:memberTypes:
+    description: List of the component types in the collection
+    x-jsonld-id: https://ada.astromat.org/metadata/memberTypes
+    allOf:
+    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/collection/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
+  ada:nFiles:
+    type: integer
+    description: Number of files in the collection, including metadata files
+    x-jsonld-id: https://ada.astromat.org/metadata/nFiles
+  ada:filelist:
+    type: array
+    items:
+      type: object
+      properties:
+        ada:fileName:
+          type: string
+          description: Full path to file in container object
+          x-jsonld-id: https://ada.astromat.org/metadata/fileName
+        ada:fileNamePattern:
+          type: string
+          description: Pattern for collection members with differentiating suffix
+            at '*'
+          x-jsonld-id: https://ada.astromat.org/metadata/fileNamePattern
+        ada:componentType:
+          type: string
+          description: componentType of an individual file within the collection.
+            Not constrained to the collection-level enum, since a collection holds
+            heterogeneous files (each carrying its own file-type componentType).
+          x-jsonld-id: https://ada.astromat.org/metadata/componentType
+        schema:encodingFormat:
+          type: string
+          description: MIME type with extension
+          x-jsonld-id: http://schema.org/encodingFormat
+      oneOf:
+      - required:
+        - ada:fileName
+      - required:
+        - ada:fileNamePattern
+    x-jsonld-id: https://ada.astromat.org/metadata/filelist
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+x-schema-version: https://json-schema.org/draft/2020-12/schema

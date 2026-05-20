@@ -1,0 +1,574 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "http://purl.org/nexusformat/definitions/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "ex": "https://example.org/"
+  },
+  "@id": "ex:empaProfile-example-001",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "schema:name": "EMPA Analysis of Synthetic Olivine Standard (full empaProfile example)",
+  "schema:description": "Full empaProfile dataset record exercising every adaProduct field, the empaProfile-specific empaTAPP measurement-technique @id reference, and one hasPart per EMPA-specific componentType (EMPAImageMap, EMPAImage, EMPAQEATabular, EMPAImageCollection, EMPAESPCTabular, EMPAESPCPlot). Mock data for validation and testing.",
+  "schema:additionalType": [
+    "Electron Microprobe Analysis Image (EMPA)",
+    "ada:DataDeliveryPackage"
+  ],
+  "schema:identifier": {
+    "@type": [
+      "schema:PropertyValue"
+    ],
+    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:value": "10.99999/empaprofile-example-001",
+    "schema:url": "https://doi.org/10.99999/empaprofile-example-001"
+  },
+  "schema:url": "https://astromat.org/products/empaprofile-example-001",
+  "schema:dateModified": "2026-05-01",
+  "schema:version": "1.0",
+  "schema:conditionsOfAccess": [
+    "Unrestricted access for research purposes"
+  ],
+  "schema:license": [
+    "https://creativecommons.org/publicdomain/zero/1.0/"
+  ],
+  "schema:creativeWorkStatus": "Published",
+  "schema:keywords": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Electron Microprobe Analysis",
+      "schema:termCode": "EMPA",
+      "schema:inDefinedTermSet": "https://ada.astromat.org/vocabulary/techniques",
+      "schema:identifier": "https://ada.astromat.org/vocabulary/techniques/EMPA"
+    },
+    "olivine",
+    "synthetic standard",
+    "WDS",
+    "EDS"
+  ],
+  "schema:creator": {
+    "@list": [
+      {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Analytica, Maria",
+        "schema:identifier": "https://orcid.org/0000-0001-2345-6789",
+        "schema:affiliation": {
+          "@type": [
+            "schema:Organization"
+          ],
+          "schema:name": "Lunar and Planetary Institute"
+        },
+        "schema:contactPoint": {
+          "@type": [
+            "schema:ContactPoint"
+          ],
+          "schema:email": "analytica@example.org"
+        }
+      },
+      {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Researcher, John Q.",
+        "schema:identifier": "https://orcid.org/0000-0002-9876-5432",
+        "schema:affiliation": {
+          "@type": [
+            "schema:Organization"
+          ],
+          "schema:name": "NASA Johnson Space Center"
+        },
+        "schema:contactPoint": {
+          "@type": [
+            "schema:ContactPoint"
+          ],
+          "schema:email": "researcher@example.org"
+        }
+      }
+    ]
+  },
+  "schema:contributor": [
+    {
+      "@type": [
+        "schema:Role"
+      ],
+      "schema:roleName": "principalInvestigator",
+      "schema:contributor": {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Leadscientist, Patricia",
+        "schema:identifier": "https://orcid.org/0000-0003-1111-2222",
+        "schema:contactPoint": {
+          "@type": [
+            "schema:ContactPoint"
+          ],
+          "schema:email": "leadscientist@example.org"
+        }
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:identifier": {
+        "@type": [
+          "schema:PropertyValue"
+        ],
+        "schema:propertyID": "award number",
+        "schema:value": "NNX17AE48G"
+      },
+      "schema:name": "Astromaterials Curation and Analysis",
+      "schema:funder": {
+        "@type": [
+          "schema:Organization"
+        ],
+        "schema:additionalType": [
+          "schema:FundingAgency"
+        ],
+        "schema:name": "NASA - National Aeronautics and Space Administration"
+      }
+    }
+  ],
+  "schema:measurementTechnique": {
+    "@id": "ex:empaTAPP-example-001"
+  },
+  "prov:wasGeneratedBy": [
+    {
+      "@type": [
+        "prov:Activity",
+        "schema:Action"
+      ],
+      "schema:identifier": "session-empa-20260501-001",
+      "schema:startDate": "2026-05-01T09:30:00",
+      "prov:used": [
+        {
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
+            "nxs:BaseClass/NXinstrument",
+            "ada:EMPAInstrument"
+          ],
+          "schema:name": "JEOL JXA-8200 Electron Microprobe",
+          "schema:identifier": [
+            "ex:instrument-empa-jxa8200"
+          ]
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Analytical Sciences Laboratory",
+        "schema:identifier": "https://ror.org/00hx57361",
+        "schema:additionalType": [
+          "nxs:BaseClass/NXsource"
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "schema:Thing",
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalType": [
+            "MaterialSample"
+          ],
+          "schema:name": "Synthetic Olivine Standard SOL-1",
+          "schema:identifier": [
+            "igsn:10.60471/GSEEXAMPLE002"
+          ],
+          "schema:description": "Synthetic forsteritic olivine reference material used as in-house calibration standard."
+        }
+      ]
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "@id": "ex:empaProfile-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "SiO2_wt_pct",
+      "schema:alternateName": [
+        "Silica concentration"
+      ],
+      "schema:description": "Silicon dioxide concentration measured by EMPA WDS, reported in weight percent.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/sio2_wt_pct"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:empaProfile-var-002",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "MgO_wt_pct",
+      "schema:description": "Magnesium oxide concentration measured by EMPA WDS, reported in weight percent.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/mgo_wt_pct"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:empaProfile-var-003",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "FeO_wt_pct",
+      "schema:description": "Iron(II) oxide concentration measured by EMPA WDS, reported in weight percent.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/feo_wt_pct"
+      ],
+      "schema:unitText": "wt%",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
+    },
+    {
+      "@id": "ex:empaProfile-var-004",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "position_x",
+      "schema:description": "Horizontal position coordinate on sample surface for spot analyses.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/position_x"
+      ],
+      "schema:unitText": "micrometer",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "DimensionComponent",
+      "cdi:simpleUnitOfMeasure": "um",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ]
+    }
+  ],
+  "schema:distribution": [
+    {
+      "@type": [
+        "schema:DataDownload"
+      ],
+      "schema:name": "empaProfile-SOL1-bundle.zip",
+      "schema:description": "Archive containing all six EMPA componentType files plus method documentation.",
+      "schema:contentUrl": "https://astromat.org/downloads/empaprofile-example-001.zip",
+      "schema:encodingFormat": [
+        "application/zip"
+      ],
+      "spdx:checksum": {
+        "@type": [
+          "spdx:Checksum"
+        ],
+        "spdx:algorithm": "SHA256",
+        "spdx:checksumValue": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+      },
+      "schema:size": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 31457280,
+        "schema:unitText": "byte"
+      },
+      "schema:provider": [
+        {
+          "@type": [
+            "schema:Organization"
+          ],
+          "schema:name": "Astromat Data Archive"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "@id": "ex:empaProfile-file-imageMap",
+          "@type": [
+            "schema:MediaObject",
+            "ada:imageMap",
+            "schema:ImageObject"
+          ],
+          "schema:name": "SOL1_EMPA_imageMap.tif",
+          "schema:description": "EMPA WDS X-ray image map showing element distribution across SOL-1 thin section.",
+          "schema:additionalType": [
+            "ada:EMPAImageMap"
+          ],
+          "schema:encodingFormat": [
+            "image/tiff"
+          ],
+          "schema:size": {
+            "@type": [
+              "schema:QuantitativeValue"
+            ],
+            "schema:value": 10485760,
+            "schema:unitText": "byte"
+          },
+          "spdx:checksum": {
+            "@type": [
+              "spdx:Checksum"
+            ],
+            "spdx:algorithm": "MD5",
+            "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
+          },
+          "ada:componentType": "ada:EMPAImageMap",
+          "ada:spectrometersUsed": "WDS-1, WDS-2, WDS-3, WDS-4, WDS-5",
+          "ada:signalUsed": "Si K\u03b1, Mg K\u03b1, Fe K\u03b1, Ca K\u03b1, Al K\u03b1",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-example-001"
+          }
+        },
+        {
+          "@id": "ex:empaProfile-file-image",
+          "@type": [
+            "schema:MediaObject",
+            "ada:image",
+            "schema:ImageObject"
+          ],
+          "schema:name": "SOL1_EMPA_BSE.tif",
+          "schema:description": "Backscattered electron image of SOL-1 thin section providing spatial context for spot analyses.",
+          "schema:additionalType": [
+            "ada:EMPAImage"
+          ],
+          "schema:encodingFormat": [
+            "image/tiff"
+          ],
+          "schema:size": {
+            "@type": [
+              "schema:QuantitativeValue"
+            ],
+            "schema:value": 5242880,
+            "schema:unitText": "byte"
+          },
+          "ada:componentType": "ada:EMPAImage",
+          "ada:spectrometersUsed": "BSE detector",
+          "ada:signalUsed": "Backscattered electrons",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-example-001"
+          }
+        },
+        {
+          "@id": "ex:empaProfile-file-qea",
+          "@type": [
+            "schema:MediaObject",
+            "cdi:TabularTextDataSet",
+            "ada:tabularData"
+          ],
+          "schema:name": "SOL1_EMPA_QEA.csv",
+          "schema:description": "Quantitative element analysis (QEA) results table \u2014 one row per analytical spot, columns per measured oxide.",
+          "schema:additionalType": [
+            "ada:EMPAQEATabular"
+          ],
+          "schema:encodingFormat": [
+            "text/csv"
+          ],
+          "schema:size": {
+            "@type": [
+              "schema:QuantitativeValue"
+            ],
+            "schema:value": 32768,
+            "schema:unitText": "byte"
+          },
+          "cdi:isDelimited": true,
+          "ada:componentType": "ada:EMPAQEATabular",
+          "ada:spectrometersUsed": "WDS-1 through WDS-5",
+          "ada:signalUsed": "Characteristic X-rays for major elements",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-example-001"
+          },
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
+        },
+        {
+          "@id": "ex:empaProfile-file-collection",
+          "@type": [
+            "schema:MediaObject",
+            "ada:collection",
+            "https://schema.org/Collection"
+          ],
+          "schema:name": "SOL1_EMPA_imagecollection",
+          "schema:description": "Multi-element image collection grouping the per-element WDS X-ray maps.",
+          "schema:additionalType": [
+            "ada:EMPAImageCollection"
+          ],
+          "schema:encodingFormat": [
+            "application/zip"
+          ],
+          "ada:componentType": "ada:EMPAImageCollection",
+          "ada:spectrometersUsed": "WDS-1 through WDS-5",
+          "ada:signalUsed": "Per-element X-ray characteristic lines",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-example-001"
+          }
+        },
+        {
+          "@id": "ex:empaProfile-file-espcTabular",
+          "@type": [
+            "schema:MediaObject",
+            "cdi:TabularTextDataSet",
+            "ada:tabularData"
+          ],
+          "schema:name": "SOL1_EMPA_ESPC.csv",
+          "schema:description": "Energy-dispersive spectrometer count tabular output \u2014 wavelength/energy bins by intensity.",
+          "schema:additionalType": [
+            "ada:EMPAESPCTabular"
+          ],
+          "schema:encodingFormat": [
+            "text/csv"
+          ],
+          "schema:size": {
+            "@type": [
+              "schema:QuantitativeValue"
+            ],
+            "schema:value": 16384,
+            "schema:unitText": "byte"
+          },
+          "cdi:isDelimited": true,
+          "ada:componentType": "ada:EMPAESPCTabular",
+          "ada:spectrometersUsed": "EDS",
+          "ada:signalUsed": "Continuous EDS spectrum (0\u201320 keV)",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-example-001"
+          },
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
+        },
+        {
+          "@id": "ex:empaProfile-file-espcPlot",
+          "@type": [
+            "schema:MediaObject",
+            "ada:image",
+            "schema:ImageObject"
+          ],
+          "schema:name": "SOL1_EMPA_ESPC_plot.png",
+          "schema:description": "Rendered EDS spectrum plot for visual inspection.",
+          "schema:additionalType": [
+            "ada:EMPAESPCPlot"
+          ],
+          "schema:encodingFormat": [
+            "image/png"
+          ],
+          "ada:componentType": "ada:EMPAESPCPlot",
+          "ada:spectrometersUsed": "EDS",
+          "ada:signalUsed": "Continuous EDS spectrum (0\u201320 keV)",
+          "schema:measurementTechnique": {
+            "@id": "ex:empaTAPP-example-001"
+          }
+        },
+        {
+          "@id": "ex:empaProfile-file-methodDoc",
+          "@type": [
+            "schema:MediaObject",
+            "ada:document",
+            "schema:DigitalDocument"
+          ],
+          "schema:name": "SOL1_EMPA_methods.pdf",
+          "schema:description": "Method description document covering instrument settings, calibration standards, and data reduction.",
+          "schema:additionalType": [
+            "ada:methodDescription"
+          ],
+          "schema:encodingFormat": [
+            "application/pdf"
+          ],
+          "schema:size": {
+            "@type": [
+              "schema:QuantitativeValue"
+            ],
+            "schema:value": 524288,
+            "schema:unitText": "byte"
+          },
+          "ada:componentType": "ada:methodDescription"
+        }
+      ]
+    }
+  ],
+  "schema:subjectOf": {
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      "dcat:CatalogRecord"
+    ],
+    "@id": "ex:empaProfile-example-metadata-001",
+    "schema:about": {
+      "@id": "ex:empaProfile-example-001"
+    },
+    "schema:dateModified": "2026-05-01",
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/provenance/1.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/manifest/1.0"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/empaProfile"
+      }
+    ],
+    "schema:maintainer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "Astromat Data Archive"
+    },
+    "schema:sdDatePublished": "2026-05-01T12:00:00Z",
+    "schema:includedInDataCatalog": {
+      "@type": [
+        "schema:DataCatalog"
+      ],
+      "schema:name": "Astromat Data Archive",
+      "schema:url": "https://astromat.org"
+    }
+  }
+}

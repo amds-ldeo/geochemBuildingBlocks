@@ -1,0 +1,290 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:empaTAPP-p7",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "EMPA major element apatite (phosphate)",
+  "schema:description": "empaTAPP example derived from Seifert et al. 2026 (Bennu apatite, MAPS).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "EPMA-WDS",
+    "schema:name": "Electron Microprobe Analysis - WDS"
+  },
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": "Seifert et al."
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC)"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Apatite [Ca5(PO4)3(F,Cl,OH)]"
+    }
+  ],
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product",
+      "https://w3id.org/nfdi4ing/metadata4ing#Instrument"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument",
+      "ada:EPMAInstrument"
+    ],
+    "schema:name": "JEOL JEOL 8530 EMPA (Field Emission)",
+    "schema:manufacturer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "JEOL"
+    },
+    "schema:model": {
+      "@type": [
+        "schema:ProductModel"
+      ],
+      "schema:name": "JEOL 8530 EMPA (Field Emission)"
+    },
+    "schema:hasPart": [
+      {
+        "@type": [
+          "schema:Thing",
+          "schema:Product"
+        ],
+        "schema:additionalType": [
+          "ElectronSource"
+        ],
+        "schema:name": "Field Emission (FEG)"
+      }
+    ]
+  },
+  "ada:acceleratingVoltageDefault": "15",
+  "ada:beamDiameterDefault": "2 \u00b5m",
+  "ada:beamCurrentDefault": "20 nA",
+  "ada:methodParameters": [
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/BeamDamageMinimization",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Beam Damage Minimization",
+      "schema:valueName": "BeamDamageMinimization",
+      "schema:description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 \u00b5m and 10 \u00b5m spot conditions"
+    },
+    {
+      "@context": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "@id": "ada:parameter/empaTAPP/halogenOxygenCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:name": "Halogen Correction on Oxygen",
+      "schema:valueName": "halogenOxygenCorrection",
+      "schema:description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
+      "ada:dataType": "boolean",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Yes (F measured; Cl measured; OH by difference)"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/epmaTechnique",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "EPMA Technique per Element",
+        "schema:valueName": "epmaTechnique",
+        "schema:description": "Whether this element was measured by WDS or EDS.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M",
+        "schema:inDefinedTermSet": {
+          "@id": "ada:vocab/empaTAPP/epmaTechnique"
+        }
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Default Peak Counting Time",
+        "schema:valueName": "peakCountingTime",
+        "schema:description": "Time spent counting X-ray intensity at the peak position in seconds.",
+        "ada:dataType": "number",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Default Background Counting Time",
+        "schema:valueName": "backgroundCountingTime",
+        "schema:description": "Total time spent counting at background position(s) in seconds.",
+        "ada:dataType": "number",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "primaryCalibrationStandard",
+        "schema:description": "Primary reference material used for element standardization (calibration).",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Secondary Reference Materials",
+        "schema:valueName": "secondaryReferenceMaterial",
+        "schema:description": "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "F",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "SrF2",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "Na",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "albite",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "Mg",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "SW olivine",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "Si",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "quartz",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "P",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "Wilburforce apatite",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "Ca",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "Wilburforce apatite",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "S",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "barite",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "Cl",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "tugtupite",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "Mn",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "rhodonite",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "Fe",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "primaryCalibrationStandard": "ilmenite",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      },
+      {
+        "analyte": "OH",
+        "epmaTechnique": "\u221a",
+        "peakCountingTime": "20 s peak time",
+        "backgroundCountingTime": "10 s background",
+        "secondaryReferenceMaterial": "Durango apatite (halogen volatilization test; F and Cl values compared to Wudarska et al. 2021)"
+      }
+    ]
+  }
+}

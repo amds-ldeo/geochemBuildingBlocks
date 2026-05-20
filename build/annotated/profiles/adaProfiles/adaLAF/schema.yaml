@@ -1,0 +1,53 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA LAF Product Profile
+description: Technique-specific profile for Laser-Assisted Fluorination (LAF) products.
+  Extends the base ADA product profile with constraints on valid LAF component types
+  and detailLAF requirements.
+allOf:
+- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
+- type: object
+  properties:
+    schema:additionalType:
+      description: Must include a LAF product type identifier.
+      contains:
+        enum:
+        - Laser Assisted Fluorination (LAF) Processed
+        - Laser Assisted Fluorination (LAF) Raw
+        - Laser Assisted Fluorination
+        - Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements
+      x-jsonld-id: http://schema.org/additionalType
+    schema:distribution:
+      description: Distribution items for adaLAF. Archive hasPart items must have
+        ada:componentType from technique-specific or universal values.
+      type: array
+      items:
+        type: object
+        properties:
+          schema:hasPart:
+            items:
+              type: object
+              anyOf:
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailLAF/schema.yaml
+            x-jsonld-id: http://schema.org/hasPart
+      x-jsonld-id: http://schema.org/distribution
+    schema:subjectOf:
+      properties:
+        dcterms:conformsTo:
+          contains:
+            type: object
+            properties:
+              '@id':
+                const: https://w3id.org/geochem/metadata/profiles/adaLAF
+          x-jsonld-id: http://purl.org/dc/terms/conformsTo
+      x-jsonld-id: http://schema.org/subjectOf
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+  csvw: http://www.w3.org/ns/csvw#
+  prov: http://www.w3.org/ns/prov#
+  spdx: http://spdx.org/rdf/terms#
+  nxs: http://purl.org/nexusformat/definitions/
+  dcterms: http://purl.org/dc/terms/
+  geosparql: http://www.opengis.net/ont/geosparql#

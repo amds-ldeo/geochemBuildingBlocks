@@ -1,0 +1,35 @@
+Validation report for ogch.geochemProperties.otherFile - Other File Type
+Generated 2026-05-20T19:15:03.149398+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'@type': 'ada:other'} is not of type 'string'
+
+Failed validating 'type' in schema['properties']['ada:componentType']:
+    {'description': 'ADA componentType for an other-format file, as a '
+                    'single string. Allowed values are constrained at the '
+                    'technique-profile level.',
+     'type': 'string',
+     'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'}
+
+On instance['ada:componentType']:
+    {'@type': 'ada:other'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/geochemProperties/otherFile/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geochemProperties/otherFile/rules.shacl:
+ - Shape cdifd:otherFileShape: *none*
+
+=== End SHACL ===
+

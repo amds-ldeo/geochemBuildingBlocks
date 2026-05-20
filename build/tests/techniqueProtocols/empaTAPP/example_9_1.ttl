@@ -1,0 +1,128 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:empaTAPP-p7 a cdi:Activity,
+        schema1:Action,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Seifert et al." ] ;
+    schema1:description "empaTAPP example derived from Seifert et al. 2026 (Bennu apatite, MAPS)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing,
+                <https://w3id.org/nfdi4ing/metadata4ing#Instrument> ;
+            schema1:additionalType "ada:EPMAInstrument",
+                "nxs:BaseClass/NXinstrument" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType "ElectronSource" ;
+                    schema1:name "Field Emission (FEG)" ] ;
+            schema1:manufacturer [ a schema1:Organization ;
+                    schema1:name "JEOL" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "JEOL 8530 EMPA (Field Emission)" ] ;
+            schema1:name "JEOL JEOL 8530 EMPA (Field Emission)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "NASA Johnson Space Center (JSC)" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Electron Microprobe Analysis - WDS" ;
+            schema1:termCode "EPMA-WDS" ] ;
+    schema1:name "EMPA major element apatite (phosphate)" ;
+    schema1:object [ a schema1:DefinedTerm ;
+            schema1:name "Apatite [Ca5(PO4)3(F,Cl,OH)]" ] ;
+    ada:acceleratingVoltageDefault "15" ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Analyzed constituent identified by the analyte row." ;
+                    schema1:name "Analyzed constituent" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechnique>,
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandard>,
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterial> ;
+            ada:defaultAnalytes [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ] ;
+    ada:beamCurrentDefault "20 nA" ;
+    ada:beamDiameterDefault "2 µm" ;
+    ada:methodParameters <https://ada.astromat.org/metadata/parameter/empaTAPP/BeamDamageMinimization>,
+        <https://ada.astromat.org/metadata/parameter/empaTAPP/halogenOxygenCorrection> .
+
+<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:description "Total time spent counting at background position(s) in seconds." ;
+    schema1:name "Default Background Counting Time" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" ;
+    ada:tier "M" .
+
+<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechnique> a schema1:PropertyValueSpecification ;
+    schema1:description "Whether this element was measured by WDS or EDS." ;
+    schema1:inDefinedTermSet <https://ada.astromat.org/metadata/vocab/empaTAPP/epmaTechnique> ;
+    schema1:name "EPMA Technique per Element" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "epmaTechnique" ;
+    ada:dataType "string" ;
+    ada:tier "M" .
+
+<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:description "Time spent counting X-ray intensity at the peak position in seconds." ;
+    schema1:name "Default Peak Counting Time" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" ;
+    ada:tier "M" .
+
+<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:description "Primary reference material used for element standardization (calibration)." ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "primaryCalibrationStandard" ;
+    ada:dataType "string" ;
+    ada:tier "M" .
+
+<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterial> a schema1:PropertyValueSpecification ;
+    schema1:description "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns." ;
+    schema1:name "Secondary Reference Materials" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "secondaryReferenceMaterial" ;
+    ada:dataType "string" ;
+    ada:tier "M" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/BeamDamageMinimization> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Durango apatite tested for halogen volatilization under beam; no significant volatile loss observed between 3 µm and 10 µm spot conditions" ;
+    schema1:description "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals." ;
+    schema1:name "Beam Damage Minimization" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "BeamDamageMinimization" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/halogenOxygenCorrection> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Yes (F measured; Cl measured; OH by difference)" ;
+    schema1:description "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases." ;
+    schema1:name "Halogen Correction on Oxygen" ;
+    schema1:readonlyValue true ;
+    schema1:valueName "halogenOxygenCorrection" ;
+    ada:dataType "boolean" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+

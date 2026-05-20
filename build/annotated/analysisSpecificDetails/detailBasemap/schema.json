@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Basemap Instrument Detail",
+  "description": "Basemap images with RGB channels and pixel scaling. (Extension type, not in v3 source schema.)",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "type": "array",
+      "minItems": 2,
+      "allOf": [
+        {
+          "contains": {
+            "const": "ada:basemap"
+          }
+        },
+        {
+          "contains": {
+            "const": "schema:Map"
+          }
+        }
+      ]
+    },
+    "schema:description": {
+      "type": "string",
+      "x-jsonld-id": "http://schema.org/description"
+    },
+    "ada:pixelUnits": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/pixelUnits"
+    },
+    "ada:pixelScaleX": {
+      "type": "number",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/pixelScaleX"
+    },
+    "ada:pixelScaleY": {
+      "type": "number",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/pixelScaleY"
+    },
+    "ada:channel1": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/channel1"
+    },
+    "ada:channel2": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/channel2"
+    },
+    "ada:channel3": {
+      "type": "string",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/channel3"
+    }
+  },
+  "required": [
+    "@type",
+    "ada:pixelScaleX",
+    "ada:pixelScaleY",
+    "ada:pixelUnits"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

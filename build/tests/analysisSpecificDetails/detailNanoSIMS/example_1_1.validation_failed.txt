@@ -1,0 +1,62 @@
+Validation report for ogch.analysisSpecificDetails.detailNanoSIMS - NanoSIMS Instrument Detail
+Generated 2026-05-20T19:15:03.348945+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'ada:componentType' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'description': 'Nano Secondary Ion Mass Spectrometry with isotope '
+                    'tracking',
+     'properties': {'ada:componentType': {'anyOf': [{'const': 'ada:NanoSIMSCollection'},
+                                                    {'const': 'ada:NanoSIMSImageCollection'},
+                                                    {'const': 'ada:NanoSIMSTabular'},
+                                                    {'const': 'ada:NanoSIMSMap'}],
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},
+                    'ada:isotopeAnalyzed': {'$ref': 'https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml',
+                                            'x-jsonld-id': 'https://ada.astromat.org/metadata/isotopeAnalyzed'},
+                    'ada:phaseAnalyzed': {'$ref': 'https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/phaseAnalyzed'}},
+     'required': ['ada:componentType'],
+     'title': 'NanoSIMS Instrument Detail',
+     'type': 'object',
+     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
+                           'schema': 'http://schema.org/'}}
+
+On instance:
+    {'@type': ['ada:NanoSIMSTabular'],
+     'ada:isotopeAnalyzed': ['12C', '13C', '28Si', '29Si'],
+     'ada:phaseAnalyzed': ['presolar SiC', 'presolar graphite']}
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Validation result for _sources/analysisSpecificDetails/detailNanoSIMS/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("NanoSIMS detail nodes must declare ada:componentType.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path ada:componentType ]
+  	Focus Node: [ ada:isotopeAnalyzed Literal("12C"), Literal("13C"), Literal("28Si"), Literal("29Si") ; ada:phaseAnalyzed Literal("presolar SiC"), Literal("presolar graphite") ; rdf:type ada:NanoSIMSTabular ]
+  	Result Path: ada:componentType
+  	Message: NanoSIMS detail nodes must declare ada:componentType.
+  
+Focus nodes for _sources/analysisSpecificDetails/detailNanoSIMS/rules.shacl:
+ - Shape cdifd:detailNanoSIMSShape: *none*
+
+Validation result for _sources/geochemProperties/stringArray/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+=== End SHACL ===
+
