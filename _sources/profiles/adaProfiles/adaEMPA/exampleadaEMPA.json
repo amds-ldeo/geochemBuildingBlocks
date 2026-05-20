@@ -3,6 +3,7 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -217,11 +218,11 @@
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ],
       "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts"
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
     },
     {
       "@id": "ex:adaEMPA-var-002",
@@ -239,11 +240,11 @@
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ],
       "cdi:role": "DimensionComponent",
-      "cdi:simpleUnitOfMeasure": "um"
+      "cdi:simpleUnitOfMeasure": "um",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ]
     }
   ],
   "schema:distribution": [
@@ -283,6 +284,7 @@
         {
           "@id": "ex:adaEMPA-file-001",
           "@type": [
+            "schema:MediaObject",
             "ada:imageMap",
             "schema:ImageObject"
           ],
@@ -313,6 +315,7 @@
         {
           "@id": "ex:adaEMPA-file-002",
           "@type": [
+            "schema:MediaObject",
             "ada:document",
             "schema:DigitalDocument"
           ],

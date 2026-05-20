@@ -3,6 +3,7 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -223,11 +224,11 @@
       "schema:minValue": 0,
       "schema:maxValue": 100,
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ],
       "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "wt%"
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
     },
     {
       "@id": "ex:adaEMPA-var-x",
@@ -245,11 +246,11 @@
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ],
       "cdi:role": "DimensionComponent",
-      "cdi:simpleUnitOfMeasure": "um"
+      "cdi:simpleUnitOfMeasure": "um",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ]
     }
   ],
   "schema:distribution": [
@@ -289,6 +290,7 @@
         {
           "@id": "ex:adaEMPA-part-imagemap",
           "@type": [
+            "schema:MediaObject",
             "ada:imageMap",
             "schema:ImageObject"
           ],
@@ -334,6 +336,7 @@
         {
           "@id": "ex:adaEMPA-part-image",
           "@type": [
+            "schema:MediaObject",
             "ada:image",
             "schema:ImageObject"
           ],
@@ -366,6 +369,7 @@
         {
           "@id": "ex:adaEMPA-part-qea",
           "@type": [
+            "schema:MediaObject",
             "cdi:TabularTextDataSet",
             "ada:tabularData"
           ],
@@ -394,11 +398,19 @@
           "ada:componentType": "ada:EMPAQEATabular",
           "cdi:isDelimited": true,
           "ada:spectrometersUsed": "WDS #1 (LiF crystal), WDS #2 (TAP crystal), WDS #3 (PET crystal), WDS #4 (LDE1), WDS #5 (LDE2)",
-          "ada:signalUsed": "Characteristic X-rays: Si Kα, Ti Kα, Al Kα, Fe Kα, Mn Kα, Mg Kα, Ca Kα, Na Kα, K Kα, Cr Kα"
+          "ada:signalUsed": "Characteristic X-rays: Si Kα, Ti Kα, Al Kα, Fe Kα, Mn Kα, Mg Kα, Ca Kα, Na Kα, K Kα, Cr Kα",
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
         },
         {
           "@id": "ex:adaEMPA-part-imagecollection",
           "@type": [
+            "schema:MediaObject",
             "ada:collection",
             "https://schema.org/Collection"
           ],
@@ -430,6 +442,7 @@
         {
           "@id": "ex:adaEMPA-part-espctable",
           "@type": [
+            "schema:MediaObject",
             "cdi:TabularTextDataSet",
             "ada:tabularData"
           ],
@@ -455,11 +468,19 @@
           "ada:componentType": "ada:EMPAESPCTabular",
           "cdi:isDelimited": true,
           "ada:spectrometersUsed": "Energy-dispersive Si(Li) detector",
-          "ada:signalUsed": "Full X-ray spectrum, 0–20 keV, 10 eV channel width"
+          "ada:signalUsed": "Full X-ray spectrum, 0–20 keV, 10 eV channel width",
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
         },
         {
           "@id": "ex:adaEMPA-part-espcplot",
           "@type": [
+            "schema:MediaObject",
             "ada:image",
             "schema:ImageObject"
           ],

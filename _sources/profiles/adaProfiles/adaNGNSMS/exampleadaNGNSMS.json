@@ -3,6 +3,7 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -216,11 +217,11 @@
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ],
       "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts"
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
     },
     {
       "@id": "ex:adaNGNSMS-var-002",
@@ -238,11 +239,11 @@
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ],
       "cdi:role": "DimensionComponent",
-      "cdi:simpleUnitOfMeasure": "um"
+      "cdi:simpleUnitOfMeasure": "um",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ]
     }
   ],
   "schema:distribution": [
@@ -282,6 +283,7 @@
         {
           "@id": "ex:adaNGNSMS-file-001",
           "@type": [
+            "schema:MediaObject",
             "cdi:TabularTextDataSet",
             "ada:tabularData"
           ],
@@ -308,11 +310,19 @@
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
           "ada:componentType": "ada:NGNSMSRaw",
-          "cdi:isDelimited": true
+          "cdi:isDelimited": true,
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
         },
         {
           "@id": "ex:adaNGNSMS-file-002",
           "@type": [
+            "schema:MediaObject",
             "ada:document",
             "schema:DigitalDocument"
           ],

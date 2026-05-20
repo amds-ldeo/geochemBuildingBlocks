@@ -3,6 +3,7 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -215,11 +216,11 @@
       ],
       "schema:unitText": "wt%",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ],
       "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "wt%"
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
     },
     {
       "@id": "ex:empaProfile-var-002",
@@ -234,11 +235,11 @@
       ],
       "schema:unitText": "wt%",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ],
       "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "wt%"
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
     },
     {
       "@id": "ex:empaProfile-var-003",
@@ -253,11 +254,11 @@
       ],
       "schema:unitText": "wt%",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ],
       "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "wt%"
+      "cdi:simpleUnitOfMeasure": "wt%",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#double"
+      ]
     },
     {
       "@id": "ex:empaProfile-var-004",
@@ -272,11 +273,11 @@
       ],
       "schema:unitText": "micrometer",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ],
       "cdi:role": "DimensionComponent",
-      "cdi:simpleUnitOfMeasure": "um"
+      "cdi:simpleUnitOfMeasure": "um",
+      "cdif:physicalDataType": [
+        "https://www.w3.org/TR/xmlschema-2/#float"
+      ]
     }
   ],
   "schema:distribution": [
@@ -316,6 +317,7 @@
         {
           "@id": "ex:empaProfile-file-imageMap",
           "@type": [
+            "schema:MediaObject",
             "ada:imageMap",
             "schema:ImageObject"
           ],
@@ -351,6 +353,7 @@
         {
           "@id": "ex:empaProfile-file-image",
           "@type": [
+            "schema:MediaObject",
             "ada:image",
             "schema:ImageObject"
           ],
@@ -379,6 +382,7 @@
         {
           "@id": "ex:empaProfile-file-qea",
           "@type": [
+            "schema:MediaObject",
             "cdi:TabularTextDataSet",
             "ada:tabularData"
           ],
@@ -403,11 +407,19 @@
           "ada:signalUsed": "Characteristic X-rays for major elements",
           "schema:measurementTechnique": {
             "@id": "ex:empaTAPP-example-001"
-          }
+          },
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
         },
         {
           "@id": "ex:empaProfile-file-collection",
           "@type": [
+            "schema:MediaObject",
             "ada:collection",
             "https://schema.org/Collection"
           ],
@@ -429,6 +441,7 @@
         {
           "@id": "ex:empaProfile-file-espcTabular",
           "@type": [
+            "schema:MediaObject",
             "cdi:TabularTextDataSet",
             "ada:tabularData"
           ],
@@ -453,11 +466,19 @@
           "ada:signalUsed": "Continuous EDS spectrum (0–20 keV)",
           "schema:measurementTechnique": {
             "@id": "ex:empaTAPP-example-001"
-          }
+          },
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ]
         },
         {
           "@id": "ex:empaProfile-file-espcPlot",
           "@type": [
+            "schema:MediaObject",
             "ada:image",
             "schema:ImageObject"
           ],
@@ -479,6 +500,7 @@
         {
           "@id": "ex:empaProfile-file-methodDoc",
           "@type": [
+            "schema:MediaObject",
             "ada:document",
             "schema:DigitalDocument"
           ],
