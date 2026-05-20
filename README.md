@@ -8,7 +8,7 @@ The scheme involves three components:
 
 2. A building block JSON schema specific to the protocol. This protocol definition object is registered in a protocol registry and accessible via its URI. The TAPP definition is referenced as a measurementTechnique in dataset metadata. 
 
-3. A 'details' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. The content of this schema is included in the schema for dataset instances to create a metadat schema for Datasets conforming to the profile. 
+3. A technique-specific 'detail' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. There is one detail block per technique under `_sources/analysisSpecificDetails/` (e.g. `detailEMPA`), not a single 'details' file. The content of this schema is included in the schema for dataset instances to create a metadata schema for Datasets conforming to the profile. Session-level and per-analyte parameters are defined once in a registered parameter registry (`parameterValues`) and referenced from the detail blocks by URI, so a parameter can be reused across detail definitions; the references are resolved inline into the published resolved schema.
 
 ## Structure
 
@@ -16,25 +16,29 @@ The scheme involves three components:
 
 ```
 _sources/techniqueProtocols/
-  analyteColumns/        ← shared: schema:PropertyValueSpecification per analyte column
-  parameterTemplates/    ← shared: PropertyValueSpecification (readOnly:true params)
-  parameterValues/       ← shared: schema:PropertyValue (readOnly:false params)
-  vocab/                 ← shared: schema:DefinedTermSet per vocabulary
+  analyteColumns/        ← loose helper: schema:PropertyValueSpecification per analyte column
+  parameterTemplates/    ← loose helper: PropertyValueSpecification (readOnly:true params)
+  parameterValues/       ← registered BB: schema:PropertyValue $defs (readOnly:false params)
+  vocab/                 ← loose helper: schema:DefinedTermSet per vocabulary
   tappDefinition/        ← base TAPP definition (JSON-LD class ada:TAPPDefinition)
-  empaTAPP/              ← first concrete TAPP profile (EMPA)
-  <future>TAPP/          ← additional TAPPs `$ref` the four catalog dirs above
+  empaTAPP/              ← concrete TAPP profile (EMPA)
+  laicpmsTAPP/           ← concrete TAPP profile (LA-ICP-MS)
+  <future>TAPP/          ← additional TAPPs `$ref` the catalogs above
 ```
 
-The four catalog dirs are **shared dictionary resources** — multiple TAPP profiles `$ref` the same files when their definitions match. The tooling's `share_or_write_catalog` helper lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
+`parameterValues` is a **registered type-library building block** (`bblock.json` with `isTypeLibrary: true`): each per-dataset parameter lives as a named `$def` in `parameterValues/schema.yaml`, and detail blocks reference them by URI fragment (`$ref: …/parameterValues/schema.yaml#/$defs/<name>`). Because it is registered, the OGC bblocks `annotate` step resolves those refs locally via the register and inlines them into `resolvedSchema.json`. By contrast, `analyteColumns/`, `parameterTemplates/`, and `vocab/` are still **loose helper dirs** (flat `<name>.json` files, not registered BBs). The `annotate` step fetches loose helper files from the published gh-pages URL, which 404s on moved or unpublished paths — so shared catalogs referenced across BBs should ideally be registered BBs with `$defs` too. Migrating the remaining loose helpers is in progress; `analyteColumns` currently breaks CI for this reason.
+
+The catalog dirs are **shared dictionary resources** — multiple TAPP profiles `$ref` the same files when their definitions match. The tooling's `share_or_write_catalog` helper lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
 
 - `tappDefinition` — base TAPP. Defines the `WorkflowHowTo` / `WorkflowStep` / `MethodParameter` / `AnalyteColumn` / `AnalyteIdentifierColumn` `$defs` that concrete TAPP profiles extend.
-- `empaTAPP` — Electron Microprobe Analysis. Extends `tappDefinition` via `allOf` with EPMA top-level properties + `ada:methodParameters` / `ada:analyteTemplate.ada:analyteColumns` constraints referencing the shared catalog dirs. Generated from `docs/TAPP_EPMA_filled.xlsx` (the canonical TAPP template). 11 examples ship with the BB (10 publication-derived instances + a comprehensive synthetic example).
+- `empaTAPP` — Electron Microprobe Analysis. Extends `tappDefinition` via `allOf` with EPMA top-level properties + `ada:methodParameters` / `ada:analyteTemplate.ada:analyteColumns` constraints referencing the shared catalogs. Generated from `docs/TAPP_EPMA_filled.xlsx` (the canonical TAPP template). 11 examples ship with the BB (10 publication-derived instances + a comprehensive synthetic example).
+- `laicpmsTAPP` — LA-ICP-MS. Built from `docs/TAPP_LAICPMS_filled.xlsx` (reshaped from the `LA-ICPMS_TAPP_v8.xlsx` source workbook).
 
-### geochemProperties detail blocks (per-dataset values)
+### analysisSpecificDetails detail blocks (per-dataset values)
 
-Per-dataset detail blocks pair with a TAPP definition and carry the per-instance values:
+The 16 technique-specific detail blocks live under `_sources/analysisSpecificDetails/` (`detailEMPA`, `detailXRD`, `detailARGT`, …). Each pairs with a TAPP definition and carries the per-instance values. (The old `details` umbrella BB — an `anyOf` over the detail blocks — was unused and has been removed.)
 
-- `detailEMPA` — paired with `empaTAPP`. Carries `readOnly:false` parameter values as `schema:additionalProperty[]` PropertyValue entries (catalog at `parameterValues/`). References the empaTAPP definition via `schema:measurementTechnique` `anyOf` (by `@id` ref or inline). 11 paired examples (`exampledetailEMPA-P1.json` … `-P10.json` + `-all.json`).
+- `detailEMPA` — paired with `empaTAPP`. Carries `readOnly:false` parameter values as `schema:additionalProperty[]` PropertyValue entries. The `schema:additionalProperty` constraint is inline in detailEMPA's `allOf` (no separate `parametersConstraint.yaml`), with `anyOf` branches `$ref`ing the `parameterValues` registry `$defs`. References the empaTAPP definition via `schema:measurementTechnique` `anyOf` (by `@id` ref or inline). 11 paired examples (`exampledetailEMPA-P1.json` … `-P10.json` + `-all.json`).
 
 The split was made on 2026-04-28: parameters in the TAPP spreadsheet route to `empaTAPP/methodParameters[]` (readOnly:true) or `detailEMPA/schema:additionalProperty[]` (readOnly:false). Method-level constants (the `ada:xxxDefault` top-level properties) stay on the TAPP.
 
@@ -43,10 +47,11 @@ The split was made on 2026-04-28: parameters in the TAPP spreadsheet route to `e
 `profiles/geochemProfiles/` (alongside `profiles/adaProfiles/`) holds technique profiles that compose a TAPP definition + detail block on top of `adaProduct`:
 
 - `empaProfile` — extends `adaProduct` with `schema:measurementTechnique` `anyOf` pointing at empaTAPP and a `schema:distribution.schema:hasPart` branch that lets `detailEMPA` appear.
+- `LA-ICPMS` — extends `adaProduct` with `schema:measurementTechnique` wired to laicpmsTAPP.
 
-### geochemProperties (30 schema components)
+### geochemProperties (property building blocks)
 
-Property building blocks that define ADA-specific metadata elements: file types, instrument details, technique-specific data structures, spatial registration, and more.
+Property building blocks that define ADA-specific metadata elements: file types, instrument details, technique-specific data structures, spatial registration, and more. (The technique-specific `detail<XXX>` blocks that previously lived here now reside under `analysisSpecificDetails/`.)
 
 Key building blocks that extend CDIF core BBs:
 - **instrument** — extends core CDIF instrument (`schema:Product` with `nxs:BaseClass/NXinstrument` in `additionalType`)
@@ -108,7 +113,7 @@ python tools/build_dataset_template.py      <tapp-instance.json>                
                                             [<out.xlsx>]
 ```
 
-All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-compat. The shared library at `tools/_tapp_lib.py` does the heavy lifting (parser, catalog emit helpers, scaffolders); the four drivers are thin wrappers.
+All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-compat. The shared library at `tools/_tapp_lib.py` does the heavy lifting (parser, catalog emit helpers, scaffolders); the four drivers are thin wrappers. The library is parameterized for multiple TAPPs via a `TAPP_PROFILES` / `CFG` mechanism, so `empaTAPP` and `laicpmsTAPP` share the same generator (it was previously EMPA-hardcoded).
 
 `--pub <code>` (repeatable) on scripts 1 and 2 limits which publication-derived examples get regenerated — useful when migrating pub columns one at a time.
 
@@ -130,12 +135,12 @@ Detection-limit values keep their full text per element (e.g. `"SiO2: 0.02 wt%"`
 ### Schema generation and resolution
 
 - `tools/generate_profiles.py` — generates technique-specific profile building blocks from configuration data
-- `tools/resolve_schema.py` — resolve all `$ref` into single resolvedSchema.json files
+- `tools/resolve_schema.py` — resolve all `$ref` into a structured `resolvedSchema.json` (`$defs` + internal `$ref`, recursion-safe and ~88–90% smaller than the old fully-inlined form, which is no longer emitted; `--structured` is now a no-op)
 - `tools/regenerate_schema_json.py` — generate *Schema.json from schema.yaml sources (YAML→JSON + ref rewrite)
 
 ### Validation and auditing
 
-- `tools/audit_building_blocks.py` — comprehensive audit: file completeness, schema consistency, resolvedSchema freshness, SHACL coverage
+- `tools/audit_building_blocks.py` — comprehensive audit: file completeness, schema consistency, resolvedSchema freshness (via the structured resolver), SHACL coverage. `isTypeLibrary` BBs (reusable `$defs` libraries with no instantiable root class, e.g. `stringArray`, `parameterValues`) are exempt from the standalone-example and SHACL-NodeShape requirements.
 - `tools/audit_shacl_coverage.py` — check SHACL rules cover all schema.yaml properties; reports missing/extra shapes
 - `tools/validate_examples.py` — validate example JSON files against resolved schemas
 - `tools/validate_instance.py` — profile-aware validation of ADA metadata instances

@@ -10,20 +10,22 @@ Modular metadata schema components for the Astromat Data Archive (ADA), built on
 
 ```
 _sources/
-  geochemProperties/         30 property building blocks (instrument, laboratory, file types, technique details)
-                             — includes detail<XXX>/ pair blocks for technique TAPPs (e.g. detailEMPA)
+  geochemProperties/         property building blocks (instrument, laboratory, file types, data structures)
+  analysisSpecificDetails/   16 detail<XXX>/ pair blocks for technique TAPPs (e.g. detailEMPA, detailXRD)
+                             — moved here from geochemProperties/; old `details` umbrella BB removed
   techniqueProtocols/
-    analyteColumns/          shared catalog: PropertyValueSpecification per analyte column
-    parameterTemplates/      shared catalog: PropertyValueSpecification (readOnly:true params)
-    parameterValues/         shared catalog: PropertyValue (readOnly:false params)
-    vocab/                   shared catalog: DefinedTermSet per vocabulary
+    analyteColumns/          loose helper: PropertyValueSpecification per analyte column
+    parameterTemplates/      loose helper: PropertyValueSpecification (readOnly:true params)
+    parameterValues/         registered BB (isTypeLibrary): PropertyValue $defs (readOnly:false params)
+    vocab/                   loose helper: DefinedTermSet per vocabulary
     tappDefinition/          base TAPP definition (was geochemProperties/methodDefinition)
-    empaTAPP/                first concrete TAPP profile (EMPA)
-    <future>TAPP/            additional TAPPs $ref the four catalog dirs above
+    empaTAPP/                concrete TAPP profile (EMPA)
+    laicpmsTAPP/             concrete TAPP profile (LA-ICP-MS)
+    <future>TAPP/            additional TAPPs $ref the catalogs above
   profiles/
     adaProfiles/             original 36 metadata profiles (adaProduct base + 35 technique profiles)
     geochemProfiles/         technique-specific dataset profiles composing TAPP + detail BB
-                             (currently: empaProfile)
+                             (currently: empaProfile, LA-ICPMS)
 build/                       Generated outputs (register.json, annotated schemas, RDF exports, reports)
 tools/                       Python tooling for generation, validation, and auditing
 docs/                        Templates and user-facing docs (TAPP_EPMA_filled.xlsx, TAPP_TEMPLATE_GUIDE.md)
@@ -40,7 +42,7 @@ Each building block directory contains a standard set of files:
 - `description.md` -- human-readable documentation
 - `examples.yaml` -- usage examples for validation testing
 - `context.jsonld` -- JSON-LD context for RDF mapping
-- `resolvedSchema.json` -- fully inlined schema (all $refs resolved, via `resolve_schema.py`)
+- `resolvedSchema.json` -- structured resolved schema (all $refs resolved into `$defs` + internal `$ref`, recursion-safe, ~88–90% smaller than the old fully-inlined form; via `resolve_schema.py`)
 - `rules.shacl` -- SHACL validation shapes
 
 Profiles additionally compose base schemas via `allOf` references.
@@ -55,7 +57,7 @@ Profiles additionally compose base schemas via `allOf` references.
 
 ## Key identifiers
 
-- **Identifier prefix:** `ada.bbr.metadata.`
+- **Identifier prefix:** `ogch.` (e.g. `ogch.geochemProperties.instrument`, `ogch.analysisSpecificDetails.detailEMPA`, `ogch.profiles.adaProfiles.adaProduct`; was `ada.bbr.metadata.`)
 - **Import source:** `https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json`
 - **Viewer URL:** `https://usgin.github.io/geochemBuildingBlocks/`
 
@@ -64,7 +66,7 @@ Profiles additionally compose base schemas via `allOf` references.
 `ada:componentType` is a **string** on each archive `hasPart` item (e.g. `"ada:EMPAImageMap"`). Two layers of constraint apply via `allOf`:
 
 1. **Base BB enums** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares `ada:componentType: type: string, enum: [...]`. The enum is derived from the **Components worksheet** of `~/OneDrive/Documents/GithubC/amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx`. This enforces file-type ↔ componentType mapping (e.g. `ada:EMPAImageMap` only validates on parts whose `@type` includes `ada:imageMap`). Refresh via `python tools/apply_componentType_enums.py --refresh --xlsx <path>`; the cache `tools/componentType_enum_cache.json` is committed.
-2. **Profile-level `anyOf`** — each technique profile's `schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref: '../adaProduct/schema.yaml#/$defs/universalComponentTypeBranch'` for universal componentTypes; (b) inline `properties.ada:componentType: {type: string, enum: [...]}` for technique-specific componentTypes that have no detail block; (c) `$ref: '../../../geochemProperties/detailXxx/schema.yaml'` for detail-bearing componentTypes. Detail schemas pin `ada:componentType` via `anyOf: [{const: "..."}]` consts and contribute detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) on the same hasPart item — flat, not nested.
+2. **Profile-level `anyOf`** — each technique profile's `schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref: '../adaProduct/schema.yaml#/$defs/universalComponentTypeBranch'` for universal componentTypes; (b) inline `properties.ada:componentType: {type: string, enum: [...]}` for technique-specific componentTypes that have no detail block; (c) `$ref: '../../../analysisSpecificDetails/detailXxx/schema.yaml'` for detail-bearing componentTypes. Detail schemas pin `ada:componentType` via `anyOf: [{const: "..."}]` consts and contribute detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) on the same hasPart item — flat, not nested.
 
 `files/schema.yaml`'s outer `anyOf` over base BBs has no permissive `schema:MediaObject` fallback — without it, parts whose `@type` doesn't match a specific BB will (correctly) fail validation.
 
@@ -72,7 +74,7 @@ Profiles additionally compose base schemas via `allOf` references.
 
 `adaProduct.allOf` includes `cdifProvenance` (which $refs `cdifProvActivity`). adaProduct redefines `prov:wasGeneratedBy.items.properties` to add ADA-specific keys; via `allOf` merge the cdifProvActivity constraints still apply.
 
-- `prov:used` accepts an `anyOf` of `instrument` BB or `methodDefinition` BB instances.
+- `prov:used` accepts an `anyOf` of `instrument` BB or `tappDefinition` BB instances.
 - `schema:location` (laboratory) — was renamed from `ada:laboratory`.
 - `schema:object` (samples analyzed) — was renamed from `schema:mainEntity`. Requires upstream `cdifProvActivity.schema:object` to accept arrays of `schema:Thing` (extended in CDIF mbb to satisfy schema.org range = schema:Thing). `schema:result` extended symmetrically.
 
@@ -84,13 +86,13 @@ Profiles additionally compose base schemas via `allOf` references.
 |------|---------|
 | `generate_profiles.py` | Generate technique profile building blocks from config data. Run with `--list` to see all profiles, or pass a profile name to regenerate one. |
 | `regenerate_schema_json.py` | Sync `*Schema.json` from `schema.yaml` sources. Use `--dry-run` to preview. |
-| `resolve_schema.py` | Resolve all `$ref` into single `resolvedSchema.json`. Supports `--all`, `--structured`, `--flatten-allof`. Canonical copy from metadataBuildingBlocks. |
+| `resolve_schema.py` | Resolve all `$ref` into a structured `resolvedSchema.json` (`$defs` + internal `$ref`, recursion-safe, ~88–90% smaller). The old fully-inlined output and separate `*StructuredSchema.json` files are gone; `--structured` is now a no-op. Supports `--all`, `--flatten-allof`. Canonical copy from metadataBuildingBlocks. |
 
 ### Validation and auditing
 
 | Tool | Purpose |
 |------|---------|
-| `audit_building_blocks.py` | Comprehensive audit: file completeness, schema.yaml vs JSON consistency, resolvedSchema freshness, example validation, SHACL coverage. Run with `--filter <name>` or `--json -o report.json`. |
+| `audit_building_blocks.py` | Comprehensive audit: file completeness, schema.yaml vs JSON consistency, resolvedSchema freshness (via the structured resolver), example validation, SHACL coverage. `isTypeLibrary` BBs (reusable `$defs` libraries with no instantiable root class, e.g. `stringArray`, `parameterValues`) are exempt from the standalone-example and SHACL-NodeShape requirements. Run with `--filter <name>` or `--json -o report.json`. |
 | `audit_shacl_coverage.py` | Check SHACL rules cover all schema.yaml properties. Reports missing/extra shapes and severity mismatches. Use `--verbose` for detail. |
 | `validate_examples.py` | Validate example JSON files against resolved schemas. Use `--filter` to target specific blocks. |
 | `validate_instance.py` | Profile-aware validation of metadata instances. Auto-detects profile from `dcterms:conformsTo`. Supports `--dir`, `--profile`, `--termcode-fallback`. |
@@ -106,7 +108,7 @@ Profiles additionally compose base schemas via `allOf` references.
 
 | Tool | Purpose |
 |------|---------|
-| `augment_register.py` | Add `resolvedSchema` URLs to `build/register.json`. Uses `ada.bbr.metadata.` prefix. Run during CI before viewer deployment. |
+| `augment_register.py` | Add `resolvedSchema` URLs to `build/register.json`. Uses the `ogch.` identifier prefix. Run during CI before viewer deployment. |
 | `generate_custom_report.py` | Generate HTML validation report with granular SHACL severity breakdown from OGC postprocess `report.json`. |
 | `cors_server.py` | Local HTTP server with CORS headers for testing the viewer. Default port 8090. |
 
@@ -132,7 +134,7 @@ Lives at `_sources/techniqueProtocols/tappDefinition/`. Was previously `geochemP
 
 - **Identity:** `schema:name`, `schema:identifier`, `schema:version`, `schema:measurementTechnique`, `schema:object` (target materials), `schema:instrument`, `schema:location` (laboratory; was `ada:laboratory`), `bios:computationalTool`, `bios:reagent`, `schema:agent`
 - **Workflow:** `schema:actionProcess` contains a `schema:HowTo` with ordered `cdi:Activity` + `schema:Action` steps (sample prep, calibration, acquisition, data processing, QC)
-- **Parameters:** typed as `schema:PropertyValueSpecification` with `readonlyValue`, `valueRequired`, `defaultValue`, `minValue`/`maxValue`, `inDefinedTermSet`, `ada:fieldScope` (method/session/element). Parameters live on their workflow steps; TAPP-wide parameters at top level.
+- **Parameters:** typed as `schema:PropertyValueSpecification` with `readonlyValue`, `valueRequired`, `defaultValue`, `minValue`/`maxValue`, `inDefinedTermSet`, `ada:fieldScope` (method/session/element). Step-level parameters use `schema:additionalProperty` (the `MethodParameter` shape); the old `StepParameter` $def and step-level `ada:methodParameters` were removed. TAPP-wide parameters are at top level.
 - **Enumerations:** allowed-value lists are expressed via `schema:inDefinedTermSet`. Four shapes accepted: URI string, `{@id}` reference, `LabeledLink`, or an inline `{@type: schema:DefinedTermSet, schema:hasDefinedTerm: [{schema:DefinedTerm, schema:termCode}, ...]}`. The legacy `ada:enumeration` array property has been removed.
 - **Analyte template:** `ada:analyteTemplate` with `PropertyValueSpecification`-typed columns and default analyte rows
 - **Vocabularies:** Bioschemas (`bios:computationalTool`, `bios:reagent`, `bios:LabProcess`), DDI-CDI (`cdi:Activity`), DQV (`dqv:hasQualityMeasurement`), schema.org `DefinedTermSet`/`DefinedTerm`
@@ -142,11 +144,11 @@ Lives at `_sources/techniqueProtocols/tappDefinition/`. Was previously `geochemP
 
 ## TAPP / detail / profile pipeline (4-script workflow)
 
-The pipeline for going from a filled-in TAPP template spreadsheet to a published technique-specific profile. The shared library is `tools/_tapp_lib.py`; the four driver scripts are thin wrappers around `configure(tapp_name, xlsx_path)` + a single library entry point.
+The pipeline for going from a filled-in TAPP template spreadsheet to a published technique-specific profile. The shared library is `tools/_tapp_lib.py`; the four driver scripts are thin wrappers around `configure(tapp_name, xlsx_path)` + a single library entry point. The library is parameterized across TAPPs via a `TAPP_PROFILES` dict copied into the active `CFG` by `configure()`, so `empaTAPP` and `laicpmsTAPP` share the generator (it was previously EMPA-hardcoded); add a new TAPP by registering its knobs in `TAPP_PROFILES`.
 
 ```
 build_TAPP_from_spreadsheet.py [TAPP_NAME] [XLSX] [--pub P0]…   # → TAPP BB + analyteColumns/parameterTemplates/vocab catalogs
-build_detail_BB.py             [TAPP_NAME] [XLSX] [--pub P0]…   # → detail BB scaffold + parameterValues catalog + parametersConstraint.yaml
+build_detail_BB.py             [TAPP_NAME] [XLSX] [--pub P0]…   # → detail BB scaffold + parameterValues registry $defs
 build_profile_BB.py            [TAPP_NAME]                       # → profiles/geochemProfiles/<short>Profile/ scaffold
 build_dataset_template.py      <tapp-instance.json>              # → xlsx with columns from analyteColumns, rows from defaultAnalytes
                                [<out.xlsx>]
@@ -162,7 +164,7 @@ All four default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx`. Templates and the
 
 For each `parameter:<name>` impl-notes tag:
 - `readOnly:true`  → `techniqueProtocols/parameterTemplates/<name>.json` (PropertyValueSpecification template), referenced from the TAPP's `ada:methodParameters` `oneOf`.
-- `readOnly:false` → `techniqueProtocols/parameterValues/<name>.json` (PropertyValue instance shape with `@id == $id == schema:propertyID == ada:parameter/<TAPP>/<name>`), referenced from `geochemProperties/detail<XXX>/parametersConstraint.yaml`'s `oneOf`.
+- `readOnly:false` → a named `$def` in `techniqueProtocols/parameterValues/schema.yaml` (PropertyValue instance shape with `@id == $id == schema:propertyID == ada:parameter/<TAPP>/<name>`), referenced by URI fragment from `analysisSpecificDetails/detail<XXX>/schema.yaml`'s inline `schema:additionalProperty` `anyOf` (the detail block now folds this constraint into its `allOf` directly — the old per-detail `parametersConstraint.yaml` file is gone).
 
 For each `analyteColumn:<name>` impl-notes tag → `techniqueProtocols/analyteColumns/<name>.json`. For each unique enum row → `techniqueProtocols/vocab/<name>.json`.
 
@@ -199,17 +201,17 @@ This is why a future `xrdTAPP` regen can `$ref` empaTAPP-originated catalog entr
 
 - **Spec source:** `docs/TAPP_EPMA_filled.xlsx`, sheet `TAPP`. Layout is A–F (item / desc / basic / dtype / example / Last update), G–J (Level / CDIF path / matchComment / impl notes), K..AA (pub columns P0..P10plag — extensible to the right). Each row's `implementation notes` column (column J) tags it as `property:`, `parameter:`, `analyteColumn:` (or combinations) and carries `readOnly`, `dataType`, optional `enum {...}`. Per-tag fields are scoped to the chunk of impl-notes between consecutive tags.
 - **Generated by:** `tools/build_TAPP_from_spreadsheet.py` (TAPP side) + `tools/build_detail_BB.py` (detail side). Both read the same xlsx; the routing rule above splits parameters between empaTAPP and detailEMPA.
-- **Currently emits:** 26 analyteColumns, 6 readOnly:true parameterTemplates, 4 readOnly:false parameterValues, 12 vocabularies, the empaTAPP `schema.yaml`, `detailEMPA/parametersConstraint.yaml`, 17 paired `exampleempaTAPP-P{N}.json` + `exampledetailEMPA-P{N}.json` instances, plus the comprehensive hand-authored `exampleempaTAPP-all.json` + `exampledetailEMPA-all.json`. `tools/build_adaEMPA_examples.py` adds 17 paired `exampleadaEMPA-P{N}.json` profile-level Datasets (Phase D — see below).
+- **Currently emits:** 26 analyteColumns, 6 readOnly:true parameterTemplates, 4 readOnly:false parameterValues `$defs`, 12 vocabularies, the empaTAPP `schema.yaml`, the detailEMPA `schema:additionalProperty` constraint (inline in `detailEMPA/schema.yaml`), 17 paired `exampleempaTAPP-P{N}.json` + `exampledetailEMPA-P{N}.json` instances, plus the comprehensive hand-authored `exampleempaTAPP-all.json` + `exampledetailEMPA-all.json`. `tools/build_adaEMPA_examples.py` adds 17 paired `exampleadaEMPA-P{N}.json` profile-level Datasets (Phase D — see below).
 - **Validation rule for per-pub examples:** when a publication's value for an enum-constrained property doesn't exactly match an enum entry, the generator skips that property in the example rather than emitting invalid data. For numeric `schema:value` fields, `additional_property_obj` uses `anyOf [<typed>, string]` so qualified publication-style values like `"0 (focused)"` validate alongside clean numbers.
 - **Authoring gotchas:** `schema:inDefinedTermSet` is `{"@id": "..."}` (object), not a plain string; `schema:instrument.schema:identifier` is an array (per CDIF instrument BB); `schema:hasPart` items must contain `schema:Thing` in `@type`; `schema:location.schema:additionalType` must contain `nxs:BaseClass/NXsource`; `geosparql:asWKT` is `{@type:[geosparql:wktLiteral], @value:...}` and `geosparql:crs` is `{@id:...}`; `dqv:isMeasurementOf` is required on every quality measurement; `schema:relatedLink` items are `schema:CreativeWork`, not LinkRoles.
 
 ## detailEMPA — paired per-dataset detail block
 
-`_sources/geochemProperties/detailEMPA/` carries per-dataset values that complement an empaTAPP TAPP definition. Schema is hand-authored (`ada:componentType` enum, `schema:measurementTechnique` requires an `@id` reference to a registered TAPP) plus `allOf [- $ref: parametersConstraint.yaml]` to fold in the generated `schema:additionalProperty[]` `oneOf` constraint.
+`_sources/analysisSpecificDetails/detailEMPA/` carries per-dataset values that complement an empaTAPP TAPP definition. Schema is hand-authored (`ada:componentType` enum, `schema:measurementTechnique` requires an `@id` reference to a registered TAPP) plus an inline `schema:additionalProperty` constraint in its `allOf` whose `anyOf` branches `$ref` the `parameterValues` registry `$defs` (e.g. `../../techniqueProtocols/parameterValues/schema.yaml#/$defs/acceleratingVoltage`). The separate `parametersConstraint.yaml` file was deleted.
 
-- **Generated artifacts:** `parametersConstraint.yaml`, paired `exampledetailEMPA-P{N}.json` instances (one per pub), plus `resolvedSchema.json` and `structuredSchema.json` via `tools/resolve_schema.py`.
+- **Generated artifacts:** paired `exampledetailEMPA-P{N}.json` instances (one per pub), plus the structured `resolvedSchema.json` via `tools/resolve_schema.py`.
 - **Hand-authored bits:** `schema.yaml`'s `ada:componentType` enum is user-maintained. The build_detail_BB.py scaffolder writes a stub on first run (when no `schema.yaml` exists yet) with placeholder `ada:TODO_ComponentType` consts.
-- **measurementTechnique is `@id`-only.** A 2026-04-29 change dropped the inline empaTAPP-as-anyOf alternative — it inflated the resolved schema to 931 KB / structuredSchema to 1.76 MB by inlining the entire TAPP. After the change, both are <12 KB. Trade-off: detailEMPA records cannot self-contain a TAPP definition; consumers must resolve the TAPP by URI.
+- **measurementTechnique is `@id`-only.** A 2026-04-29 change dropped the inline empaTAPP-as-anyOf alternative — it inflated the resolved schema to 931 KB by inlining the entire TAPP. After the change it is <12 KB. Trade-off: detailEMPA records cannot self-contain a TAPP definition; consumers must resolve the TAPP by URI.
 
 ## Phase D (analytes → variableMeasured) — implemented
 
@@ -223,9 +225,9 @@ For each pub with paired (empaTAPP, detailEMPA) examples on disk, `tools/build_a
 #    See docs/TAPP_TEMPLATE_GUIDE.md for column conventions and impl-notes tag rules.
 # 2. Generate the TAPP BB + shared catalog entries:
 python tools/build_TAPP_from_spreadsheet.py xrdTAPP docs/TAPP_XRD_filled.xlsx
-# 3. Generate the detail BB scaffold + parameterValues catalog + parametersConstraint.yaml:
+# 3. Generate the detail BB scaffold + parameterValues registry $defs:
 python tools/build_detail_BB.py xrdTAPP docs/TAPP_XRD_filled.xlsx
-# 4. Edit _sources/geochemProperties/detail<XRD>/schema.yaml — fill in the
+# 4. Edit _sources/analysisSpecificDetails/detail<XRD>/schema.yaml — fill in the
 #    technique-specific ada:componentType enum (placeholder is "ada:TODO_ComponentType").
 # 5. Scaffold the geochem profile:
 python tools/build_profile_BB.py xrdTAPP
