@@ -2,7 +2,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA ICP-MS Product Profile
 description: Technique-specific profile for Inductively Coupled Plasma Mass Spectrometry (ICP-MS) products. Covers HR-ICP-MS, Q-ICP-MS, and MC-ICP-MS variants. Extends the base ADA product profile with constraints on valid ICP-MS component types.
 allOf:
-  - $ref: ../adaProduct/schema.yaml
+  - $ref: ../../adaProfiles/adaProduct/schema.yaml
   - type: object
     properties:
       schema:measurementTechnique:
@@ -39,7 +39,7 @@ allOf:
               items:
                 type: object
                 anyOf:
-                  - $ref: ../adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                  - $ref: ../../adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
                   - properties:
                       ada:componentType:
                         type: string
