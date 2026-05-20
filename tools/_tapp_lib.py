@@ -1012,12 +1012,19 @@ def _write_catalog_registry(
             ("abstract", bblock_abstract),
             ("isTypeLibrary", True),
             ("status", "under-development"),
+            ("dateTimeAddition", "2026-05-20T00:00:00Z"),
             ("itemClass", "schema"),
             ("register", "cdif-building-block-register"),
             ("version", "0.1"),
+            ("dateOfLastChange", "2026-05-20"),
+            ("link", "https://github.com/usgin/geochemBuildingBlocks"),
             ("maturity", "draft"),
             ("scope", "unstable"),
             ("tags", bblock_tags),
+            ("sources", [
+                {"title": "ADA Metadata Schema v3",
+                 "link": "https://github.com/amds-ldeo/metadata"},
+            ]),
         ])
         write_json(bblock_path, bblock)
         print(f"  wrote {bblock_path.relative_to(REPO_ROOT)}")
