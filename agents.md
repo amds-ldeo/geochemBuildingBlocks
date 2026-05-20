@@ -14,10 +14,10 @@ _sources/
   analysisSpecificDetails/   16 detail<XXX>/ pair blocks for technique TAPPs (e.g. detailEMPA, detailXRD)
                              — moved here from geochemProperties/; old `details` umbrella BB removed
   techniqueProtocols/
-    analyteColumns/          loose helper: PropertyValueSpecification per analyte column
-    parameterTemplates/      loose helper: PropertyValueSpecification (readOnly:true params)
+    analyteColumns/          registered BB (isTypeLibrary): PropertyValueSpecification $defs per analyte column
+    parameterTemplates/      registered BB (isTypeLibrary): PropertyValueSpecification $defs (readOnly:true params)
     parameterValues/         registered BB (isTypeLibrary): PropertyValue $defs (readOnly:false params)
-    vocab/                   loose helper: DefinedTermSet per vocabulary
+    vocab/                   catalog: DefinedTermSet files (referenced by @id, not $ref)
     tappDefinition/          base TAPP definition (was geochemProperties/methodDefinition)
     empaTAPP/                concrete TAPP profile (EMPA)
     laicpmsTAPP/             concrete TAPP profile (LA-ICP-MS)
@@ -163,10 +163,10 @@ All four default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx`. Templates and the
 ### Catalog routing rules
 
 For each `parameter:<name>` impl-notes tag:
-- `readOnly:true`  → `techniqueProtocols/parameterTemplates/<name>.json` (PropertyValueSpecification template), referenced from the TAPP's `ada:methodParameters` `oneOf`.
+- `readOnly:true`  → a named `$def` in `techniqueProtocols/parameterTemplates/schema.yaml` (PropertyValueSpecification template), referenced by URI fragment (`…/parameterTemplates/schema.yaml#/$defs/<name>`) from the TAPP's `ada:methodParameters` `oneOf`.
 - `readOnly:false` → a named `$def` in `techniqueProtocols/parameterValues/schema.yaml` (PropertyValue instance shape with `@id == $id == schema:propertyID == ada:parameter/<TAPP>/<name>`), referenced by URI fragment from `analysisSpecificDetails/detail<XXX>/schema.yaml`'s inline `schema:additionalProperty` `anyOf` (the detail block now folds this constraint into its `allOf` directly — the old per-detail `parametersConstraint.yaml` file is gone).
 
-For each `analyteColumn:<name>` impl-notes tag → `techniqueProtocols/analyteColumns/<name>.json`. For each unique enum row → `techniqueProtocols/vocab/<name>.json`.
+For each `analyteColumn:<name>` impl-notes tag → a named `$def` in `techniqueProtocols/analyteColumns/schema.yaml`, referenced by URI fragment (`…/analyteColumns/schema.yaml#/$defs/<name>`) from the TAPP's `ada:analyteTemplate.ada:analyteColumns` `anyOf`. For each unique enum row → `techniqueProtocols/vocab/<name>.json` (vocab stays a plain catalog, referenced by JSON-LD `@id`, not `$ref`).
 
 The parser fix on 2026-04-28 (`parse_impl()` → `tag_records`) extracts per-tag `readOnly` so a row carrying both a `property:` (readOnly:true) and a `parameter:` (readOnly:false) tag routes each correctly.
 

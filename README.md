@@ -16,17 +16,17 @@ The scheme involves three components:
 
 ```
 _sources/techniqueProtocols/
-  analyteColumns/        ← loose helper: schema:PropertyValueSpecification per analyte column
-  parameterTemplates/    ← loose helper: PropertyValueSpecification (readOnly:true params)
+  analyteColumns/        ← registered BB: schema:PropertyValueSpecification $defs per analyte column
+  parameterTemplates/    ← registered BB: PropertyValueSpecification $defs (readOnly:true params)
   parameterValues/       ← registered BB: schema:PropertyValue $defs (readOnly:false params)
-  vocab/                 ← loose helper: schema:DefinedTermSet per vocabulary
+  vocab/                 ← catalog: schema:DefinedTermSet files (referenced by @id, not $ref)
   tappDefinition/        ← base TAPP definition (JSON-LD class ada:TAPPDefinition)
   empaTAPP/              ← concrete TAPP profile (EMPA)
   laicpmsTAPP/           ← concrete TAPP profile (LA-ICP-MS)
   <future>TAPP/          ← additional TAPPs `$ref` the catalogs above
 ```
 
-`parameterValues` is a **registered type-library building block** (`bblock.json` with `isTypeLibrary: true`): each per-dataset parameter lives as a named `$def` in `parameterValues/schema.yaml`, and detail blocks reference them by URI fragment (`$ref: …/parameterValues/schema.yaml#/$defs/<name>`). Because it is registered, the OGC bblocks `annotate` step resolves those refs locally via the register and inlines them into `resolvedSchema.json`. By contrast, `analyteColumns/`, `parameterTemplates/`, and `vocab/` are still **loose helper dirs** (flat `<name>.json` files, not registered BBs). The `annotate` step fetches loose helper files from the published gh-pages URL, which 404s on moved or unpublished paths — so shared catalogs referenced across BBs should ideally be registered BBs with `$defs` too. Migrating the remaining loose helpers is in progress; `analyteColumns` currently breaks CI for this reason.
+`analyteColumns`, `parameterTemplates`, and `parameterValues` are each a **registered type-library building block** (`bblock.json` with `isTypeLibrary: true`): every entry lives as a named `$def` in the catalog's `schema.yaml`, and TAPP / detail blocks reference them by URI fragment (`$ref: …/<catalog>/schema.yaml#/$defs/<name>`). Because they are registered, the OGC bblocks `annotate` step resolves those refs **locally via the register** and inlines them into `resolvedSchema.json`. This matters: a *loose* helper file (a plain `<name>.json` not inside a registered BB) is instead fetched from the published gh-pages URL, which 404s on moved or unpublished paths (`process-bblocks.yml` sets `skip-pages: true`, so gh-pages never auto-updates) — that fragility is why the catalogs were promoted to registered BBs. `vocab/` is the exception: it stays a plain catalog of `schema:DefinedTermSet` files because it is referenced only by JSON-LD `@id` (`schema:inDefinedTermSet`), never by `$ref`, so the `annotate` step never fetches it.
 
 The catalog dirs are **shared dictionary resources** — multiple TAPP profiles `$ref` the same files when their definitions match. The tooling's `share_or_write_catalog` helper lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
 
