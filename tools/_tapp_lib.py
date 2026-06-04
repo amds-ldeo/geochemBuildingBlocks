@@ -1728,7 +1728,7 @@ def variable_measured_from_default_analytes(pub_label: str, default_analytes: li
             ("schema:propertyID", [f"https://ada.astromat.org/vocabulary/analytes/{analyte}"]),
             ("schema:unitText", unit_text),
             ("cdi:intendedDataType", "https://www.w3.org/TR/xmlschema-2/#decimal"),
-            ("cdi:physicalDataType", ["https://www.w3.org/TR/xmlschema-2/#double"]),
+            ("cdif:physicalDataType", "https://www.w3.org/TR/xmlschema-2/#double"),
             ("cdi:role", "MeasureComponent"),
             ("cdi:simpleUnitOfMeasure", unit_text),
         ]))
