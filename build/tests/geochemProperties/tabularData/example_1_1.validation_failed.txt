@@ -1,5 +1,5 @@
 Validation report for ogch.geochemProperties.tabularData - Tabular Data Type
-Generated 2026-05-20T19:28:42.304660+00:00
+Generated 2026-06-04T20:46:01.606029+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -91,8 +91,9 @@ Failed validating 'required' in schema['allOf'][1]:
                                                                'representation '
                                                                'in this '
                                                                'dataset.',
-                                                'items': {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifProperties/cdifPhysicalMapping/schema.yaml'},
-                                                'type': 'array'},
+                                                'items': {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifPhysicalMapping/schema.yaml'},
+                                                'type': 'array',
+                                                'x-jsonld-id': 'https://cdif.org/0.1/hasPhysicalMapping'},
                     'countColumns': {'type': 'integer'},
                     'countRows': {'type': 'integer'},
                     'csvw:commentPrefix': {'description': 'An atomic '
@@ -216,6 +217,7 @@ Failed validating 'required' in schema['allOf'][1]:
      'type': 'object',
      'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
                            'cdi': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/',
+                           'cdif': 'https://cdif.org/0.1/',
                            'schema': 'http://schema.org/'}}
 
 On instance:
@@ -235,9 +237,16 @@ Validation result for _sources/geochemProperties/tabularData/rules.shacl:
 Focus nodes for _sources/geochemProperties/tabularData/rules.shacl:
  - Shape cdifd:tabularDataShape: *none*
 
+Validation result for _sources/geochemProperties/spatialRegistration/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geochemProperties/spatialRegistration/rules.shacl:
+ - Shape cdifd:spatialRegistrationShape: *none*
+
 
 ** Validation error **
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifTabularData/rules.shacl:
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:
   Validation Report
   Conforms: False
   Results (1):
@@ -248,24 +257,54 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Result Path: cdif:hasPhysicalMapping
   	Message: A TabularTextDataSet must have physical mappings (cdif:hasPhysicalMapping) linking variables to columns (required by the JSON Schema).
   
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifTabularData/rules.shacl:
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:
  - Shape cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:tabularDataShape: _:N11c2ec6db8d84b6c801335c36aacdf33
  - Shape cdifd:tabularDataShape/sh:or/rdf:first: *none*
- - Shape cdifd:tabularDataShape: _:N3550e7a7233f439892834fec14168d17
 
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifPhysicalMapping/rules.shacl:
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
   Validation Report
   Conforms: True
   
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifPhysicalMapping/rules.shacl:
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
  - Shape cdifd:physicalMappingShape: *none*
 
-Validation result for _sources/geochemProperties/spatialRegistration/rules.shacl:
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
   Validation Report
   Conforms: True
   
-Focus nodes for _sources/geochemProperties/spatialRegistration/rules.shacl:
- - Shape cdifd:spatialRegistrationShape: *none*
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb10: *none*
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb7: *none*
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb4: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb19: *none*
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb5: *none*
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb8: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb26: *none*
+ - Shape _:nb20852fd74644178b5e6902429dba3fbb6: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape _:nb778e028c9354233be659ba8f8e53755b22: *none*
+ - Shape _:nb778e028c9354233be659ba8f8e53755b21: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nb778e028c9354233be659ba8f8e53755b20: *none*
+ - Shape _:nb778e028c9354233be659ba8f8e53755b10: *none*
+ - Shape _:nb778e028c9354233be659ba8f8e53755b11: *none*
+ - Shape _:nb778e028c9354233be659ba8f8e53755b25: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nb778e028c9354233be659ba8f8e53755b23: *none*
 
 === End SHACL ===
 

@@ -1871,26 +1871,6 @@ ex:empaTAPP-p0 a cdi:Activity,
             schema1:hasPart [ a schema1:Thing ;
                     schema1:additionalProperty [ a schema1:PropertyValue ;
                             schema1:name "Crystals" ;
-                            schema1:value "LiF, PET, TAP, PC2" ],
-                        [ a schema1:PropertyValue ;
-                            schema1:name "Orientation" ;
-                            schema1:value "Inclined" ] ;
-                    schema1:additionalType "wdsSpectrometer" ;
-                    schema1:description "Less sensitive to specimen height; good for rough surfaces; low pressure" ;
-                    schema1:name "SP1" ],
-                [ a schema1:Thing ;
-                    schema1:additionalProperty [ a schema1:PropertyValue ;
-                            schema1:name "Orientation" ;
-                            schema1:value "Vertical" ],
-                        [ a schema1:PropertyValue ;
-                            schema1:name "Crystals" ;
-                            schema1:value "LLiF,LPET" ] ;
-                    schema1:additionalType "wdsSpectrometer" ;
-                    schema1:description "High pressure for greater sensitivity; large crystals for trace/light elements" ;
-                    schema1:name "SP2" ],
-                [ a schema1:Thing ;
-                    schema1:additionalProperty [ a schema1:PropertyValue ;
-                            schema1:name "Crystals" ;
                             schema1:value "TAP, PC0" ],
                         [ a schema1:PropertyValue ;
                             schema1:name "Orientation" ;
@@ -1902,6 +1882,26 @@ ex:empaTAPP-p0 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType "ElectronSource" ;
                     schema1:name "Field Emission (FEG)" ],
+                [ a schema1:Thing ;
+                    schema1:additionalProperty [ a schema1:PropertyValue ;
+                            schema1:name "Crystals" ;
+                            schema1:value "LLiF,LPET" ],
+                        [ a schema1:PropertyValue ;
+                            schema1:name "Orientation" ;
+                            schema1:value "Vertical" ] ;
+                    schema1:additionalType "wdsSpectrometer" ;
+                    schema1:description "High pressure for greater sensitivity; large crystals for trace/light elements" ;
+                    schema1:name "SP2" ],
+                [ a schema1:Thing ;
+                    schema1:additionalProperty [ a schema1:PropertyValue ;
+                            schema1:name "Crystals" ;
+                            schema1:value "LiF, PET, TAP, PC2" ],
+                        [ a schema1:PropertyValue ;
+                            schema1:name "Orientation" ;
+                            schema1:value "Inclined" ] ;
+                    schema1:additionalType "wdsSpectrometer" ;
+                    schema1:description "Less sensitive to specimen height; good for rough surfaces; low pressure" ;
+                    schema1:name "SP1" ],
                 [ a schema1:Thing ;
                     schema1:additionalProperty [ a schema1:PropertyValue ;
                             schema1:name "Orientation" ;
@@ -1924,11 +1924,11 @@ ex:empaTAPP-p0 a cdi:Activity,
             schema1:termCode "EPMA-WDS" ] ;
     schema1:name "EPMA-WDS major/minor element silicate and oxide| all properties" ;
     schema1:object [ a schema1:DefinedTerm ;
+            schema1:name "Feldspar" ],
+        [ a schema1:DefinedTerm ;
             schema1:name "Pyroxene" ],
         [ a schema1:DefinedTerm ;
-            schema1:name "Olivine" ],
-        [ a schema1:DefinedTerm ;
-            schema1:name "Feldspar" ] ;
+            schema1:name "Olivine" ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:name "Method reference" ;
             schema1:url "https://example.org/EMPA/WDS" ] ;
@@ -1985,14 +1985,14 @@ ex:empaTAPP-p0 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/massAbsorptionCoefficients>,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/wdsDeadTimeCorrection> ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "CalcZAF" ;
-            ada:toolRole "reduction" ],
+            schema1:name "Probe for EPMA v12.9.5" ;
+            ada:toolRole "acquisition" ],
         [ a schema1:SoftwareApplication ;
             schema1:name "Cameca PeakSight" ;
             ada:toolRole "reduction" ],
         [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA v12.9.5" ;
-            ada:toolRole "acquisition" ] .
+            schema1:name "CalcZAF" ;
+            ada:toolRole "reduction" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analysisOrder> a schema1:PropertyValueSpecification ;
     schema1:description "Order of analysis on spectormeter. To give an example, if there are 5 detectors, 5 analytes (elements) will be measured simultaneously on the first pass (i.e., Sequence = 1 for all of them), then 5 other analytes will be measured simultaneously on the second pass (i.e., Sequence = 2 for these 5 analytes), etc. The numbering depends on the order of these analytes being measured during an analysis. Also, if there are 20 analytes, there will be at least 4 passes in this case." ;
@@ -4909,11 +4909,11 @@ ex:empaTAPP-p4 a cdi:Activity,
     ada:beamDiameterDefault "0 (focused)" ;
     ada:beamMode "Focused" ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
             schema1:name "CITZAF correction procedure (Armstrong, 1995)" ;
-            ada:toolRole "reduction" ] .
+            ada:toolRole "reduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:name "Probe for EPMA" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:description "Total time spent counting at background position(s) in seconds." ;
@@ -6107,11 +6107,11 @@ ex:empaTAPP-p6 a cdi:Activity,
     ada:methodParameters <https://ada.astromat.org/metadata/parameter/empaTAPP/BeamDamageMinimization>,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/halogenOxygenCorrection> ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
             schema1:name "CITZAF (Armstrong, 1995); CalcImage; Quantitative Microanalysis Explorer" ;
-            ada:toolRole "reduction" ] .
+            ada:toolRole "reduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:name "Probe for EPMA" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:description "Method used to estimate and subtract background X-ray intensity beneath the peak." ;
@@ -7140,11 +7140,11 @@ ex:empaTAPP-p8sil a cdi:Activity,
     ada:beamDiameterDefault "~1 µm focused" ;
     ada:beamMode "Focused" ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "XMapTools (for phase maps)" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
             schema1:name "XMapTools; ZAF correction" ;
-            ada:toolRole "reduction" ] .
+            ada:toolRole "reduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:name "XMapTools (for phase maps)" ;
+            ada:toolRole "acquisition" ] .
 
 
 ```
@@ -7381,11 +7381,11 @@ ex:empaTAPP-p8carb a cdi:Activity,
     ada:beamCurrentDefault "4 nA" ;
     ada:beamDiameterDefault "variable" ;
     bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "XMapTools; ZAF correction" ;
-            ada:toolRole "reduction" ],
-        [ a schema1:SoftwareApplication ;
             schema1:name "XMapTools (for phase maps)" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:name "XMapTools; ZAF correction" ;
+            ada:toolRole "reduction" ] .
 
 
 ```

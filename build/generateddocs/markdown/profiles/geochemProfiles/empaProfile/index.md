@@ -144,16 +144,16 @@ adaProduct fields plus the empaProfile-specific empaTAPP measurement-technique
     "schema:dateModified": "2026-05-01",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -309,16 +309,16 @@ adaProduct fields plus the empaProfile-specific empaTAPP measurement-technique
     "schema:dateModified": "2026-05-01",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -385,10 +385,10 @@ ex:empaProfile-minimal-file-001 a schema1:ImageObject,
     ada:spectrometersUsed "WDS" .
 
 ex:empaProfile-minimal-metadata-001 a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
         <https://w3id.org/geochem/metadata/profiles/empaProfile> ;
     schema1:about ex:empaProfile-minimal-001 ;
@@ -634,9 +634,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:empaProfile-var-002",
@@ -653,9 +651,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:empaProfile-var-003",
@@ -672,9 +668,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:empaProfile-var-004",
@@ -691,9 +685,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -954,16 +946,16 @@ methodDescription document. Mock data for validation and testing.
     "schema:dateModified": "2026-05-01",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -1227,9 +1219,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:empaProfile-var-002",
@@ -1246,9 +1236,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:empaProfile-var-003",
@@ -1265,9 +1253,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:empaProfile-var-004",
@@ -1284,9 +1270,7 @@ methodDescription document. Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -1547,16 +1531,16 @@ methodDescription document. Mock data for validation and testing.
     "schema:dateModified": "2026-05-01",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -1698,10 +1682,10 @@ ex:empaProfile-example-001 a schema1:Dataset,
                     schema1:name "JEOL JXA-8200 Electron Microprobe" ] ] .
 
 ex:empaProfile-example-metadata-001 a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
         <https://w3id.org/geochem/metadata/profiles/empaProfile> ;
     schema1:about ex:empaProfile-example-001 ;

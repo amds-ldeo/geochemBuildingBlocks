@@ -273,9 +273,7 @@ Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaXCT-var-002",
@@ -295,9 +293,7 @@ Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -406,22 +402,22 @@ Mock data for validation and testing.
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaXCT"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -680,9 +676,7 @@ Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaXCT-var-002",
@@ -702,9 +696,7 @@ Mock data for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -813,22 +805,22 @@ Mock data for validation and testing.
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaXCT"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -987,11 +979,11 @@ ex:adaXCT-file-002 a schema1:DigitalDocument,
     ada:componentType "ada:methodDescription" .
 
 ex:adaXCT-metadata-001 a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
         <https://w3id.org/geochem/metadata/profiles/adaXCT> ;
     schema1:about ex:adaXCT-example-001 ;

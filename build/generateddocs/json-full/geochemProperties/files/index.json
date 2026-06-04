@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-05-20",
+  "dateOfLastChange": "2026-06-04",
   "link": "https://github.com/usgin/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -29,17 +29,29 @@
     "ogch.geochemProperties.files": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/files/rules.shacl"
     ],
-    "ogch.geochemProperties.supDocImage": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/supDocImage/rules.shacl"
-    ],
     "ogch.geochemProperties.dataCube": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/dataCube/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifProperties.cdifDataCube": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifDataCube/rules.shacl"
+    "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifProperties.cdifPhysicalMapping": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifPhysicalMapping/rules.shacl"
+    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.identifier": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+    ],
+    "ogch.geochemProperties.stringArray": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/stringArray/rules.shacl"
+    ],
+    "ogch.geochemProperties.image": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/image/rules.shacl"
+    ],
+    "ogch.geochemProperties.collection": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/collection/rules.shacl"
     ],
     "ogch.geochemProperties.document": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/document/rules.shacl"
@@ -50,35 +62,29 @@
     "ogch.geochemProperties.spatialRegistration": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/spatialRegistration/rules.shacl"
     ],
-    "ogch.geochemProperties.otherFile": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/otherFile/rules.shacl"
-    ],
     "ogch.geochemProperties.tabularData": [
       "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/tabularData/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifProperties.cdifTabularData": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifProperties/cdifTabularData/rules.shacl"
+    "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
     ],
-    "ogch.geochemProperties.image": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/image/rules.shacl"
+    "ogch.geochemProperties.otherFile": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/otherFile/rules.shacl"
     ],
-    "ogch.geochemProperties.stringArray": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/stringArray/rules.shacl"
-    ],
-    "ogch.geochemProperties.collection": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/collection/rules.shacl"
+    "ogch.geochemProperties.supDocImage": [
+      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/supDocImage/rules.shacl"
     ]
   },
   "dependsOn": [
-    "ogch.geochemProperties.supDocImage",
     "ogch.geochemProperties.dataCube",
+    "ogch.geochemProperties.stringArray",
+    "ogch.geochemProperties.image",
+    "ogch.geochemProperties.collection",
     "ogch.geochemProperties.document",
     "ogch.geochemProperties.imageMap",
-    "ogch.geochemProperties.otherFile",
     "ogch.geochemProperties.tabularData",
-    "ogch.geochemProperties.image",
-    "ogch.geochemProperties.stringArray",
-    "ogch.geochemProperties.collection"
+    "ogch.geochemProperties.otherFile",
+    "ogch.geochemProperties.supDocImage"
   ],
   "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/context.jsonld",
   "schema": {
@@ -103,18 +109,18 @@
       "snippets": [
         {
           "language": "json",
-          "code": "{\n  \"@type\": [\"ada:image\", \"schema:MediaObject\"],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\"image/tiff\"],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\"schema:QuantitativeValue\"],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [\"ada:BSEImage\"],\n  \"ada:componentType\": {\n    \"@type\": [\"ada:BSEImage\"]\n  },\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\"schema:LinkRole\"],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\"schema:EntryPoint\"],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}\n",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/files/example_1_1.json"
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/files/example_1_1.json",
+          "code": "{\n  \"@type\": [\"ada:image\", \"schema:MediaObject\"],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\"image/tiff\"],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\"schema:QuantitativeValue\"],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [\"ada:BSEImage\"],\n  \"ada:componentType\": {\n    \"@type\": [\"ada:BSEImage\"]\n  },\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\"schema:LinkRole\"],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\"schema:EntryPoint\"],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}\n"
         },
         {
           "language": "jsonld",
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:image\",\n    \"schema:MediaObject\"\n  ],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\n    \"image/tiff\"\n  ],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\n      \"schema:QuantitativeValue\"\n    ],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [\n    \"ada:BSEImage\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": [\n      \"ada:BSEImage\"\n    ]\n  },\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\n        \"schema:LinkRole\"\n      ],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\n          \"schema:EntryPoint\"\n        ],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/files/example_1_1.jsonld"
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/files/example_1_1.jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:image\",\n    \"schema:MediaObject\"\n  ],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\n    \"image/tiff\"\n  ],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\n      \"schema:QuantitativeValue\"\n    ],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [\n    \"ada:BSEImage\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": [\n      \"ada:BSEImage\"\n    ]\n  },\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\n        \"schema:LinkRole\"\n      ],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\n          \"schema:EntryPoint\"\n        ],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:MediaObject,\n        ada:image ;\n    schema1:additionalType \"ada:BSEImage\" ;\n    schema1:description \"Backscattered electron image of ALH84001 thin section\" ;\n    schema1:encodingFormat \"image/tiff\" ;\n    schema1:name \"ALH84001_BSE_001.tif\" ;\n    schema1:relatedLink [ a schema1:LinkRole ;\n            schema1:linkRelationship \"metadata\" ;\n            schema1:target [ a schema1:EntryPoint ;\n                    schema1:encodingFormat \"application/json\" ;\n                    schema1:name \"ALH84001_BSE_001_metadata.json\" ] ] ;\n    schema1:size [ a schema1:QuantitativeValue ;\n            schema1:unitText \"byte\" ;\n            schema1:value 4521984 ] ;\n    ada:componentType [ a ada:BSEImage ] .\n\n",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/files/example_1_1.ttl"
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/files/example_1_1.ttl",
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:MediaObject,\n        ada:image ;\n    schema1:additionalType \"ada:BSEImage\" ;\n    schema1:description \"Backscattered electron image of ALH84001 thin section\" ;\n    schema1:encodingFormat \"image/tiff\" ;\n    schema1:name \"ALH84001_BSE_001.tif\" ;\n    schema1:relatedLink [ a schema1:LinkRole ;\n            schema1:linkRelationship \"metadata\" ;\n            schema1:target [ a schema1:EntryPoint ;\n                    schema1:encodingFormat \"application/json\" ;\n                    schema1:name \"ALH84001_BSE_001_metadata.json\" ] ] ;\n    schema1:size [ a schema1:QuantitativeValue ;\n            schema1:unitText \"byte\" ;\n            schema1:value 4521984 ] ;\n    ada:componentType [ a ada:BSEImage ] .\n\n"
         }
       ]
     }

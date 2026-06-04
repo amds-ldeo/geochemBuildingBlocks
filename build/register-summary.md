@@ -106,11 +106,11 @@ Shell type for labeled links to creative works (schema:CreativeWork). Defines pr
 
 Supplemental documents for calibration, methods, and analysis info. Defines properties: @type, componentType, schema:version, schema:isBasedOn. Uses building blocks: detailARGT (geochemProperties).
 
-### `ogch.geochemProperties.supDocImage` — Supplemental Document Image Type
+### `ogch.geochemProperties.image` — Image Type
 
 **Type:** schema
 
-Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
+ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
 
 ### `ogch.geochemProperties.otherFile` — Other File Type
 
@@ -118,11 +118,11 @@ Supplemental document images including analysis locations and context photos. De
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
 
-### `ogch.geochemProperties.image` — Image Type
+### `ogch.geochemProperties.supDocImage` — Supplemental Document Image Type
 
 **Type:** schema
 
-ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
+Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
 ### `ogch.geochemProperties.spatialRegistration` — Spatial Registration Type
 
@@ -178,6 +178,12 @@ Set of related files with identical information models or composite datasets. De
 
 Spatially registered image map with pixel coordinates and component types. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, illuminationType, imageType, numPixelsX, numPixelsY, spatialRegistration. Uses building blocks: detailEMPA (geochemProperties), spatialRegistration (geochemProperties).
 
+### `ogch.geochemProperties.laboratory` — ADA Analysis Laboratory
+
+**Type:** schema
+
+ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds nxs:BaseClass/NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.
+
 ### `ogch.geochemProperties.dataCube` — Data Cube Type
 
 **Type:** schema
@@ -189,12 +195,6 @@ CDI DimensionalDataStructure for multidimensional data. Defines properties: @typ
 **Type:** schema
 
 CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEMPA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
-
-### `ogch.geochemProperties.laboratory` — ADA Analysis Laboratory
-
-**Type:** schema
-
-ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds nxs:BaseClass/NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.
 
 ### `ogch.geochemProperties.files` — Files Type
 

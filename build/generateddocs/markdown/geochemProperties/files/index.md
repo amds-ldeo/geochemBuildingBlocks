@@ -274,6 +274,7 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "spdx": "http://spdx.org/rdf/terms#",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
     "@version": 1.1
   }
 }

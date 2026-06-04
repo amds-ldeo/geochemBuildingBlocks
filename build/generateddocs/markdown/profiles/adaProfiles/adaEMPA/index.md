@@ -262,9 +262,7 @@ for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-var-002",
@@ -284,9 +282,7 @@ for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -395,22 +391,22 @@ for validation and testing.
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -669,9 +665,7 @@ for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-var-002",
@@ -691,9 +685,7 @@ for validation and testing.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -802,22 +794,22 @@ for validation and testing.
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -975,11 +967,11 @@ ex:adaEMPA-file-002 a schema1:DigitalDocument,
     ada:componentType "ada:methodDescription" .
 
 ex:adaEMPA-metadata-001 a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-example-001 ;
@@ -1256,9 +1248,7 @@ signalUsed) on parts whose underlying file-shape schemas wire detailEMPA.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-var-x",
@@ -1278,9 +1268,7 @@ signalUsed) on parts whose underlying file-shape schemas wire detailEMPA.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -1568,22 +1556,22 @@ signalUsed) on parts whose underlying file-shape schemas wire detailEMPA.
     "schema:dateModified": "2026-04-24",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -1848,9 +1836,7 @@ signalUsed) on parts whose underlying file-shape schemas wire detailEMPA.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-var-x",
@@ -1870,9 +1856,7 @@ signalUsed) on parts whose underlying file-shape schemas wire detailEMPA.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#float"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     }
   ],
   "schema:distribution": [
@@ -2160,22 +2144,22 @@ signalUsed) on parts whose underlying file-shape schemas wire detailEMPA.
     "schema:dateModified": "2026-04-24",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
@@ -2315,11 +2299,11 @@ ex:adaEMPA-bundle-example-001 a schema1:Dataset,
                     schema1:name "JEOL JXA-8530F Field Emission Electron Probe Microanalyzer" ] ] .
 
 ex:adaEMPA-bundle-metadata-001 a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-bundle-example-001 ;
@@ -2617,9 +2601,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Al",
@@ -2636,9 +2618,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-K",
@@ -2655,9 +2635,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Ca",
@@ -2674,9 +2652,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Na",
@@ -2693,9 +2669,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Fe",
@@ -2712,9 +2686,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Mg",
@@ -2731,9 +2703,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Ti",
@@ -2750,9 +2720,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Cr",
@@ -2769,9 +2737,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Mn",
@@ -2788,9 +2754,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -2911,19 +2875,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -3076,9 +3040,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Al",
@@ -3095,9 +3057,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-K",
@@ -3114,9 +3074,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Ca",
@@ -3133,9 +3091,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Na",
@@ -3152,9 +3108,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Fe",
@@ -3171,9 +3125,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Mg",
@@ -3190,9 +3142,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Ti",
@@ -3209,9 +3159,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Cr",
@@ -3228,9 +3176,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P0-var-Mn",
@@ -3247,9 +3193,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -3370,19 +3314,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -3525,11 +3469,11 @@ ex:adaEMPA-P0-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P0-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P0 ;
@@ -3780,9 +3724,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Al",
@@ -3799,9 +3741,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Ca",
@@ -3818,9 +3758,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Na",
@@ -3837,9 +3775,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Fe",
@@ -3856,9 +3792,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Mg",
@@ -3875,9 +3809,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Mn",
@@ -3894,9 +3826,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Ti",
@@ -3913,9 +3843,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Cr",
@@ -3932,9 +3860,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-K",
@@ -3951,9 +3877,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -4064,19 +3988,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -4229,9 +4153,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Al",
@@ -4248,9 +4170,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Ca",
@@ -4267,9 +4187,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Na",
@@ -4286,9 +4204,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Fe",
@@ -4305,9 +4221,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Mg",
@@ -4324,9 +4238,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Mn",
@@ -4343,9 +4255,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Ti",
@@ -4362,9 +4272,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-Cr",
@@ -4381,9 +4289,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P1-var-K",
@@ -4400,9 +4306,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -4513,19 +4417,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -4661,11 +4565,11 @@ ex:adaEMPA-P1-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P1-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P1 ;
@@ -4916,9 +4820,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Mg",
@@ -4935,9 +4837,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Fe",
@@ -4954,9 +4854,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Na",
@@ -4973,9 +4871,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Al",
@@ -4992,9 +4888,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Ca",
@@ -5011,9 +4905,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Mn",
@@ -5030,9 +4922,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-K",
@@ -5049,9 +4939,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Ti",
@@ -5068,9 +4956,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Cr",
@@ -5087,9 +4973,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -5190,19 +5074,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -5355,9 +5239,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Mg",
@@ -5374,9 +5256,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Fe",
@@ -5393,9 +5273,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Na",
@@ -5412,9 +5290,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Al",
@@ -5431,9 +5307,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Ca",
@@ -5450,9 +5324,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Mn",
@@ -5469,9 +5341,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-K",
@@ -5488,9 +5358,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Ti",
@@ -5507,9 +5375,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P2-var-Cr",
@@ -5526,9 +5392,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -5629,19 +5493,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -5774,11 +5638,11 @@ ex:adaEMPA-P2-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P2-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P2 ;
@@ -6029,9 +5893,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Ti",
@@ -6048,9 +5910,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Al",
@@ -6067,9 +5927,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Mg",
@@ -6086,9 +5944,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Ca",
@@ -6105,9 +5961,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Fe",
@@ -6124,9 +5978,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Mn",
@@ -6143,9 +5995,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Cr",
@@ -6162,9 +6012,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Ni",
@@ -6181,9 +6029,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Na",
@@ -6200,9 +6046,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-K",
@@ -6219,9 +6063,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-P",
@@ -6238,9 +6080,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -6351,19 +6191,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -6516,9 +6356,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Ti",
@@ -6535,9 +6373,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Al",
@@ -6554,9 +6390,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Mg",
@@ -6573,9 +6407,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Ca",
@@ -6592,9 +6424,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Fe",
@@ -6611,9 +6441,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Mn",
@@ -6630,9 +6458,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Cr",
@@ -6649,9 +6475,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Ni",
@@ -6668,9 +6492,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-Na",
@@ -6687,9 +6509,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-K",
@@ -6706,9 +6526,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3sil-var-P",
@@ -6725,9 +6543,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -6838,19 +6654,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -6988,11 +6804,11 @@ ex:adaEMPA-P3sil-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P3sil-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P3sil ;
@@ -7265,9 +7081,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Ti",
@@ -7284,9 +7098,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Al",
@@ -7303,9 +7115,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Mg",
@@ -7322,9 +7132,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Ca",
@@ -7341,9 +7149,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Fe",
@@ -7360,9 +7166,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Mn",
@@ -7379,9 +7183,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Cr",
@@ -7398,9 +7200,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Ni",
@@ -7417,9 +7217,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Na",
@@ -7436,9 +7234,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-K",
@@ -7455,9 +7251,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-P",
@@ -7474,9 +7268,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -7587,19 +7379,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -7752,9 +7544,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Ti",
@@ -7771,9 +7561,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Al",
@@ -7790,9 +7578,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Mg",
@@ -7809,9 +7595,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Ca",
@@ -7828,9 +7612,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Fe",
@@ -7847,9 +7629,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Mn",
@@ -7866,9 +7646,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Cr",
@@ -7885,9 +7663,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Ni",
@@ -7904,9 +7680,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-Na",
@@ -7923,9 +7697,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-K",
@@ -7942,9 +7714,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P3phos-var-P",
@@ -7961,9 +7731,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -8074,19 +7842,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -8224,11 +7992,11 @@ ex:adaEMPA-P3phos-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P3phos-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P3phos ;
@@ -8501,9 +8269,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Al",
@@ -8520,9 +8286,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-K",
@@ -8539,9 +8303,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Ca",
@@ -8558,9 +8320,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Na",
@@ -8577,9 +8337,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Fe",
@@ -8596,9 +8354,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Mg",
@@ -8615,9 +8371,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Ti",
@@ -8634,9 +8388,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Cr",
@@ -8653,9 +8405,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Mn",
@@ -8672,9 +8422,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -8785,19 +8533,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -8950,9 +8698,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Al",
@@ -8969,9 +8715,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-K",
@@ -8988,9 +8732,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Ca",
@@ -9007,9 +8749,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Na",
@@ -9026,9 +8766,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Fe",
@@ -9045,9 +8783,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Mg",
@@ -9064,9 +8800,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Ti",
@@ -9083,9 +8817,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Cr",
@@ -9102,9 +8834,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P4-var-Mn",
@@ -9121,9 +8851,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -9234,19 +8962,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -9382,11 +9110,11 @@ ex:adaEMPA-P4-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P4-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P4 ;
@@ -9637,9 +9365,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Al",
@@ -9656,9 +9382,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Ti",
@@ -9675,9 +9399,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-K",
@@ -9694,9 +9416,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Na",
@@ -9713,9 +9433,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Fe",
@@ -9732,9 +9450,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Mg",
@@ -9751,9 +9467,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Ca",
@@ -9770,9 +9484,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-S",
@@ -9789,9 +9501,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Mn",
@@ -9808,9 +9518,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Cr",
@@ -9827,9 +9535,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Ni",
@@ -9846,9 +9552,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-P",
@@ -9865,9 +9569,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-V",
@@ -9884,9 +9586,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -9997,19 +9697,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -10162,9 +9862,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Al",
@@ -10181,9 +9879,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Ti",
@@ -10200,9 +9896,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-K",
@@ -10219,9 +9913,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Na",
@@ -10238,9 +9930,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Fe",
@@ -10257,9 +9947,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Mg",
@@ -10276,9 +9964,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Ca",
@@ -10295,9 +9981,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-S",
@@ -10314,9 +9998,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Mn",
@@ -10333,9 +10015,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Cr",
@@ -10352,9 +10032,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-Ni",
@@ -10371,9 +10049,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-P",
@@ -10390,9 +10066,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P5-var-V",
@@ -10409,9 +10083,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -10522,19 +10194,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -10674,11 +10346,11 @@ ex:adaEMPA-P5-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P5-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P5 ;
@@ -10973,9 +10645,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P6-var-CO2",
@@ -10992,9 +10662,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -11105,19 +10773,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -11270,9 +10938,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P6-var-CO2",
@@ -11289,9 +10955,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -11402,19 +11066,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -11542,11 +11206,11 @@ ex:adaEMPA-P6-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P6-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P6 ;
@@ -11709,9 +11373,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Na",
@@ -11728,9 +11390,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Mg",
@@ -11747,9 +11407,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Si",
@@ -11766,9 +11424,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-P",
@@ -11785,9 +11441,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Ca",
@@ -11804,9 +11458,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-S",
@@ -11823,9 +11475,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Cl",
@@ -11842,9 +11492,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Mn",
@@ -11861,9 +11509,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Fe",
@@ -11880,9 +11526,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-OH",
@@ -11899,9 +11543,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -12012,19 +11654,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -12177,9 +11819,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Na",
@@ -12196,9 +11836,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Mg",
@@ -12215,9 +11853,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Si",
@@ -12234,9 +11870,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-P",
@@ -12253,9 +11887,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Ca",
@@ -12272,9 +11904,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-S",
@@ -12291,9 +11921,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Cl",
@@ -12310,9 +11938,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Mn",
@@ -12329,9 +11955,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-Fe",
@@ -12348,9 +11972,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P7-var-OH",
@@ -12367,9 +11989,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -12480,19 +12100,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -12629,11 +12249,11 @@ ex:adaEMPA-P7-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P7-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P7 ;
@@ -12978,19 +12598,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -13226,19 +12846,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -13358,11 +12978,11 @@ ex:adaEMPA-P8sil-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P8sil-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P8sil ;
@@ -13586,19 +13206,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -13834,19 +13454,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -13966,11 +13586,11 @@ ex:adaEMPA-P8carb-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P8carb-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P8carb ;
@@ -14194,19 +13814,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -14442,19 +14062,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -14574,11 +14194,11 @@ ex:adaEMPA-P8phos-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P8phos-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P8phos ;
@@ -14802,19 +14422,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -15050,19 +14670,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -15182,11 +14802,11 @@ ex:adaEMPA-P9sil-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P9sil-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P9sil ;
@@ -15327,9 +14947,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Si",
@@ -15346,9 +14964,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Mg",
@@ -15365,9 +14981,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Ca",
@@ -15384,9 +14998,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Mn",
@@ -15403,9 +15015,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-P",
@@ -15422,9 +15032,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-S",
@@ -15441,9 +15049,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Fe",
@@ -15460,9 +15066,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -15573,19 +15177,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -15738,9 +15342,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Si",
@@ -15757,9 +15359,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Mg",
@@ -15776,9 +15376,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Ca",
@@ -15795,9 +15393,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Mn",
@@ -15814,9 +15410,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-P",
@@ -15833,9 +15427,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-S",
@@ -15852,9 +15444,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9carb-var-Fe",
@@ -15871,9 +15461,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -15984,19 +15572,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -16130,11 +15718,11 @@ ex:adaEMPA-P9carb-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P9carb-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P9carb ;
@@ -16363,9 +15951,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-P",
@@ -16382,9 +15968,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Ca",
@@ -16401,9 +15985,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Si",
@@ -16420,9 +16002,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Mg",
@@ -16439,9 +16019,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Mn",
@@ -16458,9 +16036,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Fe",
@@ -16477,9 +16053,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Al",
@@ -16496,9 +16070,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-S",
@@ -16515,9 +16087,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-K",
@@ -16534,9 +16104,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Cl",
@@ -16553,9 +16121,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -16666,19 +16232,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -16831,9 +16397,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-P",
@@ -16850,9 +16414,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Ca",
@@ -16869,9 +16431,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Si",
@@ -16888,9 +16448,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Mg",
@@ -16907,9 +16465,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Mn",
@@ -16926,9 +16482,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Fe",
@@ -16945,9 +16499,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Al",
@@ -16964,9 +16516,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-S",
@@ -16983,9 +16533,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-K",
@@ -17002,9 +16550,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaEMPA-P9phos-var-Cl",
@@ -17021,9 +16567,7 @@ placeholders are used for DOI, file size, and dates.
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": [
-        "https://www.w3.org/TR/xmlschema-2/#double"
-      ]
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -17134,19 +16678,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -17283,11 +16827,11 @@ ex:adaEMPA-P9phos-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P9phos-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P9phos ;
@@ -17632,19 +17176,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -17880,19 +17424,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -18012,11 +17556,11 @@ ex:adaEMPA-P10-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P10-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P10 ;
@@ -18240,19 +17784,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -18488,19 +18032,19 @@ placeholders are used for DOI, file size, and dates.
     "schema:dateModified": "2026-04-29",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.0"
+        "@id": "https://w3id.org/cdif/core/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.0"
+        "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.0"
+        "@id": "https://w3id.org/cdif/data_description/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/provenance/1.0"
+        "@id": "https://w3id.org/cdif/provenance/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.0"
+        "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
@@ -18620,11 +18164,11 @@ ex:adaEMPA-P10plag-data-001 a cdi:TabularTextDataSet,
             cdif:physicalDataType "String" ] .
 
 ex:adaEMPA-P10plag-metadata a schema1:Dataset ;
-    dcterms:conformsTo <https://w3id.org/cdif/core/1.0>,
-        <https://w3id.org/cdif/data_description/1.0>,
-        <https://w3id.org/cdif/discovery/1.0>,
-        <https://w3id.org/cdif/manifest/1.0>,
-        <https://w3id.org/cdif/provenance/1.0>,
+    dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
+        <https://w3id.org/cdif/data_description/1.1>,
+        <https://w3id.org/cdif/discovery/1.1>,
+        <https://w3id.org/cdif/manifest/1.1>,
+        <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaEMPA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct> ;
     schema1:about ex:adaEMPA-P10plag ;
