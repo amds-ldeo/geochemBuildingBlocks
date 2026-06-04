@@ -64,7 +64,7 @@ Metadata profiles that compose property building blocks with CDIF base schemas:
 - **adaProduct** — base ADA product profile, composes via `allOf`:
   - `cdifCore` — core metadata properties
   - `cdifDataDescription` — variableMeasured with DDI-CDI extensions, `@id` requirement
-  - `cdifArchiveDistribution` — archive distribution with `hasPart` component files
+  - `cdifManifest` — archive distribution with `hasPart` component files (was `cdifArchiveDistribution` in CDIF ≤1.0)
   - `cdifProvenance` — `prov:wasGeneratedBy` provenance activities
   - ADA-specific: technique types, instrument/lab/sample overlays, `ada:componentType`
 - **35 technique profiles** — technique-specific constraints on `ada:componentType` values (e.g., adaSEM, adaXRD, adaICPMS, adaTEM)

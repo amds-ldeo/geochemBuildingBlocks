@@ -50,7 +50,7 @@ Profiles additionally compose base schemas via `allOf` references.
 ## Schema composition pattern
 
 - Property blocks define ADA-specific metadata elements
-- `adaProduct` profile composes four CDIF base schemas (`cdifCore`, `cdifDataDescription`, `cdifArchiveDistribution`, `cdifProvenance`) plus ADA overlays via `allOf`
+- `adaProduct` profile composes four CDIF base schemas (`cdifCore`, `cdifDataDescription`, `cdifManifest`, `cdifProvenance`) plus ADA overlays via `allOf` — all under mbb's `_sources/profiles/cdifProfile/` (CDIF v1.1; `cdifManifest` was `cdifArchiveDistribution` in ≤1.0)
 - 35 technique profiles extend `adaProduct` with technique-specific `ada:componentType` constraints
 - External schemas are referenced via full HTTP URLs to `cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/`
 - Local schemas use relative `$ref` paths (e.g., `../stringArray/schema.yaml`)
@@ -124,7 +124,7 @@ Profiles additionally compose base schemas via `allOf` references.
 ## Cross-repo relationships
 
 - **metadataBuildingBlocks** (CDIF) -- upstream source for shared CDIF schemas and canonical tool copies. Schemas imported via OGC building blocks import mechanism.
-- **CDIF profile release repos** (`cdif-core`, `discovery`, `codelist`, `dataDescription`) -- standalone repos with schemas, SHACL rules, and validated examples for each CDIF conformance class. Conformance URIs (e.g. `https://w3id.org/cdif/core/1.0`) redirect to profile BBs in metadataBuildingBlocks via w3id.org.
+- **CDIF profile release repos** (`profile-core`, `profile-discovery`, `profile-codelist`, `profile-datadescription`, `profile-manifest`, `profile-provenance`, `profile-conceptscheme`, `profile-datastructure`, under `C:\GithubC\CDIF\`) -- standalone repos with schemas, SHACL rules, and validated examples for each CDIF conformance class. Active revision work is on the `reviewRevision202606` branch. Conformance URIs (e.g. `https://w3id.org/cdif/core/1.1`) redirect to profile BBs in metadataBuildingBlocks via w3id.org.
 - **ada_metadata_forms** (amds-ldeo) -- Django app that validates ADA metadata. Uses a standalone monolithic JSON Schema (`adaMetadata-SchemaOrgSchema-v3.json`), NOT the modular building blocks. No direct dependency on this repo's build outputs.
 - **w3id.org/cdif** -- persistent identifier redirects for CDIF building blocks and conformance URIs. Maintained in smrgeoinfo/w3id.org fork.
 

@@ -15,14 +15,18 @@ You are the orchestrator. Follow the phases below in order. **Never skip the gat
 
 | key | path | git | regenerate | validate | source dirs | generated dirs |
 |---|---|---|---|---|---|---|
-| `mbb` | `C:\Users\smrTu\OneDrive\Documents\GithubC\CDIF\metadataBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` | `build/` |
-| `geochem` | `C:\Users\smrTu\OneDrive\Documents\GithubC\USGIN\geochemBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` | `build/` |
-| `dde` | `C:\Users\smrTu\OneDrive\Documents\GithubC\USGIN\ddeBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` (DDEproperties, profiles) | `build/` |
-| `cdif-core` | `C:\Users\smrTu\OneDrive\Documents\GithubC\CDIF\cdif-core` | yes | (none — release repo) | SHACL + JSON Schema on `examples/` | `examples/`, `documents/` | n/a |
-| `discovery` | `C:\Users\smrTu\OneDrive\Documents\GithubC\CDIF\discovery` | yes | (none — release repo) | SHACL + JSON Schema on `examples/` | `examples/` | n/a |
-| `codelist` | `C:\Users\smrTu\OneDrive\Documents\GithubC\CDIF\codelist` | yes | (none — release repo) | SHACL + JSON Schema on `examples/` | `examples/` | n/a |
-| `dataDescription` | `C:\Users\smrTu\OneDrive\Documents\GithubC\CDIF\dataDescription` | yes | (none — release repo) | SHACL + JSON Schema on `examples/` | `examples/` | n/a |
-| `w3id` | `C:\Users\smrTu\OneDrive\Documents\GithubC\smrgeoinfo\w3id.org` | yes (master) | (none — text edit) | grep round-trip on touched URIs | `cdif/.htaccess` | n/a |
+| `mbb` | `C:\GithubC\CDIF\metadataBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` | `build/` |
+| `geochem` | `C:\GithubC\USGIN\geochemBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` | `build/` |
+| `dde` | `C:\GithubC\USGIN\ddeBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` (DDEproperties, profiles) | `build/` |
+| `profile-core` | `C:\GithubC\CDIF\profile-core` | yes (reviewRevision202606) | (none — release repo; schema/SHACL synced from `mbb`) | `python FrameAndValidate.py` | `examples/`, `cdifCoreStructuredSchema.json`, `coreRules.shacl` | n/a |
+| `profile-discovery` | `C:\GithubC\CDIF\profile-discovery` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `examples/`, `cdifDiscoveryStructuredSchema.json`, `discoveryRules.shacl` | n/a |
+| `profile-datadescription` | `C:\GithubC\CDIF\profile-datadescription` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `examples/`, `cdifDataDescriptionStructuredSchema.json`, `dataDescriptionRules.shacl` | n/a |
+| `profile-manifest` | `C:\GithubC\CDIF\profile-manifest` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `examples/`, `cdifManifestStructuredSchema.json`, `manifestRules.shacl` | n/a |
+| `profile-provenance` | `C:\GithubC\CDIF\profile-provenance` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `examples/`, `cdifProvenanceStructuredSchema.json`, `provenanceRules.shacl` | n/a |
+| `profile-codelist` | `C:\GithubC\CDIF\profile-codelist` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `Examples/`, `CDIFCodelistProfileStructuredSchema.json`, `rules.shacl` | n/a |
+| `profile-conceptscheme` | `C:\GithubC\CDIF\profile-conceptscheme` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `examples/`, `cdifConceptSchemeStructuredSchema.json`, `conceptSchemeRules.shacl` | n/a |
+| `profile-datastructure` | `C:\GithubC\CDIF\profile-datastructure` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `examples/`, `cdifDataStructureStructuredSchema.json`, `dataStructureRules.shacl` | n/a |
+| `w3id` | `C:\GithubC\smrgeoinfo\w3id.org` | yes (master) | (none — text edit) | grep round-trip on touched URIs | `cdif/.htaccess` | n/a |
 
 **Out of scope:** `ada_metadata_forms` (no git, monolithic schema not yet derived from BBs).
 
@@ -55,21 +59,25 @@ Parse the cleaned `$ARGUMENTS` using the matching primitives below. Apply all ru
 - CamelCase-prefix `ada` → `geochem`. Also word-match: `geochem`, `EMPA`, `ICPOES`, `LAF`, `NanoIR`, `QRIS`, `SLS`, `VNMIR`, `ECL`.
 - CamelCase-prefix `xas` → `mbb` (xasProperties live in mbb; no separate xas release repo in current scope).
 - CamelCase-prefix `CDIF` → `mbb` (the CDIF base; downstream release repos add only when a more specific rule below also fires).
-- Word `core`, `cdifCore`, `cdif-core` → `mbb`, `cdif-core`.
-- Word `discovery`, `cdifDiscovery`, `xasDiscovery`, `xasOptional` → `mbb`, `discovery`.
-- Word `codelist`, `CDIFCodelist` → `mbb`, `codelist`.
-- Word `data_description`, `dataDescription`, `CDIFDataDescriptionProfile` → `mbb`, `dataDescription`.
-- Word `manifest`, `provenance`, `xasCore` → `mbb`.
+- Word `core`, `cdifCore`, `cdif-core` → `mbb`, `profile-core`.
+- Word `discovery`, `cdifDiscovery`, `xasDiscovery`, `xasOptional` → `mbb`, `profile-discovery`.
+- Word `codelist`, `CDIFCodelist` → `mbb`, `profile-codelist`.
+- Word `data_description`, `dataDescription`, `CDIFDataDescriptionProfile` → `mbb`, `profile-datadescription`.
+- Word `data_structure`, `dataStructure`, `CDIFDataStructure` → `mbb`, `profile-datastructure`.
+- Word `conceptscheme`, `conceptScheme` → `mbb`, `profile-conceptscheme`.
+- Word `manifest` → `mbb`, `profile-manifest`.
+- Word `provenance` → `mbb`, `profile-provenance`.
+- Word `xasCore` → `mbb`.
 - Word `conformsTo`, `w3id`, `redirect`, `.htaccess`, or any literal w3id.org URI substring → `w3id`.
-- Any explicit mention of editing `_sources/` in `mbb` (e.g. "change CDIF base schema X") is a downstream-affecting change → add **all** repos that consume CDIF refs: `geochem`, `dde`, `cdif-core`, `discovery`, `codelist`, `dataDescription`.
+- Any explicit mention of editing `_sources/` in `mbb` (e.g. "change CDIF base schema X") is a downstream-affecting change → add **all** repos that consume CDIF refs: `geochem`, `dde`, `profile-core`, `profile-discovery`, `profile-datadescription`, `profile-manifest`, `profile-provenance`, `profile-codelist`, `profile-conceptscheme`, `profile-datastructure`.
 
 **Worked examples** — verify your matching by running these in your head before applying to the user's input:
 
 - "fix typo in DDEDiscovery description" → CamelCase-prefix `DDE` matches "DDEDiscovery"; word `discovery` does NOT (no boundary before `D`); word `description` is not a trigger. Scope: `dde` only.
-- "rename xasOptional to xasDiscovery and update conformsTo URIs" → word `xasOptional` and `xasDiscovery` both fire the discovery rule; word `conformsTo` fires w3id. Scope: `mbb`, `discovery`, `w3id`.
-- "regenerate cdifCore schemas" → word `cdifCore` fires the core rule. Scope: `mbb`, `cdif-core`.
+- "rename xasOptional to xasDiscovery and update conformsTo URIs" → word `xasOptional` and `xasDiscovery` both fire the discovery rule; word `conformsTo` fires w3id. Scope: `mbb`, `profile-discovery`, `w3id`.
+- "regenerate cdifCore schemas" → word `cdifCore` fires the core rule. Scope: `mbb`, `profile-core`.
 - "fix EMPA example" → word `EMPA` fires geochem. Scope: `geochem`.
-- "update CDIF base manifest building block" → CamelCase-prefix `CDIF` → `mbb`; word `manifest` → `mbb`; explicit "CDIF base" mention triggers downstream-affecting union. Scope: `mbb`, `geochem`, `dde`, `cdif-core`, `discovery`, `codelist`, `dataDescription`.
+- "update CDIF base manifest building block" → CamelCase-prefix `CDIF` → `mbb`; word `manifest` → `mbb`, `profile-manifest`; explicit "CDIF base" mention triggers downstream-affecting union. Scope: `mbb`, `geochem`, `dde`, `profile-core`, `profile-discovery`, `profile-datadescription`, `profile-manifest`, `profile-provenance`, `profile-codelist`, `profile-conceptscheme`, `profile-datastructure`.
 
 If autodetection produces zero repos, ask the user via `AskUserQuestion` to specify the scope manually rather than guessing. If it produces a scope you suspect is over-broad (e.g. a CamelCase compound triggered multiple rules), call that out explicitly to the user when confirming.
 
@@ -92,7 +100,7 @@ WT="/c/Users/smrTu/.claude-worktrees/propagate-${TS}/<key>"
 cd "<repo path>"
 BRANCH="propagate/${TS}-<short-slug-of-change>"
 git fetch origin
-git worktree add -b "$BRANCH" "$WT" origin/main   # use origin/master for w3id
+git worktree add -b "$BRANCH" "$WT" origin/main   # base branch: origin/master for w3id; origin/reviewRevision202606 for the profile-* release repos
 ```
 
 If the working tree at the repo path has uncommitted changes, **stop** and surface them to the user with `AskUserQuestion` (continue / stash / abort) — do not silently include or exclude them.
@@ -220,7 +228,7 @@ EOF
 )"
 ```
 
-`--base` is `master` for `w3id`, `main` for everything else. Always `--draft`. **Never** `gh pr merge`.
+`--base` is `master` for `w3id`, `reviewRevision202606` for the `profile-*` release repos, `main` for everything else. Always `--draft`. **Never** `gh pr merge`.
 
 After all PRs are open, edit each PR body to replace `<list of {repo: PR URL}>` with the actual sibling URLs so reviewers can navigate the set.
 
