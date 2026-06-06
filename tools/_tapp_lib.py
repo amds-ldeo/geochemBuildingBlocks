@@ -211,6 +211,43 @@ COL = {
 }
 
 
+def _detect_columns(header_row) -> dict:
+    """Resolve logical column -> 0-based index BY HEADER NAME, so a single reader
+    handles both the empa-filled(-noInterp) layout (A-F, G=Level, H=schema path,
+    I=matchComment, J=implementation notes, K+=pubs) and the newer Ruolin workbook
+    layout (…Spot/Transect/Mapping, schema path/matchComment/implementation notes,
+    Literature Assessment, then pubs). Publication columns are everything after the
+    'Literature Assessment' separator when present, else everything after
+    'implementation notes'."""
+    def norm(v):
+        return " ".join(str(v).split()).lower() if v is not None else ""
+    H = [norm(v) for v in header_row]
+
+    def find(pred, label, required=True):
+        for i, h in enumerate(H):
+            if pred(h):
+                return i
+        if required:
+            raise ValueError(
+                f"TAPP sheet header missing column for {label}. Headers seen: "
+                f"{[h for h in H if h]}"
+            )
+        return None
+
+    cols = {
+        "item": find(lambda h: h == "metadata item", "Metadata Item"),
+        "desc": find(lambda h: h.startswith("description"), "Description"),
+        "dtype": find(lambda h: h == "data type", "Data Type"),
+        "example": find(lambda h: h.startswith("example"), "Example/Allowed Content"),
+        "schema_path": find(lambda h: h == "schema path", "schema path", required=False),
+        "matchComment": find(lambda h: h.replace(" ", "") == "matchcomment", "matchComment", required=False),
+        "impl": find(lambda h: h.startswith("implementation note"), "implementation notes"),
+    }
+    lit = find(lambda h: h == "literature assessment", "Literature Assessment", required=False)
+    cols["p_start"] = (lit + 1) if lit is not None else (cols["impl"] + 1)
+    return cols
+
+
 def _pubs() -> list[tuple[str, str]]:
     """Return the active TAPP's publication-column list (code, label)."""
     return CFG["pubs"]
@@ -296,21 +333,32 @@ def read_rows() -> list[dict]:
     import openpyxl
     wb = openpyxl.load_workbook(XLSX, data_only=True)
     ws = wb["TAPP"]
+    all_rows = list(ws.iter_rows(min_row=1, values_only=True))
+    C = _detect_columns(all_rows[0])
+    p_start = C["p_start"]
+    p_end = p_start + len(_pubs())  # exclusive; one column per CFG["pubs"] entry
+
+    def cell(r, key):
+        idx = C.get(key)
+        if idx is None or idx >= len(r) or r[idx] is None:
+            return None
+        return str(r[idx]).strip()
+
     rows = []
-    for r in ws.iter_rows(min_row=2, values_only=True):
-        item = r[COL["item"]]
-        impl = r[COL["impl"]]
+    for r in all_rows[1:]:
+        item = cell(r, "item")
+        impl = cell(r, "impl")
         if item is None and impl is None:
             continue
         rec = {
-            "item": str(item).strip() if item is not None else None,
-            "desc": str(r[COL["desc"]]).strip() if r[COL["desc"]] is not None else None,
-            "dtype_col": str(r[COL["dtype"]]).strip() if r[COL["dtype"]] is not None else None,
-            "example": str(r[COL["example"]]).strip() if r[COL["example"]] is not None else None,
-            "schema_path": str(r[COL["schema_path"]]).strip() if r[COL["schema_path"]] is not None else None,
-            "matchComment": str(r[COL["matchComment"]]).strip() if r[COL["matchComment"]] is not None else None,
-            "impl": str(r[COL["impl"]]).strip() if r[COL["impl"]] is not None else None,
-            "pubs": [r[i] for i in range(COL["p_start"], _p_end() + 1)],
+            "item": item,
+            "desc": cell(r, "desc"),
+            "dtype_col": cell(r, "dtype"),
+            "example": cell(r, "example"),
+            "schema_path": cell(r, "schema_path"),
+            "matchComment": cell(r, "matchComment"),
+            "impl": impl,
+            "pubs": [r[i] if i < len(r) else None for i in range(p_start, p_end)],
         }
         rec["parsed"] = parse_impl(rec["impl"])
         rows.append(rec)

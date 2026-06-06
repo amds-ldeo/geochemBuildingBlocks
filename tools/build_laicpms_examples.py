@@ -85,7 +85,10 @@ def main():
     ws = openpyxl.load_workbook(XLSX, data_only=True, read_only=True)["TAPP"]
     rows = list(ws.iter_rows(min_row=1, values_only=True))
     hdr = rows[0]
-    pub_cols = {chr(ord("M") + k): 12 + k for k in range(13)}
+    # publication columns follow the 'Literature Assessment' separator (robust to inserted
+    # guidance columns). Logical codes M..Y map by position, not physical column letter.
+    lit = [i for i, v in enumerate(hdr) if norm(v).lower() == "literature assessment"][0]
+    pub_cols = {chr(ord("M") + k): lit + 1 + k for k in range(13)}
     pub_hdr = {L: norm(hdr[i]) for L, i in pub_cols.items()}
     table = {}
     for r in rows[1:]:
