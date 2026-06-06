@@ -44,12 +44,24 @@
   "ada:laserManufacturerModel": "New Wave UP-193 (solid state, 193 nm)",
   "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
   "ada:icpMsType": "Single-collector sector-field (SF-ICP-MS)",
+  "ada:interfaceConeConfiguration": "missing",
+  "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Medium resolution (m/Δm ≈ 4000)",
+  "ada:detectorConfiguration": "missing",
   "ada:laserWavelengthAndType": "193 nm solid-state (New Wave UP-193)",
   "ada:dataReductionSoftwareDefault": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
   "ada:laserSpotGeometryDefault": "75 µm circular",
   "ada:laserSpotPathAblationMode": "Spot (stationary)",
+  "ada:laserFluenceDefault": -9999,
+  "ada:laserRepetitionRateDefault": -9999,
+  "ada:ablationDurationPerSpotDefault": -9999,
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:carrierGasAndFlowRateDefault": "missing",
+  "ada:rfPower": -9999,
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
+  "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Single element from EPMA: ²⁵Mg; the EMPA data used as the standardizing values",
   "ada:internalStandardElement": "²⁵Mg (indexing element; Mg concentration from EMPA)",
   "ada:elementalFractionationCorrection": "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described",
@@ -57,7 +69,7 @@
   "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
   "ada:primaryCalibrationStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
   "ada:secondaryReferenceMaterialsDefault": "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)",
-  "ada:methodParameters": [
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
       "@type": [
@@ -72,41 +84,41 @@
       "schema:defaultValue": "Single spot per location (75 µm circular)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
+      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "spikeOutlierFilteringApproach",
+      "schema:valueName": "spikeOutlierFilteringApproachDefault",
       "schema:name": "Spike / Outlier Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Time steps with enhanced P, Ca, Co, Ni, Zn excluded (inclusions and heterogeneities); Grubb's test applied to EPMA data for outlier detection"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "No post-acquisition normalization; BCR-2g, BHVO-2g, BIR-1g used for calibration; Marjalahti as in-session control"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotes",
+      "schema:valueName": "additionalNotesDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach"
     }

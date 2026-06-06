@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)",
-    "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Adds XCT protocol-level acquisition/processing defaults as top-level ada: properties and an ada:methodParameters vocabulary of session-adjustable parameter templates. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from docs/Lab-XCT_TAPP_v8.xlsx by tools/build_labxct_from_spreadsheet.py.",
+    "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from docs/Lab-XCT_TAPP_v8.xlsx by tools/build_labxct_from_spreadsheet.py.",
     "allOf": [
         {
             "$ref": "../tappDefinition/tappDefinitionSchema.json"
@@ -106,31 +106,31 @@
                     "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
                     "type": "string"
                 },
-                "ada:methodParameters": {
+                "schema:additionalProperty": {
                     "type": "array",
-                    "description": "Method-level XCT parameters (readOnly templates). Each entry is one of the labxctTAPP parameter templates.",
+                    "description": "Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification; dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.",
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/laboratoryId"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/laboratoryIdDefault"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/protocolReference"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/coupledTechnique"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/couplingDescription"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_couplingDescriptionDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleDimensions"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleDimensionsDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleMountingMethod"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleMountingMethodDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/samplePreparationNotes"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/samplePreparationNotesDefault"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayTubeAnodeMaterial"
@@ -145,59 +145,59 @@
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/opticalObjective"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayPower"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayPowerDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToObjectDistance"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToObjectDistanceDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToDetectorDistance"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToDetectorDistanceDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/rotationStepSize"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/rotationStepSizeDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/framesAveragedPerProjection"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/framesAveragedPerProjectionDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorBinning"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorBinningDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/reconstructionConvolutionFilter"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/reconstructionConvolutionFilterDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamHardeningCorrectionParameter"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamHardeningCorrectionParameterDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ringArtifactCorrectionMethod"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ringArtifactCorrectionMethodDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ctNumberCalibration"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ctNumberCalibrationDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/segmentationThresholdValuesOrCriteria"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/segmentationThresholdValuesOrCriteriaDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/phaseIdentificationMethod"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/phaseIdentificationMethodDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/voiSelectionCriteria"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/voiSelectionCriteriaDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/outputBitDepth"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/outputBitDepthDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/partialVolumeEffectCriteria"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/partialVolumeEffectCriteriaDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirement"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirementDefault"
                             }
                         ]
                     },
                     "allOf": [
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/laboratoryId"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/laboratoryIdDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -211,35 +211,35 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/coupledTechnique"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/couplingDescription"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_couplingDescriptionDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleDimensions"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleDimensionsDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleMountingMethod"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleMountingMethodDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/samplePreparationNotes"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/samplePreparationNotesDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -274,119 +274,144 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayPower"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayPowerDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToObjectDistance"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToObjectDistanceDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToDetectorDistance"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/sourceToDetectorDistanceDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/rotationStepSize"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/rotationStepSizeDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/framesAveragedPerProjection"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/framesAveragedPerProjectionDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorBinning"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorBinningDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/reconstructionConvolutionFilter"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/reconstructionConvolutionFilterDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamHardeningCorrectionParameter"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamHardeningCorrectionParameterDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ringArtifactCorrectionMethod"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ringArtifactCorrectionMethodDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ctNumberCalibration"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/ctNumberCalibrationDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/segmentationThresholdValuesOrCriteria"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/segmentationThresholdValuesOrCriteriaDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/phaseIdentificationMethod"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/phaseIdentificationMethodDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/voiSelectionCriteria"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/voiSelectionCriteriaDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/outputBitDepth"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/outputBitDepthDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/partialVolumeEffectCriteria"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/partialVolumeEffectCriteriaDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirement"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirementDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         }
                     ]
                 }
-            }
+            },
+            "required": [
+                "ada:targetFeature",
+                "ada:applicableSampleDimensionRange",
+                "ada:xRaySourceConfiguration",
+                "ada:detectorType",
+                "ada:acquisitionSoftwareDefault",
+                "ada:reconstructionSoftwareDefault",
+                "ada:segmentationAndAnalysisSoftwareDefault",
+                "ada:analyticalMode",
+                "ada:acceleratingVoltageDefault",
+                "ada:tubeCurrentDefault",
+                "ada:xRayPreFilterDefault",
+                "ada:voxelSizeDefault",
+                "ada:rotationRangeDefault",
+                "ada:numberOfProjectionsDefault",
+                "ada:exposureTimePerProjectionDefault",
+                "ada:flatFieldCorrectionDefault",
+                "ada:rotationModeDefault",
+                "ada:minimumSubVolumeOverlap",
+                "ada:reconstructionAlgorithm",
+                "ada:beamHardeningCorrectionMethod",
+                "ada:outputDataFormatDefault",
+                "ada:segmentationMethodDefault",
+                "ada:subVolumeStitchingAndRegistrationMethodDefault"
+            ]
         }
     ]
 }

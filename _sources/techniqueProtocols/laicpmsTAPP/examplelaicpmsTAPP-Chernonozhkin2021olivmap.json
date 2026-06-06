@@ -45,6 +45,7 @@
   "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
   "ada:icpMsType": "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
   "ada:interfaceConeConfiguration": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)",
+  "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Low resolution (M/ΔM = 300; cool plasma mapping)",
   "ada:detectorConfiguration": "Triple mode detection (all analytical modes)",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration ~5 ns",
@@ -53,6 +54,7 @@
   "ada:laserSpotPathAblationMode": "Raster area (2D elemental mapping)",
   "ada:laserFluenceDefault": "5–7 J cm⁻²",
   "ada:laserRepetitionRateDefault": "20 Hz",
+  "ada:ablationDurationPerSpotDefault": -9999,
   "ada:rasterLineSpacingDefault": "20 µm (contiguous; 20×20 µm square spot = line spacing equals spot width)",
   "ada:carrierGasAndFlowRateDefault": "He: MFC-1 (cell) 0.200–0.260 l min⁻¹; MFC-2 (cup) 0.220–0.385 l min⁻¹",
   "ada:rfPower": "800 W (cool plasma for mapping)",
@@ -67,7 +69,7 @@
   "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each ablation line (10 scans of gas blank per mapping line); average background subtracted from each corresponding ablation line",
   "ada:primaryCalibrationStandardNameDefault": "Multiple glass GRMs used together for linear regression external calibration: NIST SRM 612, NIST SRM 614, USGS GSD-1G (synthetic), USGS GSE-1G (synthetic), USGS BHVO-2G, USGS BIR-1G (natural basalt glasses)",
   "ada:secondaryReferenceMaterialsDefault": "MPI-DING glasses: GOR132-G, StHs6/80-G, T1-G; USGS: BCR-2G, BHVO-2G — measured as unknowns alongside samples and compared to GeoReM preferred values (Table 1 and Section 3.3)",
-  "ada:methodParameters": [
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
       "@type": [
@@ -95,158 +97,158 @@
       "schema:defaultValue": "~5 ns (ArF excimer)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSize",
+      "@id": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "transectRateMappingRateOrStepSize",
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "9 µm s⁻¹ (continuous raster)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
+      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAddition",
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
       "schema:name": "Plasma / Make-up Gas Addition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Ar make-up: 0.81–0.99 l min⁻¹ (mapping); N₂ explicitly not added"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRates",
+      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "auxiliaryAndCoolGasFlowRates",
+      "schema:valueName": "auxiliaryAndCoolGasFlowRatesDefault",
       "schema:name": "Auxiliary and Cool Gas Flow Rates",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.81 l min⁻¹ (mapping)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/signalSmoothing",
+      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "signalSmoothing",
+      "schema:valueName": "signalSmoothingDefault",
       "schema:name": "Signal Smoothing",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "None (no signal smoothing device; N₂ not added)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/icpTuning",
+      "@id": "ada:parameter/laicpmsTAPP/icpTuningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "icpTuning",
+      "schema:valueName": "icpTuningDefault",
       "schema:name": "ICP Tuning",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Daily tuning; cool plasma conditions optimized; N₂ explicitly not added to avoid N-based interferences"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequency",
+      "schema:valueName": "driftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Each GRM analyzed 3–5× before and 3–5× after sample analyses (all GRMs at start and end of session)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
+      "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "uncertaintyPropagationMethod",
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
       "schema:name": "Uncertainty Propagation Method",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Longerich et al. (1996) equation (3SD/S × √(1/Nb + 1/Na))"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
+      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "spikeOutlierFilteringApproach",
+      "schema:valueName": "spikeOutlierFilteringApproachDefault",
       "schema:name": "Spike / Outlier Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Manual identification and exclusion of P-rich veinlet pixels from olivine averages; anomalous spikes from inclusions excluded per line"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection",
+      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrection",
+      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigation",
+      "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "memoryEffectMitigation",
+      "schema:valueName": "memoryEffectMitigationDefault",
       "schema:name": "Memory Effect Mitigation",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Gas blank measured before each ablation line; adequate washout ensured by duty cycle timing"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "100% oxide sum normalization (MgO+FeO+SiO₂+P₂O₅) applied per pixel after IS-normalized external calibration (equations 3–4 in Appendix C1) to fix final mass balance"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotes",
+      "schema:valueName": "additionalNotesDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Pallasite olivine 2D mapping in cool plasma mode (800 W) is a core methodological innovation; total of 8 PMG meteorites mapped; P-rich veinlets excluded from olivine averages; Fa# values verified against EMPA (Fig. 5A)"
     }

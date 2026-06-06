@@ -49,6 +49,13 @@ VAL = {
 }
 
 
+# identity rows routed to inherited base-TAPP fields (not new ada: properties)
+BASE_ITEMS = {"Protocol Name", "Technique", "Protocol Author", "Laboratory",
+              "Protocol Start Date", "Funding Source for Protocol Development",
+              "Target Material", "CT System Manufacturer and Model",
+              "Protocol Reference(s)", "Laboratory ID", "Protocol DOI"}
+
+
 def tapp_prop_key(b):
     suffix = "Default" if b["A"] == "Editable" else ""
     return "ada:" + b["name"] + suffix
@@ -56,10 +63,12 @@ def tapp_prop_key(b):
 
 def mp_entry(name):
     b = by_name_mp[name]
-    e = {"@id": PARAM_BASE + "/" + name,
-         "@type": ["schema:PropertyValueSpecification"], "schema:valueName": name,
+    dual = b["A"] in ("Basic", "Editable", "Advanced")
+    mdname = name + ("Default" if dual else "")
+    e = {"@id": PARAM_BASE + "/" + mdname,
+         "@type": ["schema:PropertyValueSpecification"], "schema:valueName": mdname,
          "schema:name": b["item"], "ada:dataType": b["jtype"], "ada:fieldScope": "session",
-         "schema:readonlyValue": True, "ada:tier": "R"}
+         "schema:readonlyValue": (not dual), "ada:tier": "R"}
     if b.get("unit") and b["unit"] != "free":
         e["schema:unitText"] = b["unit"]
     return e
@@ -90,11 +99,13 @@ def build_tapp():
         "schema:funding": [],
     }
     inst.pop("schema:funding")
+    # Basic-protocol props are REQUIRED -> include every one (representative value or placeholder)
     for b in routing["tapp_prop"]:
-        if b["name"] in VAL:
-            inst[tapp_prop_key(b)] = VAL[b["name"]]
-    inst["ada:methodParameters"] = [mp_entry("xRayPower"), mp_entry("detectorPixelSize"),
-                                    mp_entry("sourceToObjectDistance")]
+        if b["item"] in BASE_ITEMS:
+            continue
+        inst[tapp_prop_key(b)] = VAL.get(b["name"], "example " + b["name"])
+    inst["schema:additionalProperty"] = [mp_entry("xRayPower"), mp_entry("detectorPixelSize"),
+                                         mp_entry("sourceToObjectDistance")]
     # minimal valid workflow with required sample-preparation step
     inst["schema:actionProcess"] = {
         "@type": ["schema:HowTo"], "schema:name": "Lab-XCT acquisition workflow",

@@ -34,21 +34,33 @@
   "ada:samplePreparationMethodDefault": "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis",
   "ada:laserManufacturerModel": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
   "ada:icpMsManufacturerModel": "Agilent 7900 (Q-ICP-MS)",
+  "ada:icpMsType": "missing",
+  "ada:interfaceConeConfiguration": "missing",
+  "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Unit resolution (quadrupole fixed)",
+  "ada:detectorConfiguration": "missing",
   "ada:laserWavelengthAndType": "193 nm (CetacAnalyte HE; ns pulse)",
+  "ada:dataReductionSoftwareDefault": "missing",
   "ada:laserSpotGeometryDefault": "40 µm circular (silicate glass)",
+  "ada:laserSpotPathAblationMode": "missing",
   "ada:laserFluenceDefault": "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")",
   "ada:laserRepetitionRateDefault": "7 Hz",
   "ada:ablationDurationPerSpotDefault": "~40 s (inferred from typical CetacAnalyte HE protocol for glass)",
+  "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasAndFlowRateDefault": "He (flow rate not stated; carrier gas with N₂ or Ar mixed for sensitivity optimization)",
+  "ada:rfPower": -9999,
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
+  "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard",
   "ada:internalStandardElement": "Si from EMP (SiO₂ wt% for silicate glass)",
   "ada:elementalFractionationCorrection": "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield",
   "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
+  "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:primaryCalibrationStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
   "ada:secondaryReferenceMaterialsDefault": "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)",
-  "ada:methodParameters": [
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
       "@type": [
@@ -63,28 +75,28 @@
       "schema:defaultValue": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
+      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAddition",
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
       "schema:name": "Plasma / Make-up Gas Addition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequency",
+      "schema:valueName": "driftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards"
     },
@@ -102,41 +114,41 @@
       "schema:defaultValue": "Single spot per location (~40 s ablation at 7 Hz)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
+      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "spikeOutlierFilteringApproach",
+      "schema:valueName": "spikeOutlierFilteringApproachDefault",
       "schema:name": "Spike / Outlier Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Micronuggets identified from Au signal spikes in time-resolved spectra; excluded from integration (smooth signals = fully dissolved Au; Fig. 1 shows this criterion)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "No post-acquisition normalization beyond IS (Si from EMP)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotes",
+      "schema:valueName": "additionalNotesDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Analysis of quenched experimental glasses from high-pressure (1 GPa) piston-cylinder experiments; Au and Cu solubility measurements; smooth time-resolved signals indicate fully dissolved Au (no micronuggets)"
     }

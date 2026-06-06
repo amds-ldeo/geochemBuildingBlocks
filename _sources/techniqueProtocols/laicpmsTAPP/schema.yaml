@@ -1,9 +1,9 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)
-description: 'LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS) extension of the base TAPP definition. Adds
-  LA-ICP-MS protocol-level acquisition/instrument/data-processing properties (Basic protocol tier) as
-  top-level ada: properties, an ada:methodParameters vocabulary (Advanced protocol tier), and an ada:analyteTemplate
-  of per-element columns. Regenerated from docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by tools/build_laicpms_from_spreadsheet.py.'
+description: 'LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS) extension of the base TAPP definition. Basic
+  protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[]
+  PropertyValueSpecification entries; an ada:analyteTemplate carries the per-element columns. Regenerated
+  from docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by tools/build_laicpms_from_spreadsheet.py.'
 allOf:
 - $ref: ../tappDefinition/schema.yaml
 - type: object
@@ -72,12 +72,16 @@ allOf:
         the protocol. Fluence is the physically meaningful quantity controlling ablation rate, crater
         morphology, elemental fractionation, and particle size distribution. If the system reports only
         as % of maximum output, include that value and note the system maximum where known.
-      type: string
+      anyOf:
+      - type: number
+      - type: string
     ada:laserRepetitionRateDefault:
       description: Laser pulse repetition rate in hertz registered by the protocol. For mapping methods,
         repetition rate together with scan speed and spot size determines pixel size and spatial resolution.
         Analysts may adjust within protocol-allowed bounds.
-      type: string
+      anyOf:
+      - type: number
+      - type: string
     ada:ablationDurationPerSpotDefault:
       description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds,
         as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects
@@ -85,7 +89,9 @@ allOf:
         and session throughput. For transect analysis, the equivalent protocol-level parameter is scan
         speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition
         time is sample-area-dependent and therefore analysis-level, not captured here.'
-      type: string
+      anyOf:
+      - type: number
+      - type: string
     ada:rasterLineSpacingDefault:
       description: Distance between adjacent raster lines in a 2D elemental map, measured perpendicular
         to the scan direction, in micrometres. Together with spot size, this determines whether adjacent
@@ -102,7 +108,9 @@ allOf:
       description: ICP radiofrequency forward power in watts. Fixed in the protocol; cannot be changed
         by analysts without defining a new protocol, because RF power affects plasma temperature, ionisation
         efficiency, oxide formation, and whether cool or normal plasma conditions are in effect.
-      type: string
+      anyOf:
+      - type: number
+      - type: string
     ada:plasmaThermalMode:
       description: Whether the ICP plasma is operated under cool plasma (≤900 W RF) or normal (hot) plasma
         (>1000 W RF) conditions. Cool plasma substantially reduces argide-based polyatomic interferences
@@ -127,7 +135,9 @@ allOf:
         interval is measured before each ablation. For mapping, background is typically measured once
         per raster line or at the start of a map session rather than before each individual pixel. Editable
         to allow session-specific adjustment.
-      type: string
+      anyOf:
+      - type: number
+      - type: string
     ada:internalStandardApproach:
       description: Method used to determine the internal standard (IS) concentration for each unknown
         sample, used to correct for variable ablation yield between analyses. The approach is a fundamental
@@ -251,52 +261,54 @@ allOf:
               $ref: ../analyteColumns/schema.yaml#/$defs/analyticalAccuracyMethod
             minContains: 0
             maxContains: 1
-    ada:methodParameters:
+    schema:additionalProperty:
       type: array
+      description: Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification;
+        dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.
       items:
         anyOf:
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/laicpms_coupledTechnique
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/laicpms_couplingDescription
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatio
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatment
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/coupledTechniqueDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/couplingDescriptionDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatioDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatmentDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/samplerAndSkimmerConeMaterial
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepth
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepthDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/ablationCellType
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/laserEnergy
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/laserEnergyDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/laserBeamEnergyProfile
         - $ref: ../parameterTemplates/schema.yaml#/$defs/laserPulseDuration
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/transectRateMappingRateOrStepSize
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/plasmaMakeUpGasAddition
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/auxiliaryAndCoolGasFlowRates
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothing
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/icpTuning
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesMonitor
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesProduction
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/transectRateMappingRateOrStepSizeDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/plasmaMakeUpGasAdditionDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/auxiliaryAndCoolGasFlowRatesDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/icpTuningDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesMonitorDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesProductionDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentWarmUpSessionDurationLimit
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequency
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/multiRunSequentialAnalysisDesign
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/uncertaintyPropagationMethod
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/uncertaintyPropagationMethodDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/matrixOffsetCorrection
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/spikeOutlierFilteringApproach
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/pulseAnalogDetectorNonlinearityCorrection
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/memoryEffectMitigation
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/normalizationStandardsBasedCorrection
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/additionalNotes
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/spikeOutlierFilteringApproachDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/pulseAnalogDetectorNonlinearityCorrectionDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/memoryEffectMitigationDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/normalizationStandardsBasedCorrectionDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/additionalNotesDefault
       allOf:
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/laicpms_coupledTechnique
+          $ref: ../parameterTemplates/schema.yaml#/$defs/coupledTechniqueDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/laicpms_couplingDescription
+          $ref: ../parameterTemplates/schema.yaml#/$defs/couplingDescriptionDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatio
+          $ref: ../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatioDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatment
+          $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatmentDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -304,7 +316,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepth
+          $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepthDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -312,7 +324,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/laserEnergy
+          $ref: ../parameterTemplates/schema.yaml#/$defs/laserEnergyDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -324,31 +336,31 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/transectRateMappingRateOrStepSize
+          $ref: ../parameterTemplates/schema.yaml#/$defs/transectRateMappingRateOrStepSizeDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/plasmaMakeUpGasAddition
+          $ref: ../parameterTemplates/schema.yaml#/$defs/plasmaMakeUpGasAdditionDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/auxiliaryAndCoolGasFlowRates
+          $ref: ../parameterTemplates/schema.yaml#/$defs/auxiliaryAndCoolGasFlowRatesDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothing
+          $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/icpTuning
+          $ref: ../parameterTemplates/schema.yaml#/$defs/icpTuningDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesMonitor
+          $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesMonitorDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesProduction
+          $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesProductionDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -356,7 +368,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequency
+          $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -364,7 +376,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/uncertaintyPropagationMethod
+          $ref: ../parameterTemplates/schema.yaml#/$defs/uncertaintyPropagationMethodDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -372,22 +384,53 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/spikeOutlierFilteringApproach
+          $ref: ../parameterTemplates/schema.yaml#/$defs/spikeOutlierFilteringApproachDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/pulseAnalogDetectorNonlinearityCorrection
+          $ref: ../parameterTemplates/schema.yaml#/$defs/pulseAnalogDetectorNonlinearityCorrectionDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/memoryEffectMitigation
+          $ref: ../parameterTemplates/schema.yaml#/$defs/memoryEffectMitigationDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/normalizationStandardsBasedCorrection
+          $ref: ../parameterTemplates/schema.yaml#/$defs/normalizationStandardsBasedCorrectionDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/additionalNotes
+          $ref: ../parameterTemplates/schema.yaml#/$defs/additionalNotesDefault
         minContains: 0
         maxContains: 1
+  required:
+  - ada:sampleFormAnalyticalSubstrateDefault
+  - ada:samplePreparationMethodDefault
+  - ada:laserManufacturerModel
+  - ada:icpMsManufacturerModel
+  - ada:icpMsType
+  - ada:interfaceConeConfiguration
+  - ada:guardElectrode
+  - ada:massResolutionSettingDefault
+  - ada:detectorConfiguration
+  - ada:laserWavelengthAndType
+  - ada:dataReductionSoftwareDefault
+  - ada:laserSpotGeometryDefault
+  - ada:laserSpotPathAblationMode
+  - ada:laserFluenceDefault
+  - ada:laserRepetitionRateDefault
+  - ada:ablationDurationPerSpotDefault
+  - ada:rasterLineSpacingDefault
+  - ada:carrierGasAndFlowRateDefault
+  - ada:rfPower
+  - ada:plasmaThermalMode
+  - ada:oxideProductionMethodAndThreshold
+  - ada:analysisSequenceDefault
+  - ada:backgroundCountTimeDefault
+  - ada:internalStandardApproach
+  - ada:internalStandardElement
+  - ada:elementalFractionationCorrection
+  - ada:signalIntegrationIntervalMethod
+  - ada:blankBackgroundCorrectionMethod
+  - ada:primaryCalibrationStandardNameDefault
+  - ada:secondaryReferenceMaterialsDefault

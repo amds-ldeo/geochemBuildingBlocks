@@ -11,7 +11,7 @@ routing is driven purely by the two tier columns per the documented rules:
 Controlled lists -> vocab/ DefinedTermSet reference data.
 Routing precomputed in docs/new_tapps202606/labxct_routing.json.
 """
-import json, os, yaml
+import json, os, re, yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROUTING = os.path.join(ROOT, "docs", "new_tapps202606", "labxct_routing.json")
@@ -54,17 +54,27 @@ def def_key(bare, existing):
     return ("labxct_" + bare) if bare in existing else bare
 
 
+def is_dual(b):
+    """Advanced-protocol field is dual-homed (method def + detail) when Analysis-Level
+    Tier is Basic/Editable/Advanced; Read-Only fields live only in the method def."""
+    return b["A"] in ("Basic", "Editable", "Advanced")
+
+
+def methoddef_name(b):
+    return b["name"] + ("Default" if is_dual(b) else "")
+
+
 def param_template_def(b, existing):
-    bare = b["name"]
-    name = def_key(bare, existing)
+    mdname = methoddef_name(b)
+    name = def_key(mdname, existing)
     props = {
-        "@id": {"const": PARAM_BASE + "/" + bare},
+        "@id": {"const": PARAM_BASE + "/" + mdname},
         "@type": {"const": ["schema:PropertyValueSpecification"]},
-        "schema:valueName": {"const": bare},
+        "schema:valueName": {"const": mdname},
         "schema:name": {"const": b["item"]},
         "ada:dataType": {"const": b["jtype"]},
         "ada:fieldScope": {"const": "session"},
-        "schema:readonlyValue": {"const": True},
+        "schema:readonlyValue": {"const": not is_dual(b)},
         "ada:tier": {"const": "R"},
     }
     if b.get("unit") and b["unit"] != "free":
@@ -95,6 +105,33 @@ def param_value_def(b, existing):
         req.append("schema:unitText")
     return name, {name: {"title": b["item"], "description": b["desc"], "type": "object",
                          "properties": props, "required": req}}
+
+
+def remove_owned_blocks(path, owner_substr):
+    """Drop $def blocks whose body references owner_substr (this TAPP's @id), preserving
+    formatting of all other entries. Idempotent: regen removes the prior owned entries
+    before re-appending, so re-runs don't duplicate."""
+    lines = open(path, encoding="utf-8").read().splitlines(keepends=True)
+    out, i, removed = [], 0, []
+    defs_re = re.compile(r"^  (\S.*):\s*$")
+    while i < len(lines):
+        m = defs_re.match(lines[i])
+        if m:
+            j = i + 1
+            block = [lines[i]]
+            while j < len(lines) and not defs_re.match(lines[j]):
+                block.append(lines[j])
+                j += 1
+            if owner_substr in "".join(block):
+                removed.append(m.group(1))
+            else:
+                out.extend(block)
+            i = j
+        else:
+            out.append(lines[i])
+            i += 1
+    open(path, "w", encoding="utf-8", newline="\n").write("".join(out))
+    return removed
 
 
 def append_defs(catalog_path, defs):
@@ -132,6 +169,9 @@ def main():
     for b in routing["vocab"]:
         write_vocab(b)
 
+    # drop any prior labxct-owned entries first (idempotent regen; no duplicates)
+    remove_owned_blocks(PT, PARAM_BASE + "/")
+    remove_owned_blocks(PV, PARAM_BASE + "/")
     pt_existing = existing_keys(PT)
     pv_existing = existing_keys(PV)
 
@@ -166,6 +206,7 @@ def main():
                   "Target Material", "CT System Manufacturer and Model",
                   "Protocol Reference(s)", "Laboratory ID", "Protocol DOI"}
     tapp_props = {}
+    basic_required = []
     for b in routing["tapp_prop"]:
         if b["item"] in BASE_ITEMS:
             continue
@@ -176,27 +217,30 @@ def main():
             p["enum"] = ["Single-volume", "Multi-volume stitching",
                          "Single-volume; Multi-volume stitching"]
         tapp_props[key] = p
-    mp_refs = [{"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_names]
-    mp_contains = [{"contains": {"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n},
-                    "minContains": 0, "maxContains": 1} for n in pt_names]
-    tapp_props["ada:methodParameters"] = {
+        basic_required.append(key)
+    sap_refs = [{"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_names]
+    sap_contains = [{"contains": {"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n},
+                     "minContains": 0, "maxContains": 1} for n in pt_names]
+    tapp_props["schema:additionalProperty"] = {
         "type": "array",
-        "description": "Method-level XCT parameters (readOnly templates). Each entry is one of the labxctTAPP parameter templates.",
-        "items": {"anyOf": mp_refs},
-        "allOf": mp_contains,
+        "description": ("Method-level parameter specifications (Advanced protocol tier). Each entry is "
+                        "a schema:PropertyValueSpecification; dual-homed fields use the …Default name "
+                        "here and carry the per-dataset value in the detail block."),
+        "items": {"anyOf": sap_refs},
+        "allOf": sap_contains,
     }
     tapp_schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "title": "Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)",
         "description": ("Laboratory X-ray computed tomography (polychromatic cone-beam) extension of "
-                        "the base TAPP definition. Adds XCT protocol-level acquisition/processing "
-                        "defaults as top-level ada: properties and an ada:methodParameters vocabulary "
-                        "of session-adjustable parameter templates. XCT has no per-element analyte "
-                        "axis, so no ada:analyteTemplate is defined. Generated from "
-                        "docs/Lab-XCT_TAPP_v8.xlsx by tools/build_labxct_from_spreadsheet.py."),
+                        "the base TAPP definition. Basic protocol-tier fields are required top-level "
+                        "ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] "
+                        "PropertyValueSpecification entries. XCT has no per-element analyte axis, so no "
+                        "ada:analyteTemplate is defined. Generated from docs/Lab-XCT_TAPP_v8.xlsx by "
+                        "tools/build_labxct_from_spreadsheet.py."),
         "allOf": [
             {"$ref": "../tappDefinition/schema.yaml"},
-            {"type": "object", "properties": tapp_props},
+            {"type": "object", "properties": tapp_props, "required": basic_required},
         ],
     }
     write(os.path.join(TAPP_DIR, "schema.yaml"), dump_yaml(tapp_schema))

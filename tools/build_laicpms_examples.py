@@ -122,27 +122,34 @@ def main():
         if sw:
             inst["bios:computationalTool"] = [{"@type": ["schema:SoftwareApplication"],
                                                "schema:name": sw, "ada:toolRole": "reduction"}]
-        # top-level ada: properties (Basic protocol tier)
+        # Basic-protocol props: real value, else sentinel when required (some pubs report it),
+        # else omit when optional (no publication reports it, cov == 0).
         for b in R["tapp_prop"]:
+            key = "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else "")
             v = cell(b["item"], L)
             if v:
-                key = "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else "")
                 inst[key] = v
-        # methodParameters (Advanced protocol tier)
-        mps = []
+            elif b["cov"] > 0:
+                inst[key] = (-9999 if b["jtype"] in ("number", "integer") else "missing")
+            # else cov == 0 -> optional, omit
+        # Advanced-protocol fields -> schema:additionalProperty[] of PropertyValueSpecification
+        # (…Default name + readonlyValue:false when dual-homed; bare name + readonly:true if Read-Only)
+        saps = []
         for b in R["method_param"]:
             v = cell(b["item"], L)
             if not v:
                 continue
-            e = {"@id": f"{PARAM_BASE}/{b['name']}", "@type": ["schema:PropertyValueSpecification"],
-                 "schema:valueName": b["name"], "schema:name": b["item"], "ada:dataType": b["jtype"],
-                 "ada:fieldScope": "session", "schema:readonlyValue": True, "ada:tier": "R",
+            dual = b["A"] in ("Basic", "Editable", "Advanced")
+            mdname = b["name"] + ("Default" if dual else "")
+            e = {"@id": f"{PARAM_BASE}/{mdname}", "@type": ["schema:PropertyValueSpecification"],
+                 "schema:valueName": mdname, "schema:name": b["item"], "ada:dataType": b["jtype"],
+                 "ada:fieldScope": "session", "schema:readonlyValue": (not dual), "ada:tier": "R",
                  "schema:defaultValue": v}
             if b.get("unit") and b["unit"] != "free":
                 e["schema:unitText"] = b["unit"]
-            mps.append(e)
-        if mps:
-            inst["ada:methodParameters"] = mps
+            saps.append(e)
+        if saps:
+            inst["schema:additionalProperty"] = saps
         # analyteTemplate: identifier column + defaultAnalytes (analyte list only)
         analytes = parse_analytes(table.get("Analyte", {}).get(L, ""))
         if analytes:
@@ -153,7 +160,7 @@ def main():
         fp = os.path.join(TAPP_DIR, f"examplelaicpmsTAPP-{code}.json")
         json.dump(inst, open(fp, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False)
         open(fp, "a", encoding="utf-8", newline="\n").write("\n")
-        written.append((code, L, len(mps), len(analytes)))
+        written.append((code, L, len(saps), len(analytes)))
 
     # ---- examples.yaml for laicpmsTAPP (publication examples only) ----
     import yaml

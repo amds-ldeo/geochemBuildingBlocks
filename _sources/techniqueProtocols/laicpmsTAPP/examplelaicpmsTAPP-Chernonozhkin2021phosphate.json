@@ -45,6 +45,7 @@
   "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
   "ada:icpMsType": "Double-focusing sector field ICP-MS (explicitly stated)",
   "ada:interfaceConeConfiguration": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)",
+  "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Low resolution (M/ΔM = 300)",
   "ada:detectorConfiguration": "Triple mode detection",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration ~5 ns",
@@ -54,9 +55,11 @@
   "ada:laserFluenceDefault": "3.5 J cm⁻²",
   "ada:laserRepetitionRateDefault": "20 Hz",
   "ada:ablationDurationPerSpotDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
+  "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasAndFlowRateDefault": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
   "ada:rfPower": "1000 W",
   "ada:plasmaThermalMode": "Normal plasma (1000 W RF)",
+  "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "MPI-DING and USGS GRMs at beginning → unknowns → repeated GRM at end",
   "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
   "ada:internalStandardApproach": "Sum-of-major-oxide normalization to 100 wt% (Liu et al. 2008; Appendix C3)",
@@ -66,7 +69,7 @@
   "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot analysis (8 scans); average background subtracted",
   "ada:primaryCalibrationStandardNameDefault": "MPI-DING and USGS glass GRMs (measured at beginning and repeatedly at end of each session; multipoint calibration)",
   "ada:secondaryReferenceMaterialsDefault": "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment",
-  "ada:methodParameters": [
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
       "@type": [
@@ -94,67 +97,67 @@
       "schema:defaultValue": "~5 ns (ArF excimer)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
+      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAddition",
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
       "schema:name": "Plasma / Make-up Gas Addition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRates",
+      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "auxiliaryAndCoolGasFlowRates",
+      "schema:valueName": "auxiliaryAndCoolGasFlowRatesDefault",
       "schema:name": "Auxiliary and Cool Gas Flow Rates",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.85 l min⁻¹"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/signalSmoothing",
+      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "signalSmoothing",
+      "schema:valueName": "signalSmoothingDefault",
       "schema:name": "Signal Smoothing",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "None"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/icpTuning",
+      "@id": "ada:parameter/laicpmsTAPP/icpTuningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "icpTuning",
+      "schema:valueName": "icpTuningDefault",
       "schema:name": "ICP Tuning",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same instrument as olivine runs; tuned for normal plasma conditions"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequency",
+      "schema:valueName": "driftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "MPI-DING and USGS GRMs measured at beginning and repeatedly at end of each session"
     },
@@ -172,80 +175,80 @@
       "schema:defaultValue": "Single spot analysis run per location (25 cycles: 15 s blank + 20 s ablation + 10 s washout); 3 replicates"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
+      "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "uncertaintyPropagationMethod",
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
       "schema:name": "Uncertainty Propagation Method",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Longerich et al. (1996) for LOD; uncertainty not formally described"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
+      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "spikeOutlierFilteringApproach",
+      "schema:valueName": "spikeOutlierFilteringApproachDefault",
       "schema:name": "Spike / Outlier Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Anomalous time steps excluded during manual inspection"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection",
+      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrection",
+      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Applied: triple mode detection"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigation",
+      "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "memoryEffectMitigation",
+      "schema:valueName": "memoryEffectMitigationDefault",
       "schema:name": "Memory Effect Mitigation",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "100% oxide sum normalization to 100 wt% for phosphate minerals (Appendix C3)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotes",
+      "schema:valueName": "additionalNotesDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Phosphate phase identification used LA-ICP-MS data combined with EMPA and µXRF (Fig. D9); merrillite, stanfieldite, farringtonite distinguished by REE patterns; oxide sum normalization applied to phosphate (not olivine IS approach)"
     }

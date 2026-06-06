@@ -34,21 +34,33 @@
   "ada:samplePreparationMethodDefault": "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE",
   "ada:laserManufacturerModel": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
   "ada:icpMsManufacturerModel": "Agilent 7900 (Q-ICP-MS)",
+  "ada:icpMsType": "missing",
+  "ada:interfaceConeConfiguration": "missing",
+  "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Unit resolution (quadrupole fixed)",
+  "ada:detectorConfiguration": "missing",
   "ada:laserWavelengthAndType": "193 nm (CetacAnalyte HE; ns pulse)",
+  "ada:dataReductionSoftwareDefault": "missing",
   "ada:laserSpotGeometryDefault": "20 µm circular (sulfide; grain sizes >20 µm selected)",
+  "ada:laserSpotPathAblationMode": "missing",
   "ada:laserFluenceDefault": "~2.5 J cm⁻²",
   "ada:laserRepetitionRateDefault": "7 Hz",
   "ada:ablationDurationPerSpotDefault": "~40 s (same protocol; grain size >20 µm selected)",
+  "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasAndFlowRateDefault": "He (flow rate not stated; same system as glass protocol)",
+  "ada:rfPower": -9999,
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
+  "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
   "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
   "ada:elementalFractionationCorrection": "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration",
   "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
+  "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:primaryCalibrationStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
   "ada:secondaryReferenceMaterialsDefault": "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)",
-  "ada:methodParameters": [
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
       "@type": [
@@ -63,28 +75,28 @@
       "schema:defaultValue": "Cetac Analyte HE system (same as silicate glass protocol)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
+      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAddition",
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
       "schema:name": "Plasma / Make-up Gas Addition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "N₂ or Ar mixed (same protocol as glass)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequency",
+      "schema:valueName": "driftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same bracketing as silicate glass protocol"
     },
@@ -102,41 +114,41 @@
       "schema:defaultValue": "Single spot per location (sulfides; same acquisition parameters as glass but 20 µm spot)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
+      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "spikeOutlierFilteringApproach",
+      "schema:valueName": "spikeOutlierFilteringApproachDefault",
       "schema:name": "Spike / Outlier Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same approach as glass; Au spike identification critical for determining solubility vs. nugget contribution"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "No post-acquisition normalization beyond IS (Fe from EMP)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotes",
+      "schema:valueName": "additionalNotesDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
+      "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Analysis of quenched experimental pyrrhotite (Fe₁₋ₓS) from same piston-cylinder experiments; 20 µm spot required due to small grain size (5–50 µm); same instrument and analytical session as glass protocol"
     }

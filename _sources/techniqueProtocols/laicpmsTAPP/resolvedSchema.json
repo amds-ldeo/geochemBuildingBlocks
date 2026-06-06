@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)",
-  "description": "LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS) extension of the base TAPP definition. Adds LA-ICP-MS protocol-level acquisition/instrument/data-processing properties (Basic protocol tier) as top-level ada: properties, an ada:methodParameters vocabulary (Advanced protocol tier), and an ada:analyteTemplate of per-element columns. Regenerated from docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by tools/build_laicpms_from_spreadsheet.py.",
+  "description": "LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries; an ada:analyteTemplate carries the per-element columns. Regenerated from docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by tools/build_laicpms_from_spreadsheet.py.",
   "properties": {
     "@context": {
       "type": "object",
@@ -4693,15 +4693,36 @@
         },
         "ada:laserFluenceDefault": {
           "description": "Laser pulse energy per unit area at the sample surface in J cm⁻², as registered by the protocol. Fluence is the physically meaningful quantity controlling ablation rate, crater morphology, elemental fractionation, and particle size distribution. If the system reports only as % of maximum output, include that value and note the system maximum where known.",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:laserRepetitionRateDefault": {
           "description": "Laser pulse repetition rate in hertz registered by the protocol. For mapping methods, repetition rate together with scan speed and spot size determines pixel size and spatial resolution. Analysts may adjust within protocol-allowed bounds.",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:ablationDurationPerSpotDefault": {
           "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent protocol-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:rasterLineSpacingDefault": {
           "description": "Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres. Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.",
@@ -4713,7 +4734,14 @@
         },
         "ada:rfPower": {
           "description": "ICP radiofrequency forward power in watts. Fixed in the protocol; cannot be changed by analysts without defining a new protocol, because RF power affects plasma temperature, ionisation efficiency, oxide formation, and whether cool or normal plasma conditions are in effect.",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:plasmaThermalMode": {
           "description": "Whether the ICP plasma is operated under cool plasma (≤900 W RF) or normal (hot) plasma (>1000 W RF) conditions. Cool plasma substantially reduces argide-based polyatomic interferences (e.g., ⁴⁰Ar on ⁴⁰Ca, ⁴⁰Ar⁴⁰Ar on ⁸⁰Se). This is a fundamental method design choice that determines which interference corrections are necessary and should be documented independently of the RF Power field.",
@@ -4729,7 +4757,14 @@
         },
         "ada:backgroundCountTimeDefault": {
           "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:internalStandardApproach": {
           "description": "Method used to determine the internal standard (IS) concentration for each unknown sample, used to correct for variable ablation yield between analyses. The approach is a fundamental protocol design choice that cannot be changed by analysts.",
@@ -6013,8 +6048,9 @@
             }
           }
         },
-        "ada:methodParameters": {
+        "schema:additionalProperty": {
           "type": "array",
+          "description": "Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification; dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.",
           "items": {
             "anyOf": [
               {
@@ -6023,7 +6059,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/coupledTechnique"
+                    "const": "ada:parameter/laicpmsTAPP/coupledTechniqueDefault"
                   },
                   "@type": {
                     "const": [
@@ -6031,7 +6067,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "coupledTechnique"
+                    "const": "coupledTechniqueDefault"
                   },
                   "schema:name": {
                     "const": "Coupled Technique(s)"
@@ -6043,7 +6079,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6064,7 +6100,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/couplingDescription"
+                    "const": "ada:parameter/laicpmsTAPP/couplingDescriptionDefault"
                   },
                   "@type": {
                     "const": [
@@ -6072,7 +6108,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "couplingDescription"
+                    "const": "couplingDescriptionDefault"
                   },
                   "schema:name": {
                     "const": "Coupling Description"
@@ -6084,7 +6120,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6105,7 +6141,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
+                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault"
                   },
                   "@type": {
                     "const": [
@@ -6113,7 +6149,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "fusionFluxAndDilutionRatio"
+                    "const": "fusionFluxAndDilutionRatioDefault"
                   },
                   "schema:name": {
                     "const": "Fusion Flux and Dilution Ratio"
@@ -6125,7 +6161,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6146,7 +6182,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
+                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault"
                   },
                   "@type": {
                     "const": [
@@ -6154,7 +6190,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "preAblationSurfaceTreatment"
+                    "const": "preAblationSurfaceTreatmentDefault"
                   },
                   "schema:name": {
                     "const": "Pre-Ablation Surface Treatment"
@@ -6166,7 +6202,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6228,7 +6264,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/torchDepth"
+                    "const": "ada:parameter/laicpmsTAPP/torchDepthDefault"
                   },
                   "@type": {
                     "const": [
@@ -6236,7 +6272,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "torchDepth"
+                    "const": "torchDepthDefault"
                   },
                   "schema:name": {
                     "const": "Torch Depth"
@@ -6248,7 +6284,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6310,7 +6346,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserEnergy"
+                    "const": "ada:parameter/laicpmsTAPP/laserEnergyDefault"
                   },
                   "@type": {
                     "const": [
@@ -6318,7 +6354,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "laserEnergy"
+                    "const": "laserEnergyDefault"
                   },
                   "schema:name": {
                     "const": "Laser Energy"
@@ -6330,7 +6366,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6436,7 +6472,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSize"
+                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault"
                   },
                   "@type": {
                     "const": [
@@ -6444,7 +6480,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "transectRateMappingRateOrStepSize"
+                    "const": "transectRateMappingRateOrStepSizeDefault"
                   },
                   "schema:name": {
                     "const": "Transect Rate, Mapping Rate or Step Size"
@@ -6456,7 +6492,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6477,7 +6513,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault"
                   },
                   "@type": {
                     "const": [
@@ -6485,7 +6521,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "plasmaMakeUpGasAddition"
+                    "const": "plasmaMakeUpGasAdditionDefault"
                   },
                   "schema:name": {
                     "const": "Plasma / Make-up Gas Addition"
@@ -6497,7 +6533,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6518,7 +6554,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRates"
+                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault"
                   },
                   "@type": {
                     "const": [
@@ -6526,7 +6562,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "auxiliaryAndCoolGasFlowRates"
+                    "const": "auxiliaryAndCoolGasFlowRatesDefault"
                   },
                   "schema:name": {
                     "const": "Auxiliary and Cool Gas Flow Rates"
@@ -6538,7 +6574,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6559,7 +6595,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/signalSmoothing"
+                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
                   },
                   "@type": {
                     "const": [
@@ -6567,7 +6603,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "signalSmoothing"
+                    "const": "signalSmoothingDefault"
                   },
                   "schema:name": {
                     "const": "Signal Smoothing"
@@ -6579,7 +6615,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6600,7 +6636,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/icpTuning"
+                    "const": "ada:parameter/laicpmsTAPP/icpTuningDefault"
                   },
                   "@type": {
                     "const": [
@@ -6608,7 +6644,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "icpTuning"
+                    "const": "icpTuningDefault"
                   },
                   "schema:name": {
                     "const": "ICP Tuning"
@@ -6620,7 +6656,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6641,7 +6677,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor"
+                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault"
                   },
                   "@type": {
                     "const": [
@@ -6649,7 +6685,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "doublyChargedSpeciesMonitor"
+                    "const": "doublyChargedSpeciesMonitorDefault"
                   },
                   "schema:name": {
                     "const": "Doubly-Charged Species Monitor"
@@ -6661,7 +6697,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6682,7 +6718,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction"
+                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault"
                   },
                   "@type": {
                     "const": [
@@ -6690,7 +6726,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "doublyChargedSpeciesProduction"
+                    "const": "doublyChargedSpeciesProductionDefault"
                   },
                   "schema:name": {
                     "const": "Doubly-Charged Species Production"
@@ -6702,7 +6738,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6764,7 +6800,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequency"
+                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault"
                   },
                   "@type": {
                     "const": [
@@ -6772,7 +6808,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "driftMonitorFrequency"
+                    "const": "driftMonitorFrequencyDefault"
                   },
                   "schema:name": {
                     "const": "Drift Monitor Frequency"
@@ -6784,7 +6820,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6846,7 +6882,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
+                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault"
                   },
                   "@type": {
                     "const": [
@@ -6854,7 +6890,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "uncertaintyPropagationMethod"
+                    "const": "uncertaintyPropagationMethodDefault"
                   },
                   "schema:name": {
                     "const": "Uncertainty Propagation Method"
@@ -6866,7 +6902,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6928,7 +6964,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach"
+                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault"
                   },
                   "@type": {
                     "const": [
@@ -6936,7 +6972,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproach"
+                    "const": "spikeOutlierFilteringApproachDefault"
                   },
                   "schema:name": {
                     "const": "Spike / Outlier Filtering Approach"
@@ -6948,7 +6984,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6969,7 +7005,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
+                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
                   },
                   "@type": {
                     "const": [
@@ -6977,7 +7013,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "pulseAnalogDetectorNonlinearityCorrection"
+                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Pulse/Analog Detector Nonlinearity Correction"
@@ -6989,7 +7025,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7010,7 +7046,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigation"
+                    "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault"
                   },
                   "@type": {
                     "const": [
@@ -7018,7 +7054,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "memoryEffectMitigation"
+                    "const": "memoryEffectMitigationDefault"
                   },
                   "schema:name": {
                     "const": "Memory Effect Mitigation"
@@ -7030,7 +7066,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7051,7 +7087,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection"
+                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
                   },
                   "@type": {
                     "const": [
@@ -7059,7 +7095,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrection"
+                    "const": "normalizationStandardsBasedCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
@@ -7071,7 +7107,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7092,7 +7128,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/additionalNotes"
+                    "const": "ada:parameter/laicpmsTAPP/additionalNotesDefault"
                   },
                   "@type": {
                     "const": [
@@ -7100,7 +7136,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "additionalNotes"
+                    "const": "additionalNotesDefault"
                   },
                   "schema:name": {
                     "const": "Additional Notes"
@@ -7112,7 +7148,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7137,7 +7173,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/coupledTechnique"
+                    "const": "ada:parameter/laicpmsTAPP/coupledTechniqueDefault"
                   },
                   "@type": {
                     "const": [
@@ -7145,7 +7181,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "coupledTechnique"
+                    "const": "coupledTechniqueDefault"
                   },
                   "schema:name": {
                     "const": "Coupled Technique(s)"
@@ -7157,7 +7193,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7182,7 +7218,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/couplingDescription"
+                    "const": "ada:parameter/laicpmsTAPP/couplingDescriptionDefault"
                   },
                   "@type": {
                     "const": [
@@ -7190,7 +7226,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "couplingDescription"
+                    "const": "couplingDescriptionDefault"
                   },
                   "schema:name": {
                     "const": "Coupling Description"
@@ -7202,7 +7238,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7227,7 +7263,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
+                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault"
                   },
                   "@type": {
                     "const": [
@@ -7235,7 +7271,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "fusionFluxAndDilutionRatio"
+                    "const": "fusionFluxAndDilutionRatioDefault"
                   },
                   "schema:name": {
                     "const": "Fusion Flux and Dilution Ratio"
@@ -7247,7 +7283,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7272,7 +7308,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
+                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault"
                   },
                   "@type": {
                     "const": [
@@ -7280,7 +7316,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "preAblationSurfaceTreatment"
+                    "const": "preAblationSurfaceTreatmentDefault"
                   },
                   "schema:name": {
                     "const": "Pre-Ablation Surface Treatment"
@@ -7292,7 +7328,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7362,7 +7398,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/torchDepth"
+                    "const": "ada:parameter/laicpmsTAPP/torchDepthDefault"
                   },
                   "@type": {
                     "const": [
@@ -7370,7 +7406,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "torchDepth"
+                    "const": "torchDepthDefault"
                   },
                   "schema:name": {
                     "const": "Torch Depth"
@@ -7382,7 +7418,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7452,7 +7488,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserEnergy"
+                    "const": "ada:parameter/laicpmsTAPP/laserEnergyDefault"
                   },
                   "@type": {
                     "const": [
@@ -7460,7 +7496,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "laserEnergy"
+                    "const": "laserEnergyDefault"
                   },
                   "schema:name": {
                     "const": "Laser Energy"
@@ -7472,7 +7508,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7590,7 +7626,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSize"
+                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault"
                   },
                   "@type": {
                     "const": [
@@ -7598,7 +7634,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "transectRateMappingRateOrStepSize"
+                    "const": "transectRateMappingRateOrStepSizeDefault"
                   },
                   "schema:name": {
                     "const": "Transect Rate, Mapping Rate or Step Size"
@@ -7610,7 +7646,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7635,7 +7671,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault"
                   },
                   "@type": {
                     "const": [
@@ -7643,7 +7679,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "plasmaMakeUpGasAddition"
+                    "const": "plasmaMakeUpGasAdditionDefault"
                   },
                   "schema:name": {
                     "const": "Plasma / Make-up Gas Addition"
@@ -7655,7 +7691,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7680,7 +7716,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRates"
+                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault"
                   },
                   "@type": {
                     "const": [
@@ -7688,7 +7724,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "auxiliaryAndCoolGasFlowRates"
+                    "const": "auxiliaryAndCoolGasFlowRatesDefault"
                   },
                   "schema:name": {
                     "const": "Auxiliary and Cool Gas Flow Rates"
@@ -7700,7 +7736,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7725,7 +7761,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/signalSmoothing"
+                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
                   },
                   "@type": {
                     "const": [
@@ -7733,7 +7769,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "signalSmoothing"
+                    "const": "signalSmoothingDefault"
                   },
                   "schema:name": {
                     "const": "Signal Smoothing"
@@ -7745,7 +7781,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7770,7 +7806,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/icpTuning"
+                    "const": "ada:parameter/laicpmsTAPP/icpTuningDefault"
                   },
                   "@type": {
                     "const": [
@@ -7778,7 +7814,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "icpTuning"
+                    "const": "icpTuningDefault"
                   },
                   "schema:name": {
                     "const": "ICP Tuning"
@@ -7790,7 +7826,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7815,7 +7851,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor"
+                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault"
                   },
                   "@type": {
                     "const": [
@@ -7823,7 +7859,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "doublyChargedSpeciesMonitor"
+                    "const": "doublyChargedSpeciesMonitorDefault"
                   },
                   "schema:name": {
                     "const": "Doubly-Charged Species Monitor"
@@ -7835,7 +7871,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7860,7 +7896,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction"
+                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault"
                   },
                   "@type": {
                     "const": [
@@ -7868,7 +7904,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "doublyChargedSpeciesProduction"
+                    "const": "doublyChargedSpeciesProductionDefault"
                   },
                   "schema:name": {
                     "const": "Doubly-Charged Species Production"
@@ -7880,7 +7916,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7950,7 +7986,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequency"
+                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault"
                   },
                   "@type": {
                     "const": [
@@ -7958,7 +7994,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "driftMonitorFrequency"
+                    "const": "driftMonitorFrequencyDefault"
                   },
                   "schema:name": {
                     "const": "Drift Monitor Frequency"
@@ -7970,7 +8006,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -8040,7 +8076,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
+                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault"
                   },
                   "@type": {
                     "const": [
@@ -8048,7 +8084,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "uncertaintyPropagationMethod"
+                    "const": "uncertaintyPropagationMethodDefault"
                   },
                   "schema:name": {
                     "const": "Uncertainty Propagation Method"
@@ -8060,7 +8096,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -8130,7 +8166,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach"
+                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault"
                   },
                   "@type": {
                     "const": [
@@ -8138,7 +8174,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproach"
+                    "const": "spikeOutlierFilteringApproachDefault"
                   },
                   "schema:name": {
                     "const": "Spike / Outlier Filtering Approach"
@@ -8150,7 +8186,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -8175,7 +8211,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
+                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
                   },
                   "@type": {
                     "const": [
@@ -8183,7 +8219,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "pulseAnalogDetectorNonlinearityCorrection"
+                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Pulse/Analog Detector Nonlinearity Correction"
@@ -8195,7 +8231,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -8220,7 +8256,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigation"
+                    "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault"
                   },
                   "@type": {
                     "const": [
@@ -8228,7 +8264,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "memoryEffectMitigation"
+                    "const": "memoryEffectMitigationDefault"
                   },
                   "schema:name": {
                     "const": "Memory Effect Mitigation"
@@ -8240,7 +8276,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -8265,7 +8301,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection"
+                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
                   },
                   "@type": {
                     "const": [
@@ -8273,7 +8309,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrection"
+                    "const": "normalizationStandardsBasedCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
@@ -8285,7 +8321,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -8310,7 +8346,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/additionalNotes"
+                    "const": "ada:parameter/laicpmsTAPP/additionalNotesDefault"
                   },
                   "@type": {
                     "const": [
@@ -8318,7 +8354,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "additionalNotes"
+                    "const": "additionalNotesDefault"
                   },
                   "schema:name": {
                     "const": "Additional Notes"
@@ -8330,7 +8366,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -8350,7 +8386,39 @@
             }
           ]
         }
-      }
+      },
+      "required": [
+        "ada:sampleFormAnalyticalSubstrateDefault",
+        "ada:samplePreparationMethodDefault",
+        "ada:laserManufacturerModel",
+        "ada:icpMsManufacturerModel",
+        "ada:icpMsType",
+        "ada:interfaceConeConfiguration",
+        "ada:guardElectrode",
+        "ada:massResolutionSettingDefault",
+        "ada:detectorConfiguration",
+        "ada:laserWavelengthAndType",
+        "ada:dataReductionSoftwareDefault",
+        "ada:laserSpotGeometryDefault",
+        "ada:laserSpotPathAblationMode",
+        "ada:laserFluenceDefault",
+        "ada:laserRepetitionRateDefault",
+        "ada:ablationDurationPerSpotDefault",
+        "ada:rasterLineSpacingDefault",
+        "ada:carrierGasAndFlowRateDefault",
+        "ada:rfPower",
+        "ada:plasmaThermalMode",
+        "ada:oxideProductionMethodAndThreshold",
+        "ada:analysisSequenceDefault",
+        "ada:backgroundCountTimeDefault",
+        "ada:internalStandardApproach",
+        "ada:internalStandardElement",
+        "ada:elementalFractionationCorrection",
+        "ada:signalIntegrationIntervalMethod",
+        "ada:blankBackgroundCorrectionMethod",
+        "ada:primaryCalibrationStandardNameDefault",
+        "ada:secondaryReferenceMaterialsDefault"
+      ]
     }
   ],
   "$defs": {

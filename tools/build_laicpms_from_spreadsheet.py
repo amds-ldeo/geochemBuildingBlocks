@@ -98,6 +98,25 @@ def route():
     rows = list(ws.iter_rows(min_row=1, values_only=True))
     hdr = rows[0]
     lit = [i for i, v in enumerate(hdr) if norm(v).lower() == "literature assessment"][0]
+
+    def meaningful(v):
+        v = re.sub(r"\s*\[P[^\]]*\]", "", v).strip()
+        if v in ("", "N", "N/A"):
+            return False
+        m = re.match(r"^(N/A|N)\b\s*", v)
+        if m:
+            rest = v[m.end():]
+            if rest.startswith("("):
+                depth = 0
+                for i, ch in enumerate(rest):
+                    depth += (ch == "(") - (ch == ")")
+                    if ch == ")" and depth == 0:
+                        rest = rest[i + 1:]
+                        break
+            if re.fullmatch(r"[/;,\-\s]*", rest.strip()):
+                return False
+        return True
+
     buckets = {"tapp_prop": [], "method_param": [], "detail_req": [], "detail_addl": [],
                "analyte_cols": [], "vocab": []}
     for r in rows[1:]:
@@ -106,9 +125,10 @@ def route():
             continue
         P, A, dt, ex = norm(r[2]), norm(r[3]), norm(r[4]), norm(r[5])
         modes = [norm(hdr[i]) for i in range(8, lit) if norm(r[i]) in ("Y", "y")]
+        cov = sum(1 for i in range(lit + 1, len(r)) if meaningful(norm(r[i])))
         rec = {"item": item, "name": camel(item), "P": P, "A": A, "jtype": jtype(dt),
                "unit": unit(dt), "desc": norm(r[1]), "allowed": ex,
-               "multivol_only": (modes == ["Mapping"])}
+               "multivol_only": (modes == ["Mapping"]), "cov": cov}
         if item in ANALYTE_MAP:
             buckets["analyte_cols"].append({**rec, "cols": ANALYTE_MAP[item]})
             continue
@@ -137,17 +157,32 @@ def def_key(bare, existing):
     return ("laicpms_" + bare) if bare in existing else bare
 
 
+def is_dual(b):
+    """An Advanced-protocol field is dual-homed (appears in BOTH the method definition
+    and the detail) when its Analysis-Level Tier is Basic/Editable/Advanced. Read-Only
+    fields live only in the method definition."""
+    return b["A"] in ("Basic", "Editable", "Advanced")
+
+
+def methoddef_name(b):
+    """Name of the Advanced-protocol field's PropertyValueSpecification in the method
+    definition: <name>Default when dual-homed (a per-dataset value also exists in the
+    detail), else bare <name> (Read-Only constant)."""
+    return b["name"] + ("Default" if is_dual(b) else "")
+
+
 def param_template_def(b, existing):
-    bare = b["name"]
-    name = def_key(bare, existing)
+    mdname = methoddef_name(b)
+    name = def_key(mdname, existing)
     props = {
-        "@id": {"const": PARAM_BASE + "/" + bare},
+        "@id": {"const": PARAM_BASE + "/" + mdname},
         "@type": {"const": ["schema:PropertyValueSpecification"]},
-        "schema:valueName": {"const": bare},
+        "schema:valueName": {"const": mdname},
         "schema:name": {"const": b["item"]},
         "ada:dataType": {"const": b["jtype"]},
         "ada:fieldScope": {"const": "session"},
-        "schema:readonlyValue": {"const": True},
+        # constant (read-only) only when there is no editable per-dataset counterpart
+        "schema:readonlyValue": {"const": not is_dual(b)},
         "ada:tier": {"const": "R"},
     }
     if b.get("unit") and b["unit"] != "free":
@@ -268,11 +303,20 @@ def main():
                 acols.append(c)
 
     # ---- laicpmsTAPP/schema.yaml ----
+    # Basic-protocol fields -> top-level ada: properties, REQUIRED (…Default when editable
+    # at analysis, i.e. dual-homed with a per-dataset value in the detail).
     tapp_props = {}
+    basic_required = []
     for b in R["tapp_prop"]:
         key = "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else "")
-        p = {"description": b["desc"], "type": "string"}
-        tapp_props[key] = p
+        if b["jtype"] in ("number", "integer"):
+            tapp_props[key] = {"description": b["desc"],
+                               "anyOf": [{"type": "number"}, {"type": "string"}]}
+        else:
+            tapp_props[key] = {"description": b["desc"], "type": "string"}
+        # Basic = required, EXCEPT fields no publication reports (cov == 0) -> optional
+        if b["cov"] > 0:
+            basic_required.append(key)
     # analyteTemplate
     ac_refs = [{"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"}] + \
               [{"$ref": "../analyteColumns/schema.yaml#/$defs/" + c} for c in acols]
@@ -283,23 +327,29 @@ def main():
         "properties": {"ada:analyteColumns": {"type": "array", "items": {"anyOf": ac_refs},
                                               "allOf": ac_contains}},
     }
-    # methodParameters
-    mp_refs = [{"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys]
-    mp_contains = [{"contains": {"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n},
-                    "minContains": 0, "maxContains": 1} for n in pt_keys]
-    tapp_props["ada:methodParameters"] = {"type": "array", "items": {"anyOf": mp_refs},
-                                          "allOf": mp_contains}
+    # Advanced-protocol fields -> schema:additionalProperty[] of PropertyValueSpecification
+    # (replaces ada:methodParameters). Names carry the …Default suffix when dual-homed.
+    sap_refs = [{"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys]
+    sap_contains = [{"contains": {"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n},
+                     "minContains": 0, "maxContains": 1} for n in pt_keys]
+    tapp_props["schema:additionalProperty"] = {
+        "type": "array",
+        "description": ("Method-level parameter specifications (Advanced protocol tier). Each entry is "
+                        "a schema:PropertyValueSpecification; dual-homed fields use the …Default name "
+                        "here and carry the per-dataset value in the detail block."),
+        "items": {"anyOf": sap_refs}, "allOf": sap_contains,
+    }
     tapp_schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "title": "LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)",
         "description": ("LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS) extension of the base TAPP "
-                        "definition. Adds LA-ICP-MS protocol-level acquisition/instrument/data-processing "
-                        "properties (Basic protocol tier) as top-level ada: properties, an "
-                        "ada:methodParameters vocabulary (Advanced protocol tier), and an "
-                        "ada:analyteTemplate of per-element columns. Regenerated from "
-                        "docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by tools/build_laicpms_from_spreadsheet.py."),
+                        "definition. Basic protocol-tier fields are required top-level ada: properties; "
+                        "Advanced protocol-tier fields are schema:additionalProperty[] "
+                        "PropertyValueSpecification entries; an ada:analyteTemplate carries the "
+                        "per-element columns. Regenerated from docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by "
+                        "tools/build_laicpms_from_spreadsheet.py."),
         "allOf": [{"$ref": "../tappDefinition/schema.yaml"},
-                  {"type": "object", "properties": tapp_props}],
+                  {"type": "object", "properties": tapp_props, "required": basic_required}],
     }
     write(os.path.join(TAPP_DIR, "schema.yaml"), dump_yaml(tapp_schema))
 
@@ -344,8 +394,11 @@ def main():
     json.dump({"tapp_props": list(tapp_props.keys()), "pt_keys": pt_keys, "pv_keys": pv_keys,
                "analyte_cols": acols, "detail_req": [b["name"] for b in R["detail_req"]],
                "detail_req_multivol": [b["name"] for b in R["detail_req"] if b["multivol_only"]],
-               "component_types": COMPONENT_TYPES,
-               "removed_old_templates": removed_pt},
+               "component_types": COMPONENT_TYPES, "removed_old_templates": removed_pt,
+               "basic_required": basic_required,
+               "basic_props": [{"key": "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else ""),
+                                "item": b["item"], "jtype": b["jtype"], "cov": b["cov"],
+                                "required": b["cov"] > 0} for b in R["tapp_prop"]]},
               open(os.path.join(ROOT, "docs", "new_tapps202606", "laicpms_gen_index.json"), "w"), indent=1)
     print(f"removed old laicpms templates: {removed_pt}")
     print(f"tapp_props={len(R['tapp_prop'])} method_param={len(pt_keys)} "

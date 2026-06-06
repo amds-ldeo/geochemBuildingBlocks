@@ -34,36 +34,36 @@
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
   "ada:analyteTemplate",
-  "ada:methodParameters"
+  "schema:additionalProperty"
  ],
  "pt_keys": [
-  "laicpms_coupledTechnique",
-  "laicpms_couplingDescription",
-  "fusionFluxAndDilutionRatio",
-  "preAblationSurfaceTreatment",
+  "coupledTechniqueDefault",
+  "couplingDescriptionDefault",
+  "fusionFluxAndDilutionRatioDefault",
+  "preAblationSurfaceTreatmentDefault",
   "samplerAndSkimmerConeMaterial",
-  "torchDepth",
+  "torchDepthDefault",
   "ablationCellType",
-  "laserEnergy",
+  "laserEnergyDefault",
   "laserBeamEnergyProfile",
   "laserPulseDuration",
-  "transectRateMappingRateOrStepSize",
-  "plasmaMakeUpGasAddition",
-  "auxiliaryAndCoolGasFlowRates",
-  "signalSmoothing",
-  "icpTuning",
-  "doublyChargedSpeciesMonitor",
-  "doublyChargedSpeciesProduction",
+  "transectRateMappingRateOrStepSizeDefault",
+  "plasmaMakeUpGasAdditionDefault",
+  "auxiliaryAndCoolGasFlowRatesDefault",
+  "signalSmoothingDefault",
+  "icpTuningDefault",
+  "doublyChargedSpeciesMonitorDefault",
+  "doublyChargedSpeciesProductionDefault",
   "instrumentWarmUpSessionDurationLimit",
-  "driftMonitorFrequency",
+  "driftMonitorFrequencyDefault",
   "multiRunSequentialAnalysisDesign",
-  "uncertaintyPropagationMethod",
+  "uncertaintyPropagationMethodDefault",
   "matrixOffsetCorrection",
-  "spikeOutlierFilteringApproach",
-  "pulseAnalogDetectorNonlinearityCorrection",
-  "memoryEffectMitigation",
-  "normalizationStandardsBasedCorrection",
-  "additionalNotes"
+  "spikeOutlierFilteringApproachDefault",
+  "pulseAnalogDetectorNonlinearityCorrectionDefault",
+  "memoryEffectMitigationDefault",
+  "normalizationStandardsBasedCorrectionDefault",
+  "additionalNotesDefault"
  ],
  "pv_keys": [
   "laicpms_coupledTechnique",
@@ -143,10 +143,297 @@
   "ada:LAICPMSTransect"
  ],
  "removed_old_templates": [
-  "LaserPulseDuration",
-  "WarmUpTime",
-  "SessionDurationLimit",
-  "DriftMonitorFrequency",
-  "MatrixOffseCorrection"
+  "laicpms_coupledTechnique",
+  "laicpms_couplingDescription",
+  "fusionFluxAndDilutionRatio",
+  "preAblationSurfaceTreatment",
+  "samplerAndSkimmerConeMaterial",
+  "torchDepth",
+  "ablationCellType",
+  "laserEnergy",
+  "laserBeamEnergyProfile",
+  "laserPulseDuration",
+  "transectRateMappingRateOrStepSize",
+  "plasmaMakeUpGasAddition",
+  "auxiliaryAndCoolGasFlowRates",
+  "signalSmoothing",
+  "icpTuning",
+  "doublyChargedSpeciesMonitor",
+  "doublyChargedSpeciesProduction",
+  "instrumentWarmUpSessionDurationLimit",
+  "driftMonitorFrequency",
+  "multiRunSequentialAnalysisDesign",
+  "uncertaintyPropagationMethod",
+  "matrixOffsetCorrection",
+  "spikeOutlierFilteringApproach",
+  "pulseAnalogDetectorNonlinearityCorrection",
+  "memoryEffectMitigation",
+  "normalizationStandardsBasedCorrection",
+  "additionalNotes"
+ ],
+ "basic_required": [
+  "ada:sampleFormAnalyticalSubstrateDefault",
+  "ada:samplePreparationMethodDefault",
+  "ada:laserManufacturerModel",
+  "ada:icpMsManufacturerModel",
+  "ada:icpMsType",
+  "ada:interfaceConeConfiguration",
+  "ada:guardElectrode",
+  "ada:massResolutionSettingDefault",
+  "ada:detectorConfiguration",
+  "ada:laserWavelengthAndType",
+  "ada:dataReductionSoftwareDefault",
+  "ada:laserSpotGeometryDefault",
+  "ada:laserSpotPathAblationMode",
+  "ada:laserFluenceDefault",
+  "ada:laserRepetitionRateDefault",
+  "ada:ablationDurationPerSpotDefault",
+  "ada:rasterLineSpacingDefault",
+  "ada:carrierGasAndFlowRateDefault",
+  "ada:rfPower",
+  "ada:plasmaThermalMode",
+  "ada:oxideProductionMethodAndThreshold",
+  "ada:analysisSequenceDefault",
+  "ada:backgroundCountTimeDefault",
+  "ada:internalStandardApproach",
+  "ada:internalStandardElement",
+  "ada:elementalFractionationCorrection",
+  "ada:signalIntegrationIntervalMethod",
+  "ada:blankBackgroundCorrectionMethod",
+  "ada:primaryCalibrationStandardNameDefault",
+  "ada:secondaryReferenceMaterialsDefault"
+ ],
+ "basic_props": [
+  {
+   "key": "ada:sampleFormAnalyticalSubstrateDefault",
+   "item": "Sample Form / Analytical Substrate",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:samplePreparationMethodDefault",
+   "item": "Sample Preparation Method",
+   "jtype": "string",
+   "cov": 11,
+   "required": true
+  },
+  {
+   "key": "ada:laserManufacturerModel",
+   "item": "Laser Manufacturer & Model",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:icpMsManufacturerModel",
+   "item": "ICP-MS Manufacturer & Model",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:icpMsType",
+   "item": "ICP-MS Type",
+   "jtype": "string",
+   "cov": 7,
+   "required": true
+  },
+  {
+   "key": "ada:interfaceConeConfiguration",
+   "item": "Interface Cone Configuration",
+   "jtype": "string",
+   "cov": 6,
+   "required": true
+  },
+  {
+   "key": "ada:guardElectrode",
+   "item": "Guard Electrode",
+   "jtype": "string",
+   "cov": 2,
+   "required": true
+  },
+  {
+   "key": "ada:massResolutionSettingDefault",
+   "item": "Mass Resolution Setting",
+   "jtype": "string",
+   "cov": 11,
+   "required": true
+  },
+  {
+   "key": "ada:detectorConfiguration",
+   "item": "Detector Configuration",
+   "jtype": "string",
+   "cov": 7,
+   "required": true
+  },
+  {
+   "key": "ada:laserWavelengthAndType",
+   "item": "Laser Wavelength and Type",
+   "jtype": "string",
+   "cov": 12,
+   "required": true
+  },
+  {
+   "key": "ada:acquisitionSoftwareDefault",
+   "item": "Acquisition Software",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:dataReductionSoftwareDefault",
+   "item": "Data Reduction Software",
+   "jtype": "string",
+   "cov": 9,
+   "required": true
+  },
+  {
+   "key": "ada:analyticalMode",
+   "item": "Analytical Mode",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:laserSpotGeometryDefault",
+   "item": "Laser Spot Geometry",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:laserSpotPathAblationMode",
+   "item": "Laser Spot Path / Ablation Mode",
+   "jtype": "string",
+   "cov": 11,
+   "required": true
+  },
+  {
+   "key": "ada:laserFluenceDefault",
+   "item": "Laser Fluence (Energy Density)",
+   "jtype": "number",
+   "cov": 11,
+   "required": true
+  },
+  {
+   "key": "ada:laserRepetitionRateDefault",
+   "item": "Laser Repetition Rate",
+   "jtype": "number",
+   "cov": 12,
+   "required": true
+  },
+  {
+   "key": "ada:ablationDurationPerSpotDefault",
+   "item": "Ablation Duration per Spot",
+   "jtype": "number",
+   "cov": 7,
+   "required": true
+  },
+  {
+   "key": "ada:rasterLineSpacingDefault",
+   "item": "Raster Line Spacing (Mapping Only)",
+   "jtype": "string",
+   "cov": 1,
+   "required": true
+  },
+  {
+   "key": "ada:carrierGasAndFlowRateDefault",
+   "item": "Carrier Gas and Flow Rate",
+   "jtype": "string",
+   "cov": 9,
+   "required": true
+  },
+  {
+   "key": "ada:rfPower",
+   "item": "RF Power",
+   "jtype": "number",
+   "cov": 7,
+   "required": true
+  },
+  {
+   "key": "ada:plasmaThermalMode",
+   "item": "Plasma Thermal Mode",
+   "jtype": "string",
+   "cov": 3,
+   "required": true
+  },
+  {
+   "key": "ada:oxideProductionMethodAndThreshold",
+   "item": "Oxide Production Method and Threshold",
+   "jtype": "string",
+   "cov": 2,
+   "required": true
+  },
+  {
+   "key": "ada:analysisSequenceDefault",
+   "item": "Analysis Sequence",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:backgroundCountTimeDefault",
+   "item": "Background Count Time",
+   "jtype": "number",
+   "cov": 8,
+   "required": true
+  },
+  {
+   "key": "ada:internalStandardApproach",
+   "item": "Internal Standard Approach",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:internalStandardElement",
+   "item": "Internal Standard Element",
+   "jtype": "string",
+   "cov": 12,
+   "required": true
+  },
+  {
+   "key": "ada:perAnalyteCalibrationStrategy",
+   "item": "Per-Analyte Calibration Strategy",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:elementalFractionationCorrection",
+   "item": "Elemental Fractionation Correction",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:signalIntegrationIntervalMethod",
+   "item": "Signal Integration Interval Method",
+   "jtype": "string",
+   "cov": 12,
+   "required": true
+  },
+  {
+   "key": "ada:blankBackgroundCorrectionMethod",
+   "item": "Blank / Background Correction Method",
+   "jtype": "string",
+   "cov": 11,
+   "required": true
+  },
+  {
+   "key": "ada:primaryCalibrationStandardNameDefault",
+   "item": "Primary Calibration Standard Name",
+   "jtype": "string",
+   "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:secondaryReferenceMaterialsDefault",
+   "item": "Secondary Reference Materials",
+   "jtype": "string",
+   "cov": 10,
+   "required": true
+  }
  ]
 }
