@@ -143,25 +143,26 @@ Lives at `_sources/techniqueProtocols/tappDefinition/`. Was previously `geochemP
 - **Used by:** `adaProduct.prov:wasGeneratedBy.items.prov:used.items.anyOf` accepts either an `instrument` BB instance or a `tappDefinition` BB instance.
 - **Form integration:** Tab 3 of ada_metadata_forms consumes TAPP definitions from the registry
 
-## TAPP / detail / profile pipeline (4-script workflow)
+## TAPP / detail / profile pipeline (unified generator)
 
-The pipeline for going from a filled-in TAPP template spreadsheet to a published technique-specific profile. The shared library is `tools/_tapp_lib.py`; the four driver scripts are thin wrappers around `configure(tapp_name, xlsx_path)` + a single library entry point. The library is parameterized across TAPPs via a `TAPP_PROFILES` dict copied into the active `CFG` by `configure()`, so `empaTAPP`, `laicpmsTAPP`, and `labxctTAPP` share the generator (it was previously EMPA-hardcoded); add a new TAPP by registering its knobs in `TAPP_PROFILES`.
+`tools/build_tapp.py <tapp_name>` is the **single generator** for all TAPPs (`empaTAPP`, `laicpmsTAPP`, `labxctTAPP`) — TAPP schema + shared catalogs (`analyteColumns`/`parameterTemplates`/`parameterValues`) + vocab + detail BB + per-publication examples. Routing follows the **canonical Protocol-Level × Analysis-Level matrix** (`docs/TierImplementationPatterns.xlsx`): Basic protocol → required top-level `ada:` property (`…Default` if editable at analysis); Advanced protocol → `schema:additionalProperty[]` `PropertyValueSpecification` (`…Default` + `readonlyValue:false` when dual-homed, bare + `readonly:true` if Read-Only); Analysis Basic → required detail property; Analysis Editable/Advanced → optional detail `PropertyValue`; Read-Only/N-A → absent from detail. Add a new TAPP by registering its knobs in `TAPP_CONFIGS`.
 
-`read_rows()` resolves columns **by header name** (`_detect_columns`) rather than fixed indices, so the one pipeline consumes both the annotated `*_filled-noInterp.xlsx` layout (guidance columns at G–J, pubs right after `implementation notes`) and the newer Ruolin TAPP workbooks (`Protocol-Level Tier` / `Analysis-Level Tier` columns, guidance columns, then a `Literature Assessment` separator with the publication columns after it). The publication-column count is derived from `len(CFG["pubs"])`. NOTE (in progress, 2026-06): consolidating laicpmsTAPP onto this pipeline from `docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx` — the v2 workbook's `implementation notes` are being completed (single-home tags) and `_tapp_lib`'s `example_for_pub` item-name dispatch + "N"-value filtering still need the v2 item names; see auto-memory `tapp_generation_spec.md`. Until that lands, labxctTAPP and the current full-fidelity laicpmsTAPP were produced by the per-technique routing generators (`tools/build_labxct_from_spreadsheet.py`, `tools/build_laicpms_from_spreadsheet.py`, + `*_examples.py`), which key off the tier columns instead of impl-notes.
+`tools/_tapp_lib.py` is now the **emitter/example library** (no longer a standalone router): `build_tapp.py` calls its `parameter_obj` / `additional_property_obj` / `analyte_column_obj` / `vocab_obj` emitters, `build_haspart_constraint`, the registry writers, `build_schema_yaml`, and the rich `example_for_pub` (now matrix-routed via a `route_map`). Its old impl-tag-kind routing (`_classify_rows`) is retired for current TAPPs.
+
+- **empaTAPP** is the evolved-past prototype, **aligned to the matrix and folded into `build_tapp.py`** (2026-06). Its `schema path` column resolves the special roles (`$.ada:analyteTemplate.ada:analyteColumns…` → generated analyte column; `…ada:defaultAnalytes` → analyte identifier; `$.schema:description` → protocol description; `$MethodDefinition.*` non-`ada:` → inherited base field / instrument), tier columns drive home/cardinality, and impl-notes carry the base name + dtype/enum. `build_tapp.py` **generates** empa's analyteColumns from the workbook (reusing `_tapp_lib.analyte_column_obj`), keeps the hand-authored `detailEMPA` `allOf[0]` (`ada:spectrometersUsed`/`ada:signalUsed`/componentType) and only regenerates its `allOf[1]` `additionalProperty` constraint, and preserves param `enum`→vocab refs.
+- Source workbook: `docs/TAPP_EPMA_filled-noInterp.xlsx` (annotated; guidance columns + impl-notes). `read_rows()` (`_detect_columns`) resolves columns by header name, handling both the empa layout (no `Literature Assessment` separator) and the newer Ruolin workbooks.
 
 ```
-build_TAPP_from_spreadsheet.py [TAPP_NAME] [XLSX] [--pub P0]…   # → TAPP BB + analyteColumns/parameterTemplates/vocab catalogs
-build_detail_BB.py             [TAPP_NAME] [XLSX] [--pub P0]…   # → detail BB scaffold + parameterValues registry $defs
-build_profile_BB.py            [TAPP_NAME]                       # → profiles/geochemProfiles/<short>Profile/ scaffold
-build_dataset_template.py      <tapp-instance.json>              # → xlsx with columns from analyteColumns, rows from defaultAnalytes
-                               [<out.xlsx>]
+build_tapp.py            <tapp_name>                  # → TAPP BB + catalogs + vocab + detail + examples (empa/laicpms/labxct)
+build_adaEMPA_examples.py [--pub P0]…                 # → profiles/adaProfiles/adaEMPA/ dataset examples (empa only)
+build_profile_BB.py      [TAPP_NAME]                  # → profiles/geochemProfiles/<short>Profile/ scaffold
+build_dataset_template.py <tapp-instance.json> [out]  # → xlsx columns from analyteColumns, rows from defaultAnalytes
 ```
 
-`--pub <code>` (repeatable) on the first two scripts restricts which publication-derived examples get regenerated. Schema and shared-catalog artifacts always rebuild regardless. Use this when only some publication columns have been migrated to the pipe-delimited per-analyte convention and you don't want to overwrite the others. Example: `--pub P0 --pub P1`.
-
-All four default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx`, but the **annotated** EMPA source (with the `schema path` / `matchComment` / `implementation notes` guidance columns the header-based reader needs) is `docs/TAPP_EPMA_filled-noInterp.xlsx` — pass it explicitly for empa regens. Templates and the user-facing guide live in `docs/`:
-- `docs/TAPP_EPMA_filled-noInterp.xlsx` — annotated canonical EMPA workbook; `docs/TAPP_EPMA_filled.xlsx` is the older copy without guidance columns.
-- `docs/TAPP_TEMPLATE_GUIDE.md` — explains the worksheet structure (column-by-column, impl-notes tag conventions, the readOnly:true → empaTAPP / readOnly:false → detailEMPA routing, hasPart additionalType pattern, vocab handling).
+The legacy `build_TAPP_from_spreadsheet.py` / `build_detail_BB.py` drivers now **delegate to `build_tapp.py` for `empaTAPP`** (matrix routing); they remain only for hypothetical impl-tag-style TAPPs. Templates + user-facing guide live in `docs/`:
+- `docs/TAPP_EPMA_filled-noInterp.xlsx` — annotated canonical EMPA workbook.
+- `docs/TierImplementationPatterns.xlsx` — the canonical tier matrix (authoritative routing rules).
+- `docs/TAPP_TEMPLATE_GUIDE.md` — worksheet structure (column-by-column, schema-path role conventions, tier-matrix routing, hasPart additionalType pattern, vocab handling). *(Partially stale re: the retired impl-tag readOnly routing.)*
 
 ### Catalog routing rules
 
