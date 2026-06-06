@@ -23,6 +23,7 @@ _sources/techniqueProtocols/
   tappDefinition/        ← base TAPP definition (JSON-LD class ada:TAPPDefinition)
   empaTAPP/              ← concrete TAPP profile (EMPA)
   laicpmsTAPP/           ← concrete TAPP profile (LA-ICP-MS)
+  labxctTAPP/            ← concrete TAPP profile (laboratory X-ray CT)
   <future>TAPP/          ← additional TAPPs `$ref` the catalogs above
 ```
 
@@ -31,12 +32,13 @@ _sources/techniqueProtocols/
 The catalog dirs are **shared dictionary resources** — multiple TAPP profiles `$ref` the same files when their definitions match. The tooling's `share_or_write_catalog` helper lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
 
 - `tappDefinition` — base TAPP. Defines the `WorkflowHowTo` / `WorkflowStep` / `MethodParameter` / `AnalyteColumn` / `AnalyteIdentifierColumn` `$defs` that concrete TAPP profiles extend.
-- `empaTAPP` — Electron Microprobe Analysis. Extends `tappDefinition` via `allOf` with EPMA top-level properties + `ada:methodParameters` / `ada:analyteTemplate.ada:analyteColumns` constraints referencing the shared catalogs. Generated from `docs/TAPP_EPMA_filled.xlsx` (the canonical TAPP template). 11 examples ship with the BB (10 publication-derived instances + a comprehensive synthetic example).
-- `laicpmsTAPP` — LA-ICP-MS. Built from `docs/TAPP_LAICPMS_filled.xlsx` (reshaped from the `LA-ICPMS_TAPP_v8.xlsx` source workbook).
+- `empaTAPP` — Electron Microprobe Analysis. Extends `tappDefinition` via `allOf` with EPMA top-level properties + `ada:methodParameters` / `ada:analyteTemplate.ada:analyteColumns` constraints referencing the shared catalogs. Generated from `docs/TAPP_EPMA_filled-noInterp.xlsx` (the annotated EMPA workbook; the older `TAPP_EPMA_filled.xlsx` lacks the guidance columns). 18 examples ship with the BB (publication-derived instances + a comprehensive synthetic example).
+- `laicpmsTAPP` — LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS). Regenerated 2026-06 from `docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx` (Ruolin's updated workbook; a superset of the original `LA-ICPMS_TAPP_v8.xlsx`→`TAPP_LAICPMS_filled.xlsx` lineage) at full fidelity — 33 top-level `ada:` properties, 27 method parameters, and a 13-column analyte template; 13 publication-derived examples (cols M–Y).
+- `labxctTAPP` — laboratory X-ray computed tomography (polychromatic cone-beam). Generated from `docs/Lab-XCT_TAPP_v8.xlsx`. No `ada:analyteTemplate` (XCT has no per-element analyte axis).
 
 ### analysisSpecificDetails detail blocks (per-dataset values)
 
-The 16 technique-specific detail blocks live under `_sources/analysisSpecificDetails/` (`detailEMPA`, `detailXRD`, `detailARGT`, …). Each pairs with a TAPP definition and carries the per-instance values. (The old `details` umbrella BB — an `anyOf` over the detail blocks — was unused and has been removed.)
+The 18 technique-specific detail blocks live under `_sources/analysisSpecificDetails/` (`detailEMPA`, `detailLAICPMS`, `detailLABXCT`, `detailXRD`, `detailARGT`, …). Each pairs with a TAPP definition and carries the per-instance values. (The old `details` umbrella BB — an `anyOf` over the detail blocks — was unused and has been removed.)
 
 - `detailEMPA` — paired with `empaTAPP`. Carries `readOnly:false` parameter values as `schema:additionalProperty[]` PropertyValue entries. The `schema:additionalProperty` constraint is inline in detailEMPA's `allOf` (no separate `parametersConstraint.yaml`), with `anyOf` branches `$ref`ing the `parameterValues` registry `$defs`. References the empaTAPP definition via `schema:measurementTechnique` `anyOf` (by `@id` ref or inline). 11 paired examples (`exampledetailEMPA-P1.json` … `-P10.json` + `-all.json`).
 
@@ -113,7 +115,7 @@ python tools/build_dataset_template.py      <tapp-instance.json>                
                                             [<out.xlsx>]
 ```
 
-All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-compat. The shared library at `tools/_tapp_lib.py` does the heavy lifting (parser, catalog emit helpers, scaffolders); the four drivers are thin wrappers. The library is parameterized for multiple TAPPs via a `TAPP_PROFILES` / `CFG` mechanism, so `empaTAPP` and `laicpmsTAPP` share the same generator (it was previously EMPA-hardcoded).
+All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-compat. The shared library at `tools/_tapp_lib.py` does the heavy lifting (parser, catalog emit helpers, scaffolders); the four drivers are thin wrappers. The library is parameterized for multiple TAPPs via a `TAPP_PROFILES` / `CFG` mechanism, so `empaTAPP`, `laicpmsTAPP`, and `labxctTAPP` share the same generator (it was previously EMPA-hardcoded). Column reading is **header-based** (`_detect_columns`), so the single pipeline consumes both the older annotated `*_filled-noInterp.xlsx` layout and the newer Ruolin TAPP workbooks (which carry `Protocol-Level Tier` / `Analysis-Level Tier` columns and place the publication columns after a `Literature Assessment` separator). The goal is one **TAPP workbook → JSON** workflow: annotate a workbook's `implementation notes` column (impl-notes tags drive property / parameter / analyteColumn classification) and run the pipeline.
 
 `--pub <code>` (repeatable) on scripts 1 and 2 limits which publication-derived examples get regenerated — useful when migrating pub columns one at a time.
 

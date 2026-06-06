@@ -21,6 +21,7 @@ _sources/
     tappDefinition/          base TAPP definition (was geochemProperties/methodDefinition)
     empaTAPP/                concrete TAPP profile (EMPA)
     laicpmsTAPP/             concrete TAPP profile (LA-ICP-MS)
+    labxctTAPP/              concrete TAPP profile (laboratory X-ray CT)
     <future>TAPP/            additional TAPPs $ref the catalogs above
   profiles/
     adaProfiles/             original 36 metadata profiles (adaProduct base + 35 technique profiles)
@@ -144,7 +145,9 @@ Lives at `_sources/techniqueProtocols/tappDefinition/`. Was previously `geochemP
 
 ## TAPP / detail / profile pipeline (4-script workflow)
 
-The pipeline for going from a filled-in TAPP template spreadsheet to a published technique-specific profile. The shared library is `tools/_tapp_lib.py`; the four driver scripts are thin wrappers around `configure(tapp_name, xlsx_path)` + a single library entry point. The library is parameterized across TAPPs via a `TAPP_PROFILES` dict copied into the active `CFG` by `configure()`, so `empaTAPP` and `laicpmsTAPP` share the generator (it was previously EMPA-hardcoded); add a new TAPP by registering its knobs in `TAPP_PROFILES`.
+The pipeline for going from a filled-in TAPP template spreadsheet to a published technique-specific profile. The shared library is `tools/_tapp_lib.py`; the four driver scripts are thin wrappers around `configure(tapp_name, xlsx_path)` + a single library entry point. The library is parameterized across TAPPs via a `TAPP_PROFILES` dict copied into the active `CFG` by `configure()`, so `empaTAPP`, `laicpmsTAPP`, and `labxctTAPP` share the generator (it was previously EMPA-hardcoded); add a new TAPP by registering its knobs in `TAPP_PROFILES`.
+
+`read_rows()` resolves columns **by header name** (`_detect_columns`) rather than fixed indices, so the one pipeline consumes both the annotated `*_filled-noInterp.xlsx` layout (guidance columns at G–J, pubs right after `implementation notes`) and the newer Ruolin TAPP workbooks (`Protocol-Level Tier` / `Analysis-Level Tier` columns, guidance columns, then a `Literature Assessment` separator with the publication columns after it). The publication-column count is derived from `len(CFG["pubs"])`. NOTE (in progress, 2026-06): consolidating laicpmsTAPP onto this pipeline from `docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx` — the v2 workbook's `implementation notes` are being completed (single-home tags) and `_tapp_lib`'s `example_for_pub` item-name dispatch + "N"-value filtering still need the v2 item names; see auto-memory `tapp_generation_spec.md`. Until that lands, labxctTAPP and the current full-fidelity laicpmsTAPP were produced by the per-technique routing generators (`tools/build_labxct_from_spreadsheet.py`, `tools/build_laicpms_from_spreadsheet.py`, + `*_examples.py`), which key off the tier columns instead of impl-notes.
 
 ```
 build_TAPP_from_spreadsheet.py [TAPP_NAME] [XLSX] [--pub P0]…   # → TAPP BB + analyteColumns/parameterTemplates/vocab catalogs
@@ -156,8 +159,8 @@ build_dataset_template.py      <tapp-instance.json>              # → xlsx with
 
 `--pub <code>` (repeatable) on the first two scripts restricts which publication-derived examples get regenerated. Schema and shared-catalog artifacts always rebuild regardless. Use this when only some publication columns have been migrated to the pipe-delimited per-analyte convention and you don't want to overwrite the others. Example: `--pub P0 --pub P1`.
 
-All four default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx`. Templates and the user-facing guide live in `docs/`:
-- `docs/TAPP_EPMA_filled.xlsx` — canonical filled template (clone for new techniques).
+All four default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx`, but the **annotated** EMPA source (with the `schema path` / `matchComment` / `implementation notes` guidance columns the header-based reader needs) is `docs/TAPP_EPMA_filled-noInterp.xlsx` — pass it explicitly for empa regens. Templates and the user-facing guide live in `docs/`:
+- `docs/TAPP_EPMA_filled-noInterp.xlsx` — annotated canonical EMPA workbook; `docs/TAPP_EPMA_filled.xlsx` is the older copy without guidance columns.
 - `docs/TAPP_TEMPLATE_GUIDE.md` — explains the worksheet structure (column-by-column, impl-notes tag conventions, the readOnly:true → empaTAPP / readOnly:false → detailEMPA routing, hasPart additionalType pattern, vocab handling).
 
 ### Catalog routing rules
