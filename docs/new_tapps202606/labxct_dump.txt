@@ -1,0 +1,584 @@
+COLS(0..10): ['Metadata Item', 'Description', 'Protocol-Level Tier', 'Analysis-Level Tier', 'Data Type', 'Example / Allowed Content', 'Comments', 'Last Update', 'Single-volume', 'Multi-volume stitching', 'Literature Assessment']
+================================================================================
+
+[r2] ITEM: 1. Protocol Identification
+      Ptier=''  Atier=''
+
+[r3] ITEM: Protocol Name
+      desc: A short descriptive name for this analytical protocol, with version number. Should include instrument make/model, technique, and target application.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., 'Lab-XCT Meteorite 3D Characterization v1.0' | 'µXCT Lunar Core Multi-volume Stitching v1'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r4] ITEM: Technique
+      desc: Top-level analytical technique identifier for this TAPP.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Controlled list
+      allowed: XCT (laboratory, polychromatic cone-beam) | Others: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r5] ITEM: Protocol Author
+      desc: Author(s) of the protocol. Can be individual names or lab names. ORCID is recommended for individuals.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., 'J. Smith (ORCID: 0000-0001-2345-6789)' | 'X-Ray Imaging Lab, University of X'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r6] ITEM: Analyst
+      desc: Name(s) of the analyst(s) who operated the CT instrument for this specific analysis session. ORCID recommended.
+      Ptier='N/A'  Atier='Basic'
+      dtype: Text (free)
+      allowed: e.g., 'J. Smith (ORCID: 0000-0001-2345-6789)'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r7] ITEM: Laboratory
+      desc: Name of the laboratory or institution hosting the CT instrument.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'UTCT Laboratory, University of Texas at Austin' | 'NASA JSC Astromaterials X-ray CT Laboratory'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r8] ITEM: Laboratory ID
+      desc: Persistent identifier for the laboratory, e.g., ROR ID.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: URI
+      allowed: e.g., https://ror.org/00hj54h04
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r9] ITEM: Protocol Start Date
+      desc: First date this protocol configuration was used in production.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Date
+      allowed: YYYY-MM-DD, e.g., 2022-04-22
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r10] ITEM: Analysis Start Date
+      desc: Date on which the CT scan session began. For analyses spanning multiple days, use the date of the first session.
+      Ptier='N/A'  Atier='Basic'
+      dtype: Date
+      allowed: YYYY-MM-DD, e.g., 2022-04-22
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r11] ITEM: Analysis End Date
+      desc: Date on which the CT scan session ended. May equal Analysis Start Date for single-day sessions.
+      Ptier='N/A'  Atier='Basic'
+      dtype: Date
+      allowed: YYYY-MM-DD, e.g., 2022-04-22
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r12] ITEM: Protocol DOI
+      desc: DOI or unique persistent identifier for the registered protocol used in this analysis. Mandatory at analysis level to encourage protocol registration and ensure traceability. If a DOI has been applied for but not yet minted, enter "pending".
+      Ptier='N/A'  Atier='Basic'
+      dtype: URI / DOI
+      allowed: e.g., http://doi.org/10.60520/IEDA/114187 | pending
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r13] ITEM: Funding Source for Protocol Development
+      desc: Grants and other funding sources that supported instrument acquisition, major upgrades, protocol development, and associated personnel time. Include grant numbers and funding agencies.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., 'NSF EAR-2142500' | 'NASA ROSES 80NSSC21K0153' | 'None'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r14] ITEM: Funding Source for Analysis
+      desc: Grants and other funding sources that supported the specific sample analyses reported here. Distinct from protocol development funding, which may have been awarded years earlier.
+      Ptier='N/A'  Atier='Basic'
+      dtype: Text (free)
+      allowed: e.g., 'NASA 80NSSC21K0153' | 'None'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r15] ITEM: Protocol Reference(s)
+      desc: DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this protocol.
+      Ptier='Advanced'  Atier='Read-Only'
+      dtype: URI / DOI
+      allowed: e.g., doi:10.1111/maps.12888 | doi:10.1016/j.chemer.2017.01.006
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r16] ITEM: Coupled Technique(s)
+      desc: Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter "None" if no coupling is intended.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Controlled list / Text
+      allowed: NCT | EPMA | LA-ICP-MS | SIMS | Other: specify | None
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r17] ITEM: Coupling Description
+      desc: Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'NCT provides complementary attenuation contrast sensitive to H, Cl, and Ir, and discriminates Fe from Ni — information inaccessible to X-ray CT; XCT and NCT performed sequentially on the same sample. If thermoluminescence (TL) analyses are also planned, TL must be performed before any tomography. Note: NCT produces short-lived radioactivation (e.g., ²⁴Na, t₁/₂ = 15 h); hold samples at facility until below shipping limits.' | 'EPMA provides phase identification used to guide XCT VOI selection; EPMA performed after XCT (non-destructive) and before polishing'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r18] ITEM: Coupled Protocol DOI
+      desc: Registered protocol DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled protocol has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending". Enter "None" if no coupling is planned.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: URI / DOI
+      allowed: e.g., 'http://doi.org/10.60520/IEDA/114187' | pending | None
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r19] ITEM: Coupled Dataset or Publication Reference
+      desc: DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use "same submission" if the coupled dataset is included in this data package, or "pending" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).
+      Ptier='N/A'  Atier='Advanced'
+      dtype: URI / DOI / Text
+      allowed: e.g., 'doi:10.26022/IEDA/112969' | same submission | pending | None
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r21] ITEM: 2. Samples
+      Ptier=''  Atier=''
+
+[r22] ITEM: Target Material
+      desc: General description of the material type(s) this protocol is designed to scan. Used for discoverability and protocol matching.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Controlled list / Text
+      allowed: Chondrite meteorite | Achondrite meteorite | Lunar sample | Mission-returned sample | Drill core (rock) | Sediment core | Terrestrial rock | Cosmic spherule | Other: specify | N/A | None
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r23] ITEM: Target Feature(s)
+      desc: The 3D internal features or properties the protocol is designed to characterize. Defines the scientific purpose of the scan and informs resolution and contrast requirements. Used for protocol discoverability: a researcher can identify whether this protocol is suitable for their scientific question. Note for Phase 3 literature assessment: evaluate whether protocols in the literature are feature-specific (acquisition parameters tuned to a specific feature type, e.g., opaque-phase contrast) or general-purpose (designed to capture all structural features in a given sample type). This will inform whether the field warrants a controlled list or remains free text.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., 'Vesicle network and size distribution' | 'Opaque phase (FeNi metal, sulfide) 3D distribution' | 'Porosity and pore connectivity' | 'Mineral phase boundaries and modal mineralogy' | 'General 3D structural characterization'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r24] ITEM: Applicable Sample Dimension Range
+      desc: The range of sample sizes compatible with this protocol at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the protocol's target magnification: FOV ≈ detector array width × pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: samples spanning fewer than ~10 voxels in their smallest dimension are difficult to characterize reliably.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., 'Single-volume: max 20 mm in all dimensions at 7.6 µm voxel' | 'Multi-volume stitching: max 25 mm diameter, unlimited length at 12.9 µm voxel' | 'Max 5 mm (all axes) at 0.85 µm voxel with 4× objective'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r25] ITEM: Sample Dimensions (L × W × H)
+      desc: Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.
+      Ptier='Advanced'  Atier='Basic'
+      dtype: Text (free)
+      allowed: e.g., '12 × 8 × 5 mm' | '2.844 × 1.994 × 1.38 mm' | '350 × 25 × 25 mm (drive tube)'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r26] ITEM: Sample Mass
+      desc: Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials. Particularly important for meteorite, mission-returned, and other restricted samples. This is an analysis-level field: the actual sample mass depends on the specific sample being scanned, not on the protocol design.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Numeric (g)
+      allowed: e.g., 5.59 g | 0.003 g | 19.64 g
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r27] ITEM: Sample Mounting Method
+      desc: Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Controlled list / Text
+      allowed: Free-standing on stage pin | Mounted in plastic straw | Mounted in glass capillary | Mounted with wax | Mounted in modeling clay | Placed on flat quartz window | Wrapped in PTFE tape | Free-standing without holder | Other: specify | N/A | None
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r28] ITEM: Sample Name
+      desc: Name or identifier of the sample as used in the laboratory. Should match the identifier used in associated publications or data tables.
+      Ptier='N/A'  Atier='Basic'
+      dtype: Text (free)
+      allowed: e.g., 'NWA 10597' | 'Apollo 17 sample 71035,36' | 'Ryugu A0159'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r29] ITEM: Sample Persistent Identifier
+      desc: Globally unique, persistent identifier for the analysed sample. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: URI / IGSN
+      allowed: e.g., IGSN: IEDA-100001 (https://www.igsn.org/) | Smithsonian NMNH catalog number | JAXA Hayabusa2 sample ID
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r30] ITEM: Sample Preparation Notes
+      desc: Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note any exceptions.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'None — scanned as received' | 'Fragment trimmed to fit within FOV' | 'Wrapped in PTFE tape to stabilize loose grains' | 'Dried at 60°C for 24 h before scanning'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r32] ITEM: 3. Instrument & Software
+      Ptier=''  Atier=''
+
+[r33] ITEM: CT System Manufacturer and Model
+      desc: Manufacturer and model name of the CT system. For custom-built systems, report the make/model of the X-ray source and detector separately. Include facility name for multi-user shared instruments.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., 'Nikon XTH 320/225' | 'Zeiss Xradia Versa 520' | 'Bruker SkyScan 1173' | 'Custom NSI system (FeinFocus FXE 225.48 source + Perkin Elmer 2048×2048 flat-panel), UTCT Lab'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r34] ITEM: X-ray Source Configuration
+      desc: Focal spot geometry and scale of the X-ray tube. Reflection target configurations are most common in lab XCT (X-rays emitted from the face of the anode toward the sample); transmission target configurations allow smaller focal spots by thinning the anode into a membrane and collecting X-rays from the back, enabling higher spatial resolution at the cost of lower maximum power.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Controlled list / Text
+      allowed: Reflection target, microfocal | Reflection target, rotating (high-power) | Transmission target, nanofocal | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r35] ITEM: X-ray Tube Anode Material
+      desc: Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.
+      Ptier='Advanced'  Atier='Read-Only'
+      dtype: Controlled list / Text
+      allowed: Tungsten (W) | Multi-metal (W/Mo/Cu) | Silver (Ag) | Molybdenum (Mo) | Copper (Cu) | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r36] ITEM: Detector Type
+      desc: Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre voxel sizes.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Controlled list / Text
+      allowed: Flat-panel (amorphous silicon, a-Si) | CCD + scintillator (with optical objective) | CMOS + scintillator | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r37] ITEM: Detector Array Size
+      desc: Number of pixels in the detector array (width × height). Combined with detector pixel size and geometric magnification, determines the field of view.
+      Ptier='Advanced'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., '2048 × 2048 pixels' | '2000 × 2000 pixels' | '2240 × 2240 pixels'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r38] ITEM: Detector Pixel Size
+      desc: Physical size of a single pixel on the detector in micrometres. This is a fixed hardware property of the detector array, distinct from the reconstructed voxel size (which depends on geometric magnification and binning).
+      Ptier='Advanced'  Atier='Read-Only'
+      dtype: Numeric (µm)
+      allowed: e.g., 127 µm | 6.5 µm | 12.7 µm | 200 µm
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r39] ITEM: Optical Objective
+      desc: Optical magnification objective installed between the scintillator and CCD/CMOS detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa series). For systems using only geometric magnification, report "Not applicable".
+      Ptier='Advanced'  Atier='Read-Only'
+      dtype: Text (free)
+      allowed: e.g., '4× objective' | '20× objective' | 'Not applicable — geometric magnification only'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r40] ITEM: Acquisition Software
+      desc: Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'CT Agent Pro 3D v3.8 (Nikon)' | 'Zeiss Scout-and-Scan Control System v14' | 'NRecon SkyScan v1.6.9.4 (Bruker)'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r41] ITEM: Reconstruction Software
+      desc: Software used to reconstruct 2D projection images into a 3D CT volume, including version number. Often bundled with the instrument and proprietary to the manufacturer.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'CT Pro 3D v3.8 (Nikon)' | 'Zeiss Reconstructor v14' | 'NRecon v1.6.9.4 (Bruker)' | 'Octopus Reconstruction v8.9'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r42] ITEM: Segmentation and Analysis Software
+      desc: Software used for image segmentation, phase identification, and quantitative 3D analysis after reconstruction. Report all packages used, with version numbers.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Avizo 9.2 (Thermo Fisher)' | 'Dragonfly 2021.1 (ORS Inc.)' | 'Blob3D v2019 (UT Austin)' | 'Fiji/ImageJ + 3D Suite plugin' | 'VGStudio Max 3.4 (Volume Graphics)' | 'CTAn v1.20 (Bruker)'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r44] ITEM: 4. Measurement Information
+      Ptier=''  Atier=''
+
+[r45] ITEM: Analytical Mode
+      desc: Primary analytical mode(s) executed under this protocol. For single-mode protocols, records one value (e.g., Single-volume). For protocols covering both single-volume and multi-volume stitched acquisitions, list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Controlled vocabulary
+      allowed: 'Single-volume' | 'Multi-volume stitching' | 'Single-volume; Multi-volume stitching'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r46] ITEM: Accelerating Voltage
+      desc: X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same protocol or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as stated in the source and add a parenthetical note if the unit used is keV.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Numeric (kV)
+      allowed: e.g., 80 kV | 130 kV | 160 kV | 190 kV; for variable settings: 90–115 kV
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r47] ITEM: Tube Current
+      desc: X-ray tube current in microamperes (µA) registered by the protocol. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same protocol or session, report the full range applied (e.g., 65–115 µA).
+      Ptier='Basic'  Atier='Editable'
+      dtype: Numeric (µA)
+      allowed: e.g., 89 µA | 108 µA | 180 µA; for variable settings: 65–115 µA
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r48] ITEM: X-ray Power
+      desc: X-ray tube power in watts (W) registered by the protocol. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Numeric (W)
+      allowed: e.g., 9 W | 14 W | 25 W; for variable settings: 7–13 W
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r49] ITEM: X-ray Pre-filter
+      desc: Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., '1 mm Cu' | '0.72 mm Al' | '2 mm Al' | 'LE2 (calcium fluoride, CaF₂, Zeiss)' | 'HE1 (copper composite, Zeiss)' | 'None'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r50] ITEM: Source-to-Object Distance (SOD)
+      desc: Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the protocol. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Numeric (mm)
+      allowed: e.g., 12 mm | 55 mm | 83 mm | 150 mm
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r51] ITEM: Source-to-Detector Distance (SDD)
+      desc: Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the protocol. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈ detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Numeric (mm)
+      allowed: e.g., 250 mm | 400 mm | 900 mm | 1000 mm
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r52] ITEM: Voxel Size
+      desc: Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The protocol registers the target voxel size, set based on the minimum feature size to be resolved (target voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Numeric (µm)
+      allowed: e.g., 0.85 µm | 7.63 µm | 22.44 µm (isotropic); "µm/pixel" is an acceptable equivalent for isotropic scans; for anisotropic voxels: "5 µm × 5 µm × 8 µm"; µm³ and µm³/voxel denote voxel volume — do not use for voxel size
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r53] ITEM: Rotation Range
+      desc: Total angular range over which projection images are acquired, in degrees. Full 360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Numeric (°)
+      allowed: e.g., 360 | 180
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r54] ITEM: Number of Projections
+      desc: Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Integer
+      allowed: e.g., 1811 | 2046 | 3141 | 3700
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r55] ITEM: Rotation Step Size
+      desc: Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Numeric (°)
+      allowed: e.g., 0.115° | 0.4° | 1°
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r56] ITEM: Exposure Time per Projection
+      desc: Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the protocol. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within protocol-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same protocol or session, report the full range applied (e.g., 0.5–2 s).
+      Ptier='Basic'  Atier='Editable'
+      dtype: Numeric (s)
+      allowed: e.g., 0.5 s | 1.42 s | 6 s | 28 s; for variable settings: 0.5–2 s
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r57] ITEM: Frames Averaged per Projection
+      desc: Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the protocol. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame × frames averaged.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Integer
+      allowed: e.g., 1 | 2 | 3 | 4
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r58] ITEM: Detector Binning
+      desc: Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1×1 indicates no binning.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Controlled list
+      allowed: 1×1 (no binning) | 2×2 | 4×4 | N/A | None | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r59] ITEM: Flat Field Correction
+      desc: Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Boolean
+      allowed: Yes | No
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r60] ITEM: Rotation Mode
+      desc: Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).
+      Ptier='Basic'  Atier='Editable'
+      dtype: Controlled list
+      allowed: Step rotation (stop-and-shoot) | Continuous rotation | N/A | None | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r61] ITEM: Number of Sub-volumes
+      desc: Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the protocol in advance. Applies only to Mode B (multi-volume stitching).
+      Ptier='N/A'  Atier='Basic'
+      dtype: Integer
+      allowed: e.g., 6 | 9
+      comments: Multi-volume only
+      modes: ['Multi-volume stitching']
+
+[r62] ITEM: Minimum Sub-volume Overlap
+      desc: Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset. This is a protocol-level quality specification. Eckley et al. (2025) report that 500 slices of overlap were used in the Apollo 73001 stitching workflow, while 180 slices proved insufficient for their cone-beam geometry.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Integer
+      allowed: e.g., 500 | 300
+      comments: Multi-volume only
+      modes: ['Multi-volume stitching']
+
+[r63] ITEM: Total Scan Duration
+      desc: Total elapsed time for the complete XCT acquisition, from the start of the first projection to the end of the last. For multi-volume acquisitions, this is the combined scan time across all sub-volumes (not including setup or reconstruction time). Useful for assessing beam stability and sample integrity concerns over long scans.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., 37 min | 1.5 h | 240 min
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r65] ITEM: 5. Data Processing
+      Ptier=''  Atier=''
+
+[r66] ITEM: Reconstruction Algorithm
+      desc: Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images. The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative methods offer better artifact suppression at the cost of computation time.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Controlled list / Text
+      allowed: FDK (Feldkamp-Davis-Kress, cone-beam) | FBP (filtered back-projection, parallel-beam) | Iterative reconstruction | SART | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r67] ITEM: Reconstruction Convolution Filter
+      desc: Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate protocol-level tradeoff.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Hann filter' | 'Ram-Lak filter' | 'Shepp-Logan filter' | 'Hamming filter' | 'Software default (not reported)'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r68] ITEM: Beam Hardening Correction Method
+      desc: Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filtering (Group 4: X-ray Pre-filter) and software correction are complementary approaches. The method is a protocol-level design choice; the specific correction parameter value is session-specific and recorded separately at analysis level.
+      Ptier='Basic'  Atier='Read-Only'
+      dtype: Controlled list / Text
+      allowed: e.g., 'Hardware pre-filtering only (no software correction)' | 'Software polynomial correction (instrument-specific algorithm)' | 'Ketcham & Hanna (2014) iterative BH correction' | 'None applied'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r69] ITEM: Beam Hardening Correction Parameter
+      desc: Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level companion to Beam Hardening Correction Method.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., '0.05 (constant correction in Zeiss Reconstructor; Zhang et al. 2021)' | 'BH reduction level = 3 (NRecon, Bruker)' | 'Not applicable — hardware filtering only'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r70] ITEM: Ring Artifact Correction Method
+      desc: Protocol specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the protocol-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Software ring correction applied during reconstruction (instrument algorithm)' | 'Post-reconstruction ring artifact filter (ImageJ ring artifact plugin)' | 'Defective pixel masking applied before reconstruction' | 'None specified'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r71] ITEM: Output Data Format
+      desc: File format of the reconstructed CT volume as output by the reconstruction software. Bit depth is recorded separately in Output Bit Depth.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Controlled list / Text
+      allowed: TIFF image stack | VGI/VOL (VGStudio) | RAW volume | DICOM | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r72] ITEM: CT Number Calibration
+      desc: Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison and support phase identification by comparison to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Controlled list / Text
+      allowed: e.g., 'None — raw instrument grayscale' | 'Compared to MuCalc calculated LAC values (Hanna & Ketcham 2017)' | 'Calibrated to LAC (cm⁻¹) using air and known mineral standards' | 'Calibrated to Hounsfield Units (HU) relative to water'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r73] ITEM: Segmentation Method
+      desc: General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Controlled list / Text
+      allowed: Global threshold (single CT number boundary) | Multi-threshold (separate CT number range per phase) | Manual threshold per phase | Semi-automated: threshold + morphological filtering | Machine learning (specify model) | Other: specify
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r74] ITEM: Segmentation Threshold Values or Criteria
+      desc: Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. Documenting these values enables reproducibility assessment and cross-study comparison. For LAC-calibrated datasets, report values in cm⁻¹.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Voids: <500; Silicates: 500–1800; Opaques: >1800 (16-bit grayscale)' | 'LAC: Voids <3 cm⁻¹; Matrix 3.5–5 cm⁻¹; Carbonates 5.5–6.5 cm⁻¹; Opaques >9 cm⁻¹'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r75] ITEM: Phase Identification Method
+      desc: Method used to assign reconstructed CT number ranges to specific mineral phases or material types. Approaches include comparison to calculated linear attenuation coefficients (LAC), cross-validation with independent analytical techniques, or empirical calibration.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Comparison to calculated LAC values using MuCalc (Hanna & Ketcham 2017)' | 'Cross-validated against SEM-EDS phase maps' | 'Empirical calibration using known mineral standards (olivine, chromite)' | 'Not performed — structural analysis only'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r76] ITEM: VOI Selection Criteria
+      desc: Protocol-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Exclude outer 15% of sample radius to avoid cone-beam artifacts' | 'Exclude sample holder signal; VOI diameter = 95% of sample diameter' | 'No restriction — full reconstructed volume used'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r77] ITEM: VOI Applied
+      desc: Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.
+      Ptier='N/A'  Atier='Basic'
+      dtype: Text (free)
+      allowed: e.g., 'Cylindrical VOI, radius = 85% of sample radius, full height' | 'Full reconstructed volume' | 'Spherical VOI, 2 mm radius, centred on primary inclusion'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r78] ITEM: Sub-volume Stitching and Registration Method
+      desc: Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.
+      Ptier='Basic'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Overlap cross-correlation; rotational mismatch corrected via raw projection re-alignment (Eckley et al. 2025); VGStudio Max 3.4' | 'Automated stitching, VGStudio Max' | 'FIJI BigStitcher plugin'
+      comments: Multi-volume only
+      modes: ['Multi-volume stitching']
+
+[r79] ITEM: Sub-volume Overlap
+      desc: Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the protocol (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.
+      Ptier='N/A'  Atier='Basic'
+      dtype: Integer
+      allowed: e.g., 500 | 300 | 180
+      comments: Multi-volume only
+      modes: ['Multi-volume stitching']
+
+[r80] ITEM: Output Bit Depth
+      desc: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The protocol may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Controlled list
+      allowed: e.g., 16-bit | 32-bit | 8-bit
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r82] ITEM: 6. Quality Control & Uncertainty
+      Ptier=''  Atier=''
+
+[r83] ITEM: Spatial Resolution
+      desc: Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., '~5 µm effective (PSF measured via wire phantom at 1.295 µm voxel; Ketcham & Hildebrandt 2014)' | '~30 µm estimated (3x voxel size; not formally measured)' | 'PSF FWHM = 8.2 µm at 2.5 µm voxel (Brenner-Weiss formula)'; report in µm; µm/pixel is equivalent for cubic voxels; µm³/voxel denotes voxel volume and is not a resolution unit
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r84] ITEM: Beam Hardening Artifact Assessment
+      desc: Assessment of whether residual beam hardening (cupping artifact) is present in the reconstructed volume after any corrections applied during reconstruction. Beam hardening in polychromatic lab XCT produces a characteristic darker interior and brighter edges in the reconstructed CT number profile, even in compositionally uniform material. Record whether this artifact is detectable in the final dataset, what correction or mitigation was applied (e.g., linearisation, pre-filtering, iterative correction), and whether any residual effect influences the analysis region.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., 'Cupping visible at 100 kV; minimized at 160 kV (Wu et al. 2024)' | 'Negligible — sample diameter < 3× attenuation length at selected voltage' | 'Corrected; residual <2% CT number variation across sample diameter'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r85] ITEM: Ring Artifact Severity and Correction Outcome
+      desc: Assessment of whether ring artifacts — concentric rings centred on the rotation axis arising from differential sensitivity or gain drift among detector elements — were present and whether correction was effective. Note that ring correction algorithms modify image intensity in narrow annular bands; in samples containing linear geological features oriented tangentially to the rotation axis, ring correction can alter or introduce spurious linear features in those orientations. Record whether rings were present, whether correction was applied, and whether any residual rings or correction artifacts fall within the analysis volume of interest.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., 'Minor ring artifacts in outer 5% of sample radius; ring correction applied in Avizo; no residual rings in analysis VOI' | 'No ring artifacts detected' | 'Rings present near sample centre; correction applied but introduced banding in carbonate vein region; vein excluded from modal analysis'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r86] ITEM: Metal Streak Artifact Assessment
+      desc: Assessment of whether high-density inclusions (FeNi metal, platinum-group minerals, dense oxides, or other high-Z phases) produce streak or starburst artifacts in the reconstructed volume. Common forms include radial starburst streaks from high-Z inclusions and shadowing (anomalously low CT number) in beam-shadow regions behind dense phases. Record which artifact type(s) are present, their spatial extent, and any exclusion zones or correction steps applied.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., 'FeNi grains produce starburst artifacts; 10-voxel exclusion zone applied around each metal grain; silicate analysis unaffected' | 'Shadowing artifact in olivine region behind 1.5 mm FeNi inclusion; region excluded from modal analysis' | 'No metal streak artifacts — meteorite lacks metallic phases'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r87] ITEM: Partial Volume Effect Criteria
+      desc: Protocol-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the protocol (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'Features < 5 voxels equivalent diameter excluded from size distribution analysis' | 'Minimum 3-voxel border exclusion around phase boundaries for modal abundance calculation' | 'Not specified — analyst judgement at analysis level'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r88] ITEM: Partial Volume Effect Assessment
+      desc: Analysis-level record of PVE severity and how it was handled in this specific analysis. Documents the minimum feature size relative to the voxel size, the fraction of the feature population affected, and any PVE correction method applied (e.g., PSF-based deconvolution via Blob3D).
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., 'Features <5 voxels excluded; affects ~3% of vesicle population by count' | 'PVE correction applied (Blob3D PSF deconvolution); vein width recoverable to ±0.5 voxel' | 'PVE negligible — smallest features of interest are >20× voxel size'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r89] ITEM: Minimum Resolvable Feature Size
+      desc: Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Numeric (µm)
+      allowed: e.g., '30 µm (3× 10 µm voxel; identification threshold applied to vesicle population)' | '100 µm (10× 10 µm voxel; morphometry threshold for chondrule size distribution)' | '5 µm (PSF-limited at 1.295 µm voxel; formal PSF measurement performed)'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r90] ITEM: Signal-to-Noise Ratio
+      desc: Quantitative measure of image quality in the reconstructed CT volume. Typically calculated as the mean CT number divided by the standard deviation of CT number in a homogeneous reference region (e.g., an inclusion-free zone of the matrix). SNR is controlled by photon flux (source power, exposure time, number of projections) and sample attenuation. Record the measured value and the region used for measurement, or note if SNR was not formally measured.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., 'SNR = 35 (measured in glass matrix region)' | 'Not formally measured'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r91] ITEM: Cross-Validation Protocol Requirement
+      desc: Protocol-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).
+      Ptier='Advanced'  Atier='Editable'
+      dtype: Text (free)
+      allowed: e.g., 'CT modal abundances to be validated against SEM-EDS phase maps for ≥1 sample per session' | 'CT porosity to be compared against Archimedes density measurement' | 'None specified'
+      modes: ['Single-volume', 'Multi-volume stitching']
+
+[r92] ITEM: Cross-Validation Outcome
+      desc: Analysis-level record of what independent validation was performed and its result. Report the validation method(s) used, the quantitative agreement achieved (e.g., relative difference in modal abundance, porosity), and any discrepancies and their likely causes. Where BSE imaging is the validation method, note that BSE provides a 2D section while CT provides a 3D volume.
+      Ptier='N/A'  Atier='Advanced'
+      dtype: Text (free)
+      allowed: e.g., 'CT modal abundances compared to EPMA WDS phase maps: mean difference 4.2% for olivine, 6.8% for low-Ca pyroxene' | 'CT bulk porosity 8.3% vs. He pycnometry 7.9% (difference 5.1%)' | 'Cross-validation not performed — sample insufficient for destructive sectioning'
+      modes: ['Single-volume', 'Multi-volume stitching']

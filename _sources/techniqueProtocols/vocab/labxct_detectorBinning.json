@@ -1,0 +1,36 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/labxctTAPP/detectorBinning",
+  "@type": [
+    "schema:DefinedTermSet"
+  ],
+  "schema:name": "Detector Binning",
+  "schema:description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1×1 indicates no binning.",
+  "schema:hasDefinedTerm": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "1×1 (no binning)",
+      "schema:name": "1×1 (no binning)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "2×2",
+      "schema:name": "2×2"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "4×4",
+      "schema:name": "4×4"
+    }
+  ]
+}

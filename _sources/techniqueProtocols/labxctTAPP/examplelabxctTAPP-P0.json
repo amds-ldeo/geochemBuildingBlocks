@@ -1,0 +1,125 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:labxctTAPP-P0",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Lab-XCT Meteorite 3D Characterization v1.0",
+  "schema:identifier": "http://doi.org/10.60520/IEDA/114187",
+  "schema:version": "1.0",
+  "schema:datePublished": "2022-04-22",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "XCT",
+    "schema:name": "XCT (laboratory, polychromatic cone-beam)"
+  },
+  "schema:creator": {
+    "@id": "https://ror.org/00hj54h04"
+  },
+  "schema:object": [
+    "Chondrite meteorite"
+  ],
+  "ada:targetFeature": "Opaque phase (FeNi metal, sulfide) 3D distribution",
+  "ada:applicableSampleDimensionRange": "Single-volume: max 20 mm in all dimensions at 7.6 um voxel",
+  "ada:xRaySourceConfiguration": "Reflection target, microfocal",
+  "ada:detectorType": "Flat-panel (amorphous silicon, a-Si)",
+  "ada:acquisitionSoftwareDefault": "CT Agent Pro 3D v3.8 (Nikon)",
+  "ada:reconstructionSoftwareDefault": "CT Pro 3D v3.8 (Nikon)",
+  "ada:segmentationAndAnalysisSoftwareDefault": "Avizo 9.2 (Thermo Fisher)",
+  "ada:analyticalMode": "Single-volume; Multi-volume stitching",
+  "ada:acceleratingVoltageDefault": "160 kV",
+  "ada:tubeCurrentDefault": "180 uA",
+  "ada:xRayPreFilterDefault": "1 mm Cu",
+  "ada:voxelSizeDefault": "7.63 um",
+  "ada:rotationRangeDefault": "360",
+  "ada:numberOfProjectionsDefault": "2046",
+  "ada:exposureTimePerProjectionDefault": "1.42 s",
+  "ada:flatFieldCorrectionDefault": "Yes",
+  "ada:rotationModeDefault": "Step rotation (stop-and-shoot)",
+  "ada:minimumSubVolumeOverlap": "500",
+  "ada:reconstructionAlgorithm": "FDK (Feldkamp-Davis-Kress, cone-beam)",
+  "ada:beamHardeningCorrectionMethod": "Hardware pre-filtering only (no software correction)",
+  "ada:outputDataFormatDefault": "TIFF image stack",
+  "ada:segmentationMethodDefault": "Multi-threshold (separate CT number range per phase)",
+  "ada:subVolumeStitchingAndRegistrationMethodDefault": "Automated stitching, VGStudio Max",
+  "ada:methodParameters": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPower",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPower",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:unitText": "W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectorPixelSize",
+      "schema:name": "Detector Pixel Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:unitText": "µm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistance",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistance",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:unitText": "mm"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:name": "Lab-XCT acquisition workflow",
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:position": 1,
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:description": "Mount the meteorite fragment free-standing on the stage pin; no surface preparation (non-destructive)."
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:position": 2,
+        "schema:description": "Acquire 2046 projections over 360 degrees at 160 kV / 180 uA, 7.63 um voxel."
+      }
+    ]
+  }
+}

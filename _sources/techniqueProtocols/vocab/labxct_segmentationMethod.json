@@ -1,0 +1,43 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/labxctTAPP/segmentationMethod",
+  "@type": [
+    "schema:DefinedTermSet"
+  ],
+  "schema:name": "Segmentation Method",
+  "schema:description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+  "schema:hasDefinedTerm": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Global threshold (single CT number boundary)",
+      "schema:name": "Global threshold (single CT number boundary)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Multi-threshold (separate CT number range per phase)",
+      "schema:name": "Multi-threshold (separate CT number range per phase)"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Manual threshold per phase",
+      "schema:name": "Manual threshold per phase"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Semi-automated: threshold + morphological filtering",
+      "schema:name": "Semi-automated: threshold + morphological filtering"
+    }
+  ]
+}

@@ -9,12 +9,6 @@
             "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/empaTAPP/BeamDamageMinimization"
                 },
@@ -56,12 +50,6 @@
             "description": "Describe method used to monitor and correct for instrument drift",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/empaTAPP/DriftCorrection"
                 },
@@ -103,12 +91,6 @@
             "description": "Database of mass absorption coefficients used in the matrix correction.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/empaTAPP/massAbsorptionCoefficients"
                 },
@@ -155,12 +137,6 @@
             "description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/empaTAPP/halogenOxygenCorrection"
                 },
@@ -202,12 +178,6 @@
             "description": "Method used to correct WDS proportional counter dead time at high count rates.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
                 },
@@ -254,12 +224,6 @@
             "description": "Method used to process EDS spectra and extract net peak intensities.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/empaTAPP/edsSpectralProcessingType"
                 },
@@ -306,12 +270,6 @@
             "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/laicpmsTAPP/LaserPulseDuration"
                 },
@@ -353,12 +311,6 @@
             "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/laicpmsTAPP/WarmUpTime"
                 },
@@ -400,12 +352,6 @@
             "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/laicpmsTAPP/SessionDurationLimit"
                 },
@@ -447,12 +393,6 @@
             "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency"
                 },
@@ -494,12 +434,6 @@
             "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
             "type": "object",
             "properties": {
-                "@context": {
-                    "const": {
-                        "schema": "http://schema.org/",
-                        "ada": "https://ada.astromat.org/metadata/"
-                    }
-                },
                 "@id": {
                     "const": "ada:parameter/laicpmsTAPP/MatrixOffseCorrection"
                 },
@@ -513,6 +447,1128 @@
                 },
                 "schema:name": {
                     "const": "Matrix Offset Correction (LIEF)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "laboratoryId": {
+            "title": "Laboratory ID",
+            "description": "Persistent identifier for the laboratory, e.g., ROR ID.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/laboratoryId"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "laboratoryId"
+                },
+                "schema:name": {
+                    "const": "Laboratory ID"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "protocolReference": {
+            "title": "Protocol Reference(s)",
+            "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this protocol.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/protocolReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "protocolReference"
+                },
+                "schema:name": {
+                    "const": "Protocol Reference(s)"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "coupledTechnique": {
+            "title": "Coupled Technique(s)",
+            "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/coupledTechnique"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "coupledTechnique"
+                },
+                "schema:name": {
+                    "const": "Coupled Technique(s)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "couplingDescription": {
+            "title": "Coupling Description",
+            "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/couplingDescription"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "couplingDescription"
+                },
+                "schema:name": {
+                    "const": "Coupling Description"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sampleDimensions": {
+            "title": "Sample Dimensions (L × W × H)",
+            "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/sampleDimensions"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "sampleDimensions"
+                },
+                "schema:name": {
+                    "const": "Sample Dimensions (L × W × H)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sampleMountingMethod": {
+            "title": "Sample Mounting Method",
+            "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/sampleMountingMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "sampleMountingMethod"
+                },
+                "schema:name": {
+                    "const": "Sample Mounting Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "samplePreparationNotes": {
+            "title": "Sample Preparation Notes",
+            "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note any exceptions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/samplePreparationNotes"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePreparationNotes"
+                },
+                "schema:name": {
+                    "const": "Sample Preparation Notes"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "xRayTubeAnodeMaterial": {
+            "title": "X-ray Tube Anode Material",
+            "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "xRayTubeAnodeMaterial"
+                },
+                "schema:name": {
+                    "const": "X-ray Tube Anode Material"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "detectorArraySize": {
+            "title": "Detector Array Size",
+            "description": "Number of pixels in the detector array (width × height). Combined with detector pixel size and geometric magnification, determines the field of view.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "detectorArraySize"
+                },
+                "schema:name": {
+                    "const": "Detector Array Size"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "detectorPixelSize": {
+            "title": "Detector Pixel Size",
+            "description": "Physical size of a single pixel on the detector in micrometres. This is a fixed hardware property of the detector array, distinct from the reconstructed voxel size (which depends on geometric magnification and binning).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "detectorPixelSize"
+                },
+                "schema:name": {
+                    "const": "Detector Pixel Size"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "µm"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "opticalObjective": {
+            "title": "Optical Objective",
+            "description": "Optical magnification objective installed between the scintillator and CCD/CMOS detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa series). For systems using only geometric magnification, report \"Not applicable\".",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/opticalObjective"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "opticalObjective"
+                },
+                "schema:name": {
+                    "const": "Optical Objective"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "xRayPower": {
+            "title": "X-ray Power",
+            "description": "X-ray tube power in watts (W) registered by the protocol. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/xRayPower"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "xRayPower"
+                },
+                "schema:name": {
+                    "const": "X-ray Power"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "W"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sourceToObjectDistance": {
+            "title": "Source-to-Object Distance (SOD)",
+            "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the protocol. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/sourceToObjectDistance"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "sourceToObjectDistance"
+                },
+                "schema:name": {
+                    "const": "Source-to-Object Distance (SOD)"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "mm"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sourceToDetectorDistance": {
+            "title": "Source-to-Detector Distance (SDD)",
+            "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the protocol. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈ detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/sourceToDetectorDistance"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "sourceToDetectorDistance"
+                },
+                "schema:name": {
+                    "const": "Source-to-Detector Distance (SDD)"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "mm"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "rotationStepSize": {
+            "title": "Rotation Step Size",
+            "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/rotationStepSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "rotationStepSize"
+                },
+                "schema:name": {
+                    "const": "Rotation Step Size"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "°"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "framesAveragedPerProjection": {
+            "title": "Frames Averaged per Projection",
+            "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the protocol. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame × frames averaged.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/framesAveragedPerProjection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "framesAveragedPerProjection"
+                },
+                "schema:name": {
+                    "const": "Frames Averaged per Projection"
+                },
+                "ada:dataType": {
+                    "const": "integer"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "detectorBinning": {
+            "title": "Detector Binning",
+            "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1×1 indicates no binning.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/detectorBinning"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "detectorBinning"
+                },
+                "schema:name": {
+                    "const": "Detector Binning"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "reconstructionConvolutionFilter": {
+            "title": "Reconstruction Convolution Filter",
+            "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate protocol-level tradeoff.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/reconstructionConvolutionFilter"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "reconstructionConvolutionFilter"
+                },
+                "schema:name": {
+                    "const": "Reconstruction Convolution Filter"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "beamHardeningCorrectionParameter": {
+            "title": "Beam Hardening Correction Parameter",
+            "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level companion to Beam Hardening Correction Method.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/beamHardeningCorrectionParameter"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "beamHardeningCorrectionParameter"
+                },
+                "schema:name": {
+                    "const": "Beam Hardening Correction Parameter"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ringArtifactCorrectionMethod": {
+            "title": "Ring Artifact Correction Method",
+            "description": "Protocol specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the protocol-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "ringArtifactCorrectionMethod"
+                },
+                "schema:name": {
+                    "const": "Ring Artifact Correction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ctNumberCalibration": {
+            "title": "CT Number Calibration",
+            "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison and support phase identification by comparison to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/ctNumberCalibration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "ctNumberCalibration"
+                },
+                "schema:name": {
+                    "const": "CT Number Calibration"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "segmentationThresholdValuesOrCriteria": {
+            "title": "Segmentation Threshold Values or Criteria",
+            "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. Documenting these values enables reproducibility assessment and cross-study comparison. For LAC-calibrated datasets, report values in cm⁻¹.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "segmentationThresholdValuesOrCriteria"
+                },
+                "schema:name": {
+                    "const": "Segmentation Threshold Values or Criteria"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "phaseIdentificationMethod": {
+            "title": "Phase Identification Method",
+            "description": "Method used to assign reconstructed CT number ranges to specific mineral phases or material types. Approaches include comparison to calculated linear attenuation coefficients (LAC), cross-validation with independent analytical techniques, or empirical calibration.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/phaseIdentificationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "phaseIdentificationMethod"
+                },
+                "schema:name": {
+                    "const": "Phase Identification Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "voiSelectionCriteria": {
+            "title": "VOI Selection Criteria",
+            "description": "Protocol-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/voiSelectionCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "voiSelectionCriteria"
+                },
+                "schema:name": {
+                    "const": "VOI Selection Criteria"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "outputBitDepth": {
+            "title": "Output Bit Depth",
+            "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The protocol may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/outputBitDepth"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "outputBitDepth"
+                },
+                "schema:name": {
+                    "const": "Output Bit Depth"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "partialVolumeEffectCriteria": {
+            "title": "Partial Volume Effect Criteria",
+            "description": "Protocol-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the protocol (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/partialVolumeEffectCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "partialVolumeEffectCriteria"
+                },
+                "schema:name": {
+                    "const": "Partial Volume Effect Criteria"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "crossValidationProtocolRequirement": {
+            "title": "Cross-Validation Protocol Requirement",
+            "description": "Protocol-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/labxctTAPP/crossValidationProtocolRequirement"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "crossValidationProtocolRequirement"
+                },
+                "schema:name": {
+                    "const": "Cross-Validation Protocol Requirement"
                 },
                 "ada:dataType": {
                     "const": "string"

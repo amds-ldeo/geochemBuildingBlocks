@@ -514,7 +514,6 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     properties = OrderedDict([
-        ("@context", {"const": _ADA_CONTEXT}),
         ("@id", {"const": f"ada:parameter/{TAPP_NAME}/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
@@ -621,7 +620,6 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
         value_schema = {"type": "string"}
 
     properties = OrderedDict([
-        ("@context", {"const": _ADA_CONTEXT}),
         ("@id", {"const": parameter_uri}),
         ("@type", {"const": ["schema:PropertyValue"]}),
         ("schema:propertyID", {"const": parameter_uri}),
@@ -682,7 +680,6 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     properties = OrderedDict([
-        ("@context", {"const": _ADA_CONTEXT}),
         ("@id", {"const": f"ada:analyteColumn/{TAPP_NAME}/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
@@ -1569,7 +1566,6 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
             elif kind == "parameter":
                 if ro:
                     method_params.append(OrderedDict([
-                        ("@context", dict(_ADA_CONTEXT)),
                         ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("@type", ["schema:PropertyValueSpecification"]),
                         ("schema:name", item),
