@@ -237,6 +237,12 @@ def _detect_columns(header_row) -> dict:
     cols = {
         "item": find(lambda h: h == "metadata item", "Metadata Item"),
         "desc": find(lambda h: h.startswith("description"), "Description"),
+        # Protocol-Level Tier: the empa prototype labels it "Basic/Advanced";
+        # the newer Ruolin workbooks label it "Protocol-Level Tier".
+        "protocol_tier": find(lambda h: h in ("basic/advanced", "protocol-level tier"),
+                              "Protocol-Level Tier", required=False),
+        "analysis_tier": find(lambda h: h == "analysis-level tier", "Analysis-Level Tier",
+                              required=False),
         "dtype": find(lambda h: h == "data type", "Data Type"),
         "example": find(lambda h: h.startswith("example"), "Example/Allowed Content"),
         "schema_path": find(lambda h: h == "schema path", "schema path", required=False),
@@ -353,6 +359,8 @@ def read_rows() -> list[dict]:
         rec = {
             "item": item,
             "desc": cell(r, "desc"),
+            "P": cell(r, "protocol_tier"),
+            "A": cell(r, "analysis_tier"),
             "dtype_col": cell(r, "dtype"),
             "example": cell(r, "example"),
             "schema_path": cell(r, "schema_path"),
@@ -1468,7 +1476,8 @@ def _coerce_value(val, dtype_col: str | None):
     return s
 
 
-def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[dict, dict]:
+def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
+                    route_map: dict | None = None) -> tuple[dict, dict]:
     """Build a paired (empaTAPP, detailEMPA) example from one publication column.
 
     empaTAPP carries the protocol definition (top-level ada:* properties from
@@ -1608,6 +1617,48 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                     "schema:name": tool,
                     "ada:toolRole": "reduction",
                 })
+            continue
+
+        # Matrix placement (build_tapp.route_empa): a route_map keyed by item carries
+        # the canonical home(s). Basic-protocol -> top-level ada: prop (…Default if
+        # editable at analysis); Advanced-protocol -> schema:additionalProperty
+        # PropertyValueSpecification (defaultValue); Analysis Editable/Advanced -> a
+        # per-dataset PropertyValue in the detail. Falls back to impl-tag placement
+        # when no route_map is given (legacy callers).
+        if route_map is not None:
+            r = route_map.get(item)
+            if r and r.get("role") == "field":
+                v = str(val).strip()
+                if r["P"] == "Basic":
+                    if not (r.get("enum") and v not in r["enum"]):
+                        parts[r["tapp_key"]] = v
+                elif r["P"] == "Advanced":
+                    method_params.append(OrderedDict([
+                        ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
+                        ("@type", ["schema:PropertyValueSpecification"]),
+                        ("schema:name", item),
+                        ("schema:valueName", r["mdname"]),
+                        ("schema:description", row["desc"] or item),
+                        ("ada:dataType", map_dtype(r.get("dtype"))),
+                        ("ada:fieldScope", "session"),
+                        ("schema:readonlyValue", not r["dual"]),
+                        ("ada:tier", "R"),
+                        ("schema:defaultValue", v),
+                    ]))
+                if r.get("detail"):
+                    coerced = _coerce_value(val, row.get("dtype_col"))
+                    if coerced is not None:
+                        _vt, unit = _value_type_for(row.get("dtype_col"))
+                        entry = OrderedDict([
+                            ("@id", f"ada:parameter/{TAPP_NAME}/{r['name']}"),
+                            ("@type", ["schema:PropertyValue"]),
+                            ("schema:propertyID", f"ada:parameter/{TAPP_NAME}/{r['name']}"),
+                            ("schema:name", item),
+                            ("schema:value", coerced),
+                        ])
+                        if unit:
+                            entry["schema:unitText"] = unit
+                        detail["schema:additionalProperty"].append(entry)
             continue
 
         # Use per-tag records so a row's property: and parameter: tags get the right readOnly each.
@@ -1852,11 +1903,11 @@ def _sample_for_provused(tapp_object_first: dict | None, pub_label: str) -> dict
 
 
 _REQUIRED_CONFORMS_TO = [
-    "https://w3id.org/cdif/core/1.0",
-    "https://w3id.org/cdif/discovery/1.0",
-    "https://w3id.org/cdif/data_description/1.0",
-    "https://w3id.org/cdif/provenance/1.0",
-    "https://w3id.org/cdif/manifest/1.0",
+    "https://w3id.org/cdif/core/1.1",
+    "https://w3id.org/cdif/discovery/1.1",
+    "https://w3id.org/cdif/data_description/1.1",
+    "https://w3id.org/cdif/provenance/1.1",
+    "https://w3id.org/cdif/manifest/1.1",
     "https://w3id.org/geochem/metadata/profiles/adaEMPA",
     "https://w3id.org/geochem/metadata/profiles/adaProduct",
 ]
@@ -1892,7 +1943,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
 
     haspart = OrderedDict([
         ("@id", f"ex:adaEMPA-{pub_label}-data-001"),
-        ("@type", ["ada:tabularData", "cdi:TabularTextDataSet", "schema:Thing"]),
+        ("@type", ["schema:MediaObject", "ada:tabularData", "cdi:TabularTextDataSet", "schema:Thing"]),
         ("schema:name", f"adaEMPA-{pub_label}-data.csv"),
         ("schema:description", f"Per-point quantitative EMPA analyses ({pub_citation})."),
         ("schema:additionalType", ["ada:EMPAQEATabular"]),
@@ -1901,6 +1952,9 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         ("cdi:isFixedWidth", False),
         ("csvw:delimiter", ","),
         ("csvw:header", True),
+        ("cdif:hasPhysicalMapping", [
+            {"cdif:index": 0, "cdif:physicalDataType": "String", "cdi:nullSequence": "NA"},
+        ]),
         ("ada:componentType", detail_componenttype),
         ("ada:spectrometersUsed", detail_spectrometers),
         ("ada:signalUsed", detail_signal),
@@ -2007,7 +2061,7 @@ def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
     profile_dir = REPO_ROOT / "_sources" / "profiles" / "adaProfiles" / "adaEMPA"
     profile_dir.mkdir(parents=True, exist_ok=True)
     tapp_dir = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
-    detail_dir = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
+    detail_dir = REPO_ROOT / "_sources" / "analysisSpecificDetails" / DETAIL_NAME
 
     written, skipped = 0, 0
     for pub_code, pub_citation in _pubs():

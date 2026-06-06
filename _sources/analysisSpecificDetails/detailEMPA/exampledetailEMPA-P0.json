@@ -13,12 +13,21 @@
   },
   "schema:additionalProperty": [
     {
+      "@id": "ada:parameter/empaTAPP/beamMode",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/empaTAPP/beamMode",
+      "schema:name": "Beam Mode",
+      "schema:value": "Focused"
+    },
+    {
       "@id": "ada:parameter/empaTAPP/acceleratingVoltage",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": "ada:parameter/empaTAPP/acceleratingVoltage",
-      "schema:name": "Default Accelerating Voltage",
+      "schema:name": "Accelerating Voltage",
       "schema:value": 20,
       "schema:unitText": "kV"
     },
@@ -28,28 +37,48 @@
         "schema:PropertyValue"
       ],
       "schema:propertyID": "ada:parameter/empaTAPP/beamDiameter",
-      "schema:name": "Default Beam Diameter",
+      "schema:name": "Beam Diameter",
       "schema:value": 5,
       "schema:unitText": "µm"
     },
     {
-      "@id": "ada:parameter/empaTAPP/BeamRasterDimension",
+      "@id": "ada:parameter/empaTAPP/beamRasterDimensions",
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/empaTAPP/BeamRasterDimension",
+      "schema:propertyID": "ada:parameter/empaTAPP/beamRasterDimensions",
       "schema:name": "Beam Raster Dimensions",
       "schema:value": "10 by 10",
       "schema:unitText": "µm × µm"
     },
     {
-      "@id": "ada:parameter/empaTAPP/reportedAnalyte",
+      "@id": "ada:parameter/empaTAPP/driftCorrection",
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/empaTAPP/reportedAnalyte",
-      "schema:name": "Target Element",
-      "schema:value": "Si|Al|K|Ca|Na|Fe|Mg|Ti|Cr|Mn"
+      "schema:propertyID": "ada:parameter/empaTAPP/driftCorrection",
+      "schema:name": "Drift Correction",
+      "schema:value": "Primary major element reference materials are run at beginning and end of every analytical session and the calibration is interpolated",
+      "schema:unitText": "free"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/beamCurrent",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/empaTAPP/beamCurrent",
+      "schema:name": "Default Beam Current",
+      "schema:value": 10,
+      "schema:unitText": "nA"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/wdsDeadTimeCorrection",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/empaTAPP/wdsDeadTimeCorrection",
+      "schema:name": "WDS Dead Time Correction",
+      "schema:value": "Super-precision"
     }
   ]
 }

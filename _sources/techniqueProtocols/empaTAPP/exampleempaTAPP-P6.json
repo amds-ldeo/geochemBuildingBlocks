@@ -87,18 +87,18 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "ada:beamMode": "Focused",
+  "ada:beamModeDefault": "Focused",
   "ada:acceleratingVoltageDefault": "15",
   "ada:beamDiameterDefault": "0 (focused)",
   "ada:beamCurrentDefault": "25 nA",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/empaTAPP/BeamDamageMinimization",
+      "@id": "ada:parameter/empaTAPP/beamDamageMinimization",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:name": "Beam Damage Minimization",
-      "schema:valueName": "BeamDamageMinimization",
+      "schema:valueName": "beamDamageMinimization",
       "schema:description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -107,12 +107,12 @@
       "schema:defaultValue": "F measurement with polynomial background fit (LDE1 crystal)"
     },
     {
-      "@id": "ada:parameter/empaTAPP/halogenOxygenCorrection",
+      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:name": "Halogen Correction on Oxygen",
-      "schema:valueName": "halogenOxygenCorrection",
+      "schema:valueName": "halogenCorrectionOnOxygen",
       "schema:description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
       "ada:dataType": "boolean",
       "ada:fieldScope": "session",
@@ -121,5 +121,7 @@
       "schema:defaultValue": "Yes (F correction for fluorine-bearing phosphates; CO2 by stoichiometry for carbonates)"
     }
   ],
-  "ada:matrixCorrectionMethod": "missing"
+  "ada:matrixCorrectionMethod": "missing",
+  "ada:massAbsorptionCoefficients": "missing",
+  "ada:wdsDeadTimeCorrectionDefault": "missing"
 }

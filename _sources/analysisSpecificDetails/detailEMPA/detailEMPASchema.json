@@ -65,13 +65,22 @@
                                 "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/acceleratingVoltage"
                             },
                             {
+                                "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/beamCurrent"
+                            },
+                            {
                                 "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/beamDiameter"
                             },
                             {
-                                "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/BeamRasterDimension"
+                                "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/beamMode"
                             },
                             {
-                                "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/reportedAnalyte"
+                                "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/beamRasterDimensions"
+                            },
+                            {
+                                "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/driftCorrection"
+                            },
+                            {
+                                "$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/wdsDeadTimeCorrection"
                             },
                             {
                                 "type": "object",
@@ -90,10 +99,13 @@
                                         "type": "string",
                                         "not": {
                                             "enum": [
-                                                "ada:parameter/empaTAPP/BeamRasterDimension",
                                                 "ada:parameter/empaTAPP/acceleratingVoltage",
+                                                "ada:parameter/empaTAPP/beamCurrent",
                                                 "ada:parameter/empaTAPP/beamDiameter",
-                                                "ada:parameter/empaTAPP/reportedAnalyte"
+                                                "ada:parameter/empaTAPP/beamMode",
+                                                "ada:parameter/empaTAPP/beamRasterDimensions",
+                                                "ada:parameter/empaTAPP/driftCorrection",
+                                                "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
                                             ]
                                         }
                                     }

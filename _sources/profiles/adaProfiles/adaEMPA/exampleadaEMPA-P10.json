@@ -147,6 +147,13 @@
           "cdi:isFixedWidth": false,
           "csvw:delimiter": ",",
           "csvw:header": true,
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ],
           "ada:componentType": "ada:EMPAQEATabular",
           "ada:spectrometersUsed": "5x WDS",
           "ada:signalUsed": "Kα x-ray lines",
@@ -155,12 +162,21 @@
           },
           "schema:additionalProperty": [
             {
+              "@id": "ada:parameter/empaTAPP/beamMode",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/beamMode",
+              "schema:name": "Beam Mode",
+              "schema:value": "Focused"
+            },
+            {
               "@id": "ada:parameter/empaTAPP/acceleratingVoltage",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": "ada:parameter/empaTAPP/acceleratingVoltage",
-              "schema:name": "Default Accelerating Voltage",
+              "schema:name": "Accelerating Voltage",
               "schema:value": 15,
               "schema:unitText": "kV"
             },
@@ -170,16 +186,19 @@
                 "schema:PropertyValue"
               ],
               "schema:propertyID": "ada:parameter/empaTAPP/beamDiameter",
-              "schema:name": "Default Beam Diameter",
+              "schema:name": "Beam Diameter",
               "schema:value": "0 focused",
               "schema:unitText": "µm"
-            }
-          ],
-          "cdif:hasPhysicalMapping": [
+            },
             {
-              "cdif:index": 0,
-              "cdif:physicalDataType": "String",
-              "cdi:nullSequence": "NA"
+              "@id": "ada:parameter/empaTAPP/beamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/beamCurrent",
+              "schema:name": "Default Beam Current",
+              "schema:value": "20 nA",
+              "schema:unitText": "nA"
             }
           ]
         }

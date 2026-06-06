@@ -52,6 +52,14 @@ _IDENTITY_COMMON = {"Protocol Name", "Technique", "Protocol Author", "Laboratory
                     "Target Material", "Protocol Reference(s)", "Protocol DOI", "Laboratory ID"}
 
 TAPP_CONFIGS = {
+    "empaTAPP": {
+        # Evolved-past prototype workbook, routed by the canonical matrix +
+        # `schema path` roles (see route_empa/build_empa). Titles/descriptions and
+        # the rich emitters come from _tapp_lib (TAPP_PROFILES['empaTAPP']).
+        "xlsx": "docs/TAPP_EPMA_filled-noInterp.xlsx",
+        "prefix": "empa",
+        "mode": "empa",
+    },
     "laicpmsTAPP": {
         "xlsx": "docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx",
         "prefix": "laicpms",
@@ -431,11 +439,278 @@ def build():
           f"detail_req={len(R['detail_req'])} detail_addl={len(pv_keys)} analyteCols={len(acols)} vocab={len(R['vocab'])}")
 
 
+# ---------- empaTAPP: schema-path + matrix routing over the _tapp_lib reader/emitters ----------
+# empaTAPP is the evolved-past prototype workbook. Rather than bend the generic
+# generator to its quirks, it is routed by the SAME canonical matrix as the other
+# TAPPs (Protocol/Analysis tier columns) with the `schema path` column resolving
+# the special roles (analyteColumn / analyte-identifier / schema:description /
+# inherited base field / instrument). The rich emitters + registry writers +
+# rich per-pub example builder live in _tapp_lib and are reused as a library;
+# only the routing brain is build_tapp's (matrix), retiring _tapp_lib's old
+# impl-tag-kind routing for empa.
+
+_TIER_NORM = {"basic": "Basic", "editable": "Editable", "advanced": "Advanced",
+              "read-only": "Read-Only", "readonly": "Read-Only", "read only": "Read-Only",
+              "n/a": "N/A", "na": "N/A", "": ""}
+
+
+def _norm_tier(v):
+    return _TIER_NORM.get((v or "").strip().lower(), (v or "").strip())
+
+
+def _empa_role(sp):
+    """Resolve a row's structural role from its `schema path` value."""
+    s = sp or ""
+    if "ada:analyteTemplate.ada:analyteColumns" in s:
+        return "analyteColumn"
+    if "ada:analyteTemplate.ada:defaultAnalytes" in s:
+        return "analyteIdentifier"
+    if "schema:description" in s and "methodParameters" not in s:
+        return "description"
+    if s.startswith("$MethodDefinition") and "ada:" not in s:
+        return "inherited"            # identity / instrument / inherited base field
+    return "field"                    # regular property-or-parameter (matrix decides home)
+
+
+_CLEAN_NAME = re.compile(r"^[A-Za-z][A-Za-z0-9]*$")
+
+
+def _empa_base_name(row):
+    """Base property/parameter name: clean ada:<name> segment of the schema path
+    (Default suffix stripped), else the impl-notes tag name, else camelCase(item)."""
+    sp = row.get("schema_path") or ""
+    if "ada:" in sp and "methodParameters" not in sp and "analyteTemplate" not in sp:
+        seg = sp.split("ada:")[-1].strip()
+        if _CLEAN_NAME.match(seg):
+            return re.sub(r"Default$", "", seg)
+    tags = (row.get("parsed") or {}).get("tags") or []
+    if tags:
+        return tags[0][1]
+    return camel(row["item"])
+
+
+def route_empa(rows, L):
+    """Matrix + schema-path routing for empaTAPP, producing the classification
+    structures consumed by _tapp_lib's build_schema_yaml / registry writers."""
+    # --- vocab dedup by sorted enum tuple (mirrors _tapp_lib._classify_rows) ---
+    enum_to_vocab = {}
+    for row in rows:
+        enum = (row.get("parsed") or {}).get("enum")
+        if not enum:
+            continue
+        key = tuple(sorted(enum))
+        if key in enum_to_vocab:
+            continue
+        # Vocab name mirrors _tapp_lib._classify_rows: first impl tag name, else the
+        # slugified item (case preserved — do NOT camelCase, so e.g. "Technique"
+        # stays "Technique", matching the existing shared vocab file).
+        tags = (row.get("parsed") or {}).get("tags") or []
+        name = tags[0][1] if tags else re.sub(r"[^A-Za-z0-9]+", "_", row["item"]).strip("_")
+        enum_to_vocab[key] = name
+        L.share_or_write_catalog(L.VOCAB_DIR / f"{name}.json",
+                                 L.vocab_obj(name, row["item"] or name, row.get("desc") or "", enum))
+
+    def vocab_for(enum):
+        return enum_to_vocab.get(tuple(sorted(enum))) if enum else None
+
+    schema_properties, required_props = [], []
+    by_item = {}  # item -> placement record for the example builder
+    analyte_column_names, parameter_names, detail_param_names = [], [], []
+    analyte_column_defs = __import__("collections").OrderedDict()
+    parameter_template_defs = __import__("collections").OrderedDict()
+    param_value_defs = __import__("collections").OrderedDict()
+    seen_pv = set()
+
+    for row in rows:
+        item = row.get("item")
+        if not item or re.match(r"^\d+\.\s", item):
+            continue
+        role = _empa_role(row.get("schema_path"))
+        if role in ("inherited", "analyteIdentifier", "description"):
+            continue  # handled by the base TAPP / instrument constraint / example builder
+        P = _norm_tier(row.get("P"))
+        A = _norm_tier(row.get("A"))
+        parsed = row.get("parsed") or {}
+        enum = parsed.get("enum")
+        dtype = parsed.get("dtype") or row.get("dtype_col")
+        jt = L.map_dtype(dtype)
+        vname = vocab_for(enum)
+        name = _empa_base_name(row)
+        ro = parsed.get("readOnly")
+
+        if role == "analyteColumn":
+            analyte_column_names.append(name)
+            analyte_column_defs[name] = L.analyte_column_obj(
+                name, item, row.get("desc") or "", dtype, vname,
+                ro if ro is not None else (A == "Read-Only"))
+            continue
+
+        # regular field — matrix decides the home(s)
+        dual = A in ("Basic", "Editable", "Advanced")
+        rec = {"role": "field", "P": P, "A": A, "name": name, "dual": dual,
+               "enum": list(enum) if enum else None, "dtype": dtype,
+               "detail": A in ("Editable", "Advanced")}
+        if P == "Basic":
+            key = "ada:" + name + ("Default" if A == "Editable" else "")
+            rec["tapp_key"] = key
+            if enum:
+                block = {"description": row.get("desc") or "", "type": "string", "enum": list(enum)}
+            elif jt in ("number", "integer"):
+                block = {"description": row.get("desc") or "",
+                         "anyOf": [{"type": "number"}, {"type": "string"}]}
+            elif jt == "boolean":
+                block = {"description": row.get("desc") or "", "type": "boolean"}
+            else:
+                block = {"description": row.get("desc") or "", "type": "string"}
+            schema_properties.append((key, block))
+            cov = sum(1 for v in (row.get("pubs") or []) if L._pub_meaningful(v))
+            if cov > 0:
+                required_props.append(key)
+        elif P == "Advanced":
+            mdname = name + ("Default" if dual else "")
+            rec["mdname"] = mdname
+            parameter_names.append(mdname)
+            parameter_template_defs[mdname] = L.parameter_obj(
+                mdname, item, row.get("desc") or "", dtype, vname, not dual)
+        by_item[item] = rec
+
+        # detail side (per-dataset value) — Analysis Editable/Advanced
+        if A in ("Editable", "Advanced") and name not in seen_pv:
+            seen_pv.add(name)
+            detail_param_names.append(name)
+            param_value_defs[name] = L.additional_property_obj(
+                name, item, row.get("desc") or "", row.get("dtype_col"), vname, dtype)
+
+    # dedupe schema_properties (last wins)
+    seen = {}
+    for k, b in schema_properties:
+        seen[k] = b
+    schema_properties = list(seen.items())
+    required_props = [k for k in dict.fromkeys(required_props) if k in seen]
+
+    return {
+        "schema_properties": schema_properties, "required_props": required_props,
+        "analyte_column_names": analyte_column_names, "analyte_column_defs": analyte_column_defs,
+        "parameter_names": parameter_names, "parameter_template_defs": parameter_template_defs,
+        "detail_param_names": detail_param_names, "param_value_defs": param_value_defs,
+        "by_item": by_item,
+    }
+
+
+def _regen_detail_addl_constraint(L, detail_param_names):
+    """Rewrite ONLY detailEMPA/schema.yaml allOf[1] (the schema:additionalProperty
+    constraint) to reference the current parameterValues $defs + catch-all,
+    preserving the hand-authored allOf[0]."""
+    from ruamel.yaml import YAML
+    sp = L.DETAIL_EMPA / "schema.yaml"
+    if not sp.exists():
+        return
+    y = YAML()
+    y.preserve_quotes = True
+    y.width = 4096
+    y.indent(mapping=2, sequence=4, offset=2)
+    doc = y.load(open(sp, encoding="utf-8"))
+    names = sorted(detail_param_names)
+    pvbase = "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/"
+    anyof = [{"$ref": pvbase + n} for n in names]
+    anyof.append({
+        "type": "object",
+        "description": ("Catch-all for additional schema:PropertyValue entries beyond those "
+                        "enumerated in the empaTAPP-derived catalog above."),
+        "properties": {
+            "@type": {"type": "array", "items": {"type": "string"},
+                      "contains": {"const": "schema:PropertyValue"}},
+            "schema:propertyID": {"type": "string",
+                                  "not": {"enum": [f"ada:parameter/empaTAPP/{n}" for n in names]}},
+        },
+        "required": ["@type", "schema:propertyID"],
+    })
+    block1 = {"type": "object", "properties": {"schema:additionalProperty": {
+        "type": "array",
+        "description": ("Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item "
+                        "is any of the empaTAPP-derived parameter types or (via the catch-all "
+                        "branch) any other PropertyValue. All entries are optional — include only "
+                        "the parameters you have values for."),
+        "items": {"anyOf": anyof}}}}
+    doc["allOf"][1] = L._to_commented(block1)
+    with open(sp, "w", encoding="utf-8") as f:
+        y.dump(doc, f)
+    print(f"  rewrote detailEMPA allOf[1] additionalProperty constraint ({len(names)} PV refs)")
+
+
+def build_empa():
+    """Generate empaTAPP via the canonical matrix router + _tapp_lib emitters.
+    Reuses _tapp_lib for the rich emitters, registry writers, instrument hasPart
+    constraint, and (hand-authored) detail schema preservation."""
+    import _tapp_lib as L
+    L.CATALOG_CONFLICTS.clear()
+    L.configure("empaTAPP", os.path.relpath(XLSX, ROOT))
+    rows = L.read_rows()
+    print(f"empaTAPP: read {len(rows)} rows from {os.path.relpath(XLSX, ROOT)}")
+    cls = route_empa(rows, L)
+
+    instrument = L.build_haspart_constraint(rows)
+    L.build_schema_yaml(cls["schema_properties"], cls["analyte_column_names"],
+                        cls["parameter_names"], instrument, required_props=cls["required_props"])
+    L.write_analyte_columns_registry(cls["analyte_column_defs"])
+    L.write_parameter_templates_registry(cls["parameter_template_defs"])
+    L.write_parameter_values_registry(cls["param_value_defs"])
+    # detailEMPA/schema.yaml: allOf[0] is hand-authored (ada:spectrometersUsed,
+    # ada:signalUsed, componentType enum, measurementTechnique) and preserved.
+    # Only allOf[1] (the schema:additionalProperty constraint) is regenerated to
+    # track the current detail PV set (one $ref per readOnly:false parameter + catch-all).
+    _regen_detail_addl_constraint(L, cls["detail_param_names"])
+
+    # ---- per-publication examples (matrix-routed via route_map) ----
+    prop_type = {}
+    for k, b in cls["schema_properties"]:
+        prop_type[k] = ("number" if "anyOf" in b else b.get("type", "string"))
+    req_set = set(cls["required_props"])
+    rmap = cls["by_item"]
+    examples_yaml = []
+    n_tapp = n_detail = 0
+    for i, (pcode, plabel) in enumerate(L._pubs()):
+        empa_ex, detail_ex = L.example_for_pub(i, plabel, rows, route_map=rmap)
+        for key, _b in cls["schema_properties"]:
+            present = key in empa_ex
+            ok = present and L._pub_meaningful(empa_ex[key])
+            if key in req_set:
+                if not ok:
+                    empa_ex[key] = (-9999 if prop_type.get(key) == "number" else "missing")
+            elif present and not ok:
+                del empa_ex[key]
+        L.write_json(L.BB / f"exampleempaTAPP-{pcode}.json", empa_ex)
+        n_tapp += 1
+        examples_yaml.append((pcode, plabel))
+        if detail_ex.get("schema:additionalProperty"):
+            L.write_json(L.DETAIL_EMPA / f"exampledetailEMPA-{pcode}.json", detail_ex)
+            n_detail += 1
+    L._write_examples_yaml(examples_yaml)
+    print(f"  wrote {n_tapp} empaTAPP + {n_detail} detailEMPA examples")
+
+    json.dump({"schema_properties": [k for k, _ in cls["schema_properties"]],
+               "required_props": cls["required_props"],
+               "analyte_column_names": sorted(cls["analyte_column_names"]),
+               "parameter_names": sorted(cls["parameter_names"]),
+               "detail_param_names": sorted(cls["detail_param_names"]),
+               "basic_props": [{"key": k, "required": k in set(cls["required_props"])}
+                               for k, _ in cls["schema_properties"]]},
+              open(os.path.join(ROOT, "docs", "new_tapps202606", "empa_gen_index.json"), "w"), indent=1)
+    print(f"DONE empaTAPP: props={len(cls['schema_properties'])} "
+          f"(required {len(cls['required_props'])}) params={len(cls['parameter_names'])} "
+          f"analyteCols={len(cls['analyte_column_names'])} detailValues={len(cls['detail_param_names'])}")
+    if L.CATALOG_CONFLICTS:
+        print(f"  {len(L.CATALOG_CONFLICTS)} catalog conflict(s) — see warnings above.")
+
+
 def main():
     if len(sys.argv) < 2:
         raise SystemExit(f"usage: build_tapp.py <tapp_name>   known: {sorted(TAPP_CONFIGS)}")
     configure(sys.argv[1])
-    build()
+    if CFG.get("mode") == "empa":
+        build_empa()
+    else:
+        build()
 
 
 if __name__ == "__main__":

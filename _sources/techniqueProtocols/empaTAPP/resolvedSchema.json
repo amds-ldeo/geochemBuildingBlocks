@@ -4631,7 +4631,7 @@
     {
       "type": "object",
       "properties": {
-        "ada:beamMode": {
+        "ada:beamModeDefault": {
           "description": "Whether the beam was focused, defocused, or rastered over an area.",
           "type": "string",
           "enum": [
@@ -4651,7 +4651,14 @@
         },
         "ada:beamCurrentDefault": {
           "description": "Probe current in nanoamperes (nA).",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:matrixCorrectionMethod": {
           "description": "X-ray matrix correction algorithm applied during data reduction.",
@@ -4665,6 +4672,38 @@
             "Armstrong/Love-Scott",
             "Heinrich/Duncumb-Reed",
             "Conventional Philibert/Duncumb-Reed",
+            "Other",
+            "Unknown",
+            "missing"
+          ]
+        },
+        "ada:massAbsorptionCoefficients": {
+          "description": "Database of mass absorption coefficients used in the matrix correction.",
+          "type": "string",
+          "enum": [
+            "LINEMU",
+            "CITZMU",
+            "MCMASTER",
+            "MAC30",
+            "MACJTA",
+            "FFAST",
+            "Other",
+            "Unknown",
+            "missing"
+          ]
+        },
+        "ada:wdsDeadTimeCorrectionDefault": {
+          "description": "Method used to correct WDS proportional counter dead time at high count rates.",
+          "type": "string",
+          "enum": [
+            "Default constant 3µs (Cameca)",
+            "Adjusted constant (Cameca)",
+            "Default constant (JEOL)",
+            "Adjusted constant (JEOL)",
+            "High-precision (Probe for EPMA)",
+            "Logarithmic",
+            "Super-precision",
+            "Simple",
             "Other",
             "Unknown",
             "missing"
@@ -7004,7 +7043,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/BeamDamageMinimization"
+                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
                   },
                   "@type": {
                     "const": [
@@ -7012,7 +7051,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "BeamDamageMinimization"
+                    "const": "beamDamageMinimization"
                   },
                   "schema:name": {
                     "const": "Beam Damage Minimization"
@@ -7040,12 +7079,12 @@
                 ]
               },
               {
-                "title": "Drift Correction",
-                "description": "Describe method used to monitor and correct for instrument drift",
+                "title": "Beam Raster Dimensions",
+                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/DriftCorrection"
+                    "const": "ada:parameter/empaTAPP/beamRasterDimensionsDefault"
                   },
                   "@type": {
                     "const": [
@@ -7053,7 +7092,48 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "DriftCorrection"
+                    "const": "beamRasterDimensionsDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Drift Correction",
+                "description": "Describe method used to monitor and correct for instrument drift",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/driftCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "driftCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Drift Correction"
@@ -7065,7 +7145,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7132,7 +7212,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenOxygenCorrection"
+                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
                   },
                   "@type": {
                     "const": [
@@ -7140,7 +7220,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "halogenOxygenCorrection"
+                    "const": "halogenCorrectionOnOxygen"
                   },
                   "schema:name": {
                     "const": "Halogen Correction on Oxygen"
@@ -7156,98 +7236,6 @@
                   },
                   "ada:tier": {
                     "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Mass Absorption Coefficients (MACs)",
-                "description": "Database of mass absorption coefficients used in the matrix correction.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/massAbsorptionCoefficients"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "massAbsorptionCoefficients"
-                  },
-                  "schema:name": {
-                    "const": "Mass Absorption Coefficients (MACs)"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "WDS Dead Time Correction",
-                "description": "Method used to correct WDS proportional counter dead time at high count rates.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "wdsDeadTimeCorrection"
-                  },
-                  "schema:name": {
-                    "const": "WDS Dead Time Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrection"
-                    }
                   }
                 },
                 "required": [
@@ -7269,7 +7257,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/BeamDamageMinimization"
+                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
                   },
                   "@type": {
                     "const": [
@@ -7277,7 +7265,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "BeamDamageMinimization"
+                    "const": "beamDamageMinimization"
                   },
                   "schema:name": {
                     "const": "Beam Damage Minimization"
@@ -7309,12 +7297,12 @@
             },
             {
               "contains": {
-                "title": "Drift Correction",
-                "description": "Describe method used to monitor and correct for instrument drift",
+                "title": "Beam Raster Dimensions",
+                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/DriftCorrection"
+                    "const": "ada:parameter/empaTAPP/beamRasterDimensionsDefault"
                   },
                   "@type": {
                     "const": [
@@ -7322,7 +7310,52 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "DriftCorrection"
+                    "const": "beamRasterDimensionsDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Drift Correction",
+                "description": "Describe method used to monitor and correct for instrument drift",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/driftCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "driftCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Drift Correction"
@@ -7334,7 +7367,7 @@
                     "const": "session"
                   },
                   "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7409,7 +7442,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenOxygenCorrection"
+                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
                   },
                   "@type": {
                     "const": [
@@ -7417,7 +7450,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "halogenOxygenCorrection"
+                    "const": "halogenCorrectionOnOxygen"
                   },
                   "schema:name": {
                     "const": "Halogen Correction on Oxygen"
@@ -7433,106 +7466,6 @@
                   },
                   "ada:tier": {
                     "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Mass Absorption Coefficients (MACs)",
-                "description": "Database of mass absorption coefficients used in the matrix correction.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/massAbsorptionCoefficients"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "massAbsorptionCoefficients"
-                  },
-                  "schema:name": {
-                    "const": "Mass Absorption Coefficients (MACs)"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "WDS Dead Time Correction",
-                "description": "Method used to correct WDS proportional counter dead time at high count rates.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "wdsDeadTimeCorrection"
-                  },
-                  "schema:name": {
-                    "const": "WDS Dead Time Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrection"
-                    }
                   }
                 },
                 "required": [
@@ -7704,8 +7637,10 @@
         "ada:acceleratingVoltageDefault",
         "ada:beamCurrentDefault",
         "ada:beamDiameterDefault",
-        "ada:beamMode",
-        "ada:matrixCorrectionMethod"
+        "ada:beamModeDefault",
+        "ada:massAbsorptionCoefficients",
+        "ada:matrixCorrectionMethod",
+        "ada:wdsDeadTimeCorrectionDefault"
       ]
     }
   ],

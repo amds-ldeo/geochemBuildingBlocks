@@ -3,7 +3,6 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://cdif.org/0.1/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -101,42 +100,7 @@
       ]
     }
   ],
-  "schema:variableMeasured": [
-    {
-      "@id": "ex:adaEMPA-P6-var-F",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "F",
-      "schema:description": "F abundance measured by EMPA WDS.",
-      "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/analytes/F"
-      ],
-      "schema:unitText": "wt%",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ex:adaEMPA-P6-var-CO2",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "CO2",
-      "schema:description": "CO2 abundance measured by EMPA WDS.",
-      "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/analytes/CO2"
-      ],
-      "schema:unitText": "wt%",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "wt%",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    }
-  ],
+  "schema:variableMeasured": [],
   "schema:distribution": [
     {
       "@type": [
@@ -183,6 +147,13 @@
           "cdi:isFixedWidth": false,
           "csvw:delimiter": ",",
           "csvw:header": true,
+          "cdif:hasPhysicalMapping": [
+            {
+              "cdif:index": 0,
+              "cdif:physicalDataType": "String",
+              "cdi:nullSequence": "NA"
+            }
+          ],
           "ada:componentType": "ada:EMPAQEATabular",
           "ada:spectrometersUsed": "5x WDS",
           "ada:signalUsed": "Kα x-ray lines",
@@ -191,12 +162,21 @@
           },
           "schema:additionalProperty": [
             {
+              "@id": "ada:parameter/empaTAPP/beamMode",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": "ada:parameter/empaTAPP/beamMode",
+              "schema:name": "Beam Mode",
+              "schema:value": "Focused"
+            },
+            {
               "@id": "ada:parameter/empaTAPP/acceleratingVoltage",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": "ada:parameter/empaTAPP/acceleratingVoltage",
-              "schema:name": "Default Accelerating Voltage",
+              "schema:name": "Accelerating Voltage",
               "schema:value": 15,
               "schema:unitText": "kV"
             },
@@ -206,25 +186,19 @@
                 "schema:PropertyValue"
               ],
               "schema:propertyID": "ada:parameter/empaTAPP/beamDiameter",
-              "schema:name": "Default Beam Diameter",
+              "schema:name": "Beam Diameter",
               "schema:value": "0 (focused)",
               "schema:unitText": "µm"
             },
             {
-              "@id": "ada:parameter/empaTAPP/reportedAnalyte",
+              "@id": "ada:parameter/empaTAPP/beamCurrent",
               "@type": [
                 "schema:PropertyValue"
               ],
-              "schema:propertyID": "ada:parameter/empaTAPP/reportedAnalyte",
-              "schema:name": "Target Element",
-              "schema:value": "F|CO2"
-            }
-          ],
-          "cdif:hasPhysicalMapping": [
-            {
-              "cdif:index": 0,
-              "cdif:physicalDataType": "String",
-              "cdi:nullSequence": "NA"
+              "schema:propertyID": "ada:parameter/empaTAPP/beamCurrent",
+              "schema:name": "Default Beam Current",
+              "schema:value": "25 nA",
+              "schema:unitText": "nA"
             }
           ]
         }

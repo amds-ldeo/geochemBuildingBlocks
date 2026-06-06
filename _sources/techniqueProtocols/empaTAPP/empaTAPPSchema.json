@@ -9,7 +9,7 @@
         {
             "type": "object",
             "properties": {
-                "ada:beamMode": {
+                "ada:beamModeDefault": {
                     "description": "Whether the beam was focused, defocused, or rastered over an area.",
                     "type": "string",
                     "enum": [
@@ -29,7 +29,14 @@
                 },
                 "ada:beamCurrentDefault": {
                     "description": "Probe current in nanoamperes (nA).",
-                    "type": "string"
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 },
                 "ada:matrixCorrectionMethod": {
                     "description": "X-ray matrix correction algorithm applied during data reduction.",
@@ -43,6 +50,38 @@
                         "Armstrong/Love-Scott",
                         "Heinrich/Duncumb-Reed",
                         "Conventional Philibert/Duncumb-Reed",
+                        "Other",
+                        "Unknown",
+                        "missing"
+                    ]
+                },
+                "ada:massAbsorptionCoefficients": {
+                    "description": "Database of mass absorption coefficients used in the matrix correction.",
+                    "type": "string",
+                    "enum": [
+                        "LINEMU",
+                        "CITZMU",
+                        "MCMASTER",
+                        "MAC30",
+                        "MACJTA",
+                        "FFAST",
+                        "Other",
+                        "Unknown",
+                        "missing"
+                    ]
+                },
+                "ada:wdsDeadTimeCorrectionDefault": {
+                    "description": "Method used to correct WDS proportional counter dead time at high count rates.",
+                    "type": "string",
+                    "enum": [
+                        "Default constant 3µs (Cameca)",
+                        "Adjusted constant (Cameca)",
+                        "Default constant (JEOL)",
+                        "Adjusted constant (JEOL)",
+                        "High-precision (Probe for EPMA)",
+                        "Logarithmic",
+                        "Super-precision",
+                        "Simple",
                         "Other",
                         "Unknown",
                         "missing"
@@ -330,36 +369,40 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/BeamDamageMinimization"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamDamageMinimization"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/DriftCorrection"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamRasterDimensionsDefault"
+                            },
+                            {
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/driftCorrectionDefault"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/edsSpectralProcessingType"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/halogenOxygenCorrection"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/massAbsorptionCoefficients"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/wdsDeadTimeCorrection"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/halogenCorrectionOnOxygen"
                             }
                         ]
                     },
                     "allOf": [
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/BeamDamageMinimization"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamDamageMinimization"
                             },
                             "minContains": 0,
                             "maxContains": 1
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/DriftCorrection"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/beamRasterDimensionsDefault"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/driftCorrectionDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -373,21 +416,7 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/halogenOxygenCorrection"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/massAbsorptionCoefficients"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/wdsDeadTimeCorrection"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/halogenCorrectionOnOxygen"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -549,8 +578,10 @@
                 "ada:acceleratingVoltageDefault",
                 "ada:beamCurrentDefault",
                 "ada:beamDiameterDefault",
-                "ada:beamMode",
-                "ada:matrixCorrectionMethod"
+                "ada:beamModeDefault",
+                "ada:massAbsorptionCoefficients",
+                "ada:matrixCorrectionMethod",
+                "ada:wdsDeadTimeCorrectionDefault"
             ]
         }
     ]

@@ -62,7 +62,7 @@
           "items": {
             "anyOf": [
               {
-                "title": "Default Accelerating Voltage",
+                "title": "Accelerating Voltage",
                 "description": "Electron beam accelerating voltage in kilovolts (kV).",
                 "type": "object",
                 "properties": {
@@ -78,7 +78,7 @@
                     "const": "ada:parameter/empaTAPP/acceleratingVoltage"
                   },
                   "schema:name": {
-                    "const": "Default Accelerating Voltage"
+                    "const": "Accelerating Voltage"
                   },
                   "schema:value": {
                     "anyOf": [
@@ -104,7 +104,49 @@
                 ]
               },
               {
-                "title": "Default Beam Diameter",
+                "title": "Default Beam Current",
+                "description": "Probe current in nanoamperes (nA).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/beamCurrent"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/empaTAPP/beamCurrent"
+                  },
+                  "schema:name": {
+                    "const": "Default Beam Current"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              {
+                "title": "Beam Diameter",
                 "description": "Diameter of the focused or defocused electron beam in micrometers.",
                 "type": "object",
                 "properties": {
@@ -120,7 +162,7 @@
                     "const": "ada:parameter/empaTAPP/beamDiameter"
                   },
                   "schema:name": {
-                    "const": "Default Beam Diameter"
+                    "const": "Beam Diameter"
                   },
                   "schema:value": {
                     "anyOf": [
@@ -146,12 +188,12 @@
                 ]
               },
               {
-                "title": "Beam Raster Dimensions",
-                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+                "title": "Beam Mode",
+                "description": "Whether the beam was focused, defocused, or rastered over an area.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/BeamRasterDimension"
+                    "const": "ada:parameter/empaTAPP/beamMode"
                   },
                   "@type": {
                     "const": [
@@ -159,7 +201,43 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": "ada:parameter/empaTAPP/BeamRasterDimension"
+                    "const": "ada:parameter/empaTAPP/beamMode"
+                  },
+                  "schema:name": {
+                    "const": "Beam Mode"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/empaTAPP/beamMode"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Beam Raster Dimensions",
+                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/beamRasterDimensions"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/empaTAPP/beamRasterDimensions"
                   },
                   "schema:name": {
                     "const": "Beam Raster Dimensions"
@@ -188,12 +266,12 @@
                 ]
               },
               {
-                "title": "Target Element",
-                "description": "The element or oxide measured in this row of the element table.",
+                "title": "Drift Correction",
+                "description": "Describe method used to monitor and correct for instrument drift",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/reportedAnalyte"
+                    "const": "ada:parameter/empaTAPP/driftCorrection"
                   },
                   "@type": {
                     "const": [
@@ -201,13 +279,53 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": "ada:parameter/empaTAPP/reportedAnalyte"
+                    "const": "ada:parameter/empaTAPP/driftCorrection"
                   },
                   "schema:name": {
-                    "const": "Target Element"
+                    "const": "Drift Correction"
                   },
                   "schema:value": {
                     "type": "string"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              {
+                "title": "WDS Dead Time Correction",
+                "description": "Method used to correct WDS proportional counter dead time at high count rates.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
+                  },
+                  "schema:name": {
+                    "const": "WDS Dead Time Correction"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrection"
+                    }
                   }
                 },
                 "required": [
@@ -235,10 +353,13 @@
                     "type": "string",
                     "not": {
                       "enum": [
-                        "ada:parameter/empaTAPP/BeamRasterDimension",
                         "ada:parameter/empaTAPP/acceleratingVoltage",
+                        "ada:parameter/empaTAPP/beamCurrent",
                         "ada:parameter/empaTAPP/beamDiameter",
-                        "ada:parameter/empaTAPP/reportedAnalyte"
+                        "ada:parameter/empaTAPP/beamMode",
+                        "ada:parameter/empaTAPP/beamRasterDimensions",
+                        "ada:parameter/empaTAPP/driftCorrection",
+                        "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
                       ]
                     }
                   }

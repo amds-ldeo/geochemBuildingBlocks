@@ -1114,88 +1114,6 @@
                 "ada:fieldScope"
             ]
         },
-        "laboratoryIdDefault": {
-            "title": "Laboratory ID",
-            "description": "Persistent identifier for the laboratory, e.g., ROR ID.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/laboratoryIdDefault"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "laboratoryIdDefault"
-                },
-                "schema:name": {
-                    "const": "Laboratory ID"
-                },
-                "ada:dataType": {
-                    "const": "uri"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "protocolReference": {
-            "title": "Protocol Reference(s)",
-            "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this protocol.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/protocolReference"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "protocolReference"
-                },
-                "schema:name": {
-                    "const": "Protocol Reference(s)"
-                },
-                "ada:dataType": {
-                    "const": "uri"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
         "labxct_coupledTechniqueDefault": {
             "title": "Coupled Technique(s)",
             "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
@@ -2236,13 +2154,13 @@
                 "ada:fieldScope"
             ]
         },
-        "BeamDamageMinimization": {
-            "title": "Beam Damage Minimization",
-            "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
+        "beamRasterDimensionsDefault": {
+            "title": "Beam Raster Dimensions",
+            "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/empaTAPP/BeamDamageMinimization"
+                    "const": "ada:parameter/empaTAPP/beamRasterDimensionsDefault"
                 },
                 "@type": {
                     "const": [
@@ -2250,7 +2168,48 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "BeamDamageMinimization"
+                    "const": "beamRasterDimensionsDefault"
+                },
+                "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "beamDamageMinimization": {
+            "title": "Beam Damage Minimization",
+            "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "beamDamageMinimization"
                 },
                 "schema:name": {
                     "const": "Beam Damage Minimization"
@@ -2277,13 +2236,13 @@
                 "ada:fieldScope"
             ]
         },
-        "DriftCorrection": {
+        "driftCorrectionDefault": {
             "title": "Drift Correction",
             "description": "Describe method used to monitor and correct for instrument drift",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/empaTAPP/DriftCorrection"
+                    "const": "ada:parameter/empaTAPP/driftCorrectionDefault"
                 },
                 "@type": {
                     "const": [
@@ -2291,7 +2250,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "DriftCorrection"
+                    "const": "driftCorrectionDefault"
                 },
                 "schema:name": {
                     "const": "Drift Correction"
@@ -2303,7 +2262,7 @@
                     "const": "session"
                 },
                 "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                 },
                 "ada:tier": {
                     "const": "R"
@@ -2318,59 +2277,13 @@
                 "ada:fieldScope"
             ]
         },
-        "massAbsorptionCoefficients": {
-            "title": "Mass Absorption Coefficients (MACs)",
-            "description": "Database of mass absorption coefficients used in the matrix correction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/massAbsorptionCoefficients"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "massAbsorptionCoefficients"
-                },
-                "schema:name": {
-                    "const": "Mass Absorption Coefficients (MACs)"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "halogenOxygenCorrection": {
+        "halogenCorrectionOnOxygen": {
             "title": "Halogen Correction on Oxygen",
             "description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenOxygenCorrection"
+                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
                 },
                 "@type": {
                     "const": [
@@ -2378,7 +2291,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "halogenOxygenCorrection"
+                    "const": "halogenCorrectionOnOxygen"
                 },
                 "schema:name": {
                     "const": "Halogen Correction on Oxygen"
@@ -2394,52 +2307,6 @@
                 },
                 "ada:tier": {
                     "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "wdsDeadTimeCorrection": {
-            "title": "WDS Dead Time Correction",
-            "description": "Method used to correct WDS proportional counter dead time at high count rates.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "wdsDeadTimeCorrection"
-                },
-                "schema:name": {
-                    "const": "WDS Dead Time Correction"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrection"
-                    }
                 }
             },
             "required": [
