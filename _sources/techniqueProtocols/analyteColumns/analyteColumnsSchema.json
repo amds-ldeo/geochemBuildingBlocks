@@ -4,6 +4,561 @@
     "description": "Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived from technique TAPP spreadsheets. Each $def constrains one analyte-table reporting column (e.g. detectionLimit, xrayEmissionLine). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
+        "spectrometerDwellTime": {
+            "title": "Spectrometer Dwell Time",
+            "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "spectrometerDwellTime"
+                },
+                "schema:name": {
+                    "const": "Spectrometer Dwell Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "spotXCoordinate": {
+            "title": "Analysis Location/Spot Coordinates",
+            "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "spotXCoordinate"
+                },
+                "schema:name": {
+                    "const": "Analysis Location/Spot Coordinates"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "spotYCoordinate": {
+            "title": "Analysis Location/Spot Coordinates",
+            "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/spotYCoordinate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "spotYCoordinate"
+                },
+                "schema:name": {
+                    "const": "Analysis Location/Spot Coordinates"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "spotIdentifier": {
+            "title": "Analysis Location/Spot Coordinates",
+            "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/spotIdentifier"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "spotIdentifier"
+                },
+                "schema:name": {
+                    "const": "Analysis Location/Spot Coordinates"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "IsobaricInterferenceCorrection": {
+            "title": "Isobaric Interference Corrections Applied",
+            "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "IsobaricInterferenceCorrection"
+                },
+                "schema:name": {
+                    "const": "Isobaric Interference Corrections Applied"
+                },
+                "ada:dataType": {
+                    "const": "boolean"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "interferingSpecies": {
+            "title": "Interfering Species",
+            "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/interferingSpecies"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "interferingSpecies"
+                },
+                "schema:name": {
+                    "const": "Interfering Species"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "IsobaricInterferenceCorrectionMethod": {
+            "title": "Interference Correction Method",
+            "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "IsobaricInterferenceCorrectionMethod"
+                },
+                "schema:name": {
+                    "const": "Interference Correction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "detectionLimit": {
+            "title": "Detection Limit",
+            "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/detectionLimit"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "detectionLimit"
+                },
+                "schema:name": {
+                    "const": "Detection Limit"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "limitOfQuantification": {
+            "title": "Limit of Quantification (LOQ) Method",
+            "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "limitOfQuantification"
+                },
+                "schema:name": {
+                    "const": "Limit of Quantification (LOQ) Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "withinSessionReproducibility": {
+            "title": "Within-Session Analytical Precision and Assessment Method",
+            "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "withinSessionReproducibility"
+                },
+                "schema:name": {
+                    "const": "Within-Session Analytical Precision and Assessment Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "withinSessionReproducibilityMethod": {
+            "title": "Within-Session Analytical Precision and Assessment Method",
+            "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "withinSessionReproducibilityMethod"
+                },
+                "schema:name": {
+                    "const": "Within-Session Analytical Precision and Assessment Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "betweenSessionReproducibility": {
+            "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "betweenSessionReproducibility"
+                },
+                "schema:name": {
+                    "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "betweenSessionReproducibilityMethod": {
+            "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "betweenSessionReproducibilityMethod"
+                },
+                "schema:name": {
+                    "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "analyticalAccuracy": {
+            "title": "Analytical Accuracy and Assessment Method",
+            "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "analyticalAccuracy"
+                },
+                "schema:name": {
+                    "const": "Analytical Accuracy and Assessment Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "analyticalAccuracyMethod": {
+            "title": "Analytical Accuracy and Assessment Method",
+            "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "analyticalAccuracyMethod"
+                },
+                "schema:name": {
+                    "const": "Analytical Accuracy and Assessment Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
         "epmaTechnique": {
             "title": "EPMA Technique per Element",
             "description": "Whether this element was measured by WDS or EDS.",
@@ -85,7 +640,7 @@
         },
         "analysisOrder": {
             "title": "Sequence",
-            "description": "Order of analysis on spectormeter. To give an example, if there are 5 detectors, 5 analytes (elements) will be measured simultaneously on the first pass (i.e., Sequence = 1 for all of them), then 5 other analytes will be measured simultaneously on the second pass (i.e., Sequence = 2 for these 5 analytes), etc. The numbering depends on the order of these analytes being measured during an analysis. Also, if there are 20 analytes, there will be at least 4 passes in this case.",
+            "description": "Order of analysis on spectormeter.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -977,561 +1532,6 @@
                 },
                 "schema:name": {
                     "const": "Typical Counting Statistics Error"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "spectrometerDwellTime": {
-            "title": "Spectrometer Dwell Time",
-            "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "spectrometerDwellTime"
-                },
-                "schema:name": {
-                    "const": "Spectrometer Dwell Time"
-                },
-                "ada:dataType": {
-                    "const": "number"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "spotXCoordinate": {
-            "title": "Analysis Location/Spot Coordinates",
-            "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/spotXCoordinate"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "spotXCoordinate"
-                },
-                "schema:name": {
-                    "const": "Analysis Location/Spot Coordinates"
-                },
-                "ada:dataType": {
-                    "const": "number"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "spotYCoordinate": {
-            "title": "Analysis Location/Spot Coordinates",
-            "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/spotYCoordinate"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "spotYCoordinate"
-                },
-                "schema:name": {
-                    "const": "Analysis Location/Spot Coordinates"
-                },
-                "ada:dataType": {
-                    "const": "number"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "spotIdentifier": {
-            "title": "Analysis Location/Spot Coordinates",
-            "description": "Location of the analysis on the sample surface. For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction and co-registration with other analytical images.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/spotIdentifier"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "spotIdentifier"
-                },
-                "schema:name": {
-                    "const": "Analysis Location/Spot Coordinates"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "IsobaricInterferenceCorrection": {
-            "title": "Isobaric Interference Corrections Applied",
-            "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "IsobaricInterferenceCorrection"
-                },
-                "schema:name": {
-                    "const": "Isobaric Interference Corrections Applied"
-                },
-                "ada:dataType": {
-                    "const": "boolean"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "interferingSpecies": {
-            "title": "Interfering Species",
-            "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/interferingSpecies"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "interferingSpecies"
-                },
-                "schema:name": {
-                    "const": "Interfering Species"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "IsobaricInterferenceCorrectionMethod": {
-            "title": "Interference Correction Method",
-            "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "IsobaricInterferenceCorrectionMethod"
-                },
-                "schema:name": {
-                    "const": "Interference Correction Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "detectionLimit": {
-            "title": "Detection Limit",
-            "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/detectionLimit"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "detectionLimit"
-                },
-                "schema:name": {
-                    "const": "Detection Limit"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "limitOfQuantification": {
-            "title": "Limit of Quantification (LOQ) Method",
-            "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "limitOfQuantification"
-                },
-                "schema:name": {
-                    "const": "Limit of Quantification (LOQ) Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "withinSessionReproducibility": {
-            "title": "Within-Session Analytical Precision and Assessment Method",
-            "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "withinSessionReproducibility"
-                },
-                "schema:name": {
-                    "const": "Within-Session Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "withinSessionReproducibilityMethod": {
-            "title": "Within-Session Analytical Precision and Assessment Method",
-            "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "withinSessionReproducibilityMethod"
-                },
-                "schema:name": {
-                    "const": "Within-Session Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "betweenSessionReproducibility": {
-            "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "betweenSessionReproducibility"
-                },
-                "schema:name": {
-                    "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "betweenSessionReproducibilityMethod": {
-            "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "betweenSessionReproducibilityMethod"
-                },
-                "schema:name": {
-                    "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "analyticalAccuracy": {
-            "title": "Analytical Accuracy and Assessment Method",
-            "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "analyticalAccuracy"
-                },
-                "schema:name": {
-                    "const": "Analytical Accuracy and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "analyticalAccuracyMethod": {
-            "title": "Analytical Accuracy and Assessment Method",
-            "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "analyticalAccuracyMethod"
-                },
-                "schema:name": {
-                    "const": "Analytical Accuracy and Assessment Method"
                 },
                 "ada:dataType": {
                     "const": "string"

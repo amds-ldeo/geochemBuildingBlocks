@@ -3062,9 +3062,9 @@
       "$ref": "#/$defs/WorkflowHowTo",
       "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps."
     },
-    "ada:methodParameters": {
+    "schema:additionalProperty": {
       "type": "array",
-      "description": "Method-level parameters that apply across all workflow steps (e.g. method-scoped constants like matrix correction model). Step-specific parameters should be placed on the appropriate workflow step instead.",
+      "description": "Method-level parameter specifications (Advanced protocol tier) that apply across all workflow steps, as schema:PropertyValueSpecification entries. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates registry. Step-specific parameters should be placed on the appropriate workflow step instead.",
       "items": {
         "type": "object",
         "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",

@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-    "description": "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), a parameter vocabulary in ada:methodParameters, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.",
+    "description": "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.",
     "allOf": [
         {
             "$ref": "../tappDefinition/tappDefinitionSchema.json"
@@ -15,7 +15,8 @@
                     "enum": [
                         "Focused",
                         "Defocused",
-                        "Raster"
+                        "Raster",
+                        "missing"
                     ]
                 },
                 "ada:acceleratingVoltageDefault": {
@@ -43,7 +44,8 @@
                         "Heinrich/Duncumb-Reed",
                         "Conventional Philibert/Duncumb-Reed",
                         "Other",
-                        "Unknown"
+                        "Unknown",
+                        "missing"
                     ]
                 },
                 "ada:analyteTemplate": {
@@ -323,7 +325,7 @@
                         }
                     }
                 },
-                "ada:methodParameters": {
+                "schema:additionalProperty": {
                     "type": "array",
                     "items": {
                         "anyOf": [
@@ -542,7 +544,14 @@
                         }
                     }
                 }
-            }
+            },
+            "required": [
+                "ada:acceleratingVoltageDefault",
+                "ada:beamCurrentDefault",
+                "ada:beamDiameterDefault",
+                "ada:beamMode",
+                "ada:matrixCorrectionMethod"
+            ]
         }
     ]
 }

@@ -12,7 +12,7 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS major/minor element silicate and oxide| all properties",
+  "schema:name": "EPMA TAPP example P0",
   "schema:description": "empaTAPP example derived from Richard & Deng 2026 (synthetic comprehensive WDS example).",
   "schema:measurementTechnique": {
     "@type": [
@@ -20,12 +20,6 @@
     ],
     "schema:termCode": "EPMA-WDS",
     "schema:name": "Electron Microprobe Analysis - WDS"
-  },
-  "schema:creator": {
-    "@type": [
-      "schema:Person"
-    ],
-    "schema:name": "Richard| S.M. ORCID:0000-0001-6041-5302; Deng| Ruolin ORCID:0000-0001-5383-3039"
   },
   "schema:location": {
     "@type": [
@@ -239,7 +233,7 @@
   "ada:beamDiameterDefault": "5",
   "ada:beamCurrentDefault": "10",
   "ada:matrixCorrectionMethod": "Armstrong/Love-Scott",
-  "ada:methodParameters": [
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/BeamDamageMinimization",
       "@type": [
@@ -360,7 +354,7 @@
         ],
         "schema:name": "Sequence",
         "schema:valueName": "analysisOrder",
-        "schema:description": "Order of analysis on spectormeter. To give an example, if there are 5 detectors, 5 analytes (elements) will be measured simultaneously on the first pass (i.e., Sequence = 1 for all of them), then 5 other analytes will be measured simultaneously on the second pass (i.e., Sequence = 2 for these 5 analytes), etc. The numbering depends on the order of these analytes being measured during an analysis. Also, if there are 20 analytes, there will be at least 4 passes in this case.",
+        "schema:description": "Order of analysis on spectormeter.",
         "ada:dataType": "integer",
         "schema:readonlyValue": true,
         "ada:tier": "M"
@@ -403,6 +397,18 @@
         "schema:name": "WDS PHA Setting",
         "schema:valueName": "pulseHeightAnalyzeSetting",
         "schema:description": "Pulse height analyzer setting used for the WDS detector.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/xrayEmissionLine",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "X-ray Line",
+        "schema:valueName": "xrayEmissionLine",
+        "schema:description": "The X-ray emission line measured for this element.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "ada:tier": "M"
@@ -525,6 +531,18 @@
         }
       },
       {
+        "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "primaryCalibrationStandard",
+        "schema:description": "Primary reference material used for element standardization (calibration).",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -568,6 +586,18 @@
         "schema:name": "Interference Correction Standard",
         "schema:valueName": "interferenceCorrectionStandard",
         "schema:description": "Reference material used to quantify and calibrate the interference correction.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "ada:tier": "M"
+      },
+      {
+        "@id": "ada:analyteColumn/empaTAPP/typicalDetectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Typical Detection Limit",
+        "schema:valueName": "typicalDetectionLimit",
+        "schema:description": "Method detection limit at 99% confidence (3σ) for each measured element.",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "ada:tier": "M"
@@ -630,6 +660,7 @@
         "monochromatorCrystal": "LPET",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 20,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -639,10 +670,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Linear",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Anorthite",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalAnalyticalPrecision": "0.5% (1σ, n=20 for SiO2)",
         "typicalAnalyticalAccuracy": "1.2% relative to GeoReM preferred value for VG-2 SiO2",
@@ -656,6 +689,7 @@
         "monochromatorCrystal": "LPET",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 20,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -665,10 +699,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Linear",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Anorthite",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -680,6 +716,7 @@
         "monochromatorCrystal": "LLIF",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 20,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -689,10 +726,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Linear",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "K-feldspar",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -704,6 +743,7 @@
         "monochromatorCrystal": "LLIF",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 20,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -713,10 +753,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Linear",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Anorthite",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -728,6 +770,7 @@
         "monochromatorCrystal": "LPET",
         "wdsDetectorType": "High Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 30,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -737,10 +780,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Linear",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Jadeite",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -752,6 +797,7 @@
         "monochromatorCrystal": "LPET",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 20,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -761,10 +807,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Exponential",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Fayalite",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -776,6 +824,7 @@
         "monochromatorCrystal": "TAP",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 20,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -785,10 +834,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Double exponential",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Forsterite",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -800,6 +851,7 @@
         "monochromatorCrystal": "LiF",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 60,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -809,10 +861,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Double exponential",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Synthetic rutile",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -824,6 +878,7 @@
         "monochromatorCrystal": "LiF",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 60,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -833,10 +888,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Double exponential",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Cr2O3",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       },
@@ -848,6 +905,7 @@
         "monochromatorCrystal": "LiF",
         "wdsDetectorType": "Low Pressure P10 Flow",
         "pulseHeightAnalyzeSetting": "Integral",
+        "xrayEmissionLine": "Kalpha",
         "peakCountingTime": 60,
         "backgroundCountingTime": 10,
         "backgroundCountingPosition": "+5 mm (High)",
@@ -857,10 +915,12 @@
         "backgroundCorrectionMethod": "1-point low with slope factor",
         "timeDependentIntensityCorrection": "Exponential",
         "elementEstimationMethod": "Direct (measured)",
+        "primaryCalibrationStandard": "Mn2SiO4",
         "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
         "interferenceCorrection": "Yes",
         "interferingElements": "None",
         "interferenceCorrectionStandard": "N/A",
+        "typicalDetectionLimit": "0.01 wt%",
         "detectionLimitMethod": "A.B.(1997)",
         "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
       }

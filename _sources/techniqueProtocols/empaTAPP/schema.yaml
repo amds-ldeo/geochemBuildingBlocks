@@ -1,6 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: EMPA Technique-Aligned Protocol Profile (empaTAPP)
-description: EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), a parameter vocabulary in ada:methodParameters, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.
+description: EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.
 allOf:
   - $ref: ../tappDefinition/schema.yaml
   - type: object
@@ -12,6 +12,7 @@ allOf:
           - Focused
           - Defocused
           - Raster
+          - missing
       ada:acceleratingVoltageDefault:
         description: Electron beam accelerating voltage in kilovolts (kV).
         type: string
@@ -35,6 +36,7 @@ allOf:
           - Conventional Philibert/Duncumb-Reed
           - Other
           - Unknown
+          - missing
       ada:analyteTemplate:
         type: object
         properties:
@@ -174,7 +176,7 @@ allOf:
                   $ref: ../analyteColumns/schema.yaml#/$defs/xrayEmissionLine
                 minContains: 0
                 maxContains: 1
-      ada:methodParameters:
+      schema:additionalProperty:
         type: array
         items:
           anyOf:
@@ -302,3 +304,9 @@ allOf:
                   required:
                     - '@type'
                     - schema:additionalType
+    required:
+      - ada:acceleratingVoltageDefault
+      - ada:beamCurrentDefault
+      - ada:beamDiameterDefault
+      - ada:beamMode
+      - ada:matrixCorrectionMethod

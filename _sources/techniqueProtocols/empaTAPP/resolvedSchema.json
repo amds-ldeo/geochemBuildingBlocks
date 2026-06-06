@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-  "description": "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), a parameter vocabulary in ada:methodParameters, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.",
+  "description": "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.",
   "properties": {
     "@context": {
       "type": "object",
@@ -3062,9 +3062,9 @@
       "$ref": "#/$defs/WorkflowHowTo",
       "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps."
     },
-    "ada:methodParameters": {
+    "schema:additionalProperty": {
       "type": "array",
-      "description": "Method-level parameters that apply across all workflow steps (e.g. method-scoped constants like matrix correction model). Step-specific parameters should be placed on the appropriate workflow step instead.",
+      "description": "Method-level parameter specifications (Advanced protocol tier) that apply across all workflow steps, as schema:PropertyValueSpecification entries. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates registry. Step-specific parameters should be placed on the appropriate workflow step instead.",
       "items": {
         "type": "object",
         "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
@@ -4637,7 +4637,8 @@
           "enum": [
             "Focused",
             "Defocused",
-            "Raster"
+            "Raster",
+            "missing"
           ]
         },
         "ada:acceleratingVoltageDefault": {
@@ -4665,7 +4666,8 @@
             "Heinrich/Duncumb-Reed",
             "Conventional Philibert/Duncumb-Reed",
             "Other",
-            "Unknown"
+            "Unknown",
+            "missing"
           ]
         },
         "ada:analyteTemplate": {
@@ -4899,7 +4901,7 @@
                   },
                   {
                     "title": "Sequence",
-                    "description": "Order of analysis on spectormeter. To give an example, if there are 5 detectors, 5 analytes (elements) will be measured simultaneously on the first pass (i.e., Sequence = 1 for all of them), then 5 other analytes will be measured simultaneously on the second pass (i.e., Sequence = 2 for these 5 analytes), etc. The numbering depends on the order of these analytes being measured during an analysis. Also, if there are 20 analytes, there will be at least 4 passes in this case.",
+                    "description": "Order of analysis on spectormeter.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5895,7 +5897,7 @@
                 {
                   "contains": {
                     "title": "Sequence",
-                    "description": "Order of analysis on spectormeter. To give an example, if there are 5 detectors, 5 analytes (elements) will be measured simultaneously on the first pass (i.e., Sequence = 1 for all of them), then 5 other analytes will be measured simultaneously on the second pass (i.e., Sequence = 2 for these 5 analytes), etc. The numbering depends on the order of these analytes being measured during an analysis. Also, if there are 20 analytes, there will be at least 4 passes in this case.",
+                    "description": "Order of analysis on spectormeter.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6992,7 +6994,7 @@
             }
           }
         },
-        "ada:methodParameters": {
+        "schema:additionalProperty": {
           "type": "array",
           "items": {
             "anyOf": [
@@ -7697,7 +7699,14 @@
             }
           }
         }
-      }
+      },
+      "required": [
+        "ada:acceleratingVoltageDefault",
+        "ada:beamCurrentDefault",
+        "ada:beamDiameterDefault",
+        "ada:beamMode",
+        "ada:matrixCorrectionMethod"
+      ]
     }
   ],
   "$defs": {

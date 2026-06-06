@@ -6,7 +6,7 @@ description: >-
   is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity
   + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control).
   Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that
-  apply across all steps remain at the top level in ada:methodParameters. Integrates Bioschemas vocabulary
+  apply across all steps remain at the top level in schema:additionalProperty. Integrates Bioschemas vocabulary
   for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for
   quality metrics.
 type: object
@@ -167,17 +167,18 @@ properties:
       of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample
       preparation, calibration, acquisition, data processing, quality control). Steps carry their own
       parameters, reagents, instruments, and sub-steps.
-    $ref: '#/$defs/WorkflowHowTo' 
-  'ada:methodParameters':
+    $ref: '#/$defs/WorkflowHowTo'
+  'schema:additionalProperty':
     type: array
     description: >-
-      Method-level parameters that apply across all workflow steps (e.g. method-scoped constants like
-      matrix correction model). Step-specific parameters should be placed on the appropriate workflow
-      step instead.
+      Method-level parameter specifications (Advanced protocol tier) that apply across all workflow
+      steps, as schema:PropertyValueSpecification entries. Replaces the former ada:methodParameters.
+      Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates
+      registry. Step-specific parameters should be placed on the appropriate workflow step instead.
     items:
       $ref: '#/$defs/MethodParameter'
-      
-      
+
+
   'ada:analyteTemplate':
     description: >-
       Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element

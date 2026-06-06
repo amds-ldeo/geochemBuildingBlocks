@@ -79,7 +79,7 @@ TAPP_PROFILES: dict[str, dict] = {
         "schema_description": (
             "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA "
             "properties (beam mode, accelerating voltage default, matrix correction "
-            "method, etc.), a parameter vocabulary in ada:methodParameters, and an "
+            "method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an "
             "analyte-column template covering EPMA per-element acquisition and "
             "reporting fields. Each ada:analyteColumns[] entry must match one of the "
             "catalog files in analyteColumns/ (or the inherited identifier column from "
@@ -119,7 +119,7 @@ TAPP_PROFILES: dict[str, dict] = {
         "schema_title": "LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)",
         "schema_description": (
             "LA-ICPMS-specific extension of the base TAPP definition. Adds top-level "
-            "LA-ICPMS properties, a parameter vocabulary in ada:methodParameters, and "
+            "LA-ICPMS properties, Advanced-protocol parameters in schema:additionalProperty, and "
             "an analyte-column template covering LA-ICPMS per-element acquisition and "
             "reporting fields. Each ada:analyteColumns[] entry must match one of the "
             "catalog files in analyteColumns/ (or the inherited identifier column from "
@@ -1316,10 +1316,14 @@ def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: 
 def build_schema_yaml(properties: list[tuple[str, dict]],
                       analyte_column_names: list[str],
                       parameter_names: list[str],
-                      instrument_haspart: dict | None) -> None:
-    """Rebuild empaTAPP/schema.yaml with the new property set in allOf[1].properties
-    and oneOf constraints on ada:analyteColumns[] and ada:methodParameters[]
-    referencing the catalog files."""
+                      instrument_haspart: dict | None,
+                      required_props: list[str] | None = None) -> None:
+    """Rebuild <TAPP>/schema.yaml with the new property set in allOf[1].properties
+    and uniqueness constraints on ada:analyteColumns[] and schema:additionalProperty[]
+    referencing the catalog files. Basic-protocol (property:) fields are listed in
+    overlay.required (canonical dual-home model); Advanced-protocol (readOnly:true
+    parameter:) fields are schema:additionalProperty[] PropertyValueSpecification entries
+    (replacing the former ada:methodParameters)."""
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
@@ -1333,14 +1337,20 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     allof.append({"$ref": "../tappDefinition/schema.yaml"})
     overlay = CommentedMap()
     overlay["type"] = "object"
+    req_set = set(required_props or [])
     props = CommentedMap()
     for ada_prop, schema_block in properties:
         # convert OrderedDict (or any dict) to CommentedMap so ruamel.yaml emits plain mapping
         cm = CommentedMap()
         for k, v in schema_block.items():
             if isinstance(v, list):
+                vals = list(v)
+                # required enum props may be sentinel-filled with "missing" when a
+                # publication doesn't report them -> the sentinel must be a valid term.
+                if k == "enum" and ada_prop in req_set and "missing" not in vals:
+                    vals.append("missing")
                 seq = CommentedSeq()
-                for x in v:
+                for x in vals:
                     seq.append(x)
                 cm[k] = seq
             else:
@@ -1402,12 +1412,17 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         mp_array["items"] = mp_items
         mp_array["allOf"] = mp_unique
 
-        props["ada:methodParameters"] = mp_array
+        props["schema:additionalProperty"] = mp_array
 
     if instrument_haspart:
         props["schema:instrument"] = _to_commented(instrument_haspart)
 
     overlay["properties"] = props
+    if required_props:
+        rq = CommentedSeq()
+        for k in sorted(required_props):
+            rq.append(k)
+        overlay["required"] = rq
     allof.append(overlay)
     doc["allOf"] = allof
 
@@ -1457,7 +1472,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
     """Build a paired (empaTAPP, detailEMPA) example from one publication column.
 
     empaTAPP carries the protocol definition (top-level ada:* properties from
-    `property:` tags + readOnly:true ada:methodParameters templates).
+    `property:` tags + readOnly:true schema:additionalProperty templates).
     detailEMPA carries the per-dataset values (schema:additionalProperty entries
     for readOnly:false parameters with a value in this publication's column),
     pointing back at the empaTAPP via schema:measurementTechnique by @id.
@@ -1642,7 +1657,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                     detail["schema:additionalProperty"].append(entry)
 
     if method_params:
-        parts["ada:methodParameters"] = method_params
+        parts["schema:additionalProperty"] = method_params
     if not parts["schema:name"]:
         parts["schema:name"] = CFG["example_name_template"].format(code=_pubs()[pub_index][0])
 
@@ -2249,6 +2264,28 @@ def _write_examples_yaml(examples_yaml: list[tuple[str, str]]) -> None:
     print(f"  wrote examples.yaml with {len(examples_yaml)} entries")
 
 
+def _pub_meaningful(v) -> bool:
+    """True if a publication cell carries real content, not 'N'/'N/A'/'N (explanation)'."""
+    if v is None:
+        return False
+    v = re.sub(r"\s*\[P[^\]]*\]", "", str(v).strip()).strip()
+    if v in ("", "N", "N/A"):
+        return False
+    m = re.match(r"^(N/A|N)\b\s*", v)
+    if m:
+        rest = v[m.end():]
+        if rest.startswith("("):
+            depth = 0
+            for i, ch in enumerate(rest):
+                depth += (ch == "(") - (ch == ")")
+                if ch == ")" and depth == 0:
+                    rest = rest[i + 1:]
+                    break
+        if re.fullmatch(r"[/;,\-\s]*", rest.strip()):
+            return False
+    return True
+
+
 def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
     """Generate the TAPP-side artifacts only:
     - shared catalog files in techniqueProtocols/{analyteColumns,parameterTemplates,vocab}/
@@ -2265,10 +2302,24 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
 
     cls = _classify_rows(rows, emit_tapp=True, emit_detail=False)
 
+    # Canonical dual-home model: Basic (property:) fields are required EXCEPT those no
+    # publication reports (coverage 0) -> optional. Coverage from the publication columns.
+    prop_type = {k: (b.get("type") if isinstance(b, dict) else None)
+                 for k, b in cls["schema_properties"]}
+    prop_cov = {}
+    for row in rows:
+        cov = sum(1 for v in (row.get("pubs") or []) if _pub_meaningful(v))
+        for tr in row["parsed"]["tag_records"]:
+            if tr["kind"] == "property" and tr["name"] not in ("analyteTemplate", "description"):
+                key = "ada:" + tr["name"]
+                prop_cov[key] = max(prop_cov.get(key, 0), cov)
+    required_props = [k for k, _ in cls["schema_properties"] if prop_cov.get(k, 0) > 0]
+    required_set = set(required_props)
+
     instrument_haspart = build_haspart_constraint(rows)
     build_schema_yaml(
         cls["schema_properties"], cls["analyte_column_names"],
-        cls["parameter_names"], instrument_haspart,
+        cls["parameter_names"], instrument_haspart, required_props=required_props,
     )
 
     # Write the registered analyteColumns + parameterTemplates collection BBs
@@ -2293,6 +2344,17 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
             examples_yaml.append((pcode, plabel))
             continue
         empa_ex, _ = example_for_pub(i, plabel, rows)
+        # canonical model: required props get a real value or a sentinel; non-meaningful
+        # values ("N") are cleaned (sentinel if required, dropped if optional).
+        for key, _b in cls["schema_properties"]:
+            present = key in empa_ex
+            ok = present and _pub_meaningful(empa_ex[key])
+            if key in required_set:
+                if not ok:
+                    empa_ex[key] = (-9999 if prop_type.get(key) in ("number", "integer")
+                                    else "missing")
+            elif present and not ok:
+                del empa_ex[key]
         write_json(BB / f"example{TAPP_NAME}-{pcode}.json", empa_ex)
         examples_yaml.append((pcode, plabel))
         written += 1

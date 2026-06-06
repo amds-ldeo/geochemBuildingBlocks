@@ -4,267 +4,6 @@
     "description": "Registry of reusable schema:PropertyValueSpecification method-parameter templates derived from technique TAPP spreadsheets. Each $def constrains one method-level (readOnly:true) parameter template (e.g. DriftCorrection, massAbsorptionCoefficients). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
-        "BeamDamageMinimization": {
-            "title": "Beam Damage Minimization",
-            "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/BeamDamageMinimization"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "BeamDamageMinimization"
-                },
-                "schema:name": {
-                    "const": "Beam Damage Minimization"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "DriftCorrection": {
-            "title": "Drift Correction",
-            "description": "Describe method used to monitor and correct for instrument drift",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/DriftCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "DriftCorrection"
-                },
-                "schema:name": {
-                    "const": "Drift Correction"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "massAbsorptionCoefficients": {
-            "title": "Mass Absorption Coefficients (MACs)",
-            "description": "Database of mass absorption coefficients used in the matrix correction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/massAbsorptionCoefficients"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "massAbsorptionCoefficients"
-                },
-                "schema:name": {
-                    "const": "Mass Absorption Coefficients (MACs)"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "halogenOxygenCorrection": {
-            "title": "Halogen Correction on Oxygen",
-            "description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenOxygenCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "halogenOxygenCorrection"
-                },
-                "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
-                },
-                "ada:dataType": {
-                    "const": "boolean"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "wdsDeadTimeCorrection": {
-            "title": "WDS Dead Time Correction",
-            "description": "Method used to correct WDS proportional counter dead time at high count rates.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "wdsDeadTimeCorrection"
-                },
-                "schema:name": {
-                    "const": "WDS Dead Time Correction"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrection"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "edsSpectralProcessingType": {
-            "title": "EDS Spectral Processing Type",
-            "description": "Method used to process EDS spectra and extract net peak intensities.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/edsSpectralProcessingType"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "edsSpectralProcessingType"
-                },
-                "schema:name": {
-                    "const": "EDS Spectral Processing Type"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/edsSpectralProcessingType"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
         "coupledTechniqueDefault": {
             "title": "Coupled Technique(s)",
             "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
@@ -2486,6 +2225,267 @@
                 },
                 "ada:tier": {
                     "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "BeamDamageMinimization": {
+            "title": "Beam Damage Minimization",
+            "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/BeamDamageMinimization"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "BeamDamageMinimization"
+                },
+                "schema:name": {
+                    "const": "Beam Damage Minimization"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "DriftCorrection": {
+            "title": "Drift Correction",
+            "description": "Describe method used to monitor and correct for instrument drift",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/DriftCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "DriftCorrection"
+                },
+                "schema:name": {
+                    "const": "Drift Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "massAbsorptionCoefficients": {
+            "title": "Mass Absorption Coefficients (MACs)",
+            "description": "Database of mass absorption coefficients used in the matrix correction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/massAbsorptionCoefficients"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "massAbsorptionCoefficients"
+                },
+                "schema:name": {
+                    "const": "Mass Absorption Coefficients (MACs)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:inDefinedTermSet": {
+                    "const": {
+                        "@id": "ada:vocab/empaTAPP/massAbsorptionCoefficients"
+                    }
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "halogenOxygenCorrection": {
+            "title": "Halogen Correction on Oxygen",
+            "description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/halogenOxygenCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "halogenOxygenCorrection"
+                },
+                "schema:name": {
+                    "const": "Halogen Correction on Oxygen"
+                },
+                "ada:dataType": {
+                    "const": "boolean"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "wdsDeadTimeCorrection": {
+            "title": "WDS Dead Time Correction",
+            "description": "Method used to correct WDS proportional counter dead time at high count rates.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "wdsDeadTimeCorrection"
+                },
+                "schema:name": {
+                    "const": "WDS Dead Time Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:inDefinedTermSet": {
+                    "const": {
+                        "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrection"
+                    }
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "edsSpectralProcessingType": {
+            "title": "EDS Spectral Processing Type",
+            "description": "Method used to process EDS spectra and extract net peak intensities.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/edsSpectralProcessingType"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "edsSpectralProcessingType"
+                },
+                "schema:name": {
+                    "const": "EDS Spectral Processing Type"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:inDefinedTermSet": {
+                    "const": {
+                        "@id": "ada:vocab/empaTAPP/edsSpectralProcessingType"
+                    }
                 }
             },
             "required": [
