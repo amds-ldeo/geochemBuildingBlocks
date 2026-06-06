@@ -1,0 +1,365 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:laicpmsTAPP-Chernonozhkin2021phosphate",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Chernonozhkin et al. (2021) Pallasite Phosphate Spot v1",
+  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite phosphate Spot analysis ns-LA-SF-ICP-MS Ghent University (column P of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "LA-SF-ICP-MS",
+    "schema:name": "LA-SF-ICP-MS"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium"
+  },
+  "schema:object": [
+    "Pallasite Ca-phosphate (merrillite, stanfieldite, farringtonite)"
+  ],
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "In-house MatLab script (Appendix C3)",
+      "ada:toolRole": "reduction"
+    }
+  ],
+  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished epoxy thick section",
+  "ada:samplePreparationMethodDefault": "PMG thick sections polished; same as olivine mapping preparation",
+  "ada:laserManufacturerModel": "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)",
+  "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+  "ada:icpMsType": "Double-focusing sector field ICP-MS (explicitly stated)",
+  "ada:interfaceConeConfiguration": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)",
+  "ada:massResolutionSettingDefault": "Low resolution (M/ΔM = 300)",
+  "ada:detectorConfiguration": "Triple mode detection",
+  "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration ~5 ns",
+  "ada:dataReductionSoftwareDefault": "In-house MatLab script (Appendix C3)",
+  "ada:laserSpotGeometryDefault": "110 µm circular (spot mode)",
+  "ada:laserSpotPathAblationMode": "Spot (stationary)",
+  "ada:laserFluenceDefault": "3.5 J cm⁻²",
+  "ada:laserRepetitionRateDefault": "20 Hz",
+  "ada:ablationDurationPerSpotDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
+  "ada:carrierGasAndFlowRateDefault": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
+  "ada:rfPower": "1000 W",
+  "ada:plasmaThermalMode": "Normal plasma (1000 W RF)",
+  "ada:analysisSequenceDefault": "MPI-DING and USGS GRMs at beginning → unknowns → repeated GRM at end",
+  "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
+  "ada:internalStandardApproach": "Sum-of-major-oxide normalization to 100 wt% (Liu et al. 2008; Appendix C3)",
+  "ada:internalStandardElement": "No single IS; oxide sum normalization to 100 wt%",
+  "ada:elementalFractionationCorrection": "Oxide sum normalization to 100 wt% corrects for ablation yield and matrix effects; external calibration with MPI-DING and USGS glass GRMs",
+  "ada:signalIntegrationIntervalMethod": "Anomalous time steps excluded (inclusions, cracks, heterogeneity); manual inspection",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot analysis (8 scans); average background subtracted",
+  "ada:primaryCalibrationStandardNameDefault": "MPI-DING and USGS glass GRMs (measured at beginning and repeatedly at end of each session; multipoint calibration)",
+  "ada:secondaryReferenceMaterialsDefault": "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment",
+  "ada:methodParameters": [
+    {
+      "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ablationCellType",
+      "schema:name": "Ablation Cell Type",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "HELEX II two-volume ablation cell"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "laserPulseDuration",
+      "schema:name": "Laser Pulse Duration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "~5 ns (ArF excimer)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "plasmaMakeUpGasAddition",
+      "schema:name": "Plasma / Make-up Gas Addition",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRates",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "auxiliaryAndCoolGasFlowRates",
+      "schema:name": "Auxiliary and Cool Gas Flow Rates",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.85 l min⁻¹"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/signalSmoothing",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "signalSmoothing",
+      "schema:name": "Signal Smoothing",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "None"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/icpTuning",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "icpTuning",
+      "schema:name": "ICP Tuning",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Same instrument as olivine runs; tuned for normal plasma conditions"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "driftMonitorFrequency",
+      "schema:name": "Drift Monitor Frequency",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "MPI-DING and USGS GRMs measured at beginning and repeatedly at end of each session"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Single spot analysis run per location (25 cycles: 15 s blank + 20 s ablation + 10 s washout); 3 replicates"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethod",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Longerich et al. (1996) for LOD; uncertainty not formally described"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spikeOutlierFilteringApproach",
+      "schema:name": "Spike / Outlier Filtering Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Anomalous time steps excluded during manual inspection"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrection",
+      "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Applied: triple mode detection"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigation",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "memoryEffectMitigation",
+      "schema:name": "Memory Effect Mitigation",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:name": "Normalization / Standards-Based Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "100% oxide sum normalization to 100 wt% for phosphate minerals (Appendix C3)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "additionalNotes",
+      "schema:name": "Additional Notes",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Phosphate phase identification used LA-ICP-MS data combined with EMPA and µXRF (Fig. D9); merrillite, stanfieldite, farringtonite distinguished by REE patterns; oxide sum normalization applied to phosphate (not olivine IS approach)"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent (isotope) identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "23Na"
+      },
+      {
+        "analyte": "25Mg"
+      },
+      {
+        "analyte": "27Al"
+      },
+      {
+        "analyte": "29Si"
+      },
+      {
+        "analyte": "31P"
+      },
+      {
+        "analyte": "39K"
+      },
+      {
+        "analyte": "44Ca"
+      },
+      {
+        "analyte": "45Sc"
+      },
+      {
+        "analyte": "47Ti"
+      },
+      {
+        "analyte": "51V"
+      },
+      {
+        "analyte": "53Cr"
+      },
+      {
+        "analyte": "55Mn"
+      },
+      {
+        "analyte": "57Fe"
+      },
+      {
+        "analyte": "59Co"
+      },
+      {
+        "analyte": "60Ni"
+      },
+      {
+        "analyte": "63Cu"
+      },
+      {
+        "analyte": "66Zn"
+      },
+      {
+        "analyte": "85Rb"
+      },
+      {
+        "analyte": "88Sr"
+      },
+      {
+        "analyte": "89Y"
+      },
+      {
+        "analyte": "90Zr"
+      },
+      {
+        "analyte": "93Nb"
+      },
+      {
+        "analyte": "133Cs"
+      },
+      {
+        "analyte": "137Ba"
+      },
+      {
+        "analyte": "139La"
+      },
+      {
+        "analyte": "175Lu"
+      },
+      {
+        "analyte": "180Hf"
+      },
+      {
+        "analyte": "181Ta"
+      },
+      {
+        "analyte": "208Pb"
+      },
+      {
+        "analyte": "232Th"
+      },
+      {
+        "analyte": "238U"
+      }
+    ]
+  }
+}

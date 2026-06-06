@@ -1,0 +1,251 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:laicpmsTAPP-Nakanishi2022",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1",
+  "schema:description": "laicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (column R of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "fs-LA-Q-ICP-MS",
+    "schema:name": "fs-LA-Q-ICP-MS"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
+  },
+  "schema:object": [
+    "CR chondrite metal grains (interior, margin, and isolated types)"
+  ],
+  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished epoxy thick section (petropoxy 154 resin, 0.5 µm diamond finish)",
+  "ada:samplePreparationMethodDefault": "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA",
+  "ada:laserManufacturerModel": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)",
+  "ada:icpMsManufacturerModel": "Thermo Scientific X-series 2 (Q-ICP-MS)",
+  "ada:icpMsType": "Single-collector quadrupole (Q-ICP-MS)",
+  "ada:interfaceConeConfiguration": "Ni micro-skimmer cone Xs; Ni sampler cone",
+  "ada:massResolutionSettingDefault": "Unit resolution (quadrupole fixed)",
+  "ada:laserWavelengthAndType": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
+  "ada:laserSpotGeometryDefault": "30 µm circular",
+  "ada:laserSpotPathAblationMode": "Spot (stationary)",
+  "ada:laserFluenceDefault": "12 J cm⁻²",
+  "ada:laserRepetitionRateDefault": "20 Hz",
+  "ada:carrierGasAndFlowRateDefault": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
+  "ada:rfPower": "1400 W",
+  "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
+  "ada:internalStandardApproach": "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS",
+  "ada:internalStandardElement": "⁶¹Ni; concentration from EPMA measured at exact analysis spot location",
+  "ada:elementalFractionationCorrection": "External calibration using calibration curve method with IVB iron meteorite standards; ⁶¹Ni as IS from EPMA corrects for ablation yield differences between sample and standard",
+  "ada:signalIntegrationIntervalMethod": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
+  "ada:primaryCalibrationStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method",
+  "ada:secondaryReferenceMaterialsDefault": "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns",
+  "ada:methodParameters": [
+    {
+      "@id": "ada:parameter/laicpmsTAPP/coupledTechnique",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "coupledTechnique",
+      "schema:name": "Coupled Technique(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "EPMA (electron probe microanalysis)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/couplingDescription",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "couplingDescription",
+      "schema:name": "Coupling Description",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "laserPulseDuration",
+      "schema:name": "Laser Pulse Duration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "~220 fs (Ti:sapphire IFRIT system)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "plasmaMakeUpGasAddition",
+      "schema:name": "Plasma / Make-up Gas Addition",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRates",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "auxiliaryAndCoolGasFlowRates",
+      "schema:name": "Auxiliary and Cool Gas Flow Rates",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Cool gas: 12–13 l min⁻¹ Ar; Auxiliary: 0.6–1.2 l min⁻¹"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Single spot per location (30 µm circular)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethod",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "2SE of individual spot measurements reported"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spikeOutlierFilteringApproach",
+      "schema:name": "Spike / Outlier Filtering Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Monitoring of Mg, Si, P, S to check for micro-inclusions (sulfides); analyses with elevated inclusion signals excluded entirely"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:name": "Normalization / Standards-Based Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "No post-acquisition normalization; calibration curve method using IVB standards provides direct quantification"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "additionalNotes",
+      "schema:name": "Additional Notes",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "fs laser (260 nm Ti:sapphire) essential for HSE measurement in metal (reduces elemental fractionation and matrix effects); IVB iron meteorite standards (Warburton Range + Tawallah Valley) as matrix-matched standards for iron meteorite metal"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent (isotope) identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "59Co"
+      },
+      {
+        "analyte": "101Ru"
+      },
+      {
+        "analyte": "103Rh"
+      },
+      {
+        "analyte": "105Pd"
+      },
+      {
+        "analyte": "185Re"
+      },
+      {
+        "analyte": "189Os"
+      },
+      {
+        "analyte": "193Ir"
+      },
+      {
+        "analyte": "195Pt"
+      },
+      {
+        "analyte": "197Au"
+      },
+      {
+        "analyte": "9H"
+      },
+      {
+        "analyte": "24Mg"
+      },
+      {
+        "analyte": "29Si"
+      },
+      {
+        "analyte": "31P"
+      },
+      {
+        "analyte": "33S"
+      },
+      {
+        "analyte": "61Ni"
+      }
+    ]
+  }
+}

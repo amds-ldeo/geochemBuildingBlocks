@@ -1,30 +1,82 @@
-  - title: 'laicpmsTAPP example Spot: LA-ICPMS spot analysis mode'
-    content: laicpmsTAPP instance derived from publication LA-ICPMS spot analysis mode. Property and parameter values taken from the corresponding column of the TAPP_LAICPMS_filled.xlsx 'TAPP' worksheet.
-    prefixes:
-      ada: https://ada.astromat.org/metadata/
-      schema: http://schema.org/
-      cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-      bios: https://bioschemas.org/
-    snippets:
-      - language: json
-        ref: examplelaicpmsTAPP-Spot.json
-  - title: 'laicpmsTAPP example Transect: LA-ICPMS transect / line-scan mode'
-    content: laicpmsTAPP instance derived from publication LA-ICPMS transect / line-scan mode. Property and parameter values taken from the corresponding column of the TAPP_LAICPMS_filled.xlsx 'TAPP' worksheet.
-    prefixes:
-      ada: https://ada.astromat.org/metadata/
-      schema: http://schema.org/
-      cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-      bios: https://bioschemas.org/
-    snippets:
-      - language: json
-        ref: examplelaicpmsTAPP-Transect.json
-  - title: 'laicpmsTAPP example Mapping: LA-ICPMS 2-D mapping mode'
-    content: laicpmsTAPP instance derived from publication LA-ICPMS 2-D mapping mode. Property and parameter values taken from the corresponding column of the TAPP_LAICPMS_filled.xlsx 'TAPP' worksheet.
-    prefixes:
-      ada: https://ada.astromat.org/metadata/
-      schema: http://schema.org/
-      cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-      bios: https://bioschemas.org/
-    snippets:
-      - language: json
-        ref: examplelaicpmsTAPP-Mapping.json
+- title: laicpmsTAPP example Zhang2022
+  content: laicpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster mapping + Spot (Ge) ns-LA-SF-ICP-MS Florida State University (column M of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: &id001
+    schema: http://schema.org/
+    ada: https://ada.astromat.org/metadata/
+    cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+    bios: https://bioschemas.org/
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Zhang2022.json
+- title: laicpmsTAPP example Chernonozhkin2021olivmap
+  content: laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite olivine Raster mapping (2D) ns-LA-SF-ICP-MS Ghent University (column N of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Chernonozhkin2021olivmap.json
+- title: laicpmsTAPP example Chernonozhkin2021multirun
+  content: 'laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite olivine Line scan (Run 1: major) + Spot (Run 2: trace) [Multi-run] ns-LA-SF-ICP-MS Ghent University (column O of LA-Q_SF-ICPMS_TAPP_v2.xlsx ''TAPP'' worksheet).'
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Chernonozhkin2021multirun.json
+- title: laicpmsTAPP example Chernonozhkin2021phosphate
+  content: laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite phosphate Spot analysis ns-LA-SF-ICP-MS Ghent University (column P of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Chernonozhkin2021phosphate.json
+- title: laicpmsTAPP example Mittlefehldt2024
+  content: laicpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot analysis ns-LA-SF-ICP-MS Johnson Space Center (column Q of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Mittlefehldt2024.json
+- title: laicpmsTAPP example Nakanishi2022
+  content: laicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (column R of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Nakanishi2022.json
+- title: laicpmsTAPP example Navarro2024spot
+  content: laicpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spot analysis ns-LA-SF-ICP-MS University of Campinas (column S of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Navarro2024spot.json
+- title: laicpmsTAPP example Navarro2024map
+  content: laicpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Raster mapping (2D) ns-LA-SF-ICP-MS University of Campinas (column T of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Navarro2024map.json
+- title: laicpmsTAPP example Liu2024
+  content: laicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples (Li-borate flux glass) Spot analysis fs-LA-Q-ICP-MS Chinese Academy of Sciences (column U of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Liu2024.json
+- title: laicpmsTAPP example Liu2025glass
+  content: laicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silicate glass Spot analysis ns-LA-Q-ICP-MS Guangzhou Inst. Geochemistry (column V of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Liu2025glass.json
+- title: laicpmsTAPP example Liu2025sulfide
+  content: laicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot analysis ns-LA-Q-ICP-MS Guangzhou Inst. Geochemistry (column W of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Liu2025sulfide.json
+- title: laicpmsTAPP example Liu2016silicate
+  content: laicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Silicates, oxides & glass Spot analysis LA-Q-ICP-MS Virginia Tech (column X of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Liu2016silicate.json
+- title: laicpmsTAPP example Liu2016phosphate
+  content: laicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech (column Y of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).
+  prefixes: *id001
+  snippets:
+  - language: json
+    ref: examplelaicpmsTAPP-Liu2016phosphate.json

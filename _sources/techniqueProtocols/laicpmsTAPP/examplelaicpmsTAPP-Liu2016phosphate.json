@@ -1,0 +1,153 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:laicpmsTAPP-Liu2016phosphate",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech",
+  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech (column Y of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "LA-ICP-MS (same as silicate protocol)",
+    "schema:name": "LA-ICP-MS (same as silicate protocol)"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:object": [
+    "Martian meteorite (Tissint) phosphate: sodium-merrillite"
+  ],
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)",
+      "ada:toolRole": "reduction"
+    }
+  ],
+  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished thin section (same sections as silicate protocol)",
+  "ada:laserManufacturerModel": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
+  "ada:icpMsManufacturerModel": "Agilent 7500ce ICP-MS",
+  "ada:laserWavelengthAndType": "193 nm Excimer (ArF excimer)",
+  "ada:dataReductionSoftwareDefault": "AMS ver. 1.0 (Mutchler et al. 2008)",
+  "ada:laserSpotGeometryDefault": "~24 µm diameter",
+  "ada:laserSpotPathAblationMode": "Spot (stationary)",
+  "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
+  "ada:laserRepetitionRateDefault": "5 Hz",
+  "ada:analysisSequenceDefault": "Same as silicate protocol",
+  "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
+  "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
+  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
+  "ada:elementalFractionationCorrection": "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described",
+  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
+  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
+  "ada:primaryCalibrationStandardNameDefault": "NIST 610 glass standard",
+  "ada:methodParameters": [
+    {
+      "@id": "ada:parameter/laicpmsTAPP/coupledTechnique",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "coupledTechnique",
+      "schema:name": "Coupled Technique(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "EPMA (EMP)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/couplingDescription",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "couplingDescription",
+      "schema:name": "Coupling Description",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/laserEnergy",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "laserEnergy",
+      "schema:name": "Laser Energy",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "150 mJ output energy",
+      "schema:unitText": "mJ"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "driftMonitorFrequency",
+      "schema:name": "Drift Monitor Frequency",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "NIST 610 analyzed before and after every session (same as silicate protocol)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "Single spot analysis per location"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "normalizationStandardsBasedCorrection",
+      "schema:name": "Normalization / Standards-Based Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "No post-acquisition normalization; EMP CaO applied directly as IS; NIST 610 for external calibration"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/additionalNotes",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "additionalNotes",
+      "schema:name": "Additional Notes",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": true,
+      "ada:tier": "R",
+      "schema:defaultValue": "N/A — see silicate column for general notes"
+    }
+  ]
+}

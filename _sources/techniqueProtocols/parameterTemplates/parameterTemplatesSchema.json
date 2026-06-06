@@ -265,211 +265,6 @@
                 "ada:fieldScope"
             ]
         },
-        "LaserPulseDuration": {
-            "title": "Laser Pulse Duration",
-            "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/LaserPulseDuration"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "LaserPulseDuration"
-                },
-                "schema:name": {
-                    "const": "Laser Pulse Duration"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "WarmUpTime": {
-            "title": "Instrument Warm-up / Session Duration Limit",
-            "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/WarmUpTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "WarmUpTime"
-                },
-                "schema:name": {
-                    "const": "Instrument Warm-up / Session Duration Limit"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "SessionDurationLimit": {
-            "title": "Instrument Warm-up / Session Duration Limit",
-            "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/SessionDurationLimit"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "SessionDurationLimit"
-                },
-                "schema:name": {
-                    "const": "Instrument Warm-up / Session Duration Limit"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "DriftMonitorFrequency": {
-            "title": "Multi-Run Sequential Analysis Design",
-            "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "DriftMonitorFrequency"
-                },
-                "schema:name": {
-                    "const": "Multi-Run Sequential Analysis Design"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "MatrixOffseCorrection": {
-            "title": "Matrix Offset Correction (LIEF)",
-            "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/MatrixOffseCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "MatrixOffseCorrection"
-                },
-                "schema:name": {
-                    "const": "Matrix Offset Correction (LIEF)"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
         "laboratoryId": {
             "title": "Laboratory ID",
             "description": "Persistent identifier for the laboratory, e.g., ROR ID.",
@@ -1569,6 +1364,1116 @@
                 },
                 "schema:name": {
                     "const": "Cross-Validation Protocol Requirement"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "laicpms_coupledTechnique": {
+            "title": "Coupled Technique(s)",
+            "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/coupledTechnique"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "coupledTechnique"
+                },
+                "schema:name": {
+                    "const": "Coupled Technique(s)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "laicpms_couplingDescription": {
+            "title": "Coupling Description",
+            "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined (e.g., which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive before destructive).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/couplingDescription"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "couplingDescription"
+                },
+                "schema:name": {
+                    "const": "Coupling Description"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "fusionFluxAndDilutionRatio": {
+            "title": "Fusion Flux and Dilution Ratio",
+            "description": "For protocols using fused glass, the flux type and sample:flux dilution ratio used to prepare the analytical glass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "fusionFluxAndDilutionRatio"
+                },
+                "schema:name": {
+                    "const": "Fusion Flux and Dilution Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "preAblationSurfaceTreatment": {
+            "title": "Pre-Ablation Surface Treatment",
+            "description": "Protocol applied immediately before each analysis to remove surface contamination or condition the sample surface. Distinct from general sample preparation. For spot analysis, pre-ablation pulses are discarded before signal acquisition begins. For mapping, this step is typically omitted as the large area ablated averages out surface effects.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAblationSurfaceTreatment"
+                },
+                "schema:name": {
+                    "const": "Pre-Ablation Surface Treatment"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "samplerAndSkimmerConeMaterial": {
+            "title": "Sampler and Skimmer Cone Material",
+            "description": "Material composition of the sampler and skimmer cones. Common materials are nickel (standard), platinum (for high-TDS or organic-matrix samples), and aluminium (for high-purity work). Cone material affects sensitivity, matrix tolerance, and long-term stability. State both sampler and skimmer materials; if identical, a single statement is acceptable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplerAndSkimmerConeMaterial"
+                },
+                "schema:name": {
+                    "const": "Sampler and Skimmer Cone Material"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "torchDepth": {
+            "title": "Torch Depth",
+            "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The protocol specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/torchDepth"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "torchDepth"
+                },
+                "schema:name": {
+                    "const": "Torch Depth"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ablationCellType": {
+            "title": "Ablation Cell Type",
+            "description": "Type and model of ablation cell used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "ablationCellType"
+                },
+                "schema:name": {
+                    "const": "Ablation Cell Type"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "laserEnergy": {
+            "title": "Laser Energy",
+            "description": "Laser pulse energy in millijoules as set at the laser output or measured at the sample surface. Less commonly reported than fluence because it does not account for spot area. Report only when the system displays energy directly. Laser fluence (J cm⁻²) is the preferred quantity and is captured in Default Laser Fluence.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/laserEnergy"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "laserEnergy"
+                },
+                "schema:name": {
+                    "const": "Laser Energy"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "mJ"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "laserBeamEnergyProfile": {
+            "title": "Laser Beam Energy Profile",
+            "description": "Spatial energy distribution of the laser beam at the sample surface, and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces more uniform ablation craters and more reproducible crater morphology than a Gaussian beam. This is a fixed hardware property of the laser system.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "laserBeamEnergyProfile"
+                },
+                "schema:name": {
+                    "const": "Laser Beam Energy Profile"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "laserPulseDuration": {
+            "title": "Laser Pulse Duration",
+            "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "laserPulseDuration"
+                },
+                "schema:name": {
+                    "const": "Laser Pulse Duration"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "transectRateMappingRateOrStepSize": {
+            "title": "Transect Rate, Mapping Rate or Step Size",
+            "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the protocol-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "transectRateMappingRateOrStepSize"
+                },
+                "schema:name": {
+                    "const": "Transect Rate, Mapping Rate or Step Size"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "plasmaMakeUpGasAddition": {
+            "title": "Plasma / Make-up Gas Addition",
+            "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the protocol-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "plasmaMakeUpGasAddition"
+                },
+                "schema:name": {
+                    "const": "Plasma / Make-up Gas Addition"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "auxiliaryAndCoolGasFlowRates": {
+            "title": "Auxiliary and Cool Gas Flow Rates",
+            "description": "ICP auxiliary (intermediate) and cool (outer/plasma) Ar gas flow rates in l min⁻¹. The protocol registers target values; actual session values may be adjusted slightly during tuning.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRates"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "auxiliaryAndCoolGasFlowRates"
+                },
+                "schema:name": {
+                    "const": "Auxiliary and Cool Gas Flow Rates"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "signalSmoothing": {
+            "title": "Signal Smoothing",
+            "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/signalSmoothing"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "signalSmoothing"
+                },
+                "schema:name": {
+                    "const": "Signal Smoothing"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "icpTuning": {
+            "title": "ICP Tuning",
+            "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/icpTuning"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "icpTuning"
+                },
+                "schema:name": {
+                    "const": "ICP Tuning"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "doublyChargedSpeciesMonitor": {
+            "title": "Doubly-Charged Species Monitor",
+            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. Doubly-charged ions appear at half the mass of the parent ion and can cause isobaric interferences on analytes in that mass region. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "doublyChargedSpeciesMonitor"
+                },
+                "schema:name": {
+                    "const": "Doubly-Charged Species Monitor"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "doublyChargedSpeciesProduction": {
+            "title": "Doubly-Charged Species Production",
+            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The protocol should specify the acceptable threshold (e.g., <1%, <3%); the measured value for each session is recorded here. Report both the threshold and the measured value where possible.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "doublyChargedSpeciesProduction"
+                },
+                "schema:name": {
+                    "const": "Doubly-Charged Species Production"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "instrumentWarmUpSessionDurationLimit": {
+            "title": "Instrument Warm-up / Session Duration Limit",
+            "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "instrumentWarmUpSessionDurationLimit"
+                },
+                "schema:name": {
+                    "const": "Instrument Warm-up / Session Duration Limit"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "driftMonitorFrequency": {
+            "title": "Drift Monitor Frequency",
+            "description": "Frequency at which primary reference materials are analysed to monitor instrument drift and apply drift corrections across the session. Editable to allow analysts to increase monitoring frequency if drift is observed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequency"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "driftMonitorFrequency"
+                },
+                "schema:name": {
+                    "const": "Drift Monitor Frequency"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "multiRunSequentialAnalysisDesign": {
+            "title": "Multi-Run Sequential Analysis Design",
+            "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "multiRunSequentialAnalysisDesign"
+                },
+                "schema:name": {
+                    "const": "Multi-Run Sequential Analysis Design"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "uncertaintyPropagationMethod": {
+            "title": "Uncertainty Propagation Method",
+            "description": "Approach used to propagate analytical uncertainty from raw count rates through the data reduction chain to final reported concentrations or isotope ratios. Specifies which uncertainty sources are included: counting statistics, calibration standard uncertainty, internal standard concentration uncertainty, drift correction uncertainty. Editable because this field may be unspecified at protocol registration (Advanced tier) and can be completed by the analyst when documenting the analysis.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "uncertaintyPropagationMethod"
+                },
+                "schema:name": {
+                    "const": "Uncertainty Propagation Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "matrixOffsetCorrection": {
+            "title": "Matrix Offset Correction (LIEF)",
+            "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "matrixOffsetCorrection"
+                },
+                "schema:name": {
+                    "const": "Matrix Offset Correction (LIEF)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "spikeOutlierFilteringApproach": {
+            "title": "Spike / Outlier Filtering Approach",
+            "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "spikeOutlierFilteringApproach"
+                },
+                "schema:name": {
+                    "const": "Spike / Outlier Filtering Approach"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "pulseAnalogDetectorNonlinearityCorrection": {
+            "title": "Pulse/Analog Detector Nonlinearity Correction",
+            "description": "Whether a correction was applied for nonlinear response at the transition between pulse-counting and analog detector modes.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "pulseAnalogDetectorNonlinearityCorrection"
+                },
+                "schema:name": {
+                    "const": "Pulse/Analog Detector Nonlinearity Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "memoryEffectMitigation": {
+            "title": "Memory Effect Mitigation",
+            "description": "Protocol applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses, or from incomplete aerosol washout between adjacent pixels in raster mapping mode. For mapping, the mitigation strategy involves controlling scan speed relative to washout time to ensure each pixel signal is sufficiently free of the preceding pixel's contribution.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigation"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "memoryEffectMitigation"
+                },
+                "schema:name": {
+                    "const": "Memory Effect Mitigation"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "normalizationStandardsBasedCorrection": {
+            "title": "Normalization / Standards-Based Correction",
+            "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrection"
+                },
+                "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "additionalNotes": {
+            "title": "Additional Notes",
+            "description": "Any additional context about this protocol or analysis session not captured by the structured fields above. Use sparingly; structured fields are preferred for all information that can be formally categorised.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/additionalNotes"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "additionalNotes"
+                },
+                "schema:name": {
+                    "const": "Additional Notes"
                 },
                 "ada:dataType": {
                     "const": "string"
