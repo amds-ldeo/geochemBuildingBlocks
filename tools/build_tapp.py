@@ -546,7 +546,13 @@ def _empa_role(sp):
         return "analyteColumn"
     if "ada:analyteTemplate.ada:defaultAnalytes" in s:
         return "analyteIdentifier"
-    if "schema:description" in s and "methodParameters" not in s:
+    # Advanced method parameter: new `schema:additionalProperty[...]` convention or the
+    # legacy `ada:methodParameters[]`. Checked before the description/inherited branches
+    # so additionalProperty paths (which sit under $MethodDefinition with no ada:) are not
+    # mistaken for inherited base fields.
+    if "schema:additionalProperty" in s or "methodParameters" in s:
+        return "field"
+    if "schema:description" in s:
         return "description"
     if s.startswith("$MethodDefinition") and "ada:" not in s:
         return "inherited"            # identity / instrument / inherited base field
