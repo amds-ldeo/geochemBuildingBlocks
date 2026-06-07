@@ -133,6 +133,10 @@
                     "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining the bracketing strategy defined in the protocol.",
                     "type": "string"
                 },
+                "ada:spectrometerDwellTimeDefault": {
+                    "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+                    "type": "string"
+                },
                 "ada:backgroundCountTimeDefault": {
                     "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
                     "anyOf": [
@@ -168,6 +172,18 @@
                     "description": "Method used to subtract the gas blank (background signal with laser off) from the ablation signal. For spot and transect analysis: typically the mean of a pre-ablation gas blank interval is subtracted per isotope per analysis. For mapping: background may be subtracted per raster line, per map session, or using a separate gas blank map acquired under identical conditions.",
                     "type": "string"
                 },
+                "ada:isobaricInterferenceCorrectionsApplied": {
+                    "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+                    "type": "string"
+                },
+                "ada:interferingSpecies": {
+                    "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope. Value is a ';' delimited list of interfering species",
+                    "type": "string"
+                },
+                "ada:interferenceCorrectionMethod": {
+                    "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+                    "type": "string"
+                },
                 "ada:primaryCalibrationStandardNameDefault": {
                     "description": "Primary reference material(s) used to calibrate the instrument and convert raw signal intensities to concentrations or isotope ratios. Include material name, source institution, and citation for the accepted values used. Editable because the specific lot or certification vintage may differ between sessions while the material type remains the same.",
                     "type": "string"
@@ -185,18 +201,6 @@
                                 "anyOf": [
                                     {
                                         "$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
-                                    },
-                                    {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/spectrometerDwellTime"
-                                    },
-                                    {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection"
-                                    },
-                                    {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/interferingSpecies"
-                                    },
-                                    {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod"
                                     },
                                     {
                                         "$ref": "../analyteColumns/schema.yaml#/$defs/detectionLimit"
@@ -228,34 +232,6 @@
                                 ]
                             },
                             "allOf": [
-                                {
-                                    "contains": {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/spectrometerDwellTime"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/interferingSpecies"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "$ref": "../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
                                 {
                                     "contains": {
                                         "$ref": "../analyteColumns/schema.yaml#/$defs/detectionLimit"
@@ -627,12 +603,16 @@
                 "ada:plasmaThermalMode",
                 "ada:oxideProductionMethodAndThreshold",
                 "ada:analysisSequenceDefault",
+                "ada:spectrometerDwellTimeDefault",
                 "ada:backgroundCountTimeDefault",
                 "ada:internalStandardApproach",
                 "ada:internalStandardElement",
                 "ada:elementalFractionationCorrection",
                 "ada:signalIntegrationIntervalMethod",
                 "ada:blankBackgroundCorrectionMethod",
+                "ada:isobaricInterferenceCorrectionsApplied",
+                "ada:interferingSpecies",
+                "ada:interferenceCorrectionMethod",
                 "ada:primaryCalibrationStandardNameDefault",
                 "ada:secondaryReferenceMaterialsDefault"
             ]

@@ -4,7 +4,7 @@ and one detailLAICPMS example, against the regenerated schema. Uses the same rou
 build_laicpms_from_spreadsheet.py so example fields match the schema exactly.
 Run after build_laicpms_from_spreadsheet.py.
 """
-import json, os, re, importlib.util
+import json, os, re, sys
 import openpyxl
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,10 +23,11 @@ CODES = {"M": "Zhang2022", "N": "Chernonozhkin2021olivmap", "O": "Chernonozhkin2
 SUP = {"⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
        "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9"}
 
-# load routing from the schema generator
-_spec = importlib.util.spec_from_file_location("blf", os.path.join(ROOT, "tools", "build_laicpms_from_spreadsheet.py"))
-blf = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(blf)
+# load routing from the unified generator (build_laicpms_from_spreadsheet.py was
+# renamed to build_tapp.py in the stage-1 consolidation)
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+import build_tapp as blf  # noqa: E402
+blf.configure("laicpmsTAPP")
 
 
 def norm(v):

@@ -291,24 +291,54 @@ def write_vocab(b):
 
 # ---------- routing ----------
 def route():
+    import _tapp_lib as _L
+    from collections import OrderedDict
     ws = openpyxl.load_workbook(XLSX, data_only=True, read_only=True)["TAPP"]
     rows = list(ws.iter_rows(min_row=1, values_only=True))
     hdr = rows[0]
-    lit = [i for i, v in enumerate(hdr) if norm(v).lower() == "literature assessment"][0]
+    H = [norm(v).lower() for v in hdr]
+    lit = next((i for i, v in enumerate(H) if v == "literature assessment"), None)
+    sp_col = next((i for i, v in enumerate(H) if v == "schema path"), None)
+    impl_col = next((i for i, v in enumerate(H) if v.startswith("implementation note")), None)
+    cov_start = (lit + 1) if lit is not None else (impl_col + 1 if impl_col is not None else len(hdr))
+    mode_end = lit if lit is not None else (sp_col if sp_col is not None else len(hdr))
     R = {"tapp_prop": [], "method_param": [], "detail_req": [], "detail_addl": [],
-         "analyte_cols": [], "vocab": []}
-    amap = CFG["analyte_map"]
+         "analyte_cols": [], "analyte_defs": OrderedDict(), "vocab": []}
+    amap = CFG.get("analyte_map") or {}
+    _L.TAPP_NAME = TAPP  # for analyte_column_obj / registry @ids (no TAPP_PROFILES dependency)
     for r in rows[1:]:
         item = norm(r[0])
         if not item or re.match(r"^\d+\.\s", item):
             continue
         P, A, dt, ex = norm(r[2]), norm(r[3]), norm(r[4]), norm(r[5])
-        modes = [norm(hdr[i]) for i in range(8, lit) if norm(r[i]) in ("Y", "y")]
-        cov = sum(1 for i in range(lit + 1, len(r)) if meaningful(r[i]))
+        sp = norm(r[sp_col]) if sp_col is not None and sp_col < len(r) else ""
+        impl = norm(r[impl_col]) if impl_col is not None and impl_col < len(r) else ""
+        modes = [norm(hdr[i]) for i in range(8, mode_end) if norm(r[i]) in ("Y", "y")] if mode_end > 8 else []
+        cov = sum(1 for i in range(cov_start, len(r)) if meaningful(r[i]))
         rec = {"item": item, "name": camel(item), "P": P, "A": A, "jtype": jtype(dt),
                "unit": unit(dt), "desc": norm(r[1]), "allowed": ex, "cov": cov,
                "multivol_only": (modes == [CFG["conditional_mode"]])}
-        if item in amap:
+        # Workbook-driven analyteColumns: rows whose `schema path` targets
+        # ada:analyteTemplate.ada:analyteColumns generate one $def per impl
+        # `analyteColumn:` tag (clean, technique-specific names). Property names keep
+        # camelCase(item) — laicpms's impl `property:` names are in-progress/erroneous.
+        # Falls back to the legacy hardcoded analyte_map only when there is no schema
+        # path column (legacy workbooks).
+        if "analyteTemplate.ada:analyteColumns" in sp:
+            cols = []
+            for tr in _L.parse_impl(impl)["tag_records"]:
+                if tr["kind"] != "analytecolumn":
+                    continue
+                nm = tr["name"]
+                cols.append(nm)
+                ro = tr["readOnly"] if tr["readOnly"] is not None else (A == "Read-Only")
+                R["analyte_defs"][nm] = _L.analyte_column_obj(
+                    nm, item, rec["desc"], tr["dtype"] or dt, None, ro)
+            if not cols and item in amap:
+                cols = amap[item]
+            R["analyte_cols"].append({**rec, "cols": cols})
+            continue
+        if sp_col is None and item in amap:
             R["analyte_cols"].append({**rec, "cols": amap[item]})
             continue
         if item in CFG["base_items"]:
@@ -361,6 +391,10 @@ def build():
         for c in b["cols"]:
             if c not in acols:
                 acols.append(c)
+    if R.get("analyte_defs"):
+        import _tapp_lib as _L
+        _L.TAPP_NAME = TAPP
+        _L.write_analyte_columns_registry(R["analyte_defs"])
 
     # ---- TAPP schema ----
     tapp_props, basic_required = {}, []

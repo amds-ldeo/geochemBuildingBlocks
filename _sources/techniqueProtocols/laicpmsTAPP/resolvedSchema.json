@@ -4755,6 +4755,10 @@
           "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining the bracketing strategy defined in the protocol.",
           "type": "string"
         },
+        "ada:spectrometerDwellTimeDefault": {
+          "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+          "type": "string"
+        },
         "ada:backgroundCountTimeDefault": {
           "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
           "anyOf": [
@@ -4788,6 +4792,18 @@
         },
         "ada:blankBackgroundCorrectionMethod": {
           "description": "Method used to subtract the gas blank (background signal with laser off) from the ablation signal. For spot and transect analysis: typically the mean of a pre-ablation gas blank interval is subtracted per isotope per analysis. For mapping: background may be subtracted per raster line, per map session, or using a separate gas blank map acquired under identical conditions.",
+          "type": "string"
+        },
+        "ada:isobaricInterferenceCorrectionsApplied": {
+          "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+          "type": "string"
+        },
+        "ada:interferingSpecies": {
+          "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope. Value is a ';' delimited list of interfering species",
+          "type": "string"
+        },
+        "ada:interferenceCorrectionMethod": {
+          "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
           "type": "string"
         },
         "ada:primaryCalibrationStandardNameDefault": {
@@ -5025,154 +5041,6 @@
                           "ada:cdifPropertyPath"
                         ]
                       }
-                    ]
-                  },
-                  {
-                    "title": "Spectrometer Dwell Time",
-                    "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "spectrometerDwellTime"
-                      },
-                      "schema:name": {
-                        "const": "Spectrometer Dwell Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "IsobaricInterferenceCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "boolean"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Interfering Species",
-                    "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Interference Correction Method",
-                    "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "IsobaricInterferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
                     ]
                   },
                   {
@@ -5511,170 +5379,6 @@
                 ]
               },
               "allOf": [
-                {
-                  "contains": {
-                    "title": "Spectrometer Dwell Time",
-                    "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/spectrometerDwellTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "spectrometerDwellTime"
-                      },
-                      "schema:name": {
-                        "const": "Spectrometer Dwell Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "IsobaricInterferenceCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "boolean"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interfering Species",
-                    "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interference Correction Method",
-                    "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laicpmsTAPP/IsobaricInterferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "IsobaricInterferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
                 {
                   "contains": {
                     "title": "Detection Limit",
@@ -8410,12 +8114,16 @@
         "ada:plasmaThermalMode",
         "ada:oxideProductionMethodAndThreshold",
         "ada:analysisSequenceDefault",
+        "ada:spectrometerDwellTimeDefault",
         "ada:backgroundCountTimeDefault",
         "ada:internalStandardApproach",
         "ada:internalStandardElement",
         "ada:elementalFractionationCorrection",
         "ada:signalIntegrationIntervalMethod",
         "ada:blankBackgroundCorrectionMethod",
+        "ada:isobaricInterferenceCorrectionsApplied",
+        "ada:interferingSpecies",
+        "ada:interferenceCorrectionMethod",
         "ada:primaryCalibrationStandardNameDefault",
         "ada:secondaryReferenceMaterialsDefault"
       ]

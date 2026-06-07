@@ -129,6 +129,12 @@ allOf:
         unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining
         the bracketing strategy defined in the protocol.
       type: string
+    ada:spectrometerDwellTimeDefault:
+      description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
+        Longer dwell times improve counting statistics and lower detection limits but reduce the number
+        of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines
+        spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.'
+      type: string
     ada:backgroundCountTimeDefault:
       description: Total time spent measuring gas blank (background signal with laser off or shutter closed)
         before each ablation event, in seconds. For spot and transect analysis, a discrete background
@@ -175,6 +181,20 @@ allOf:
         interval is subtracted per isotope per analysis. For mapping: background may be subtracted per
         raster line, per map session, or using a separate gas blank map acquired under identical conditions.'
       type: string
+    ada:isobaricInterferenceCorrectionsApplied:
+      description: 'Whether isobaric interference corrections were applied for any measured isotope in
+        this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this
+        is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction
+        Method.'
+      type: string
+    ada:interferingSpecies:
+      description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+        the measured isotope. Value is a ';' delimited list of interfering species
+      type: string
+    ada:interferenceCorrectionMethod:
+      description: Equation or procedure used to correct for isobaric interferences, including the production
+        rate factor and the reference material used to measure it.
+      type: string
     ada:primaryCalibrationStandardNameDefault:
       description: Primary reference material(s) used to calibrate the instrument and convert raw signal
         intensities to concentrations or isotope ratios. Include material name, source institution, and
@@ -195,10 +215,6 @@ allOf:
           items:
             anyOf:
             - $ref: ../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - $ref: ../analyteColumns/schema.yaml#/$defs/spectrometerDwellTime
-            - $ref: ../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection
-            - $ref: ../analyteColumns/schema.yaml#/$defs/interferingSpecies
-            - $ref: ../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod
             - $ref: ../analyteColumns/schema.yaml#/$defs/detectionLimit
             - $ref: ../analyteColumns/schema.yaml#/$defs/detectionLimitMethod
             - $ref: ../analyteColumns/schema.yaml#/$defs/limitOfQuantification
@@ -209,22 +225,6 @@ allOf:
             - $ref: ../analyteColumns/schema.yaml#/$defs/analyticalAccuracy
             - $ref: ../analyteColumns/schema.yaml#/$defs/analyticalAccuracyMethod
           allOf:
-          - contains:
-              $ref: ../analyteColumns/schema.yaml#/$defs/spectrometerDwellTime
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: ../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: ../analyteColumns/schema.yaml#/$defs/interferingSpecies
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: ../analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod
-            minContains: 0
-            maxContains: 1
           - contains:
               $ref: ../analyteColumns/schema.yaml#/$defs/detectionLimit
             minContains: 0
@@ -426,11 +426,15 @@ allOf:
   - ada:plasmaThermalMode
   - ada:oxideProductionMethodAndThreshold
   - ada:analysisSequenceDefault
+  - ada:spectrometerDwellTimeDefault
   - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
   - ada:internalStandardElement
   - ada:elementalFractionationCorrection
   - ada:signalIntegrationIntervalMethod
   - ada:blankBackgroundCorrectionMethod
+  - ada:isobaricInterferenceCorrectionsApplied
+  - ada:interferingSpecies
+  - ada:interferenceCorrectionMethod
   - ada:primaryCalibrationStandardNameDefault
   - ada:secondaryReferenceMaterialsDefault

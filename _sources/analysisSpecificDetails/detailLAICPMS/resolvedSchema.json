@@ -1046,6 +1046,37 @@
                 ]
               },
               {
+                "title": "Spectrometer Dwell Time",
+                "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/spectrometerDwellTime"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/spectrometerDwellTime"
+                  },
+                  "schema:name": {
+                    "const": "Spectrometer Dwell Time"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
                 "title": "Background Count Time",
                 "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
                 "type": "object",
@@ -1381,6 +1412,7 @@
                         "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction",
                         "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
                         "ada:parameter/laicpmsTAPP/analysisSequence",
+                        "ada:parameter/laicpmsTAPP/spectrometerDwellTime",
                         "ada:parameter/laicpmsTAPP/backgroundCountTime",
                         "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
                         "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproach",
