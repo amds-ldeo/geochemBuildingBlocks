@@ -50,13 +50,13 @@
   "ada:detectorConfiguration": "missing",
   "ada:laserWavelengthAndType": "193 nm Excimer (ArF excimer)",
   "ada:dataReductionSoftwareDefault": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)",
-  "ada:laserSpotGeometryDefault": "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)",
-  "ada:laserSpotPathAblationMode": "Spot (stationary)",
+  "ada:spotGeometryDefault": "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)",
+  "ada:spotPath": "Spot (stationary)",
   "ada:laserFluenceDefault": "7–10 J/m² (stated in paper; units as written; likely a typographic error for J/cm²)",
   "ada:laserRepetitionRateDefault": "5 Hz",
-  "ada:ablationDurationPerSpotDefault": -9999,
+  "ada:ablationSpotDurationDefault": -9999,
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:carrierGasAndFlowRateDefault": "missing",
+  "ada:carrierGasFlowRateDefault": "missing",
   "ada:rfPower": -9999,
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -64,15 +64,15 @@
   "ada:spectrometerDwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": "50 s (background counted for 50 s before each LA-ICP-MS analysis)",
   "ada:internalStandardApproach": "Normalization to 100 wt% oxide total (for silicates and oxides)",
-  "ada:internalStandardElement": "None (oxide sum normalization, 100 wt% total)",
-  "ada:elementalFractionationCorrection": "External calibration using NIST 610 glass standard analyzed before and after session; oxide-sum normalization corrects for ablation yield variation; no explicit downhole fractionation correction described",
-  "ada:signalIntegrationIntervalMethod": "Time-lapse plots of each spot examined; only the plateau region used to quantify trace element abundances",
-  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration)",
-  "ada:isobaricInterferenceCorrectionsApplied": "missing",
+  "ada:InternalStandardElement": "None (oxide sum normalization, 100 wt% total)",
+  "ada:elementalFractionalCorretion": "External calibration using NIST 610 glass standard analyzed before and after session; oxide-sum normalization corrects for ablation yield variation; no explicit downhole fractionation correction described",
+  "ada:integrationIntervalMethod": "Time-lapse plots of each spot examined; only the plateau region used to quantify trace element abundances",
+  "ada:backgroundCorrection": "50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration)",
+  "ada:isobaricInterferenceCorrection": "missing",
   "ada:interferingSpecies": "missing",
-  "ada:interferenceCorrectionMethod": "missing",
-  "ada:primaryCalibrationStandardNameDefault": "NIST 610 glass standard",
-  "ada:secondaryReferenceMaterialsDefault": "missing",
+  "ada:IsobaricInterferenceCorrectionMethod": "missing",
+  "ada:calibrationStandardNameDefault": "NIST 610 glass standard",
+  "ada:secondaryReferenceMaterialDefault": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/coupledTechniqueDefault",
@@ -115,11 +115,11 @@
       "schema:unitText": "mJ"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
+      "schema:valueName": "DriftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -128,24 +128,11 @@
       "schema:defaultValue": "NIST 610 glass standard analyzed before and after every session"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "Single spot analysis per location"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+      "schema:valueName": "postAcquisitionNormalizationDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -154,17 +141,26 @@
       "schema:defaultValue": "100% oxide total normalization applied per analysis for silicates and oxides; NIST 610 used for external calibration before and after session"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
+      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotesDefault",
+      "schema:valueName": "descriptionDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot analysis per location"
     }
   ]
 }

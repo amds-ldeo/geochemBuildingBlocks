@@ -58,13 +58,19 @@ allOf:
         records one value (e.g., Spot). For multi-mode protocols (e.g., spot analysis combined with transect
         scanning), list all applicable modes. Serves as the protocol-level declaration of measurement
         type, distinct from the mode flag columns which indicate per-field applicability.
-      type: string
-    ada:laserSpotGeometryDefault:
+      type: array
+      items:
+        type: string
+        enum:
+        - Spot
+        - Transect
+        - Mapping
+    ada:spotGeometryDefault:
       description: Shape and dimensions of the laser ablation spot in micrometres registered by the protocol.
         For circular spots, report diameter; for square or rectangular spots, report width × length. The
         protocol registers the typical geometry; analysts may adjust within protocol-allowed range.
       type: string
-    ada:laserSpotPathAblationMode:
+    ada:spotPath:
       description: Sampling mode or ablation pattern used during analysis.
       type: string
     ada:laserFluenceDefault:
@@ -82,7 +88,7 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:ablationDurationPerSpotDefault:
+    ada:ablationSpotDurationDefault:
       description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds,
         as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects
         the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption,
@@ -98,7 +104,7 @@ allOf:
         lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have
         gaps (line spacing > spot size). Applies to raster mapping only.
       type: string
-    ada:carrierGasAndFlowRateDefault:
+    ada:carrierGasFlowRateDefault:
       description: Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with
         the protocol-registered target flow rate(s). Helium is standard for most UV laser systems due
         to superior aerosol transport. Flow rates are protocol targets; actual session values may be adjusted
@@ -149,7 +155,7 @@ allOf:
         sample, used to correct for variable ablation yield between analyses. The approach is a fundamental
         protocol design choice that cannot be changed by analysts.
       type: string
-    ada:internalStandardElement:
+    ada:InternalStandardElement:
       description: Element(s) used as the internal standard, and how the IS concentration value was determined
         for unknown samples. For mapping protocols using oxide-sum normalization, report "None (oxide-sum
         normalization)" and cite the method reference.
@@ -162,26 +168,26 @@ allOf:
         to all analytes, state that here and refer to Internal Standard Approach and Normalization / Standards-Based
         Correction for details. Free text; list analyte-specific strategies as needed.
       type: string
-    ada:elementalFractionationCorrection:
+    ada:elementalFractionalCorretion:
       description: Method used to correct for laser-induced elemental fractionation (LIEF), including
         downhole fractionation during prolonged ablation, matrix-dependent fractionation between sample
         and calibration standard, and any specific correction algorithm applied. Reference the software
         function or publication.
       type: string
-    ada:signalIntegrationIntervalMethod:
+    ada:integrationIntervalMethod:
       description: 'Approach used to select the stable signal interval for integration during data reduction,
         and to exclude anomalous signals from inclusions or cracks. For spot/transect analysis: involves
         identifying and excluding transient start/end instabilities within the time-resolved signal. For
         mapping analysis: corresponds to defining Volumes of Interest (VOIs) or applying phase masks across
         the 2D map (e.g., manual selection, automated clustering, threshold-based masking).'
       type: string
-    ada:blankBackgroundCorrectionMethod:
+    ada:backgroundCorrection:
       description: 'Method used to subtract the gas blank (background signal with laser off) from the
         ablation signal. For spot and transect analysis: typically the mean of a pre-ablation gas blank
         interval is subtracted per isotope per analysis. For mapping: background may be subtracted per
         raster line, per map session, or using a separate gas blank map acquired under identical conditions.'
       type: string
-    ada:isobaricInterferenceCorrectionsApplied:
+    ada:isobaricInterferenceCorrection:
       description: 'Whether isobaric interference corrections were applied for any measured isotope in
         this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this
         is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction
@@ -191,17 +197,17 @@ allOf:
       description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
         the measured isotope. Value is a ';' delimited list of interfering species
       type: string
-    ada:interferenceCorrectionMethod:
+    ada:IsobaricInterferenceCorrectionMethod:
       description: Equation or procedure used to correct for isobaric interferences, including the production
         rate factor and the reference material used to measure it.
       type: string
-    ada:primaryCalibrationStandardNameDefault:
+    ada:calibrationStandardNameDefault:
       description: Primary reference material(s) used to calibrate the instrument and convert raw signal
         intensities to concentrations or isotope ratios. Include material name, source institution, and
         citation for the accepted values used. Editable because the specific lot or certification vintage
         may differ between sessions while the material type remains the same.
       type: string
-    ada:secondaryReferenceMaterialsDefault:
+    ada:secondaryReferenceMaterialDefault:
       description: Quality-control reference materials analysed as unknowns alongside samples in the same
         session to assess accuracy and monitor drift. Include material name, source, and citation for
         accepted values used for comparison. Editable because selection of secondary RMs may vary across
@@ -263,37 +269,38 @@ allOf:
             maxContains: 1
     schema:additionalProperty:
       type: array
-      description: Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification;
-        dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.
+      description: Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification
+        entries (…Default name; the per-dataset value lives in the detail block); read-only parameters
+        are schema:PropertyValue entries carrying the fixed protocol value in schema:value.
       items:
         anyOf:
         - $ref: ../parameterTemplates/schema.yaml#/$defs/coupledTechniqueDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/couplingDescriptionDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatioDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatmentDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/samplerAndSkimmerConeMaterial
         - $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepthDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/ablationCellType
         - $ref: ../parameterTemplates/schema.yaml#/$defs/laserEnergyDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/laserBeamEnergyProfile
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/laserPulseDuration
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/transectRateMappingRateOrStepSizeDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/transectOrMappingRateOrStepSizeDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/plasmaMakeUpGasAdditionDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/auxiliaryAndCoolGasFlowRatesDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/icpTuningDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/gasFlowRateDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/aignalSmoothingDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/icPlasmaTuningDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesMonitorDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesProductionDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentWarmUpSessionDurationLimit
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/multiRunSequentialAnalysisDesign
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/uncertaintyPropagationMethodDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/matrixOffsetCorrection
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/spikeOutlierFilteringApproachDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/pulseAnalogDetectorNonlinearityCorrectionDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequencyDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/UncertaintyPropagationMethodDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/outlierFilteringDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/nonlineraResponseCorrectionDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/memoryEffectMitigationDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/normalizationStandardsBasedCorrectionDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/additionalNotesDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/postAcquisitionNormalizationDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/descriptionDefault
+        - $ref: ../parameterValues/schema.yaml#/$defs/samplerAndSkimmerConeMaterial
+        - $ref: ../parameterValues/schema.yaml#/$defs/ablationCellType
+        - $ref: ../parameterValues/schema.yaml#/$defs/laserBeamEnergyProfile
+        - $ref: ../parameterValues/schema.yaml#/$defs/laserPulseDuration
+        - $ref: ../parameterValues/schema.yaml#/$defs/instrumentWarmUpSessionDurationLimit
+        - $ref: ../parameterValues/schema.yaml#/$defs/multiRunSequentialAnalysisDesign
+        - $ref: ../parameterValues/schema.yaml#/$defs/matrixOffsetCorrection
       allOf:
       - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/coupledTechniqueDefault
@@ -312,15 +319,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/samplerAndSkimmerConeMaterial
-        minContains: 0
-        maxContains: 1
-      - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepthDefault
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/ablationCellType
         minContains: 0
         maxContains: 1
       - contains:
@@ -328,15 +327,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/laserBeamEnergyProfile
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/laserPulseDuration
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/transectRateMappingRateOrStepSizeDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/transectOrMappingRateOrStepSizeDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -344,15 +335,15 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/auxiliaryAndCoolGasFlowRatesDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/gasFlowRateDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/aignalSmoothingDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/icpTuningDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/icPlasmaTuningDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -364,31 +355,19 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentWarmUpSessionDurationLimit
+          $ref: ../parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequencyDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/UncertaintyPropagationMethodDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/multiRunSequentialAnalysisDesign
+          $ref: ../parameterTemplates/schema.yaml#/$defs/outlierFilteringDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/uncertaintyPropagationMethodDefault
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/matrixOffsetCorrection
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/spikeOutlierFilteringApproachDefault
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/pulseAnalogDetectorNonlinearityCorrectionDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/nonlineraResponseCorrectionDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -396,11 +375,39 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/normalizationStandardsBasedCorrectionDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/postAcquisitionNormalizationDefault
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/additionalNotesDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/descriptionDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/samplerAndSkimmerConeMaterial
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/ablationCellType
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/laserBeamEnergyProfile
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/laserPulseDuration
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/instrumentWarmUpSessionDurationLimit
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/multiRunSequentialAnalysisDesign
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/matrixOffsetCorrection
         minContains: 0
         maxContains: 1
   required:
@@ -415,13 +422,13 @@ allOf:
   - ada:detectorConfiguration
   - ada:laserWavelengthAndType
   - ada:dataReductionSoftwareDefault
-  - ada:laserSpotGeometryDefault
-  - ada:laserSpotPathAblationMode
+  - ada:spotGeometryDefault
+  - ada:spotPath
   - ada:laserFluenceDefault
   - ada:laserRepetitionRateDefault
-  - ada:ablationDurationPerSpotDefault
+  - ada:ablationSpotDurationDefault
   - ada:rasterLineSpacingDefault
-  - ada:carrierGasAndFlowRateDefault
+  - ada:carrierGasFlowRateDefault
   - ada:rfPower
   - ada:plasmaThermalMode
   - ada:oxideProductionMethodAndThreshold
@@ -429,12 +436,12 @@ allOf:
   - ada:spectrometerDwellTimeDefault
   - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
-  - ada:internalStandardElement
-  - ada:elementalFractionationCorrection
-  - ada:signalIntegrationIntervalMethod
-  - ada:blankBackgroundCorrectionMethod
-  - ada:isobaricInterferenceCorrectionsApplied
+  - ada:InternalStandardElement
+  - ada:elementalFractionalCorretion
+  - ada:integrationIntervalMethod
+  - ada:backgroundCorrection
+  - ada:isobaricInterferenceCorrection
   - ada:interferingSpecies
-  - ada:interferenceCorrectionMethod
-  - ada:primaryCalibrationStandardNameDefault
-  - ada:secondaryReferenceMaterialsDefault
+  - ada:IsobaricInterferenceCorrectionMethod
+  - ada:calibrationStandardNameDefault
+  - ada:secondaryReferenceMaterialDefault

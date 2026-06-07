@@ -57,11 +57,12 @@ allOf:
         records one value (e.g., Single-volume). For protocols covering both single-volume and multi-volume
         stitched acquisitions, list all applicable modes. Serves as the protocol-level declaration of
         measurement type, distinct from the mode flag columns which indicate per-field applicability.
-      type: string
-      enum:
-      - Single-volume
-      - Multi-volume stitching
-      - Single-volume; Multi-volume stitching
+      type: array
+      items:
+        type: string
+        enum:
+        - Single-volume
+        - Multi-volume stitching
     ada:acceleratingVoltageDefault:
       description: 'X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines
         the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages
@@ -172,8 +173,9 @@ allOf:
       type: string
     schema:additionalProperty:
       type: array
-      description: Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification;
-        dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.
+      description: Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification
+        entries (…Default name; the per-dataset value lives in the detail block); read-only parameters
+        are schema:PropertyValue entries carrying the fixed protocol value in schema:value.
       items:
         anyOf:
         - $ref: ../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault
@@ -181,10 +183,6 @@ allOf:
         - $ref: ../parameterTemplates/schema.yaml#/$defs/sampleDimensionsDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/sampleMountingMethodDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/samplePreparationNotesDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/xRayTubeAnodeMaterial
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/detectorArraySize
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/detectorPixelSize
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/opticalObjective
         - $ref: ../parameterTemplates/schema.yaml#/$defs/xRayPowerDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/sourceToObjectDistanceDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/sourceToDetectorDistanceDefault
@@ -201,6 +199,10 @@ allOf:
         - $ref: ../parameterTemplates/schema.yaml#/$defs/outputBitDepthDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/partialVolumeEffectCriteriaDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirementDefault
+        - $ref: ../parameterValues/schema.yaml#/$defs/xRayTubeAnodeMaterial
+        - $ref: ../parameterValues/schema.yaml#/$defs/detectorArraySize
+        - $ref: ../parameterValues/schema.yaml#/$defs/detectorPixelSize
+        - $ref: ../parameterValues/schema.yaml#/$defs/opticalObjective
       allOf:
       - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault
@@ -220,22 +222,6 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/samplePreparationNotesDefault
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/xRayTubeAnodeMaterial
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/detectorArraySize
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/detectorPixelSize
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/opticalObjective
         minContains: 0
         maxContains: 1
       - contains:
@@ -300,6 +286,22 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirementDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/xRayTubeAnodeMaterial
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/detectorArraySize
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/detectorPixelSize
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/opticalObjective
         minContains: 0
         maxContains: 1
   required:

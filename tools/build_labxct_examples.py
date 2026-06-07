@@ -4,11 +4,14 @@ examples.yaml. Entries that reference the parameter registries are reconstructed
 the routing so their const-pinned fields match exactly. Run after
 build_labxct_from_spreadsheet.py.
 """
-import json, os, yaml
+import json, os, re, sys, yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS = os.path.join(ROOT, "docs", "new_tapps202606")
-routing = json.load(open(os.path.join(DOCS, "labxct_routing.json"), encoding="utf-8"))
+# routing comes from the unified generator (was a stale labxct_routing.json dump)
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+import build_tapp as _bt  # noqa: E402
+_bt.configure("labxctTAPP")
+routing = _bt.route()
 TAPP_DIR = os.path.join(ROOT, "_sources", "techniqueProtocols", "labxctTAPP")
 DETAIL_DIR = os.path.join(ROOT, "_sources", "analysisSpecificDetails", "detailLABXCT")
 PARAM_BASE = "ada:parameter/labxctTAPP"
@@ -18,6 +21,7 @@ CTX_FULL = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/met
 CTX_DETAIL = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
 by_name_mp = {b["name"]: b for b in routing["method_param"]}
+by_name_mv = {b["name"]: b for b in routing["method_value"]}  # Advanced+Read-Only PropertyValue
 by_name_pv = {}
 for b in routing["detail_addl"]:
     by_name_pv.setdefault(b["name"], b)
@@ -62,13 +66,23 @@ def tapp_prop_key(b):
 
 
 def mp_entry(name):
+    """TAPP schema:additionalProperty entry: PropertyValueSpecification for an editable
+    (method_param) parameter, or PropertyValue carrying the fixed value for a read-only
+    (method_value) parameter."""
+    if name in by_name_mv:
+        b = by_name_mv[name]
+        e = {"@id": PARAM_BASE + "/" + name,
+             "@type": ["schema:PropertyValue"], "schema:propertyID": PARAM_BASE + "/" + name,
+             "schema:name": b["item"], "schema:value": VAL.get(name, "example " + name)}
+        if b.get("unit") and b["unit"] != "free":
+            e["schema:unitText"] = b["unit"]
+        return e
     b = by_name_mp[name]
-    dual = b["A"] in ("Basic", "Editable", "Advanced")
-    mdname = name + ("Default" if dual else "")
+    mdname = name + "Default"  # method_param is always editable/dual
     e = {"@id": PARAM_BASE + "/" + mdname,
          "@type": ["schema:PropertyValueSpecification"], "schema:valueName": mdname,
          "schema:name": b["item"], "ada:dataType": b["jtype"], "ada:fieldScope": "session",
-         "schema:readonlyValue": (not dual), "ada:tier": "R"}
+         "schema:readonlyValue": False, "ada:tier": "R"}
     if b.get("unit") and b["unit"] != "free":
         e["schema:unitText"] = b["unit"]
     return e
@@ -102,6 +116,10 @@ def build_tapp():
     # Basic-protocol props are REQUIRED -> include every one (representative value or placeholder)
     for b in routing["tapp_prop"]:
         if b["item"] in BASE_ITEMS:
+            continue
+        if b["name"] == "analyticalMode":
+            # ada:analyticalMode is a LIST of strings (the mode-column options)
+            inst[tapp_prop_key(b)] = [m.strip() for m in re.split(r"[;,]", VAL["analyticalMode"]) if m.strip()]
             continue
         inst[tapp_prop_key(b)] = VAL.get(b["name"], "example " + b["name"])
     inst["schema:additionalProperty"] = [mp_entry("xRayPower"), mp_entry("detectorPixelSize"),

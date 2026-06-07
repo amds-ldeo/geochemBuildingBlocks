@@ -50,13 +50,13 @@
   "ada:detectorConfiguration": "Triple mode detector (pulse counting, analog, Faraday)",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration 4 ns",
   "ada:dataReductionSoftwareDefault": "iolite 4.5.7 with 3D Trace Elements DRS",
-  "ada:laserSpotGeometryDefault": "150 µm square (mapping mode)",
-  "ada:laserSpotPathAblationMode": "Raster area (2D elemental mapping)",
+  "ada:spotGeometryDefault": "150 µm square (mapping mode)",
+  "ada:spotPath": "Raster area (2D elemental mapping)",
   "ada:laserFluenceDefault": "7 J cm⁻²",
   "ada:laserRepetitionRateDefault": "10 Hz",
-  "ada:ablationDurationPerSpotDefault": -9999,
+  "ada:ablationSpotDurationDefault": -9999,
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:carrierGasAndFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
+  "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
   "ada:rfPower": "1200 W",
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -64,48 +64,22 @@
   "ada:spectrometerDwellTimeDefault": "0.02 s per isotope; 100 samples per peak (same as spot protocol)",
   "ada:backgroundCountTimeDefault": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background",
   "ada:internalStandardApproach": "Fe+Ni+Co sum normalization to 100% (same DRS as spot protocol; mandatory for multi-phase mapping without prior IS knowledge)",
-  "ada:internalStandardElement": "No single IS; Fe+Ni+Co=100% normalization (same as spot protocol)",
-  "ada:elementalFractionationCorrection": "Same calibration approach as spot protocol (iolite 3D DRS; same yield correction)",
-  "ada:signalIntegrationIntervalMethod": "Same procedure as spot protocol; signal integration for mapping not separately described",
-  "ada:blankBackgroundCorrectionMethod": "Background (1 min) measured at session start; additional 3 measurements of NIST and North Chile used for calibration (background included in regression line for gas blank)",
-  "ada:isobaricInterferenceCorrectionsApplied": "Yes (same as spot protocol)",
+  "ada:InternalStandardElement": "No single IS; Fe+Ni+Co=100% normalization (same as spot protocol)",
+  "ada:elementalFractionalCorretion": "Same calibration approach as spot protocol (iolite 3D DRS; same yield correction)",
+  "ada:integrationIntervalMethod": "Same procedure as spot protocol; signal integration for mapping not separately described",
+  "ada:backgroundCorrection": "Background (1 min) measured at session start; additional 3 measurements of NIST and North Chile used for calibration (background included in regression line for gas blank)",
+  "ada:isobaricInterferenceCorrection": "Yes (same as spot protocol)",
   "ada:interferingSpecies": "Same as spot protocol",
-  "ada:interferenceCorrectionMethod": "Same isotope selection as spot protocol",
-  "ada:primaryCalibrationStandardNameDefault": "NIST SRM 612 (Jochum et al. 2011) + North Chile Filomena — same as spot protocol",
-  "ada:secondaryReferenceMaterialsDefault": "North Chile and NIST SRM 612 measured before and after mapping session as QC materials",
+  "ada:IsobaricInterferenceCorrectionMethod": "Same isotope selection as spot protocol",
+  "ada:calibrationStandardNameDefault": "NIST SRM 612 (Jochum et al. 2011) + North Chile Filomena — same as spot protocol",
+  "ada:secondaryReferenceMaterialDefault": "North Chile and NIST SRM 612 measured before and after mapping session as QC materials",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
+      "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "ablationCellType",
-      "schema:name": "Ablation Cell Type",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "HelEx II two-volume sample cell"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "laserPulseDuration",
-      "schema:name": "Laser Pulse Duration",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "4 ns (ArF excimer Excite 193)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:valueName": "transectOrMappingRateOrStepSizeDefault",
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -127,11 +101,11 @@
       "schema:defaultValue": "Ar make-up gas (same as spot protocol)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault",
+      "@id": "ada:parameter/laicpmsTAPP/gasFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "auxiliaryAndCoolGasFlowRatesDefault",
+      "schema:valueName": "gasFlowRateDefault",
       "schema:name": "Auxiliary and Cool Gas Flow Rates",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -140,11 +114,11 @@
       "schema:defaultValue": "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
+      "@id": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "signalSmoothingDefault",
+      "schema:valueName": "aignalSmoothingDefault",
       "schema:name": "Signal Smoothing",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -153,11 +127,11 @@
       "schema:defaultValue": "None"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/icpTuningDefault",
+      "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "icpTuningDefault",
+      "schema:valueName": "icPlasmaTuningDefault",
       "schema:name": "ICP Tuning",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -166,11 +140,11 @@
       "schema:defaultValue": "Same as spot protocol"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
+      "schema:valueName": "DriftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -179,11 +153,11 @@
       "schema:defaultValue": "NIST SRM 612 and North Chile at start and end of mapping session (30 min map; 3 measurements each before and after)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+      "schema:valueName": "nonlineraResponseCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -192,11 +166,11 @@
       "schema:defaultValue": "Applied (same as spot)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+      "schema:valueName": "postAcquisitionNormalizationDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -205,17 +179,35 @@
       "schema:defaultValue": "Fe+Ni+Co=100% normalization (mandatory for multi-phase mapping); same iolite DRS as spot"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
+      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotesDefault",
+      "schema:valueName": "descriptionDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Elemental mapping used as classification tool even without prior knowledge of structural variations (kamacite vs. plessite); demonstrates LA-ICP-MS mapping applicability for iron meteorite classification"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/laicpmsTAPP/ablationCellType",
+      "schema:name": "Ablation Cell Type",
+      "schema:value": "HelEx II two-volume sample cell"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "schema:name": "Laser Pulse Duration",
+      "schema:value": "4 ns (ArF excimer Excite 193)"
     }
   ],
   "ada:analyteTemplate": {

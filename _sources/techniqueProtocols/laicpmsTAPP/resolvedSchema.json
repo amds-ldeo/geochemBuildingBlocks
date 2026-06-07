@@ -3064,237 +3064,283 @@
     },
     "schema:additionalProperty": {
       "type": "array",
-      "description": "Method-level parameter specifications (Advanced protocol tier) that apply across all workflow steps, as schema:PropertyValueSpecification entries. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates registry. Step-specific parameters should be placed on the appropriate workflow step instead.",
+      "description": "Method-level Advanced-protocol parameters that apply across all workflow steps. Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates (specifications) and parameterValues (values) registries. Step-specific parameters should be placed on the appropriate workflow step instead.",
       "items": {
-        "type": "object",
-        "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
-        "properties": {
-          "@type": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "contains": {
-              "const": "schema:PropertyValueSpecification"
-            },
-            "minItems": 1
-          },
-          "schema:name": {
-            "type": "string",
-            "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
-          },
-          "schema:valueName": {
-            "type": "string",
-            "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
-          },
-          "schema:description": {
-            "type": "string",
-            "description": "Guidance text shown to the user in the form."
-          },
-          "schema:propertyID": {
-            "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition.",
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "uri"
+        "anyOf": [
+          {
+            "type": "object",
+            "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:PropertyValueSpecification"
+                },
+                "minItems": 1
               },
-              {
-                "$ref": "#/$defs/DefinedTerm"
-              }
-            ]
-          },
-          "schema:inDefinedTermSet": {
-            "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-            "anyOf": [
-              {
+              "schema:name": {
                 "type": "string",
-                "format": "uri"
+                "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
               },
-              {
-                "type": "object",
-                "description": "Object reference to a vocabulary defined elsewhere.",
-                "properties": {
-                  "@id": {
+              "schema:valueName": {
+                "type": "string",
+                "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
+              },
+              "schema:description": {
+                "type": "string",
+                "description": "Guidance text shown to the user in the form."
+              },
+              "schema:propertyID": {
+                "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition.",
+                "anyOf": [
+                  {
                     "type": "string",
                     "format": "uri"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
                   }
-                },
-                "required": [
-                  "@id"
                 ]
               },
-              {
-                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "default": "schema:CreativeWork",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:CreativeWork"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string"
-                  },
-                  "schema:description": {
-                    "type": "string"
-                  },
-                  "schema:url": {
+              "schema:inDefinedTermSet": {
+                "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                "anyOf": [
+                  {
                     "type": "string",
                     "format": "uri"
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:url"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                "properties": {
-                  "@type": {
-                    "const": "schema:DefinedTermSet"
                   },
-                  "schema:hasDefinedTerm": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "const": "schema:DefinedTerm"
-                        },
-                        "schema:termCode": {
+                  {
+                    "type": "object",
+                    "description": "Object reference to a vocabulary defined elsewhere.",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ]
+                  },
+                  {
+                    "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "default": "schema:CreativeWork",
+                        "type": "array",
+                        "items": {
                           "type": "string"
-                        }
+                        },
+                        "contains": {
+                          "const": "schema:CreativeWork"
+                        },
+                        "minItems": 1
                       },
-                      "required": [
-                        "@type",
-                        "schema:termCode"
-                      ]
-                    }
+                      "schema:name": {
+                        "type": "string"
+                      },
+                      "schema:description": {
+                        "type": "string"
+                      },
+                      "schema:url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:url"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                    "properties": {
+                      "@type": {
+                        "const": "schema:DefinedTermSet"
+                      },
+                      "schema:hasDefinedTerm": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "@type": {
+                              "const": "schema:DefinedTerm"
+                            },
+                            "schema:termCode": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "schema:termCode"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:hasDefinedTerm"
+                    ]
                   }
-                },
-                "required": [
-                  "@type",
-                  "schema:hasDefinedTerm"
                 ]
+              },
+              "schema:defaultValue": {
+                "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "schema:readonlyValue": {
+                "type": "boolean",
+                "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
+              },
+              "schema:valueRequired": {
+                "type": "boolean",
+                "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
+              },
+              "schema:minValue": {
+                "type": "number",
+                "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
+              },
+              "schema:maxValue": {
+                "type": "number",
+                "description": "Maximum allowed numeric value. Upper bound of valid range."
+              },
+              "schema:stepValue": {
+                "type": "number",
+                "description": "Granularity expected of the value (e.g. 0.1 for nA)."
+              },
+              "schema:valuePattern": {
+                "type": "string",
+                "description": "Regex pattern for validating string values."
+              },
+              "schema:multipleValues": {
+                "type": "boolean",
+                "description": "Whether multiple values are allowed (default false)."
+              },
+              "ada:fieldScope": {
+                "type": "string",
+                "enum": [
+                  "method",
+                  "session",
+                  "element"
+                ],
+                "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
+              },
+              "ada:category": {
+                "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              },
+              "ada:dataType": {
+                "type": "string",
+                "enum": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "date",
+                  "uri"
+                ],
+                "description": "Expected data type for the parameter value."
+              },
+              "schema:unitText": {
+                "type": "string",
+                "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+              },
+              "schema:unitCode": {
+                "description": "URI for unit of measure (QUDT preferred).",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              },
+              "ada:cdifPropertyPath": {
+                "type": "string",
+                "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
+              },
+              "ada:tier": {
+                "type": "string",
+                "enum": [
+                  "M",
+                  "R",
+                  "O"
+                ],
+                "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
               }
+            },
+            "required": [
+              "schema:name",
+              "ada:fieldScope",
+              "ada:dataType"
             ]
           },
-          "schema:defaultValue": {
-            "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
-            "anyOf": [
-              {
-                "type": "string"
+          {
+            "type": "object",
+            "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:PropertyValue"
+                },
+                "minItems": 1
               },
-              {
-                "type": "number"
+              "schema:name": {
+                "type": "string",
+                "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
               },
-              {
-                "type": "boolean"
+              "schema:propertyID": {
+                "description": "URI identifying this parameter type in a formal vocabulary.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              },
+              "schema:value": {
+                "description": "The fixed protocol value for this read-only parameter."
+              },
+              "schema:unitText": {
+                "type": "string",
+                "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
               }
+            },
+            "required": [
+              "schema:name",
+              "schema:value"
             ]
-          },
-          "schema:readonlyValue": {
-            "type": "boolean",
-            "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
-          },
-          "schema:valueRequired": {
-            "type": "boolean",
-            "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
-          },
-          "schema:minValue": {
-            "type": "number",
-            "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
-          },
-          "schema:maxValue": {
-            "type": "number",
-            "description": "Maximum allowed numeric value. Upper bound of valid range."
-          },
-          "schema:stepValue": {
-            "type": "number",
-            "description": "Granularity expected of the value (e.g. 0.1 for nA)."
-          },
-          "schema:valuePattern": {
-            "type": "string",
-            "description": "Regex pattern for validating string values."
-          },
-          "schema:multipleValues": {
-            "type": "boolean",
-            "description": "Whether multiple values are allowed (default false)."
-          },
-          "ada:fieldScope": {
-            "type": "string",
-            "enum": [
-              "method",
-              "session",
-              "element"
-            ],
-            "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
-          },
-          "ada:category": {
-            "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/DefinedTerm"
-              }
-            ]
-          },
-          "ada:dataType": {
-            "type": "string",
-            "enum": [
-              "string",
-              "number",
-              "integer",
-              "boolean",
-              "date",
-              "uri"
-            ],
-            "description": "Expected data type for the parameter value."
-          },
-          "schema:unitText": {
-            "type": "string",
-            "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
-          },
-          "schema:unitCode": {
-            "description": "URI for unit of measure (QUDT preferred).",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/DefinedTerm"
-              }
-            ]
-          },
-          "ada:cdifPropertyPath": {
-            "type": "string",
-            "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
-          },
-          "ada:tier": {
-            "type": "string",
-            "enum": [
-              "M",
-              "R",
-              "O"
-            ],
-            "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
           }
-        },
-        "required": [
-          "schema:name",
-          "ada:fieldScope",
-          "ada:dataType"
         ]
       }
     },
@@ -4681,13 +4727,21 @@
         },
         "ada:analyticalMode": {
           "description": "Primary analytical mode(s) executed under this protocol. For single-mode protocols, records one value (e.g., Spot). For multi-mode protocols (e.g., spot analysis combined with transect scanning), list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Spot",
+              "Transect",
+              "Mapping"
+            ]
+          }
         },
-        "ada:laserSpotGeometryDefault": {
+        "ada:spotGeometryDefault": {
           "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the protocol. For circular spots, report diameter; for square or rectangular spots, report width × length. The protocol registers the typical geometry; analysts may adjust within protocol-allowed range.",
           "type": "string"
         },
-        "ada:laserSpotPathAblationMode": {
+        "ada:spotPath": {
           "description": "Sampling mode or ablation pattern used during analysis.",
           "type": "string"
         },
@@ -4713,7 +4767,7 @@
             }
           ]
         },
-        "ada:ablationDurationPerSpotDefault": {
+        "ada:ablationSpotDurationDefault": {
           "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent protocol-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
           "anyOf": [
             {
@@ -4728,7 +4782,7 @@
           "description": "Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres. Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.",
           "type": "string"
         },
-        "ada:carrierGasAndFlowRateDefault": {
+        "ada:carrierGasFlowRateDefault": {
           "description": "Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with the protocol-registered target flow rate(s). Helium is standard for most UV laser systems due to superior aerosol transport. Flow rates are protocol targets; actual session values may be adjusted within ±10% during tuning.",
           "type": "string"
         },
@@ -4774,7 +4828,7 @@
           "description": "Method used to determine the internal standard (IS) concentration for each unknown sample, used to correct for variable ablation yield between analyses. The approach is a fundamental protocol design choice that cannot be changed by analysts.",
           "type": "string"
         },
-        "ada:internalStandardElement": {
+        "ada:InternalStandardElement": {
           "description": "Element(s) used as the internal standard, and how the IS concentration value was determined for unknown samples. For mapping protocols using oxide-sum normalization, report \"None (oxide-sum normalization)\" and cite the method reference.",
           "type": "string"
         },
@@ -4782,19 +4836,19 @@
           "description": "Documents cases where different analytes or analyte groups within the same session are calibrated using different strategies — for example, one element used as the internal standard while trace elements are calibrated by an external reference material, or different primary standards applied to different mass ranges or mineral phases. If a single calibration strategy applies uniformly to all analytes, state that here and refer to Internal Standard Approach and Normalization / Standards-Based Correction for details. Free text; list analyte-specific strategies as needed.",
           "type": "string"
         },
-        "ada:elementalFractionationCorrection": {
+        "ada:elementalFractionalCorretion": {
           "description": "Method used to correct for laser-induced elemental fractionation (LIEF), including downhole fractionation during prolonged ablation, matrix-dependent fractionation between sample and calibration standard, and any specific correction algorithm applied. Reference the software function or publication.",
           "type": "string"
         },
-        "ada:signalIntegrationIntervalMethod": {
+        "ada:integrationIntervalMethod": {
           "description": "Approach used to select the stable signal interval for integration during data reduction, and to exclude anomalous signals from inclusions or cracks. For spot/transect analysis: involves identifying and excluding transient start/end instabilities within the time-resolved signal. For mapping analysis: corresponds to defining Volumes of Interest (VOIs) or applying phase masks across the 2D map (e.g., manual selection, automated clustering, threshold-based masking).",
           "type": "string"
         },
-        "ada:blankBackgroundCorrectionMethod": {
+        "ada:backgroundCorrection": {
           "description": "Method used to subtract the gas blank (background signal with laser off) from the ablation signal. For spot and transect analysis: typically the mean of a pre-ablation gas blank interval is subtracted per isotope per analysis. For mapping: background may be subtracted per raster line, per map session, or using a separate gas blank map acquired under identical conditions.",
           "type": "string"
         },
-        "ada:isobaricInterferenceCorrectionsApplied": {
+        "ada:isobaricInterferenceCorrection": {
           "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
           "type": "string"
         },
@@ -4802,15 +4856,15 @@
           "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope. Value is a ';' delimited list of interfering species",
           "type": "string"
         },
-        "ada:interferenceCorrectionMethod": {
+        "ada:IsobaricInterferenceCorrectionMethod": {
           "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
           "type": "string"
         },
-        "ada:primaryCalibrationStandardNameDefault": {
+        "ada:calibrationStandardNameDefault": {
           "description": "Primary reference material(s) used to calibrate the instrument and convert raw signal intensities to concentrations or isotope ratios. Include material name, source institution, and citation for the accepted values used. Editable because the specific lot or certification vintage may differ between sessions while the material type remains the same.",
           "type": "string"
         },
-        "ada:secondaryReferenceMaterialsDefault": {
+        "ada:secondaryReferenceMaterialDefault": {
           "description": "Quality-control reference materials analysed as unknowns alongside samples in the same session to assess accuracy and monitor drift. Include material name, source, and citation for accepted values used for comparison. Editable because selection of secondary RMs may vary across sessions.",
           "type": "string"
         },
@@ -5754,7 +5808,7 @@
         },
         "schema:additionalProperty": {
           "type": "array",
-          "description": "Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification; dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.",
+          "description": "Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (…Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.",
           "items": {
             "anyOf": [
               {
@@ -5922,47 +5976,6 @@
                 ]
               },
               {
-                "title": "Sampler and Skimmer Cone Material",
-                "description": "Material composition of the sampler and skimmer cones. Common materials are nickel (standard), platinum (for high-TDS or organic-matrix samples), and aluminium (for high-purity work). Cone material affects sensitivity, matrix tolerance, and long-term stability. State both sampler and skimmer materials; if identical, a single statement is acceptable.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "samplerAndSkimmerConeMaterial"
-                  },
-                  "schema:name": {
-                    "const": "Sampler and Skimmer Cone Material"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
                 "title": "Torch Depth",
                 "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The protocol specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
                 "type": "object",
@@ -5989,47 +6002,6 @@
                   },
                   "schema:readonlyValue": {
                     "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Ablation Cell Type",
-                "description": "Type and model of ablation cell used.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "ablationCellType"
-                  },
-                  "schema:name": {
-                    "const": "Ablation Cell Type"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
                   },
                   "ada:tier": {
                     "const": "R"
@@ -6089,94 +6061,12 @@
                 ]
               },
               {
-                "title": "Laser Beam Energy Profile",
-                "description": "Spatial energy distribution of the laser beam at the sample surface, and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces more uniform ablation craters and more reproducible crater morphology than a Gaussian beam. This is a fixed hardware property of the laser system.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "laserBeamEnergyProfile"
-                  },
-                  "schema:name": {
-                    "const": "Laser Beam Energy Profile"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Laser Pulse Duration",
-                "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "laserPulseDuration"
-                  },
-                  "schema:name": {
-                    "const": "Laser Pulse Duration"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
                 "title": "Transect Rate, Mapping Rate or Step Size",
                 "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the protocol-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault"
+                    "const": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault"
                   },
                   "@type": {
                     "const": [
@@ -6184,7 +6074,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "transectRateMappingRateOrStepSizeDefault"
+                    "const": "transectOrMappingRateOrStepSizeDefault"
                   },
                   "schema:name": {
                     "const": "Transect Rate, Mapping Rate or Step Size"
@@ -6258,7 +6148,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault"
+                    "const": "ada:parameter/laicpmsTAPP/gasFlowRateDefault"
                   },
                   "@type": {
                     "const": [
@@ -6266,7 +6156,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "auxiliaryAndCoolGasFlowRatesDefault"
+                    "const": "gasFlowRateDefault"
                   },
                   "schema:name": {
                     "const": "Auxiliary and Cool Gas Flow Rates"
@@ -6299,7 +6189,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
+                    "const": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault"
                   },
                   "@type": {
                     "const": [
@@ -6307,7 +6197,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "signalSmoothingDefault"
+                    "const": "aignalSmoothingDefault"
                   },
                   "schema:name": {
                     "const": "Signal Smoothing"
@@ -6340,7 +6230,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/icpTuningDefault"
+                    "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
                   },
                   "@type": {
                     "const": [
@@ -6348,7 +6238,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "icpTuningDefault"
+                    "const": "icPlasmaTuningDefault"
                   },
                   "schema:name": {
                     "const": "ICP Tuning"
@@ -6458,53 +6348,12 @@
                 ]
               },
               {
-                "title": "Instrument Warm-up / Session Duration Limit",
-                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "instrumentWarmUpSessionDurationLimit"
-                  },
-                  "schema:name": {
-                    "const": "Instrument Warm-up / Session Duration Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
                 "title": "Drift Monitor Frequency",
                 "description": "Frequency at which primary reference materials are analysed to monitor instrument drift and apply drift corrections across the session. Editable to allow analysts to increase monitoring frequency if drift is observed.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault"
+                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault"
                   },
                   "@type": {
                     "const": [
@@ -6512,7 +6361,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "driftMonitorFrequencyDefault"
+                    "const": "DriftMonitorFrequencyDefault"
                   },
                   "schema:name": {
                     "const": "Drift Monitor Frequency"
@@ -6540,53 +6389,12 @@
                 ]
               },
               {
-                "title": "Multi-Run Sequential Analysis Design",
-                "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "multiRunSequentialAnalysisDesign"
-                  },
-                  "schema:name": {
-                    "const": "Multi-Run Sequential Analysis Design"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
                 "title": "Uncertainty Propagation Method",
                 "description": "Approach used to propagate analytical uncertainty from raw count rates through the data reduction chain to final reported concentrations or isotope ratios. Specifies which uncertainty sources are included: counting statistics, calibration standard uncertainty, internal standard concentration uncertainty, drift correction uncertainty. Editable because this field may be unspecified at protocol registration (Advanced tier) and can be completed by the analyst when documenting the analysis.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault"
+                    "const": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethodDefault"
                   },
                   "@type": {
                     "const": [
@@ -6594,7 +6402,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "uncertaintyPropagationMethodDefault"
+                    "const": "UncertaintyPropagationMethodDefault"
                   },
                   "schema:name": {
                     "const": "Uncertainty Propagation Method"
@@ -6622,53 +6430,12 @@
                 ]
               },
               {
-                "title": "Matrix Offset Correction (LIEF)",
-                "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "matrixOffsetCorrection"
-                  },
-                  "schema:name": {
-                    "const": "Matrix Offset Correction (LIEF)"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
                 "title": "Spike / Outlier Filtering Approach",
                 "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault"
+                    "const": "ada:parameter/laicpmsTAPP/outlierFilteringDefault"
                   },
                   "@type": {
                     "const": [
@@ -6676,7 +6443,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproachDefault"
+                    "const": "outlierFilteringDefault"
                   },
                   "schema:name": {
                     "const": "Spike / Outlier Filtering Approach"
@@ -6709,7 +6476,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
+                    "const": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault"
                   },
                   "@type": {
                     "const": [
@@ -6717,7 +6484,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
+                    "const": "nonlineraResponseCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Pulse/Analog Detector Nonlinearity Correction"
@@ -6791,7 +6558,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                    "const": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault"
                   },
                   "@type": {
                     "const": [
@@ -6799,7 +6566,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrectionDefault"
+                    "const": "postAcquisitionNormalizationDefault"
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
@@ -6832,7 +6599,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/additionalNotesDefault"
+                    "const": "ada:parameter/laicpmsTAPP/descriptionDefault"
                   },
                   "@type": {
                     "const": [
@@ -6840,7 +6607,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "additionalNotesDefault"
+                    "const": "descriptionDefault"
                   },
                   "schema:name": {
                     "const": "Additional Notes"
@@ -6865,6 +6632,223 @@
                   "schema:name",
                   "ada:dataType",
                   "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Sampler and Skimmer Cone Material",
+                "description": "Material composition of the sampler and skimmer cones. Common materials are nickel (standard), platinum (for high-TDS or organic-matrix samples), and aluminium (for high-purity work). Cone material affects sensitivity, matrix tolerance, and long-term stability. State both sampler and skimmer materials; if identical, a single statement is acceptable.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
+                  },
+                  "schema:name": {
+                    "const": "Sampler and Skimmer Cone Material"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Ablation Cell Type",
+                "description": "Type and model of ablation cell used.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
+                  },
+                  "schema:name": {
+                    "const": "Ablation Cell Type"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Laser Beam Energy Profile",
+                "description": "Spatial energy distribution of the laser beam at the sample surface, and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces more uniform ablation craters and more reproducible crater morphology than a Gaussian beam. This is a fixed hardware property of the laser system.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
+                  },
+                  "schema:name": {
+                    "const": "Laser Beam Energy Profile"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Laser Pulse Duration",
+                "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+                  },
+                  "schema:name": {
+                    "const": "Laser Pulse Duration"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Instrument Warm-up / Session Duration Limit",
+                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
+                  },
+                  "schema:name": {
+                    "const": "Instrument Warm-up / Session Duration Limit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Multi-Run Sequential Analysis Design",
+                "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+                  },
+                  "schema:name": {
+                    "const": "Multi-Run Sequential Analysis Design"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Matrix Offset Correction (LIEF)",
+                "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
+                  },
+                  "schema:name": {
+                    "const": "Matrix Offset Correction (LIEF)"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
                 ]
               }
             ]
@@ -7052,51 +7036,6 @@
             },
             {
               "contains": {
-                "title": "Sampler and Skimmer Cone Material",
-                "description": "Material composition of the sampler and skimmer cones. Common materials are nickel (standard), platinum (for high-TDS or organic-matrix samples), and aluminium (for high-purity work). Cone material affects sensitivity, matrix tolerance, and long-term stability. State both sampler and skimmer materials; if identical, a single statement is acceptable.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "samplerAndSkimmerConeMaterial"
-                  },
-                  "schema:name": {
-                    "const": "Sampler and Skimmer Cone Material"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Torch Depth",
                 "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The protocol specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
                 "type": "object",
@@ -7123,51 +7062,6 @@
                   },
                   "schema:readonlyValue": {
                     "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Ablation Cell Type",
-                "description": "Type and model of ablation cell used.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "ablationCellType"
-                  },
-                  "schema:name": {
-                    "const": "Ablation Cell Type"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
                   },
                   "ada:tier": {
                     "const": "R"
@@ -7235,102 +7129,12 @@
             },
             {
               "contains": {
-                "title": "Laser Beam Energy Profile",
-                "description": "Spatial energy distribution of the laser beam at the sample surface, and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces more uniform ablation craters and more reproducible crater morphology than a Gaussian beam. This is a fixed hardware property of the laser system.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "laserBeamEnergyProfile"
-                  },
-                  "schema:name": {
-                    "const": "Laser Beam Energy Profile"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Laser Pulse Duration",
-                "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "laserPulseDuration"
-                  },
-                  "schema:name": {
-                    "const": "Laser Pulse Duration"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Transect Rate, Mapping Rate or Step Size",
                 "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the protocol-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault"
+                    "const": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault"
                   },
                   "@type": {
                     "const": [
@@ -7338,7 +7142,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "transectRateMappingRateOrStepSizeDefault"
+                    "const": "transectOrMappingRateOrStepSizeDefault"
                   },
                   "schema:name": {
                     "const": "Transect Rate, Mapping Rate or Step Size"
@@ -7420,7 +7224,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault"
+                    "const": "ada:parameter/laicpmsTAPP/gasFlowRateDefault"
                   },
                   "@type": {
                     "const": [
@@ -7428,7 +7232,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "auxiliaryAndCoolGasFlowRatesDefault"
+                    "const": "gasFlowRateDefault"
                   },
                   "schema:name": {
                     "const": "Auxiliary and Cool Gas Flow Rates"
@@ -7465,7 +7269,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
+                    "const": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault"
                   },
                   "@type": {
                     "const": [
@@ -7473,7 +7277,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "signalSmoothingDefault"
+                    "const": "aignalSmoothingDefault"
                   },
                   "schema:name": {
                     "const": "Signal Smoothing"
@@ -7510,7 +7314,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/icpTuningDefault"
+                    "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
                   },
                   "@type": {
                     "const": [
@@ -7518,7 +7322,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "icpTuningDefault"
+                    "const": "icPlasmaTuningDefault"
                   },
                   "schema:name": {
                     "const": "ICP Tuning"
@@ -7640,57 +7444,12 @@
             },
             {
               "contains": {
-                "title": "Instrument Warm-up / Session Duration Limit",
-                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "instrumentWarmUpSessionDurationLimit"
-                  },
-                  "schema:name": {
-                    "const": "Instrument Warm-up / Session Duration Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Drift Monitor Frequency",
                 "description": "Frequency at which primary reference materials are analysed to monitor instrument drift and apply drift corrections across the session. Editable to allow analysts to increase monitoring frequency if drift is observed.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault"
+                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault"
                   },
                   "@type": {
                     "const": [
@@ -7698,7 +7457,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "driftMonitorFrequencyDefault"
+                    "const": "DriftMonitorFrequencyDefault"
                   },
                   "schema:name": {
                     "const": "Drift Monitor Frequency"
@@ -7730,57 +7489,12 @@
             },
             {
               "contains": {
-                "title": "Multi-Run Sequential Analysis Design",
-                "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "multiRunSequentialAnalysisDesign"
-                  },
-                  "schema:name": {
-                    "const": "Multi-Run Sequential Analysis Design"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Uncertainty Propagation Method",
                 "description": "Approach used to propagate analytical uncertainty from raw count rates through the data reduction chain to final reported concentrations or isotope ratios. Specifies which uncertainty sources are included: counting statistics, calibration standard uncertainty, internal standard concentration uncertainty, drift correction uncertainty. Editable because this field may be unspecified at protocol registration (Advanced tier) and can be completed by the analyst when documenting the analysis.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault"
+                    "const": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethodDefault"
                   },
                   "@type": {
                     "const": [
@@ -7788,7 +7502,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "uncertaintyPropagationMethodDefault"
+                    "const": "UncertaintyPropagationMethodDefault"
                   },
                   "schema:name": {
                     "const": "Uncertainty Propagation Method"
@@ -7820,57 +7534,12 @@
             },
             {
               "contains": {
-                "title": "Matrix Offset Correction (LIEF)",
-                "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "matrixOffsetCorrection"
-                  },
-                  "schema:name": {
-                    "const": "Matrix Offset Correction (LIEF)"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Spike / Outlier Filtering Approach",
                 "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault"
+                    "const": "ada:parameter/laicpmsTAPP/outlierFilteringDefault"
                   },
                   "@type": {
                     "const": [
@@ -7878,7 +7547,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproachDefault"
+                    "const": "outlierFilteringDefault"
                   },
                   "schema:name": {
                     "const": "Spike / Outlier Filtering Approach"
@@ -7915,7 +7584,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
+                    "const": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault"
                   },
                   "@type": {
                     "const": [
@@ -7923,7 +7592,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
+                    "const": "nonlineraResponseCorrectionDefault"
                   },
                   "schema:name": {
                     "const": "Pulse/Analog Detector Nonlinearity Correction"
@@ -8005,7 +7674,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                    "const": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault"
                   },
                   "@type": {
                     "const": [
@@ -8013,7 +7682,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrectionDefault"
+                    "const": "postAcquisitionNormalizationDefault"
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
@@ -8050,7 +7719,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/additionalNotesDefault"
+                    "const": "ada:parameter/laicpmsTAPP/descriptionDefault"
                   },
                   "@type": {
                     "const": [
@@ -8058,7 +7727,7 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "additionalNotesDefault"
+                    "const": "descriptionDefault"
                   },
                   "schema:name": {
                     "const": "Additional Notes"
@@ -8087,6 +7756,251 @@
               },
               "minContains": 0,
               "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Sampler and Skimmer Cone Material",
+                "description": "Material composition of the sampler and skimmer cones. Common materials are nickel (standard), platinum (for high-TDS or organic-matrix samples), and aluminium (for high-purity work). Cone material affects sensitivity, matrix tolerance, and long-term stability. State both sampler and skimmer materials; if identical, a single statement is acceptable.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
+                  },
+                  "schema:name": {
+                    "const": "Sampler and Skimmer Cone Material"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Ablation Cell Type",
+                "description": "Type and model of ablation cell used.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
+                  },
+                  "schema:name": {
+                    "const": "Ablation Cell Type"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Laser Beam Energy Profile",
+                "description": "Spatial energy distribution of the laser beam at the sample surface, and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces more uniform ablation craters and more reproducible crater morphology than a Gaussian beam. This is a fixed hardware property of the laser system.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
+                  },
+                  "schema:name": {
+                    "const": "Laser Beam Energy Profile"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Laser Pulse Duration",
+                "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+                  },
+                  "schema:name": {
+                    "const": "Laser Pulse Duration"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Instrument Warm-up / Session Duration Limit",
+                "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
+                  },
+                  "schema:name": {
+                    "const": "Instrument Warm-up / Session Duration Limit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Multi-Run Sequential Analysis Design",
+                "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+                  },
+                  "schema:name": {
+                    "const": "Multi-Run Sequential Analysis Design"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Matrix Offset Correction (LIEF)",
+                "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
+                  },
+                  "schema:name": {
+                    "const": "Matrix Offset Correction (LIEF)"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
             }
           ]
         }
@@ -8103,13 +8017,13 @@
         "ada:detectorConfiguration",
         "ada:laserWavelengthAndType",
         "ada:dataReductionSoftwareDefault",
-        "ada:laserSpotGeometryDefault",
-        "ada:laserSpotPathAblationMode",
+        "ada:spotGeometryDefault",
+        "ada:spotPath",
         "ada:laserFluenceDefault",
         "ada:laserRepetitionRateDefault",
-        "ada:ablationDurationPerSpotDefault",
+        "ada:ablationSpotDurationDefault",
         "ada:rasterLineSpacingDefault",
-        "ada:carrierGasAndFlowRateDefault",
+        "ada:carrierGasFlowRateDefault",
         "ada:rfPower",
         "ada:plasmaThermalMode",
         "ada:oxideProductionMethodAndThreshold",
@@ -8117,15 +8031,15 @@
         "ada:spectrometerDwellTimeDefault",
         "ada:backgroundCountTimeDefault",
         "ada:internalStandardApproach",
-        "ada:internalStandardElement",
-        "ada:elementalFractionationCorrection",
-        "ada:signalIntegrationIntervalMethod",
-        "ada:blankBackgroundCorrectionMethod",
-        "ada:isobaricInterferenceCorrectionsApplied",
+        "ada:InternalStandardElement",
+        "ada:elementalFractionalCorretion",
+        "ada:integrationIntervalMethod",
+        "ada:backgroundCorrection",
+        "ada:isobaricInterferenceCorrection",
         "ada:interferingSpecies",
-        "ada:interferenceCorrectionMethod",
-        "ada:primaryCalibrationStandardNameDefault",
-        "ada:secondaryReferenceMaterialsDefault"
+        "ada:IsobaricInterferenceCorrectionMethod",
+        "ada:calibrationStandardNameDefault",
+        "ada:secondaryReferenceMaterialDefault"
       ]
     }
   ],

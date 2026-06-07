@@ -168,47 +168,6 @@
                 "ada:fieldScope"
             ]
         },
-        "samplerAndSkimmerConeMaterial": {
-            "title": "Sampler and Skimmer Cone Material",
-            "description": "Material composition of the sampler and skimmer cones. Common materials are nickel (standard), platinum (for high-TDS or organic-matrix samples), and aluminium (for high-purity work). Cone material affects sensitivity, matrix tolerance, and long-term stability. State both sampler and skimmer materials; if identical, a single statement is acceptable.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "samplerAndSkimmerConeMaterial"
-                },
-                "schema:name": {
-                    "const": "Sampler and Skimmer Cone Material"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
         "torchDepthDefault": {
             "title": "Torch Depth",
             "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The protocol specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
@@ -236,47 +195,6 @@
                 },
                 "schema:readonlyValue": {
                     "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "ablationCellType": {
-            "title": "Ablation Cell Type",
-            "description": "Type and model of ablation cell used.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/ablationCellType"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "ablationCellType"
-                },
-                "schema:name": {
-                    "const": "Ablation Cell Type"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
                 },
                 "ada:tier": {
                     "const": "R"
@@ -335,95 +253,13 @@
                 "ada:fieldScope"
             ]
         },
-        "laserBeamEnergyProfile": {
-            "title": "Laser Beam Energy Profile",
-            "description": "Spatial energy distribution of the laser beam at the sample surface, and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces more uniform ablation craters and more reproducible crater morphology than a Gaussian beam. This is a fixed hardware property of the laser system.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserBeamEnergyProfile"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "laserBeamEnergyProfile"
-                },
-                "schema:name": {
-                    "const": "Laser Beam Energy Profile"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "laserPulseDuration": {
-            "title": "Laser Pulse Duration",
-            "description": "Duration of each individual laser pulse, including units. Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects. This is a fixed hardware property of the laser system.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/laserPulseDuration"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "laserPulseDuration"
-                },
-                "schema:name": {
-                    "const": "Laser Pulse Duration"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "transectRateMappingRateOrStepSizeDefault": {
+        "transectOrMappingRateOrStepSizeDefault": {
             "title": "Transect Rate, Mapping Rate or Step Size",
             "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the protocol-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault"
+                    "const": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault"
                 },
                 "@type": {
                     "const": [
@@ -431,7 +267,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "transectRateMappingRateOrStepSizeDefault"
+                    "const": "transectOrMappingRateOrStepSizeDefault"
                 },
                 "schema:name": {
                     "const": "Transect Rate, Mapping Rate or Step Size"
@@ -499,13 +335,13 @@
                 "ada:fieldScope"
             ]
         },
-        "auxiliaryAndCoolGasFlowRatesDefault": {
+        "gasFlowRateDefault": {
             "title": "Auxiliary and Cool Gas Flow Rates",
             "description": "ICP auxiliary (intermediate) and cool (outer/plasma) Ar gas flow rates in l min⁻¹. The protocol registers target values; actual session values may be adjusted slightly during tuning.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault"
+                    "const": "ada:parameter/laicpmsTAPP/gasFlowRateDefault"
                 },
                 "@type": {
                     "const": [
@@ -513,7 +349,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "auxiliaryAndCoolGasFlowRatesDefault"
+                    "const": "gasFlowRateDefault"
                 },
                 "schema:name": {
                     "const": "Auxiliary and Cool Gas Flow Rates"
@@ -540,13 +376,13 @@
                 "ada:fieldScope"
             ]
         },
-        "signalSmoothingDefault": {
+        "aignalSmoothingDefault": {
             "title": "Signal Smoothing",
             "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
+                    "const": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault"
                 },
                 "@type": {
                     "const": [
@@ -554,7 +390,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "signalSmoothingDefault"
+                    "const": "aignalSmoothingDefault"
                 },
                 "schema:name": {
                     "const": "Signal Smoothing"
@@ -581,13 +417,13 @@
                 "ada:fieldScope"
             ]
         },
-        "icpTuningDefault": {
+        "icPlasmaTuningDefault": {
             "title": "ICP Tuning",
             "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/icpTuningDefault"
+                    "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
                 },
                 "@type": {
                     "const": [
@@ -595,7 +431,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "icpTuningDefault"
+                    "const": "icPlasmaTuningDefault"
                 },
                 "schema:name": {
                     "const": "ICP Tuning"
@@ -704,54 +540,13 @@
                 "ada:fieldScope"
             ]
         },
-        "instrumentWarmUpSessionDurationLimit": {
-            "title": "Instrument Warm-up / Session Duration Limit",
-            "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/instrumentWarmUpSessionDurationLimit"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "instrumentWarmUpSessionDurationLimit"
-                },
-                "schema:name": {
-                    "const": "Instrument Warm-up / Session Duration Limit"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "driftMonitorFrequencyDefault": {
+        "DriftMonitorFrequencyDefault": {
             "title": "Drift Monitor Frequency",
             "description": "Frequency at which primary reference materials are analysed to monitor instrument drift and apply drift corrections across the session. Editable to allow analysts to increase monitoring frequency if drift is observed.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault"
+                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault"
                 },
                 "@type": {
                     "const": [
@@ -759,7 +554,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "driftMonitorFrequencyDefault"
+                    "const": "DriftMonitorFrequencyDefault"
                 },
                 "schema:name": {
                     "const": "Drift Monitor Frequency"
@@ -786,54 +581,13 @@
                 "ada:fieldScope"
             ]
         },
-        "multiRunSequentialAnalysisDesign": {
-            "title": "Multi-Run Sequential Analysis Design",
-            "description": "Whether the protocol uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "multiRunSequentialAnalysisDesign"
-                },
-                "schema:name": {
-                    "const": "Multi-Run Sequential Analysis Design"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "uncertaintyPropagationMethodDefault": {
+        "UncertaintyPropagationMethodDefault": {
             "title": "Uncertainty Propagation Method",
             "description": "Approach used to propagate analytical uncertainty from raw count rates through the data reduction chain to final reported concentrations or isotope ratios. Specifies which uncertainty sources are included: counting statistics, calibration standard uncertainty, internal standard concentration uncertainty, drift correction uncertainty. Editable because this field may be unspecified at protocol registration (Advanced tier) and can be completed by the analyst when documenting the analysis.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault"
+                    "const": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethodDefault"
                 },
                 "@type": {
                     "const": [
@@ -841,7 +595,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "uncertaintyPropagationMethodDefault"
+                    "const": "UncertaintyPropagationMethodDefault"
                 },
                 "schema:name": {
                     "const": "Uncertainty Propagation Method"
@@ -868,54 +622,13 @@
                 "ada:fieldScope"
             ]
         },
-        "matrixOffsetCorrection": {
-            "title": "Matrix Offset Correction (LIEF)",
-            "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/matrixOffsetCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "matrixOffsetCorrection"
-                },
-                "schema:name": {
-                    "const": "Matrix Offset Correction (LIEF)"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "spikeOutlierFilteringApproachDefault": {
+        "outlierFilteringDefault": {
             "title": "Spike / Outlier Filtering Approach",
             "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault"
+                    "const": "ada:parameter/laicpmsTAPP/outlierFilteringDefault"
                 },
                 "@type": {
                     "const": [
@@ -923,7 +636,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproachDefault"
+                    "const": "outlierFilteringDefault"
                 },
                 "schema:name": {
                     "const": "Spike / Outlier Filtering Approach"
@@ -950,13 +663,13 @@
                 "ada:fieldScope"
             ]
         },
-        "pulseAnalogDetectorNonlinearityCorrectionDefault": {
+        "nonlineraResponseCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
             "description": "Whether a correction was applied for nonlinear response at the transition between pulse-counting and analog detector modes.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
+                    "const": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault"
                 },
                 "@type": {
                     "const": [
@@ -964,7 +677,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
+                    "const": "nonlineraResponseCorrectionDefault"
                 },
                 "schema:name": {
                     "const": "Pulse/Analog Detector Nonlinearity Correction"
@@ -1032,13 +745,13 @@
                 "ada:fieldScope"
             ]
         },
-        "normalizationStandardsBasedCorrectionDefault": {
+        "postAcquisitionNormalizationDefault": {
             "title": "Normalization / Standards-Based Correction",
             "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                    "const": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault"
                 },
                 "@type": {
                     "const": [
@@ -1046,7 +759,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrectionDefault"
+                    "const": "postAcquisitionNormalizationDefault"
                 },
                 "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
@@ -1073,13 +786,13 @@
                 "ada:fieldScope"
             ]
         },
-        "additionalNotesDefault": {
+        "descriptionDefault": {
             "title": "Additional Notes",
             "description": "Any additional context about this protocol or analysis session not captured by the structured fields above. Use sparingly; structured fields are preferred for all information that can be formally categorised.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/additionalNotesDefault"
+                    "const": "ada:parameter/laicpmsTAPP/descriptionDefault"
                 },
                 "@type": {
                     "const": [
@@ -1087,7 +800,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "additionalNotesDefault"
+                    "const": "descriptionDefault"
                 },
                 "schema:name": {
                     "const": "Additional Notes"
@@ -1305,173 +1018,6 @@
                 },
                 "schema:readonlyValue": {
                     "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "xRayTubeAnodeMaterial": {
-            "title": "X-ray Tube Anode Material",
-            "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "xRayTubeAnodeMaterial"
-                },
-                "schema:name": {
-                    "const": "X-ray Tube Anode Material"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "detectorArraySize": {
-            "title": "Detector Array Size",
-            "description": "Number of pixels in the detector array (width × height). Combined with detector pixel size and geometric magnification, determines the field of view.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "detectorArraySize"
-                },
-                "schema:name": {
-                    "const": "Detector Array Size"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "detectorPixelSize": {
-            "title": "Detector Pixel Size",
-            "description": "Physical size of a single pixel on the detector in micrometres. This is a fixed hardware property of the detector array, distinct from the reconstructed voxel size (which depends on geometric magnification and binning).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "detectorPixelSize"
-                },
-                "schema:name": {
-                    "const": "Detector Pixel Size"
-                },
-                "ada:dataType": {
-                    "const": "number"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                },
-                "schema:unitText": {
-                    "const": "µm"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "opticalObjective": {
-            "title": "Optical Objective",
-            "description": "Optical magnification objective installed between the scintillator and CCD/CMOS detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa series). For systems using only geometric magnification, report \"Not applicable\".",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/opticalObjective"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "opticalObjective"
-                },
-                "schema:name": {
-                    "const": "Optical Objective"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
                 },
                 "ada:tier": {
                     "const": "R"
@@ -2195,47 +1741,6 @@
                 "ada:fieldScope"
             ]
         },
-        "beamDamageMinimization": {
-            "title": "Beam Damage Minimization",
-            "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "beamDamageMinimization"
-                },
-                "schema:name": {
-                    "const": "Beam Damage Minimization"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
         "driftCorrectionDefault": {
             "title": "Drift Correction",
             "description": "Describe method used to monitor and correct for instrument drift",
@@ -2266,93 +1771,6 @@
                 },
                 "ada:tier": {
                     "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "halogenCorrectionOnOxygen": {
-            "title": "Halogen Correction on Oxygen",
-            "description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "halogenCorrectionOnOxygen"
-                },
-                "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
-                },
-                "ada:dataType": {
-                    "const": "boolean"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "edsSpectralProcessingType": {
-            "title": "EDS Spectral Processing Type",
-            "description": "Method used to process EDS spectra and extract net peak intensities.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/edsSpectralProcessingType"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "edsSpectralProcessingType"
-                },
-                "schema:name": {
-                    "const": "EDS Spectral Processing Type"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/edsSpectralProcessingType"
-                    }
                 }
             },
             "required": [

@@ -128,24 +128,41 @@ def main():
         for b in R["tapp_prop"]:
             key = "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else "")
             v = cell(b["item"], L)
+            if b["name"] == "analyticalMode":
+                # ada:analyticalMode is a LIST of strings (split on ; or ,)
+                if v:
+                    inst[key] = [m.strip() for m in re.split(r"[;,]", v) if m.strip()]
+                elif b["cov"] > 0:
+                    inst[key] = []   # required but unreported -> empty list (valid)
+                continue
             if v:
                 inst[key] = v
             elif b["cov"] > 0:
                 inst[key] = (-9999 if b["jtype"] in ("number", "integer") else "missing")
             # else cov == 0 -> optional, omit
-        # Advanced-protocol fields -> schema:additionalProperty[] of PropertyValueSpecification
-        # (…Default name + readonlyValue:false when dual-homed; bare name + readonly:true if Read-Only)
+        # Advanced-protocol fields: editable -> schema:PropertyValueSpecification (…Default name,
+        # readonlyValue:false, value in schema:defaultValue); read-only -> schema:PropertyValue
+        # (bare name, value in schema:value).
         saps = []
         for b in R["method_param"]:
             v = cell(b["item"], L)
             if not v:
                 continue
-            dual = b["A"] in ("Basic", "Editable", "Advanced")
-            mdname = b["name"] + ("Default" if dual else "")
+            mdname = b["name"] + "Default"  # method_param is always editable/dual
             e = {"@id": f"{PARAM_BASE}/{mdname}", "@type": ["schema:PropertyValueSpecification"],
                  "schema:valueName": mdname, "schema:name": b["item"], "ada:dataType": b["jtype"],
-                 "ada:fieldScope": "session", "schema:readonlyValue": (not dual), "ada:tier": "R",
+                 "ada:fieldScope": "session", "schema:readonlyValue": False, "ada:tier": "R",
                  "schema:defaultValue": v}
+            if b.get("unit") and b["unit"] != "free":
+                e["schema:unitText"] = b["unit"]
+            saps.append(e)
+        for b in R["method_value"]:
+            v = cell(b["item"], L)
+            if not v:
+                continue
+            e = {"@id": f"{PARAM_BASE}/{b['name']}", "@type": ["schema:PropertyValue"],
+                 "schema:propertyID": f"{PARAM_BASE}/{b['name']}", "schema:name": b["item"],
+                 "schema:value": v}
             if b.get("unit") and b["unit"] != "free":
                 e["schema:unitText"] = b["unit"]
             saps.append(e)

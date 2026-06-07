@@ -138,6 +138,21 @@ def camel(s):
     return (parts[0].lower() + "".join(p.capitalize() for p in parts[1:])) if parts else "x"
 
 
+def field_name(item, sp, parsed):
+    """Workbook-authoritative property/parameter base name (Default suffix stripped):
+    the clean ada:<name> segment of the `schema path`, else the impl property:/parameter:
+    tag name, else camelCase(item). Mirrors the analyteColumn naming so the workbook
+    drives names; the camelCase(item) fallback covers rows without schema-path/impl names."""
+    if "ada:" in sp and "methodParameters" not in sp and "analyteTemplate" not in sp:
+        m = re.search(r"ada:([A-Za-z][A-Za-z0-9]*)", sp)
+        if m:
+            return re.sub(r"Default$", "", m.group(1))
+    for tr in (parsed.get("tag_records") or []):
+        if tr["kind"] in ("property", "parameter"):
+            return re.sub(r"Default$", "", tr["name"])
+    return camel(item)
+
+
 def jtype(dt):
     d = dt.lower()
     if "integer" in d:
@@ -300,10 +315,21 @@ def route():
     lit = next((i for i, v in enumerate(H) if v == "literature assessment"), None)
     sp_col = next((i for i, v in enumerate(H) if v == "schema path"), None)
     impl_col = next((i for i, v in enumerate(H) if v.startswith("implementation note")), None)
+    comment_col = next((i for i, v in enumerate(H) if v.startswith("comment")), None)
     cov_start = (lit + 1) if lit is not None else (impl_col + 1 if impl_col is not None else len(hdr))
-    mode_end = lit if lit is not None else (sp_col if sp_col is not None else len(hdr))
-    R = {"tapp_prop": [], "method_param": [], "detail_req": [], "detail_addl": [],
-         "analyte_cols": [], "analyte_defs": OrderedDict(), "vocab": []}
+    # Mode columns: the Y/N boolean columns between 'comment' and 'schema path' (e.g.
+    # Spot/Transect/Mapping, or Single-volume/Multi-volume stitching). Their headers are
+    # the ada:analyticalMode enum options; a per-row Y marks which modes that field applies
+    # to. Detected by content (all non-empty cells in {Y,N}) so date/text cols are excluded.
+    mode_cols = []
+    if comment_col is not None and sp_col is not None:
+        for i in range(comment_col + 1, sp_col):
+            vals = [norm(rr[i]).upper() for rr in rows[1:] if i < len(rr) and norm(rr[i])]
+            if vals and all(v in ("Y", "N") for v in vals):
+                mode_cols.append(i)
+    mode_names = [norm(hdr[i]) for i in mode_cols]
+    R = {"tapp_prop": [], "method_param": [], "method_value": [], "detail_req": [], "detail_addl": [],
+         "analyte_cols": [], "analyte_defs": OrderedDict(), "vocab": [], "mode_names": mode_names}
     amap = CFG.get("analyte_map") or {}
     _L.TAPP_NAME = TAPP  # for analyte_column_obj / registry @ids (no TAPP_PROFILES dependency)
     for r in rows[1:]:
@@ -313,20 +339,20 @@ def route():
         P, A, dt, ex = norm(r[2]), norm(r[3]), norm(r[4]), norm(r[5])
         sp = norm(r[sp_col]) if sp_col is not None and sp_col < len(r) else ""
         impl = norm(r[impl_col]) if impl_col is not None and impl_col < len(r) else ""
-        modes = [norm(hdr[i]) for i in range(8, mode_end) if norm(r[i]) in ("Y", "y")] if mode_end > 8 else []
+        modes = [norm(hdr[i]) for i in mode_cols if i < len(r) and norm(r[i]).upper() == "Y"]
         cov = sum(1 for i in range(cov_start, len(r)) if meaningful(r[i]))
-        rec = {"item": item, "name": camel(item), "P": P, "A": A, "jtype": jtype(dt),
+        parsed = _L.parse_impl(impl)
+        rec = {"item": item, "name": field_name(item, sp, parsed), "P": P, "A": A, "jtype": jtype(dt),
                "unit": unit(dt), "desc": norm(r[1]), "allowed": ex, "cov": cov,
                "multivol_only": (modes == [CFG["conditional_mode"]])}
         # Workbook-driven analyteColumns: rows whose `schema path` targets
         # ada:analyteTemplate.ada:analyteColumns generate one $def per impl
-        # `analyteColumn:` tag (clean, technique-specific names). Property names keep
-        # camelCase(item) — laicpms's impl `property:` names are in-progress/erroneous.
-        # Falls back to the legacy hardcoded analyte_map only when there is no schema
-        # path column (legacy workbooks).
+        # `analyteColumn:` tag. Property/parameter names also come from the workbook
+        # (schema-path ada: segment / impl tag, via field_name). Falls back to the
+        # legacy hardcoded analyte_map only when there is no schema path column.
         if "analyteTemplate.ada:analyteColumns" in sp:
             cols = []
-            for tr in _L.parse_impl(impl)["tag_records"]:
+            for tr in parsed["tag_records"]:
                 if tr["kind"] != "analytecolumn":
                     continue
                 nm = tr["name"]
@@ -353,7 +379,9 @@ def route():
         if P == "Basic":
             R["tapp_prop"].append(rec)
         elif P == "Advanced":
-            R["method_param"].append(rec)
+            # Advanced + editable (dual) -> PropertyValueSpecification template;
+            # Advanced + read-only -> PropertyValue (fixed protocol value).
+            (R["method_param"] if is_dual(rec) else R["method_value"]).append(rec)
         if A == "Basic":
             R["detail_req"].append(rec)
         elif A in ("Editable", "Advanced"):
@@ -384,6 +412,14 @@ def build():
         seen.add(b["name"])
         n, d = param_value_def(b, pv_existing); pv_defs.update(d); pv_keys.append(n)
         pv_ids.append(PARAM_BASE + "/" + b["name"]); pv_existing.add(n)
+    # Advanced + Read-Only -> PropertyValue (fixed protocol value) in parameterValues,
+    # referenced from the TAPP schema:additionalProperty (alongside the editable specs).
+    mv_keys = []
+    for b in R["method_value"]:
+        if b["name"] in seen:
+            continue
+        seen.add(b["name"])
+        n, d = param_value_def(b, pv_existing); pv_defs.update(d); mv_keys.append(n); pv_existing.add(n)
     append_defs(PV, pv_defs)
 
     acols = []
@@ -399,9 +435,16 @@ def build():
     # ---- TAPP schema ----
     tapp_props, basic_required = {}, []
     enum_props = CFG["enum_props"]
+    mode_names = R.get("mode_names") or []
     for b in R["tapp_prop"]:
         key = "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else "")
-        if b["name"] in enum_props:
+        if b["name"] == "analyticalMode":
+            # always a LIST of strings; options are the mode-column headers
+            items = {"type": "string"}
+            if mode_names:
+                items["enum"] = list(mode_names)
+            tapp_props[key] = {"description": b["desc"], "type": "array", "items": items}
+        elif b["name"] in enum_props:
             tapp_props[key] = {"description": b["desc"], "type": "string", "enum": list(enum_props[b["name"]])}
         elif b["jtype"] in ("number", "integer"):
             tapp_props[key] = {"description": b["desc"], "anyOf": [{"type": "number"}, {"type": "string"}]}
@@ -416,14 +459,18 @@ def build():
                         "minContains": 0, "maxContains": 1} for c in acols]
         tapp_props["ada:analyteTemplate"] = {"type": "object", "properties": {
             "ada:analyteColumns": {"type": "array", "items": {"anyOf": ac_refs}, "allOf": ac_contains}}}
-    sap_refs = [{"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys]
+    sap_refs = [{"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys] + \
+               [{"$ref": "../parameterValues/schema.yaml#/$defs/" + n} for n in mv_keys]
     sap_contains = [{"contains": {"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n},
-                     "minContains": 0, "maxContains": 1} for n in pt_keys]
+                     "minContains": 0, "maxContains": 1} for n in pt_keys] + \
+                   [{"contains": {"$ref": "../parameterValues/schema.yaml#/$defs/" + n},
+                     "minContains": 0, "maxContains": 1} for n in mv_keys]
     tapp_props["schema:additionalProperty"] = {
         "type": "array",
-        "description": ("Method-level parameter specifications (Advanced protocol tier). Each entry is "
-                        "a schema:PropertyValueSpecification; dual-homed fields use the …Default name "
-                        "here and carry the per-dataset value in the detail block."),
+        "description": ("Method-level Advanced-protocol parameters. Editable parameters are "
+                        "schema:PropertyValueSpecification entries (…Default name; the per-dataset value "
+                        "lives in the detail block); read-only parameters are schema:PropertyValue entries "
+                        "carrying the fixed protocol value in schema:value."),
         "items": {"anyOf": sap_refs}, "allOf": sap_contains}
     tapp_schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -549,7 +596,7 @@ def route_empa(rows, L):
 
     schema_properties, required_props = [], []
     by_item = {}  # item -> placement record for the example builder
-    analyte_column_names, parameter_names, detail_param_names = [], [], []
+    analyte_column_names, parameter_names, method_value_names, detail_param_names = [], [], [], []
     analyte_column_defs = __import__("collections").OrderedDict()
     parameter_template_defs = __import__("collections").OrderedDict()
     param_value_defs = __import__("collections").OrderedDict()
@@ -601,11 +648,22 @@ def route_empa(rows, L):
             if cov > 0:
                 required_props.append(key)
         elif P == "Advanced":
-            mdname = name + ("Default" if dual else "")
-            rec["mdname"] = mdname
-            parameter_names.append(mdname)
-            parameter_template_defs[mdname] = L.parameter_obj(
-                mdname, item, row.get("desc") or "", dtype, vname, not dual)
+            if dual:
+                # editable -> PropertyValueSpecification (…Default name)
+                mdname = name + "Default"
+                rec["mdname"] = mdname
+                rec["ro_value"] = False
+                parameter_names.append(mdname)
+                parameter_template_defs[mdname] = L.parameter_obj(
+                    mdname, item, row.get("desc") or "", dtype, vname, False)
+            else:
+                # read-only -> PropertyValue (fixed protocol value) in parameterValues
+                rec["mdname"] = name
+                rec["ro_value"] = True
+                if name not in param_value_defs:
+                    method_value_names.append(name)
+                    param_value_defs[name] = L.additional_property_obj(
+                        name, item, row.get("desc") or "", row.get("dtype_col"), vname, dtype)
         by_item[item] = rec
 
         # detail side (per-dataset value) — Analysis Editable/Advanced
@@ -626,6 +684,7 @@ def route_empa(rows, L):
         "schema_properties": schema_properties, "required_props": required_props,
         "analyte_column_names": analyte_column_names, "analyte_column_defs": analyte_column_defs,
         "parameter_names": parameter_names, "parameter_template_defs": parameter_template_defs,
+        "method_value_names": method_value_names,
         "detail_param_names": detail_param_names, "param_value_defs": param_value_defs,
         "by_item": by_item,
     }
@@ -685,7 +744,8 @@ def build_empa():
 
     instrument = L.build_haspart_constraint(rows)
     L.build_schema_yaml(cls["schema_properties"], cls["analyte_column_names"],
-                        cls["parameter_names"], instrument, required_props=cls["required_props"])
+                        cls["parameter_names"], instrument, required_props=cls["required_props"],
+                        value_param_names=cls["method_value_names"])
     L.write_analyte_columns_registry(cls["analyte_column_defs"])
     L.write_parameter_templates_registry(cls["parameter_template_defs"])
     L.write_parameter_values_registry(cls["param_value_defs"])

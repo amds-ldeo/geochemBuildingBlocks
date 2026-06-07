@@ -50,13 +50,13 @@
   "ada:detectorConfiguration": "Dual mode detector (30 ms / 10 ms dwell alternation)",
   "ada:laserWavelengthAndType": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
   "ada:dataReductionSoftwareDefault": "Iolite 4 (Paton et al. 2011)",
-  "ada:laserSpotGeometryDefault": "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)",
-  "ada:laserSpotPathAblationMode": "Spot (stationary; single spot at 1 Hz)",
+  "ada:spotGeometryDefault": "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)",
+  "ada:spotPath": "Spot (stationary; single spot at 1 Hz)",
   "ada:laserFluenceDefault": "6.79 J cm⁻²",
   "ada:laserRepetitionRateDefault": "1 Hz",
-  "ada:ablationDurationPerSpotDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
+  "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:carrierGasAndFlowRateDefault": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
+  "ada:carrierGasFlowRateDefault": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
   "ada:rfPower": "1550 W",
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05",
@@ -64,15 +64,15 @@
   "ada:spectrometerDwellTimeDefault": "30 ms (most isotopes) / 10 ms (alternate; dual detector mode)",
   "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
   "ada:internalStandardApproach": "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects",
-  "ada:internalStandardElement": "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements",
-  "ada:elementalFractionationCorrection": "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)",
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
-  "ada:isobaricInterferenceCorrectionsApplied": "Yes — fs laser substantially reduces oxide and matrix interferences; flux blank contributions to V, Co, Zn, Ba, La, Ce, Ta, U identified and subtracted",
+  "ada:InternalStandardElement": "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements",
+  "ada:elementalFractionalCorretion": "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)",
+  "ada:integrationIntervalMethod": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
+  "ada:backgroundCorrection": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
+  "ada:isobaricInterferenceCorrection": "Yes — fs laser substantially reduces oxide and matrix interferences; flux blank contributions to V, Co, Zn, Ba, La, Ce, Ta, U identified and subtracted",
   "ada:interferingSpecies": "Li₂B₄O₇ flux blank contains V, Co, Zn, Ba, La, Ce, Ta, U at detectable levels; subtracted as blank contribution",
-  "ada:interferenceCorrectionMethod": "Flux blank subtraction: blank contribution to each pollution element (V, Co, Zn, Ba, La, Ce, Ta, U) measured in procedure blanks and subtracted; LOQ for pollution elements = blank value + 10SD",
-  "ada:primaryCalibrationStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
-  "ada:secondaryReferenceMaterialsDefault": "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS",
+  "ada:IsobaricInterferenceCorrectionMethod": "Flux blank subtraction: blank contribution to each pollution element (V, Co, Zn, Ba, La, Ce, Ta, U) measured in procedure blanks and subtracted; LOQ for pollution elements = blank value + 10SD",
+  "ada:calibrationStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
+  "ada:secondaryReferenceMaterialDefault": "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault",
@@ -101,24 +101,11 @@
       "schema:defaultValue": "Surface cleaning with ethanol before analysis"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "@id": "ada:parameter/laicpmsTAPP/gasFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "laserPulseDuration",
-      "schema:name": "Laser Pulse Duration",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/auxiliaryAndCoolGasFlowRatesDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "auxiliaryAndCoolGasFlowRatesDefault",
+      "schema:valueName": "gasFlowRateDefault",
       "schema:name": "Auxiliary and Cool Gas Flow Rates",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -127,11 +114,11 @@
       "schema:defaultValue": "Plasma gas flow: 15 l min⁻¹; Auxiliary gas: 0.85 l min⁻¹"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/icpTuningDefault",
+      "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "icpTuningDefault",
+      "schema:valueName": "icPlasmaTuningDefault",
       "schema:name": "ICP Tuning",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -140,11 +127,11 @@
       "schema:defaultValue": "Gas flows optimized via spot ablation of NIST SRM 612 to obtain maximum signal intensities while maintaining ThO/Th <0.3% and U/Th at 0.95–1.05"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
+      "schema:valueName": "DriftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -153,24 +140,11 @@
       "schema:defaultValue": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "Single spot per location (45 s ablation at 1 Hz)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/spikeOutlierFilteringApproachDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "spikeOutlierFilteringApproachDefault",
+      "schema:valueName": "outlierFilteringDefault",
       "schema:name": "Spike / Outlier Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -179,11 +153,11 @@
       "schema:defaultValue": "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+      "schema:valueName": "nonlineraResponseCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -205,11 +179,11 @@
       "schema:defaultValue": "25 s washout between analyses (25 s gas blank → 45 s ablation → 25 s washout)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+      "schema:valueName": "postAcquisitionNormalizationDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -218,17 +192,35 @@
       "schema:defaultValue": "No post-acquisition normalization beyond IS approach (two IS elements applied element-specifically)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
+      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotesDefault",
+      "schema:valueName": "descriptionDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "schema:name": "Laser Pulse Duration",
+      "schema:value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
     }
   ],
   "ada:analyteTemplate": {

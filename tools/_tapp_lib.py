@@ -609,6 +609,8 @@ def _value_type_for(dtype_col: str | None) -> tuple[str | list[str], str | None]
     m = re.search(r"\(([^)]+)\)", s)
     if m:
         unit = m.group(1).strip()
+        if unit.lower() == "free":   # "Text (free)" is free text, not a unit
+            unit = None
     low = s.lower()
     if "numeric" in low or "number" in low or "decimal" in low or "float" in low:
         return "number", unit
@@ -1325,7 +1327,8 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
                       analyte_column_names: list[str],
                       parameter_names: list[str],
                       instrument_haspart: dict | None,
-                      required_props: list[str] | None = None) -> None:
+                      required_props: list[str] | None = None,
+                      value_param_names: list[str] | None = None) -> None:
     """Rebuild <TAPP>/schema.yaml with the new property set in allOf[1].properties
     and uniqueness constraints on ada:analyteColumns[] and schema:additionalProperty[]
     referencing the catalog files. Basic-protocol (property:) fields are listed in
@@ -1399,18 +1402,25 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
 
         props["ada:analyteTemplate"] = ac_template
 
-    if parameter_names:
-        mp_anyof = CommentedSeq()
-        for param_name in sorted(parameter_names):
-            mp_anyof.append({"$ref": f"../parameterTemplates/schema.yaml#/$defs/{param_name}"})
+    # schema:additionalProperty: editable params -> parameterTemplates (PropertyValueSpecification);
+    # read-only params -> parameterValues (PropertyValue carrying the fixed protocol value).
+    value_param_names = value_param_names or []
+    if parameter_names or value_param_names:
+        def _pt(n):
+            return f"../parameterTemplates/schema.yaml#/$defs/{n}"
 
+        def _pv(n):
+            return f"../parameterValues/schema.yaml#/$defs/{n}"
+
+        refs = [{"$ref": _pt(n)} for n in sorted(parameter_names)] + \
+               [{"$ref": _pv(n)} for n in sorted(value_param_names)]
         mp_items = CommentedMap()
-        mp_items["anyOf"] = mp_anyof
+        mp_items["anyOf"] = CommentedSeq(refs)
 
         mp_unique = CommentedSeq()
-        for param_name in sorted(parameter_names):
+        for ref in [_pt(n) for n in sorted(parameter_names)] + [_pv(n) for n in sorted(value_param_names)]:
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"../parameterTemplates/schema.yaml#/$defs/{param_name}"}
+            cm["contains"] = {"$ref": ref}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             mp_unique.append(cm)
@@ -1633,18 +1643,31 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                     if not (r.get("enum") and v not in r["enum"]):
                         parts[r["tapp_key"]] = v
                 elif r["P"] == "Advanced":
-                    method_params.append(OrderedDict([
-                        ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
-                        ("@type", ["schema:PropertyValueSpecification"]),
-                        ("schema:name", item),
-                        ("schema:valueName", r["mdname"]),
-                        ("schema:description", row["desc"] or item),
-                        ("ada:dataType", map_dtype(r.get("dtype"))),
-                        ("ada:fieldScope", "session"),
-                        ("schema:readonlyValue", not r["dual"]),
-                        ("ada:tier", "R"),
-                        ("schema:defaultValue", v),
-                    ]))
+                    if r.get("ro_value"):
+                        # read-only -> PropertyValue (fixed protocol value, coerced to the
+                        # parameter's data type so it matches the parameterValues $def)
+                        coerced = _coerce_value(val, row.get("dtype_col"))
+                        method_params.append(OrderedDict([
+                            ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
+                            ("@type", ["schema:PropertyValue"]),
+                            ("schema:propertyID", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
+                            ("schema:name", item),
+                            ("schema:value", coerced if coerced is not None else v),
+                        ]))
+                    else:
+                        # editable -> PropertyValueSpecification (defaultValue)
+                        method_params.append(OrderedDict([
+                            ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
+                            ("@type", ["schema:PropertyValueSpecification"]),
+                            ("schema:name", item),
+                            ("schema:valueName", r["mdname"]),
+                            ("schema:description", row["desc"] or item),
+                            ("ada:dataType", map_dtype(r.get("dtype"))),
+                            ("ada:fieldScope", "session"),
+                            ("schema:readonlyValue", False),
+                            ("ada:tier", "R"),
+                            ("schema:defaultValue", v),
+                        ]))
                 if r.get("detail"):
                     coerced = _coerce_value(val, row.get("dtype_col"))
                     if coerced is not None:

@@ -3064,237 +3064,283 @@
     },
     "schema:additionalProperty": {
       "type": "array",
-      "description": "Method-level parameter specifications (Advanced protocol tier) that apply across all workflow steps, as schema:PropertyValueSpecification entries. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates registry. Step-specific parameters should be placed on the appropriate workflow step instead.",
+      "description": "Method-level Advanced-protocol parameters that apply across all workflow steps. Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates (specifications) and parameterValues (values) registries. Step-specific parameters should be placed on the appropriate workflow step instead.",
       "items": {
-        "type": "object",
-        "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
-        "properties": {
-          "@type": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "contains": {
-              "const": "schema:PropertyValueSpecification"
-            },
-            "minItems": 1
-          },
-          "schema:name": {
-            "type": "string",
-            "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
-          },
-          "schema:valueName": {
-            "type": "string",
-            "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
-          },
-          "schema:description": {
-            "type": "string",
-            "description": "Guidance text shown to the user in the form."
-          },
-          "schema:propertyID": {
-            "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition.",
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "uri"
+        "anyOf": [
+          {
+            "type": "object",
+            "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:PropertyValueSpecification"
+                },
+                "minItems": 1
               },
-              {
-                "$ref": "#/$defs/DefinedTerm"
-              }
-            ]
-          },
-          "schema:inDefinedTermSet": {
-            "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-            "anyOf": [
-              {
+              "schema:name": {
                 "type": "string",
-                "format": "uri"
+                "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
               },
-              {
-                "type": "object",
-                "description": "Object reference to a vocabulary defined elsewhere.",
-                "properties": {
-                  "@id": {
+              "schema:valueName": {
+                "type": "string",
+                "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
+              },
+              "schema:description": {
+                "type": "string",
+                "description": "Guidance text shown to the user in the form."
+              },
+              "schema:propertyID": {
+                "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition.",
+                "anyOf": [
+                  {
                     "type": "string",
                     "format": "uri"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
                   }
-                },
-                "required": [
-                  "@id"
                 ]
               },
-              {
-                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "default": "schema:CreativeWork",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:CreativeWork"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string"
-                  },
-                  "schema:description": {
-                    "type": "string"
-                  },
-                  "schema:url": {
+              "schema:inDefinedTermSet": {
+                "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                "anyOf": [
+                  {
                     "type": "string",
                     "format": "uri"
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:url"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                "properties": {
-                  "@type": {
-                    "const": "schema:DefinedTermSet"
                   },
-                  "schema:hasDefinedTerm": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "const": "schema:DefinedTerm"
-                        },
-                        "schema:termCode": {
+                  {
+                    "type": "object",
+                    "description": "Object reference to a vocabulary defined elsewhere.",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ]
+                  },
+                  {
+                    "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "default": "schema:CreativeWork",
+                        "type": "array",
+                        "items": {
                           "type": "string"
-                        }
+                        },
+                        "contains": {
+                          "const": "schema:CreativeWork"
+                        },
+                        "minItems": 1
                       },
-                      "required": [
-                        "@type",
-                        "schema:termCode"
-                      ]
-                    }
+                      "schema:name": {
+                        "type": "string"
+                      },
+                      "schema:description": {
+                        "type": "string"
+                      },
+                      "schema:url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:url"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                    "properties": {
+                      "@type": {
+                        "const": "schema:DefinedTermSet"
+                      },
+                      "schema:hasDefinedTerm": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "@type": {
+                              "const": "schema:DefinedTerm"
+                            },
+                            "schema:termCode": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "schema:termCode"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:hasDefinedTerm"
+                    ]
                   }
-                },
-                "required": [
-                  "@type",
-                  "schema:hasDefinedTerm"
                 ]
+              },
+              "schema:defaultValue": {
+                "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "schema:readonlyValue": {
+                "type": "boolean",
+                "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
+              },
+              "schema:valueRequired": {
+                "type": "boolean",
+                "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
+              },
+              "schema:minValue": {
+                "type": "number",
+                "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
+              },
+              "schema:maxValue": {
+                "type": "number",
+                "description": "Maximum allowed numeric value. Upper bound of valid range."
+              },
+              "schema:stepValue": {
+                "type": "number",
+                "description": "Granularity expected of the value (e.g. 0.1 for nA)."
+              },
+              "schema:valuePattern": {
+                "type": "string",
+                "description": "Regex pattern for validating string values."
+              },
+              "schema:multipleValues": {
+                "type": "boolean",
+                "description": "Whether multiple values are allowed (default false)."
+              },
+              "ada:fieldScope": {
+                "type": "string",
+                "enum": [
+                  "method",
+                  "session",
+                  "element"
+                ],
+                "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
+              },
+              "ada:category": {
+                "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              },
+              "ada:dataType": {
+                "type": "string",
+                "enum": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "date",
+                  "uri"
+                ],
+                "description": "Expected data type for the parameter value."
+              },
+              "schema:unitText": {
+                "type": "string",
+                "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+              },
+              "schema:unitCode": {
+                "description": "URI for unit of measure (QUDT preferred).",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              },
+              "ada:cdifPropertyPath": {
+                "type": "string",
+                "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
+              },
+              "ada:tier": {
+                "type": "string",
+                "enum": [
+                  "M",
+                  "R",
+                  "O"
+                ],
+                "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
               }
+            },
+            "required": [
+              "schema:name",
+              "ada:fieldScope",
+              "ada:dataType"
             ]
           },
-          "schema:defaultValue": {
-            "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
-            "anyOf": [
-              {
-                "type": "string"
+          {
+            "type": "object",
+            "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:PropertyValue"
+                },
+                "minItems": 1
               },
-              {
-                "type": "number"
+              "schema:name": {
+                "type": "string",
+                "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
               },
-              {
-                "type": "boolean"
+              "schema:propertyID": {
+                "description": "URI identifying this parameter type in a formal vocabulary.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              },
+              "schema:value": {
+                "description": "The fixed protocol value for this read-only parameter."
+              },
+              "schema:unitText": {
+                "type": "string",
+                "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
               }
+            },
+            "required": [
+              "schema:name",
+              "schema:value"
             ]
-          },
-          "schema:readonlyValue": {
-            "type": "boolean",
-            "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
-          },
-          "schema:valueRequired": {
-            "type": "boolean",
-            "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
-          },
-          "schema:minValue": {
-            "type": "number",
-            "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
-          },
-          "schema:maxValue": {
-            "type": "number",
-            "description": "Maximum allowed numeric value. Upper bound of valid range."
-          },
-          "schema:stepValue": {
-            "type": "number",
-            "description": "Granularity expected of the value (e.g. 0.1 for nA)."
-          },
-          "schema:valuePattern": {
-            "type": "string",
-            "description": "Regex pattern for validating string values."
-          },
-          "schema:multipleValues": {
-            "type": "boolean",
-            "description": "Whether multiple values are allowed (default false)."
-          },
-          "ada:fieldScope": {
-            "type": "string",
-            "enum": [
-              "method",
-              "session",
-              "element"
-            ],
-            "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
-          },
-          "ada:category": {
-            "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/DefinedTerm"
-              }
-            ]
-          },
-          "ada:dataType": {
-            "type": "string",
-            "enum": [
-              "string",
-              "number",
-              "integer",
-              "boolean",
-              "date",
-              "uri"
-            ],
-            "description": "Expected data type for the parameter value."
-          },
-          "schema:unitText": {
-            "type": "string",
-            "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
-          },
-          "schema:unitCode": {
-            "description": "URI for unit of measure (QUDT preferred).",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/DefinedTerm"
-              }
-            ]
-          },
-          "ada:cdifPropertyPath": {
-            "type": "string",
-            "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
-          },
-          "ada:tier": {
-            "type": "string",
-            "enum": [
-              "M",
-              "R",
-              "O"
-            ],
-            "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
           }
-        },
-        "required": [
-          "schema:name",
-          "ada:fieldScope",
-          "ada:dataType"
         ]
       }
     },
@@ -4661,12 +4707,14 @@
         },
         "ada:analyticalMode": {
           "description": "Primary analytical mode(s) executed under this protocol. For single-mode protocols, records one value (e.g., Single-volume). For protocols covering both single-volume and multi-volume stitched acquisitions, list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
-          "type": "string",
-          "enum": [
-            "Single-volume",
-            "Multi-volume stitching",
-            "Single-volume; Multi-volume stitching"
-          ]
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Single-volume",
+              "Multi-volume stitching"
+            ]
+          }
         },
         "ada:acceleratingVoltageDefault": {
           "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same protocol or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as stated in the source and add a parenthetical note if the unit used is keV.",
@@ -4779,7 +4827,7 @@
         },
         "schema:additionalProperty": {
           "type": "array",
-          "description": "Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification; dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.",
+          "description": "Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (…Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.",
           "items": {
             "anyOf": [
               {
@@ -4973,173 +5021,6 @@
                   },
                   "schema:readonlyValue": {
                     "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "X-ray Tube Anode Material",
-                "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "xRayTubeAnodeMaterial"
-                  },
-                  "schema:name": {
-                    "const": "X-ray Tube Anode Material"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Detector Array Size",
-                "description": "Number of pixels in the detector array (width × height). Combined with detector pixel size and geometric magnification, determines the field of view.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectorArraySize"
-                  },
-                  "schema:name": {
-                    "const": "Detector Array Size"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Detector Pixel Size",
-                "description": "Physical size of a single pixel on the detector in micrometres. This is a fixed hardware property of the detector array, distinct from the reconstructed voxel size (which depends on geometric magnification and binning).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectorPixelSize"
-                  },
-                  "schema:name": {
-                    "const": "Detector Pixel Size"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "const": "µm"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Optical Objective",
-                "description": "Optical magnification objective installed between the scintillator and CCD/CMOS detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa series). For systems using only geometric magnification, report \"Not applicable\".",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/opticalObjective"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "opticalObjective"
-                  },
-                  "schema:name": {
-                    "const": "Optical Objective"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
                   },
                   "ada:tier": {
                     "const": "R"
@@ -5820,6 +5701,141 @@
                   "schema:name",
                   "ada:dataType",
                   "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "X-ray Tube Anode Material",
+                "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+                  },
+                  "schema:name": {
+                    "const": "X-ray Tube Anode Material"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Detector Array Size",
+                "description": "Number of pixels in the detector array (width × height). Combined with detector pixel size and geometric magnification, determines the field of view.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
+                  },
+                  "schema:name": {
+                    "const": "Detector Array Size"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Detector Pixel Size",
+                "description": "Physical size of a single pixel on the detector in micrometres. This is a fixed hardware property of the detector array, distinct from the reconstructed voxel size (which depends on geometric magnification and binning).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
+                  },
+                  "schema:name": {
+                    "const": "Detector Pixel Size"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              {
+                "title": "Optical Objective",
+                "description": "Optical magnification objective installed between the scintillator and CCD/CMOS detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa series). For systems using only geometric magnification, report \"Not applicable\".",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/opticalObjective"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/opticalObjective"
+                  },
+                  "schema:name": {
+                    "const": "Optical Objective"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
                 ]
               }
             ]
@@ -6052,189 +6068,6 @@
             },
             {
               "contains": {
-                "title": "X-ray Tube Anode Material",
-                "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "xRayTubeAnodeMaterial"
-                  },
-                  "schema:name": {
-                    "const": "X-ray Tube Anode Material"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detector Array Size",
-                "description": "Number of pixels in the detector array (width × height). Combined with detector pixel size and geometric magnification, determines the field of view.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectorArraySize"
-                  },
-                  "schema:name": {
-                    "const": "Detector Array Size"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detector Pixel Size",
-                "description": "Physical size of a single pixel on the detector in micrometres. This is a fixed hardware property of the detector array, distinct from the reconstructed voxel size (which depends on geometric magnification and binning).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectorPixelSize"
-                  },
-                  "schema:name": {
-                    "const": "Detector Pixel Size"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "const": "µm"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Optical Objective",
-                "description": "Optical magnification objective installed between the scintillator and CCD/CMOS detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa series). For systems using only geometric magnification, report \"Not applicable\".",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/opticalObjective"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "opticalObjective"
-                  },
-                  "schema:name": {
-                    "const": "Optical Objective"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "X-ray Power",
                 "description": "X-ray tube power in watts (W) registered by the protocol. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
                 "type": "object",
@@ -6960,6 +6793,157 @@
                   "schema:name",
                   "ada:dataType",
                   "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "X-ray Tube Anode Material",
+                "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+                  },
+                  "schema:name": {
+                    "const": "X-ray Tube Anode Material"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detector Array Size",
+                "description": "Number of pixels in the detector array (width × height). Combined with detector pixel size and geometric magnification, determines the field of view.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/detectorArraySize"
+                  },
+                  "schema:name": {
+                    "const": "Detector Array Size"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detector Pixel Size",
+                "description": "Physical size of a single pixel on the detector in micrometres. This is a fixed hardware property of the detector array, distinct from the reconstructed voxel size (which depends on geometric magnification and binning).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/detectorPixelSize"
+                  },
+                  "schema:name": {
+                    "const": "Detector Pixel Size"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Optical Objective",
+                "description": "Optical magnification objective installed between the scintillator and CCD/CMOS detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa series). For systems using only geometric magnification, report \"Not applicable\".",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/opticalObjective"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": "ada:parameter/labxctTAPP/opticalObjective"
+                  },
+                  "schema:name": {
+                    "const": "Optical Objective"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
                 ]
               },
               "minContains": 0,

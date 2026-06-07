@@ -39,12 +39,14 @@
                 },
                 "ada:analyticalMode": {
                     "description": "Primary analytical mode(s) executed under this protocol. For single-mode protocols, records one value (e.g., Single-volume). For protocols covering both single-volume and multi-volume stitched acquisitions, list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
-                    "type": "string",
-                    "enum": [
-                        "Single-volume",
-                        "Multi-volume stitching",
-                        "Single-volume; Multi-volume stitching"
-                    ]
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "Single-volume",
+                            "Multi-volume stitching"
+                        ]
+                    }
                 },
                 "ada:acceleratingVoltageDefault": {
                     "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same protocol or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as stated in the source and add a parenthetical note if the unit used is keV.",
@@ -157,7 +159,7 @@
                 },
                 "schema:additionalProperty": {
                     "type": "array",
-                    "description": "Method-level parameter specifications (Advanced protocol tier). Each entry is a schema:PropertyValueSpecification; dual-homed fields use the …Default name here and carry the per-dataset value in the detail block.",
+                    "description": "Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (…Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.",
                     "items": {
                         "anyOf": [
                             {
@@ -174,18 +176,6 @@
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/samplePreparationNotesDefault"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayTubeAnodeMaterial"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorArraySize"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorPixelSize"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/opticalObjective"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayPowerDefault"
@@ -234,6 +224,18 @@
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirementDefault"
+                            },
+                            {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/xRayTubeAnodeMaterial"
+                            },
+                            {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/detectorArraySize"
+                            },
+                            {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/detectorPixelSize"
+                            },
+                            {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/opticalObjective"
                             }
                         ]
                     },
@@ -275,34 +277,6 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayTubeAnodeMaterial"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorArraySize"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/detectorPixelSize"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/opticalObjective"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/xRayPowerDefault"
                             },
                             "minContains": 0,
@@ -409,6 +383,34 @@
                         {
                             "contains": {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/crossValidationProtocolRequirementDefault"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/xRayTubeAnodeMaterial"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/detectorArraySize"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/detectorPixelSize"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../parameterValues/schema.yaml#/$defs/opticalObjective"
                             },
                             "minContains": 0,
                             "maxContains": 1

@@ -210,16 +210,12 @@ allOf:
         type: array
         items:
           anyOf:
-            - $ref: ../parameterTemplates/schema.yaml#/$defs/beamDamageMinimization
             - $ref: ../parameterTemplates/schema.yaml#/$defs/beamRasterDimensionsDefault
             - $ref: ../parameterTemplates/schema.yaml#/$defs/driftCorrectionDefault
-            - $ref: ../parameterTemplates/schema.yaml#/$defs/edsSpectralProcessingType
-            - $ref: ../parameterTemplates/schema.yaml#/$defs/halogenCorrectionOnOxygen
+            - $ref: ../parameterValues/schema.yaml#/$defs/beamDamageMinimization
+            - $ref: ../parameterValues/schema.yaml#/$defs/edsSpectralProcessingType
+            - $ref: ../parameterValues/schema.yaml#/$defs/halogenCorrectionOnOxygen
         allOf:
-          - contains:
-              $ref: ../parameterTemplates/schema.yaml#/$defs/beamDamageMinimization
-            minContains: 0
-            maxContains: 1
           - contains:
               $ref: ../parameterTemplates/schema.yaml#/$defs/beamRasterDimensionsDefault
             minContains: 0
@@ -229,11 +225,15 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: ../parameterTemplates/schema.yaml#/$defs/edsSpectralProcessingType
+              $ref: ../parameterValues/schema.yaml#/$defs/beamDamageMinimization
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: ../parameterTemplates/schema.yaml#/$defs/halogenCorrectionOnOxygen
+              $ref: ../parameterValues/schema.yaml#/$defs/edsSpectralProcessingType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              $ref: ../parameterValues/schema.yaml#/$defs/halogenCorrectionOnOxygen
             minContains: 0
             maxContains: 1
       schema:instrument:

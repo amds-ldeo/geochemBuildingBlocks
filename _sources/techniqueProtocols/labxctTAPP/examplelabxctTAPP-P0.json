@@ -36,7 +36,10 @@
   "ada:acquisitionSoftwareDefault": "CT Agent Pro 3D v3.8 (Nikon)",
   "ada:reconstructionSoftwareDefault": "CT Pro 3D v3.8 (Nikon)",
   "ada:segmentationAndAnalysisSoftwareDefault": "Avizo 9.2 (Thermo Fisher)",
-  "ada:analyticalMode": "Single-volume; Multi-volume stitching",
+  "ada:analyticalMode": [
+    "Single-volume",
+    "Multi-volume stitching"
+  ],
   "ada:acceleratingVoltageDefault": "160 kV",
   "ada:tubeCurrentDefault": "180 uA",
   "ada:xRayPreFilterDefault": "1 mm Cu",
@@ -69,14 +72,11 @@
     {
       "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
       "@type": [
-        "schema:PropertyValueSpecification"
+        "schema:PropertyValue"
       ],
-      "schema:valueName": "detectorPixelSize",
+      "schema:propertyID": "ada:parameter/labxctTAPP/detectorPixelSize",
       "schema:name": "Detector Pixel Size",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
+      "schema:value": "example detectorPixelSize",
       "schema:unitText": "µm"
     },
     {

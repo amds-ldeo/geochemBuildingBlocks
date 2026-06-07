@@ -50,13 +50,13 @@
   "ada:detectorConfiguration": "missing",
   "ada:laserWavelengthAndType": "193 nm Excimer (ArF excimer)",
   "ada:dataReductionSoftwareDefault": "AMS ver. 1.0 (Mutchler et al. 2008)",
-  "ada:laserSpotGeometryDefault": "~24 µm diameter",
-  "ada:laserSpotPathAblationMode": "Spot (stationary)",
+  "ada:spotGeometryDefault": "~24 µm diameter",
+  "ada:spotPath": "Spot (stationary)",
   "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
   "ada:laserRepetitionRateDefault": "5 Hz",
-  "ada:ablationDurationPerSpotDefault": -9999,
+  "ada:ablationSpotDurationDefault": -9999,
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:carrierGasAndFlowRateDefault": "missing",
+  "ada:carrierGasFlowRateDefault": "missing",
   "ada:rfPower": -9999,
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -64,15 +64,15 @@
   "ada:spectrometerDwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
   "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
-  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
-  "ada:elementalFractionationCorrection": "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described",
-  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
-  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
-  "ada:isobaricInterferenceCorrectionsApplied": "missing",
+  "ada:InternalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
+  "ada:elementalFractionalCorretion": "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described",
+  "ada:integrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
+  "ada:backgroundCorrection": "50 s background measurement before each analysis (same as silicate protocol)",
+  "ada:isobaricInterferenceCorrection": "missing",
   "ada:interferingSpecies": "missing",
-  "ada:interferenceCorrectionMethod": "missing",
-  "ada:primaryCalibrationStandardNameDefault": "NIST 610 glass standard",
-  "ada:secondaryReferenceMaterialsDefault": "missing",
+  "ada:IsobaricInterferenceCorrectionMethod": "missing",
+  "ada:calibrationStandardNameDefault": "NIST 610 glass standard",
+  "ada:secondaryReferenceMaterialDefault": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/coupledTechniqueDefault",
@@ -115,11 +115,11 @@
       "schema:unitText": "mJ"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
+      "schema:valueName": "DriftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -128,24 +128,11 @@
       "schema:defaultValue": "NIST 610 analyzed before and after every session (same as silicate protocol)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": true,
-      "ada:tier": "R",
-      "schema:defaultValue": "Single spot analysis per location"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+      "schema:valueName": "postAcquisitionNormalizationDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -154,17 +141,26 @@
       "schema:defaultValue": "No post-acquisition normalization; EMP CaO applied directly as IS; NIST 610 for external calibration"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
+      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotesDefault",
+      "schema:valueName": "descriptionDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "N/A — see silicate column for general notes"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot analysis per location"
     }
   ]
 }

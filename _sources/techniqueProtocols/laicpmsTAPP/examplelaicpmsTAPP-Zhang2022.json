@@ -41,13 +41,13 @@
   "ada:detectorConfiguration": "Triple mode detection (pulse counting + analog + Faraday) at 65% duty cycle",
   "ada:laserWavelengthAndType": "missing",
   "ada:dataReductionSoftwareDefault": "missing",
-  "ada:laserSpotGeometryDefault": "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular",
-  "ada:laserSpotPathAblationMode": "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons",
+  "ada:spotGeometryDefault": "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular",
+  "ada:spotPath": "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons",
   "ada:laserFluenceDefault": -9999,
   "ada:laserRepetitionRateDefault": "Raster: 50 Hz; Spot (Ge): 50 Hz",
-  "ada:ablationDurationPerSpotDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
+  "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:carrierGasAndFlowRateDefault": "missing",
+  "ada:carrierGasFlowRateDefault": "missing",
   "ada:rfPower": -9999,
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -55,15 +55,15 @@
   "ada:spectrometerDwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Standardization techniques followed those of Humayun (2012) [Section 2.2; specific IS approach not restated in this paper]",
-  "ada:internalStandardElement": "missing",
-  "ada:elementalFractionationCorrection": "Multi-point external calibration using series of iron meteorite reference materials (North Chile Filomena as primary standard for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au)",
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each raster analysis; mean background subtracted",
-  "ada:isobaricInterferenceCorrectionsApplied": "Yes — ⁹⁹Ru used instead of ¹⁰¹Ru to avoid ⁴⁰Ar⁶¹Ni⁺ interference; isotope selection minimizes other interferences",
+  "ada:InternalStandardElement": "missing",
+  "ada:elementalFractionalCorretion": "Multi-point external calibration using series of iron meteorite reference materials (North Chile Filomena as primary standard for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au)",
+  "ada:integrationIntervalMethod": "missing",
+  "ada:backgroundCorrection": "Gas blank measured before each raster analysis; mean background subtracted",
+  "ada:isobaricInterferenceCorrection": "Yes — ⁹⁹Ru used instead of ¹⁰¹Ru to avoid ⁴⁰Ar⁶¹Ni⁺ interference; isotope selection minimizes other interferences",
   "ada:interferingSpecies": "⁴⁰Ar⁶¹Ni⁺ on ¹⁰¹Ru (most abundant Ru isotope → use ⁹⁹Ru instead)",
-  "ada:interferenceCorrectionMethod": "Isotope selection: ⁹⁹Ru chosen over ¹⁰¹Ru; other isotopes chosen to minimize interference",
-  "ada:primaryCalibrationStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
-  "ada:secondaryReferenceMaterialsDefault": "missing",
+  "ada:IsobaricInterferenceCorrectionMethod": "Isotope selection: ⁹⁹Ru chosen over ¹⁰¹Ru; other isotopes chosen to minimize interference",
+  "ada:calibrationStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
+  "ada:secondaryReferenceMaterialDefault": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laicpmsTAPP/coupledTechniqueDefault",
@@ -92,11 +92,11 @@
       "schema:defaultValue": "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:valueName": "transectOrMappingRateOrStepSizeDefault",
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -105,11 +105,11 @@
       "schema:defaultValue": "10 µm s⁻¹ (raster scan); N/A (spot Ge)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
+      "schema:valueName": "DriftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -118,11 +118,11 @@
       "schema:defaultValue": "Standards at start and end of session; external bracketing"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@id": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:valueName": "UncertaintyPropagationMethodDefault",
       "schema:name": "Uncertainty Propagation Method",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -131,11 +131,11 @@
       "schema:defaultValue": "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+      "schema:valueName": "nonlineraResponseCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -144,11 +144,11 @@
       "schema:defaultValue": "Applied: triple mode detection at 65% duty cycle (pulse counting + analog + Faraday); specific cross-calibration not described"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+      "schema:valueName": "postAcquisitionNormalizationDefault",
       "schema:name": "Normalization / Standards-Based Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -157,11 +157,11 @@
       "schema:defaultValue": "External calibration with iron meteorite and NIST SRM 1263a V-Cr steel standards; no post-acquisition normalization described"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/additionalNotesDefault",
+      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "additionalNotesDefault",
+      "schema:valueName": "descriptionDefault",
       "schema:name": "Additional Notes",
       "ada:dataType": "string",
       "ada:fieldScope": "session",

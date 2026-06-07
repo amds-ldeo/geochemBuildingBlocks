@@ -178,9 +178,16 @@
         },
         "schema:additionalProperty": {
             "type": "array",
-            "description": "Method-level parameter specifications (Advanced protocol tier) that apply across all workflow steps, as schema:PropertyValueSpecification entries. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates registry. Step-specific parameters should be placed on the appropriate workflow step instead.",
+            "description": "Method-level Advanced-protocol parameters that apply across all workflow steps. Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value. Replaces the former ada:methodParameters. Technique TAPP profiles constrain the allowed entries via $refs to the parameterTemplates (specifications) and parameterValues (values) registries. Step-specific parameters should be placed on the appropriate workflow step instead.",
             "items": {
-                "$ref": "#/$defs/MethodParameter"
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/MethodParameter"
+                    },
+                    {
+                        "$ref": "#/$defs/MethodParameterValue"
+                    }
+                ]
             }
         },
         "ada:analyteTemplate": {
@@ -661,6 +668,48 @@
                 "schema:name",
                 "ada:fieldScope",
                 "ada:dataType"
+            ]
+        },
+        "MethodParameterValue": {
+            "type": "object",
+            "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "contains": {
+                        "const": "schema:PropertyValue"
+                    },
+                    "minItems": 1
+                },
+                "schema:name": {
+                    "type": "string",
+                    "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
+                },
+                "schema:propertyID": {
+                    "description": "URI identifying this parameter type in a formal vocabulary.",
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        }
+                    ]
+                },
+                "schema:value": {
+                    "description": "The fixed protocol value for this read-only parameter."
+                },
+                "schema:unitText": {
+                    "type": "string",
+                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+                }
+            },
+            "required": [
+                "schema:name",
+                "schema:value"
             ]
         },
         "AnalyteColumn": {
