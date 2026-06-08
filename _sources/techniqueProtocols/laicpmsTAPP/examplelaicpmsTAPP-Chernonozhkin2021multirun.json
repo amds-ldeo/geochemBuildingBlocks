@@ -39,17 +39,10 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished epoxy thick section; pre-ablated before trace element run",
-  "ada:samplePreparationMethodDefault": "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run",
-  "ada:laserManufacturerModel": "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)",
-  "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
-  "ada:icpMsType": "Double-focusing sector field ICP-MS (explicitly stated)",
-  "ada:interfaceConeConfiguration": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)",
   "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Run 1: Medium resolution (M/ΔM = 4000) for major elements; Run 2: Low resolution (M/ΔM = 300) for trace elements",
   "ada:detectorConfiguration": "Triple mode detection; Faraday used for major elements in run 1",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration ~5 ns",
-  "ada:dataReductionSoftwareDefault": "In-house MatLab script (Appendix C2)",
   "ada:spotGeometryDefault": "Run 1 (major): 30 µm circular; Run 2 (trace): 130 µm circular",
   "ada:spotPath": "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)",
   "ada:laserFluenceDefault": "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²",
@@ -64,14 +57,14 @@
   "ada:spectrometerDwellTimeDefault": "Run 1 (major): 0.01 s per nuclide; samples per peak: 18; duty cycle: 2.069 s; Run 2 (trace): 0.01 s per nuclide; samples per peak: 7; duty cycle: 2.062 s",
   "ada:backgroundCountTimeDefault": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans",
   "ada:internalStandardApproach": "Run 1 (major elements): sum-of-oxide normalization (MgO+FeO+SiO₂+P₂O₅=100 wt%; Liu et al. 2008); Run 2 (trace elements): single element IS from Run 1 (⁵³Cr concentration from major element run used as IS for trace element run)",
-  "ada:InternalStandardElement": "Run 1: No single IS; oxide sum normalization; Run 2: ⁵³Cr (concentration from Run 1 major-element analysis on 30 µm spot used as IS for 130 µm spot trace element run)",
-  "ada:elementalFractionalCorretion": "Run 1: Oxide sum normalization corrects for ablation yield variation; external calibration using glass GRMs (NIST + USGS + MPI-DING); Run 2: Cr from run 1 as IS corrects for ablation yield; external calibration with expanded glass GRM set",
-  "ada:integrationIntervalMethod": "Time-resolved signals inspected manually; unstable intervals at start and end discarded; Cr heterogeneities and inclusion signals (elevated P, Ca, Co, Ni) identified and excluded from integration",
-  "ada:backgroundCorrection": "Gas blank measured before each analysis (5 scans); average background value preceding each analysis subtracted from corresponding data",
+  "ada:internalStandardElement": "Run 1: No single IS; oxide sum normalization; Run 2: ⁵³Cr (concentration from Run 1 major-element analysis on 30 µm spot used as IS for 130 µm spot trace element run)",
+  "ada:elementalFractionationCorrection": "Run 1: Oxide sum normalization corrects for ablation yield variation; external calibration using glass GRMs (NIST + USGS + MPI-DING); Run 2: Cr from run 1 as IS corrects for ablation yield; external calibration with expanded glass GRM set",
+  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected manually; unstable intervals at start and end discarded; Cr heterogeneities and inclusion signals (elevated P, Ca, Co, Ni) identified and excluded from integration",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (5 scans); average background value preceding each analysis subtracted from corresponding data",
   "ada:isobaricInterferenceCorrection": "Yes — cool plasma not applicable (normal plasma); argide corrections less critical; oxide interferences monitored; spectral interference list in Table C1",
   "ada:interferingSpecies": "Same interference list as mapping (Table C1); argide-based interferences less critical without cool plasma",
-  "ada:IsobaricInterferenceCorrectionMethod": "Argide corrections less critical (normal plasma); oxide-based interferences minimized by tuning; same interference list but without cool plasma mitigation",
-  "ada:calibrationStandardNameDefault": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements",
+  "ada:isobaricInterferenceCorrectionMethod": "Argide corrections less critical (normal plasma); oxide-based interferences minimized by tuning; same interference list but without cool plasma mitigation",
+  "ada:primaryCalibrationStandardNameDefault": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements",
   "ada:secondaryReferenceMaterialDefault": "Same GRM set measured as unknowns for accuracy assessment",
   "schema:additionalProperty": [
     {
@@ -127,11 +120,11 @@
       "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault",
+      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "aignalSmoothingDefault",
+      "schema:valueName": "signalSmoothingDefault",
       "schema:name": "Signal Smoothing",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -153,30 +146,17 @@
       "schema:defaultValue": "Same instrument as mapping; tuning optimized per run (different RF power and resolution settings per run)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "DriftMonitorFrequencyDefault",
+      "schema:valueName": "driftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same as mapping protocol; GRMs at start and end"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethodDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "UncertaintyPropagationMethodDefault",
-      "schema:name": "Uncertainty Propagation Method",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -192,11 +172,11 @@
       "schema:defaultValue": "Manual inspection; analyses with elevated P, Ca, Co, Ni (phosphate or metal inclusions) excluded; Cr heterogeneities also flagged"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "nonlineraResponseCorrectionDefault",
+      "schema:valueName": "nonlinearResponseCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -229,28 +209,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Run 1: 100% oxide sum normalization; Run 2: Cr IS from Run 1 applied; no further post-acquisition normalization"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "descriptionDefault",
-      "schema:name": "Additional Notes",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Multi-run sequential design is the key methodological innovation: Run 1 (major elements, 30 µm, MR) provides Cr IS for Run 2 (trace elements, 130 µm, LR); pre-ablation pass removes surface contamination before Run 1"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/ablationCellType",
-      "schema:name": "Ablation Cell Type",
-      "schema:value": "HELEX II two-volume ablation cell"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",

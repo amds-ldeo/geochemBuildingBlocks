@@ -4,88 +4,6 @@
     "description": "Registry of reusable schema:PropertyValueSpecification method-parameter templates derived from technique TAPP spreadsheets. Each $def constrains one method-level (readOnly:true) parameter template (e.g. DriftCorrection, massAbsorptionCoefficients). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
-        "coupledTechniqueDefault": {
-            "title": "Coupled Technique(s)",
-            "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/coupledTechniqueDefault"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "coupledTechniqueDefault"
-                },
-                "schema:name": {
-                    "const": "Coupled Technique(s)"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "couplingDescriptionDefault": {
-            "title": "Coupling Description",
-            "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined (e.g., which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive before destructive).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/couplingDescriptionDefault"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "couplingDescriptionDefault"
-                },
-                "schema:name": {
-                    "const": "Coupling Description"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
         "fusionFluxAndDilutionRatioDefault": {
             "title": "Fusion Flux and Dilution Ratio",
             "description": "For protocols using fused glass, the flux type and sample:flux dilution ratio used to prepare the analytical glass.",
@@ -376,13 +294,13 @@
                 "ada:fieldScope"
             ]
         },
-        "aignalSmoothingDefault": {
+        "signalSmoothingDefault": {
             "title": "Signal Smoothing",
             "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault"
+                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
                 },
                 "@type": {
                     "const": [
@@ -390,7 +308,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "aignalSmoothingDefault"
+                    "const": "signalSmoothingDefault"
                 },
                 "schema:name": {
                     "const": "Signal Smoothing"
@@ -540,13 +458,13 @@
                 "ada:fieldScope"
             ]
         },
-        "DriftMonitorFrequencyDefault": {
+        "driftMonitorFrequencyDefault": {
             "title": "Drift Monitor Frequency",
             "description": "Frequency at which primary reference materials are analysed to monitor instrument drift and apply drift corrections across the session. Editable to allow analysts to increase monitoring frequency if drift is observed.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault"
+                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault"
                 },
                 "@type": {
                     "const": [
@@ -554,51 +472,10 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "DriftMonitorFrequencyDefault"
+                    "const": "driftMonitorFrequencyDefault"
                 },
                 "schema:name": {
                     "const": "Drift Monitor Frequency"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "UncertaintyPropagationMethodDefault": {
-            "title": "Uncertainty Propagation Method",
-            "description": "Approach used to propagate analytical uncertainty from raw count rates through the data reduction chain to final reported concentrations or isotope ratios. Specifies which uncertainty sources are included: counting statistics, calibration standard uncertainty, internal standard concentration uncertainty, drift correction uncertainty. Editable because this field may be unspecified at protocol registration (Advanced tier) and can be completed by the analyst when documenting the analysis.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethodDefault"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "UncertaintyPropagationMethodDefault"
-                },
-                "schema:name": {
-                    "const": "Uncertainty Propagation Method"
                 },
                 "ada:dataType": {
                     "const": "string"
@@ -663,13 +540,13 @@
                 "ada:fieldScope"
             ]
         },
-        "nonlineraResponseCorrectionDefault": {
+        "nonlinearResponseCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
             "description": "Whether a correction was applied for nonlinear response at the transition between pulse-counting and analog detector modes.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault"
+                    "const": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault"
                 },
                 "@type": {
                     "const": [
@@ -677,7 +554,7 @@
                     ]
                 },
                 "schema:valueName": {
-                    "const": "nonlineraResponseCorrectionDefault"
+                    "const": "nonlinearResponseCorrectionDefault"
                 },
                 "schema:name": {
                     "const": "Pulse/Analog Detector Nonlinearity Correction"
@@ -763,129 +640,6 @@
                 },
                 "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "descriptionDefault": {
-            "title": "Additional Notes",
-            "description": "Any additional context about this protocol or analysis session not captured by the structured fields above. Use sparingly; structured fields are preferred for all information that can be formally categorised.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/descriptionDefault"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "descriptionDefault"
-                },
-                "schema:name": {
-                    "const": "Additional Notes"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "labxct_coupledTechniqueDefault": {
-            "title": "Coupled Technique(s)",
-            "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/coupledTechniqueDefault"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "coupledTechniqueDefault"
-                },
-                "schema:name": {
-                    "const": "Coupled Technique(s)"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": false
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
-        "labxct_couplingDescriptionDefault": {
-            "title": "Coupling Description",
-            "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/couplingDescriptionDefault"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "couplingDescriptionDefault"
-                },
-                "schema:name": {
-                    "const": "Coupling Description"
                 },
                 "ada:dataType": {
                     "const": "string"
@@ -1759,6 +1513,1178 @@
                 },
                 "schema:name": {
                     "const": "Drift Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "temObjectiveApertureDefault": {
+            "title": "TEM Objective Aperture",
+            "description": "Objective aperture diameter used to select the imaging beam condition in TEM mode. In BF-TEM, a small aperture blocks diffracted beams to enhance mass-thickness contrast; in DF-TEM, the aperture is displaced to select a specific diffracted beam; in HRTEM, no aperture is typically used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/temObjectiveApertureDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "temObjectiveApertureDefault"
+                },
+                "schema:name": {
+                    "const": "TEM Objective Aperture"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "eftemEnergyWindowDefault": {
+            "title": "EFTEM Energy Window",
+            "description": "Energy window(s) used for EFTEM elemental mapping: center energy, width, and acquisition method (three-window or jump-ratio).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/eftemEnergyWindowDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "eftemEnergyWindowDefault"
+                },
+                "schema:name": {
+                    "const": "EFTEM Energy Window"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "haadfCollectionAnglesDefault": {
+            "title": "HAADF Collection Angles",
+            "description": "Inner and outer collection angles of the HAADF detector in milliradians (mrad). The inner angle determines the boundary between diffracted and thermally diffuse scattered electrons; larger inner angles yield stronger Z-contrast and reduced Bragg contrast.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/haadfCollectionAnglesDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "haadfCollectionAnglesDefault"
+                },
+                "schema:name": {
+                    "const": "HAADF Collection Angles"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "stemProbeDiameterDefault": {
+            "title": "STEM Probe Diameter",
+            "description": "Nominal or measured diameter of the focused electron probe at the sample, reported in nm. Serves as a direct spatial resolution proxy for STEM imaging and STEM-EDS/EELS analysis. Related to, but distinct from, Convergence Semi-Angle: the two quantities are connected via aberration coefficients, defocus, and probe current, which are not always published. Report whichever is known; if both are known, report both fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/stemProbeDiameterDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "stemProbeDiameterDefault"
+                },
+                "schema:name": {
+                    "const": "STEM Probe Diameter"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "nm"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "stemProbeCurrentDefault": {
+            "title": "STEM Probe Current",
+            "description": "Probe current in picoamperes (pA) or nanoamperes (nA). Higher current improves EDS/EELS signal but increases beam damage risk, especially for organic matter and hydrous minerals.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/stemProbeCurrentDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "stemProbeCurrentDefault"
+                },
+                "schema:name": {
+                    "const": "STEM Probe Current"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "pA or nA"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "stemScanDimensionsDefault": {
+            "title": "STEM Scan Dimensions",
+            "description": "Number of pixels in the STEM scan frame (X × Y pixels). Combined with calibrated pixel size, defines the field of view.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/stemScanDimensionsDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "stemScanDimensionsDefault"
+                },
+                "schema:name": {
+                    "const": "STEM Scan Dimensions"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "pixels x pixels"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "stemFrameAveragingDefault": {
+            "title": "STEM Frame Averaging",
+            "description": "Number of frames averaged (with drift correction if applicable) to produce the final STEM image. Averaging reduces noise while limiting per-frame dose.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/stemFrameAveragingDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "stemFrameAveragingDefault"
+                },
+                "schema:name": {
+                    "const": "STEM Frame Averaging"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "selectedAreaApertureSizeDefault": {
+            "title": "Selected-Area Aperture Size",
+            "description": "Diameter of the selected-area aperture used in SAED mode, defining the specimen region that contributes to the diffraction pattern.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/selectedAreaApertureSizeDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "selectedAreaApertureSizeDefault"
+                },
+                "schema:name": {
+                    "const": "Selected-Area Aperture Size"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "precessionAngleDefault": {
+            "title": "Precession Angle",
+            "description": "Precession semi-angle in degrees for precession electron diffraction (PED). Hollow-cone illumination reduces dynamical diffraction effects and produces more kinematical-like intensities. Not applicable to SAED, CBED, or standard 4D-STEM.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/precessionAngleDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "precessionAngleDefault"
+                },
+                "schema:name": {
+                    "const": "Precession Angle"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "degrees"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "4dStemScanGridAndAreaDefault": {
+            "title": "4D-STEM Scan Grid and Area",
+            "description": "Number of probe positions in the 4D-STEM dataset (scan pixels × scan pixels) and the physical area covered. Probe step size is the physical area divided by scan pixel count.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/4dStemScanGridAndAreaDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "4dStemScanGridAndAreaDefault"
+                },
+                "schema:name": {
+                    "const": "4D-STEM Scan Grid and Area"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "4dStemDwellTimePerProbePositionDefault": {
+            "title": "4D-STEM Dwell Time per Probe Position",
+            "description": "Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds. Longer dwell improves signal-to-noise for weakly diffracting phases (e.g., smectite 001 reflection at ~1.24 nm) but increases total specimen dose; risk of beam damage to phyllosilicates and organic matter must be balanced against data quality.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/4dStemDwellTimePerProbePositionDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "4dStemDwellTimePerProbePositionDefault"
+                },
+                "schema:name": {
+                    "const": "4D-STEM Dwell Time per Probe Position"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "ms"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "diffractionCameraLengthCalibrationMethodDefault": {
+            "title": "Diffraction Camera Length Calibration Method",
+            "description": "Method used to calibrate the camera length constant and convert pixel distances in diffraction patterns to d-spacings or reciprocal lattice vectors.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "diffractionCameraLengthCalibrationMethodDefault"
+                },
+                "schema:name": {
+                    "const": "Diffraction Camera Length Calibration Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "edsLiveTimePerPointOrPixelDefault": {
+            "title": "EDS Live Time per Point or Pixel",
+            "description": "EDS spectral acquisition live time per analysis point (point/line mode) or per pixel (spectrum image) in seconds. Also referred to as \"EDS Acquisition Time\" in EPMA and some SEM-EDS contexts, where the per-pixel distinction is less relevant.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/edsLiveTimePerPointOrPixelDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "edsLiveTimePerPointOrPixelDefault"
+                },
+                "schema:name": {
+                    "const": "EDS Live Time per Point or Pixel"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "s"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "edsEnergyRangeDefault": {
+            "title": "EDS Energy Range",
+            "description": "Energy range of EDS spectrum acquisition in keV.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/edsEnergyRangeDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "edsEnergyRangeDefault"
+                },
+                "schema:name": {
+                    "const": "EDS Energy Range"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "keV"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "eelsBackgroundSubtractionMethodDefault": {
+            "title": "EELS Background Subtraction Method",
+            "description": "Method used to subtract the background beneath the ionization edge of interest to extract the net edge signal.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/eelsBackgroundSubtractionMethodDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "eelsBackgroundSubtractionMethodDefault"
+                },
+                "schema:name": {
+                    "const": "EELS Background Subtraction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "eelsPluralScatteringCorrectionDefault": {
+            "title": "EELS Plural Scattering Correction",
+            "description": "Method applied to correct for multiple inelastic scattering events (plural scattering) that broaden edge fine structure. Critical for specimens thicker than ~0.5 inelastic mean free paths.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/eelsPluralScatteringCorrectionDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "eelsPluralScatteringCorrectionDefault"
+                },
+                "schema:name": {
+                    "const": "EELS Plural Scattering Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "imageProcessingMethodsAppliedDefault": {
+            "title": "Image Processing Methods Applied",
+            "description": "Image processing steps applied to TEM or STEM images during or after acquisition. Non-linear processing steps that could affect quantitative interpretation should be documented explicitly. Ideally should be a property on a workflow step associated with the software doing the processing.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "imageProcessingMethodsAppliedDefault"
+                },
+                "schema:name": {
+                    "const": "Image Processing Methods Applied"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "specimenThicknessDeterminationMethodDefault": {
+            "title": "Specimen Thickness Determination Method",
+            "description": "Method used to estimate TEM foil thickness. Required for EELS quantification (log-ratio) and for assessing multiple-scattering severity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/specimenThicknessDeterminationMethodDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "specimenThicknessDeterminationMethodDefault"
+                },
+                "schema:name": {
+                    "const": "Specimen Thickness Determination Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "eelsEnergyCalibrationDefault": {
+            "title": "EELS Energy Calibration",
+            "description": "Method and reference used to calibrate the EELS energy axis. Accurate calibration is required for ELNES edge identification, chemical-state analysis, and inter-lab comparability.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/eelsEnergyCalibrationDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "eelsEnergyCalibrationDefault"
+                },
+                "schema:name": {
+                    "const": "EELS Energy Calibration"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "diffractionCalibrationReferenceDefault": {
+            "title": "Diffraction Calibration Reference",
+            "description": "Reference material or internal standard used to calibrate the electron diffraction camera constant (camera length × electron wavelength), enabling conversion of pixel distances to d-spacings.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/diffractionCalibrationReferenceDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "diffractionCalibrationReferenceDefault"
+                },
+                "schema:name": {
+                    "const": "Diffraction Calibration Reference"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "edsDetectionLimitDefault": {
+            "title": "EDS Detection Limit",
+            "description": "Estimated detection limits for key target analytes by EDS under this protocol conditions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/edsDetectionLimitDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "edsDetectionLimitDefault"
+                },
+                "schema:name": {
+                    "const": "EDS Detection Limit"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "edsCountingStatisticsAccumulationCriterionDefault": {
+            "title": "EDS Counting Statistics / Accumulation Criterion",
+            "description": "Quality criterion used to determine when sufficient EDS signal has been accumulated for a given pixel or point, in lieu of or in addition to a fixed live time. Expressed as a target relative uncertainty on major-element peak counts achieved by accumulating successive scan frames (e.g., \"1% counting statistics on major elements\"; \">10% counting statistics\"). Distinct from EDS Live Time per Point or Pixel, which records a fixed-duration setting.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "edsCountingStatisticsAccumulationCriterionDefault"
+                },
+                "schema:name": {
+                    "const": "EDS Counting Statistics / Accumulation Criterion"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "eelsSensitivityAndDetectionLimitDefault": {
+            "title": "EELS Sensitivity and Detection Limit",
+            "description": "Practical energy resolution (ZLP FWHM measured at operating conditions) and estimated detection limit or minimum detectable concentration for target edges under this protocol.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/temTAPP/eelsSensitivityAndDetectionLimitDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "eelsSensitivityAndDetectionLimitDefault"
+                },
+                "schema:name": {
+                    "const": "EELS Sensitivity and Detection Limit"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "chamberPressureDefault": {
+            "title": "Chamber Pressure",
+            "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semImagingTAPP/chamberPressureDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "chamberPressureDefault"
+                },
+                "schema:name": {
+                    "const": "Chamber Pressure"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "imagePixelSizeDefault": {
+            "title": "Image Pixel Size",
+            "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semImagingTAPP/imagePixelSizeDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "imagePixelSizeDefault"
+                },
+                "schema:name": {
+                    "const": "Image Pixel Size"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "clFrameTimeDefault": {
+            "title": "EBSD Frame Time",
+            "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time improves pattern quality and indexing rate but increases total acquisition time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semImagingTAPP/clFrameTimeDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "clFrameTimeDefault"
+                },
+                "schema:name": {
+                    "const": "EBSD Frame Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "ms"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "patternQualityThresholdDefault": {
+            "title": "EBSD Pattern Quality Threshold",
+            "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semImagingTAPP/patternQualityThresholdDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "patternQualityThresholdDefault"
+                },
+                "schema:name": {
+                    "const": "EBSD Pattern Quality Threshold"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "clWavelengthCalibrationReferenceDefault": {
+            "title": "CL Wavelength Calibration Reference",
+            "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReferenceDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "clWavelengthCalibrationReferenceDefault"
+                },
+                "schema:name": {
+                    "const": "CL Wavelength Calibration Reference"
                 },
                 "ada:dataType": {
                     "const": "string"

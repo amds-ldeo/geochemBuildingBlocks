@@ -39,17 +39,10 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished epoxy mount (~1 cm fragments in epoxy, etched with Nital)",
-  "ada:samplePreparationMethodDefault": "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water",
-  "ada:laserManufacturerModel": "Teledyne Excite 193 (193 nm ArF excimer)",
-  "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
-  "ada:icpMsType": "Sector field (SF-ICP-MS) (explicitly stated: \"sector field inductively coupled plasma mass spectrometer\")",
-  "ada:interfaceConeConfiguration": "Ni sampler cone; Ni skimmer cone",
   "ada:guardElectrode": "On (active)",
   "ada:massResolutionSettingDefault": "Low resolution (M/ΔM = 300)",
   "ada:detectorConfiguration": "Triple mode detector (pulse counting, analog, Faraday)",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration 4 ns",
-  "ada:dataReductionSoftwareDefault": "iolite 4.5.7 with 3D Trace Elements DRS",
   "ada:spotGeometryDefault": "150 µm circular",
   "ada:spotPath": "Spot (stationary)",
   "ada:laserFluenceDefault": "7 J cm⁻²",
@@ -64,14 +57,14 @@
   "ada:spectrometerDwellTimeDefault": "0.02 s per isotope; 100 samples per peak; 10 runs; 60 passes; total measurement time 120 s per analysis",
   "ada:backgroundCountTimeDefault": "20 s background measurement (laser shutter closed) before each 40 s ablation",
   "ada:internalStandardApproach": "Fe+Ni+Co sum normalization to 100% using iolite 3D Trace Elements DRS (eliminates need for independent EPMA IS)",
-  "ada:InternalStandardElement": "No single IS; Fe+Ni+Co mass fractions normalized to 100% via iolite 3D DRS (yield correction factors applied for NIST SRM 612 relative to North Chile)",
-  "ada:elementalFractionalCorretion": "External calibration using North Chile iron meteorite + NIST SRM 612 glass (yield correction applied in iolite 3D DRS for NIST relative to North Chile); ordinary least-squares fitting per 15 min calibration block; Fe+Ni+Co normalization eliminates need for independent EPMA IS",
-  "ada:integrationIntervalMethod": "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described",
-  "ada:backgroundCorrection": "Background signal measured for 20 s (laser shutter closed) before each 40 s ablation; background mean subtracted per isotope in iolite",
+  "ada:internalStandardElement": "No single IS; Fe+Ni+Co mass fractions normalized to 100% via iolite 3D DRS (yield correction factors applied for NIST SRM 612 relative to North Chile)",
+  "ada:elementalFractionationCorrection": "External calibration using North Chile iron meteorite + NIST SRM 612 glass (yield correction applied in iolite 3D DRS for NIST relative to North Chile); ordinary least-squares fitting per 15 min calibration block; Fe+Ni+Co normalization eliminates need for independent EPMA IS",
+  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described",
+  "ada:blankBackgroundCorrectionMethod": "Background signal measured for 20 s (laser shutter closed) before each 40 s ablation; background mean subtracted per isotope in iolite",
   "ada:isobaricInterferenceCorrection": "Yes — isotope selection to minimize interferences (e.g., ⁹⁹Ru instead of ¹⁰¹Ru to avoid ⁴⁰Ar⁶¹Ni⁺; low abundance isotopes for Fe and Ni)",
   "ada:interferingSpecies": "⁴⁰Ar⁶¹Ni⁺ on ¹⁰¹Ru (primary concern) → ⁹⁹Ru used instead; Fe and Ni matrix species on other isotopes minimized by isotope selection",
-  "ada:IsobaricInterferenceCorrectionMethod": "Isotope selection minimizes interferences; low-abundance isotopes of Fe and Ni chosen for analog mode to prevent detector saturation",
-  "ada:calibrationStandardNameDefault": "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) — used together with yield correction in iolite 3D DRS",
+  "ada:isobaricInterferenceCorrectionMethod": "Isotope selection minimizes interferences; low-abundance isotopes of Fe and Ni chosen for analog mode to prevent detector saturation",
+  "ada:primaryCalibrationStandardNameDefault": "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) — used together with yield correction in iolite 3D DRS",
   "ada:secondaryReferenceMaterialDefault": "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)",
   "schema:additionalProperty": [
     {
@@ -101,11 +94,11 @@
       "schema:defaultValue": "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹; Nebulizer gas (from table): 1.1 l min⁻¹"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault",
+      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "aignalSmoothingDefault",
+      "schema:valueName": "signalSmoothingDefault",
       "schema:name": "Signal Smoothing",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -127,11 +120,11 @@
       "schema:defaultValue": "ICP and laser settings optimized daily for optimum signal intensity and low oxide formation (factory specifications; mass calibration and detector cross-calibration checked and redone if required)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "DriftMonitorFrequencyDefault",
+      "schema:valueName": "driftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -140,11 +133,11 @@
       "schema:defaultValue": "NIST SRM 612 and North Chile measured bracketing every 15 unknowns: 3×STD → 3×STD → 10×unknowns → repeat"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "nonlineraResponseCorrectionDefault",
+      "schema:valueName": "nonlinearResponseCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -164,28 +157,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Fe+Ni+Co=100% sum normalization applied in iolite 3D Trace Elements DRS as final step; yield correction factors applied for NIST SRM 612 relative to North Chile"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "descriptionDefault",
-      "schema:name": "Additional Notes",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Key innovations: (1) use of two measurement standards (NIST SRM 612 + North Chile) with yield correction in iolite 3D DRS; (2) Fe+Ni+Co=100% normalization eliminates need for EPMA IS; Cr results not quantitative due to argide interferences"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/ablationCellType",
-      "schema:name": "Ablation Cell Type",
-      "schema:value": "HelEx II two-volume sample cell"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",

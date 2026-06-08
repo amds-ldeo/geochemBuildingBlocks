@@ -103,68 +103,6 @@
           "items": {
             "anyOf": [
               {
-                "title": "Coupled Technique(s)",
-                "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/coupledTechnique"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/coupledTechnique"
-                  },
-                  "schema:name": {
-                    "const": "Coupled Technique(s)"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Coupling Description",
-                "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined (e.g., which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive before destructive).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/couplingDescription"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/couplingDescription"
-                  },
-                  "schema:name": {
-                    "const": "Coupling Description"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
                 "title": "Coupled Protocol DOI",
                 "description": "Registered protocol DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled protocol has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
                 "type": "object",
@@ -227,37 +165,6 @@
                 ]
               },
               {
-                "title": "Sample Form / Analytical Substrate",
-                "description": "Physical form of the material as it enters the ablation cell. Editable to accommodate legitimate variations (e.g., thin section vs. mount) that do not alter the analytical protocol.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate"
-                  },
-                  "schema:name": {
-                    "const": "Sample Form / Analytical Substrate"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
                 "title": "Sample Persistent Identifier",
                 "description": "Globally unique, persistent identifier for the analysed sample. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem, and SESAR.",
                 "type": "object",
@@ -306,37 +213,6 @@
                   },
                   "schema:name": {
                     "const": "Fusion Flux and Dilution Ratio"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Sample Preparation Method",
-                "description": "Description of how samples were prepared for analysis (mounting, polishing, coating, fusion procedure, etc.).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/samplePreparationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/samplePreparationMethod"
-                  },
-                  "schema:name": {
-                    "const": "Sample Preparation Method"
                   },
                   "schema:value": {
                     "type": "string"
@@ -430,68 +306,6 @@
                   },
                   "schema:name": {
                     "const": "Mass Resolution Setting"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Acquisition Software",
-                "description": "Instrument control and data acquisition software used to collect raw signal data, including version number. Separate from data reduction software.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/acquisitionSoftware"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/acquisitionSoftware"
-                  },
-                  "schema:name": {
-                    "const": "Acquisition Software"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Data Reduction Software",
-                "description": "Software used for signal processing, background subtraction, and concentration calculation, including version number.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/dataReductionSoftware"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/dataReductionSoftware"
-                  },
-                  "schema:name": {
-                    "const": "Data Reduction Software"
                   },
                   "schema:value": {
                     "type": "string"
@@ -865,7 +679,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/aignalSmoothing"
+                    "const": "ada:parameter/laicpmsTAPP/signalSmoothing"
                   },
                   "@type": {
                     "const": [
@@ -873,7 +687,7 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/aignalSmoothing"
+                    "const": "ada:parameter/laicpmsTAPP/signalSmoothing"
                   },
                   "schema:name": {
                     "const": "Signal Smoothing"
@@ -989,7 +803,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency"
+                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequency"
                   },
                   "@type": {
                     "const": [
@@ -997,7 +811,7 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/DriftMonitorFrequency"
+                    "const": "ada:parameter/laicpmsTAPP/driftMonitorFrequency"
                   },
                   "schema:name": {
                     "const": "Drift Monitor Frequency"
@@ -1119,37 +933,6 @@
                 ]
               },
               {
-                "title": "Uncertainty Propagation Method",
-                "description": "Approach used to propagate analytical uncertainty from raw count rates through the data reduction chain to final reported concentrations or isotope ratios. Specifies which uncertainty sources are included: counting statistics, calibration standard uncertainty, internal standard concentration uncertainty, drift correction uncertainty. Editable because this field may be unspecified at protocol registration (Advanced tier) and can be completed by the analyst when documenting the analysis.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethod"
-                  },
-                  "schema:name": {
-                    "const": "Uncertainty Propagation Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
                 "title": "Spike / Outlier Filtering Approach",
                 "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
                 "type": "object",
@@ -1186,7 +969,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrection"
+                    "const": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection"
                   },
                   "@type": {
                     "const": [
@@ -1194,7 +977,7 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrection"
+                    "const": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection"
                   },
                   "schema:name": {
                     "const": "Pulse/Analog Detector Nonlinearity Correction"
@@ -1279,7 +1062,7 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/calibrationStandardName"
+                    "const": "ada:parameter/laicpmsTAPP/primaryCalibrationStandardName"
                   },
                   "@type": {
                     "const": [
@@ -1287,7 +1070,7 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/calibrationStandardName"
+                    "const": "ada:parameter/laicpmsTAPP/primaryCalibrationStandardName"
                   },
                   "schema:name": {
                     "const": "Primary Calibration Standard Name"
@@ -1336,37 +1119,6 @@
                 ]
               },
               {
-                "title": "Additional Notes",
-                "description": "Any additional context about this protocol or analysis session not captured by the structured fields above. Use sparingly; structured fields are preferred for all information that can be formally categorised.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/description"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/laicpmsTAPP/description"
-                  },
-                  "schema:name": {
-                    "const": "Additional Notes"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
                 "type": "object",
                 "description": "Catch-all for additional schema:PropertyValue entries beyond the laicpmsTAPP-derived catalog.",
                 "properties": {
@@ -1383,19 +1135,13 @@
                     "type": "string",
                     "not": {
                       "enum": [
-                        "ada:parameter/laicpmsTAPP/coupledTechnique",
-                        "ada:parameter/laicpmsTAPP/couplingDescription",
                         "ada:parameter/laicpmsTAPP/coupledProtocolDoi",
                         "ada:parameter/laicpmsTAPP/coupledDatasetOrPublicationReference",
-                        "ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate",
                         "ada:parameter/laicpmsTAPP/samplePersistentIdentifier",
                         "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio",
-                        "ada:parameter/laicpmsTAPP/samplePreparationMethod",
                         "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment",
                         "ada:parameter/laicpmsTAPP/torchDepth",
                         "ada:parameter/laicpmsTAPP/massResolutionSetting",
-                        "ada:parameter/laicpmsTAPP/acquisitionSoftware",
-                        "ada:parameter/laicpmsTAPP/dataReductionSoftware",
                         "ada:parameter/laicpmsTAPP/spotGeometry",
                         "ada:parameter/laicpmsTAPP/laserEnergy",
                         "ada:parameter/laicpmsTAPP/laserFluence",
@@ -1406,22 +1152,20 @@
                         "ada:parameter/laicpmsTAPP/carrierGasFlowRate",
                         "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
                         "ada:parameter/laicpmsTAPP/gasFlowRate",
-                        "ada:parameter/laicpmsTAPP/aignalSmoothing",
+                        "ada:parameter/laicpmsTAPP/signalSmoothing",
                         "ada:parameter/laicpmsTAPP/icPlasmaTuning",
                         "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor",
                         "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction",
-                        "ada:parameter/laicpmsTAPP/DriftMonitorFrequency",
+                        "ada:parameter/laicpmsTAPP/driftMonitorFrequency",
                         "ada:parameter/laicpmsTAPP/analysisSequence",
                         "ada:parameter/laicpmsTAPP/spectrometerDwellTime",
                         "ada:parameter/laicpmsTAPP/backgroundCountTime",
-                        "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethod",
                         "ada:parameter/laicpmsTAPP/outlierFiltering",
-                        "ada:parameter/laicpmsTAPP/nonlineraResponseCorrection",
+                        "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection",
                         "ada:parameter/laicpmsTAPP/memoryEffectMitigation",
                         "ada:parameter/laicpmsTAPP/postAcquisitionNormalization",
-                        "ada:parameter/laicpmsTAPP/calibrationStandardName",
-                        "ada:parameter/laicpmsTAPP/secondaryReferenceMaterial",
-                        "ada:parameter/laicpmsTAPP/description"
+                        "ada:parameter/laicpmsTAPP/primaryCalibrationStandardName",
+                        "ada:parameter/laicpmsTAPP/secondaryReferenceMaterial"
                       ]
                     }
                   }

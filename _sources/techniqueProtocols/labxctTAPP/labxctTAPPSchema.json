@@ -25,10 +25,6 @@
                     "description": "Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre voxel sizes.",
                     "type": "string"
                 },
-                "ada:acquisitionSoftwareDefault": {
-                    "description": "Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.",
-                    "type": "string"
-                },
                 "ada:reconstructionSoftwareDefault": {
                     "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number. Often bundled with the instrument and proprietary to the manufacturer.",
                     "type": "string"
@@ -163,12 +159,6 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_couplingDescriptionDefault"
-                            },
-                            {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleDimensionsDefault"
                             },
                             {
@@ -240,20 +230,6 @@
                         ]
                     },
                     "allOf": [
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/labxct_couplingDescriptionDefault"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
                         {
                             "contains": {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/sampleDimensionsDefault"

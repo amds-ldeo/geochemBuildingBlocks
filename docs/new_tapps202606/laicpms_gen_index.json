@@ -1,17 +1,9 @@
 {
  "tapp_props": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
-  "ada:samplePreparationMethodDefault",
-  "ada:laserManufacturerModel",
-  "ada:icpMsManufacturerModel",
-  "ada:icpMsType",
-  "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
   "ada:massResolutionSettingDefault",
   "ada:detectorConfiguration",
   "ada:laserWavelengthAndType",
-  "ada:acquisitionSoftwareDefault",
-  "ada:dataReductionSoftwareDefault",
   "ada:analyticalMode",
   "ada:spotGeometryDefault",
   "ada:spotPath",
@@ -27,22 +19,20 @@
   "ada:spectrometerDwellTimeDefault",
   "ada:backgroundCountTimeDefault",
   "ada:internalStandardApproach",
-  "ada:InternalStandardElement",
+  "ada:internalStandardElement",
   "ada:perAnalyteCalibrationStrategy",
-  "ada:elementalFractionalCorretion",
-  "ada:integrationIntervalMethod",
-  "ada:backgroundCorrection",
+  "ada:elementalFractionationCorrection",
+  "ada:signalIntegrationIntervalMethod",
+  "ada:blankBackgroundCorrectionMethod",
   "ada:isobaricInterferenceCorrection",
   "ada:interferingSpecies",
-  "ada:IsobaricInterferenceCorrectionMethod",
-  "ada:calibrationStandardNameDefault",
+  "ada:isobaricInterferenceCorrectionMethod",
+  "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialDefault",
   "ada:analyteTemplate",
   "schema:additionalProperty"
  ],
  "pt_keys": [
-  "coupledTechniqueDefault",
-  "couplingDescriptionDefault",
   "fusionFluxAndDilutionRatioDefault",
   "preAblationSurfaceTreatmentDefault",
   "torchDepthDefault",
@@ -50,32 +40,24 @@
   "transectOrMappingRateOrStepSizeDefault",
   "plasmaMakeUpGasAdditionDefault",
   "gasFlowRateDefault",
-  "aignalSmoothingDefault",
+  "signalSmoothingDefault",
   "icPlasmaTuningDefault",
   "doublyChargedSpeciesMonitorDefault",
   "doublyChargedSpeciesProductionDefault",
-  "DriftMonitorFrequencyDefault",
-  "UncertaintyPropagationMethodDefault",
+  "driftMonitorFrequencyDefault",
   "outlierFilteringDefault",
-  "nonlineraResponseCorrectionDefault",
+  "nonlinearResponseCorrectionDefault",
   "memoryEffectMitigationDefault",
-  "postAcquisitionNormalizationDefault",
-  "descriptionDefault"
+  "postAcquisitionNormalizationDefault"
  ],
  "pv_keys": [
-  "laicpms_coupledTechnique",
-  "laicpms_couplingDescription",
   "laicpms_coupledProtocolDoi",
   "laicpms_coupledDatasetOrPublicationReference",
-  "sampleFormAnalyticalSubstrate",
   "laicpms_samplePersistentIdentifier",
   "fusionFluxAndDilutionRatio",
-  "samplePreparationMethod",
   "preAblationSurfaceTreatment",
   "torchDepth",
   "massResolutionSetting",
-  "laicpms_acquisitionSoftware",
-  "dataReductionSoftware",
   "spotGeometry",
   "laserEnergy",
   "laserFluence",
@@ -86,22 +68,20 @@
   "carrierGasFlowRate",
   "plasmaMakeUpGasAddition",
   "gasFlowRate",
-  "aignalSmoothing",
+  "signalSmoothing",
   "icPlasmaTuning",
   "doublyChargedSpeciesMonitor",
   "doublyChargedSpeciesProduction",
-  "DriftMonitorFrequency",
+  "driftMonitorFrequency",
   "analysisSequence",
   "spectrometerDwellTime",
   "backgroundCountTime",
-  "UncertaintyPropagationMethod",
   "outlierFiltering",
-  "nonlineraResponseCorrection",
+  "nonlinearResponseCorrection",
   "memoryEffectMitigation",
   "postAcquisitionNormalization",
-  "calibrationStandardName",
-  "secondaryReferenceMaterial",
-  "description"
+  "primaryCalibrationStandardName",
+  "secondaryReferenceMaterial"
  ],
  "analyte_cols": [
   "detectionLimit",
@@ -137,17 +117,10 @@
   "ada:LAICPMSTransect"
  ],
  "basic_required": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
-  "ada:samplePreparationMethodDefault",
-  "ada:laserManufacturerModel",
-  "ada:icpMsManufacturerModel",
-  "ada:icpMsType",
-  "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
   "ada:massResolutionSettingDefault",
   "ada:detectorConfiguration",
   "ada:laserWavelengthAndType",
-  "ada:dataReductionSoftwareDefault",
   "ada:spotGeometryDefault",
   "ada:spotPath",
   "ada:laserFluenceDefault",
@@ -162,59 +135,17 @@
   "ada:spectrometerDwellTimeDefault",
   "ada:backgroundCountTimeDefault",
   "ada:internalStandardApproach",
-  "ada:InternalStandardElement",
-  "ada:elementalFractionalCorretion",
-  "ada:integrationIntervalMethod",
-  "ada:backgroundCorrection",
+  "ada:internalStandardElement",
+  "ada:elementalFractionationCorrection",
+  "ada:signalIntegrationIntervalMethod",
+  "ada:blankBackgroundCorrectionMethod",
   "ada:isobaricInterferenceCorrection",
   "ada:interferingSpecies",
-  "ada:IsobaricInterferenceCorrectionMethod",
-  "ada:calibrationStandardNameDefault",
+  "ada:isobaricInterferenceCorrectionMethod",
+  "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialDefault"
  ],
  "basic_props": [
-  {
-   "key": "ada:sampleFormAnalyticalSubstrateDefault",
-   "item": "Sample Form / Analytical Substrate",
-   "jtype": "string",
-   "cov": 13,
-   "required": true
-  },
-  {
-   "key": "ada:samplePreparationMethodDefault",
-   "item": "Sample Preparation Method",
-   "jtype": "string",
-   "cov": 11,
-   "required": true
-  },
-  {
-   "key": "ada:laserManufacturerModel",
-   "item": "Laser Manufacturer & Model",
-   "jtype": "string",
-   "cov": 13,
-   "required": true
-  },
-  {
-   "key": "ada:icpMsManufacturerModel",
-   "item": "ICP-MS Manufacturer & Model",
-   "jtype": "string",
-   "cov": 13,
-   "required": true
-  },
-  {
-   "key": "ada:icpMsType",
-   "item": "ICP-MS Type",
-   "jtype": "string",
-   "cov": 7,
-   "required": true
-  },
-  {
-   "key": "ada:interfaceConeConfiguration",
-   "item": "Interface Cone Configuration",
-   "jtype": "string",
-   "cov": 6,
-   "required": true
-  },
   {
    "key": "ada:guardElectrode",
    "item": "Guard Electrode",
@@ -241,20 +172,6 @@
    "item": "Laser Wavelength and Type",
    "jtype": "string",
    "cov": 12,
-   "required": true
-  },
-  {
-   "key": "ada:acquisitionSoftwareDefault",
-   "item": "Acquisition Software",
-   "jtype": "string",
-   "cov": 0,
-   "required": false
-  },
-  {
-   "key": "ada:dataReductionSoftwareDefault",
-   "item": "Data Reduction Software",
-   "jtype": "string",
-   "cov": 9,
    "required": true
   },
   {
@@ -363,7 +280,7 @@
    "required": true
   },
   {
-   "key": "ada:InternalStandardElement",
+   "key": "ada:internalStandardElement",
    "item": "Internal Standard Element",
    "jtype": "string",
    "cov": 12,
@@ -377,21 +294,21 @@
    "required": false
   },
   {
-   "key": "ada:elementalFractionalCorretion",
+   "key": "ada:elementalFractionationCorrection",
    "item": "Elemental Fractionation Correction",
    "jtype": "string",
    "cov": 13,
    "required": true
   },
   {
-   "key": "ada:integrationIntervalMethod",
+   "key": "ada:signalIntegrationIntervalMethod",
    "item": "Signal Integration Interval Method",
    "jtype": "string",
    "cov": 12,
    "required": true
   },
   {
-   "key": "ada:backgroundCorrection",
+   "key": "ada:blankBackgroundCorrectionMethod",
    "item": "Blank / Background Correction Method",
    "jtype": "string",
    "cov": 11,
@@ -412,14 +329,14 @@
    "required": true
   },
   {
-   "key": "ada:IsobaricInterferenceCorrectionMethod",
+   "key": "ada:isobaricInterferenceCorrectionMethod",
    "item": "Interference Correction Method",
    "jtype": "string",
    "cov": 9,
    "required": true
   },
   {
-   "key": "ada:calibrationStandardNameDefault",
+   "key": "ada:primaryCalibrationStandardNameDefault",
    "item": "Primary Calibration Standard Name",
    "jtype": "string",
    "cov": 13,

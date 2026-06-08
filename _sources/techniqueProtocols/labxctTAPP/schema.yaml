@@ -40,10 +40,6 @@ allOf:
         via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification
         for sub-micrometre voxel sizes.
       type: string
-    ada:acquisitionSoftwareDefault:
-      description: Instrument control and data acquisition software used to collect raw projection images,
-        including version number. Separate from reconstruction and segmentation software.
-      type: string
     ada:reconstructionSoftwareDefault:
       description: Software used to reconstruct 2D projection images into a 3D CT volume, including version
         number. Often bundled with the instrument and proprietary to the manufacturer.
@@ -178,8 +174,6 @@ allOf:
         are schema:PropertyValue entries carrying the fixed protocol value in schema:value.
       items:
         anyOf:
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/labxct_couplingDescriptionDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/sampleDimensionsDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/sampleMountingMethodDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/samplePreparationNotesDefault
@@ -204,14 +198,6 @@ allOf:
         - $ref: ../parameterValues/schema.yaml#/$defs/detectorPixelSize
         - $ref: ../parameterValues/schema.yaml#/$defs/opticalObjective
       allOf:
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/labxct_coupledTechniqueDefault
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/labxct_couplingDescriptionDefault
-        minContains: 0
-        maxContains: 1
       - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/sampleDimensionsDefault
         minContains: 0

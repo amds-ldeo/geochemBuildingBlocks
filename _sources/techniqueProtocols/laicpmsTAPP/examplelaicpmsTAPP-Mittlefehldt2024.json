@@ -39,17 +39,10 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished grain mount (olivine grain fragments)",
-  "ada:samplePreparationMethodDefault": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts",
-  "ada:laserManufacturerModel": "New Wave UP-193 (solid state, 193 nm)",
-  "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
-  "ada:icpMsType": "Single-collector sector-field (SF-ICP-MS)",
-  "ada:interfaceConeConfiguration": "missing",
   "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Medium resolution (m/Δm ≈ 4000)",
   "ada:detectorConfiguration": "missing",
   "ada:laserWavelengthAndType": "193 nm solid-state (New Wave UP-193)",
-  "ada:dataReductionSoftwareDefault": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
   "ada:spotGeometryDefault": "75 µm circular",
   "ada:spotPath": "Spot (stationary)",
   "ada:laserFluenceDefault": -9999,
@@ -64,14 +57,14 @@
   "ada:spectrometerDwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Single element from EPMA: ²⁵Mg; the EMPA data used as the standardizing values",
-  "ada:InternalStandardElement": "²⁵Mg (indexing element; Mg concentration from EMPA)",
-  "ada:elementalFractionalCorretion": "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described",
-  "ada:integrationIntervalMethod": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection",
-  "ada:backgroundCorrection": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
+  "ada:internalStandardElement": "²⁵Mg (indexing element; Mg concentration from EMPA)",
+  "ada:elementalFractionationCorrection": "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described",
+  "ada:signalIntegrationIntervalMethod": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
   "ada:isobaricInterferenceCorrection": "missing",
   "ada:interferingSpecies": "missing",
-  "ada:IsobaricInterferenceCorrectionMethod": "Medium mass resolution (M/ΔM ≈ 4000) separates many polyatomic interferences from analyte peaks (e.g., resolves ⁵⁴Fe⁺ from ⁵⁴Cr⁺)",
-  "ada:calibrationStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
+  "ada:isobaricInterferenceCorrectionMethod": "Medium mass resolution (M/ΔM ≈ 4000) separates many polyatomic interferences from analyte peaks (e.g., resolves ⁵⁴Fe⁺ from ⁵⁴Cr⁺)",
+  "ada:primaryCalibrationStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
   "ada:secondaryReferenceMaterialDefault": "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)",
   "schema:additionalProperty": [
     {
@@ -99,19 +92,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "No post-acquisition normalization; BCR-2g, BHVO-2g, BIR-1g used for calibration; Marjalahti as in-session control"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "descriptionDefault",
-      "schema:name": "Additional Notes",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",

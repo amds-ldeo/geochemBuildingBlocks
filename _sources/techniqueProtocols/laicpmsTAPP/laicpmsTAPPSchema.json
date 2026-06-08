@@ -9,30 +9,6 @@
         {
             "type": "object",
             "properties": {
-                "ada:sampleFormAnalyticalSubstrateDefault": {
-                    "description": "Physical form of the material as it enters the ablation cell. Editable to accommodate legitimate variations (e.g., thin section vs. mount) that do not alter the analytical protocol.",
-                    "type": "string"
-                },
-                "ada:samplePreparationMethodDefault": {
-                    "description": "Description of how samples were prepared for analysis (mounting, polishing, coating, fusion procedure, etc.).",
-                    "type": "string"
-                },
-                "ada:laserManufacturerModel": {
-                    "description": "Manufacturer and model of the laser ablation system.",
-                    "type": "string"
-                },
-                "ada:icpMsManufacturerModel": {
-                    "description": "Manufacturer and model of the ICP-MS instrument.",
-                    "type": "string"
-                },
-                "ada:icpMsType": {
-                    "description": "Type of ICP-MS mass analyser and collector configuration.",
-                    "type": "string"
-                },
-                "ada:interfaceConeConfiguration": {
-                    "description": "Combination of sample cone and skimmer cone installed during analysis.",
-                    "type": "string"
-                },
                 "ada:guardElectrode": {
                     "description": "Whether the guard electrode (also called extraction lens or Fassel torch shield) was active during analysis.",
                     "type": "string"
@@ -47,14 +23,6 @@
                 },
                 "ada:laserWavelengthAndType": {
                     "description": "Wavelength and type of the laser used for ablation in nanometres.",
-                    "type": "string"
-                },
-                "ada:acquisitionSoftwareDefault": {
-                    "description": "Instrument control and data acquisition software used to collect raw signal data, including version number. Separate from data reduction software.",
-                    "type": "string"
-                },
-                "ada:dataReductionSoftwareDefault": {
-                    "description": "Software used for signal processing, background subtraction, and concentration calculation, including version number.",
                     "type": "string"
                 },
                 "ada:analyticalMode": {
@@ -160,7 +128,7 @@
                     "description": "Method used to determine the internal standard (IS) concentration for each unknown sample, used to correct for variable ablation yield between analyses. The approach is a fundamental protocol design choice that cannot be changed by analysts.",
                     "type": "string"
                 },
-                "ada:InternalStandardElement": {
+                "ada:internalStandardElement": {
                     "description": "Element(s) used as the internal standard, and how the IS concentration value was determined for unknown samples. For mapping protocols using oxide-sum normalization, report \"None (oxide-sum normalization)\" and cite the method reference.",
                     "type": "string"
                 },
@@ -168,15 +136,15 @@
                     "description": "Documents cases where different analytes or analyte groups within the same session are calibrated using different strategies — for example, one element used as the internal standard while trace elements are calibrated by an external reference material, or different primary standards applied to different mass ranges or mineral phases. If a single calibration strategy applies uniformly to all analytes, state that here and refer to Internal Standard Approach and Normalization / Standards-Based Correction for details. Free text; list analyte-specific strategies as needed.",
                     "type": "string"
                 },
-                "ada:elementalFractionalCorretion": {
+                "ada:elementalFractionationCorrection": {
                     "description": "Method used to correct for laser-induced elemental fractionation (LIEF), including downhole fractionation during prolonged ablation, matrix-dependent fractionation between sample and calibration standard, and any specific correction algorithm applied. Reference the software function or publication.",
                     "type": "string"
                 },
-                "ada:integrationIntervalMethod": {
+                "ada:signalIntegrationIntervalMethod": {
                     "description": "Approach used to select the stable signal interval for integration during data reduction, and to exclude anomalous signals from inclusions or cracks. For spot/transect analysis: involves identifying and excluding transient start/end instabilities within the time-resolved signal. For mapping analysis: corresponds to defining Volumes of Interest (VOIs) or applying phase masks across the 2D map (e.g., manual selection, automated clustering, threshold-based masking).",
                     "type": "string"
                 },
-                "ada:backgroundCorrection": {
+                "ada:blankBackgroundCorrectionMethod": {
                     "description": "Method used to subtract the gas blank (background signal with laser off) from the ablation signal. For spot and transect analysis: typically the mean of a pre-ablation gas blank interval is subtracted per isotope per analysis. For mapping: background may be subtracted per raster line, per map session, or using a separate gas blank map acquired under identical conditions.",
                     "type": "string"
                 },
@@ -188,11 +156,11 @@
                     "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope. Value is a ';' delimited list of interfering species",
                     "type": "string"
                 },
-                "ada:IsobaricInterferenceCorrectionMethod": {
+                "ada:isobaricInterferenceCorrectionMethod": {
                     "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
                     "type": "string"
                 },
-                "ada:calibrationStandardNameDefault": {
+                "ada:primaryCalibrationStandardNameDefault": {
                     "description": "Primary reference material(s) used to calibrate the instrument and convert raw signal intensities to concentrations or isotope ratios. Include material name, source institution, and citation for the accepted values used. Editable because the specific lot or certification vintage may differ between sessions while the material type remains the same.",
                     "type": "string"
                 },
@@ -313,12 +281,6 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/coupledTechniqueDefault"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/couplingDescriptionDefault"
-                            },
-                            {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatioDefault"
                             },
                             {
@@ -340,7 +302,7 @@
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/gasFlowRateDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/aignalSmoothingDefault"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/icPlasmaTuningDefault"
@@ -352,31 +314,19 @@
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesProductionDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequencyDefault"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/UncertaintyPropagationMethodDefault"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/outlierFilteringDefault"
                             },
                             {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/nonlineraResponseCorrectionDefault"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/nonlinearResponseCorrectionDefault"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/memoryEffectMitigationDefault"
                             },
                             {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/postAcquisitionNormalizationDefault"
-                            },
-                            {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/descriptionDefault"
-                            },
-                            {
-                                "$ref": "../parameterValues/schema.yaml#/$defs/samplerAndSkimmerConeMaterial"
-                            },
-                            {
-                                "$ref": "../parameterValues/schema.yaml#/$defs/ablationCellType"
                             },
                             {
                                 "$ref": "../parameterValues/schema.yaml#/$defs/laserBeamEnergyProfile"
@@ -398,20 +348,6 @@
                     "allOf": [
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/coupledTechniqueDefault"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/couplingDescriptionDefault"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatioDefault"
                             },
                             "minContains": 0,
@@ -461,7 +397,7 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/aignalSmoothingDefault"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -489,14 +425,7 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequencyDefault"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/UncertaintyPropagationMethodDefault"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -510,7 +439,7 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/nonlineraResponseCorrectionDefault"
+                                "$ref": "../parameterTemplates/schema.yaml#/$defs/nonlinearResponseCorrectionDefault"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -525,27 +454,6 @@
                         {
                             "contains": {
                                 "$ref": "../parameterTemplates/schema.yaml#/$defs/postAcquisitionNormalizationDefault"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterTemplates/schema.yaml#/$defs/descriptionDefault"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterValues/schema.yaml#/$defs/samplerAndSkimmerConeMaterial"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../parameterValues/schema.yaml#/$defs/ablationCellType"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -589,17 +497,10 @@
                 }
             },
             "required": [
-                "ada:sampleFormAnalyticalSubstrateDefault",
-                "ada:samplePreparationMethodDefault",
-                "ada:laserManufacturerModel",
-                "ada:icpMsManufacturerModel",
-                "ada:icpMsType",
-                "ada:interfaceConeConfiguration",
                 "ada:guardElectrode",
                 "ada:massResolutionSettingDefault",
                 "ada:detectorConfiguration",
                 "ada:laserWavelengthAndType",
-                "ada:dataReductionSoftwareDefault",
                 "ada:spotGeometryDefault",
                 "ada:spotPath",
                 "ada:laserFluenceDefault",
@@ -614,14 +515,14 @@
                 "ada:spectrometerDwellTimeDefault",
                 "ada:backgroundCountTimeDefault",
                 "ada:internalStandardApproach",
-                "ada:InternalStandardElement",
-                "ada:elementalFractionalCorretion",
-                "ada:integrationIntervalMethod",
-                "ada:backgroundCorrection",
+                "ada:internalStandardElement",
+                "ada:elementalFractionationCorrection",
+                "ada:signalIntegrationIntervalMethod",
+                "ada:blankBackgroundCorrectionMethod",
                 "ada:isobaricInterferenceCorrection",
                 "ada:interferingSpecies",
-                "ada:IsobaricInterferenceCorrectionMethod",
-                "ada:calibrationStandardNameDefault",
+                "ada:isobaricInterferenceCorrectionMethod",
+                "ada:primaryCalibrationStandardNameDefault",
                 "ada:secondaryReferenceMaterialDefault"
             ]
         }

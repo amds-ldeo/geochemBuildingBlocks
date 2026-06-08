@@ -1,0 +1,168 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
+description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition.
+  Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are
+  schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis).
+  Generated from docs/SEM_Imaging_TAPP_v4.xlsx by tools/build_tapp.py.'
+allOf:
+- $ref: ../tappDefinition/schema.yaml
+- type: object
+  properties:
+    ada:seDetectorType:
+      description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard
+        off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution
+        SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the
+        chamber gas as the signal amplification medium.
+      type: string
+    ada:bseDetectorType:
+      description: Type of backscattered electron detector. Solid-state diode detectors (single or segmented)
+        are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors
+        can operate in composition mode (segments summed) or topography mode (differential signal between
+        segments). In-lens BSE detectors provide improved BSE collection at short working distances.
+      type: string
+    ada:ebsdDetectorConfiguration:
+      description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and
+        EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
+      type: string
+    ada:analyticalMode:
+      description: Primary analytical mode(s) executed under this protocol. For multi-mode protocols (e.g.,
+        simultaneous BSE + EDS mapping), list all active modes.
+      type: array
+      items:
+        type: string
+        enum:
+        - SE Imaging
+        - BSE Imaging
+        - CL Point Analysis
+        - CL Mapping
+        - EBSD
+    ada:acceleratingVoltageDefault:
+      description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS),
+        EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve
+        surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation
+        for quantitative analysis.
+      anyOf:
+      - type: number
+      - type: string
+    ada:beamCurrentDefault:
+      description: Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis
+        (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in
+        nA; for sub-nA values use decimal notation (e.g., 0.4 nA).
+      anyOf:
+      - type: number
+      - type: string
+    ada:workingDistanceDefault:
+      description: Distance between the objective lens pole piece and the specimen surface in millimetres.
+        Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.
+      anyOf:
+      - type: number
+      - type: string
+    ada:dwellTimePerPixelDefault:
+      description: Time the electron beam dwells on each pixel during raster scanning (imaging modes)
+        or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds
+        or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases
+        total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping,
+        the dwell time is per spectrometer per pixel.
+      anyOf:
+      - type: number
+      - type: string
+    ada:clAcquisitionMode:
+      description: 'CL data collection strategy. Panchromatic: total light intensity collected by PMT
+        across the full detector wavelength range. Spectral point: full CL spectrum at discrete point
+        locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.'
+      type: string
+    ada:clWavelengthRange:
+      description: Detection wavelength range of the CL system in nm. The range is set by the detector
+        sensitivity and any optical filters installed.
+      anyOf:
+      - type: number
+      - type: string
+    ada:clIntegrationTimeDefault:
+      description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point
+        mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition
+        time.
+      anyOf:
+      - type: number
+      - type: string
+    ada:sampleTiltAngle:
+      description: Sample tilt angle for EBSD acquisition in degrees, measured from horizontal. Standard
+        EBSD geometry uses 70 degrees tilt toward the EBSD camera to maximise diffracted electron signal.
+      anyOf:
+      - type: number
+      - type: string
+    ada:stepSizeDefault:
+      description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller
+        than the smallest grain of interest to resolve grain boundary positions and intragrain orientation
+        gradients.
+      anyOf:
+      - type: number
+      - type: string
+    ada:phaseListDefault:
+      description: Mineral phases included in the EBSD reference pattern library for this protocol. The
+        protocol specifies the expected phase suite for the target material; analysts may add phases for
+        specific sample compositions.
+      type: string
+    ada:indexingMethod:
+      description: Algorithm used to index EBSD diffraction patterns and assign crystal orientations.
+        Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches
+        experimental patterns to a pre-computed library of simulated patterns.
+      type: string
+    ada:crystalStructureDatabaseDefault:
+      description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
+      type: string
+    schema:additionalProperty:
+      type: array
+      description: Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification
+        entries (…Default name; the per-dataset value lives in the detail block); read-only parameters
+        are schema:PropertyValue entries carrying the fixed protocol value in schema:value.
+      items:
+        anyOf:
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/chamberPressureDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/imagePixelSizeDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/clFrameTimeDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/patternQualityThresholdDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/clWavelengthCalibrationReferenceDefault
+        - $ref: ../parameterValues/schema.yaml#/$defs/clDetectorConfiguration
+        - $ref: ../parameterValues/schema.yaml#/$defs/clWavelengthRange
+      allOf:
+      - contains:
+          $ref: ../parameterTemplates/schema.yaml#/$defs/chamberPressureDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterTemplates/schema.yaml#/$defs/imagePixelSizeDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterTemplates/schema.yaml#/$defs/clFrameTimeDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterTemplates/schema.yaml#/$defs/patternQualityThresholdDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterTemplates/schema.yaml#/$defs/clWavelengthCalibrationReferenceDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/clDetectorConfiguration
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/clWavelengthRange
+        minContains: 0
+        maxContains: 1
+  required:
+  - ada:seDetectorType
+  - ada:bseDetectorType
+  - ada:analyticalMode
+  - ada:acceleratingVoltageDefault
+  - ada:beamCurrentDefault
+  - ada:workingDistanceDefault
+  - ada:clAcquisitionMode
+  - ada:clWavelengthRange
+  - ada:clIntegrationTimeDefault
+  - ada:sampleTiltAngle
+  - ada:phaseListDefault
+  - ada:crystalStructureDatabaseDefault

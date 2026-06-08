@@ -39,17 +39,10 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished epoxy thick section",
-  "ada:samplePreparationMethodDefault": "PMG thick sections polished; same as olivine mapping preparation",
-  "ada:laserManufacturerModel": "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)",
-  "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
-  "ada:icpMsType": "Double-focusing sector field ICP-MS (explicitly stated)",
-  "ada:interfaceConeConfiguration": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)",
   "ada:guardElectrode": "missing",
   "ada:massResolutionSettingDefault": "Low resolution (M/ΔM = 300)",
   "ada:detectorConfiguration": "Triple mode detection",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration ~5 ns",
-  "ada:dataReductionSoftwareDefault": "In-house MatLab script (Appendix C3)",
   "ada:spotGeometryDefault": "110 µm circular (spot mode)",
   "ada:spotPath": "Spot (stationary)",
   "ada:laserFluenceDefault": "3.5 J cm⁻²",
@@ -64,14 +57,14 @@
   "ada:spectrometerDwellTimeDefault": "0.01 s per nuclide; samples per peak: 5; duty cycle: 1.813 s; mass window 150% for ²³Na–⁴⁷Ti, 100% for all other nuclides",
   "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
   "ada:internalStandardApproach": "Sum-of-major-oxide normalization to 100 wt% (Liu et al. 2008; Appendix C3)",
-  "ada:InternalStandardElement": "No single IS; oxide sum normalization to 100 wt%",
-  "ada:elementalFractionalCorretion": "Oxide sum normalization to 100 wt% corrects for ablation yield and matrix effects; external calibration with MPI-DING and USGS glass GRMs",
-  "ada:integrationIntervalMethod": "Anomalous time steps excluded (inclusions, cracks, heterogeneity); manual inspection",
-  "ada:backgroundCorrection": "Gas blank measured before each spot analysis (8 scans); average background subtracted",
+  "ada:internalStandardElement": "No single IS; oxide sum normalization to 100 wt%",
+  "ada:elementalFractionationCorrection": "Oxide sum normalization to 100 wt% corrects for ablation yield and matrix effects; external calibration with MPI-DING and USGS glass GRMs",
+  "ada:signalIntegrationIntervalMethod": "Anomalous time steps excluded (inclusions, cracks, heterogeneity); manual inspection",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot analysis (8 scans); average background subtracted",
   "ada:isobaricInterferenceCorrection": "Yes — same instrument settings; interference corrections as per Table C1",
   "ada:interferingSpecies": "Same interference list (Table C1)",
-  "ada:IsobaricInterferenceCorrectionMethod": "Same approach as mapping; oxide sum normalization partially corrects for matrix-dependent interferences",
-  "ada:calibrationStandardNameDefault": "MPI-DING and USGS glass GRMs (measured at beginning and repeatedly at end of each session; multipoint calibration)",
+  "ada:isobaricInterferenceCorrectionMethod": "Same approach as mapping; oxide sum normalization partially corrects for matrix-dependent interferences",
+  "ada:primaryCalibrationStandardNameDefault": "MPI-DING and USGS glass GRMs (measured at beginning and repeatedly at end of each session; multipoint calibration)",
   "ada:secondaryReferenceMaterialDefault": "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment",
   "schema:additionalProperty": [
     {
@@ -101,11 +94,11 @@
       "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.85 l min⁻¹"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/aignalSmoothingDefault",
+      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "aignalSmoothingDefault",
+      "schema:valueName": "signalSmoothingDefault",
       "schema:name": "Signal Smoothing",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -127,30 +120,17 @@
       "schema:defaultValue": "Same instrument as olivine runs; tuned for normal plasma conditions"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/DriftMonitorFrequencyDefault",
+      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "DriftMonitorFrequencyDefault",
+      "schema:valueName": "driftMonitorFrequencyDefault",
       "schema:name": "Drift Monitor Frequency",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "MPI-DING and USGS GRMs measured at beginning and repeatedly at end of each session"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/UncertaintyPropagationMethodDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "UncertaintyPropagationMethodDefault",
-      "schema:name": "Uncertainty Propagation Method",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Longerich et al. (1996) for LOD; uncertainty not formally described"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -166,11 +146,11 @@
       "schema:defaultValue": "Anomalous time steps excluded during manual inspection"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/nonlineraResponseCorrectionDefault",
+      "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "nonlineraResponseCorrectionDefault",
+      "schema:valueName": "nonlinearResponseCorrectionDefault",
       "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
@@ -203,28 +183,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "100% oxide sum normalization to 100 wt% for phosphate minerals (Appendix C3)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/descriptionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "descriptionDefault",
-      "schema:name": "Additional Notes",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Phosphate phase identification used LA-ICP-MS data combined with EMPA and µXRF (Fig. D9); merrillite, stanfieldite, farringtonite distinguished by REE patterns; oxide sum normalization applied to phosphate (not olivine IS approach)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/ablationCellType",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/ablationCellType",
-      "schema:name": "Ablation Cell Type",
-      "schema:value": "HELEX II two-volume ablation cell"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",

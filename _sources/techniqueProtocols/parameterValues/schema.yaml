@@ -3,50 +3,6 @@ title: ADA Analytical Parameter Value Registry
 description: Registry of reusable schema:PropertyValue parameter-value definitions derived from technique TAPP spreadsheets. Each $def constrains one per-dataset schema:PropertyValue entry. Detail building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.
 type: object
 $defs:
-  laicpms_coupledTechnique:
-    title: Coupled Technique(s)
-    description: Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter "None" if no coupling is intended.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/coupledTechnique
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/coupledTechnique
-      schema:name:
-        const: Coupled Technique(s)
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  laicpms_couplingDescription:
-    title: Coupling Description
-    description: 'Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined (e.g., which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive before destructive).'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/couplingDescription
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/couplingDescription
-      schema:name:
-        const: Coupling Description
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
   laicpms_coupledProtocolDoi:
     title: Coupled Protocol DOI
     description: Registered protocol DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled protocol has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending". Enter "None" if no coupling is planned.
@@ -91,28 +47,6 @@ $defs:
       - schema:propertyID
       - schema:name
       - schema:value
-  sampleFormAnalyticalSubstrate:
-    title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Editable to accommodate legitimate variations (e.g., thin section vs. mount) that do not alter the analytical protocol.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate
-      schema:name:
-        const: Sample Form / Analytical Substrate
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
   laicpms_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for the analysed sample. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem, and SESAR.
@@ -149,28 +83,6 @@ $defs:
         const: ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio
       schema:name:
         const: Fusion Flux and Dilution Ratio
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  samplePreparationMethod:
-    title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis (mounting, polishing, coating, fusion procedure, etc.).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/samplePreparationMethod
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/samplePreparationMethod
-      schema:name:
-        const: Sample Preparation Method
       schema:value:
         type: string
     required:
@@ -237,50 +149,6 @@ $defs:
         const: ada:parameter/laicpmsTAPP/massResolutionSetting
       schema:name:
         const: Mass Resolution Setting
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  laicpms_acquisitionSoftware:
-    title: Acquisition Software
-    description: Instrument control and data acquisition software used to collect raw signal data, including version number. Separate from data reduction software.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/acquisitionSoftware
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/acquisitionSoftware
-      schema:name:
-        const: Acquisition Software
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  dataReductionSoftware:
-    title: Data Reduction Software
-    description: Software used for signal processing, background subtraction, and concentration calculation, including version number.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/dataReductionSoftware
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/dataReductionSoftware
-      schema:name:
-        const: Data Reduction Software
       schema:value:
         type: string
     required:
@@ -529,18 +397,18 @@ $defs:
       - schema:propertyID
       - schema:name
       - schema:value
-  aignalSmoothing:
+  signalSmoothing:
     title: Signal Smoothing
     description: 'Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report "None" explicitly.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/laicpmsTAPP/aignalSmoothing
+        const: ada:parameter/laicpmsTAPP/signalSmoothing
       '@type':
         const:
           - schema:PropertyValue
       schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/aignalSmoothing
+        const: ada:parameter/laicpmsTAPP/signalSmoothing
       schema:name:
         const: Signal Smoothing
       schema:value:
@@ -617,18 +485,18 @@ $defs:
       - schema:propertyID
       - schema:name
       - schema:value
-  DriftMonitorFrequency:
+  driftMonitorFrequency:
     title: Drift Monitor Frequency
     description: Frequency at which primary reference materials are analysed to monitor instrument drift and apply drift corrections across the session. Editable to allow analysts to increase monitoring frequency if drift is observed.
     type: object
     properties:
       '@id':
-        const: ada:parameter/laicpmsTAPP/DriftMonitorFrequency
+        const: ada:parameter/laicpmsTAPP/driftMonitorFrequency
       '@type':
         const:
           - schema:PropertyValue
       schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/DriftMonitorFrequency
+        const: ada:parameter/laicpmsTAPP/driftMonitorFrequency
       schema:name:
         const: Drift Monitor Frequency
       schema:value:
@@ -710,28 +578,6 @@ $defs:
       - schema:name
       - schema:value
       - schema:unitText
-  UncertaintyPropagationMethod:
-    title: Uncertainty Propagation Method
-    description: 'Approach used to propagate analytical uncertainty from raw count rates through the data reduction chain to final reported concentrations or isotope ratios. Specifies which uncertainty sources are included: counting statistics, calibration standard uncertainty, internal standard concentration uncertainty, drift correction uncertainty. Editable because this field may be unspecified at protocol registration (Advanced tier) and can be completed by the analyst when documenting the analysis.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/UncertaintyPropagationMethod
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/UncertaintyPropagationMethod
-      schema:name:
-        const: Uncertainty Propagation Method
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
   outlierFiltering:
     title: Spike / Outlier Filtering Approach
     description: Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.
@@ -754,18 +600,18 @@ $defs:
       - schema:propertyID
       - schema:name
       - schema:value
-  nonlineraResponseCorrection:
+  nonlinearResponseCorrection:
     title: Pulse/Analog Detector Nonlinearity Correction
     description: Whether a correction was applied for nonlinear response at the transition between pulse-counting and analog detector modes.
     type: object
     properties:
       '@id':
-        const: ada:parameter/laicpmsTAPP/nonlineraResponseCorrection
+        const: ada:parameter/laicpmsTAPP/nonlinearResponseCorrection
       '@type':
         const:
           - schema:PropertyValue
       schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/nonlineraResponseCorrection
+        const: ada:parameter/laicpmsTAPP/nonlinearResponseCorrection
       schema:name:
         const: Pulse/Analog Detector Nonlinearity Correction
       schema:value:
@@ -820,18 +666,18 @@ $defs:
       - schema:propertyID
       - schema:name
       - schema:value
-  calibrationStandardName:
+  primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Primary reference material(s) used to calibrate the instrument and convert raw signal intensities to concentrations or isotope ratios. Include material name, source institution, and citation for the accepted values used. Editable because the specific lot or certification vintage may differ between sessions while the material type remains the same.
     type: object
     properties:
       '@id':
-        const: ada:parameter/laicpmsTAPP/calibrationStandardName
+        const: ada:parameter/laicpmsTAPP/primaryCalibrationStandardName
       '@type':
         const:
           - schema:PropertyValue
       schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/calibrationStandardName
+        const: ada:parameter/laicpmsTAPP/primaryCalibrationStandardName
       schema:name:
         const: Primary Calibration Standard Name
       schema:value:
@@ -856,72 +702,6 @@ $defs:
         const: ada:parameter/laicpmsTAPP/secondaryReferenceMaterial
       schema:name:
         const: Secondary Reference Materials
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  description:
-    title: Additional Notes
-    description: Any additional context about this protocol or analysis session not captured by the structured fields above. Use sparingly; structured fields are preferred for all information that can be formally categorised.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/description
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/description
-      schema:name:
-        const: Additional Notes
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  samplerAndSkimmerConeMaterial:
-    title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Common materials are nickel (standard), platinum (for high-TDS or organic-matrix samples), and aluminium (for high-purity work). Cone material affects sensitivity, matrix tolerance, and long-term stability. State both sampler and skimmer materials; if identical, a single statement is acceptable.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/samplerAndSkimmerConeMaterial
-      schema:name:
-        const: Sampler and Skimmer Cone Material
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  ablationCellType:
-    title: Ablation Cell Type
-    description: Type and model of ablation cell used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/ablationCellType
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/laicpmsTAPP/ablationCellType
-      schema:name:
-        const: Ablation Cell Type
       schema:value:
         type: string
     required:
@@ -1032,50 +812,6 @@ $defs:
         const: ada:parameter/laicpmsTAPP/matrixOffsetCorrection
       schema:name:
         const: Matrix Offset Correction (LIEF)
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  coupledTechnique:
-    title: Coupled Technique(s)
-    description: Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter "None" if no coupling is intended.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/coupledTechnique
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/labxctTAPP/coupledTechnique
-      schema:name:
-        const: Coupled Technique(s)
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  couplingDescription:
-    title: Coupling Description
-    description: 'Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/couplingDescription
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/labxctTAPP/couplingDescription
-      schema:name:
-        const: Coupling Description
       schema:value:
         type: string
     required:
@@ -1213,28 +949,6 @@ $defs:
         const: ada:parameter/labxctTAPP/samplePreparationNotes
       schema:name:
         const: Sample Preparation Notes
-      schema:value:
-        type: string
-    required:
-      - '@id'
-      - '@type'
-      - schema:propertyID
-      - schema:name
-      - schema:value
-  acquisitionSoftware:
-    title: Acquisition Software
-    description: Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/acquisitionSoftware
-      '@type':
-        const:
-          - schema:PropertyValue
-      schema:propertyID:
-        const: ada:parameter/labxctTAPP/acquisitionSoftware
-      schema:name:
-        const: Acquisition Software
       schema:value:
         type: string
     required:
@@ -2497,3 +2211,1722 @@ $defs:
       - schema:propertyID
       - schema:name
       - schema:value
+
+  tem_coupledProtocolDoi:
+    title: Coupled Protocol DOI
+    description: DOI of the registered protocol for the coupled technique.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/coupledProtocolDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/coupledProtocolDoi
+      schema:name:
+        const: Coupled Protocol DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tem_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: DOI of the dataset or publication containing the coupled technique data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tem_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tem_acceleratingVoltage:
+    title: Accelerating Voltage
+    description: Electron beam accelerating voltage in kilovolts (kV). For beam-sensitive materials (organic
+      matter, phyllosilicates), 60–80 kV may be used to stay below the displacement threshold for C, N,
+      O, and S. The protocol specifies the standard operating voltage; analysts record and justify deviations.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/acceleratingVoltage
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/acceleratingVoltage
+      schema:name:
+        const: Accelerating Voltage
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  analyticalMode:
+    title: Analytical Sub-mode
+    description: 'Sub-mode(s) of imaging or diffraction performed under this protocol. TEM Imaging options:
+      BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF, ABF, BF-STEM, ADF, MAADF. Electron Diffraction
+      options: SAED, CBED, Nanobeam diffraction, Precession ED, 4D-STEM. Multiple values apply when the
+      protocol covers more than one sub-mode within a given analytical mode.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/analyticalMode
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/analyticalMode
+      schema:name:
+        const: Analytical Sub-mode
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  temObjectiveAperture:
+    title: TEM Objective Aperture
+    description: Objective aperture diameter used to select the imaging beam condition in TEM mode. In BF-TEM,
+      a small aperture blocks diffracted beams to enhance mass-thickness contrast; in DF-TEM, the aperture
+      is displaced to select a specific diffracted beam; in HRTEM, no aperture is typically used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/temObjectiveAperture
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/temObjectiveAperture
+      schema:name:
+        const: TEM Objective Aperture
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  eftemEnergyWindow:
+    title: EFTEM Energy Window
+    description: 'Energy window(s) used for EFTEM elemental mapping: center energy, width, and acquisition
+      method (three-window or jump-ratio).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eftemEnergyWindow
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eftemEnergyWindow
+      schema:name:
+        const: EFTEM Energy Window
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  haadfCollectionAngles:
+    title: HAADF Collection Angles
+    description: Inner and outer collection angles of the HAADF detector in milliradians (mrad). The inner
+      angle determines the boundary between diffracted and thermally diffuse scattered electrons; larger
+      inner angles yield stronger Z-contrast and reduced Bragg contrast.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/haadfCollectionAngles
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/haadfCollectionAngles
+      schema:name:
+        const: HAADF Collection Angles
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  stemProbeDiameter:
+    title: STEM Probe Diameter
+    description: 'Nominal or measured diameter of the focused electron probe at the sample, reported in
+      nm. Serves as a direct spatial resolution proxy for STEM imaging and STEM-EDS/EELS analysis. Related
+      to, but distinct from, Convergence Semi-Angle: the two quantities are connected via aberration coefficients,
+      defocus, and probe current, which are not always published. Report whichever is known; if both are
+      known, report both fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/stemProbeDiameter
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/stemProbeDiameter
+      schema:name:
+        const: STEM Probe Diameter
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  stemProbeCurrent:
+    title: STEM Probe Current
+    description: Probe current in picoamperes (pA) or nanoamperes (nA). Higher current improves EDS/EELS
+      signal but increases beam damage risk, especially for organic matter and hydrous minerals.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/stemProbeCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/stemProbeCurrent
+      schema:name:
+        const: STEM Probe Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  stemDwellTimePerPixel:
+    title: STEM Dwell Time per Pixel
+    description: Time spent acquiring signal at each pixel during STEM scanning in milliseconds. Longer
+      dwell improves signal-to-noise but increases total specimen dose; for dose-sensitive materials, minimize
+      dwell and compensate with frame averaging.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/stemDwellTimePerPixel
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/stemDwellTimePerPixel
+      schema:name:
+        const: STEM Dwell Time per Pixel
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  stemScanDimensions:
+    title: STEM Scan Dimensions
+    description: Number of pixels in the STEM scan frame (X × Y pixels). Combined with calibrated pixel
+      size, defines the field of view.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/stemScanDimensions
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/stemScanDimensions
+      schema:name:
+        const: STEM Scan Dimensions
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  stemFrameAveraging:
+    title: STEM Frame Averaging
+    description: Number of frames averaged (with drift correction if applicable) to produce the final STEM
+      image. Averaging reduces noise while limiting per-frame dose.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/stemFrameAveraging
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/stemFrameAveraging
+      schema:name:
+        const: STEM Frame Averaging
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cameraLength:
+    title: Camera Length
+    description: Nominal camera length in millimeters used for diffraction pattern acquisition. Controls
+      the mapping between reciprocal-space scattering angle and detector position; must be calibrated to
+      convert pixel distances to d-spacings. In STEM mode, also sets HAADF/ABF detector collection angles.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/cameraLength
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/cameraLength
+      schema:name:
+        const: Camera Length
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  selectedAreaApertureSize:
+    title: Selected-Area Aperture Size
+    description: Diameter of the selected-area aperture used in SAED mode, defining the specimen region
+      that contributes to the diffraction pattern.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/selectedAreaApertureSize
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/selectedAreaApertureSize
+      schema:name:
+        const: Selected-Area Aperture Size
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  precessionAngle:
+    title: Precession Angle
+    description: Precession semi-angle in degrees for precession electron diffraction (PED). Hollow-cone
+      illumination reduces dynamical diffraction effects and produces more kinematical-like intensities.
+      Not applicable to SAED, CBED, or standard 4D-STEM.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/precessionAngle
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/precessionAngle
+      schema:name:
+        const: Precession Angle
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  4dStemScanGridAndArea:
+    title: 4D-STEM Scan Grid and Area
+    description: Number of probe positions in the 4D-STEM dataset (scan pixels × scan pixels) and the physical
+      area covered. Probe step size is the physical area divided by scan pixel count.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/4dStemScanGridAndArea
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/4dStemScanGridAndArea
+      schema:name:
+        const: 4D-STEM Scan Grid and Area
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  4dStemDwellTimePerProbePosition:
+    title: 4D-STEM Dwell Time per Probe Position
+    description: Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds. Longer
+      dwell improves signal-to-noise for weakly diffracting phases (e.g., smectite 001 reflection at ~1.24
+      nm) but increases total specimen dose; risk of beam damage to phyllosilicates and organic matter must
+      be balanced against data quality.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/4dStemDwellTimePerProbePosition
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/4dStemDwellTimePerProbePosition
+      schema:name:
+        const: 4D-STEM Dwell Time per Probe Position
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  diffractionCameraLengthCalibrationMethod:
+    title: Diffraction Camera Length Calibration Method
+    description: Method used to calibrate the camera length constant and convert pixel distances in diffraction
+      patterns to d-spacings or reciprocal lattice vectors.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod
+      schema:name:
+        const: Diffraction Camera Length Calibration Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  edsAcquisitionMode:
+    title: EDS Acquisition Mode
+    description: Mode of EDS data acquisition.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/edsAcquisitionMode
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/edsAcquisitionMode
+      schema:name:
+        const: EDS Acquisition Mode
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  edsLiveTimePerPointOrPixel:
+    title: EDS Live Time per Point or Pixel
+    description: EDS spectral acquisition live time per analysis point (point/line mode) or per pixel (spectrum
+      image) in seconds. Also referred to as "EDS Acquisition Time" in EPMA and some SEM-EDS contexts, where
+      the per-pixel distinction is less relevant.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/edsLiveTimePerPointOrPixel
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/edsLiveTimePerPointOrPixel
+      schema:name:
+        const: EDS Live Time per Point or Pixel
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  edsEnergyRange:
+    title: EDS Energy Range
+    description: Energy range of EDS spectrum acquisition in keV.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/edsEnergyRange
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/edsEnergyRange
+      schema:name:
+        const: EDS Energy Range
+      schema:value:
+        type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  eelsAcquisitionMode:
+    title: EELS Acquisition Mode
+    description: Mode of EELS data acquisition.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsAcquisitionMode
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsAcquisitionMode
+      schema:name:
+        const: EELS Acquisition Mode
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  eelsEdges:
+    title: EELS Edges
+    description: 'Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g.,
+      Fe L2,3; O K). Provides the EELS-specific counterpart to the Analyte field: while Analyte lists elements,
+      EELS Edges documents which ionization edges were used and their approximate energy loss positions.
+      The protocol registers the full intended edge suite; analysts confirm or narrow this list at analysis
+      time.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsEdges
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsEdges
+      schema:name:
+        const: EELS Edges
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  eelsAcquisitionTimePerSpectrum:
+    title: EELS Acquisition Time per Spectrum
+    description: Exposure time per individual EELS spectrum (or per pixel for spectrum images) in seconds.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum
+      schema:name:
+        const: EELS Acquisition Time per Spectrum
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  eelsEnergyLossRange:
+    title: EELS Energy Loss Range
+    description: Energy loss range acquired, defined by onset energy and width in eV. The protocol documents
+      the target range for the registered analyte edges; analysts record the actual range acquired.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsEnergyLossRange
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsEnergyLossRange
+      schema:name:
+        const: EELS Energy Loss Range
+      schema:value:
+        type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  eelsBackgroundSubtractionMethod:
+    title: EELS Background Subtraction Method
+    description: Method used to subtract the background beneath the ionization edge of interest to extract
+      the net edge signal.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
+      schema:name:
+        const: EELS Background Subtraction Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  eelsPluralScatteringCorrection:
+    title: EELS Plural Scattering Correction
+    description: Method applied to correct for multiple inelastic scattering events (plural scattering)
+      that broaden edge fine structure. Critical for specimens thicker than ~0.5 inelastic mean free paths.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
+      schema:name:
+        const: EELS Plural Scattering Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  imageProcessingMethodsApplied:
+    title: Image Processing Methods Applied
+    description: Image processing steps applied to TEM or STEM images during or after acquisition. Non-linear
+      processing steps that could affect quantitative interpretation should be documented explicitly. Ideally
+      should be a property on a workflow step associated with the software doing the processing.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/imageProcessingMethodsApplied
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/imageProcessingMethodsApplied
+      schema:name:
+        const: Image Processing Methods Applied
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  specimenThicknessDeterminationMethod:
+    title: Specimen Thickness Determination Method
+    description: Method used to estimate TEM foil thickness. Required for EELS quantification (log-ratio)
+      and for assessing multiple-scattering severity.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/specimenThicknessDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/specimenThicknessDeterminationMethod
+      schema:name:
+        const: Specimen Thickness Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  edsCalibrationStandard:
+    title: EDS Calibration Standard(s)
+    description: Reference material(s) used to validate EDS quantification or determine experimental k-factors
+      or zeta-factors. TEM-EDS is less standardized than EPMA; many protocols rely on manufacturer k-factors
+      without external calibration.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/edsCalibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/edsCalibrationStandard
+      schema:name:
+        const: EDS Calibration Standard(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  eelsEnergyCalibration:
+    title: EELS Energy Calibration
+    description: Method and reference used to calibrate the EELS energy axis. Accurate calibration is required
+      for ELNES edge identification, chemical-state analysis, and inter-lab comparability.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsEnergyCalibration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsEnergyCalibration
+      schema:name:
+        const: EELS Energy Calibration
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  diffractionCalibrationReference:
+    title: Diffraction Calibration Reference
+    description: Reference material or internal standard used to calibrate the electron diffraction camera
+      constant (camera length × electron wavelength), enabling conversion of pixel distances to d-spacings.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/diffractionCalibrationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/diffractionCalibrationReference
+      schema:name:
+        const: Diffraction Calibration Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  edsCountingStatisticsAccumulationCriterion:
+    title: EDS Counting Statistics / Accumulation Criterion
+    description: Quality criterion used to determine when sufficient EDS signal has been accumulated for
+      a given pixel or point, in lieu of or in addition to a fixed live time. Expressed as a target relative
+      uncertainty on major-element peak counts achieved by accumulating successive scan frames (e.g., "1%
+      counting statistics on major elements"; ">10% counting statistics"). Distinct from EDS Live Time per
+      Point or Pixel, which records a fixed-duration setting.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion
+      schema:name:
+        const: EDS Counting Statistics / Accumulation Criterion
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  eelsEnergyDispersion:
+    title: EELS Energy Dispersion
+    description: Energy dispersion of the EELS spectrometer in eV per channel. Controls the energy range
+      acquired per readout and the effective energy resolution trade-off.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsEnergyDispersion
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsEnergyDispersion
+      schema:name:
+        const: EELS Energy Dispersion
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  eelsEnergyResolution:
+    title: EELS Energy Resolution
+    description: Full-width at half-maximum (FWHM) of the zero-loss peak in eV, measured at operating conditions.
+      Reflects combined electron source energy spread and monochromator effect (if active). Critical for
+      ELNES fine-structure interpretation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsEnergyResolution
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/eelsEnergyResolution
+      schema:name:
+        const: EELS Energy Resolution
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  4dStemOrientationMappingMethod:
+    title: 4D-STEM Orientation Mapping Method
+    description: Algorithm, software module, and reference crystal structure database used for automated
+      crystal orientation mapping (ACOM) from 4D-STEM datasets.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/4dStemOrientationMappingMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/4dStemOrientationMappingMethod
+      schema:name:
+        const: 4D-STEM Orientation Mapping Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tem_edsSpectralProcessingType:
+    title: EDS Spectral Processing Type
+    description: Method used to process EDS spectra and extract net peak intensities from raw spectral data.
+      Applied before quantification (EDS Quantification Method). Common approaches include background fitting
+      and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping
+      peaks. Ideally should be a property on a workflow step associated with the software doing the processing.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/edsSpectralProcessingType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/temTAPP/edsSpectralProcessingType
+      schema:name:
+        const: EDS Spectral Processing Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+
+  semImaging_coupledProtocolDoi:
+    title: Coupled Protocol DOI
+    description: DOI of the registered protocol for the coupled technique.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/coupledProtocolDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/coupledProtocolDoi
+      schema:name:
+        const: Coupled Protocol DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semImaging_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
+      documented only through a shared sample IGSN, this field may be 'None'.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semImaging_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semImaging_acceleratingVoltage:
+    title: Accelerating Voltage
+    description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS),
+      EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface
+      sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative
+      analysis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/acceleratingVoltage
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/acceleratingVoltage
+      schema:name:
+        const: Accelerating Voltage
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  semImaging_beamCurrent:
+    title: Beam Current
+    description: Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis
+      (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA;
+      for sub-nA values use decimal notation (e.g., 0.4 nA).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/beamCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/beamCurrent
+      schema:name:
+        const: Beam Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  workingDistance:
+    title: Working Distance
+    description: Distance between the objective lens pole piece and the specimen surface in millimetres.
+      Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/workingDistance
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/workingDistance
+      schema:name:
+        const: Working Distance
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  chamberPressure:
+    title: Chamber Pressure
+    description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
+      and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None'
+      for standard high-vacuum operation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/chamberPressure
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/chamberPressure
+      schema:name:
+        const: Chamber Pressure
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dwellTimePerPixel:
+    title: Dwell Time per Pixel
+    description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on
+      each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
+      Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can
+      cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per
+      spectrometer per pixel.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/dwellTimePerPixel
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/dwellTimePerPixel
+      schema:name:
+        const: Dwell Time per Pixel
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  clIntegrationTime:
+    title: CL Integration Time
+    description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode),
+      in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/clIntegrationTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/clIntegrationTime
+      schema:name:
+        const: CL Integration Time
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  stepSize:
+    title: EBSD Step Size
+    description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller
+      than the smallest grain of interest to resolve grain boundary positions and intragrain orientation
+      gradients.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/stepSize
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/stepSize
+      schema:name:
+        const: EBSD Step Size
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  clFrameTime:
+    title: EBSD Frame Time
+    description: Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time
+      improves pattern quality and indexing rate but increases total acquisition time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/clFrameTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/clFrameTime
+      schema:name:
+        const: EBSD Frame Time
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  phaseList:
+    title: EBSD Phase List
+    description: Mineral phases included in the EBSD reference pattern library for this protocol. The protocol
+      specifies the expected phase suite for the target material; analysts may add phases for specific sample
+      compositions.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/phaseList
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/phaseList
+      schema:name:
+        const: EBSD Phase List
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  crystalStructureDatabase:
+    title: Crystal Structure Database
+    description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/crystalStructureDatabase
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/crystalStructureDatabase
+      schema:name:
+        const: Crystal Structure Database
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  patternQualityThreshold:
+    title: EBSD Pattern Quality Threshold
+    description: Minimum pattern quality or confidence index threshold applied during EBSD data processing
+      to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/patternQualityThreshold
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/patternQualityThreshold
+      schema:name:
+        const: EBSD Pattern Quality Threshold
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  clWavelengthCalibrationReference:
+    title: CL Wavelength Calibration Reference
+    description: Reference light source or standard material used to calibrate the wavelength axis of the
+      CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
+      schema:name:
+        const: CL Wavelength Calibration Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  clDetectorConfiguration:
+    title: CL Detector Configuration
+    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical
+      mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral,
+      multi-channel for pseudo-color CL).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/clDetectorConfiguration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/clDetectorConfiguration
+      schema:name:
+        const: CL Detector Configuration
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  clWavelengthRange:
+    title: CL Grating
+    description: Diffraction grating specification for spectral or hyperspectral CL acquisition, including
+      groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/clWavelengthRange
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semImagingTAPP/clWavelengthRange
+      schema:name:
+        const: CL Grating
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+
+  semFibsem_coupledProtocolDoi:
+    title: Coupled Protocol DOI
+    description: DOI of the registered protocol for the coupled technique.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/coupledProtocolDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/coupledProtocolDoi
+      schema:name:
+        const: Coupled Protocol DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semFibsem_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
+      documented only through a shared sample IGSN, this field may be 'None'.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semFibsem_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semFibsem_acceleratingVoltage:
+    title: Accelerating Voltage
+    description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS),
+      EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface
+      sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative
+      analysis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/acceleratingVoltage
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/acceleratingVoltage
+      schema:name:
+        const: Accelerating Voltage
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  semFibsem_beamCurrent:
+    title: Beam Current
+    description: Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis
+      (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA;
+      for sub-nA values use decimal notation (e.g., 0.4 nA).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/beamCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/beamCurrent
+      schema:name:
+        const: Beam Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  semFibsem_workingDistance:
+    title: Working Distance
+    description: Distance between the objective lens pole piece and the specimen surface in millimetres.
+      Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/workingDistance
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/workingDistance
+      schema:name:
+        const: Working Distance
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  semFibsem_dwellTimePerPixel:
+    title: Dwell Time per Pixel
+    description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on
+      each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
+      Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can
+      cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per
+      spectrometer per pixel.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/dwellTimePerPixel
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/dwellTimePerPixel
+      schema:name:
+        const: Dwell Time per Pixel
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  protectiveCoatingDeposition:
+    title: Protective Coating Deposition
+    description: 'Type and deposition conditions of the protective coating applied to the sample surface
+      before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should
+      be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition
+      method, beam conditions, and approximate thickness.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
+      schema:name:
+        const: Protective Coating Deposition
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  coarseMillingConditions:
+    title: Coarse Milling Conditions
+    description: 'Ion beam voltage and current used for bulk material removal during FIB milling. For TEM
+      specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography:
+      face preparation and initial slice removal.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/coarseMillingConditions
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/coarseMillingConditions
+      schema:name:
+        const: Coarse Milling Conditions
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finePolishingConditions:
+    title: Fine Polishing Conditions
+    description: Ion beam voltage and current for final thinning and surface polishing of the TEM lamella.
+      Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and
+      curtaining artifacts.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/finePolishingConditions
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/finePolishingConditions
+      schema:name:
+        const: Fine Polishing Conditions
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  targetFoilThickness:
+    title: Target Foil Thickness
+    description: 'Target thickness of the electron-transparent TEM lamella after final FIB polishing, in
+      nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM;
+      200-600 nm for XANES or tomography sections.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/targetFoilThickness
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/targetFoilThickness
+      schema:name:
+        const: Target Foil Thickness
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  ionMillingConditions:
+    title: Ion Milling Conditions (3D Tomography)
+    description: Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning.
+      These parameters determine material removal rate per slice and exposed surface quality.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/ionMillingConditions
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/ionMillingConditions
+      schema:name:
+        const: Ion Milling Conditions (3D Tomography)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sliceThickness:
+    title: Slice Thickness
+    description: Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the
+      Z-axis resolution of the 3D reconstruction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/sliceThickness
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const: ada:parameter/semFibsemTAPP/sliceThickness
+      schema:name:
+        const: Slice Thickness
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText

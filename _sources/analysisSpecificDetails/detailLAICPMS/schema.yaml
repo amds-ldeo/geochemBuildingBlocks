@@ -99,19 +99,13 @@ allOf:
       description: Per-dataset schema:PropertyValue entries. All optional.
       items:
         anyOf:
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laicpms_coupledTechnique
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laicpms_couplingDescription
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laicpms_coupledProtocolDoi
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laicpms_coupledDatasetOrPublicationReference
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/sampleFormAnalyticalSubstrate
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laicpms_samplePersistentIdentifier
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/fusionFluxAndDilutionRatio
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/samplePreparationMethod
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/preAblationSurfaceTreatment
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/torchDepth
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/massResolutionSetting
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laicpms_acquisitionSoftware
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/dataReductionSoftware
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/spotGeometry
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laserEnergy
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laserFluence
@@ -122,22 +116,20 @@ allOf:
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/carrierGasFlowRate
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/plasmaMakeUpGasAddition
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/gasFlowRate
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/aignalSmoothing
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/signalSmoothing
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/icPlasmaTuning
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/doublyChargedSpeciesMonitor
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/doublyChargedSpeciesProduction
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/DriftMonitorFrequency
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/driftMonitorFrequency
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/analysisSequence
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/spectrometerDwellTime
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/backgroundCountTime
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/UncertaintyPropagationMethod
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/outlierFiltering
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/nonlineraResponseCorrection
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/nonlinearResponseCorrection
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/memoryEffectMitigation
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/postAcquisitionNormalization
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/calibrationStandardName
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/primaryCalibrationStandardName
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/secondaryReferenceMaterial
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/description
         - type: object
           description: Catch-all for additional schema:PropertyValue entries beyond the laicpmsTAPP-derived
             catalog.
@@ -152,19 +144,13 @@ allOf:
               type: string
               not:
                 enum:
-                - ada:parameter/laicpmsTAPP/coupledTechnique
-                - ada:parameter/laicpmsTAPP/couplingDescription
                 - ada:parameter/laicpmsTAPP/coupledProtocolDoi
                 - ada:parameter/laicpmsTAPP/coupledDatasetOrPublicationReference
-                - ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate
                 - ada:parameter/laicpmsTAPP/samplePersistentIdentifier
                 - ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio
-                - ada:parameter/laicpmsTAPP/samplePreparationMethod
                 - ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment
                 - ada:parameter/laicpmsTAPP/torchDepth
                 - ada:parameter/laicpmsTAPP/massResolutionSetting
-                - ada:parameter/laicpmsTAPP/acquisitionSoftware
-                - ada:parameter/laicpmsTAPP/dataReductionSoftware
                 - ada:parameter/laicpmsTAPP/spotGeometry
                 - ada:parameter/laicpmsTAPP/laserEnergy
                 - ada:parameter/laicpmsTAPP/laserFluence
@@ -175,22 +161,20 @@ allOf:
                 - ada:parameter/laicpmsTAPP/carrierGasFlowRate
                 - ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition
                 - ada:parameter/laicpmsTAPP/gasFlowRate
-                - ada:parameter/laicpmsTAPP/aignalSmoothing
+                - ada:parameter/laicpmsTAPP/signalSmoothing
                 - ada:parameter/laicpmsTAPP/icPlasmaTuning
                 - ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor
                 - ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction
-                - ada:parameter/laicpmsTAPP/DriftMonitorFrequency
+                - ada:parameter/laicpmsTAPP/driftMonitorFrequency
                 - ada:parameter/laicpmsTAPP/analysisSequence
                 - ada:parameter/laicpmsTAPP/spectrometerDwellTime
                 - ada:parameter/laicpmsTAPP/backgroundCountTime
-                - ada:parameter/laicpmsTAPP/UncertaintyPropagationMethod
                 - ada:parameter/laicpmsTAPP/outlierFiltering
-                - ada:parameter/laicpmsTAPP/nonlineraResponseCorrection
+                - ada:parameter/laicpmsTAPP/nonlinearResponseCorrection
                 - ada:parameter/laicpmsTAPP/memoryEffectMitigation
                 - ada:parameter/laicpmsTAPP/postAcquisitionNormalization
-                - ada:parameter/laicpmsTAPP/calibrationStandardName
+                - ada:parameter/laicpmsTAPP/primaryCalibrationStandardName
                 - ada:parameter/laicpmsTAPP/secondaryReferenceMaterial
-                - ada:parameter/laicpmsTAPP/description
           required:
           - '@type'
           - schema:propertyID

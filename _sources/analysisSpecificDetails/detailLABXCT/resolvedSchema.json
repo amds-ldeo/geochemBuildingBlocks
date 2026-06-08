@@ -95,68 +95,6 @@
           "items": {
             "anyOf": [
               {
-                "title": "Coupled Technique(s)",
-                "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/coupledTechnique"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/labxctTAPP/coupledTechnique"
-                  },
-                  "schema:name": {
-                    "const": "Coupled Technique(s)"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Coupling Description",
-                "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/couplingDescription"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/labxctTAPP/couplingDescription"
-                  },
-                  "schema:name": {
-                    "const": "Coupling Description"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
                 "title": "Coupled Protocol DOI",
                 "description": "Registered protocol DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled protocol has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
                 "type": "object",
@@ -340,37 +278,6 @@
                   },
                   "schema:name": {
                     "const": "Sample Preparation Notes"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Acquisition Software",
-                "description": "Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/acquisitionSoftware"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": "ada:parameter/labxctTAPP/acquisitionSoftware"
-                  },
-                  "schema:name": {
-                    "const": "Acquisition Software"
                   },
                   "schema:value": {
                     "type": "string"
@@ -1734,15 +1641,12 @@
                     "type": "string",
                     "not": {
                       "enum": [
-                        "ada:parameter/labxctTAPP/coupledTechnique",
-                        "ada:parameter/labxctTAPP/couplingDescription",
                         "ada:parameter/labxctTAPP/coupledProtocolDoi",
                         "ada:parameter/labxctTAPP/coupledDatasetOrPublicationReference",
                         "ada:parameter/labxctTAPP/sampleMass",
                         "ada:parameter/labxctTAPP/sampleMountingMethod",
                         "ada:parameter/labxctTAPP/samplePersistentIdentifier",
                         "ada:parameter/labxctTAPP/samplePreparationNotes",
-                        "ada:parameter/labxctTAPP/acquisitionSoftware",
                         "ada:parameter/labxctTAPP/reconstructionSoftware",
                         "ada:parameter/labxctTAPP/segmentationAndAnalysisSoftware",
                         "ada:parameter/labxctTAPP/acceleratingVoltage",

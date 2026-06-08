@@ -4693,10 +4693,6 @@
           "description": "Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre voxel sizes.",
           "type": "string"
         },
-        "ada:acquisitionSoftwareDefault": {
-          "description": "Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.",
-          "type": "string"
-        },
         "ada:reconstructionSoftwareDefault": {
           "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number. Often bundled with the instrument and proprietary to the manufacturer.",
           "type": "string"
@@ -4830,88 +4826,6 @@
           "description": "Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (…Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.",
           "items": {
             "anyOf": [
-              {
-                "title": "Coupled Technique(s)",
-                "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/coupledTechniqueDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "coupledTechniqueDefault"
-                  },
-                  "schema:name": {
-                    "const": "Coupled Technique(s)"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Coupling Description",
-                "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/couplingDescriptionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "couplingDescriptionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Coupling Description"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
               {
                 "title": "Sample Dimensions (L × W × H)",
                 "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
@@ -5841,96 +5755,6 @@
             ]
           },
           "allOf": [
-            {
-              "contains": {
-                "title": "Coupled Technique(s)",
-                "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/coupledTechniqueDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "coupledTechniqueDefault"
-                  },
-                  "schema:name": {
-                    "const": "Coupled Technique(s)"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Coupling Description",
-                "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/couplingDescriptionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "couplingDescriptionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Coupling Description"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
             {
               "contains": {
                 "title": "Sample Dimensions (L × W × H)",

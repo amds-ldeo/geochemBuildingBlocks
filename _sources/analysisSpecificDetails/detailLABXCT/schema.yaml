@@ -79,15 +79,12 @@ allOf:
       description: Per-dataset schema:PropertyValue entries. All optional.
       items:
         anyOf:
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/coupledTechnique
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/couplingDescription
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/coupledProtocolDoi
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/coupledDatasetOrPublicationReference
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/sampleMass
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/sampleMountingMethod
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/samplePersistentIdentifier
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/samplePreparationNotes
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/acquisitionSoftware
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/reconstructionSoftware
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/segmentationAndAnalysisSoftware
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/labxct_acceleratingVoltage
@@ -141,15 +138,12 @@ allOf:
               type: string
               not:
                 enum:
-                - ada:parameter/labxctTAPP/coupledTechnique
-                - ada:parameter/labxctTAPP/couplingDescription
                 - ada:parameter/labxctTAPP/coupledProtocolDoi
                 - ada:parameter/labxctTAPP/coupledDatasetOrPublicationReference
                 - ada:parameter/labxctTAPP/sampleMass
                 - ada:parameter/labxctTAPP/sampleMountingMethod
                 - ada:parameter/labxctTAPP/samplePersistentIdentifier
                 - ada:parameter/labxctTAPP/samplePreparationNotes
-                - ada:parameter/labxctTAPP/acquisitionSoftware
                 - ada:parameter/labxctTAPP/reconstructionSoftware
                 - ada:parameter/labxctTAPP/segmentationAndAnalysisSoftware
                 - ada:parameter/labxctTAPP/acceleratingVoltage
