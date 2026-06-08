@@ -58,13 +58,17 @@ allOf:
         for spot analysis) in this session. For spot analysis: number of individual spot analyses per
         grain or location. For transect: number of replicate transect lines. For mapping: number of map
         acquisitions of the same area (usually 1).'
-      type: integer
+      anyOf:
+      - type: integer
+      - type: string
     ada:transectLength:
       description: Total length of the transect line analysed in micrometres. This is an analysis-level
         parameter because it depends on the size of the feature of interest rather than being fixed in
         the protocol. The protocol fixes scan speed (captured in Transect Rate, Mapping Rate or Step Size);
         transect length is determined at analysis time based on grain or feature size.
-      type: number
+      anyOf:
+      - type: number
+      - type: string
     ada:mappingArea:
       description: Total area covered by the 2D raster map, expressed as width × height in µm or as total
         area in µm² or mm². This is an analysis-level parameter because it depends on the size of the
@@ -79,7 +83,9 @@ allOf:
         mapping analysis: for mapping, the equivalent concept is the per-pixel cycle time, which is determined
         by the spectrometer dwell time settings (a protocol-level field) rather than being an analysis-level
         outcome.'
-      type: number
+      anyOf:
+      - type: number
+      - type: string
   required:
   - ada:componentType
   - ada:analyst

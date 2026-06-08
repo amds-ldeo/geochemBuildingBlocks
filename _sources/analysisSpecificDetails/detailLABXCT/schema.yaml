@@ -53,7 +53,9 @@ allOf:
         This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific
         sample being scanned and cannot be fixed in the protocol in advance. Applies only to Mode B (multi-volume
         stitching).'
-      type: integer
+      anyOf:
+      - type: integer
+      - type: string
     ada:voiApplied:
       description: Actual Volume of Interest used in this specific analysis, including dimensions or defining
         criteria. Analysis-level companion to VOI Selection Criteria.
@@ -62,7 +64,9 @@ allOf:
       description: Actual number of reconstructed slices overlapping between adjacent sub-volumes as used
         in this analysis. May differ from the minimum sub-volume overlap required specified in the protocol
         (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.
-      type: integer
+      anyOf:
+      - type: integer
+      - type: string
   required:
   - ada:componentType
   - ada:analyst

@@ -64,7 +64,14 @@
                 },
                 "ada:edsDeadTime": {
                     "description": "Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. EDS dead time correction is managed automatically by the SDD detector electronics; this field documents the resulting percentage as a session QC metric. Values above ~40% indicate excessive count rate and may degrade spectral quality and quantitative accuracy.",
-                    "type": "number"
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 },
                 "ada:eelsSensitivityAndDetectionLimit": {
                     "description": "Practical energy resolution (ZLP FWHM measured at operating conditions) and estimated detection limit or minimum detectable concentration for target edges under this protocol.",

@@ -12,24 +12,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "FIB-SEM (Helios 660 dual-beam); SEM-BSE",
+  "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | STEM-EDS hyperspectral mapping (Mol. Foundry TitanX) (publication column of TEM_TAPP_v7.xlsx).",
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Bruker Esprit 1.9",
-      "ada:toolRole": "reduction"
-    }
-  ],
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
   "schema:instrument": {
     "@type": [
       "schema:Thing",
@@ -40,12 +24,15 @@
     ],
     "schema:name": "Four windowless silicon drift detectors (SDD); 0.7 sr solid angle"
   },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory, USA"
-  },
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Bruker Esprit 1.9",
+      "ada:toolRole": "reduction"
+    }
+  ],
   "schema:object": [
     {
       "@type": [
@@ -54,6 +41,19 @@
       "schema:name": "Antarctic micrometeorite 03-36-46 (hydrated fine-grained AMM, H-FgMM, 84×114 µm; carbonates, phyllosilicates, magnetite, sulfides, phosphates; Concordia snow collection 2002 campaign)"
     }
   ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory, USA"
+  },
   "ada:acceleratingVoltageDefault": "200 kV (EDS maps acquired at 200 kV; instrument range 80–300 kV)",
   "ada:analyticalMode": [],
   "ada:convergenceSemiAngle": -9999,

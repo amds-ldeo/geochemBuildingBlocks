@@ -14,6 +14,33 @@
   ],
   "schema:name": "FIB (FEI Helios G3 Dual Beam at NRL); HAADF-STEM + Dual EELS + EDS (Nion UltraSTEM200-X at NRL; coordinated with JEOL JEM-2200FS)",
   "schema:description": "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | BF/EFTEM + SAED + HRTEM (NRL JEOL JEM-2200FS) (publication column of TEM_TAPP_v7.xlsx).",
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "SingleCrystal (CrystalMaker Software, Ltd., Oxford, UK)",
+      "ada:toolRole": "acquisition"
+    }
+  ],
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
+    ],
+    "schema:name": "JEOL in-column Omega energy filter (EFTEM mode; 10-eV slit; used for Ca M-edge mapping at 35 eV energy loss) BF TEM detector; Gatan OneView CMOS camera (TEM imaging, SAED, HRTEM)"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Apollo 17 soil 71501 (<45 µm fraction); pyroxene grains \"1pyx\" (unexsolved augite) and \"2pyx\" (exsolved pigeonite-augite intergrowth); one FIB section analyzed on two instruments"
+    }
+  ],
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -26,33 +53,6 @@
       "schema:Place"
     ],
     "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
-  },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "SingleCrystal (CrystalMaker Software, Ltd., Oxford, UK)",
-      "ada:toolRole": "acquisition"
-    }
-  ],
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Apollo 17 soil 71501 (<45 µm fraction); pyroxene grains \"1pyx\" (unexsolved augite) and \"2pyx\" (exsolved pigeonite-augite intergrowth); one FIB section analyzed on two instruments"
-    }
-  ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
-    ],
-    "schema:name": "JEOL in-column Omega energy filter (EFTEM mode; 10-eV slit; used for Ca M-edge mapping at 35 eV energy loss) BF TEM detector; Gatan OneView CMOS camera (TEM imaging, SAED, HRTEM)"
   },
   "ada:acceleratingVoltageDefault": "200 keV",
   "ada:analyticalMode": [],

@@ -100,6 +100,54 @@ def place_identity(inst, item, sp, v):
     # other inherited fields (sample prep, references already handled) are skipped
 
 
+def coerce(v, jtype):
+    """Coerce a string cell value to the JSON type implied by the field's data type."""
+    if jtype in ("number", "integer"):
+        m = re.match(r"-?\d+(?:\.\d+)?", v)
+        if m:
+            x = m.group(0)
+            return int(x) if jtype == "integer" or "." not in x else float(x)
+    return v
+
+
+def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_types):
+    """Build one analysis-level detail-block instance from a publication column:
+    componentType + required analysis-level (detail_req) fields + per-dataset
+    schema:PropertyValue entries (detail_addl). Pairs with the TAPP example by @id."""
+    ct = component_types[0] if component_types else "ada:Tabular"
+    inst = {"@context": {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"},
+            "@id": f"ex:{detail_name}-{code}", "@type": [ct], "ada:componentType": ct,
+            "schema:measurementTechnique": {"@id": f"ex:{tapp}-{code}"}}
+    seen = set()
+    for b in R["detail_req"]:
+        if b["name"] in seen:
+            continue
+        seen.add(b["name"])
+        key = "ada:" + b["name"]
+        v = cell(pubval[b["item"]].get(pc))
+        if v is not None:
+            inst[key] = coerce(v, b["jtype"])
+        elif not b["multivol_only"]:   # required -> sentinel
+            inst[key] = (-9999 if b["jtype"] in ("number", "integer") else "missing")
+    saps, seen_pv = [], set()
+    for b in R["detail_addl"]:
+        if b["name"] in seen_pv:
+            continue
+        v = cell(pubval[b["item"]].get(pc))
+        if not v:
+            continue
+        seen_pv.add(b["name"])
+        e = {"@id": f"{param_base}/{b['name']}", "@type": ["schema:PropertyValue"],
+             "schema:propertyID": f"{param_base}/{b['name']}", "schema:name": b["item"],
+             "schema:value": coerce(v, b["jtype"])}
+        if b.get("unit") and b["unit"] != "free":
+            e["schema:unitText"] = b["unit"]
+        saps.append(e)
+    if saps:
+        inst["schema:additionalProperty"] = saps
+    return inst
+
+
 def main():
     if len(sys.argv) < 2:
         raise SystemExit("usage: build_tapp_examples.py <tappName>")
@@ -137,7 +185,11 @@ def main():
 
     TAPP_DIR = bt.TAPP_DIR
     PARAM_BASE = bt.PARAM_BASE
-    written = []
+    DETAIL_DIR = bt.DETAIL_DIR
+    detail_name = os.path.basename(DETAIL_DIR)
+    component_types = bt.CFG.get("component_types") or []
+    os.makedirs(DETAIL_DIR, exist_ok=True)
+    written, detail_written = [], []
     for idx, pc in enumerate(pub_cols):
         hdr_txt = norm(hdr[pc])
         code = short_code(hdr_txt, idx)
@@ -222,6 +274,13 @@ def main():
             json.dump(inst, f, indent=2, ensure_ascii=False)
             f.write("\n")
         written.append((code, hdr_txt))
+        # paired analysis-level detail-block example
+        dinst = build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name, component_types)
+        with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
+                  "w", encoding="utf-8", newline="\n") as f:
+            json.dump(dinst, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+        detail_written.append((code, hdr_txt))
 
     # examples.yaml
     import yaml
@@ -233,6 +292,15 @@ def main():
     with open(os.path.join(TAPP_DIR, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         yaml.safe_dump(entries, f, sort_keys=False, allow_unicode=True, default_flow_style=False, width=1000)
     print(f"wrote {len(written)} {tapp} examples: {[c for c, _ in written]}")
+
+    dentries = [{"title": f"{detail_name} example {code}",
+                 "content": f"{detail_name} instance derived from {lbl}.",
+                 "prefixes": {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"},
+                 "snippets": [{"language": "json", "ref": f"example{detail_name}-{code}.json"}]}
+                for code, lbl in detail_written]
+    with open(os.path.join(DETAIL_DIR, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
+        yaml.safe_dump(dentries, f, sort_keys=False, allow_unicode=True, default_flow_style=False, width=1000)
+    print(f"wrote {len(detail_written)} {detail_name} examples")
 
 
 if __name__ == "__main__":

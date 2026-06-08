@@ -12,24 +12,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "FIB-SEM; XANES (synchrotron)",
+  "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX) (publication column of TEM_TAPP_v7.xlsx).",
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Python (sequential map combination)",
-      "ada:toolRole": "reduction"
-    }
-  ],
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
   "schema:instrument": {
     "@type": [
       "schema:Thing",
@@ -40,12 +24,15 @@
     ],
     "schema:name": "Bruker quad SDD; Ω = 0.6 sr"
   },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory"
-  },
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Python (sequential map combination)",
+      "ada:toolRole": "reduction"
+    }
+  ],
   "schema:object": [
     {
       "@type": [
@@ -54,6 +41,19 @@
       "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
     }
   ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory"
+  },
   "ada:acceleratingVoltageDefault": "80–300 keV (range; specific voltage per dataset not stated)",
   "ada:analyticalMode": [
     "TEM Imaging",

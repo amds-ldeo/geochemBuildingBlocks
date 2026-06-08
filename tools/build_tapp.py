@@ -590,8 +590,13 @@ def build():
             "properties": {"@id": {"type": "string", "format": "uri"}}, "required": ["@id"]}}
     for b in R["detail_req"]:
         key = "ada:" + b["name"]
-        block1[key] = {"description": b["desc"],
-                       "type": "string" if b["jtype"] in ("string", "date", "uri") else b["jtype"]}
+        if b["jtype"] in ("number", "integer"):
+            # accept a typed number OR a qualified string (publication fidelity, e.g. "~380 slices")
+            block1[key] = {"description": b["desc"], "anyOf": [{"type": b["jtype"]}, {"type": "string"}]}
+        elif b["jtype"] == "boolean":
+            block1[key] = {"description": b["desc"], "type": "boolean"}
+        else:
+            block1[key] = {"description": b["desc"], "type": "string"}
         if not b["multivol_only"]:
             req.append(key)
     pv_branches = [{"$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/" + n} for n in pv_keys]

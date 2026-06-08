@@ -63,15 +63,36 @@
         },
         "ada:imagePixelSize": {
           "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
-          "type": "number"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:meanAngularDeviaton": {
           "description": "Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation. Values above ~1.5 degrees typically indicate unreliable indexing.",
-          "type": "number"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:indexingRate": {
           "description": "Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points. Low indexing rate may indicate surface damage, amorphisation, severe deformation, or phase misidentification.",
-          "type": "number"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         }
       },
       "required": [
