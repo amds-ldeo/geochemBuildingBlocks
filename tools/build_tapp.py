@@ -539,6 +539,7 @@ def build():
     for b in R["tapp_prop"]:
         key = "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else "")
         if b["name"] == "analyticalMode":
+            key = "ada:analyticalMode"  # never carries a …Default suffix
             # always a LIST of strings; options are the mode-column headers
             items = {"type": "string"}
             if mode_names:

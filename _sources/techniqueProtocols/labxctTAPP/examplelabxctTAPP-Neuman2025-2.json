@@ -1,0 +1,121 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:labxctTAPP-Neuman2025-2",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Neuman2025-2",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v8.xlsx).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "Lab XCT",
+    "schema:name": "Lab XCT"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Lunar regolith (Apollo 17 drive-tube core, steel sleeve)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "UTCT Facility, U. Texas"
+  },
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)",
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)",
+  "ada:reconstructionSoftwareDefault": "missing",
+  "ada:segmentationAndAnalysisSoftwareDefault": "missing",
+  "ada:acceleratingVoltageDefault": "190 kV",
+  "ada:tubeCurrentDefault": -9999,
+  "ada:xRayPreFilterDefault": "None (steel sleeve acts as effective filter)",
+  "ada:voxelSizeDefault": -9999,
+  "ada:rotationRangeDefault": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:flatFieldCorrectionDefault": "missing",
+  "ada:rotationModeDefault": "Non-continuous rotation (to avoid rotational mismatch of continuous mode)",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:beamHardeningCorrectionMethod": "Software BHC (same factor as 73002 re-used)",
+  "ada:outputDataFormatDefault": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:subVolumeStitchingAndRegistrationMethodDefault": "Digital stitching; manual realignment of raw projection images for rotational misalignment (up to 0.35°); additional cone-beam, BH, and scattering corrections applied",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleDimensionsDefault",
+      "schema:name": "Sample Dimensions (L × W × H)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "~35 cm length core"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Custom PVC tube"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/samplePreparationNotesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "samplePreparationNotesDefault",
+      "schema:name": "Sample Preparation Notes",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Steel outer sleeve retained for scan"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Post-reconstruction ring corrections applied"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/labxctTAPP/detectorArraySize",
+      "schema:name": "Detector Array Size",
+      "schema:value": "2048 × 2048 (physical); 4096 × 4096 (effective, NSI Subpix)"
+    }
+  ]
+}

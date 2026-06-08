@@ -9,11 +9,10 @@ allOf:
 - type: object
   properties:
     ada:analyticalMode:
-      description: 'Top-level analytical mode(s) executed under this protocol: TEM Imaging, STEM Imaging,
-        or Electron Diffraction. For multi-mode protocols (e.g., STEM Imaging combined with Electron Diffraction),
-        list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct
-        from "Analytical Sub-mode" (which records the specific technique within a mode, e.g., BF-TEM,
-        HAADF-STEM, SAED, PED) and from the mode flag columns which indicate per-field applicability.'
+      description: 'Sub-mode(s) of imaging or diffraction performed under this protocol. TEM Imaging options:
+        BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF, ABF, BF-STEM, ADF, MAADF. Electron
+        Diffraction options: SAED, CBED, Nanobeam diffraction, Precession ED, 4D-STEM. Multiple values
+        apply when the protocol covers more than one sub-mode within a given analytical mode.'
       type: array
       items:
         type: string
@@ -29,18 +28,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:analyticalModeDefault:
-      description: 'Sub-mode(s) of imaging or diffraction performed under this protocol. TEM Imaging options:
-        BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF, ABF, BF-STEM, ADF, MAADF. Electron
-        Diffraction options: SAED, CBED, Nanobeam diffraction, Precession ED, 4D-STEM. Multiple values
-        apply when the protocol covers more than one sub-mode within a given analytical mode.'
-      type: array
-      items:
-        type: string
-        enum:
-        - TEM Imaging
-        - STEM Imaging
-        - Electron Diffraction
     ada:convergenceSemiAngle:
       description: Semi-angle of the converged electron probe in milliradians. Controls probe size (smaller
         angle = larger probe but less coherent), depth of field, and in 4D-STEM, the size of diffraction
@@ -249,7 +236,7 @@ allOf:
         maxContains: 1
   required:
   - ada:acceleratingVoltageDefault
-  - ada:analyticalModeDefault
+  - ada:analyticalMode
   - ada:convergenceSemiAngle
   - ada:stemDwellTimePerPixelDefault
   - ada:cameraLengthDefault

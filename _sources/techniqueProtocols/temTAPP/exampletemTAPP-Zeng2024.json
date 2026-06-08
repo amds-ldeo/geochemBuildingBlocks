@@ -1,0 +1,94 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:temTAPP-Zeng2024",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "FIB-SEM (FEI Scios dual-beam); SEM-BSE; SEM-EDS",
+  "schema:description": "temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM + EDS mapping (Guangdong FEI Talos F200S) (publication column of TEM_TAPP_v7.xlsx).",
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Velox Revision 2.14 (Thermo Fisher Scientific)",
+      "ada:toolRole": "reduction"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Velox Revision 2.14 (Thermo Fisher Scientific)",
+      "ada:toolRole": "acquisition"
+    }
+  ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
+    ],
+    "schema:name": "Bruker xflash 6T 30 silicon drift detector"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Analysis and Test Center, Guangdong University of Technology, Guangzhou, China"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Chang'e-5 lunar glass bead (basaltic impact glass, ~350×400 µm; CE5C0600YJFM00304; micrometeorite impact crater rim)"
+    }
+  ],
+  "ada:acceleratingVoltageDefault": "200 kV",
+  "ada:analyticalMode": [],
+  "ada:convergenceSemiAngle": -9999,
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:cameraLengthDefault": -9999,
+  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsQuantificationMethod": "Brown–Powell ionization cross-section model (implemented in Velox 2.14)",
+  "ada:eelsAcquisitionModeDefault": "missing",
+  "ada:eelsEdgesDefault": "missing",
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
+  "ada:eelsEnergyLossRangeDefault": "missing",
+  "ada:phaseIdentificatonMethod": "FFT from BF-TEM images (no SAED): rutile (TiO2, polycrystalline 2–15 nm); trigonal Ti2O (P3̄m1, zone axis [1 1 2̄ 3]; a=2.983 Å, c=4.804 Å); triclinic Ti2O (P1, zone axis [5 16 12]; a=10.453 Å, b=10.895 Å, c=12.206 Å); d-spacings and zone axes matched to crystal structure parameters",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stemProbeCurrentDefault",
+      "schema:name": "STEM Probe Current",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "1–2 nA (stated as beam current for analysis conditions)",
+      "schema:unitText": "pA or nA"
+    }
+  ]
+}

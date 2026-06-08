@@ -1,0 +1,126 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:labxctTAPP-Tait2014",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Optical microscopy; EBSD",
+  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v8.xlsx).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "Lab XCT (nano-CT)",
+    "schema:name": "Lab XCT (nano-CT)"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "H7 ordinary chondrite (Watson 012)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CSIRO, Kensington, Western Australia"
+  },
+  "ada:targetFeature": "Plagioclase network connectivity; partial melt evidence",
+  "ada:xRaySourceConfiguration": "missing",
+  "ada:detectorType": "missing",
+  "ada:reconstructionSoftwareDefault": "missing",
+  "ada:segmentationAndAnalysisSoftwareDefault": "AvizoFire 8.0; Matlab; Drishti 2.0",
+  "ada:acceleratingVoltageDefault": "70 kV",
+  "ada:tubeCurrentDefault": "86 µA",
+  "ada:xRayPreFilterDefault": "missing",
+  "ada:voxelSizeDefault": "1.923 µm",
+  "ada:rotationRangeDefault": "360°",
+  "ada:numberOfProjectionsDefault": "2000",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:flatFieldCorrectionDefault": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:outputDataFormatDefault": "missing",
+  "ada:segmentationMethodDefault": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation",
+  "ada:subVolumeStitchingAndRegistrationMethodDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleDimensionsDefault",
+      "schema:name": "Sample Dimensions (L × W × H)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "8 mm diameter core"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/samplePreparationNotesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "samplePreparationNotesDefault",
+      "schema:name": "Sample Preparation Notes",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "8 mm diameter core drilled from meteorite prior to XCT"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "7 W",
+      "schema:unitText": "W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Dedicated workflow; specific threshold values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable"
+    }
+  ]
+}

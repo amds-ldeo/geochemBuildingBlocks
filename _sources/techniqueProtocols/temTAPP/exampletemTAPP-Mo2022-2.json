@@ -1,0 +1,88 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:temTAPP-Mo2022-2",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); HAADF-STEM + EDS (FEI Talos F200X at SINANO CAS; coordinated); Auger electron spectroscopy (PHI 700/710 at Tsinghua University)",
+  "schema:description": "temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | TEM-EELS (Shanghai Institute of Ceramics CAS Hitachi HF5000) (publication column of TEM_TAPP_v7.xlsx).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis",
+    "schema:name": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 µm; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging"
+    }
+  ],
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
+    ],
+    "schema:name": "Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer HAADF-STEM detector"
+  },
+  "ada:acceleratingVoltageDefault": "200 kV",
+  "ada:analyticalMode": [],
+  "ada:convergenceSemiAngle": -9999,
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:cameraLengthDefault": -9999,
+  "ada:edsAcquisitionModeDefault": "missing",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:eelsAcquisitionModeDefault": "Point analysis and line scan EELS",
+  "ada:eelsEdgesDefault": "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)",
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
+  "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
+  "ada:phaseIdentificatonMethod": "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe³⁺; olivine = Fe²⁺)",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stemProbeCurrentDefault",
+      "schema:name": "STEM Probe Current",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "100 pA",
+      "schema:unitText": "pA or nA"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsEnergyResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/temTAPP/eelsEnergyResolution",
+      "schema:name": "EELS Energy Resolution",
+      "schema:value": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)",
+      "schema:unitText": "eV FWHM"
+    }
+  ]
+}

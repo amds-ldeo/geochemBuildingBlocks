@@ -1,0 +1,134 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:labxctTAPP-Tomkinson2015",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "SEM-BSE (qualitative comparison)",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v8.xlsx).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "Lab XCT",
+    "schema:name": "Lab XCT"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Martian meteorite (nakhlite, NWA 5790)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Manchester X-ray Imaging Facility, U. Manchester"
+  },
+  "ada:targetFeature": "Modal mineralogy (vol%); secondary minerals",
+  "ada:xRaySourceConfiguration": "missing",
+  "ada:detectorType": "missing",
+  "ada:reconstructionSoftwareDefault": "Nikon proprietary filtered back projection (software not named)",
+  "ada:segmentationAndAnalysisSoftwareDefault": "Avizo™",
+  "ada:acceleratingVoltageDefault": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)",
+  "ada:tubeCurrentDefault": -9999,
+  "ada:xRayPreFilterDefault": "missing",
+  "ada:voxelSizeDefault": "10.3 × 10.3 × 10.3 µm³",
+  "ada:rotationRangeDefault": -9999,
+  "ada:numberOfProjectionsDefault": "3143",
+  "ada:exposureTimePerProjectionDefault": "20 s",
+  "ada:flatFieldCorrectionDefault": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:outputDataFormatDefault": "missing",
+  "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
+  "ada:subVolumeStitchingAndRegistrationMethodDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleDimensionsDefault",
+      "schema:name": "Sample Dimensions (L × W × H)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "~1.1 × 1.2 × 0.8 cm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/samplePreparationNotesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "samplePreparationNotesDefault",
+      "schema:name": "Sample Preparation Notes",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "None; chip used as received"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Thresholds not given numerically; SEM images used to define phases; errors from threshold + subvoxel variability generally <5% for grains >125 voxels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Phases: augite, mesostasis, olivine, titanomagnetite, pore space — identified by grayscale correlated to linear attenuation coefficients; verified with SEM"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "partialVolumeEffectCriteriaDefault",
+      "schema:name": "Partial Volume Effect Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Copper"
+    }
+  ]
+}

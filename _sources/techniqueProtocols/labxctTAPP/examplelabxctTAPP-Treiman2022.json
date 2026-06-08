@@ -1,0 +1,153 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:labxctTAPP-Treiman2022",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Neutron CT (simultaneous, same instrument)",
+  "schema:description": "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v8.xlsx).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "NXCT",
+    "schema:name": "NXCT"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Howardite (EET 87503); CR2 chondrite (GRA 06100)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NIST Center for Neutron Research (NCNR)"
+  },
+  "ada:targetFeature": "H-bearing minerals; phase density contrast (NXCT)",
+  "ada:xRaySourceConfiguration": "Point source (bremsstrahlung, polychromatic, max 90 keV)",
+  "ada:detectorType": "P43 scintillator (GadOx) + Andor NEO sCMOS camera",
+  "ada:reconstructionSoftwareDefault": "MATLAB 2021 (NIST-developed routine; imregister)",
+  "ada:segmentationAndAnalysisSoftwareDefault": "Dragonfly (DRAGONFLY, 2021)",
+  "ada:acceleratingVoltageDefault": "90 keV max (paper reports max Bremsstrahlung photon energy; numerically equivalent to 90 kV tube voltage)",
+  "ada:tubeCurrentDefault": -9999,
+  "ada:xRayPreFilterDefault": "2 mm aluminum",
+  "ada:voxelSizeDefault": "15 µm",
+  "ada:rotationRangeDefault": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:flatFieldCorrectionDefault": "Flat field effects noted (Poisson noise from flat-fielding)",
+  "ada:rotationModeDefault": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:outputDataFormatDefault": "Raw image slices (available in supplementary material)",
+  "ada:segmentationMethodDefault": "Bivariate histogram segmentation (X-ray attenuation vs. neutron attenuation) in Dragonfly",
+  "ada:subVolumeStitchingAndRegistrationMethodDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Aluminum mesh (EET); plastic substrate (GRA)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/samplePreparationNotesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "samplePreparationNotesDefault",
+      "schema:name": "Sample Preparation Notes",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "None stated"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Threshold regions defined manually in bivariate histogram space; 7 phase regions defined"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "7 phases from bivariate histogram peaks: void/Al/plagioclase, plastic, anhydrous Mg silicates, Fe silicates, hydrous minerals, Fe-Ti-Cr oxides, Fe metal"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiSelectionCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "voiSelectionCriteriaDefault",
+      "schema:name": "VOI Selection Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Full sample volumes; GRA 06100 cropped to remove plastic artifact"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/labxctTAPP/detectorArraySize",
+      "schema:name": "Detector Array Size",
+      "schema:value": "2560 × 2160 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "schema:name": "Detector Pixel Size",
+      "schema:value": "6.5 µm (physical pixel size)",
+      "schema:unitText": "µm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/opticalObjective",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": "ada:parameter/labxctTAPP/opticalObjective",
+      "schema:name": "Optical Objective",
+      "schema:value": "Infinity-corrected macroscope (not used for these datasets)"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/"
+  },
+  "@id": "ex:semImagingTAPP-Pascucci2026-3",
+  "@type": [
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Supra 40",
+  "schema:description": "semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS Mapping (Zeiss Supra 40 FE-SEM, 20 kV) (publication column of SEM_Imaging_TAPP_v4.xlsx).",
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)"
+    }
+  ],
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
+    ],
+    "schema:name": "Field emission gun (FEG) FESEM (Field Emission SEM)"
+  },
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)",
+      "ada:toolRole": "reduction"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Oxford INCA Energy",
+      "ada:toolRole": "acquisition"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:name": "semImaging",
+    "schema:termCode": "semImaging"
+  },
+  "ada:seDetectorType": "missing",
+  "ada:bseDetectorType": "missing",
+  "ada:analyticalMode": [],
+  "ada:acceleratingVoltageDefault": "20 kV",
+  "ada:beamCurrentDefault": -9999,
+  "ada:workingDistanceDefault": -9999,
+  "ada:clAcquisitionMode": "missing",
+  "ada:clWavelengthRange": -9999,
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:sampleTiltAngle": -9999,
+  "ada:phaseListDefault": "missing",
+  "ada:crystalStructureDatabaseDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "High vacuum"
+    }
+  ]
+}
