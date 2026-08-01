@@ -61,7 +61,7 @@ TAPP_CONFIGS = {
         "mode": "empa",
     },
     "laicpmsTAPP": {
-        "xlsx": "docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx",
+        "xlsx": "docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx",
         "prefix": "laicpms",
         "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage", "ada:LAICPMSTransect"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -73,7 +73,7 @@ TAPP_CONFIGS = {
                         "definition. Basic protocol-tier fields are required top-level ada: properties; "
                         "Advanced protocol-tier fields are schema:additionalProperty[] "
                         "PropertyValueSpecification entries; an ada:analyteTemplate carries the "
-                        "per-element columns. Generated from docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by "
+                        "per-element columns. Generated from docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx by "
                         "tools/build_tapp.py."),
         "detail_title": "LA-ICPMS Analysis Detail",
         "detail_description": ("Detail block for LA-ICP-MS hasPart items. Discriminates on "
@@ -328,7 +328,8 @@ def param_value_def(b, existing):
     props = {
         "@id": {"const": PARAM_BASE + "/" + bare},
         "@type": {"const": ["schema:PropertyValue"]},
-        "schema:propertyID": {"const": PARAM_BASE + "/" + bare},
+        # schema:propertyID is a URI-shape identifier -> JSON-LD @id reference (CDIF convention)
+        "schema:propertyID": {"const": {"@id": PARAM_BASE + "/" + bare}},
         "schema:name": {"const": b["item"]},
     }
     props["schema:value"] = ({"anyOf": [{"type": "number"}, {"type": "string"}]}
@@ -378,19 +379,44 @@ def existing_keys(path):
 
 
 def write_vocab(b):
-    terms = [{"@type": ["schema:DefinedTerm"], "schema:termCode": t, "schema:name": t}
-             for t in b["terms"] if t not in ("N/A", "None")]
-    obj = {
-        "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
-        "@context": CTX, "@id": VOCAB_BASE + "/" + b["name"], "@type": ["schema:DefinedTermSet"],
-        "schema:name": b["item"], "schema:description": b["desc"][:300],
-        "schema:hasDefinedTerm": terms,
-    }
+    import _tapp_lib as _L
+    _L.TAPP_NAME = TAPP  # scheme @id is ada:vocab/<TAPP>/<name>
+    obj = _L.vocab_obj(b["name"], b["item"], b["desc"][:300], b["terms"])
     write(os.path.join(VOCAB_DIR, CFG["prefix"] + "_" + b["name"] + ".json"),
           json.dumps(obj, indent=2, ensure_ascii=False) + "\n")
 
 
 # ---------- routing ----------
+# ---------- Step 3: minimal-annotation inputs (content + central roles + sidecar) ----------
+# route() derives every row's decision from the plain content columns plus two annotation
+# sources that live OUTSIDE the workbook: tools/tapp_role_items.json (Layer B: recurring
+# inherited/description/analyte-identifier rows, by Metadata Item name) and a per-workbook
+# sidecar docs/<workbook>.overrides.json (the residual: curated names, analyte-column
+# specs, technique-specific role skips). This lets a raw Drive workbook — with no
+# schema-path / implementation-notes columns — generate directly. The equivalence harness
+# (tools/verify_tapp_overrides.py) proves this reproduces the old annotation-driven route().
+CENTRAL_ROLES_FILE = os.path.join(ROOT, "tools", "tapp_role_items.json")
+
+
+def _norm_item(s):
+    return " ".join(str(s).split()).lower() if s is not None else ""
+
+
+def load_central_roles():
+    if os.path.exists(CENTRAL_ROLES_FILE):
+        with open(CENTRAL_ROLES_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def load_sidecar():
+    p = os.path.splitext(XLSX)[0] + ".overrides.json"
+    if os.path.exists(p):
+        with open(p, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
 def route():
     import _tapp_lib as _L
     from collections import OrderedDict
@@ -399,72 +425,50 @@ def route():
     hdr = rows[0]
     H = [norm(v).lower() for v in hdr]
     lit = next((i for i, v in enumerate(H) if v == "literature assessment"), None)
-    sp_col = next((i for i, v in enumerate(H) if v == "schema path"), None)
-    impl_col = next((i for i, v in enumerate(H) if v.startswith("implementation note")), None)
     comment_col = next((i for i, v in enumerate(H) if v.startswith("comment")), None)
-    cov_start = (lit + 1) if lit is not None else (impl_col + 1 if impl_col is not None else len(hdr))
-    # Mode columns: the Y/N boolean columns between 'comment' and 'schema path' (e.g.
-    # Spot/Transect/Mapping, or Single-volume/Multi-volume stitching). Their headers are
-    # the ada:analyticalMode enum options; a per-row Y marks which modes that field applies
-    # to. Detected by content (all non-empty cells in {Y,N}) so date/text cols are excluded.
+    boundary = lit if lit is not None else len(hdr)
+    cov_start = (lit + 1) if lit is not None else len(hdr)
+    # Mode columns: the Y/N boolean columns between 'comment' and 'Literature Assessment'
+    # (their headers are the ada:analyticalMode enum options). Any leftover guidance columns
+    # in that span are text, so the all-cells-in-{Y,N} filter excludes them; this works on a
+    # raw Drive workbook (no guidance columns) identically.
     mode_cols = []
-    if comment_col is not None and sp_col is not None:
-        for i in range(comment_col + 1, sp_col):
+    if comment_col is not None:
+        for i in range(comment_col + 1, boundary):
             vals = [norm(rr[i]).upper() for rr in rows[1:] if i < len(rr) and norm(rr[i])]
             if vals and all(v in ("Y", "N") for v in vals):
                 mode_cols.append(i)
     mode_names = [norm(hdr[i]) for i in mode_cols]
     R = {"tapp_prop": [], "method_param": [], "method_value": [], "detail_req": [], "detail_addl": [],
          "analyte_cols": [], "analyte_defs": OrderedDict(), "vocab": [], "mode_names": mode_names}
-    amap = CFG.get("analyte_map") or {}
+    central = load_central_roles()
+    sidecar = load_sidecar()
     _L.TAPP_NAME = TAPP  # for analyte_column_obj / registry @ids (no TAPP_PROFILES dependency)
     for r in rows[1:]:
         item = norm(r[0])
         if not item or re.match(r"^\d+\.\s", item):
             continue
         P, A, dt, ex = norm(r[2]), norm(r[3]), norm(r[4]), norm(r[5])
-        sp = norm(r[sp_col]) if sp_col is not None and sp_col < len(r) else ""
-        impl = norm(r[impl_col]) if impl_col is not None and impl_col < len(r) else ""
         modes = [norm(hdr[i]) for i in mode_cols if i < len(r) and norm(r[i]).upper() == "Y"]
         cov = sum(1 for i in range(cov_start, len(r)) if meaningful(r[i]))
-        parsed = _L.parse_impl(impl)
-        rec = {"item": item, "name": field_name(item, sp, parsed), "P": P, "A": A, "jtype": jtype(dt),
+        ov = sidecar.get(item, {})
+        rec = {"item": item, "name": ov.get("name") or camel(item), "P": P, "A": A, "jtype": jtype(dt),
                "unit": unit(dt), "desc": norm(r[1]), "allowed": ex, "cov": cov,
                "multivol_only": (modes == [CFG["conditional_mode"]])}
-        # Workbook-driven analyteColumns: rows whose `schema path` targets
-        # ada:analyteTemplate.ada:analyteColumns generate one $def per impl
-        # `analyteColumn:` tag. Property/parameter names also come from the workbook
-        # (schema-path ada: segment / impl tag, via field_name). Falls back to the
-        # legacy hardcoded analyte_map only when there is no schema path column.
-        if "analyteTemplate.ada:analyteColumns" in sp:
+        # analyte-template columns: from the sidecar's per-column {name, dtype, readOnly}.
+        analyte_cols = ov.get("analyteColumn")
+        if analyte_cols:
             cols = []
-            for tr in parsed["tag_records"]:
-                if tr["kind"] != "analytecolumn":
-                    continue
-                nm = tr["name"]
-                cols.append(nm)
-                ro = tr["readOnly"] if tr["readOnly"] is not None else (A == "Read-Only")
-                R["analyte_defs"][nm] = _L.analyte_column_obj(
-                    nm, item, rec["desc"], tr["dtype"] or dt, None, ro)
-            if not cols and item in amap:
-                cols = amap[item]
+            for c in analyte_cols:
+                cols.append(c["name"])
+                R["analyte_defs"][c["name"]] = _L.analyte_column_obj(
+                    c["name"], item, rec["desc"], c["dtype"], None, c["readOnly"])
             R["analyte_cols"].append({**rec, "cols": cols})
             continue
-        if sp_col is None and item in amap:
-            R["analyte_cols"].append({**rec, "cols": amap[item]})
-            continue
-        # schema-path roles that are NOT new TAPP properties:
-        #  - inherited base-TAPP field ($MethodDefinition.schema:* with no ada: / additionalProperty)
-        #  - analyte identifier (the Analyte row -> defaultAnalytes, handled by the example builder)
-        #  - protocol schema:description
-        if sp and (
-            (sp.startswith("$MethodDefinition") and "ada:" not in sp
-             and "additionalProperty" not in sp and "schema:description" not in sp)
-            or "analyteTemplate.ada:defaultAnalytes" in sp
-            or ("schema:description" in sp and "additionalProperty" not in sp)
-        ):
-            continue
-        if item in CFG["base_items"]:
+        # rows that are NOT new TAPP properties (skipped): identity/base fields (content, by
+        # name), Layer-B central roles (inherited/description/analyte-identifier), and any
+        # per-workbook role override in the sidecar.
+        if item in CFG["base_items"] or _norm_item(item) in central or ov.get("role"):
             continue
         # analyticalMode is rendered as a list-of-strings with a mode-derived enum (rule 1),
         # not a vocab-referencing field, so it needs no DefinedTermSet.
@@ -604,7 +608,8 @@ def build():
         "description": f"Catch-all for additional schema:PropertyValue entries beyond the {TAPP}-derived catalog.",
         "properties": {"@type": {"type": "array", "items": {"type": "string"},
                                  "contains": {"const": "schema:PropertyValue"}},
-                       "schema:propertyID": {"type": "string", "not": {"enum": pv_ids}}},
+                       "schema:propertyID": {"type": "object", "required": ["@id"],
+                                             "properties": {"@id": {"type": "string", "not": {"enum": pv_ids}}}}},
         "required": ["@type", "schema:propertyID"]}
     detail = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -831,8 +836,9 @@ def _regen_detail_addl_constraint(L, detail_param_names):
         "properties": {
             "@type": {"type": "array", "items": {"type": "string"},
                       "contains": {"const": "schema:PropertyValue"}},
-            "schema:propertyID": {"type": "string",
-                                  "not": {"enum": [f"ada:parameter/empaTAPP/{n}" for n in names]}},
+            "schema:propertyID": {"type": "object", "required": ["@id"], "properties": {
+                "@id": {"type": "string",
+                        "not": {"enum": [f"ada:parameter/empaTAPP/{n}" for n in names]}}}},
         },
         "required": ["@type", "schema:propertyID"],
     })

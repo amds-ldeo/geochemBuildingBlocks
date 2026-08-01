@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Build publication-derived laicpmsTAPP examples (cols M..Y of LA-Q_SF-ICPMS_TAPP_v2.xlsx)
+"""Build publication-derived laicpmsTAPP examples (cols M..Y of LA-Q_SF-ICPMS_TAPP_v3.xlsx)
 and one detailLAICPMS example, against the regenerated schema. Uses the same routing as
 build_laicpms_from_spreadsheet.py so example fields match the schema exactly.
 Run after build_laicpms_from_spreadsheet.py.
@@ -8,7 +8,7 @@ import json, os, re, sys
 import openpyxl
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-XLSX = os.path.join(ROOT, "docs", "LA-Q_SF-ICPMS_TAPP_v2.xlsx")
+XLSX = os.path.join(ROOT, "docs", "LA-Q_SF-ICPMS_TAPP_v3.xlsx")
 TAPP_DIR = os.path.join(ROOT, "_sources", "techniqueProtocols", "laicpmsTAPP")
 DETAIL_DIR = os.path.join(ROOT, "_sources", "analysisSpecificDetails", "detailLAICPMS")
 PARAM_BASE = "ada:parameter/laicpmsTAPP"
@@ -109,7 +109,7 @@ def main():
             "@type": ["cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
             "schema:name": name,
             "schema:description": f"laicpmsTAPP instance derived from {pub_hdr[L]} (column {L} of "
-                                  f"LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+                                  f"LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
             "schema:measurementTechnique": {"@type": ["schema:DefinedTerm"],
                                             "schema:termCode": technique, "schema:name": technique},
         }
@@ -161,7 +161,7 @@ def main():
             if not v:
                 continue
             e = {"@id": f"{PARAM_BASE}/{b['name']}", "@type": ["schema:PropertyValue"],
-                 "schema:propertyID": f"{PARAM_BASE}/{b['name']}", "schema:name": b["item"],
+                 "schema:propertyID": {"@id": f"{PARAM_BASE}/{b['name']}"}, "schema:name": b["item"],
                  "schema:value": v}
             if b.get("unit") and b["unit"] != "free":
                 e["schema:unitText"] = b["unit"]
@@ -184,7 +184,7 @@ def main():
     import yaml
     entries = [{"title": f"laicpmsTAPP example {code}",
                 "content": f"laicpmsTAPP instance derived from {pub_hdr[L]} (column {L} of "
-                           f"LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+                           f"LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
                 "prefixes": CTX,
                 "snippets": [{"language": "json", "ref": f"examplelaicpmsTAPP-{code}.json"}]}
                for L, code in CODES.items()]
@@ -215,7 +215,7 @@ def main():
     if R["detail_addl"]:
         b0 = R["detail_addl"][0]
         e = {"@id": f"{PARAM_BASE}/{b0['name']}", "@type": ["schema:PropertyValue"],
-             "schema:propertyID": f"{PARAM_BASE}/{b0['name']}", "schema:name": b0["item"],
+             "schema:propertyID": {"@id": f"{PARAM_BASE}/{b0['name']}"}, "schema:name": b0["item"],
              "schema:value": f"example {b0['name']}"}
         if b0.get("unit") and b0["unit"] != "free":
             e["schema:unitText"] = b0["unit"]

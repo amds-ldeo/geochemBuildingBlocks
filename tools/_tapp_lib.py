@@ -3,7 +3,7 @@
 Reads docs/TAPP_EPMA_filled.xlsx (sheet 'TAPP') and emits, into
 _sources/techniqueProtocols/empaTAPP/:
 
-- vocab/<name>.json          one schema:DefinedTermSet per enum-typed row
+- vocab/<name>.json          one CDIF-codelist skos:ConceptScheme per enum-typed row
 - parameterTemplates/schema.yaml  registered collection BB: one $def per
                               readOnly:true method-parameter template
 - analyteColumns/schema.yaml      registered collection BB: one $def per
@@ -459,11 +459,6 @@ def share_or_write_catalog(path: Path, data: dict) -> None:
     )
 
 
-DEFINED_TERM_SET_SCHEMA_URI = (
-    "https://cross-domain-interoperability-framework.github.io/"
-    "metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml"
-)
-
 _ADA_CONTEXT = OrderedDict([
     ("schema", "http://schema.org/"),
     ("ada", "https://ada.astromat.org/metadata/"),
@@ -483,39 +478,74 @@ def slugify_term_code(t: str) -> str:
     return s.strip('_')
 
 
-def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
-    """Canonical schema:DefinedTermSet instance, declaring conformance to the
-    upstream CDIF schemaorgProperties/definedTermSet schema via $schema.
+# CDIF Codelist profile: vocabularies are published as skos:ConceptScheme documents
+# conformant to the CDIF codelist profile (skos:hasTopConcept / skos:Concept with
+# skos:notation + skos:prefLabel + skos:inScheme). $schema points at the mbb cdifCodelist
+# profile schema. dateModified is a fixed constant (not "today") so regeneration is
+# deterministic; bump it when a vocabulary's content actually changes.
+CODELIST_SCHEMA_URI = ("https://cross-domain-interoperability-framework.github.io/"
+                       "metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml")
+CODELIST_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
+CODELIST_DATE_MODIFIED = "2026-07-31"
+CODELIST_CONTEXT = {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/",
+}
 
-    Each term is a schema:DefinedTerm with its own @id of the form
-    `ada:{slugify(termCode)}` (placeholder until the project adopts a real
-    IRI scheme), schema:termCode (preserving the original spelling, including
-    any special characters), and schema:name. Data producers supplement
-    schema:name (human-readable label) and schema:description per term.
 
-    @type fields use the array form to match the upstream schema's contains
-    constraint on schema:DefinedTermSet / schema:DefinedTerm.
-    """
+def concept_scheme_obj(scheme_id: str, label: str, desc: str, concepts: list[dict]) -> "OrderedDict":
+    """A CDIF-codelist-profile-conformant skos:ConceptScheme.
+
+    Required by the profile: @id, skos:prefLabel, schema:identifier,
+    schema:dateModified, skos:hasTopConcept, and license (CHOICE with
+    conditionsOfAccess). `concepts` are the skos:Concept objects (already
+    carrying skos:inScheme back-references)."""
     return OrderedDict([
-        ("$schema", DEFINED_TERM_SET_SCHEMA_URI),
-        ("@context", {
-            "schema": "http://schema.org/",
-            "ada": "https://ada.astromat.org/metadata/",
-        }),
-        ("@id", f"ada:vocab/{TAPP_NAME}/{vname}"),
-        ("@type", ["schema:DefinedTermSet"]),
-        ("schema:name", label),
-        ("schema:description", desc or f"Allowed values for {label}."),
-        ("schema:hasDefinedTerm", [
-            OrderedDict([
-                ("@type", ["schema:DefinedTerm"]),
-                ("@id", f"ada:{slugify_term_code(t)}"),
-                ("schema:termCode", t),
-                ("schema:name", t),
-            ])
-            for t in terms
-        ]),
+        ("$schema", CODELIST_SCHEMA_URI),
+        ("@context", CODELIST_CONTEXT),
+        ("@id", scheme_id),
+        ("@type", ["skos:ConceptScheme"]),
+        ("skos:prefLabel", label),
+        ("skos:definition", desc or f"Controlled vocabulary: {label}."),
+        ("schema:identifier", scheme_id),
+        ("schema:dateModified", CODELIST_DATE_MODIFIED),
+        ("schema:license", [CODELIST_LICENSE]),
+        ("skos:hasTopConcept", concepts),
     ])
+
+
+def concept_obj(scheme_id: str, notation: str, pref_label: str, definition: str | None = None) -> "OrderedDict":
+    """A CDIF-codelist skos:Concept. Required: @id, skos:inScheme,
+    skos:prefLabel, skos:notation. The concept @id is scheme-scoped
+    (`<scheme_id>/<slug(notation)>`) so codes are globally unique even when
+    a label like "Standard" recurs across vocabularies."""
+    c = OrderedDict([
+        ("@id", f"{scheme_id}/{slugify_term_code(notation)}"),
+        ("@type", ["skos:Concept"]),
+        ("skos:prefLabel", pref_label),
+        ("skos:notation", notation),
+        ("skos:inScheme", [{"@id": scheme_id}]),
+    ])
+    if definition:
+        c["skos:definition"] = definition
+    return c
+
+
+def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
+    """Canonical CDIF-codelist skos:ConceptScheme for one enum-typed field.
+
+    Each allowed value becomes a skos:Concept whose skos:notation preserves the
+    original spelling (including special characters) and whose skos:prefLabel is
+    the same label. Sentinel non-values (`N/A`, `None`) are dropped. This shape
+    replaces the earlier schema:DefinedTermSet form; `schema:inDefinedTermSet`
+    references elsewhere still resolve because the scheme @id is unchanged
+    (`ada:vocab/<tapp>/<name>`)."""
+    scheme_id = f"ada:vocab/{TAPP_NAME}/{vname}"
+    concepts = [concept_obj(scheme_id, t, t)
+                for t in terms if t not in ("N/A", "None")]
+    return concept_scheme_obj(scheme_id, label, desc or f"Allowed values for {label}.", concepts)
 
 
 def map_dtype(dtype: str | None) -> str:
@@ -653,7 +683,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
         }),
         ("@id", parameter_uri),
         ("@type", ["schema:PropertyValue"]),
-        ("schema:propertyID", parameter_uri),
+        ("schema:propertyID", {"@id": parameter_uri}),
         ("schema:name", label),
         ("schema:description", desc or label),
         ("schema:value", canonical_value),
@@ -680,7 +710,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
     properties = OrderedDict([
         ("@id", {"const": parameter_uri}),
         ("@type", {"const": ["schema:PropertyValue"]}),
-        ("schema:propertyID", {"const": parameter_uri}),
+        ("schema:propertyID", {"const": {"@id": parameter_uri}}),
         ("schema:name", {"const": label}),
         ("schema:value", value_schema),
     ])
@@ -1554,6 +1584,11 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
         if item == "Instrument Manufacturer" or item == "Instrument Model":
             inst = parts.setdefault("schema:instrument", {
                 "@type": ["schema:Thing", "schema:Product", "https://w3id.org/nfdi4ing/metadata4ing#Instrument"],
+                # NOTE: kept as bare strings until the CDIF instrument BB @id-form
+                # for additionalType is published to gh-pages (local CDIF source has
+                # the anyOf; gh-pages still serves items:{type:string}). The geochem
+                # instrument BB + tappDefinition already accept {@id} objects, so this
+                # flips to [{"@id": t} for t in ...] once gh-pages catches up.
                 "schema:additionalType": list(CFG["instrument_addl_type"]),
                 "schema:name": CFG["instrument_name_default"],
             })
@@ -1650,7 +1685,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                         method_params.append(OrderedDict([
                             ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
                             ("@type", ["schema:PropertyValue"]),
-                            ("schema:propertyID", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
+                            ("schema:propertyID", {"@id": f"ada:parameter/{TAPP_NAME}/{r['mdname']}"}),
                             ("schema:name", item),
                             ("schema:value", coerced if coerced is not None else v),
                         ]))
@@ -1675,7 +1710,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                         entry = OrderedDict([
                             ("@id", f"ada:parameter/{TAPP_NAME}/{r['name']}"),
                             ("@type", ["schema:PropertyValue"]),
-                            ("schema:propertyID", f"ada:parameter/{TAPP_NAME}/{r['name']}"),
+                            ("schema:propertyID", {"@id": f"ada:parameter/{TAPP_NAME}/{r['name']}"}),
                             ("schema:name", item),
                             ("schema:value", coerced),
                         ])
@@ -1722,7 +1757,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                     entry = OrderedDict([
                         ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("@type", ["schema:PropertyValue"]),
-                        ("schema:propertyID", f"ada:parameter/{TAPP_NAME}/{name}"),
+                        ("schema:propertyID", {"@id": f"ada:parameter/{TAPP_NAME}/{name}"}),
                         ("schema:name", item),
                         ("schema:value", coerced),
                     ])
@@ -1858,7 +1893,7 @@ def variable_measured_from_default_analytes(pub_label: str, default_analytes: li
             ("@type", ["schema:PropertyValue", "cdi:InstanceVariable"]),
             ("schema:name", analyte),
             ("schema:description", desc),
-            ("schema:propertyID", [f"https://ada.astromat.org/vocabulary/analytes/{analyte}"]),
+            ("schema:propertyID", [{"@id": f"https://ada.astromat.org/vocabulary/analytes/{analyte}"}]),
             ("schema:unitText", unit_text),
             ("cdi:intendedDataType", "https://www.w3.org/TR/xmlschema-2/#decimal"),
             ("cdif:physicalDataType", "https://www.w3.org/TR/xmlschema-2/#double"),
@@ -2015,6 +2050,9 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     ]
     out["schema:identifier"] = OrderedDict([
         ("@type", ["schema:PropertyValue"]),
+        # bare string until the CDIF identifier BB @id-form for propertyID is published to
+        # gh-pages (local CDIF source has the anyOf; gh-pages still serves type:string) —
+        # same publish-lag as instrument additionalType; flip to {"@id": ...} once gh-pages catches up.
         ("schema:propertyID", "https://registry.identifiers.org/registry/doi"),
         ("schema:value", f"10.PLACEHOLDER/adaempa-{pub_label.lower()}"),
     ])

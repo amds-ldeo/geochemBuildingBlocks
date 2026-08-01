@@ -95,6 +95,7 @@ def place_identity(inst, item, sp, v):
     elif "schema:instrument" in sp:
         cur = inst.setdefault("schema:instrument", {
             "@type": ["schema:Thing", "schema:Product"],
+            # bare string until CDIF instrument BB @id-form for additionalType is on gh-pages
             "schema:additionalType": ["nxs:BaseClass/NXinstrument"], "schema:name": ""})
         cur["schema:name"] = (cur.get("schema:name", "") + " " + v).strip()
     # other inherited fields (sample prep, references already handled) are skipped
@@ -138,7 +139,7 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
             continue
         seen_pv.add(b["name"])
         e = {"@id": f"{param_base}/{b['name']}", "@type": ["schema:PropertyValue"],
-             "schema:propertyID": f"{param_base}/{b['name']}", "schema:name": b["item"],
+             "schema:propertyID": {"@id": f"{param_base}/{b['name']}"}, "schema:name": b["item"],
              "schema:value": coerce(v, b["jtype"])}
         if b.get("unit") and b["unit"] != "free":
             e["schema:unitText"] = b["unit"]
@@ -251,7 +252,7 @@ def main():
             if not v:
                 continue
             e = {"@id": f"{PARAM_BASE}/{b['name']}", "@type": ["schema:PropertyValue"],
-                 "schema:propertyID": f"{PARAM_BASE}/{b['name']}", "schema:name": b["item"],
+                 "schema:propertyID": {"@id": f"{PARAM_BASE}/{b['name']}"}, "schema:name": b["item"],
                  "schema:value": v}
             if b.get("unit") and b["unit"] != "free":
                 e["schema:unitText"] = b["unit"]
