@@ -1,43 +1,74 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/laicpmsTAPP/spotPath",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Laser Spot Path / Ablation Mode",
-  "schema:description": "Sampling mode or ablation pattern used during analysis.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Laser Spot Path / Ablation Mode",
+  "skos:definition": "Sampling mode or ablation pattern used during analysis.",
+  "schema:identifier": "ada:vocab/laicpmsTAPP/spotPath",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/laicpmsTAPP/spotPath/Spot_stationary",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Spot (stationary)",
-      "schema:name": "Spot (stationary)"
+      "skos:prefLabel": "Spot (stationary)",
+      "skos:notation": "Spot (stationary)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/laicpmsTAPP/spotPath"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/laicpmsTAPP/spotPath/Transect_continuous_line_scan",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Transect (continuous line scan)",
-      "schema:name": "Transect (continuous line scan)"
+      "skos:prefLabel": "Transect (continuous line scan)",
+      "skos:notation": "Transect (continuous line scan)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/laicpmsTAPP/spotPath"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/laicpmsTAPP/spotPath/Raster_area_2D_elemental_mapping",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Raster area (2D elemental mapping)",
-      "schema:name": "Raster area (2D elemental mapping)"
+      "skos:prefLabel": "Raster area (2D elemental mapping)",
+      "skos:notation": "Raster area (2D elemental mapping)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/laicpmsTAPP/spotPath"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/laicpmsTAPP/spotPath/Stepped_line_profile",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Stepped line profile",
-      "schema:name": "Stepped line profile"
+      "skos:prefLabel": "Stepped line profile",
+      "skos:notation": "Stepped line profile",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/laicpmsTAPP/spotPath"
+        }
+      ]
     }
   ]
 }

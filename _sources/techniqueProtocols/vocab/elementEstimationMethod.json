@@ -1,39 +1,61 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/empaTAPP/elementEstimationMethod",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Element Estimation Method",
-  "schema:description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Element Estimation Method",
+  "skos:definition": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
+  "schema:identifier": "ada:vocab/empaTAPP/elementEstimationMethod",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/empaTAPP/elementEstimationMethod/Direct_measured",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:Direct_measured",
-      "schema:termCode": "Direct (measured)",
-      "schema:name": "Direct (measured)"
+      "skos:prefLabel": "Direct (measured)",
+      "skos:notation": "Direct (measured)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/empaTAPP/elementEstimationMethod/Estimated_via_cation_stoichiometry",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:Estimated_via_cation_stoichiometry",
-      "schema:termCode": "Estimated via cation stoichiometry",
-      "schema:name": "Estimated via cation stoichiometry"
+      "skos:prefLabel": "Estimated via cation stoichiometry",
+      "skos:notation": "Estimated via cation stoichiometry",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/empaTAPP/elementEstimationMethod/Unknown",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:Unknown",
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "skos:prefLabel": "Unknown",
+      "skos:notation": "Unknown",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
+        }
+      ]
     }
   ]
 }

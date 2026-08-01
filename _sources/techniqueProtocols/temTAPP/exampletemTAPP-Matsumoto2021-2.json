@@ -14,15 +14,18 @@
   ],
   "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative (Kyushu JEOL JEM-3200FSK) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
+    "schema:name": "Ultramicroscopy Research Center, Kyushu University, Japan"
+  },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
     ],
-    "schema:name": "JEOL JED-2300 EDX detector"
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
   },
   "schema:object": [
     {
@@ -32,18 +35,15 @@
       "schema:name": "Lunar soil grains (iron sulfides: troilite, NC-pyrrhotite; pyroxene; Apollo 11 soil 10084; Apollo 17 soil 78481,49)"
     }
   ],
-  "schema:measurementTechnique": {
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "Ultramicroscopy Research Center, Kyushu University, Japan"
+    "schema:name": "JEOL JED-2300 EDX detector"
   },
   "ada:acceleratingVoltageDefault": -9999,
   "ada:analyticalMode": [],
@@ -57,6 +57,6 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificatonMethod": "Quantitative EDX (Cliff-Lorimer): Fe/S atomic ratio to distinguish troilite (Fe/S ≈ 1.03 ± 0.04) from NC-pyrrhotite; EDX maps used to confirm elemental distributions (Fe, S, O, Si, Ca)",
+  "ada:phaseIdentificationMethod": "Quantitative EDX (Cliff-Lorimer): Fe/S atomic ratio to distinguish troilite (Fe/S ≈ 1.03 ± 0.04) from NC-pyrrhotite; EDX maps used to confirm elemental distributions (Fe, S, O, Si, Ca)",
   "ada:edsCalibrationStandardDefault": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)"
 }

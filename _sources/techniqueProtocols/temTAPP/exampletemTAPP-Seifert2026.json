@@ -12,17 +12,20 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Schottky field emission gun (FEG)",
+  "schema:name": "EDS (JEOL 60 mm² SDD)",
   "schema:description": "temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF-STEM + EDS (JSC JEOL 2500SE) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
+    "schema:name": "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA"
+  },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
     ],
-    "schema:name": "JEOL 60 mm² silicon-drift detector (SDD) for EDS BF STEM detector; DF STEM detector; SE STEM detector"
+    "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+    "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
   },
   "schema:object": [
     {
@@ -32,18 +35,15 @@
       "schema:name": "Bennu carbonaceous asteroid sample (OSIRIS-REx return); apatite grains in phyllosilicate-rich matrix"
     }
   ],
-  "schema:measurementTechnique": {
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
-    "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA"
+    "schema:name": "BF STEM detector; DF STEM detector; SE STEM detector JEOL 60 mm² silicon-drift detector (SDD) for EDS"
   },
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [],
@@ -57,6 +57,6 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificatonMethod": "missing",
+  "ada:phaseIdentificationMethod": "missing",
   "ada:edsCalibrationStandardDefault": "missing"
 }

@@ -46,7 +46,7 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:meanAngularDeviaton:
+    ada:meanAngularDeviation:
       description: Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD
         quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation.
         Values above ~1.5 degrees typically indicate unreliable indexing.
@@ -68,7 +68,7 @@ allOf:
   - ada:fundingSourceForAnalysis
   - ada:sampleName
   - ada:imagePixelSize
-  - ada:meanAngularDeviaton
+  - ada:meanAngularDeviation
   - ada:indexingRate
 - type: object
   properties:
@@ -87,7 +87,7 @@ allOf:
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/dwellTimePerPixel
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/clIntegrationTime
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/stepSize
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/clFrameTime
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/frameTime
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/phaseList
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/crystalStructureDatabase
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/patternQualityThreshold
@@ -103,24 +103,29 @@ allOf:
               contains:
                 const: schema:PropertyValue
             schema:propertyID:
-              type: string
-              not:
-                enum:
-                - ada:parameter/semImagingTAPP/coupledProtocolDoi
-                - ada:parameter/semImagingTAPP/coupledDatasetOrPublicationReference
-                - ada:parameter/semImagingTAPP/samplePersistentIdentifier
-                - ada:parameter/semImagingTAPP/acceleratingVoltage
-                - ada:parameter/semImagingTAPP/beamCurrent
-                - ada:parameter/semImagingTAPP/workingDistance
-                - ada:parameter/semImagingTAPP/chamberPressure
-                - ada:parameter/semImagingTAPP/dwellTimePerPixel
-                - ada:parameter/semImagingTAPP/clIntegrationTime
-                - ada:parameter/semImagingTAPP/stepSize
-                - ada:parameter/semImagingTAPP/clFrameTime
-                - ada:parameter/semImagingTAPP/phaseList
-                - ada:parameter/semImagingTAPP/crystalStructureDatabase
-                - ada:parameter/semImagingTAPP/patternQualityThreshold
-                - ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
+              type: object
+              required:
+              - '@id'
+              properties:
+                '@id':
+                  type: string
+                  not:
+                    enum:
+                    - ada:parameter/semImagingTAPP/coupledProtocolDoi
+                    - ada:parameter/semImagingTAPP/coupledDatasetOrPublicationReference
+                    - ada:parameter/semImagingTAPP/samplePersistentIdentifier
+                    - ada:parameter/semImagingTAPP/acceleratingVoltage
+                    - ada:parameter/semImagingTAPP/beamCurrent
+                    - ada:parameter/semImagingTAPP/workingDistance
+                    - ada:parameter/semImagingTAPP/chamberPressure
+                    - ada:parameter/semImagingTAPP/dwellTimePerPixel
+                    - ada:parameter/semImagingTAPP/clIntegrationTime
+                    - ada:parameter/semImagingTAPP/stepSize
+                    - ada:parameter/semImagingTAPP/frameTime
+                    - ada:parameter/semImagingTAPP/phaseList
+                    - ada:parameter/semImagingTAPP/crystalStructureDatabase
+                    - ada:parameter/semImagingTAPP/patternQualityThreshold
+                    - ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
           required:
           - '@type'
           - schema:propertyID

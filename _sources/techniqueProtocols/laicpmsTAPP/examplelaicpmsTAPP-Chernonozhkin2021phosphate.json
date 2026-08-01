@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Phosphate Spot v1",
-  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite phosphate Spot analysis ns-LA-SF-ICP-MS Ghent University (column P of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite phosphate Spot analysis ns-LA-SF-ICP-MS Ghent University (column P of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -50,11 +50,12 @@
   "ada:ablationSpotDurationDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
-  "ada:rfPower": "1000 W",
+  "ada:coolantGasFlowRateDefault": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.85 l min⁻¹",
+  "ada:rfPowerDefault": "1000 W",
   "ada:plasmaThermalMode": "Normal plasma (1000 W RF)",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "MPI-DING and USGS GRMs at beginning → unknowns → repeated GRM at end",
-  "ada:spectrometerDwellTimeDefault": "0.01 s per nuclide; samples per peak: 5; duty cycle: 1.813 s; mass window 150% for ²³Na–⁴⁷Ti, 100% for all other nuclides",
+  "ada:dwellTimeDefault": "0.01 s per nuclide; samples per peak: 5; duty cycle: 1.813 s; mass window 150% for ²³Na–⁴⁷Ti, 100% for all other nuclides",
   "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
   "ada:internalStandardApproach": "Sum-of-major-oxide normalization to 100 wt% (Liu et al. 2008; Appendix C3)",
   "ada:internalStandardElement": "No single IS; oxide sum normalization to 100 wt%",
@@ -65,6 +66,7 @@
   "ada:interferingSpecies": "Same interference list (Table C1)",
   "ada:isobaricInterferenceCorrectionMethod": "Same approach as mapping; oxide sum normalization partially corrects for matrix-dependent interferences",
   "ada:primaryCalibrationStandardNameDefault": "MPI-DING and USGS glass GRMs (measured at beginning and repeatedly at end of each session; multipoint calibration)",
+  "ada:calibrationStandardMeasurementFrequency": "MPI-DING and USGS GRMs measured at beginning and repeatedly at end of each session",
   "ada:secondaryReferenceMaterialDefault": "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment",
   "schema:additionalProperty": [
     {
@@ -79,19 +81,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/gasFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "gasFlowRateDefault",
-      "schema:name": "Auxiliary and Cool Gas Flow Rates",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.85 l min⁻¹"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
@@ -118,19 +107,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same instrument as olivine runs; tuned for normal plasma conditions"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "MPI-DING and USGS GRMs measured at beginning and repeatedly at end of each session"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -189,7 +165,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+      },
       "schema:name": "Laser Pulse Duration",
       "schema:value": "~5 ns (ArF excimer)"
     },
@@ -198,7 +176,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+      },
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Single spot analysis run per location (25 cycles: 15 s blank + 20 s ablation + 10 s washout); 3 replicates"
     }

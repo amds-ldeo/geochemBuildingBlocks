@@ -1,57 +1,100 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/temTAPP/edsSpectralProcessingType",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "EDS Spectral Processing Type",
-  "schema:description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (EDS Quantification Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping p",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "EDS Spectral Processing Type",
+  "skos:definition": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (EDS Quantification Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping p",
+  "schema:identifier": "ada:vocab/temTAPP/edsSpectralProcessingType",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/temTAPP/edsSpectralProcessingType/Background_fitting",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Background fitting",
-      "schema:name": "Background fitting"
+      "skos:prefLabel": "Background fitting",
+      "skos:notation": "Background fitting",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsSpectralProcessingType"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsSpectralProcessingType/Peak_deconvolution",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Peak deconvolution",
-      "schema:name": "Peak deconvolution"
+      "skos:prefLabel": "Peak deconvolution",
+      "skos:notation": "Peak deconvolution",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsSpectralProcessingType"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsSpectralProcessingType/Top-hat_filter",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Top-hat filter",
-      "schema:name": "Top-hat filter"
+      "skos:prefLabel": "Top-hat filter",
+      "skos:notation": "Top-hat filter",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsSpectralProcessingType"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsSpectralProcessingType/Gaussian_fit",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Gaussian fit",
-      "schema:name": "Gaussian fit"
+      "skos:prefLabel": "Gaussian fit",
+      "skos:notation": "Gaussian fit",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsSpectralProcessingType"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsSpectralProcessingType/Filter_fit",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Filter fit",
-      "schema:name": "Filter fit"
+      "skos:prefLabel": "Filter fit",
+      "skos:notation": "Filter fit",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsSpectralProcessingType"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsSpectralProcessingType/Unknown",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "skos:prefLabel": "Unknown",
+      "skos:notation": "Unknown",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsSpectralProcessingType"
+        }
+      ]
     }
   ]
 }

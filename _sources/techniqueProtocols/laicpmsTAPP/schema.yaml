@@ -3,7 +3,7 @@ title: LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)
 description: 'LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS) extension of the base TAPP definition. Basic
   protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[]
   PropertyValueSpecification entries; an ada:analyteTemplate carries the per-element columns. Generated
-  from docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx by tools/build_tapp.py.'
+  from docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx by tools/build_tapp.py.'
 allOf:
 - $ref: ../tappDefinition/schema.yaml
 - type: object
@@ -21,6 +21,16 @@ allOf:
       description: Type(s) of detector(s) installed in the mass spectrometer. For single-collector instruments,
         note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe
         the Faraday/multiplier cup layout.
+      type: string
+    ada:collisionReactionCellConfiguration:
+      description: Whether a collision or reaction cell is installed and its operating mode. In standard
+        mode (STD), no cell gas is introduced and the cell acts only as an ion guide. In kinetic energy
+        discrimination (KED) mode, helium thermalizes ions so that polyatomic interferences (larger collision
+        cross-section) are selectively retarded by a cell exit barrier voltage. In dynamic reaction cell
+        (DRC) mode, a reactive gas selectively neutralizes specific interferences through ion-molecule
+        reactions. On ICP-MS/MS instruments (e.g., Agilent 8900), a second mass filter preceding the cell
+        enables precursor-ion selection. Specific gas types, flow rates, and cell voltages are documented
+        in Group 4. Record 'Not applicable' for SF-ICP-MS instruments, which lack collision/reaction cells.
       type: string
     ada:laserWavelengthAndType:
       description: Wavelength and type of the laser used for ablation in nanometres.
@@ -82,7 +92,21 @@ allOf:
         to superior aerosol transport. Flow rates are protocol targets; actual session values may be adjusted
         within ±10% during tuning.
       type: string
-    ada:rfPower:
+    ada:coolantGasFlowRateDefault:
+      description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains the ICP plasma,
+        in L/min. Determines plasma volume and stability. Set during initial plasma optimisation and confirmed
+        at each session start.
+      anyOf:
+      - type: number
+      - type: string
+    ada:auxiliaryGasFlowRateDefault:
+      description: Flow rate of the intermediate (auxiliary) argon gas stream that positions the plasma
+        relative to the load coil, in L/min. Affects ion extraction efficiency and oxide production rates.
+        Distinct from the carrier gas (which transports ablation aerosol) and the coolant (plasma) gas.
+      anyOf:
+      - type: number
+      - type: string
+    ada:rfPowerDefault:
       description: ICP radiofrequency forward power in watts. Fixed in the protocol; cannot be changed
         by analysts without defining a new protocol, because RF power affects plasma temperature, ionisation
         efficiency, oxide formation, and whether cool or normal plasma conditions are in effect.
@@ -107,7 +131,43 @@ allOf:
         unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining
         the bracketing strategy defined in the protocol.
       type: string
-    ada:spectrometerDwellTimeDefault:
+    ada:monitoredIsotopes:
+      description: Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor
+        masses. Analyte-specific field.
+      type: string
+    ada:massResolutionPerAnalyte:
+      description: Mass resolution mode assigned to each analyte in this protocol. The selected resolution
+        determines which polyatomic interferences are physically resolved by the magnetic sector. Per-analyte
+        assignments are documented here; the overall mode(s) used in the protocol are recorded in Mass
+        Resolution Setting (Group 3). Analyte-specific field. SF-ICP-MS only;
+      type: string
+    ada:signalCollectionMethod:
+      description: Mode used to collect ion signal across the monitored masses. In peak hopping mode,
+        the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning
+        mode, the quadrupole sweeps continuously across a defined mass range. Peak hopping is standard
+        for multi-element trace analysis as it maximises integration time at each mass.
+      type: string
+    ada:collisionGasType:
+      description: Type of collision gas introduced into the collision/reaction cell in KED mode. Helium
+        (He) is the standard collision gas for kinetic energy discrimination due to its low mass and chemical
+        inertness. Record 'None' if the CRC is in STD mode or not installed.
+      type: string
+    ada:gasFlowRateDefault:
+      description: Flow rate of the collision gas (typically He) introduced into the collision/reaction
+        cell, in mL/min. Controls the degree of ion thermalization and KED efficiency. Record 'None' if
+        the CRC is in STD mode.
+      anyOf:
+      - type: number
+      - type: string
+    ada:cellExitDiscriminationVoltageDefault:
+      description: Bias voltage applied at the collision/reaction cell exit to discriminate between analyte
+        ions and low-energy polyatomic interferences in KED mode, in volts (V). A negative bias preferentially
+        retards slow polyatomic ions while transmitting faster analyte ions. Record 'None' if the CRC
+        is in STD mode.
+      anyOf:
+      - type: number
+      - type: string
+    ada:dwellTimeDefault:
       description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
         Longer dwell times improve counting statistics and lower detection limits but reduce the number
         of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines
@@ -167,17 +227,27 @@ allOf:
       type: string
     ada:interferingSpecies:
       description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
-        the measured isotope. Value is a ';' delimited list of interfering species
+        the measured isotope.
       type: string
     ada:isobaricInterferenceCorrectionMethod:
       description: Equation or procedure used to correct for isobaric interferences, including the production
         rate factor and the reference material used to measure it.
+      type: string
+    ada:isotopeDilutionDataReductionMethod:
+      description: Mass balance approach used to calculate sample mass fractions from spike-sample isotope
+        ratio measurements in isotope dilution (ID) analysis. Record 'None' if isotope dilution is not
+        used.
       type: string
     ada:primaryCalibrationStandardNameDefault:
       description: Primary reference material(s) used to calibrate the instrument and convert raw signal
         intensities to concentrations or isotope ratios. Include material name, source institution, and
         citation for the accepted values used. Editable because the specific lot or certification vintage
         may differ between sessions while the material type remains the same.
+      type: string
+    ada:calibrationStandardMeasurementFrequency:
+      description: How often the primary calibration standard is measured relative to unknown samples
+        within a session. For LA-ICP-MS, this defines the bracketing interval between calibration standard
+        ablations used to monitor and correct for instrumental drift.
       type: string
     ada:secondaryReferenceMaterialDefault:
       description: Quality-control reference materials analysed as unknowns alongside samples in the same
@@ -248,23 +318,27 @@ allOf:
         anyOf:
         - $ref: ../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatioDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatmentDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentSerialNumberOrLabIdentifierDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepthDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/laserEnergyDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/transectOrMappingRateOrStepSizeDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/plasmaMakeUpGasAdditionDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/gasFlowRateDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/icPlasmaTuningDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesMonitorDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/doublyChargedSpeciesProductionDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/reactionGasFlowRateDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/outlierFilteringDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/nonlinearResponseCorrectionDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/memoryEffectMitigationDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/postAcquisitionNormalizationDefault
+        - $ref: ../parameterValues/schema.yaml#/$defs/torchType
         - $ref: ../parameterValues/schema.yaml#/$defs/laserBeamEnergyProfile
         - $ref: ../parameterValues/schema.yaml#/$defs/laserPulseDuration
         - $ref: ../parameterValues/schema.yaml#/$defs/instrumentWarmUpSessionDurationLimit
+        - $ref: ../parameterValues/schema.yaml#/$defs/eScanRange
+        - $ref: ../parameterValues/schema.yaml#/$defs/tripleScanningMode
+        - $ref: ../parameterValues/schema.yaml#/$defs/reactionGasType
         - $ref: ../parameterValues/schema.yaml#/$defs/multiRunSequentialAnalysisDesign
         - $ref: ../parameterValues/schema.yaml#/$defs/matrixOffsetCorrection
       allOf:
@@ -274,6 +348,10 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatmentDefault
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentSerialNumberOrLabIdentifierDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -293,10 +371,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/gasFlowRateDefault
-        minContains: 0
-        maxContains: 1
-      - contains:
           $ref: ../parameterTemplates/schema.yaml#/$defs/signalSmoothingDefault
         minContains: 0
         maxContains: 1
@@ -313,7 +387,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/driftMonitorFrequencyDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/reactionGasFlowRateDefault
         minContains: 0
         maxContains: 1
       - contains:
@@ -333,6 +407,10 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/torchType
+        minContains: 0
+        maxContains: 1
+      - contains:
           $ref: ../parameterValues/schema.yaml#/$defs/laserBeamEnergyProfile
         minContains: 0
         maxContains: 1
@@ -342,6 +420,18 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../parameterValues/schema.yaml#/$defs/instrumentWarmUpSessionDurationLimit
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/eScanRange
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/tripleScanningMode
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../parameterValues/schema.yaml#/$defs/reactionGasType
         minContains: 0
         maxContains: 1
       - contains:
@@ -364,11 +454,12 @@ allOf:
   - ada:ablationSpotDurationDefault
   - ada:rasterLineSpacingDefault
   - ada:carrierGasFlowRateDefault
-  - ada:rfPower
+  - ada:coolantGasFlowRateDefault
+  - ada:rfPowerDefault
   - ada:plasmaThermalMode
   - ada:oxideProductionMethodAndThreshold
   - ada:analysisSequenceDefault
-  - ada:spectrometerDwellTimeDefault
+  - ada:dwellTimeDefault
   - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
   - ada:internalStandardElement
@@ -379,4 +470,5 @@ allOf:
   - ada:interferingSpecies
   - ada:isobaricInterferenceCorrectionMethod
   - ada:primaryCalibrationStandardNameDefault
+  - ada:calibrationStandardMeasurementFrequency
   - ada:secondaryReferenceMaterialDefault

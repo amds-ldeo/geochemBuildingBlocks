@@ -139,54 +139,59 @@ allOf:
               contains:
                 const: schema:PropertyValue
             schema:propertyID:
-              type: string
-              not:
-                enum:
-                - ada:parameter/labxctTAPP/coupledProtocolDoi
-                - ada:parameter/labxctTAPP/coupledDatasetOrPublicationReference
-                - ada:parameter/labxctTAPP/sampleMass
-                - ada:parameter/labxctTAPP/sampleMountingMethod
-                - ada:parameter/labxctTAPP/samplePersistentIdentifier
-                - ada:parameter/labxctTAPP/samplePreparationNotes
-                - ada:parameter/labxctTAPP/reconstructionSoftware
-                - ada:parameter/labxctTAPP/segmentationAndAnalysisSoftware
-                - ada:parameter/labxctTAPP/acceleratingVoltage
-                - ada:parameter/labxctTAPP/tubeCurrent
-                - ada:parameter/labxctTAPP/xRayPower
-                - ada:parameter/labxctTAPP/xRayPreFilter
-                - ada:parameter/labxctTAPP/sourceToObjectDistance
-                - ada:parameter/labxctTAPP/sourceToDetectorDistance
-                - ada:parameter/labxctTAPP/voxelSize
-                - ada:parameter/labxctTAPP/rotationRange
-                - ada:parameter/labxctTAPP/numberOfProjections
-                - ada:parameter/labxctTAPP/rotationStepSize
-                - ada:parameter/labxctTAPP/exposureTimePerProjection
-                - ada:parameter/labxctTAPP/framesAveragedPerProjection
-                - ada:parameter/labxctTAPP/detectorBinning
-                - ada:parameter/labxctTAPP/flatFieldCorrection
-                - ada:parameter/labxctTAPP/rotationMode
-                - ada:parameter/labxctTAPP/totalScanDuration
-                - ada:parameter/labxctTAPP/reconstructionConvolutionFilter
-                - ada:parameter/labxctTAPP/beamHardeningCorrectionParameter
-                - ada:parameter/labxctTAPP/ringArtifactCorrectionMethod
-                - ada:parameter/labxctTAPP/outputDataFormat
-                - ada:parameter/labxctTAPP/ctNumberCalibration
-                - ada:parameter/labxctTAPP/segmentationMethod
-                - ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteria
-                - ada:parameter/labxctTAPP/phaseIdentificationMethod
-                - ada:parameter/labxctTAPP/voiSelectionCriteria
-                - ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
-                - ada:parameter/labxctTAPP/outputBitDepth
-                - ada:parameter/labxctTAPP/spatialResolution
-                - ada:parameter/labxctTAPP/beamHardeningArtifactAssessment
-                - ada:parameter/labxctTAPP/ringArtifactSeverityAndCorrectionOutcome
-                - ada:parameter/labxctTAPP/metalStreakArtifactAssessment
-                - ada:parameter/labxctTAPP/partialVolumeEffectCriteria
-                - ada:parameter/labxctTAPP/partialVolumeEffectAssessment
-                - ada:parameter/labxctTAPP/minimumResolvableFeatureSize
-                - ada:parameter/labxctTAPP/signalToNoiseRatio
-                - ada:parameter/labxctTAPP/crossValidationProtocolRequirement
-                - ada:parameter/labxctTAPP/crossValidationOutcome
+              type: object
+              required:
+              - '@id'
+              properties:
+                '@id':
+                  type: string
+                  not:
+                    enum:
+                    - ada:parameter/labxctTAPP/coupledProtocolDoi
+                    - ada:parameter/labxctTAPP/coupledDatasetOrPublicationReference
+                    - ada:parameter/labxctTAPP/sampleMass
+                    - ada:parameter/labxctTAPP/sampleMountingMethod
+                    - ada:parameter/labxctTAPP/samplePersistentIdentifier
+                    - ada:parameter/labxctTAPP/samplePreparationNotes
+                    - ada:parameter/labxctTAPP/reconstructionSoftware
+                    - ada:parameter/labxctTAPP/segmentationAndAnalysisSoftware
+                    - ada:parameter/labxctTAPP/acceleratingVoltage
+                    - ada:parameter/labxctTAPP/tubeCurrent
+                    - ada:parameter/labxctTAPP/xRayPower
+                    - ada:parameter/labxctTAPP/xRayPreFilter
+                    - ada:parameter/labxctTAPP/sourceToObjectDistance
+                    - ada:parameter/labxctTAPP/sourceToDetectorDistance
+                    - ada:parameter/labxctTAPP/voxelSize
+                    - ada:parameter/labxctTAPP/rotationRange
+                    - ada:parameter/labxctTAPP/numberOfProjections
+                    - ada:parameter/labxctTAPP/rotationStepSize
+                    - ada:parameter/labxctTAPP/exposureTimePerProjection
+                    - ada:parameter/labxctTAPP/framesAveragedPerProjection
+                    - ada:parameter/labxctTAPP/detectorBinning
+                    - ada:parameter/labxctTAPP/flatFieldCorrection
+                    - ada:parameter/labxctTAPP/rotationMode
+                    - ada:parameter/labxctTAPP/totalScanDuration
+                    - ada:parameter/labxctTAPP/reconstructionConvolutionFilter
+                    - ada:parameter/labxctTAPP/beamHardeningCorrectionParameter
+                    - ada:parameter/labxctTAPP/ringArtifactCorrectionMethod
+                    - ada:parameter/labxctTAPP/outputDataFormat
+                    - ada:parameter/labxctTAPP/ctNumberCalibration
+                    - ada:parameter/labxctTAPP/segmentationMethod
+                    - ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteria
+                    - ada:parameter/labxctTAPP/phaseIdentificationMethod
+                    - ada:parameter/labxctTAPP/voiSelectionCriteria
+                    - ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
+                    - ada:parameter/labxctTAPP/outputBitDepth
+                    - ada:parameter/labxctTAPP/spatialResolution
+                    - ada:parameter/labxctTAPP/beamHardeningArtifactAssessment
+                    - ada:parameter/labxctTAPP/ringArtifactSeverityAndCorrectionOutcome
+                    - ada:parameter/labxctTAPP/metalStreakArtifactAssessment
+                    - ada:parameter/labxctTAPP/partialVolumeEffectCriteria
+                    - ada:parameter/labxctTAPP/partialVolumeEffectAssessment
+                    - ada:parameter/labxctTAPP/minimumResolvableFeatureSize
+                    - ada:parameter/labxctTAPP/signalToNoiseRatio
+                    - ada:parameter/labxctTAPP/crossValidationProtocolRequirement
+                    - ada:parameter/labxctTAPP/crossValidationOutcome
           required:
           - '@type'
           - schema:propertyID

@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Olivine 2D Mapping v1",
-  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite olivine Raster mapping (2D) ns-LA-SF-ICP-MS Ghent University (column N of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite olivine Raster mapping (2D) ns-LA-SF-ICP-MS Ghent University (column N of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -50,11 +50,12 @@
   "ada:ablationSpotDurationDefault": -9999,
   "ada:rasterLineSpacingDefault": "20 µm (contiguous; 20×20 µm square spot = line spacing equals spot width)",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 (cell) 0.200–0.260 l min⁻¹; MFC-2 (cup) 0.220–0.385 l min⁻¹",
-  "ada:rfPower": "800 W (cool plasma for mapping)",
+  "ada:coolantGasFlowRateDefault": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.81 l min⁻¹ (mapping)",
+  "ada:rfPowerDefault": "800 W (cool plasma for mapping)",
   "ada:plasmaThermalMode": "Cool plasma (800 W RF) to reduce Ar-based argide interferences on ⁶⁰Ni and ⁷¹Ga",
   "ada:oxideProductionMethodAndThreshold": "ThO⁺/Th⁺ (mass 248/232); threshold not explicitly stated but minimized by cool plasma",
   "ada:analysisSequenceDefault": "(i) Gas blanks → (ii) all glass GRMs for external calibration → (iii) 1–3 cosmic spherule unknowns → (iv) blanks → (v) all glass GRMs again",
-  "ada:spectrometerDwellTimeDefault": "0.01 s (10 ms) per nuclide; samples per peak: 10; duty cycle time: 1.944 s (14 nuclides)",
+  "ada:dwellTimeDefault": "0.01 s (10 ms) per nuclide; samples per peak: 10; duty cycle time: 1.944 s (14 nuclides)",
   "ada:backgroundCountTimeDefault": "Scans for gas blank: 10 per line (before each mapping line); 80 scans during ablation",
   "ada:internalStandardApproach": "Sum-of-major-oxide normalization: MgO+FeO+SiO₂+P₂O₅ = 100 wt% per pixel (Liu et al. 2008 approach; no EPMA required for IS)",
   "ada:internalStandardElement": "No single IS element; oxide sum normalization (MgO+FeO+SiO₂+P₂O₅) used as virtual IS per pixel",
@@ -65,6 +66,7 @@
   "ada:interferingSpecies": "Per Table C1: ¹²C¹³C⁺ on ²⁵Mg; ¹⁵N¹⁶O⁺ on ³¹P; ²⁹Si¹⁶O⁺ on ⁴⁵Sc; ³⁵Cl¹⁶O⁺ on ⁵¹V; ⁴⁰Ar¹³C⁺ on ⁵³Cr; ⁴⁰Ar¹⁵N⁺ on ⁵⁵Mn; ⁴⁰Ar¹⁶OH⁺ on ⁵⁷Fe; ⁴⁴Ca¹⁶O⁺ and ²⁴Mg³⁶Ar⁺ on ⁶⁰Ni; ³¹P⁴⁰Ar⁺ and ⁵⁵Mn¹⁶O⁺ on ⁷¹Ga; ¹³⁷Ba¹⁶O⁺ on ¹⁵³Eu (most significant interferences in bold)",
   "ada:isobaricInterferenceCorrectionMethod": "Physical mitigation: cool plasma (800 W RF) reduces ³⁶Ar²⁴Mg⁺ on ⁶⁰Ni, ⁴⁰Ar³¹P⁺ on ⁷¹Ga by >90%; oxide interferences minimized by dry plasma conditions; background subtraction corrects for time-invariant Ar-based interferences; mathematical corrections applied where feasible per Appendix C4",
   "ada:primaryCalibrationStandardNameDefault": "Multiple glass GRMs used together for linear regression external calibration: NIST SRM 612, NIST SRM 614, USGS GSD-1G (synthetic), USGS GSE-1G (synthetic), USGS BHVO-2G, USGS BIR-1G (natural basalt glasses)",
+  "ada:calibrationStandardMeasurementFrequency": "Each GRM analyzed 3–5× before and 3–5× after sample analyses (all GRMs at start and end of session)",
   "ada:secondaryReferenceMaterialDefault": "MPI-DING glasses: GOR132-G, StHs6/80-G, T1-G; USGS: BCR-2G, BHVO-2G — measured as unknowns alongside samples and compared to GeoReM preferred values (Table 1 and Section 3.3)",
   "schema:additionalProperty": [
     {
@@ -94,19 +96,6 @@
       "schema:defaultValue": "Ar make-up: 0.81–0.99 l min⁻¹ (mapping); N₂ explicitly not added"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/gasFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "gasFlowRateDefault",
-      "schema:name": "Auxiliary and Cool Gas Flow Rates",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.81 l min⁻¹ (mapping)"
-    },
-    {
       "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -131,19 +120,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Daily tuning; cool plasma conditions optimized; N₂ explicitly not added to avoid N-based interferences"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Each GRM analyzed 3–5× before and 3–5× after sample analyses (all GRMs at start and end of session)"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -202,7 +178,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+      },
       "schema:name": "Laser Pulse Duration",
       "schema:value": "~5 ns (ArF excimer)"
     }

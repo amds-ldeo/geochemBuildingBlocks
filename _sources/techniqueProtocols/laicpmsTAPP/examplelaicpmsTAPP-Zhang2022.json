@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1",
-  "schema:description": "laicpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster mapping + Spot (Ge) ns-LA-SF-ICP-MS Florida State University (column M of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster mapping + Spot (Ge) ns-LA-SF-ICP-MS Florida State University (column M of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -41,11 +41,12 @@
   "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
-  "ada:rfPower": -9999,
+  "ada:coolantGasFlowRateDefault": -9999,
+  "ada:rfPowerDefault": -9999,
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "Standards at start of session → raster unknowns → repeat → standards at end; separate session for Ge spot analyses",
-  "ada:spectrometerDwellTimeDefault": "missing",
+  "ada:dwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Standardization techniques followed those of Humayun (2012) [Section 2.2; specific IS approach not restated in this paper]",
   "ada:internalStandardElement": "missing",
@@ -56,6 +57,7 @@
   "ada:interferingSpecies": "⁴⁰Ar⁶¹Ni⁺ on ¹⁰¹Ru (most abundant Ru isotope → use ⁹⁹Ru instead)",
   "ada:isobaricInterferenceCorrectionMethod": "Isotope selection: ⁹⁹Ru chosen over ¹⁰¹Ru; other isotopes chosen to minimize interference",
   "ada:primaryCalibrationStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
+  "ada:calibrationStandardMeasurementFrequency": "Standards at start and end of session; external bracketing",
   "ada:secondaryReferenceMaterialDefault": "missing",
   "schema:additionalProperty": [
     {
@@ -70,19 +72,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "10 µm s⁻¹ (raster scan); N/A (spot Ge)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Standards at start and end of session; external bracketing"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",

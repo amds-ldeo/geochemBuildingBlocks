@@ -1,43 +1,74 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/semImagingTAPP/indexingMethod",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "EBSD Indexing Method",
-  "schema:description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "EBSD Indexing Method",
+  "skos:definition": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
+  "schema:identifier": "ada:vocab/semImagingTAPP/indexingMethod",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/semImagingTAPP/indexingMethod/Hough_transform",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Hough transform",
-      "schema:name": "Hough transform"
+      "skos:prefLabel": "Hough transform",
+      "skos:notation": "Hough transform",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/indexingMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/semImagingTAPP/indexingMethod/Dictionary_indexing_DI",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Dictionary indexing (DI)",
-      "schema:name": "Dictionary indexing (DI)"
+      "skos:prefLabel": "Dictionary indexing (DI)",
+      "skos:notation": "Dictionary indexing (DI)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/indexingMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/semImagingTAPP/indexingMethod/Neural_network",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Neural network",
-      "schema:name": "Neural network"
+      "skos:prefLabel": "Neural network",
+      "skos:notation": "Neural network",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/indexingMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/semImagingTAPP/indexingMethod/Unknown",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "skos:prefLabel": "Unknown",
+      "skos:notation": "Unknown",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/indexingMethod"
+        }
+      ]
     }
   ]
 }

@@ -14,6 +14,13 @@
   ],
   "schema:name": "Neutron CT (simultaneous, same instrument)",
   "schema:description": "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v8.xlsx).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "NXCT",
+    "schema:name": "NXCT"
+  },
   "schema:object": [
     {
       "@type": [
@@ -22,13 +29,6 @@
       "schema:name": "Howardite (EET 87503); CR2 chondrite (GRA 06100)"
     }
   ],
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "NXCT",
-    "schema:name": "NXCT"
-  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -126,7 +126,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/labxctTAPP/detectorArraySize",
+      "schema:propertyID": {
+        "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+      },
       "schema:name": "Detector Array Size",
       "schema:value": "2560 × 2160 pixels"
     },
@@ -135,7 +137,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "schema:propertyID": {
+        "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+      },
       "schema:name": "Detector Pixel Size",
       "schema:value": "6.5 µm (physical pixel size)",
       "schema:unitText": "µm"
@@ -145,7 +149,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/labxctTAPP/opticalObjective",
+      "schema:propertyID": {
+        "@id": "ada:parameter/labxctTAPP/opticalObjective"
+      },
       "schema:name": "Optical Objective",
       "schema:value": "Infinity-corrected macroscope (not used for these datasets)"
     }

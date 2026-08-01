@@ -14,15 +14,18 @@
   ],
   "schema:name": "EELS (Gatan GIF Quantum ER System Model 965)",
   "schema:description": "temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | TEM-EELS (Shanghai Institute of Ceramics CAS Hitachi HF5000) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
+    "schema:name": "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China"
+  },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
     ],
-    "schema:name": "Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer HAADF-STEM detector"
+    "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis",
+    "schema:name": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
   },
   "schema:object": [
     {
@@ -32,18 +35,15 @@
       "schema:name": "Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 µm; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging"
     }
   ],
-  "schema:measurementTechnique": {
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis",
-    "schema:name": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China"
+    "schema:name": "Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer HAADF-STEM detector"
   },
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [],
@@ -57,7 +57,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
-  "ada:phaseIdentificatonMethod": "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe³⁺; olivine = Fe²⁺)",
+  "ada:phaseIdentificationMethod": "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe³⁺; olivine = Fe²⁺)",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {
@@ -79,7 +79,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/temTAPP/eelsEnergyResolution",
+      "schema:propertyID": {
+        "@id": "ada:parameter/temTAPP/eelsEnergyResolution"
+      },
       "schema:name": "EELS Energy Resolution",
       "schema:value": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)",
       "schema:unitText": "eV FWHM"

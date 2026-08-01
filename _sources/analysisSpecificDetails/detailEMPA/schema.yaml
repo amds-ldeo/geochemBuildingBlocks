@@ -60,16 +60,21 @@ allOf:
                   contains:
                     const: schema:PropertyValue
                 schema:propertyID:
-                  type: string
-                  not:
-                    enum:
-                      - ada:parameter/empaTAPP/acceleratingVoltage
-                      - ada:parameter/empaTAPP/beamCurrent
-                      - ada:parameter/empaTAPP/beamDiameter
-                      - ada:parameter/empaTAPP/beamMode
-                      - ada:parameter/empaTAPP/beamRasterDimensions
-                      - ada:parameter/empaTAPP/driftCorrection
-                      - ada:parameter/empaTAPP/wdsDeadTimeCorrection
+                  type: object
+                  required:
+                    - '@id'
+                  properties:
+                    '@id':
+                      type: string
+                      not:
+                        enum:
+                          - ada:parameter/empaTAPP/acceleratingVoltage
+                          - ada:parameter/empaTAPP/beamCurrent
+                          - ada:parameter/empaTAPP/beamDiameter
+                          - ada:parameter/empaTAPP/beamMode
+                          - ada:parameter/empaTAPP/beamRasterDimensions
+                          - ada:parameter/empaTAPP/driftCorrection
+                          - ada:parameter/empaTAPP/wdsDeadTimeCorrection
               required:
                 - '@type'
                 - schema:propertyID

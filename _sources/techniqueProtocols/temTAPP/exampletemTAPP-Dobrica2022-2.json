@@ -14,16 +14,27 @@
   ],
   "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | STEM-EDS hyperspectral mapping (Mol. Foundry TitanX) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
-    ],
-    "schema:name": "Four windowless silicon drift detectors (SDD); 0.7 sr solid angle"
+    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory, USA"
   },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Antarctic micrometeorite 03-36-46 (hydrated fine-grained AMM, H-FgMM, 84×114 µm; carbonates, phyllosilicates, magnetite, sulfides, phosphates; Concordia snow collection 2002 campaign)"
+    }
+  ],
   "bios:computationalTool": [
     {
       "@type": [
@@ -33,26 +44,15 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Antarctic micrometeorite 03-36-46 (hydrated fine-grained AMM, H-FgMM, 84×114 µm; carbonates, phyllosilicates, magnetite, sulfides, phosphates; Concordia snow collection 2002 campaign)"
-    }
-  ],
-  "schema:measurementTechnique": {
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory, USA"
+    "schema:name": "Four windowless silicon drift detectors (SDD); 0.7 sr solid angle"
   },
   "ada:acceleratingVoltageDefault": "200 kV (EDS maps acquired at 200 kV; instrument range 80–300 kV)",
   "ada:analyticalMode": [],
@@ -66,7 +66,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificatonMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3–CaCO3–(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5–10 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
+  "ada:phaseIdentificationMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3–CaCO3–(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5–10 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {

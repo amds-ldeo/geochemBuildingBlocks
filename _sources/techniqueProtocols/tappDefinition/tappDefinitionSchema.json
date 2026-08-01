@@ -493,11 +493,22 @@
                     "description": "Guidance text shown to the user in the form."
                 },
                 "schema:propertyID": {
-                    "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition.",
+                    "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
                     "anyOf": [
                         {
                             "type": "string",
                             "format": "uri"
+                        },
+                        {
+                            "type": "object",
+                            "required": [
+                                "@id"
+                            ],
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            }
                         },
                         {
                             "$ref": "#/$defs/DefinedTerm"
@@ -689,10 +700,21 @@
                     "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
                 },
                 "schema:propertyID": {
-                    "description": "URI identifying this parameter type in a formal vocabulary.",
+                    "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
                     "anyOf": [
                         {
                             "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "required": [
+                                "@id"
+                            ],
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            }
                         },
                         {
                             "$ref": "#/$defs/DefinedTerm"
@@ -739,11 +761,22 @@
                     "description": "Guidance text for this column."
                 },
                 "schema:propertyID": {
-                    "description": "URI identifying this column's parameter type in a formal vocabulary.",
+                    "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
                     "anyOf": [
                         {
                             "type": "string",
                             "format": "uri"
+                        },
+                        {
+                            "type": "object",
+                            "required": [
+                                "@id"
+                            ],
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            }
                         },
                         {
                             "$ref": "#/$defs/DefinedTerm"

@@ -12,18 +12,29 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Cold-FEG",
+  "schema:name": "EDS and EELS",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A HF5000) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
-    ],
-    "schema:name": "Oxford Instruments X-Max N100 TLE EDS; dual 100 mm² windowless SDDs; Ω = 2.0 sr Gatan Quantum EELS (post-column) BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera"
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
   },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
+    }
+  ],
   "bios:computationalTool": [
     {
       "@type": [
@@ -33,26 +44,15 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
-    }
-  ],
-  "schema:measurementTechnique": {
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+    "schema:name": "Gatan Quantum EELS (post-column) BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera Oxford Instruments X-Max N100 TLE EDS; dual 100 mm² windowless SDDs; Ω = 2.0 sr"
   },
   "ada:acceleratingVoltageDefault": "200 keV",
   "ada:analyticalMode": [
@@ -70,7 +70,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificatonMethod": "CRISP software (SAED patterns); Adobe Photoshop d-spacing measurement based on calibrated camera constants",
+  "ada:phaseIdentificationMethod": "CRISP software (SAED patterns); Adobe Photoshop d-spacing measurement based on calibrated camera constants",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {

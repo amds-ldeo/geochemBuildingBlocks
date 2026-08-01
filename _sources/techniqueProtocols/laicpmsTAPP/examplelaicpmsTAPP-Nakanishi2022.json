@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1",
-  "schema:description": "laicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (column R of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (column R of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -41,11 +41,12 @@
   "ada:ablationSpotDurationDefault": -9999,
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
-  "ada:rfPower": "1400 W",
+  "ada:coolantGasFlowRateDefault": "Cool gas: 12–13 l min⁻¹ Ar; Auxiliary: 0.6–1.2 l min⁻¹",
+  "ada:rfPowerDefault": "1400 W",
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
-  "ada:spectrometerDwellTimeDefault": "missing",
+  "ada:dwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS",
   "ada:internalStandardElement": "⁶¹Ni; concentration from EPMA measured at exact analysis spot location",
@@ -56,6 +57,7 @@
   "ada:interferingSpecies": "Sulfide inclusions detectable via ³³S signal; phosphide inclusions via ³¹P; silicate inclusions via ²⁴Mg, ²⁹Si (used to exclude contaminated analyses)",
   "ada:isobaricInterferenceCorrectionMethod": "Exclusion-based approach: analyses with elevated Mg, Si, P, S (from silicate, phosphate, or sulfide inclusions) excluded entirely rather than applying mathematical corrections",
   "ada:primaryCalibrationStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method",
+  "ada:calibrationStandardMeasurementFrequency": "missing",
   "ada:secondaryReferenceMaterialDefault": "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns",
   "schema:additionalProperty": [
     {
@@ -70,19 +72,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/gasFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "gasFlowRateDefault",
-      "schema:name": "Auxiliary and Cool Gas Flow Rates",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Cool gas: 12–13 l min⁻¹ Ar; Auxiliary: 0.6–1.2 l min⁻¹"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -115,7 +104,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+      },
       "schema:name": "Laser Pulse Duration",
       "schema:value": "~220 fs (Ti:sapphire IFRIT system)"
     },
@@ -124,7 +115,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+      },
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Single spot per location (30 µm circular)"
     }

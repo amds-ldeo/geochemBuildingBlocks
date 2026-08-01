@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Navarro et al. (2024) Iron Meteorite Raster Mapping v1",
-  "schema:description": "laicpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Raster mapping (2D) ns-LA-SF-ICP-MS University of Campinas (column T of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Raster mapping (2D) ns-LA-SF-ICP-MS University of Campinas (column T of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -50,11 +50,12 @@
   "ada:ablationSpotDurationDefault": -9999,
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
-  "ada:rfPower": "1200 W",
+  "ada:coolantGasFlowRateDefault": "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹",
+  "ada:rfPowerDefault": "1200 W",
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "Background (1 min) → NIST SRM 612(×3) → North Chile(×3) → unknown map (30 min) → North Chile(×3) → NIST SRM 612(×3) → background",
-  "ada:spectrometerDwellTimeDefault": "0.02 s per isotope; 100 samples per peak (same as spot protocol)",
+  "ada:dwellTimeDefault": "0.02 s per isotope; 100 samples per peak (same as spot protocol)",
   "ada:backgroundCountTimeDefault": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background",
   "ada:internalStandardApproach": "Fe+Ni+Co sum normalization to 100% (same DRS as spot protocol; mandatory for multi-phase mapping without prior IS knowledge)",
   "ada:internalStandardElement": "No single IS; Fe+Ni+Co=100% normalization (same as spot protocol)",
@@ -65,6 +66,7 @@
   "ada:interferingSpecies": "Same as spot protocol",
   "ada:isobaricInterferenceCorrectionMethod": "Same isotope selection as spot protocol",
   "ada:primaryCalibrationStandardNameDefault": "NIST SRM 612 (Jochum et al. 2011) + North Chile Filomena — same as spot protocol",
+  "ada:calibrationStandardMeasurementFrequency": "NIST SRM 612 and North Chile at start and end of mapping session (30 min map; 3 measurements each before and after)",
   "ada:secondaryReferenceMaterialDefault": "North Chile and NIST SRM 612 measured before and after mapping session as QC materials",
   "schema:additionalProperty": [
     {
@@ -94,19 +96,6 @@
       "schema:defaultValue": "Ar make-up gas (same as spot protocol)"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/gasFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "gasFlowRateDefault",
-      "schema:name": "Auxiliary and Cool Gas Flow Rates",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹"
-    },
-    {
       "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -131,19 +120,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same as spot protocol"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "NIST SRM 612 and North Chile at start and end of mapping session (30 min map; 3 measurements each before and after)"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
@@ -176,7 +152,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+      },
       "schema:name": "Laser Pulse Duration",
       "schema:value": "4 ns (ArF excimer Excite 193)"
     }

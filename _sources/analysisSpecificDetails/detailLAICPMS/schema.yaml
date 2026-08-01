@@ -110,6 +110,7 @@ allOf:
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/laicpms_samplePersistentIdentifier
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/fusionFluxAndDilutionRatio
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/preAblationSurfaceTreatment
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/instrumentSerialNumberOrLabIdentifier
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/torchDepth
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/massResolutionSetting
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/spotGeometry
@@ -121,14 +122,18 @@ allOf:
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/rasterLineSpacing
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/carrierGasFlowRate
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/plasmaMakeUpGasAddition
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/gasFlowRate
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/coolantGasFlowRate
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/auxiliaryGasFlowRate
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/rfPower
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/signalSmoothing
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/icPlasmaTuning
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/doublyChargedSpeciesMonitor
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/doublyChargedSpeciesProduction
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/driftMonitorFrequency
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/analysisSequence
-        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/spectrometerDwellTime
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/gasFlowRate
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/cellExitDiscriminationVoltage
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/reactionGasFlowRate
+        - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/dwellTime
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/backgroundCountTime
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/outlierFiltering
         - $ref: ../../techniqueProtocols/parameterValues/schema.yaml#/$defs/nonlinearResponseCorrection
@@ -147,40 +152,50 @@ allOf:
               contains:
                 const: schema:PropertyValue
             schema:propertyID:
-              type: string
-              not:
-                enum:
-                - ada:parameter/laicpmsTAPP/coupledProtocolDoi
-                - ada:parameter/laicpmsTAPP/coupledDatasetOrPublicationReference
-                - ada:parameter/laicpmsTAPP/samplePersistentIdentifier
-                - ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio
-                - ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment
-                - ada:parameter/laicpmsTAPP/torchDepth
-                - ada:parameter/laicpmsTAPP/massResolutionSetting
-                - ada:parameter/laicpmsTAPP/spotGeometry
-                - ada:parameter/laicpmsTAPP/laserEnergy
-                - ada:parameter/laicpmsTAPP/laserFluence
-                - ada:parameter/laicpmsTAPP/laserRepetitionRate
-                - ada:parameter/laicpmsTAPP/ablationSpotDuration
-                - ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize
-                - ada:parameter/laicpmsTAPP/rasterLineSpacing
-                - ada:parameter/laicpmsTAPP/carrierGasFlowRate
-                - ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition
-                - ada:parameter/laicpmsTAPP/gasFlowRate
-                - ada:parameter/laicpmsTAPP/signalSmoothing
-                - ada:parameter/laicpmsTAPP/icPlasmaTuning
-                - ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor
-                - ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction
-                - ada:parameter/laicpmsTAPP/driftMonitorFrequency
-                - ada:parameter/laicpmsTAPP/analysisSequence
-                - ada:parameter/laicpmsTAPP/spectrometerDwellTime
-                - ada:parameter/laicpmsTAPP/backgroundCountTime
-                - ada:parameter/laicpmsTAPP/outlierFiltering
-                - ada:parameter/laicpmsTAPP/nonlinearResponseCorrection
-                - ada:parameter/laicpmsTAPP/memoryEffectMitigation
-                - ada:parameter/laicpmsTAPP/postAcquisitionNormalization
-                - ada:parameter/laicpmsTAPP/primaryCalibrationStandardName
-                - ada:parameter/laicpmsTAPP/secondaryReferenceMaterial
+              type: object
+              required:
+              - '@id'
+              properties:
+                '@id':
+                  type: string
+                  not:
+                    enum:
+                    - ada:parameter/laicpmsTAPP/coupledProtocolDoi
+                    - ada:parameter/laicpmsTAPP/coupledDatasetOrPublicationReference
+                    - ada:parameter/laicpmsTAPP/samplePersistentIdentifier
+                    - ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio
+                    - ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment
+                    - ada:parameter/laicpmsTAPP/instrumentSerialNumberOrLabIdentifier
+                    - ada:parameter/laicpmsTAPP/torchDepth
+                    - ada:parameter/laicpmsTAPP/massResolutionSetting
+                    - ada:parameter/laicpmsTAPP/spotGeometry
+                    - ada:parameter/laicpmsTAPP/laserEnergy
+                    - ada:parameter/laicpmsTAPP/laserFluence
+                    - ada:parameter/laicpmsTAPP/laserRepetitionRate
+                    - ada:parameter/laicpmsTAPP/ablationSpotDuration
+                    - ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize
+                    - ada:parameter/laicpmsTAPP/rasterLineSpacing
+                    - ada:parameter/laicpmsTAPP/carrierGasFlowRate
+                    - ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition
+                    - ada:parameter/laicpmsTAPP/coolantGasFlowRate
+                    - ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate
+                    - ada:parameter/laicpmsTAPP/rfPower
+                    - ada:parameter/laicpmsTAPP/signalSmoothing
+                    - ada:parameter/laicpmsTAPP/icPlasmaTuning
+                    - ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor
+                    - ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction
+                    - ada:parameter/laicpmsTAPP/analysisSequence
+                    - ada:parameter/laicpmsTAPP/gasFlowRate
+                    - ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage
+                    - ada:parameter/laicpmsTAPP/reactionGasFlowRate
+                    - ada:parameter/laicpmsTAPP/dwellTime
+                    - ada:parameter/laicpmsTAPP/backgroundCountTime
+                    - ada:parameter/laicpmsTAPP/outlierFiltering
+                    - ada:parameter/laicpmsTAPP/nonlinearResponseCorrection
+                    - ada:parameter/laicpmsTAPP/memoryEffectMitigation
+                    - ada:parameter/laicpmsTAPP/postAcquisitionNormalization
+                    - ada:parameter/laicpmsTAPP/primaryCalibrationStandardName
+                    - ada:parameter/laicpmsTAPP/secondaryReferenceMaterial
           required:
           - '@type'
           - schema:propertyID

@@ -1,47 +1,74 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/empaTAPP/Technique",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Technique",
-  "schema:description": "Top-level analytical technique identifier.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Technique",
+  "skos:definition": "Top-level analytical technique identifier.",
+  "schema:identifier": "ada:vocab/empaTAPP/Technique",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/empaTAPP/Technique/EPMA-WDS",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:EPMA-WDS",
-      "schema:termCode": "EPMA-WDS",
-      "schema:name": "EPMA-WDS"
+      "skos:prefLabel": "EPMA-WDS",
+      "skos:notation": "EPMA-WDS",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/Technique"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/empaTAPP/Technique/EPMA-EDS",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:EPMA-EDS",
-      "schema:termCode": "EPMA-EDS",
-      "schema:name": "EPMA-EDS"
+      "skos:prefLabel": "EPMA-EDS",
+      "skos:notation": "EPMA-EDS",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/Technique"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/empaTAPP/Technique/EPMA-WDS_EDS",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:EPMA-WDS_EDS",
-      "schema:termCode": "EPMA-WDS+EDS",
-      "schema:name": "EPMA-WDS+EDS"
+      "skos:prefLabel": "EPMA-WDS+EDS",
+      "skos:notation": "EPMA-WDS+EDS",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/Technique"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/empaTAPP/Technique/other",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:other",
-      "schema:termCode": "other",
-      "schema:name": "other"
+      "skos:prefLabel": "other",
+      "skos:notation": "other",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/Technique"
+        }
+      ]
     }
   ]
 }

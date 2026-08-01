@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. 2016 (M&PS 51) Tissint martian meteorite Silicates, oxides & glass Spot analysis LA-Q-ICP-MS Virginia Tech",
-  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Silicates, oxides & glass Spot analysis LA-Q-ICP-MS Virginia Tech (column X of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Silicates, oxides & glass Spot analysis LA-Q-ICP-MS Virginia Tech (column X of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -50,11 +50,12 @@
   "ada:ablationSpotDurationDefault": -9999,
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
-  "ada:rfPower": -9999,
+  "ada:coolantGasFlowRateDefault": -9999,
+  "ada:rfPowerDefault": -9999,
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "NIST 610 glass standard analyzed before and after every session; unknowns in between",
-  "ada:spectrometerDwellTimeDefault": "missing",
+  "ada:dwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": "50 s (background counted for 50 s before each LA-ICP-MS analysis)",
   "ada:internalStandardApproach": "Normalization to 100 wt% oxide total (for silicates and oxides)",
   "ada:internalStandardElement": "None (oxide sum normalization, 100 wt% total)",
@@ -65,6 +66,7 @@
   "ada:interferingSpecies": "missing",
   "ada:isobaricInterferenceCorrectionMethod": "missing",
   "ada:primaryCalibrationStandardNameDefault": "NIST 610 glass standard",
+  "ada:calibrationStandardMeasurementFrequency": "NIST 610 glass standard analyzed before and after every session",
   "ada:secondaryReferenceMaterialDefault": "missing",
   "schema:additionalProperty": [
     {
@@ -80,19 +82,6 @@
       "ada:tier": "R",
       "schema:defaultValue": "150 mJ output energy",
       "schema:unitText": "mJ"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "NIST 610 glass standard analyzed before and after every session"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
@@ -112,7 +101,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+      },
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Single spot analysis per location"
     }

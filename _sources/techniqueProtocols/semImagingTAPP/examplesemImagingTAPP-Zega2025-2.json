@@ -12,24 +12,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)",
+  "schema:name": "JEOL",
   "schema:description": "semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Imaging_TAPP_v4.xlsx).",
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Oxford AZtec",
-      "ada:toolRole": "reduction"
-    },
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Oxford AZtec (Point & ID programme)",
-      "ada:toolRole": "acquisition"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -38,12 +22,22 @@
       "schema:name": "Asteroid (101955) Bennu particles (OSIRIS-REx sample return)"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
-  },
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Oxford AZtec (Point & ID programme)",
+      "ada:toolRole": "acquisition"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Oxford AZtec",
+      "ada:toolRole": "reduction"
+    }
+  ],
   "schema:instrument": {
     "@type": [
       "schema:Thing",
@@ -53,6 +47,12 @@
       "nxs:BaseClass/NXinstrument"
     ],
     "schema:name": "Field emission gun (FEG)"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
   },
   "schema:measurementTechnique": {
     "@type": [

@@ -1,22 +1,35 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/labxctTAPP/technique",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Technique",
-  "schema:description": "Top-level analytical technique identifier for this TAPP.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Technique",
+  "skos:definition": "Top-level analytical technique identifier for this TAPP.",
+  "schema:identifier": "ada:vocab/labxctTAPP/technique",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/labxctTAPP/technique/XCT_laboratory_polychromatic_cone-beam",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "XCT (laboratory, polychromatic cone-beam)",
-      "schema:name": "XCT (laboratory, polychromatic cone-beam)"
+      "skos:prefLabel": "XCT (laboratory, polychromatic cone-beam)",
+      "skos:notation": "XCT (laboratory, polychromatic cone-beam)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/technique"
+        }
+      ]
     }
   ]
 }

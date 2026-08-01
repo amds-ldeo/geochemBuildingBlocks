@@ -1,29 +1,48 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/labxctTAPP/flatFieldCorrection",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Flat Field Correction",
-  "schema:description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Flat Field Correction",
+  "skos:definition": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
+  "schema:identifier": "ada:vocab/labxctTAPP/flatFieldCorrection",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/labxctTAPP/flatFieldCorrection/Yes",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Yes",
-      "schema:name": "Yes"
+      "skos:prefLabel": "Yes",
+      "skos:notation": "Yes",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/flatFieldCorrection"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/flatFieldCorrection/No",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "No",
-      "schema:name": "No"
+      "skos:prefLabel": "No",
+      "skos:notation": "No",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/flatFieldCorrection"
+        }
+      ]
     }
   ]
 }

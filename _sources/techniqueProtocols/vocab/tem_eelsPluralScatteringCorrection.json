@@ -1,36 +1,61 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/temTAPP/eelsPluralScatteringCorrection",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "EELS Plural Scattering Correction",
-  "schema:description": "Method applied to correct for multiple inelastic scattering events (plural scattering) that broaden edge fine structure. Critical for specimens thicker than ~0.5 inelastic mean free paths.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "EELS Plural Scattering Correction",
+  "skos:definition": "Method applied to correct for multiple inelastic scattering events (plural scattering) that broaden edge fine structure. Critical for specimens thicker than ~0.5 inelastic mean free paths.",
+  "schema:identifier": "ada:vocab/temTAPP/eelsPluralScatteringCorrection",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/temTAPP/eelsPluralScatteringCorrection/Fourier-log_deconvolution",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Fourier-log deconvolution",
-      "schema:name": "Fourier-log deconvolution"
+      "skos:prefLabel": "Fourier-log deconvolution",
+      "skos:notation": "Fourier-log deconvolution",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/eelsPluralScatteringCorrection"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/eelsPluralScatteringCorrection/Fourier-ratio_deconvolution",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Fourier-ratio deconvolution",
-      "schema:name": "Fourier-ratio deconvolution"
+      "skos:prefLabel": "Fourier-ratio deconvolution",
+      "skos:notation": "Fourier-ratio deconvolution",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/eelsPluralScatteringCorrection"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/eelsPluralScatteringCorrection/Unknown",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Unknown",
-      "schema:name": "Unknown"
+      "skos:prefLabel": "Unknown",
+      "skos:notation": "Unknown",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/eelsPluralScatteringCorrection"
+        }
+      ]
     }
   ]
 }

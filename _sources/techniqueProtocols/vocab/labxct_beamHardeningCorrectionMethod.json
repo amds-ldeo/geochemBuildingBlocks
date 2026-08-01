@@ -1,36 +1,61 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Beam Hardening Correction Method",
-  "schema:description": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filterin",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Beam Hardening Correction Method",
+  "skos:definition": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filterin",
+  "schema:identifier": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod/Software_polynomial_correction_instrument-specific_algorithm",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Software polynomial correction (instrument-specific algorithm)",
-      "schema:name": "Software polynomial correction (instrument-specific algorithm)"
+      "skos:prefLabel": "Software polynomial correction (instrument-specific algorithm)",
+      "skos:notation": "Software polynomial correction (instrument-specific algorithm)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod/Ketcham_Hanna_2014_iterative_BH_correction",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Ketcham & Hanna (2014) iterative BH correction",
-      "schema:name": "Ketcham & Hanna (2014) iterative BH correction"
+      "skos:prefLabel": "Ketcham & Hanna (2014) iterative BH correction",
+      "skos:notation": "Ketcham & Hanna (2014) iterative BH correction",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod/None_applied",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "None applied",
-      "schema:name": "None applied"
+      "skos:prefLabel": "None applied",
+      "skos:notation": "None applied",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/beamHardeningCorrectionMethod"
+        }
+      ]
     }
   ]
 }

@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Olivine Multi-run Spot/Transect v1",
-  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite olivine Line scan (Run 1: major) + Spot (Run 2: trace) [Multi-run] ns-LA-SF-ICP-MS Ghent University (column O of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite olivine Line scan (Run 1: major) + Spot (Run 2: trace) [Multi-run] ns-LA-SF-ICP-MS Ghent University (column O of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -50,11 +50,12 @@
   "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 — duration set by 34 runs covering 400 µm + washout, not a fixed spot duration)",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min⁻¹; MFC-2 0.22 l min⁻¹",
-  "ada:rfPower": "1000 W (run 1 major elements + run 2 trace elements)",
+  "ada:coolantGasFlowRateDefault": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)",
+  "ada:rfPowerDefault": "1000 W (run 1 major elements + run 2 trace elements)",
   "ada:plasmaThermalMode": "Normal plasma (1000 W RF)",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "GRM block (3–5×) → unknowns → GRM block (3–5×); same structure for run 1 and run 2",
-  "ada:spectrometerDwellTimeDefault": "Run 1 (major): 0.01 s per nuclide; samples per peak: 18; duty cycle: 2.069 s; Run 2 (trace): 0.01 s per nuclide; samples per peak: 7; duty cycle: 2.062 s",
+  "ada:dwellTimeDefault": "Run 1 (major): 0.01 s per nuclide; samples per peak: 18; duty cycle: 2.069 s; Run 2 (trace): 0.01 s per nuclide; samples per peak: 7; duty cycle: 2.062 s",
   "ada:backgroundCountTimeDefault": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans",
   "ada:internalStandardApproach": "Run 1 (major elements): sum-of-oxide normalization (MgO+FeO+SiO₂+P₂O₅=100 wt%; Liu et al. 2008); Run 2 (trace elements): single element IS from Run 1 (⁵³Cr concentration from major element run used as IS for trace element run)",
   "ada:internalStandardElement": "Run 1: No single IS; oxide sum normalization; Run 2: ⁵³Cr (concentration from Run 1 major-element analysis on 30 µm spot used as IS for 130 µm spot trace element run)",
@@ -65,6 +66,7 @@
   "ada:interferingSpecies": "Same interference list as mapping (Table C1); argide-based interferences less critical without cool plasma",
   "ada:isobaricInterferenceCorrectionMethod": "Argide corrections less critical (normal plasma); oxide-based interferences minimized by tuning; same interference list but without cool plasma mitigation",
   "ada:primaryCalibrationStandardNameDefault": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements",
+  "ada:calibrationStandardMeasurementFrequency": "Same as mapping protocol; GRMs at start and end",
   "ada:secondaryReferenceMaterialDefault": "Same GRM set measured as unknowns for accuracy assessment",
   "schema:additionalProperty": [
     {
@@ -107,19 +109,6 @@
       "schema:defaultValue": "Ar make-up: 0.947 l min⁻¹ (run 1 and run 2); N₂ not added"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/gasFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "gasFlowRateDefault",
-      "schema:name": "Auxiliary and Cool Gas Flow Rates",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)"
-    },
-    {
       "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -144,19 +133,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same instrument as mapping; tuning optimized per run (different RF power and resolution settings per run)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Same as mapping protocol; GRMs at start and end"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -215,7 +191,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+      },
       "schema:name": "Laser Pulse Duration",
       "schema:value": "~5 ns (ArF excimer)"
     },
@@ -224,7 +202,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+      },
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Three-stage sequential design on same olivine location: (1) Pre-ablation pass (2 J cm⁻², 150 µm square, 300 µm s⁻¹) to remove surface contamination; (2) Run 1 — major elements (30 µm circular, MR M/ΔM=4000, 20 Hz, 7 nuclides); (3) Run 2 — trace elements (130 µm circular, LR M/ΔM=300, 40 Hz, 36 nuclides; Cr from run 1 as IS)"
     }

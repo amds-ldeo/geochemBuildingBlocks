@@ -14,32 +14,19 @@
   ],
   "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + HAADF-STEM + SAED + EDS (Goethe TS Talos F200X G2) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
-    ],
-    "schema:name": "Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad TS Ceta-S 4k × 4k 16M camera (TEM images and SAED)"
+    "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "TS Velox",
-      "ada:toolRole": "acquisition"
-    },
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "TS Velox",
-      "ada:toolRole": "reduction"
-    }
-  ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
   "schema:object": [
     {
       "@type": [
@@ -48,18 +35,31 @@
       "schema:name": "Bennu particle OREX-800045-102 (OSIRIS-REx sample): Na,Ca carbonates (gaylussite/pirssonite), phyllosilicates, sulfides"
     }
   ],
-  "schema:measurementTechnique": {
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "TS Velox",
+      "ada:toolRole": "reduction"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "TS Velox",
+      "ada:toolRole": "acquisition"
+    }
+  ],
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany"
+    "schema:name": "TS Ceta-S 4k × 4k 16M camera (TEM images and SAED) Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad"
   },
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [
@@ -75,7 +75,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificatonMethod": "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)",
+  "ada:phaseIdentificationMethod": "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {

@@ -14,16 +14,27 @@
   ],
   "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
-    ],
-    "schema:name": "Bruker quad SDD; Ω = 0.6 sr"
+    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory"
   },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
+    }
+  ],
   "bios:computationalTool": [
     {
       "@type": [
@@ -33,26 +44,15 @@
       "ada:toolRole": "reduction"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
-    }
-  ],
-  "schema:measurementTechnique": {
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory"
+    "schema:name": "Bruker quad SDD; Ω = 0.6 sr"
   },
   "ada:acceleratingVoltageDefault": "80–300 keV (range; specific voltage per dataset not stated)",
   "ada:analyticalMode": [
@@ -69,7 +69,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificatonMethod": "missing",
+  "ada:phaseIdentificationMethod": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {

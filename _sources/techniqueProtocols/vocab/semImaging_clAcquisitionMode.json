@@ -1,43 +1,74 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "CL Acquisition Mode",
-  "schema:description": "CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "CL Acquisition Mode",
+  "skos:definition": "CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.",
+  "schema:identifier": "ada:vocab/semImagingTAPP/clAcquisitionMode",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode/Panchromatic",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Panchromatic",
-      "schema:name": "Panchromatic"
+      "skos:prefLabel": "Panchromatic",
+      "skos:notation": "Panchromatic",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode/Spectral_point",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Spectral point",
-      "schema:name": "Spectral point"
+      "skos:prefLabel": "Spectral point",
+      "skos:notation": "Spectral point",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode/Hyperspectral_map",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Hyperspectral map",
-      "schema:name": "Hyperspectral map"
+      "skos:prefLabel": "Hyperspectral map",
+      "skos:notation": "Hyperspectral map",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode/Multi-channel_pseudo-color",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Multi-channel pseudo-color",
-      "schema:name": "Multi-channel pseudo-color"
+      "skos:prefLabel": "Multi-channel pseudo-color",
+      "skos:notation": "Multi-channel pseudo-color",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semImagingTAPP/clAcquisitionMode"
+        }
+      ]
     }
   ]
 }

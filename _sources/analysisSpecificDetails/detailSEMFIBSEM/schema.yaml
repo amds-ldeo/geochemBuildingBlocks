@@ -80,22 +80,27 @@ allOf:
               contains:
                 const: schema:PropertyValue
             schema:propertyID:
-              type: string
-              not:
-                enum:
-                - ada:parameter/semFibsemTAPP/coupledProtocolDoi
-                - ada:parameter/semFibsemTAPP/coupledDatasetOrPublicationReference
-                - ada:parameter/semFibsemTAPP/samplePersistentIdentifier
-                - ada:parameter/semFibsemTAPP/acceleratingVoltage
-                - ada:parameter/semFibsemTAPP/beamCurrent
-                - ada:parameter/semFibsemTAPP/workingDistance
-                - ada:parameter/semFibsemTAPP/dwellTimePerPixel
-                - ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
-                - ada:parameter/semFibsemTAPP/coarseMillingConditions
-                - ada:parameter/semFibsemTAPP/finePolishingConditions
-                - ada:parameter/semFibsemTAPP/targetFoilThickness
-                - ada:parameter/semFibsemTAPP/ionMillingConditions
-                - ada:parameter/semFibsemTAPP/sliceThickness
+              type: object
+              required:
+              - '@id'
+              properties:
+                '@id':
+                  type: string
+                  not:
+                    enum:
+                    - ada:parameter/semFibsemTAPP/coupledProtocolDoi
+                    - ada:parameter/semFibsemTAPP/coupledDatasetOrPublicationReference
+                    - ada:parameter/semFibsemTAPP/samplePersistentIdentifier
+                    - ada:parameter/semFibsemTAPP/acceleratingVoltage
+                    - ada:parameter/semFibsemTAPP/beamCurrent
+                    - ada:parameter/semFibsemTAPP/workingDistance
+                    - ada:parameter/semFibsemTAPP/dwellTimePerPixel
+                    - ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
+                    - ada:parameter/semFibsemTAPP/coarseMillingConditions
+                    - ada:parameter/semFibsemTAPP/finePolishingConditions
+                    - ada:parameter/semFibsemTAPP/targetFoilThickness
+                    - ada:parameter/semFibsemTAPP/ionMillingConditions
+                    - ada:parameter/semFibsemTAPP/sliceThickness
           required:
           - '@type'
           - schema:propertyID

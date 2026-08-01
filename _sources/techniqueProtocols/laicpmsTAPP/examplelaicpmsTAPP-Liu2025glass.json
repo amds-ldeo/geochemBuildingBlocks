@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1",
-  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silicate glass Spot analysis ns-LA-Q-ICP-MS Guangzhou Inst. Geochemistry (column V of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silicate glass Spot analysis ns-LA-Q-ICP-MS Guangzhou Inst. Geochemistry (column V of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -41,11 +41,12 @@
   "ada:ablationSpotDurationDefault": "~40 s (inferred from typical CetacAnalyte HE protocol for glass)",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; carrier gas with N₂ or Ar mixed for sensitivity optimization)",
-  "ada:rfPower": -9999,
+  "ada:coolantGasFlowRateDefault": -9999,
+  "ada:rfPowerDefault": -9999,
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
-  "ada:spectrometerDwellTimeDefault": "missing",
+  "ada:dwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard",
   "ada:internalStandardElement": "Si from EMP (SiO₂ wt% for silicate glass)",
@@ -56,6 +57,7 @@
   "ada:interferingSpecies": "missing",
   "ada:isobaricInterferenceCorrectionMethod": "missing",
   "ada:primaryCalibrationStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
+  "ada:calibrationStandardMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
   "ada:secondaryReferenceMaterialDefault": "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)",
   "schema:additionalProperty": [
     {
@@ -70,19 +72,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -115,7 +104,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+      },
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Single spot per location (~40 s ablation at 7 Hz)"
     }

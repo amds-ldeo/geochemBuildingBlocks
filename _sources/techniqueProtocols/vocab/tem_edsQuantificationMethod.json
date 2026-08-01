@@ -1,50 +1,87 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/temTAPP/edsQuantificationMethod",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "EDS Quantification Method",
-  "schema:description": "Method used to convert EDS X-ray intensities to elemental concentrations.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "EDS Quantification Method",
+  "skos:definition": "Method used to convert EDS X-ray intensities to elemental concentrations.",
+  "schema:identifier": "ada:vocab/temTAPP/edsQuantificationMethod",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/temTAPP/edsQuantificationMethod/Cliff-Lorimer_k-factor",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Cliff-Lorimer (k-factor)",
-      "schema:name": "Cliff-Lorimer (k-factor)"
+      "skos:prefLabel": "Cliff-Lorimer (k-factor)",
+      "skos:notation": "Cliff-Lorimer (k-factor)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsQuantificationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsQuantificationMethod/-factor_zeta-factor",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "ζ-factor (zeta-factor)",
-      "schema:name": "ζ-factor (zeta-factor)"
+      "skos:prefLabel": "ζ-factor (zeta-factor)",
+      "skos:notation": "ζ-factor (zeta-factor)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsQuantificationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsQuantificationMethod/Absorption-corrected_Cliff-Lorimer",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Absorption-corrected Cliff-Lorimer",
-      "schema:name": "Absorption-corrected Cliff-Lorimer"
+      "skos:prefLabel": "Absorption-corrected Cliff-Lorimer",
+      "skos:notation": "Absorption-corrected Cliff-Lorimer",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsQuantificationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsQuantificationMethod/Standardless",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Standardless",
-      "schema:name": "Standardless"
+      "skos:prefLabel": "Standardless",
+      "skos:notation": "Standardless",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsQuantificationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/temTAPP/edsQuantificationMethod/Direct_comparison_to_reference_spectra",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Direct comparison to reference spectra",
-      "schema:name": "Direct comparison to reference spectra"
+      "skos:prefLabel": "Direct comparison to reference spectra",
+      "skos:notation": "Direct comparison to reference spectra",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/temTAPP/edsQuantificationMethod"
+        }
+      ]
     }
   ]
 }

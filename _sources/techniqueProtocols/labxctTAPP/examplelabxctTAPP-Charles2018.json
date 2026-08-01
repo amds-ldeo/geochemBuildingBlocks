@@ -14,6 +14,13 @@
   ],
   "schema:name": "labxct protocol — Charles2018",
   "schema:description": "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v8.xlsx).",
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "Medical CT",
+    "schema:name": "Medical CT"
+  },
   "schema:object": [
     {
       "@type": [
@@ -22,13 +29,6 @@
       "schema:name": "CR2 chondrite (NWA 801)"
     }
   ],
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "Medical CT",
-    "schema:name": "Medical CT"
-  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -166,7 +166,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/labxctTAPP/detectorArraySize",
+      "schema:propertyID": {
+        "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+      },
       "schema:name": "Detector Array Size",
       "schema:value": "10 heads (ring); each 8 × 8 cm face, 2.46 mm² pixels"
     },
@@ -175,7 +177,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "schema:propertyID": {
+        "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+      },
       "schema:name": "Detector Pixel Size",
       "schema:value": "2.46 mm² per pixel (1.57 mm pitch)",
       "schema:unitText": "µm"

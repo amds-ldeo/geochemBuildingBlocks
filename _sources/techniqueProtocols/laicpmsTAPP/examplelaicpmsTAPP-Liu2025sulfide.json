@@ -13,7 +13,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1",
-  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot analysis ns-LA-Q-ICP-MS Guangzhou Inst. Geochemistry (column W of LA-Q_SF-ICPMS_TAPP_v2.xlsx 'TAPP' worksheet).",
+  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot analysis ns-LA-Q-ICP-MS Guangzhou Inst. Geochemistry (column W of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
   "schema:measurementTechnique": {
     "@type": [
       "schema:DefinedTerm"
@@ -41,11 +41,12 @@
   "ada:ablationSpotDurationDefault": "~40 s (same protocol; grain size >20 µm selected)",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; same system as glass protocol)",
-  "ada:rfPower": -9999,
+  "ada:coolantGasFlowRateDefault": -9999,
+  "ada:rfPowerDefault": -9999,
   "ada:plasmaThermalMode": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
-  "ada:spectrometerDwellTimeDefault": "missing",
+  "ada:dwellTimeDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
   "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
@@ -56,6 +57,7 @@
   "ada:interferingSpecies": "missing",
   "ada:isobaricInterferenceCorrectionMethod": "missing",
   "ada:primaryCalibrationStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
+  "ada:calibrationStandardMeasurementFrequency": "Same bracketing as silicate glass protocol",
   "ada:secondaryReferenceMaterialDefault": "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)",
   "schema:additionalProperty": [
     {
@@ -70,19 +72,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "N₂ or Ar mixed (same protocol as glass)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "driftMonitorFrequencyDefault",
-      "schema:name": "Drift Monitor Frequency",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Same bracketing as silicate glass protocol"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
@@ -115,7 +104,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "schema:propertyID": {
+        "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+      },
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Single spot per location (sulfides; same acquisition parameters as glass but 20 µm spot)"
     }

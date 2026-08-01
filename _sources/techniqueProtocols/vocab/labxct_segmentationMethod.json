@@ -1,43 +1,74 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/labxctTAPP/segmentationMethod",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Segmentation Method",
-  "schema:description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Segmentation Method",
+  "skos:definition": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+  "schema:identifier": "ada:vocab/labxctTAPP/segmentationMethod",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Global_threshold_single_CT_number_boundary",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Global threshold (single CT number boundary)",
-      "schema:name": "Global threshold (single CT number boundary)"
+      "skos:prefLabel": "Global threshold (single CT number boundary)",
+      "skos:notation": "Global threshold (single CT number boundary)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/segmentationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Multi-threshold_separate_CT_number_range_per_phase",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Multi-threshold (separate CT number range per phase)",
-      "schema:name": "Multi-threshold (separate CT number range per phase)"
+      "skos:prefLabel": "Multi-threshold (separate CT number range per phase)",
+      "skos:notation": "Multi-threshold (separate CT number range per phase)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/segmentationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Manual_threshold_per_phase",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Manual threshold per phase",
-      "schema:name": "Manual threshold per phase"
+      "skos:prefLabel": "Manual threshold per phase",
+      "skos:notation": "Manual threshold per phase",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/segmentationMethod"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Semi-automated_threshold_morphological_filtering",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Semi-automated: threshold + morphological filtering",
-      "schema:name": "Semi-automated: threshold + morphological filtering"
+      "skos:prefLabel": "Semi-automated: threshold + morphological filtering",
+      "skos:notation": "Semi-automated: threshold + morphological filtering",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/segmentationMethod"
+        }
+      ]
     }
   ]
 }

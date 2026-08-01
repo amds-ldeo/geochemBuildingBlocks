@@ -62,6 +62,513 @@ $defs:
       - ada:dataType
       - ada:fieldScope
 
+  fusionFluxAndDilutionRatioDefault:
+    title: Fusion Flux and Dilution Ratio
+    description: For protocols using fused glass, the flux type and sample:flux dilution ratio used to prepare
+      the analytical glass.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: fusionFluxAndDilutionRatioDefault
+      schema:name:
+        const: Fusion Flux and Dilution Ratio
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  preAblationSurfaceTreatmentDefault:
+    title: Pre-Ablation Surface Treatment
+    description: Protocol applied immediately before each analysis to remove surface contamination or condition
+      the sample surface. Distinct from general sample preparation. For spot analysis, pre-ablation pulses
+      are discarded before signal acquisition begins. For mapping, this step is typically omitted as the
+      large area ablated averages out surface effects.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAblationSurfaceTreatmentDefault
+      schema:name:
+        const: Pre-Ablation Surface Treatment
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  instrumentSerialNumberOrLabIdentifierDefault:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
+      traceability to instrument service records.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: instrumentSerialNumberOrLabIdentifierDefault
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  torchDepthDefault:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
+      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
+      formation, and doubly-charged species production. The protocol specifies a target value optimised
+      during initial setup; the analyst confirms or fine-adjusts during session tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/torchDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: torchDepthDefault
+      schema:name:
+        const: Torch Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laserEnergyDefault:
+    title: Laser Energy
+    description: Laser pulse energy in millijoules as set at the laser output or measured at the sample
+      surface. Less commonly reported than fluence because it does not account for spot area. Report only
+      when the system displays energy directly. Laser fluence (J cm⁻²) is the preferred quantity and is
+      captured in Default Laser Fluence.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/laserEnergyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: laserEnergyDefault
+      schema:name:
+        const: Laser Energy
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mJ
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  transectOrMappingRateOrStepSizeDefault:
+    title: Transect Rate, Mapping Rate or Step Size
+    description: 'For continuous line scan (transect) and raster mapping: the stage translation speed in
+      µm s⁻¹. This is the protocol-level parameter that, together with spot size and repetition rate, determines
+      spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported
+      as an alternative when scan speed is session-variable. For stepped line profiles: the distance between
+      successive spot positions in µm.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: transectOrMappingRateOrStepSizeDefault
+      schema:name:
+        const: Transect Rate, Mapping Rate or Step Size
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  plasmaMakeUpGasAdditionDefault:
+    title: Plasma / Make-up Gas Addition
+    description: Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with
+      the protocol-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance
+      sensitivity for some elements. If N₂ is not added, state "None" explicitly to distinguish from not
+      reported.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: plasmaMakeUpGasAdditionDefault
+      schema:name:
+        const: Plasma / Make-up Gas Addition
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  signalSmoothingDefault:
+    title: Signal Smoothing
+    description: 'Description of any signal smoothing device or approach installed between the ablation
+      cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices
+      (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they
+      degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report
+      "None" explicitly.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/signalSmoothingDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: signalSmoothingDefault
+      schema:name:
+        const: Signal Smoothing
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  icPlasmaTuningDefault:
+    title: ICP Tuning
+    description: Description of the approach used to optimise ICP plasma conditions prior to analysis, including
+      the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold,
+      sensitivity targets, mass calibration).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/icPlasmaTuningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: icPlasmaTuningDefault
+      schema:name:
+        const: ICP Tuning
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  doublyChargedSpeciesMonitorDefault:
+    title: Doubly-Charged Species Monitor
+    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument
+      tuning. Doubly-charged ions appear at half the mass of the parent ion and can cause isobaric interferences
+      on analytes in that mass region. The monitor species and the mass positions monitored should be stated
+      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesMonitorDefault
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  doublyChargedSpeciesProductionDefault:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored species at the time
+      of instrument tuning. The protocol should specify the acceptable threshold (e.g., <1%, <3%); the measured
+      value for each session is recorded here. Report both the threshold and the measured value where possible.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesProductionDefault
+      schema:name:
+        const: Doubly-Charged Species Production
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  reactionGasFlowRateDefault:
+    title: Reaction Gas Flow Rate
+    description: Flow rate of the reactive gas introduced into the dynamic reaction cell (DRC), in mL/min.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/reactionGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionGasFlowRateDefault
+      schema:name:
+        const: Reaction Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  outlierFilteringDefault:
+    title: Spike / Outlier Filtering Approach
+    description: Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions,
+      cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific
+      implementation may vary between sessions while remaining within the protocol framework.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/outlierFilteringDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: outlierFilteringDefault
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  nonlinearResponseCorrectionDefault:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear response at the transition between pulse-counting
+      and analog detector modes.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: nonlinearResponseCorrectionDefault
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  memoryEffectMitigationDefault:
+    title: Memory Effect Mitigation
+    description: Protocol applied to identify and minimise memory effects from high-concentration elements
+      in the previous sample or standard that may contaminate subsequent analyses, or from incomplete aerosol
+      washout between adjacent pixels in raster mapping mode. For mapping, the mitigation strategy involves
+      controlling scan speed relative to washout time to ensure each pixel signal is sufficiently free of
+      the preceding pixel's contribution.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: memoryEffectMitigationDefault
+      schema:name:
+        const: Memory Effect Mitigation
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  postAcquisitionNormalizationDefault:
+    title: Normalization / Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+      Distinct from the primary internal standard approach captured in Internal Standard Approach.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: postAcquisitionNormalizationDefault
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
   sampleDimensionsDefault:
     title: Sample Dimensions (L × W × H)
     description: Physical dimensions of the sample in mm, reported as length × width × height (or equivalent
@@ -1183,8 +1690,7 @@ $defs:
   imageProcessingMethodsAppliedDefault:
     title: Image Processing Methods Applied
     description: Image processing steps applied to TEM or STEM images during or after acquisition. Non-linear
-      processing steps that could affect quantitative interpretation should be documented explicitly. Ideally
-      should be a property on a workflow step associated with the software doing the processing.
+      processing steps that could affect quantitative interpretation should be documented explicitly.
     type: object
     properties:
       '@id':
@@ -1456,19 +1962,19 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  clFrameTimeDefault:
+  frameTimeDefault:
     title: EBSD Frame Time
     description: Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time
       improves pattern quality and indexing rate but increases total acquisition time.
     type: object
     properties:
       '@id':
-        const: ada:parameter/semImagingTAPP/clFrameTimeDefault
+        const: ada:parameter/semImagingTAPP/frameTimeDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: clFrameTimeDefault
+        const: frameTimeDefault
       schema:name:
         const: EBSD Frame Time
       ada:dataType:
@@ -1549,510 +2055,3 @@ $defs:
     - ada:dataType
     - ada:fieldScope
 
-
-  fusionFluxAndDilutionRatioDefault:
-    title: Fusion Flux and Dilution Ratio
-    description: For protocols using fused glass, the flux type and sample:flux dilution ratio used to prepare
-      the analytical glass.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: fusionFluxAndDilutionRatioDefault
-      schema:name:
-        const: Fusion Flux and Dilution Ratio
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  preAblationSurfaceTreatmentDefault:
-    title: Pre-Ablation Surface Treatment
-    description: Protocol applied immediately before each analysis to remove surface contamination or condition
-      the sample surface. Distinct from general sample preparation. For spot analysis, pre-ablation pulses
-      are discarded before signal acquisition begins. For mapping, this step is typically omitted as the
-      large area ablated averages out surface effects.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: preAblationSurfaceTreatmentDefault
-      schema:name:
-        const: Pre-Ablation Surface Treatment
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  torchDepthDefault:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
-      formation, and doubly-charged species production. The protocol specifies a target value optimised
-      during initial setup; the analyst confirms or fine-adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/torchDepthDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: torchDepthDefault
-      schema:name:
-        const: Torch Depth
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  laserEnergyDefault:
-    title: Laser Energy
-    description: Laser pulse energy in millijoules as set at the laser output or measured at the sample
-      surface. Less commonly reported than fluence because it does not account for spot area. Report only
-      when the system displays energy directly. Laser fluence (J cm⁻²) is the preferred quantity and is
-      captured in Default Laser Fluence.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/laserEnergyDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: laserEnergyDefault
-      schema:name:
-        const: Laser Energy
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mJ
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  transectOrMappingRateOrStepSizeDefault:
-    title: Transect Rate, Mapping Rate or Step Size
-    description: 'For continuous line scan (transect) and raster mapping: the stage translation speed in
-      µm s⁻¹. This is the protocol-level parameter that, together with spot size and repetition rate, determines
-      spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported
-      as an alternative when scan speed is session-variable. For stepped line profiles: the distance between
-      successive spot positions in µm.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: transectOrMappingRateOrStepSizeDefault
-      schema:name:
-        const: Transect Rate, Mapping Rate or Step Size
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  plasmaMakeUpGasAdditionDefault:
-    title: Plasma / Make-up Gas Addition
-    description: Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with
-      the protocol-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance
-      sensitivity for some elements. If N₂ is not added, state "None" explicitly to distinguish from not
-      reported.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: plasmaMakeUpGasAdditionDefault
-      schema:name:
-        const: Plasma / Make-up Gas Addition
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  gasFlowRateDefault:
-    title: Auxiliary and Cool Gas Flow Rates
-    description: ICP auxiliary (intermediate) and cool (outer/plasma) Ar gas flow rates in l min⁻¹. The
-      protocol registers target values; actual session values may be adjusted slightly during tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/gasFlowRateDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: gasFlowRateDefault
-      schema:name:
-        const: Auxiliary and Cool Gas Flow Rates
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  signalSmoothingDefault:
-    title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed between the ablation
-      cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices
-      (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they
-      degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/signalSmoothingDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: signalSmoothingDefault
-      schema:name:
-        const: Signal Smoothing
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  icPlasmaTuningDefault:
-    title: ICP Tuning
-    description: Description of the approach used to optimise ICP plasma conditions prior to analysis, including
-      the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold,
-      sensitivity targets, mass calibration).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/icPlasmaTuningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: icPlasmaTuningDefault
-      schema:name:
-        const: ICP Tuning
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  doublyChargedSpeciesMonitorDefault:
-    title: Doubly-Charged Species Monitor
-    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument
-      tuning. Doubly-charged ions appear at half the mass of the parent ion and can cause isobaric interferences
-      on analytes in that mass region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesMonitorDefault
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  doublyChargedSpeciesProductionDefault:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored species at the time
-      of instrument tuning. The protocol should specify the acceptable threshold (e.g., <1%, <3%); the measured
-      value for each session is recorded here. Report both the threshold and the measured value where possible.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesProductionDefault
-      schema:name:
-        const: Doubly-Charged Species Production
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  driftMonitorFrequencyDefault:
-    title: Drift Monitor Frequency
-    description: Frequency at which primary reference materials are analysed to monitor instrument drift
-      and apply drift corrections across the session. Editable to allow analysts to increase monitoring
-      frequency if drift is observed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/driftMonitorFrequencyDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: driftMonitorFrequencyDefault
-      schema:name:
-        const: Drift Monitor Frequency
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  outlierFilteringDefault:
-    title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions,
-      cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific
-      implementation may vary between sessions while remaining within the protocol framework.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/outlierFilteringDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: outlierFilteringDefault
-      schema:name:
-        const: Spike / Outlier Filtering Approach
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  nonlinearResponseCorrectionDefault:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition between pulse-counting
-      and analog detector modes.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: nonlinearResponseCorrectionDefault
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  memoryEffectMitigationDefault:
-    title: Memory Effect Mitigation
-    description: Protocol applied to identify and minimise memory effects from high-concentration elements
-      in the previous sample or standard that may contaminate subsequent analyses, or from incomplete aerosol
-      washout between adjacent pixels in raster mapping mode. For mapping, the mitigation strategy involves
-      controlling scan speed relative to washout time to ensure each pixel signal is sufficiently free of
-      the preceding pixel's contribution.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: memoryEffectMitigationDefault
-      schema:name:
-        const: Memory Effect Mitigation
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  postAcquisitionNormalizationDefault:
-    title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic biases identified
-      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
-      Distinct from the primary internal standard approach captured in Internal Standard Approach.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: postAcquisitionNormalizationDefault
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope

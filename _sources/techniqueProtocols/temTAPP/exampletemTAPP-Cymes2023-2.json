@@ -12,17 +12,20 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Cold-field emission gun (cold-FEG)",
+  "schema:name": "EELS (Gatan Enfinium ER Dual EELS); EDS (Bruker X-Flash windowless SDD, 0.7 sr solid angle)",
   "schema:description": "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | HAADF-STEM + Dual EELS + EDS (NRL Nion UltraSTEM200-X) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
+    "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
+  },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
     ],
-    "schema:name": "Bruker X-Flash windowless silicon-drift detector (SDD); 0.7 sr solid angle Gatan Enfinium ER Dual EELS spectrometer (simultaneous low-loss and core-loss) HAADF-STEM detector (DigiScan)"
+    "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping",
+    "schema:name": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
   },
   "schema:object": [
     {
@@ -32,18 +35,15 @@
       "schema:name": "Apollo 17 soil 71501 (<45 µm fraction); pyroxene grains \"1pyx\" (unexsolved augite) and \"2pyx\" (exsolved pigeonite-augite intergrowth); one FIB section analyzed on two instruments"
     }
   ],
-  "schema:measurementTechnique": {
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping",
-    "schema:name": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
+    "schema:name": "Gatan Enfinium ER Dual EELS spectrometer (simultaneous low-loss and core-loss) HAADF-STEM detector (DigiScan) Bruker X-Flash windowless silicon-drift detector (SDD); 0.7 sr solid angle"
   },
   "ada:acceleratingVoltageDefault": "200 keV",
   "ada:analyticalMode": [],
@@ -57,7 +57,7 @@
   "ada:eelsCollectionSemiAngle": "Power-law background removal",
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
-  "ada:phaseIdentificatonMethod": "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe⁰ identified by anti-correlation with O K-edge and lattice fringe measurement in HR images",
+  "ada:phaseIdentificationMethod": "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe⁰ identified by anti-correlation with O K-edge and lattice fringe measurement in HR images",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {
@@ -106,7 +106,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/temTAPP/eelsEnergyDispersion",
+      "schema:propertyID": {
+        "@id": "ada:parameter/temTAPP/eelsEnergyDispersion"
+      },
       "schema:name": "EELS Energy Dispersion",
       "schema:value": "Double-arctan continuum removal (for Fe L2,3 white-line integration)",
       "schema:unitText": "eV/channel"
@@ -116,7 +118,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/temTAPP/eelsEnergyResolution",
+      "schema:propertyID": {
+        "@id": "ada:parameter/temTAPP/eelsEnergyResolution"
+      },
       "schema:name": "EELS Energy Resolution",
       "schema:value": "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps",
       "schema:unitText": "eV FWHM"

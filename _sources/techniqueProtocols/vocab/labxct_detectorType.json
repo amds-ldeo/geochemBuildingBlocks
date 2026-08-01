@@ -1,36 +1,61 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/labxctTAPP/detectorType",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Detector Type",
-  "schema:description": "Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-m",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Detector Type",
+  "skos:definition": "Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-m",
+  "schema:identifier": "ada:vocab/labxctTAPP/detectorType",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/labxctTAPP/detectorType/Flat-panel_amorphous_silicon_a-Si",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "Flat-panel (amorphous silicon, a-Si)",
-      "schema:name": "Flat-panel (amorphous silicon, a-Si)"
+      "skos:prefLabel": "Flat-panel (amorphous silicon, a-Si)",
+      "skos:notation": "Flat-panel (amorphous silicon, a-Si)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/detectorType"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/detectorType/CCD_scintillator_with_optical_objective",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "CCD + scintillator (with optical objective)",
-      "schema:name": "CCD + scintillator (with optical objective)"
+      "skos:prefLabel": "CCD + scintillator (with optical objective)",
+      "skos:notation": "CCD + scintillator (with optical objective)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/detectorType"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/labxctTAPP/detectorType/CMOS_scintillator",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "schema:termCode": "CMOS + scintillator",
-      "schema:name": "CMOS + scintillator"
+      "skos:prefLabel": "CMOS + scintillator",
+      "skos:notation": "CMOS + scintillator",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/detectorType"
+        }
+      ]
     }
   ]
 }

@@ -14,32 +14,19 @@
   ],
   "schema:name": "EDS and EELS",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (JSC JEOL 2500SE) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
+  "schema:location": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:Place"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
-    ],
-    "schema:name": "JEOL 70 mm² SDD Gatan Tridiem GIF BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera (HRTEM and electron diffraction)"
+    "schema:name": "ARES Division, NASA Johnson Space Center"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Thermo System7",
-      "ada:toolRole": "acquisition"
-    },
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Thermo System7 (EDS quantification)",
-      "ada:toolRole": "reduction"
-    }
-  ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
+  },
   "schema:object": [
     {
       "@type": [
@@ -48,18 +35,31 @@
       "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
     }
   ],
-  "schema:measurementTechnique": {
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Thermo System7 (EDS quantification)",
+      "ada:toolRole": "reduction"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Thermo System7",
+      "ada:toolRole": "acquisition"
+    }
+  ],
+  "schema:instrument": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Thing",
+      "schema:Product"
     ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "ARES Division, NASA Johnson Space Center"
+    "schema:name": "Gatan Tridiem GIF BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera (HRTEM and electron diffraction) JEOL 70 mm² SDD"
   },
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [
@@ -77,7 +77,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificatonMethod": "missing",
+  "ada:phaseIdentificationMethod": "missing",
   "ada:edsCalibrationStandardDefault": "k-factors from well-characterized standards (standards not specified); Thermo System7",
   "schema:additionalProperty": [
     {

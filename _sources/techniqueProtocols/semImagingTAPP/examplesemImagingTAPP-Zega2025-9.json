@@ -12,7 +12,7 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)",
+  "schema:name": "JEOL",
   "schema:description": "semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | CL Mapping (JEOL JSM-7000F, Universite Cote d'Azur, 5 keV) (publication column of SEM_Imaging_TAPP_v4.xlsx).",
   "schema:object": [
     {
@@ -22,12 +22,6 @@
       "schema:name": "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France"
-  },
   "schema:instrument": {
     "@type": [
       "schema:Thing",
@@ -37,6 +31,12 @@
       "nxs:BaseClass/NXinstrument"
     ],
     "schema:name": "Field emission gun (FEG)"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France"
   },
   "schema:measurementTechnique": {
     "@type": [
@@ -63,7 +63,9 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
+      "schema:propertyID": {
+        "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+      },
       "schema:name": "CL Detector Configuration",
       "schema:value": "MonoCL4 GATAN monochromator; high-sensitivity array detector and photomultiplier; paraboloidal mirror collection (CRHEA Valbonne, France)"
     }

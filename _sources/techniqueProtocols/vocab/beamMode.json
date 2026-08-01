@@ -1,39 +1,61 @@
 {
-  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml",
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
   "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
     "ada": "https://ada.astromat.org/metadata/"
   },
   "@id": "ada:vocab/empaTAPP/beamMode",
   "@type": [
-    "schema:DefinedTermSet"
+    "skos:ConceptScheme"
   ],
-  "schema:name": "Beam Mode",
-  "schema:description": "Whether the beam was focused, defocused, or rastered over an area.",
-  "schema:hasDefinedTerm": [
+  "skos:prefLabel": "Beam Mode",
+  "skos:definition": "Whether the beam was focused, defocused, or rastered over an area.",
+  "schema:identifier": "ada:vocab/empaTAPP/beamMode",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
     {
+      "@id": "ada:vocab/empaTAPP/beamMode/Focused",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:Focused",
-      "schema:termCode": "Focused",
-      "schema:name": "Focused"
+      "skos:prefLabel": "Focused",
+      "skos:notation": "Focused",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/beamMode"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/empaTAPP/beamMode/Defocused",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:Defocused",
-      "schema:termCode": "Defocused",
-      "schema:name": "Defocused"
+      "skos:prefLabel": "Defocused",
+      "skos:notation": "Defocused",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/beamMode"
+        }
+      ]
     },
     {
+      "@id": "ada:vocab/empaTAPP/beamMode/Raster",
       "@type": [
-        "schema:DefinedTerm"
+        "skos:Concept"
       ],
-      "@id": "ada:Raster",
-      "schema:termCode": "Raster",
-      "schema:name": "Raster"
+      "skos:prefLabel": "Raster",
+      "skos:notation": "Raster",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/empaTAPP/beamMode"
+        }
+      ]
     }
   ]
 }
