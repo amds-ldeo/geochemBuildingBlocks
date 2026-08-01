@@ -2,7 +2,7 @@
 
 How to annotate a TAPP (Technique-Aligned Protocol Profile) Excel workbook so that
 `tools/build_tapp.py` can generate the building-block JSON **reproducibly**. This is the
-authoritative spec for the guidance fields. `docs/LA-Q_SF-ICPMS_TAPP_v2.xlsx` is the
+authoritative spec for the guidance fields. `docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx` is the
 reference model.
 
 Generator: `python tools/build_tapp.py <tappName>` (one CLI for all techniques) +

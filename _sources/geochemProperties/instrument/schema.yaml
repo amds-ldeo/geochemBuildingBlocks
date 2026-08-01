@@ -15,10 +15,18 @@ allOf:
         Domain-specific instrument type classifications. Should include
         a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or
         technique-specific identifier (e.g. ada:AMSInstrument, GCMD
-        instrument identifier).
+        instrument identifier). URI-shape values MUST be serialized as
+        JSON-LD IRI references ({"@id":"..."}); free-label strings remain valid.
       type: array
       items:
-        type: string
+        anyOf:
+        - type: string
+        - type: object
+          required:
+          - '@id'
+          properties:
+            '@id':
+              type: string
       minItems: 1
   required:
   - schema:additionalType

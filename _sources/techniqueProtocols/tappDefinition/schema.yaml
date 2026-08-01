@@ -440,10 +440,16 @@ $defs:
       'schema:propertyID':
         description: >-
           URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar
-          term definition.
+          term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({"@id":"..."}).
         anyOf:
         - type: string
           format: uri
+        - type: object
+          required:
+          - '@id'
+          properties:
+            '@id':
+              type: string
         - $ref: '#/$defs/DefinedTerm'
       'schema:inDefinedTermSet':
         description: >-
@@ -594,9 +600,17 @@ $defs:
         type: string
         description: Human-readable display label (e.g. "Ablation Cell Type").
       'schema:propertyID':
-        description: URI identifying this parameter type in a formal vocabulary.
+        description: >-
+          URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be
+          serialized as JSON-LD IRI references ({"@id":"..."}).
         anyOf:
         - type: string
+        - type: object
+          required:
+          - '@id'
+          properties:
+            '@id':
+              type: string
         - $ref: '#/$defs/DefinedTerm'
       'schema:value':
         description: The fixed protocol value for this read-only parameter.
@@ -635,10 +649,17 @@ $defs:
         description: Guidance text for this column.
       'schema:propertyID':
         description: >-
-          URI identifying this column's parameter type in a formal vocabulary.
+          URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be
+          serialized as JSON-LD IRI references ({"@id":"..."}).
         anyOf:
         - type: string
           format: uri
+        - type: object
+          required:
+          - '@id'
+          properties:
+            '@id':
+              type: string
         - $ref: '#/$defs/DefinedTerm'
       'schema:inDefinedTermSet':
         description: >-
