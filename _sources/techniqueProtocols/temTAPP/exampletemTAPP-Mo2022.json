@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:temTAPP-Mo2022",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,27 +16,6 @@
   ],
   "schema:name": "EDS detector (model not specified)",
   "schema:description": "temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | HAADF-STEM + EDS (SINANO CAS FEI Talos F200X) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China"
-  },
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
-    "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 µm; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging"
-    }
-  ],
   "schema:instrument": {
     "@type": [
       "schema:Thing",
@@ -44,6 +25,27 @@
       "nxs:BaseClass/NXinstrument"
     ],
     "schema:name": "HAADF-STEM detector; DF TEM detector"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 µm; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging"
+    }
+  ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+    "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
   },
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [],

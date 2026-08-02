@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Tait2014",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "Optical microscopy; EBSD",
   "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Lab XCT (nano-CT)",
-    "schema:name": "Lab XCT (nano-CT)"
+    "schema:name": "CSIRO, Kensington, Western Australia"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "H7 ordinary chondrite (Watson 012)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "CSIRO, Kensington, Western Australia"
+    "schema:termCode": "Lab XCT (nano-CT)",
+    "schema:name": "Lab XCT (nano-CT)"
   },
   "ada:targetFeature": "Plagioclase network connectivity; partial melt evidence",
   "ada:xRaySourceConfiguration": "missing",

@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Treiman2022",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "Neutron CT (simultaneous, same instrument)",
   "schema:description": "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "NXCT",
-    "schema:name": "NXCT"
+    "schema:name": "NIST Center for Neutron Research (NCNR)"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "Howardite (EET 87503); CR2 chondrite (GRA 06100)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "NIST Center for Neutron Research (NCNR)"
+    "schema:termCode": "NXCT",
+    "schema:name": "NXCT"
   },
   "ada:targetFeature": "H-bearing minerals; phase density contrast (NXCT)",
   "ada:xRaySourceConfiguration": "Point source (bremsstrahlung, polychromatic, max 90 keV)",

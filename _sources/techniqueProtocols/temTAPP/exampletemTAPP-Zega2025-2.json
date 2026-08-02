@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:temTAPP-Zega2025-2",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,27 +16,6 @@
   ],
   "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory"
-  },
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
-    }
-  ],
   "bios:computationalTool": [
     {
       "@type": [
@@ -53,6 +34,27 @@
       "nxs:BaseClass/NXinstrument"
     ],
     "schema:name": "Bruker quad SDD; Ω = 0.6 sr"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
+    }
+  ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
   },
   "ada:acceleratingVoltageDefault": "80–300 keV (range; specific voltage per dataset not stated)",
   "ada:analyticalMode": [

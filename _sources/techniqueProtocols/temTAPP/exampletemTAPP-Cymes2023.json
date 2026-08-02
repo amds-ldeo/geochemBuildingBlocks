@@ -3,17 +3,29 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:temTAPP-Cymes2023",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "JEOL JEM-2200FS",
+  "schema:name": "FIB lift-out (Ga+)",
   "schema:description": "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | BF/EFTEM + SAED + HRTEM (NRL JEOL JEM-2200FS) (publication column of TEM_TAPP_v7.xlsx).",
+  "schema:instrument": {
+    "@type": [
+      "schema:Thing",
+      "schema:Product"
+    ],
+    "schema:additionalType": [
+      "nxs:BaseClass/NXinstrument"
+    ],
+    "schema:name": "JEOL in-column Omega energy filter (EFTEM mode; 10-eV slit; used for Ca M-edge mapping at 35 eV energy loss) BF TEM detector; Gatan OneView CMOS camera (TEM imaging, SAED, HRTEM)"
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -29,13 +41,6 @@
       "ada:toolRole": "acquisition"
     }
   ],
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)",
-    "schema:name": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
-  },
   "schema:object": [
     {
       "@type": [
@@ -44,15 +49,12 @@
       "schema:name": "Apollo 17 soil 71501 (<45 µm fraction); pyroxene grains \"1pyx\" (unexsolved augite) and \"2pyx\" (exsolved pigeonite-augite intergrowth); one FIB section analyzed on two instruments"
     }
   ],
-  "schema:instrument": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Thing",
-      "schema:Product"
+      "schema:DefinedTerm"
     ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument"
-    ],
-    "schema:name": "JEOL in-column Omega energy filter (EFTEM mode; 10-eV slit; used for Ca M-edge mapping at 35 eV energy loss) BF TEM detector; Gatan OneView CMOS camera (TEM imaging, SAED, HRTEM)"
+    "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)",
+    "schema:name": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
   },
   "ada:acceleratingVoltageDefault": "200 keV",
   "ada:analyticalMode": [],

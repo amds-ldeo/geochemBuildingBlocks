@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Eckley2024",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "labxct protocol — Eckley2024",
   "schema:description": "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Lab XCT",
-    "schema:name": "Lab XCT"
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "C-type asteroid particle (Bennu, OSIRIS-REx)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+    "schema:termCode": "Lab XCT",
+    "schema:name": "Lab XCT"
   },
   "ada:targetFeature": "Internal structure; mineralogy (reconnaissance scan)",
   "ada:xRaySourceConfiguration": "180 kV transmission source",

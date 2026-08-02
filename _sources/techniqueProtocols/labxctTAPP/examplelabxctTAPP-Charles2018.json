@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Charles2018",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "labxct protocol — Charles2018",
   "schema:description": "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Medical CT",
-    "schema:name": "Medical CT"
+    "schema:name": "Robarts Institute, U. Western Ontario"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "CR2 chondrite (NWA 801)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "Robarts Institute, U. Western Ontario"
+    "schema:termCode": "Medical CT",
+    "schema:name": "Medical CT"
   },
   "ada:targetFeature": "Chondrule shapes; petrofabric; compaction estimation",
   "ada:xRaySourceConfiguration": "Ring-gantry geometry (rotating source, CZT ring detector)",

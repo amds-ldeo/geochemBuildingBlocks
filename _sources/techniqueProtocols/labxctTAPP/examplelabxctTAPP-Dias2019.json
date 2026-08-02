@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Dias2019",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "Micro-XRF (same samples)",
   "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Lab XCT",
-    "schema:name": "Lab XCT"
+    "schema:name": "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "Lunar meteorite (NWA 8277); Martian meteorite (NWA 6963)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil"
+    "schema:termCode": "Lab XCT",
+    "schema:name": "Lab XCT"
   },
   "ada:targetFeature": "Internal structure; porosity; density contrast",
   "ada:xRaySourceConfiguration": "missing",

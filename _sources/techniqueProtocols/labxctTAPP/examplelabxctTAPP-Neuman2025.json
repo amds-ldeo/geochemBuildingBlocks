@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Neuman2025",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "labxct protocol — Neuman2025",
   "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Lab XCT",
-    "schema:name": "Lab XCT"
+    "schema:name": "UTCT Facility, U. Texas"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "Lunar regolith (Apollo 17 drive-tube core)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "UTCT Facility, U. Texas"
+    "schema:termCode": "Lab XCT",
+    "schema:name": "Lab XCT"
   },
   "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core",
   "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",

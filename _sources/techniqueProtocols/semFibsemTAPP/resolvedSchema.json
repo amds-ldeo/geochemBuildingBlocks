@@ -45,8 +45,13 @@
       "items": {
         "type": "string"
       },
-      "minItems": 4,
+      "minItems": 5,
       "allOf": [
+        {
+          "contains": {
+            "const": "prov:Plan"
+          }
+        },
         {
           "contains": {
             "const": "cdi:Activity"
@@ -68,7 +73,7 @@
           }
         }
       ],
-      "description": "Must include cdi:Activity, schema:Action, ada:TAPPDefinition, and bios:LabProtocol."
+      "description": "Must include prov:Plan, cdi:Activity, schema:Action, ada:TAPPDefinition, and bios:LabProtocol. The TAPP is a PLAN (prov:Plan / bios:LabProtocol) — a reusable procedure description that prescribes the analysis, NOT the analysis occurrence (that is the prov:Activity in adaProduct.prov:wasGeneratedBy, which references this plan via prov:used). As a plan, its instrument / bios:computationalTool / bios:reagent are directly-specified resources (bios:LabProtocol convention), not prov:used entities."
     },
     "schema:name": {
       "type": "string",

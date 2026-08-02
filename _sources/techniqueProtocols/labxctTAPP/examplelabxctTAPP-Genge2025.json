@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Genge2025",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "SEM (post-XCT polished sections)",
   "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Lab XCT (nano-CT)",
-    "schema:name": "Lab XCT (nano-CT)"
+    "schema:name": "Not stated"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "C-type asteroid particle (Ryugu, Hayabusa2)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "Not stated"
+    "schema:termCode": "Lab XCT (nano-CT)",
+    "schema:name": "Lab XCT (nano-CT)"
   },
   "ada:targetFeature": "Microchondrules (SSOs); 3D volume fraction",
   "ada:xRaySourceConfiguration": "missing",

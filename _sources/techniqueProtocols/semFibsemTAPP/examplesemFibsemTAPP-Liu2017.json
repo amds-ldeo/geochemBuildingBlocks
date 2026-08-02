@@ -3,16 +3,18 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:semFibsemTAPP-Liu2017",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Carl Zeiss",
+  "schema:name": "Crossbeam 540",
   "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v4.xlsx).",
   "bios:computationalTool": [
     {
@@ -21,6 +23,14 @@
       ],
       "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model",
       "ada:toolRole": "reduction"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "3D Segmentation Method",
+      "ada:toolRole": "reduction",
+      "schema:description": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics"
     }
   ],
   "schema:location": {

@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Richard2019-3",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "labxct protocol — Richard2019-3",
   "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Lab XCT",
-    "schema:name": "Lab XCT"
+    "schema:name": "U. Strathclyde, Glasgow, UK"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "Synthetic quartz monocrystal with aqueous fluid inclusions"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "U. Strathclyde, Glasgow, UK"
+    "schema:termCode": "Lab XCT",
+    "schema:name": "Lab XCT"
   },
   "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
   "ada:xRaySourceConfiguration": "Microfocus multi-metal target (225 kV)",

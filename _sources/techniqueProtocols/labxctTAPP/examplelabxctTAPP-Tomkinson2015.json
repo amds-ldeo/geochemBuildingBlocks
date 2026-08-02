@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:labxctTAPP-Tomkinson2015",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,12 +16,11 @@
   ],
   "schema:name": "SEM-BSE (qualitative comparison)",
   "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v8.xlsx).",
-  "schema:measurementTechnique": {
+  "schema:location": {
     "@type": [
-      "schema:DefinedTerm"
+      "schema:Place"
     ],
-    "schema:termCode": "Lab XCT",
-    "schema:name": "Lab XCT"
+    "schema:name": "Manchester X-ray Imaging Facility, U. Manchester"
   },
   "schema:object": [
     {
@@ -29,11 +30,12 @@
       "schema:name": "Martian meteorite (nakhlite, NWA 5790)"
     }
   ],
-  "schema:location": {
+  "schema:measurementTechnique": {
     "@type": [
-      "schema:Place"
+      "schema:DefinedTerm"
     ],
-    "schema:name": "Manchester X-ray Imaging Facility, U. Manchester"
+    "schema:termCode": "Lab XCT",
+    "schema:name": "Lab XCT"
   },
   "ada:targetFeature": "Modal mineralogy (vol%); secondary minerals",
   "ada:xRaySourceConfiguration": "missing",

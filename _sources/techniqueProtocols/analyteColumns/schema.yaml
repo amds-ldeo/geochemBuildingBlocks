@@ -3,6 +3,214 @@ title: ADA Analyte-Column Specification Registry
 description: Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived from technique TAPP spreadsheets. Each $def constrains one analyte-table reporting column (e.g. detectionLimit, xrayEmissionLine). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.
 type: object
 $defs:
+  detectionLimit:
+    title: Detection Limit
+    description: Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/detectionLimit
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimit
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
+  limitOfQuantification:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/limitOfQuantification
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantification
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
+  withinSessionReproducibility:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionReproducibility
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
+  withinSessionReproducibilityMethod:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionReproducibilityMethod
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
+  betweenSessionReproducibility:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionReproducibility
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
+  betweenSessionReproducibilityMethod:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionReproducibilityMethod
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
+  analyticalAccuracy:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/analyticalAccuracy
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracy
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
+  analyticalAccuracyMethod:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod
+      '@type':
+        const:
+          - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyMethod
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+    required:
+      - '@id'
+      - '@type'
+      - schema:valueName
+      - schema:name
+      - ada:dataType
   epmaTechnique:
     title: EPMA Technique per Element
     description: Whether this element was measured by WDS or EDS.
@@ -685,214 +893,6 @@ $defs:
         const: typicalCountingStatisticsError
       schema:name:
         const: Typical Counting Statistics Error
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  detectionLimit:
-    title: Detection Limit
-    description: Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/detectionLimit
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimit
-      schema:name:
-        const: Detection Limit
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  limitOfQuantification:
-    title: Limit of Quantification (LOQ) Method
-    description: 'Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/limitOfQuantification
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: limitOfQuantification
-      schema:name:
-        const: Limit of Quantification (LOQ) Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  withinSessionReproducibility:
-    title: Within-Session Analytical Precision and Assessment Method
-    description: 'Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: withinSessionReproducibility
-      schema:name:
-        const: Within-Session Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  withinSessionReproducibilityMethod:
-    title: Within-Session Analytical Precision and Assessment Method
-    description: 'Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: withinSessionReproducibilityMethod
-      schema:name:
-        const: Within-Session Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  betweenSessionReproducibility:
-    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: betweenSessionReproducibility
-      schema:name:
-        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  betweenSessionReproducibilityMethod:
-    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: betweenSessionReproducibilityMethod
-      schema:name:
-        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  analyticalAccuracy:
-    title: Analytical Accuracy and Assessment Method
-    description: 'Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/analyticalAccuracy
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analyticalAccuracy
-      schema:name:
-        const: Analytical Accuracy and Assessment Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-  analyticalAccuracyMethod:
-    title: Analytical Accuracy and Assessment Method
-    description: 'Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analyticalAccuracyMethod
-      schema:name:
-        const: Analytical Accuracy and Assessment Method
       ada:dataType:
         const: string
       schema:readonlyValue:

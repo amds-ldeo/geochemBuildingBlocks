@@ -10336,7 +10336,7 @@
                     },
                     {
                       "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
-                      "description": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as a cdi:Activity and schema:Action. The TAPP identity (name, technique, instrument, location) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that apply across all steps remain at the top level in schema:additionalProperty. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
+                      "description": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as a PLAN — prov:Plan / bios:LabProtocol (also cdi:Activity + schema:Action for the DDI-CDI process/action description). It is a reusable procedure that prescribes an analysis; the analysis OCCURRENCE is the prov:Activity in adaProduct.prov:wasGeneratedBy, which references this plan via prov:used. Because the TAPP is a plan, its instrument / bios:computationalTool / bios:reagent are directly-specified resources (not prov:used entities). The TAPP identity (name, technique, instrument, location) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that apply across all steps remain at the top level in schema:additionalProperty. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
                       "type": "object",
                       "properties": {
                         "@context": {
@@ -10380,8 +10380,13 @@
                           "items": {
                             "type": "string"
                           },
-                          "minItems": 4,
+                          "minItems": 5,
                           "allOf": [
+                            {
+                              "contains": {
+                                "const": "prov:Plan"
+                              }
+                            },
                             {
                               "contains": {
                                 "const": "cdi:Activity"
@@ -10403,7 +10408,7 @@
                               }
                             }
                           ],
-                          "description": "Must include cdi:Activity, schema:Action, ada:TAPPDefinition, and bios:LabProtocol."
+                          "description": "Must include prov:Plan, cdi:Activity, schema:Action, ada:TAPPDefinition, and bios:LabProtocol. The TAPP is a PLAN (prov:Plan / bios:LabProtocol) — a reusable procedure description that prescribes the analysis, NOT the analysis occurrence (that is the prov:Activity in adaProduct.prov:wasGeneratedBy, which references this plan via prov:used). As a plan, its instrument / bios:computationalTool / bios:reagent are directly-specified resources (bios:LabProtocol convention), not prov:used entities."
                         },
                         "schema:name": {
                           "type": "string",

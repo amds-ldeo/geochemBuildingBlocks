@@ -22,7 +22,7 @@ allOf:
         note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe
         the Faraday/multiplier cup layout.
       type: string
-    ada:collisionReactionCellConfiguration:
+    ada:crcConfiguration:
       description: Whether a collision or reaction cell is installed and its operating mode. In standard
         mode (STD), no cell gas is introduced and the cell acts only as an ion guide. In kinetic energy
         discrimination (KED) mode, helium thermalizes ions so that polyatomic interferences (larger collision
@@ -141,7 +141,7 @@ allOf:
         assignments are documented here; the overall mode(s) used in the protocol are recorded in Mass
         Resolution Setting (Group 3). Analyte-specific field. SF-ICP-MS only;
       type: string
-    ada:signalCollectionMethod:
+    ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In peak hopping mode,
         the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning
         mode, the quadrupole sweeps continuously across a defined mass range. Peak hopping is standard
@@ -152,7 +152,7 @@ allOf:
         (He) is the standard collision gas for kinetic energy discrimination due to its low mass and chemical
         inertness. Record 'None' if the CRC is in STD mode or not installed.
       type: string
-    ada:gasFlowRateDefault:
+    ada:collisionGasFlowRateDefault:
       description: Flow rate of the collision gas (typically He) introduced into the collision/reaction
         cell, in mL/min. Controls the degree of ion thermalization and KED efficiency. Record 'None' if
         the CRC is in STD mode.
@@ -318,7 +318,7 @@ allOf:
         anyOf:
         - $ref: ../parameterTemplates/schema.yaml#/$defs/fusionFluxAndDilutionRatioDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/preAblationSurfaceTreatmentDefault
-        - $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentSerialNumberOrLabIdentifierDefault
+        - $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentIdentifierDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/torchDepthDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/laserEnergyDefault
         - $ref: ../parameterTemplates/schema.yaml#/$defs/transectOrMappingRateOrStepSizeDefault
@@ -351,7 +351,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentSerialNumberOrLabIdentifierDefault
+          $ref: ../parameterTemplates/schema.yaml#/$defs/instrumentIdentifierDefault
         minContains: 0
         maxContains: 1
       - contains:

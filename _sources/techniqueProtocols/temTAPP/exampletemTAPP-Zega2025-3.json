@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:temTAPP-Zega2025-3",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,41 +16,20 @@
   ],
   "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt"
-  },
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
-    }
-  ],
   "bios:computationalTool": [
     {
       "@type": [
         "schema:SoftwareApplication"
       ],
       "schema:name": "ThermoScientific Velox",
-      "ada:toolRole": "reduction"
+      "ada:toolRole": "acquisition"
     },
     {
       "@type": [
         "schema:SoftwareApplication"
       ],
       "schema:name": "ThermoScientific Velox",
-      "ada:toolRole": "acquisition"
+      "ada:toolRole": "reduction"
     }
   ],
   "schema:instrument": {
@@ -59,7 +40,28 @@
     "schema:additionalType": [
       "nxs:BaseClass/NXinstrument"
     ],
-    "schema:name": "ThermoScientific Ceta-S 4096×4096 16 M camera (TEM images and SAED patterns) Four windowless ThermoScientific EDS silicon drift detectors"
+    "schema:name": "Four windowless ThermoScientific EDS silicon drift detectors ThermoScientific Ceta-S 4096×4096 16 M camera (TEM images and SAED patterns)"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
+    }
+  ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
   },
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [

@@ -3,10 +3,12 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/"
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:temTAPP-Matsumoto2021-2",
   "@type": [
+    "prov:Plan",
     "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
@@ -14,27 +16,6 @@
   ],
   "schema:name": "EDS only",
   "schema:description": "temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative (Kyushu JEOL JEM-3200FSK) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Ultramicroscopy Research Center, Kyushu University, Japan"
-  },
-  "schema:measurementTechnique": {
-    "@type": [
-      "schema:DefinedTerm"
-    ],
-    "schema:termCode": "TEM/STEM",
-    "schema:name": "TEM/STEM"
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Lunar soil grains (iron sulfides: troilite, NC-pyrrhotite; pyroxene; Apollo 11 soil 10084; Apollo 17 soil 78481,49)"
-    }
-  ],
   "schema:instrument": {
     "@type": [
       "schema:Thing",
@@ -44,6 +25,27 @@
       "nxs:BaseClass/NXinstrument"
     ],
     "schema:name": "JEOL JED-2300 EDX detector"
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Ultramicroscopy Research Center, Kyushu University, Japan"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Lunar soil grains (iron sulfides: troilite, NC-pyrrhotite; pyroxene; Apollo 11 soil 10084; Apollo 17 soil 78481,49)"
+    }
+  ],
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:termCode": "TEM/STEM",
+    "schema:name": "TEM/STEM"
   },
   "ada:acceleratingVoltageDefault": -9999,
   "ada:analyticalMode": [],
