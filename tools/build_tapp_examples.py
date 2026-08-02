@@ -101,6 +101,32 @@ def place_identity(inst, item, sp, v):
     # other inherited fields (sample prep, references already handled) are skipped
 
 
+# schema paths that bind a schema:description to a specific bios:computationalTool instance,
+# e.g. "$MethodDefinition.bios:computationalTool[].schema:name='3d image registration' schema:description".
+# route() classifies these as role=description and skips them; here we honour the instance binding.
+_TOOL_DESC_RE = re.compile(r"bios:computationalTool\[\][.\s]*schema:name\s*=\s*'([^']*)'")
+
+
+def tool_desc_selector(sp):
+    """If sp binds a schema:description to a named bios:computationalTool, return that name; else None."""
+    m = _TOOL_DESC_RE.search(sp)
+    return m.group(1) if (m and "schema:description" in sp) else None
+
+
+def place_tool_description(inst, item, selector, desc):
+    """Attach an instance-bound description to the named bios:computationalTool: set it on an
+    existing tool whose schema:name matches the selector (or the row label), else add a
+    processing-tool entry named for the row carrying the description."""
+    tools = inst.setdefault("bios:computationalTool", [])
+    keys = {selector.strip().lower(), item.strip().lower()}
+    for t in tools:
+        if str(t.get("schema:name", "")).strip().lower() in keys:
+            t["schema:description"] = desc
+            return
+    tools.append({"@type": ["schema:SoftwareApplication"], "schema:name": item,
+                  "ada:toolRole": "reduction", "schema:description": desc})
+
+
 def coerce(v, jtype):
     """Coerce a string cell value to the JSON type implied by the field's data type."""
     if jtype in ("number", "integer"):
@@ -176,6 +202,9 @@ def main():
     inherited_items = {it for it, sp in sp_by_item.items()
                        if sp.startswith("$MethodDefinition") and ".ada:" not in sp
                        and "additionalProperty" not in sp and "schema:description" not in sp}
+    # instance-bound tool descriptions (role=description rows targeting a named computationalTool)
+    tool_desc_items = {it: sel for it, sp in sp_by_item.items()
+                       if (sel := tool_desc_selector(sp)) is not None}
     analyte_row = next((it for it, sp in sp_by_item.items()
                         if "analyteTemplate.ada:defaultAnalytes" in sp or it == "Analyte"), None)
     acols = []
@@ -203,10 +232,14 @@ def main():
                 "schema:name": "", "schema:description":
                     f"{tapp} instance derived from {hdr_txt} (publication column of {os.path.basename(bt.XLSX)})."}
         # identity
-        for it in inherited_items:
+        for it in sorted(inherited_items):   # sorted: inherited_items is a set; keep output deterministic
             v = cell(pubval[it].get(pc))
             if v:
                 place_identity(inst, it, sp_by_item[it], v)
+        for it, sel in sorted(tool_desc_items.items()):
+            d = cell(pubval[it].get(pc))
+            if d:
+                place_tool_description(inst, it, sel, d)
         if not inst.get("schema:name"):
             inst["schema:name"] = f"{short} protocol — {code}"
         if "schema:measurementTechnique" not in inst:
