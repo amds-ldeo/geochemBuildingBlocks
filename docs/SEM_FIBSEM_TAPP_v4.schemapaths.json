@@ -1,0 +1,154 @@
+{
+  "Protocol Name": {
+    "path": "$MethodDefinition.schema:name",
+    "family": "inherited-identity"
+  },
+  "Technique": {
+    "path": "$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:name",
+    "family": "inherited-identity"
+  },
+  "Protocol Author": {
+    "path": "$MethodDefinition.schema:creator.schema:name",
+    "family": "multi-target-primary"
+  },
+  "Laboratory": {
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:name",
+    "family": "inherited-identity"
+  },
+  "Laboratory ID": {
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:identifier",
+    "family": "inherited-identity"
+  },
+  "Protocol Start Date": {
+    "path": "$MethodDefinition.schema:datePublished",
+    "family": "inherited-identity"
+  },
+  "Funding Source for Protocol Development": {
+    "path": "$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name",
+    "family": "inherited-identity"
+  },
+  "Protocol DOI": {
+    "path": "$Dataset.schema:measurementTechnique.schema:identifier",
+    "family": "multi-target-primary"
+  },
+  "Analyst": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:agent.schema:name",
+    "family": "multi-target-primary"
+  },
+  "Analysis Start Date": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:startDate",
+    "family": "dataset-provenance"
+  },
+  "Analysis End Date": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:endDate",
+    "family": "dataset-provenance"
+  },
+  "Funding Source for Analysis": {
+    "path": "$Dataset.schema:funding",
+    "family": "dataset-funding"
+  },
+  "Coupled Technique(s)": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name",
+    "family": "related-link"
+  },
+  "Coupling Description": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description",
+    "family": "related-link"
+  },
+  "Coupled Protocol DOI": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:url",
+    "family": "dataset-related-link"
+  },
+  "Coupled Dataset or Publication Reference": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target",
+    "family": "dataset-related-link"
+  },
+  "Target Material": {
+    "path": "$MethodDefinition.schema:object[].schema:DefinedTerm.schema:name",
+    "family": "inherited-identity"
+  },
+  "Sample Preparation Method": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation']",
+    "family": "workflow-step"
+  },
+  "Sample Name": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:name",
+    "family": "dataset-sample"
+  },
+  "Sample Persistent Identifier": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:identifier",
+    "family": "dataset-sample"
+  },
+  "Acquisition Software": {
+    "path": "$MethodDefinition.bios:computationalTool[]",
+    "family": "computational-tool-list"
+  },
+  "Data Reduction Software": {
+    "path": "$MethodDefinition.bios:computationalTool[]",
+    "family": "computational-tool-list"
+  },
+  "Analytical Mode": {
+    "path": "$MethodDefinition.ada:analyticalMode",
+    "family": "direct-ada"
+  },
+  "Accelerating Voltage": {
+    "path": "$MethodDefinition.ada:acceleratingVoltage",
+    "family": "direct-ada"
+  },
+  "Beam Current": {
+    "path": "$MethodDefinition.ada:beamCurrent",
+    "family": "direct-ada"
+  },
+  "Working Distance": {
+    "path": "$MethodDefinition.ada:workingDistance",
+    "family": "direct-ada"
+  },
+  "Dwell Time per Pixel": {
+    "path": "$MethodDefinition.ada:dwellTimePerPixel",
+    "family": "direct-ada"
+  },
+  "Protective Coating Deposition": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema:value",
+    "family": "workflow-step-parameter"
+  },
+  "Coarse Milling Conditions": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Coarse Milling Conditions'].schema:value",
+    "family": "workflow-step-parameter"
+  },
+  "Fine Polishing Conditions": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Fine Polishing Conditions'].schema:value",
+    "family": "workflow-step-parameter"
+  },
+  "Target Foil Thickness": {
+    "path": "$MethodDefinition.ada:targetFoilThickness",
+    "family": "direct-ada"
+  },
+  "Lift-out Method": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Lift-out Method'].schema:value",
+    "family": "workflow-step-parameter"
+  },
+  "Ion Milling Conditions (3D Tomography)": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Ion Milling Conditions (3D Tomography)'].schema:value",
+    "family": "workflow-step-parameter"
+  },
+  "Slice Thickness": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Slice Thickness'].schema:value",
+    "family": "workflow-step-parameter"
+  },
+  "Voxel Size and Image Stack Dimensions": {
+    "path": "$Dataset.ada:voxelSize",
+    "family": "multi-target-primary"
+  },
+  "3D Image Registration": {
+    "path": "$MethodDefinition.bios:computationalTool[schema:name='3D image registration'].schema:description",
+    "family": "computational-tool"
+  },
+  "3D Segmentation Method": {
+    "path": "$MethodDefinition.bios:computationalTool[schema:name='3D segmentation method'].schema:description",
+    "family": "computational-tool"
+  },
+  "Additional Notes": {
+    "path": "$MethodDefinition.schema:description",
+    "family": "protocol-description"
+  }
+}
