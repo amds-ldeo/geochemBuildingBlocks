@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import build_tapp as bt  # noqa: E402
 
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
-       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "bios": "https://bioschemas.org/"}
+       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "bios": "https://bioschemas.org/", "prov": "http://www.w3.org/ns/prov#"}
 SUP = {"⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
        "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9"}
 
@@ -228,7 +228,7 @@ def main():
         while code in [w[0] for w in written]:
             k += 1; code = f"{base}-{k}"
         inst = {"@context": CTX, "@id": f"ex:{tapp}-{code}",
-                "@type": ["cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
+                "@type": ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
                 "schema:name": "", "schema:description":
                     f"{tapp} instance derived from {hdr_txt} (publication column of {os.path.basename(bt.XLSX)})."}
         # identity

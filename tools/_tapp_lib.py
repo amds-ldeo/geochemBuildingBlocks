@@ -1536,10 +1536,11 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
         "ada": "https://ada.astromat.org/metadata/",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
         "bios": "https://bioschemas.org/",
+        "prov": "http://www.w3.org/ns/prov#",
     }
     parts["@id"] = empa_id
     parts["@type"] = [
-        "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
+        "prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
     ]
     parts["schema:name"] = ""
     parts["schema:description"] = CFG["example_description_template"].format(pub_label=pub_label)
@@ -2368,6 +2369,7 @@ def _write_examples_yaml(examples_yaml: list[tuple[str, str]]) -> None:
             "schema": "http://schema.org/",
             "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
             "bios": "https://bioschemas.org/",
+        "prov": "http://www.w3.org/ns/prov#",
         }
         snip = CommentedMap()
         snip["language"] = "json"

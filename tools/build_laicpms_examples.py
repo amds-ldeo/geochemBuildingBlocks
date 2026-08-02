@@ -13,7 +13,7 @@ TAPP_DIR = os.path.join(ROOT, "_sources", "techniqueProtocols", "laicpmsTAPP")
 DETAIL_DIR = os.path.join(ROOT, "_sources", "analysisSpecificDetails", "detailLAICPMS")
 PARAM_BASE = "ada:parameter/laicpmsTAPP"
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
-       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "bios": "https://bioschemas.org/"}
+       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "bios": "https://bioschemas.org/", "prov": "http://www.w3.org/ns/prov#"}
 CTX2 = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
 CODES = {"M": "Zhang2022", "N": "Chernonozhkin2021olivmap", "O": "Chernonozhkin2021multirun",
@@ -106,7 +106,7 @@ def main():
         technique = cell("Technique", L) or "LA-ICP-MS"
         inst = {
             "@context": CTX, "@id": f"ex:laicpmsTAPP-{code}",
-            "@type": ["cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
+            "@type": ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
             "schema:name": name,
             "schema:description": f"laicpmsTAPP instance derived from {pub_hdr[L]} (column {L} of "
                                   f"LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",

@@ -164,7 +164,16 @@ Detection-limit values keep their full text per element (e.g. `"SiO2: 0.02 wt%"`
 
 ## TAPP Definition Building Block
 
-The `tappDefinition` building block at `techniqueProtocols/tappDefinition/` defines a registry-backed Technique-Aligned Protocol Profile (TAPP) definition schema (v3). Was previously `methodDefinition`. A TAPP definition is modeled as a `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol`.
+The `tappDefinition` building block at `techniqueProtocols/tappDefinition/` defines a registry-backed Technique-Aligned Protocol Profile (TAPP) definition schema (v3). Was previously `methodDefinition`. A TAPP definition is modeled as a `prov:Plan` + `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol`.
+
+### The TAPP is a plan, not an occurrence (PROV alignment)
+
+A TAPP definition is a **plan** — a reusable procedure that *prescribes* an analysis — **not** the analysis event itself. This distinction resolves an apparent conflict with the CDIF provenance model and drives how instrument/tool/reagent fields are placed.
+
+- **Two PROV roles.** The analysis *occurrence* is a `prov:Activity` — it lives in `adaProduct.prov:wasGeneratedBy[]` (a `prov:Activity` + `schema:Action`, following `cdifDataType/cdifProvActivity`). That activity references the TAPP as one of its **`prov:used`** entities (`prov:wasGeneratedBy[].prov:used[] → tappDefinition`, alongside the actual instrument). The TAPP is therefore a **used entity**, and in PROV terms a plan used by an activity is a **`prov:Plan`** — hence `prov:Plan` in the TAPP `@type`.
+- **`cdi:Activity` vs `prov:Activity`.** `prov:Activity` (W3C PROV) is an *occurrence* — something that happened, that `prov:used`/`prov:generated` entities. `cdi:Activity` (DDI-CDI process model) is a *design-level description* of a process/method — reusable, plan-like. The TAPP uses `cdi:Activity` (which aligns with `prov:Plan`) because it describes a method; it is **not** typed `prov:Activity`. The TAPP's `schema:actionProcess` (a `schema:HowTo` of `cdi:Activity` steps) is likewise a plan.
+- **Why instrument/tool/reagent are direct properties (no `prov:used` on the TAPP).** In `cdifProvActivity`, an *activity's* instruments are `prov:used[].schema:instrument` entities — because an occurrence uses them. A *plan* does not "use" entities in the provenance sense; it *specifies* resources. So the TAPP carries `schema:instrument`, `bios:computationalTool`, `bios:reagent` as **direct properties** (the Bioschemas `LabProtocol` convention), and has **no `prov:used`**. The `prov:used` pattern operates one level up, on the `prov:Activity` in `adaProduct.prov:wasGeneratedBy`, which uses both the actual instrument and this plan.
+- **Division of labour.** The TAPP (plan) fixes the reproducible aspects of the method; the analysis instance leaves the rest to `adaProduct.prov:wasGeneratedBy` and the technique-specific `analysisSpecificDetails/detail<X>` blocks (per-dataset values). Instrument-type terms populate `schema:category` (a controlled-vocabulary `schema:DefinedTerm`); standalone-vs-`schema:hasPart` placement of sub-components is a per-field decision recorded in the workbook `schema path`.
 
 ### Structure
 
@@ -186,8 +195,9 @@ For the empaTAPP profile: 10 publication-derived examples (`exampleempaTAPP-P1.j
 
 ### Vocabularies used
 
+- [W3C PROV-O](https://www.w3.org/TR/prov-o/) — `prov:Plan` (the TAPP is a plan; the analysis occurrence is a `prov:Activity` in `adaProduct.prov:wasGeneratedBy` that references the plan via `prov:used`)
 - [Bioschemas](https://bioschemas.org/) — `bios:LabProtocol`, `bios:LabProcess`, `bios:computationalTool`, `bios:reagent`
-- [DDI-CDI](https://ddialliance.org/Specification/DDI-CDI/1.0/) — `cdi:Activity` for workflow steps
+- [DDI-CDI](https://ddialliance.org/Specification/DDI-CDI/1.0/) — `cdi:Activity` (design-level process description) for workflow steps
 - [W3C DQV](https://www.w3.org/TR/vocab-dqv/) — `dqv:hasQualityMeasurement` for quality metrics
 - [schema.org](https://schema.org/) — `PropertyValueSpecification` for parameter definitions, `Action`/`HowTo`/`HowToStep` for workflow
 
