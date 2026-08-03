@@ -49,6 +49,17 @@ def load_central_roles():
     return {}
 
 
+def preserved_file_keys(sidecar_path):
+    """File-level directives are keyed by a leading underscore (e.g. `_tappDescription`), which no
+    workbook Metadata Item ever produces. They are hand-authored, not derivable from the workbook,
+    so carry them forward across a re-extract instead of clobbering them."""
+    if not os.path.exists(sidecar_path):
+        return {}
+    with open(sidecar_path, encoding="utf-8") as f:
+        existing = json.load(f)
+    return {k: v for k, v in existing.items() if k.startswith("_")}
+
+
 def load_rows(tapp):
     """Per-row view mirroring build_tapp.route()'s column detection exactly."""
     b.configure(tapp)
@@ -170,9 +181,13 @@ def main():
                         counts[k] += 1
         docs_name = os.path.basename(b.XLSX)
         out = os.path.join(ROOT, "docs", os.path.splitext(docs_name)[0] + ".overrides.json")
+        # carry forward hand-authored file-level `_`-keys (e.g. _tappDescription), first so they
+        # stay at the top of the file; row-derived item entries follow. Kept out of `overrides`
+        # so the printed stats still count only row-level overrides.
+        merged = {**preserved_file_keys(out), **overrides}
         if not dry:
             with open(out, "w", encoding="utf-8") as f:
-                json.dump(overrides, f, indent=2, ensure_ascii=False)
+                json.dump(merged, f, indent=2, ensure_ascii=False)
                 f.write("\n")
         n = len(rows)
         print(f"{tapp:16s} rows={n:3d}  need-override={len(overrides):3d} "
