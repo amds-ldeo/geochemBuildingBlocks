@@ -8,6 +8,15 @@ allOf:
 - $ref: ../tappDefinition/schema.yaml
 - type: object
   properties:
+    schema:description:
+      type: string
+      default: This protocol specifies the laser-ablation ICP-MS (LA-ICP-MS) workflow for in-situ elemental
+        and isotopic analysis of solid geological and extraterrestrial materials. It defines the laser-ablation
+        and ICP-MS instrument configuration, calibration and reference-material strategy, signal acquisition,
+        and data-reduction steps common to the technique. Sample-specific and session-specific parameters
+        are recorded in the analysis records that reference this protocol.
+      description: Human-readable statement of this protocol's scope, pre-filled as editable boilerplate;
+        lab-specific instances may amend or extend it.
     ada:guardElectrode:
       description: Whether the guard electrode (also called extraction lens or Fassel torch shield) was
         active during analysis.

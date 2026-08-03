@@ -443,6 +443,7 @@ def route():
          "analyte_cols": [], "analyte_defs": OrderedDict(), "vocab": [], "mode_names": mode_names}
     central = load_central_roles()
     sidecar = load_sidecar()
+    R["tapp_description"] = sidecar.get("_tappDescription")  # file-level boilerplate, not a workbook row
     _L.TAPP_NAME = TAPP  # for analyte_column_obj / registry @ids (no TAPP_PROFILES dependency)
     for r in rows[1:]:
         item = norm(r[0])
@@ -538,6 +539,14 @@ def build():
 
     # ---- TAPP schema ----
     tapp_props, basic_required = {}, []
+    if R.get("tapp_description"):
+        # Per-TAPP scope boilerplate as an editable JSON Schema default (the base tappDefinition
+        # declares schema:description as a plain string; this layer only pre-fills it). Lab-specific
+        # instances of the TAPP may amend or extend the text.
+        tapp_props["schema:description"] = {
+            "type": "string", "default": R["tapp_description"],
+            "description": ("Human-readable statement of this protocol's scope, pre-filled as editable "
+                            "boilerplate; lab-specific instances may amend or extend it.")}
     enum_props = CFG["enum_props"]
     mode_names = R.get("mode_names") or []
     for b in R["tapp_prop"]:
