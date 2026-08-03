@@ -16,6 +16,16 @@ selector  := "[" curie "='" value "']"        # element of an array selected by 
 curie     := ns ":" localname                 # colons only, never "." ; e.g. schema:name, ada:beamCurrent
 ```
 
+### Roots and their aliases
+
+Two canonical roots, distinguishing the reusable protocol from the analysis document:
+
+- **`$MethodDefinition`** — the TAPP definition (a `prov:Plan`). Protocol-level and plan-scoped rows (Protocol-Level Tier = Basic/Advanced). Analyte columns are plan-level, so `$.` (self/context) is an alias for `$MethodDefinition` (e.g. `$.ada:analyteTemplate.ada:analyteColumns[]`).
+- **`$Dataset`** — the technique **product document** root (the profile / analysis instance). Analysis-instance rows (Protocol-Level Tier = N/A) land here, mostly on existing cdif slots. The workbook may name the owning CDIF module instead of `$Dataset`; these are **aliases** normalized to `$Dataset`:
+  - `$cdifCore` → `$Dataset` (owns `schema:contributor`, `schema:funding`, `schema:relatedLink`, `schema:creator`…)
+  - `$cdifDiscovery` → `$Dataset` (owns `schema:measurementTechnique`, `dqv:hasQualityMeasurement`)
+  - `$cdifProvenance`/`$cdifManifest`/`$cdifDataDescription` → `$Dataset` (module-annotated; same root)
+
 - The **last** segment names the field the row's value sets (the *terminal*): typically
   `schema:value`, `schema:defaultValue`, `schema:description`, `schema:name`, `schema:url`,
   `schema:identifier`, `schema:termCode`. If a path ends at a selected array element with no terminal
@@ -37,7 +47,14 @@ curie     := ns ":" localname                 # colons only, never "." ; e.g. sc
 | workflow step (whole/field) | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'](.<field>)?` |
 | workflow-step parameter | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:value` |
 | dataset scalar | `$Dataset.ada:<name>` |
-| dataset provenance | `$Dataset.prov:wasGeneratedBy.<schema:startDate\|schema:endDate\|…>` |
+| dataset provenance | `$Dataset.prov:wasGeneratedBy.<schema:startDate\|schema:endDate>` |
+| dataset prov parameter | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<param>'].schema:value` |
+| dataset sample | `$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:<name\|identifier>` |
+| dataset contributor | `$Dataset.schema:contributor[schema:roleName='<role>'](.schema:<name\|identifier>)?` |
+| dataset funding | `$Dataset.schema:funding` |
+| dataset measurement technique | `$Dataset.schema:measurementTechnique(.schema:DefinedTerm)?.schema:identifier` |
+| dataset related link | `$Dataset.schema:relatedLink[schema:linkRelationship='<rel>'].schema:target(.schema:<name\|url\|description>)?` |
+| dataset quality | `$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='<measure>'].dqv:value` |
 
 ## Normalization rules (what the normalizer auto-applies)
 

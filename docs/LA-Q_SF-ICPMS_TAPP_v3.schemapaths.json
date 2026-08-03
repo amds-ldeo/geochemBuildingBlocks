@@ -11,12 +11,8 @@
     "path": "$MethodDefinition.schema:creator.schema:name",
     "family": "multi-target-primary"
   },
-  "Analyst": {
-    "path": "$Dataset.prov:wasGeneratedBy.schema:agent.schema:name",
-    "family": "multi-target-primary"
-  },
   "Laboratory": {
-    "path": "$MethodDefinition.schema:location.schema:Place.schema:name",
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:defaultname",
     "family": "inherited-identity"
   },
   "Laboratory ID": {
@@ -36,8 +32,8 @@
     "family": "dataset-provenance"
   },
   "Protocol DOI": {
-    "path": "$Dataset.schema:measurementTechnique.schema:identifier",
-    "family": "multi-target-primary"
+    "path": "$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier",
+    "family": "dataset-measurement-technique"
   },
   "Funding Source for Protocol Development": {
     "path": "$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name",
@@ -47,29 +43,29 @@
     "path": "$Dataset.schema:funding",
     "family": "dataset-funding"
   },
-  "Coupled Technique(s)": {
-    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name",
+  "Protocol Reference(s)": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name",
     "family": "related-link"
+  },
+  "Coupled Technique(s)": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name",
+    "family": "dataset-related-link"
   },
   "Coupling Description": {
     "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description",
     "family": "related-link"
   },
   "Coupled Protocol DOI": {
-    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:url",
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url",
     "family": "dataset-related-link"
   },
   "Coupled Dataset or Publication Reference": {
     "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target",
     "family": "dataset-related-link"
   },
-  "Target Material": {
-    "path": "$MethodDefinition.schema:object[].schema:DefinedTerm.schema:name",
-    "family": "inherited-identity"
-  },
   "Sample Form / Analytical Substrate": {
-    "path": "$MethodDefinition.schema:object[].schema:DefinedTerm.schema:name",
-    "family": "inherited-identity"
+    "path": "$MethodDefinition.schema:object[schema:additionalType='materialsample'].schema:additionalProperty[schema:name='Sample Form'].schema:defaultValue",
+    "family": "protocol-sample-parameter"
   },
   "Sample Name": {
     "path": "$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:name",
@@ -107,33 +103,9 @@
     "path": "$MethodDefinition.ada:analyticalMode[]",
     "family": "direct-ada"
   },
-  "Laser Spot Geometry": {
-    "path": "$MethodDefinition.ada:spotGeometry",
-    "family": "direct-ada"
-  },
   "Laser Spot Path / Ablation Mode": {
-    "path": "$MethodDefinition.ada:spotPath",
-    "family": "multi-target-primary"
-  },
-  "Laser Energy": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Laser Energy'].schema:defaultValue",
-    "family": "method-parameter"
-  },
-  "Laser Fluence (Energy Density)": {
-    "path": "$MethodDefinition.ada:laserFluence",
+    "path": "$MethodDefinition.ada:ablationSamplingMode",
     "family": "direct-ada"
-  },
-  "Laser Beam Energy Profile": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Laser Beam Energy Profile'].schema:value",
-    "family": "method-parameter"
-  },
-  "Laser Repetition Rate": {
-    "path": "$MethodDefinition.ada:laserRepetitionRate",
-    "family": "direct-ada"
-  },
-  "Laser Pulse Duration": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Laser Pulse Duration'].schema:value",
-    "family": "method-parameter"
   },
   "Ablation Duration per Spot": {
     "path": "$MethodDefinition.ada:ablationSpotDuration",
@@ -184,7 +156,7 @@
     "family": "direct-ada"
   },
   "Oxide Production": {
-    "path": "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Measured oxide production ratio'].dqv:value",
+    "path": "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Oxide production ratio'].dqv:value",
     "family": "dataset-quality"
   },
   "Doubly-Charged Species Monitor": {
@@ -215,20 +187,16 @@
     "path": "$MethodDefinition.ada:massResolutionPerAnalyte[]",
     "family": "direct-ada"
   },
+  "E-scan Range": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='e-scanRange'].schema:value",
+    "family": "method-parameter"
+  },
+  "Triple Scanning Mode": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Triple Scanning Mode'].schema:value",
+    "family": "method-parameter"
+  },
   "Signal Collection Mode": {
     "path": "$MethodDefinition.ada:signalCollectionMethod",
-    "family": "direct-ada"
-  },
-  "Collision Gas Type": {
-    "path": "$MethodDefinition.ada:collisionGasType",
-    "family": "direct-ada"
-  },
-  "Collision Gas Flow Rate": {
-    "path": "$MethodDefinition.ada:gasFlowRate",
-    "family": "direct-ada"
-  },
-  "Cell Exit Discrimination Voltage": {
-    "path": "$MethodDefinition.ada:cellExitDiscriminationVoltage",
     "family": "direct-ada"
   },
   "Dwell Time per Mass": {
@@ -242,6 +210,10 @@
   "Multi-Run Sequential Analysis Design": {
     "path": "$MethodDefinition.schema:additionalProperty[schema:name='Multi-Run Sequential Analysis Design'].schema:value",
     "family": "method-parameter"
+  },
+  "Analysis Location/Spot Coordinates": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:additionalProperty[schema:name='mapped area description'].schema:value",
+    "family": "dataset-sample-parameter"
   },
   "Number of Replicates": {
     "path": "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number Of Replicates'].schema:value",
@@ -270,6 +242,10 @@
   "Elemental Fractionation Correction": {
     "path": "$MethodDefinition.ada:elementalFractionationCorrection[]",
     "family": "direct-ada"
+  },
+  "Uncertainty Propagation Method": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Uncertainty Propagation Method'].schema:defaultValue",
+    "family": "method-parameter"
   },
   "Matrix Offset Correction (LIEF)": {
     "path": "$MethodDefinition.schema:additionalProperty[schema:name='Matrix Offset Correction (LIEF)'].schema:value",
@@ -316,15 +292,15 @@
     "family": "method-parameter"
   },
   "Normalization / Standards-Based Correction": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue",
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Normalization or Correction'].schema:defaultValue",
     "family": "method-parameter"
   },
   "Primary Calibration Standard Name": {
-    "path": "$MethodDefinition.ada:primaryCalibrationStandardName",
+    "path": "$MethodDefinition.ada:primaryStandardName",
     "family": "direct-ada"
   },
   "Calibration Standard Measurement Frequency": {
-    "path": "$MethodDefinition.ada:calibrationStandardMeasurementFrequency",
+    "path": "$MethodDefinition.ada:calibrationMeasurementFrequency",
     "family": "direct-ada"
   },
   "Secondary Reference Materials": {

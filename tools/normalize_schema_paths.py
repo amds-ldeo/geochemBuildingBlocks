@@ -14,18 +14,33 @@ import openpyxl
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
+import schema_path_parser as spp
 from extract_tapp_overrides import TIER_TAPPS
+
+
+def _parses(canon):
+    """A path is only truly canonical if the Phase-1 parser accepts it (keeps the normalizer's
+    'canonical' verdict honest — a loose family recognizer can't smuggle a malformed path through)."""
+    try:
+        spp.parse(canon); return True
+    except spp.SchemaPathError:
+        return False
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NAME_TYPOS = {"measuremnttechnique": "measurementTechnique",
               "phaseidentificatonmethod": "phaseIdentificationMethod",
-              "meanangulardeviaton": "meanAngularDeviation"}
+              "meanangulardeviaton": "meanAngularDeviation",
+              "laserflueence": "laserFluence"}
 FIELDS = "(name|value|defaultValue|description|identifier|termCode|url|object)"
 
 
 def preclean(s):
     s = " ".join(str(s).split())
     s = s.replace("scheme:", "schema:").replace("additiional", "additional").replace("Schema:", "schema:")
+    # $cdif<Module> roots (cdifCore, cdifDiscovery, cdifProvenance, ...) all denote the product
+    # document root -> alias to $Dataset so the dataset-side family recognizers apply (confirmed
+    # with the author: cdifCore/cdifDiscovery/Dataset are the same technique-product-document root).
+    s = re.sub(r"^\$cdif[A-Za-z]+\b", "$Dataset", s)
     for bad, good in NAME_TYPOS.items():
         s = re.sub(bad, good, s, flags=re.I)
     return s
@@ -60,11 +75,15 @@ def mechanical(s):
     s = re.sub(r"\s+\.", ".", s)     # spaces around the '.' navigation separator
     s = re.sub(r"\.\s+", ".", s)
     s = re.sub(r"\s+\[", "[", s)     # space before a selector bracket
+    s = s.replace("schema.additionalProperty", "schema:additionalProperty")  # dot -> colon before container
+    s = re.sub(r"schema[.:]defaultvalue\b", "schema:defaultValue", s, flags=re.I)  # field-name case
     s = re.sub(r"schema\.(?=" + FIELDS + r"\b)", "schema:", s)   # dot -> colon before a field
     # additionalProperty comma-value shorthand: [].schema:name:'X' , schema:value -> [schema:name='X'].schema:value
     s = re.sub(r"\[\]\.schema:name[:=]'([^']*)'\s*,\s*schema:value", r"[schema:name='\1'].schema:value", s)
     s = re.sub(r"\[\s*", "[", s)
     s = re.sub(r"\s*\]", "]", s)
+    # selector colon -> equals: [curie:'value'] -> [curie='value'] (e.g. [schema:roleName:'analyst'])
+    s = re.sub(r"\[([a-z][A-Za-z]*:[A-Za-z]+):'", r"[\1='", s)
     s = re.sub(r"\s*=\s*", "=", s)
     # selector unification -> [schema:name='X']
     s = re.sub(r"\[\]\.schema:name[:=]'([^']*)'", r"[schema:name='\1']", s)
@@ -109,11 +128,15 @@ def recognize(s):
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "workflow-step"),
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "workflow-step-parameter"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
+        (r"^\$MethodDefinition\.schema:object\[schema:additionalType='materialsample'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
         (r"^\$MethodDefinition\.schema:(creator|location|measurementTechnique|object|funding)\b.*", "inherited-identity"),
         # dataset side (belongs on the analysis session / detail, not the reusable protocol)
+        (r"^\$Dataset\.schema:contributor\[schema:roleName='[^']*'\](\.schema:(name|identifier))?$", "dataset-contributor"),
+        (r"^\$Dataset\.schema:measurementTechnique(\.schema:DefinedTerm)?\.schema:identifier$", "dataset-measurement-technique"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate)$", "dataset-provenance"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-prov-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[schema:additionalType='materialsample'\]\.schema:(name|identifier)$", "dataset-sample"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[schema:additionalType='materialsample'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
         (r"^\$Dataset\.schema:funding$", "dataset-funding"),
         (r"^\$Dataset\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|url|description))?$", "dataset-related-link"),
         (r"^\$Dataset\.dqv:hasQualityMeasurement\[dqv:isMeasurementOf='[^']*'\]\.dqv:value$", "dataset-quality"),
@@ -161,6 +184,8 @@ def normalize(sp):
     if m:
         return None, None, m
     canon, fam = recognize(s)
+    if canon and not _parses(canon):
+        return None, None, "parser rejected after normalization"
     if canon:
         return canon, fam, None
     return None, None, fam  # fam holds the reason string here
@@ -188,6 +213,8 @@ def main():
             canon, fam, reason = normalize(sp)
             if not canon:
                 canon, fam = special_resolve(item, mechanical(preclean(sp)), reason)
+                if canon and not _parses(canon):
+                    canon, fam = None, None
             if canon:
                 spec[item] = {"path": canon, "family": fam}
                 ok += 1
