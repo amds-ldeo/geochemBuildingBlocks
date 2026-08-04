@@ -72,6 +72,13 @@ allOf:
             - "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed"
             - "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Raw"
             - "High-resolution inductively coupled plasma mass spectrometry"
+            # LA-ICPMS
+            - "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed"
+            - "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Raw"
+            - "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed"
+            - "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Raw"
+            - "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"
+            - "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"
             # ICPOES
             - "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Intermediate"
             - "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Processed"
@@ -248,11 +255,21 @@ allOf:
               type: array
               description: >-
                 Instruments and/or Technique-Aligned Protocol Profile (TAPP)
-                definitions used in the analysis. Each item is either an
-                instrument BB instance or a tappDefinition BB instance.
+                definitions used in the analysis. Each item is an instrument BB
+                instance, a tappDefinition BB instance (inlined), or an @id
+                reference to a TAPP definition node defined elsewhere. Technique
+                profiles narrow the tappDefinition branch to their specific TAPP.
               items:
                 anyOf:
                   - $ref: ../../../geochemProperties/instrument/schema.yaml
+                  - type: object
+                    description: Reference by node @id to a TAPP definition object defined elsewhere.
+                    properties:
+                      '@id':
+                        type: string
+                        format: uri
+                    required:
+                      - '@id'
                   - $ref: ../../../techniqueProtocols/tappDefinition/schema.yaml
             "schema:location":
               $ref: ../../../geochemProperties/laboratory/schema.yaml
