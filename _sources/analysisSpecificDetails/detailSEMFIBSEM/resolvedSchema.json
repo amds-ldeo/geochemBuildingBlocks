@@ -23,17 +23,20 @@
           ]
         },
         "schema:measurementTechnique": {
-          "type": "object",
-          "description": "@id reference to a registered semFibsemTAPP TAPP definition.",
-          "properties": {
-            "@id": {
-              "type": "string",
-              "format": "uri"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "@id reference to a registered semFibsemTAPP TAPP definition.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          }
         },
         "ada:analyst": {
           "description": "Name of the analyst who conducted the analysis session.",

@@ -165,6 +165,12 @@
           "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed",
           "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Raw",
           "High-resolution inductively coupled plasma mass spectrometry",
+          "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed",
+          "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Raw",
+          "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed",
+          "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Raw",
+          "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry",
+          "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry",
           "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Intermediate",
           "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Processed",
           "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Raw",
@@ -6873,11 +6879,24 @@
             "properties": {
               "prov:used": {
                 "type": "array",
-                "description": "Instruments and/or Technique-Aligned Protocol Profile (TAPP) definitions used in the analysis. Each item is either an instrument BB instance or a tappDefinition BB instance.",
+                "description": "Instruments and/or Technique-Aligned Protocol Profile (TAPP) definitions used in the analysis. Each item is an instrument BB instance, a tappDefinition BB instance (inlined), or an @id reference to a TAPP definition node defined elsewhere. Technique profiles narrow the tappDefinition branch to their specific TAPP.",
                 "items": {
                   "anyOf": [
                     {
                       "$ref": "#/$defs/Instrument"
+                    },
+                    {
+                      "type": "object",
+                      "description": "Reference by node @id to a TAPP definition object defined elsewhere.",
+                      "properties": {
+                        "@id": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ]
                     },
                     {
                       "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -7043,116 +7062,120 @@
                           }
                         },
                         "schema:measurementTechnique": {
+                          "title": "Technique",
                           "description": "The analytical technique this method implements. Must be a DefinedTerm from a controlled vocabulary of techniques.",
-                          "type": "object",
-                          "properties": {
-                            "@type": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "contains": {
-                                "const": "schema:DefinedTerm"
-                              },
-                              "minItems": 1
-                            },
-                            "schema:name": {
-                              "type": "string",
-                              "description": "text label for the term that is useful to human user"
-                            },
-                            "schema:identifier": {
-                              "anyOf": [
-                                {
+                          "type": "array",
+                          "items": {
+                            "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+                            "type": "object",
+                            "properties": {
+                              "@type": {
+                                "type": "array",
+                                "items": {
                                   "type": "string"
                                 },
-                                {
-                                  "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                                  "type": "object",
-                                  "properties": {
-                                    "@type": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      },
-                                      "contains": {
-                                        "const": "schema:PropertyValue"
-                                      },
-                                      "minItems": 1
-                                    },
-                                    "schema:propertyID": {
-                                      "type": "string",
-                                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
-                                    },
-                                    "schema:value": {
-                                      "type": "string",
-                                      "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                                    },
-                                    "schema:url": {
-                                      "type": "string",
-                                      "format": "uri",
-                                      "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                                    }
+                                "contains": {
+                                  "const": "schema:DefinedTerm"
+                                },
+                                "minItems": 1
+                              },
+                              "schema:name": {
+                                "type": "string",
+                                "description": "text label for the term that is useful to human user"
+                              },
+                              "schema:identifier": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
                                   },
-                                  "allOf": [
-                                    {
-                                      "required": [
-                                        "@type"
-                                      ]
-                                    },
-                                    {
-                                      "anyOf": [
-                                        {
-                                          "required": [
-                                            "schema:value"
-                                          ]
+                                  {
+                                    "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                                    "type": "object",
+                                    "properties": {
+                                      "@type": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
                                         },
-                                        {
-                                          "required": [
-                                            "schema:url"
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
+                                        "contains": {
+                                          "const": "schema:PropertyValue"
+                                        },
+                                        "minItems": 1
+                                      },
+                                      "schema:propertyID": {
+                                        "type": "string",
+                                        "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                      },
+                                      "schema:value": {
+                                        "type": "string",
+                                        "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                                      },
+                                      "schema:url": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                      }
+                                    },
+                                    "allOf": [
+                                      {
+                                        "required": [
+                                          "@type"
+                                        ]
+                                      },
+                                      {
+                                        "anyOf": [
+                                          {
+                                            "required": [
+                                              "schema:value"
+                                            ]
+                                          },
+                                          {
+                                            "required": [
+                                              "schema:url"
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              "schema:inDefinedTermSet": {
+                                "type": "string",
+                                "description": "Name for the controlled vocabulary responsible for this keyword."
+                              },
+                              "schema:termCode": {
+                                "type": "string",
+                                "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                              }
                             },
-                            "schema:inDefinedTermSet": {
-                              "type": "string",
-                              "description": "Name for the controlled vocabulary responsible for this keyword."
-                            },
-                            "schema:termCode": {
-                              "type": "string",
-                              "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                            }
-                          },
-                          "allOf": [
-                            {
-                              "required": [
-                                "@type"
-                              ]
-                            },
-                            {
-                              "anyOf": [
-                                {
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                {
-                                  "required": [
-                                    "schema:identifier"
-                                  ]
-                                },
-                                {
-                                  "required": [
-                                    "schema:termCode"
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "title": "Technique"
+                            "allOf": [
+                              {
+                                "required": [
+                                  "@type"
+                                ]
+                              },
+                              {
+                                "anyOf": [
+                                  {
+                                    "required": [
+                                      "schema:name"
+                                    ]
+                                  },
+                                  {
+                                    "required": [
+                                      "schema:identifier"
+                                    ]
+                                  },
+                                  {
+                                    "required": [
+                                      "schema:termCode"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
                         },
                         "schema:object": {
                           "description": "Target material(s) this method is designed to analyse (e.g. silicate glass, olivine, spinel). Modeled as DefinedTerm(s) or free text.",
@@ -9730,12 +9753,33 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "schema:name": {
+                      "description": "Sample name/identifier as used in the lab.",
+                      "type": "string"
+                    },
+                    "schema:additionalProperty": {
+                      "description": "Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.",
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
                     }
                   }
                 }
               },
               "schema:startDate": {
                 "type": "string"
+              },
+              "schema:endDate": {
+                "type": "string"
+              },
+              "schema:additionalProperty": {
+                "description": "Per-analysis PropertyValue entries (replicates, transect length, …); technique profiles constrain these.",
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
               }
             },
             "required": [
@@ -12230,41 +12274,44 @@
                 }
               },
               "schema:measurementTechnique": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
                           "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:DefinedTerm"
-                        },
-                        "minItems": 1
-                      },
-                      "schema:name": {
-                        "type": "string"
+                        }
                       }
                     },
-                    "required": [
-                      "@type",
-                      "schema:name"
-                    ]
-                  }
-                ]
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:DefinedTerm"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@type",
+                        "schema:name"
+                      ]
+                    }
+                  ]
+                }
               },
               "schema:unitText": {
                 "type": "string"
@@ -12331,24 +12378,27 @@
       "type": "string"
     },
     "schema:measurementTechnique": {
-      "type": "object",
-      "description": "Text description of the measurement method",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Text description of the measurement method",
+        "properties": {
+          "@type": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "contains": {
+              "const": "schema:DefinedTerm"
+            },
+            "minItems": 1
+          },
+          "schema:name": {
             "type": "string"
           },
-          "contains": {
-            "const": "schema:DefinedTerm"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string"
-        },
-        "schema:identifier": {
-          "type": "string"
+          "schema:identifier": {
+            "type": "string"
+          }
         }
       }
     },
