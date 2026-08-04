@@ -1,0 +1,109 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
+  },
+  "@id": "ex:detailGEOCHRON-P0",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+              },
+              "schema:name": "Analysis Location/Spot Coordinates",
+              "schema:value": "example value"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/geochronTAPP/numberOfReplicates",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/geochronTAPP/numberOfReplicates"
+          },
+          "schema:name": "Number of Replicates",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/geochronTAPP/signalIntegrationTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/geochronTAPP/signalIntegrationTime"
+          },
+          "schema:name": "Signal Integration Time",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        }
+      ]
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example procedureDoi"
+    }
+  ],
+  "schema:funding": [],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "CA-ID-TIMS"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProtocol",
+      "schema:target": {
+        "schema:url": "example coupledProcedureDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ],
+  "ada:spotDiameterMeasured": "example spotDiameterMeasured",
+  "ada:sensitivityYield": "example sensitivityYield",
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
+    }
+  ]
+}

@@ -1916,3 +1916,964 @@ $defs:
       - schema:name
       - ada:dataType
       - ada:fieldScope
+
+  imagingDefault:
+    title: Imaging
+    description: Pre-ablation characterisation imaging (typically cathodoluminescence [CL] or backscattered
+      electron [BSE]) used to reveal internal zoning, inherited cores, and metamict domains for selecting
+      valid spot locations, including the imaging instrument and settings used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/imagingDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: imagingDefault
+      schema:name:
+        const: Imaging
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  geochron_preAblationSurfaceTreatmentDefault:
+    title: Pre-Ablation Surface Treatment
+    description: Procedure applied immediately before each analysis to remove surface contamination or condition
+      the sample surface, distinct from general sample preparation. Pre-ablation pulses are typically discarded
+      before signal acquisition begins.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/preAblationSurfaceTreatmentDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAblationSurfaceTreatmentDefault
+      schema:name:
+        const: Pre-Ablation Surface Treatment
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  instrumentSerialNumberOrLabIdentifierDefault:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
+      traceability to instrument service records.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/instrumentSerialNumberOrLabIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: instrumentSerialNumberOrLabIdentifierDefault
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  geochron_torchDepthDefault:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
+      or torch position. Affects ion transmission efficiency, oxide formation, and doubly-charged species
+      production.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/torchDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: torchDepthDefault
+      schema:name:
+        const: Torch Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  massResolutionSettingDefault:
+    title: Mass Resolution Setting
+    description: Operating mass resolution of the mass analyser. Fixed at unit resolution for quadrupole
+      instruments; selectable (low/medium/high) for sector-field instruments to balance sensitivity against
+      interference suppression; not applicable in the same sense for multi-collector instruments running
+      static low-resolution collection (see Faraday Cup Array Configuration and Collector Configuration
+      for MC-specific detail).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/massResolutionSettingDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionSettingDefault
+      schema:name:
+        const: Mass Resolution Setting
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  ablationPitDepthAblationRateDefault:
+    title: Ablation Pit Depth/Ablation Rate
+    description: Depth of the ablation pit produced under the registered laser conditions, the method used
+      to measure it, and the resulting per-pulse ablation rate. Characterises the achievable depth/time
+      resolution of the procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/ablationPitDepthAblationRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ablationPitDepthAblationRateDefault
+      schema:name:
+        const: Ablation Pit Depth/Ablation Rate
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  makeUpGasFlowDefault:
+    title: Make-up Gas Flow (L min⁻¹)
+    description: Source and estimated flow rate of any make-up gas added downstream of the ablation cell,
+      including any desolvating nebuliser used for tracer co-aspiration.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/makeUpGasFlowDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: makeUpGasFlowDefault
+      schema:name:
+        const: Make-up Gas Flow (L min⁻¹)
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  coolantGasFlowRateDefault:
+    title: Coolant (Plasma) Gas Flow Rate
+    description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains the ICP plasma.
+      Determines plasma volume and stability.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/coolantGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: coolantGasFlowRateDefault
+      schema:name:
+        const: Coolant (Plasma) Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: L/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  auxiliaryGasFlowRateDefault:
+    title: Auxiliary Gas Flow Rate
+    description: Flow rate of the intermediate (auxiliary) argon gas stream that positions the plasma relative
+      to the load coil. Affects ion extraction efficiency and oxide production rates.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/auxiliaryGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: auxiliaryGasFlowRateDefault
+      schema:name:
+        const: Auxiliary Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: L/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  numberOfBlocksPerMeasurementDefault:
+    title: Number of Blocks per Measurement
+    description: Number of measurement blocks acquired per spot. Each block typically begins with a baseline
+      (on-peak zero) measurement before the analytical cycles. Multiple blocks allow inspection of signal
+      stability and within-measurement drift.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/numberOfBlocksPerMeasurementDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: numberOfBlocksPerMeasurementDefault
+      schema:name:
+        const: Number of Blocks per Measurement
+      ada:dataType:
+        const: integer
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  numberOfCyclesPerBlockDefault:
+    title: Number of Cycles per Block
+    description: Number of measurement cycles acquired per block. One cycle corresponds to a single set
+      of simultaneous Faraday cup readings integrated for the duration in Integration Time per Cycle.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/numberOfCyclesPerBlockDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: numberOfCyclesPerBlockDefault
+      schema:name:
+        const: Number of Cycles per Block
+      ada:dataType:
+        const: integer
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  integrationTimePerCycleDefault:
+    title: Integration Time per Cycle
+    description: Duration of signal integration per measurement cycle. Total integration time per spot =
+      (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/integrationTimePerCycleDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: integrationTimePerCycleDefault
+      schema:name:
+        const: Integration Time per Cycle
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: s
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  icDeadTimeDefault:
+    title: IC Dead Time (ns)
+    description: Dead time of each ion-counting detector channel, used in dead-time correction of high count
+      rates.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/icDeadTimeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: icDeadTimeDefault
+      schema:name:
+        const: IC Dead Time (ns)
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  geochron_signalSmoothingDefault:
+    title: Signal Smoothing
+    description: Description of any signal smoothing device or approach installed between the ablation cell
+      and the ICP-MS to reduce pulse-to-pulse signal variability.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/signalSmoothingDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: signalSmoothingDefault
+      schema:name:
+        const: Signal Smoothing
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  icpTuningDefault:
+    title: ICP Tuning
+    description: Description of the approach used to optimise ICP plasma conditions prior to analysis, including
+      the reference material used for tuning and the acceptance criteria.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/icpTuningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: icpTuningDefault
+      schema:name:
+        const: ICP Tuning
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  geochron_doublyChargedSpeciesMonitorDefault:
+    title: Doubly-Charged Species Monitor
+    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument
+      tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/doublyChargedSpeciesMonitorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesMonitorDefault
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  geochron_doublyChargedSpeciesProductionDefault:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored species at the time
+      of instrument tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/doublyChargedSpeciesProductionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesProductionDefault
+      schema:name:
+        const: Doubly-Charged Species Production
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  analysisSequenceDefault:
+    title: Analysis Sequence
+    description: Repeating order of primary calibration standard(s), quality control standard(s), and unknown
+      analyses within a measurement session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/analysisSequenceDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analysisSequenceDefault
+      schema:name:
+        const: Analysis Sequence
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  collisionGasFlowRateDefault:
+    title: Collision Gas Flow Rate
+    description: Flow rate of the collision gas in KED mode. Higher flow rates provide greater interference
+      suppression at the cost of analyte sensitivity. Applies to quadrupole-based instruments and to collision-cell-equipped
+      multi-collector instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in KED mode.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/collisionGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionGasFlowRateDefault
+      schema:name:
+        const: Collision Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  cellExitDiscriminationVoltageDefault:
+    title: Cell Exit Discrimination Voltage
+    description: Kinetic energy discrimination offset voltage applied at the exit of the collision cell
+      in KED mode. Applies to quadrupole-based instruments and to collision-cell-equipped multi-collector
+      instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in KED mode.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/cellExitDiscriminationVoltageDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: cellExitDiscriminationVoltageDefault
+      schema:name:
+        const: Cell Exit Discrimination Voltage
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: V
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  geochron_reactionGasFlowRateDefault:
+    title: Reaction Gas Flow Rate
+    description: Flow rate of the reactive gas introduced into the dynamic reaction cell (DRC). Applies
+      to quadrupole-based instruments and to collision-cell-equipped multi-collector instruments (e.g.,
+      Nu Sapphire, Thermo Neoma MS/MS) operating in DRC mode.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/reactionGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionGasFlowRateDefault
+      schema:name:
+        const: Reaction Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  otherInformationDefault:
+    title: Other Information
+    description: Supplementary methodological context not captured by the structured fields above, as reported
+      in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes on ablation-cell
+      and sample-line configuration for depth-profiling/single-pulse ablation studies, a variant not otherwise
+      in scope for this single-mode (Spot Analysis) TAPP.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/otherInformationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: otherInformationDefault
+      schema:name:
+        const: Other Information
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  uncertaintyLevelAndPropagationDefault:
+    title: Uncertainty Level and Propagation
+    description: Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method used to
+      propagate component uncertainties (e.g., quadratic addition) into the final reported value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/uncertaintyLevelAndPropagationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: uncertaintyLevelAndPropagationDefault
+      schema:name:
+        const: Uncertainty Level and Propagation
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  spikeOutlierFilteringApproachDefault:
+    title: Spike / Outlier Filtering Approach
+    description: Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions,
+      cracks, or instrument artifacts during time-resolved signal processing.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/spikeOutlierFilteringApproachDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spikeOutlierFilteringApproachDefault
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  doubleSpikeMixingRatioDefault:
+    title: Double-Spike Mixing Ratio
+    description: Target proportion of double-spike signal relative to total analyte signal in the spiked
+      mixture. An optimal mixing ratio minimises error propagation through the double-spike inversion. Record
+      'N/A' if double-spike method is not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/doubleSpikeMixingRatioDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doubleSpikeMixingRatioDefault
+      schema:name:
+        const: Double-Spike Mixing Ratio
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  geochron_memoryEffectMitigationDefault:
+    title: Memory Effect Mitigation
+    description: Procedure applied to identify and minimise memory effects from high-concentration elements
+      in the previous sample or standard that may contaminate subsequent analyses.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/memoryEffectMitigationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: memoryEffectMitigationDefault
+      schema:name:
+        const: Memory Effect Mitigation
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  normalizationStandardsBasedCorrectionDefault:
+    title: Normalization/Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/normalizationStandardsBasedCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrectionDefault
+      schema:name:
+        const: Normalization/Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: Reproducibility of measurements across multiple analytical sessions over weeks to months.
+      Not addressed in Table 3 of Horstwood et al. (2016), which reports only within-session validation
+      results.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  detectionLimitDefault:
+    title: Detection Limit
+    description: Session detection limit for U, Th, and/or Pb, demonstrating the reliability of reported
+      concentrations near the detection limit. Not requested by Table 3 of Horstwood et al. (2016), which
+      focuses on age uncertainty rather than elemental detection limits.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/detectionLimitDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitDefault
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: unit
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  detectionLimitMethodDefault:
+    title: Detection Limit Method
+    description: Reference or description of the method used to calculate the session detection limit reported
+      above.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/detectionLimitMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethodDefault
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  limitOfQuantificationMethodDefault:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification:
+      the lowest concentration reliably measurable with acceptable precision and accuracy.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/geochronTAPP/limitOfQuantificationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethodDefault
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope

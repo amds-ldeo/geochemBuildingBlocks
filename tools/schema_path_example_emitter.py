@@ -74,8 +74,17 @@ def build_example(tapp):
     spec = json.load(open(spec_path, encoding="utf-8"))
     roots = {"MethodDefinition": e.Obj(), "Dataset": e.Obj()}
     pt_seen, pv_seen = set(), set()
+    # base-owned rich-object properties (analyteTemplate, computationalTool, workflow steps, the
+    # instrument tree, the plan's target-material schema:object, relatedLink) need objects the
+    # placeholder can't synthesise and are all OPTIONAL in tappDefinition — so omit them from the
+    # minimal valid TAPP-side example (the schema still constrains them). Dataset-side (detail)
+    # sample/relatedLink are kept: the detail is validated standalone, not against the strict base.
+    SKIP_MD = ("ada:analyteTemplate", "bios:computationalTool", "schema:actionProcess",
+               "schema:instrument", "schema:object", "schema:relatedLink")
     for item, rec in spec.items():
         parsed = spp.parse(rec["path"])
+        if parsed.root == "MethodDefinition" and any(t in rec["path"] for t in SKIP_MD):
+            continue
         m = meta.get(item, {})
         if e._is_addl_param(parsed):
             bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),

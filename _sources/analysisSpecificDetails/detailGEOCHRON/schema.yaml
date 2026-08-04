@@ -1,0 +1,148 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: LA-ICP-MS Geochronology Analysis Detail
+description: Dataset-level analysis-instance detail for LA-ICP-MS geochronology, reusing CDIF/schema.org
+  slots on the schema:Dataset root.
+type: object
+properties:
+  schema:contributor:
+    type: array
+    items:
+      type: object
+    allOf:
+    - contains:
+        properties:
+          schema:roleName:
+            const: analyst
+        required:
+        - schema:roleName
+  prov:wasGeneratedBy:
+    type: array
+    items:
+      type: object
+      properties:
+        schema:startDate:
+          description: Date on which the analytical session began. For sessions spanning multiple days,
+            use the date of the first session.
+          type: string
+        schema:endDate:
+          description: Date on which the analytical session ended. May equal Analysis Start Date for single-day
+            sessions.
+          type: string
+        schema:object:
+          type: array
+          items:
+            type: object
+          allOf:
+          - contains:
+              properties:
+                '@type':
+                  contains:
+                    const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+              required:
+              - '@type'
+        schema:additionalProperty:
+          type: array
+          items:
+            anyOf:
+            - &id001
+              title: Number of Replicates
+              description: Number of replicate spot analyses performed on the same grain or nominal location
+                in this session.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/geochronTAPP/numberOfReplicates
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/geochronTAPP/numberOfReplicates
+                schema:name:
+                  const: Number of Replicates
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id002
+              title: Signal Integration Time
+              description: Actual integration time used for the ablation signal in this analysis. Determined
+                at analysis time by applying the Signal Integration Interval Method to the time-resolved
+                signal.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/geochronTAPP/signalIntegrationTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/geochronTAPP/signalIntegrationTime
+                schema:name:
+                  const: Signal Integration Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+          allOf:
+          - contains: *id001
+            minContains: 0
+            maxContains: 1
+          - contains: *id002
+            minContains: 0
+            maxContains: 1
+  schema:measurementTechnique:
+    type: array
+    items:
+      type: object
+      properties:
+        schema:identifier:
+          description: DOI or unique persistent identifier for the registered procedure used in this analysis.
+            Mandatory when submitting analytical data, to encourage formal procedure registration. Enter
+            'pending' if applied for but not yet minted.
+          type: string
+  schema:funding:
+    type: array
+  schema:relatedLink:
+    type: array
+    items:
+      type: object
+  ada:spotDiameterMeasured:
+    description: Diameter of the laser spot as independently measured on the sample or a test material,
+      distinct from the nominal/target value registered by the procedure.
+    type: string
+  ada:sensitivityYield:
+    description: Instrument sensitivity expressed as useful yield — the percentage of sampled atoms of
+      a given element that are ultimately detected as ions — for the analytical session, following the
+      method cited.
+    type: string
+  dqv:hasQualityMeasurement:
+    type: array
+    items:
+      type: object
+    allOf:
+    - contains:
+        properties:
+          dqv:isMeasurementOf:
+            const: Oxide production ratio
+        required:
+        - dqv:isMeasurementOf
+required:
+- schema:funding
+- ada:spotDiameterMeasured

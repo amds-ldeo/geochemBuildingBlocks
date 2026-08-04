@@ -56,9 +56,16 @@ def load_rows(path):
     return out
 
 
-def infer(row, lib, lib_norm):
+def infer(row, lib, lib_norm, sidecar):
     """Return (path, source) or (None, reason)."""
     it, P, A, dt = row["item"], row["P"], row["A"], row["dt"]
+    # 0. per-workbook override sidecar (hand-authored paths for rows content can't resolve)
+    ov = sidecar.get(it)
+    if ov:
+        if ov.get("path"):
+            return ov["path"], "sidecar"
+        if ov.get("name"):  # a curated dataset-scalar name for an analysis-instance row
+            return f"$Dataset.ada:{ov['name']}", "sidecar:name"
     # 1. exact reference match (identity, instrument, params — path is exactly right for the same item)
     if it in lib:
         return lib[it]["path"], "reuse"
@@ -93,10 +100,12 @@ def main():
     wb = args[0] if os.path.isabs(args[0]) else os.path.join(ROOT, args[0])
     lib = json.load(open(LIB_SPEC, encoding="utf-8"))
     lib_norm = {_norm(k): v for k, v in lib.items()}
+    sc_path = os.path.splitext(wb)[0] + ".overrides.json"
+    sidecar = json.load(open(sc_path, encoding="utf-8")) if os.path.exists(sc_path) else {}
     rows = load_rows(wb)
     spec, flagged, sources = {}, [], {}
     for row in rows:
-        path, src = infer(row, lib, lib_norm)
+        path, src = infer(row, lib, lib_norm, sidecar)
         if path:
             canon = norm.mechanical(norm.preclean(path))
             try:

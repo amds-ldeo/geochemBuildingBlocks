@@ -66,6 +66,11 @@ ARRAY_VALUED = {"schema:additionalType", "@type"}
 # are handled separately via branches.
 KNOWN_ARRAY = {"prov:wasGeneratedBy", "schema:measurementTechnique", "schema:funding"}
 
+# base-owned array properties whose items are rich objects defined in tappDefinition
+# (ComputationalTool, AnalyteColumn). A bare "[]" append leaves items as {type:object} so the
+# base's object shape applies instead of a spurious string-item constraint from the path leaf.
+BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool", "ada:analyteColumns"}
+
 
 class AddlType:
     """An array-valued key (schema:additionalType): required selector token(s) + an optional finer
@@ -118,7 +123,10 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 node = item
             else:                              # bare "[]"
                 if is_last:
-                    arr.append = Leaf(leaf_schema) if leaf_schema is not None else Obj()
+                    if curie in BASE_OWNED_OBJECT_ARRAY:
+                        arr.append = Obj()     # base-owned object array -> items:{object}, defer shape to base
+                    else:
+                        arr.append = Leaf(leaf_schema) if leaf_schema is not None else Obj()
                     return
                 if not isinstance(arr.append, Obj):
                     arr.append = Obj()
