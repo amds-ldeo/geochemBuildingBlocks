@@ -55,15 +55,25 @@ class Leaf:
         self.schema = schema
 
 
-class Collision:
-    """A scalar terminal landing on a prop already holding a selector const (an array-valued key
-    like an instrument's schema:additionalType). Mode-neutral: to_schema renders an array that
-    CONTAINS the selector value; to_instance renders the [selector-value, row-value] list."""
-    __slots__ = ("const_val", "leaf")
+# keys whose value is always a JSON array (schema.org additionalType on a Thing). A selector on
+# such a key is modeled uniformly as an array that CONTAINS the token — never a scalar const — so
+# selector branches and any terminal on the same key compose (e.g. instrument ICP-MS Type appends).
+ARRAY_VALUED = {"schema:additionalType"}
 
-    def __init__(self, const_val, leaf):
-        self.const_val = const_val
-        self.leaf = leaf
+
+class AddlType:
+    """An array-valued key (schema:additionalType): required selector token(s) + an optional finer
+    terminal value. to_schema -> array whose items are the token consts (+ terminal leaf) and that
+    CONTAINS each token; to_instance -> the list of tokens (+ terminal value)."""
+    __slots__ = ("consts", "item_leaf")
+
+    def __init__(self, const_val):
+        self.consts = [const_val]
+        self.item_leaf = None       # mode-specific (schema fragment | placeholder value) or None
+
+
+def _sel_key_node(key, val):
+    return AddlType(val) if key in ARRAY_VALUED else Leaf({"const": val})
 
 
 # ---------- merger: fold one path into the tree ----------
@@ -93,11 +103,11 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                     if element is not None:
                         arr.branches[val] = element     # provided element (e.g. a $ref Leaf)
                     elif val not in arr.branches:
-                        o = Obj(); o.props[key] = Leaf({"const": val}); arr.branches[val] = o
+                        o = Obj(); o.props[key] = _sel_key_node(key, val); arr.branches[val] = o
                     return                     # value IS the selected element
                 item = arr.branches.get(val)
                 if item is None:
-                    item = Obj(); item.props[key] = Leaf({"const": val})
+                    item = Obj(); item.props[key] = _sel_key_node(key, val)
                     arr.branches[val] = item
                 node = item
             else:                              # bare "[]"
@@ -110,11 +120,10 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
         else:                                  # plain property
             if is_last:
                 existing = node.props.get(curie)
-                if (isinstance(existing, Leaf) and isinstance(existing.schema, dict)
-                        and "const" in existing.schema):
-                    # collision with a selector const (e.g. an instrument's array-valued
-                    # schema:additionalType) -> a mode-neutral Collision node.
-                    node.props[curie] = Collision(existing.schema["const"], leaf_schema)
+                if isinstance(existing, AddlType):
+                    # a terminal on an array-valued key (e.g. instrument ICP-MS Type) -> a finer
+                    # value appended alongside the selector token(s).
+                    existing.item_leaf = leaf_schema
                 else:
                     node.props[curie] = Leaf(leaf_schema)
                 return
@@ -128,31 +137,31 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
 def to_schema(node):
     if isinstance(node, Leaf):
         return node.schema
-    if isinstance(node, Collision):
-        # array-valued key holding the coarse selector token AND the row's finer value
+    if isinstance(node, AddlType):
+        opts = [{"const": c} for c in node.consts] + ([node.item_leaf] if node.item_leaf else [{"type": "string"}])
         return {"type": "array",
-                "items": {"anyOf": [node.leaf or {"type": "string"}, {"const": node.const_val}]},
-                "allOf": [{"contains": {"const": node.const_val}}]}
+                "items": {"anyOf": opts} if len(opts) > 1 else opts[0],
+                "allOf": [{"contains": {"const": c}} for c in node.consts]}
     if isinstance(node, Obj):
         return {"type": "object",
                 "properties": {k: to_schema(v) for k, v in node.props.items()}}
     if isinstance(node, Arr):
         if node.branches:
-            vals = list(node.branches.values())
-            if all(isinstance(v, Leaf) for v in vals):
-                # registry-$ref elements (schema:additionalProperty): anyOf of the refs, each
-                # optional-and-at-most-one via allOf/contains (mirrors build_tapp's overlay).
-                refs = [v.schema for v in vals]
-                return {"type": "array",
-                        "items": {"anyOf": refs} if len(refs) > 1 else refs[0],
-                        "allOf": [{"contains": r, "minContains": 0, "maxContains": 1} for r in refs]}
-            branches = [to_schema(o) for o in vals]
-            out = {"type": "array",
-                   "items": {"anyOf": branches} if len(branches) > 1 else branches[0]}
-            if node.required:
-                out["allOf"] = [{"contains": {"properties": {node.selkey: {"const": v}},
-                                              "required": [node.selkey]}}
-                                for v in sorted(node.required)]
+            items = [to_schema(v) for v in node.branches.values()]
+            out = {"type": "array", "items": {"anyOf": items} if len(items) > 1 else items[0]}
+            # per-branch presence constraint: a $ref (registry) branch is optional-and-at-most-one;
+            # an object branch that is required must be present (selector key = the token/name).
+            allof = []
+            arr_key = node.selkey in ARRAY_VALUED
+            for val, br in node.branches.items():
+                if isinstance(br, Leaf):
+                    allof.append({"contains": br.schema, "minContains": 0, "maxContains": 1})
+                elif val in node.required:
+                    key_c = {"contains": {"const": val}} if arr_key else {"const": val}
+                    allof.append({"contains": {"properties": {node.selkey: key_c},
+                                               "required": [node.selkey]}})
+            if allof:
+                out["allOf"] = allof
             return out
         if isinstance(node.append, Leaf):
             return {"type": "array", "items": node.append.schema}
@@ -169,8 +178,8 @@ def to_instance(node):
         if isinstance(s, dict) and set(s.keys()) == {"const"}:   # a selector key -> its literal value
             return s["const"]
         return s                                                  # a placeholder value or built element
-    if isinstance(node, Collision):                              # array-valued key: [selector, row value]
-        return [node.const_val, node.leaf]
+    if isinstance(node, AddlType):                               # array-valued key: [tokens, +row value]
+        return list(node.consts) + ([node.item_leaf] if node.item_leaf is not None else [])
     if isinstance(node, Obj):
         out = {}
         if node.types:
