@@ -145,7 +145,7 @@ def _bracket_groups(s: str) -> List[str]:
     return groups
 
 
-_SELECTOR_RE = re.compile(r"^(" + _CURIE + r")='(.*)'$")
+_SELECTOR_RE = re.compile(r"^(@type|" + _CURIE + r")='(.*)'$")   # @type membership selector allowed
 
 
 def _parse_segment(seg: str) -> Segment:

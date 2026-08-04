@@ -97,9 +97,10 @@ def mechanical(s):
     # dqv inline selector -> array selector
     s = re.sub(r"dqv:hasQualityMeasurement\.dqv:isMeasurementOf='([^']*)'",
                r"dqv:hasQualityMeasurement[dqv:isMeasurementOf='\1']", s)
-    # schema:object @type-list selector (the iSample MaterialSample) -> canonical additionalType selector
+    # schema:object @type-list selector (the iSample MaterialSample) -> canonical @type selector
+    # (a material sample's identity is in @type, as the iSample URI — not additionalType).
     s = re.sub(r"schema:object\[@type[^\]]*materialsample[^\]]*\]",
-               r"schema:object[schema:additionalType='materialsample']", s)
+               r"schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample']", s)
     # space-before-terminal: "...] schema:description" -> "...].schema:description"
     s = re.sub(r"\]\s+(schema:(?:description|value|name))\b", r"].\1", s)
     # #3: additionalProperty terminal convention -> .schema:value (name-terminal or missing terminal)
@@ -128,7 +129,7 @@ def recognize(s):
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "workflow-step"),
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "workflow-step-parameter"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
-        (r"^\$MethodDefinition\.schema:object\[schema:additionalType='materialsample'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
+        (r"^\$MethodDefinition\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
         # instrument: a typed instrument array (selector=additionalType), optional component hasPart
         # (also selector=additionalType), carrying identity fields, direct ada: props, or parameters.
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(model|manufacturer)(\.schema:[A-Z][A-Za-z]*)?\.schema:name$", "instrument-identity"),
@@ -143,8 +144,8 @@ def recognize(s):
         (r"^\$Dataset\.schema:measurementTechnique(\.schema:DefinedTerm)?\.schema:identifier$", "dataset-measurement-technique"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate)$", "dataset-provenance"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-prov-parameter"),
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[schema:additionalType='materialsample'\]\.schema:(name|identifier)$", "dataset-sample"),
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[schema:additionalType='materialsample'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier)$", "dataset-sample"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
         (r"^\$Dataset\.schema:funding$", "dataset-funding"),
         (r"^\$Dataset\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|url|description))?$", "dataset-related-link"),
         (r"^\$Dataset\.dqv:hasQualityMeasurement\[dqv:isMeasurementOf='[^']*'\]\.dqv:value$", "dataset-quality"),

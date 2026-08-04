@@ -58,7 +58,7 @@ class Leaf:
 # keys whose value is always a JSON array (schema.org additionalType on a Thing). A selector on
 # such a key is modeled uniformly as an array that CONTAINS the token — never a scalar const — so
 # selector branches and any terminal on the same key compose (e.g. instrument ICP-MS Type appends).
-ARRAY_VALUED = {"schema:additionalType"}
+ARRAY_VALUED = {"schema:additionalType", "@type"}
 
 # schema.org / PROV properties whose value is always a JSON array. A plain nav into one yields an
 # array-of-objects container; a bare terminal on one asserts array cardinality without constraining
