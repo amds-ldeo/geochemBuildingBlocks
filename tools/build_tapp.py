@@ -730,6 +730,7 @@ def build():
     write_bblock_if_missing(DETAIL_DIR, CFG["detail_title"], CFG["detail_description"],
                             ["ada", "astromat", "instrument", CFG["prefix"].lower()])
 
+    os.makedirs(os.path.join(ROOT, "docs", "new_tapps202606"), exist_ok=True)
     json.dump({"tapp_props": list(tapp_props.keys()), "pt_keys": pt_keys, "pv_keys": pv_keys,
                "analyte_cols": acols, "detail_req": [b["name"] for b in R["detail_req"]],
                "detail_req_multivol": [b["name"] for b in R["detail_req"] if b["multivol_only"]],
@@ -1011,6 +1012,7 @@ def build_empa():
     L._write_examples_yaml(examples_yaml)
     print(f"  wrote {n_tapp} empaTAPP + {n_detail} detailEMPA examples")
 
+    os.makedirs(os.path.join(ROOT, "docs", "new_tapps202606"), exist_ok=True)
     json.dump({"schema_properties": [k for k, _ in cls["schema_properties"]],
                "required_props": cls["required_props"],
                "analyte_column_names": sorted(cls["analyte_column_names"]),
