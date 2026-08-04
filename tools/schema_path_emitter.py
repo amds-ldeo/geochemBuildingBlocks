@@ -56,7 +56,10 @@ class Leaf:
 
 
 # ---------- merger: fold one path into the tree ----------
-def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema, require=False):
+def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, element=None):
+    """Fold one path into the tree. `leaf_schema` sets a scalar terminal field; `element`
+    (an Obj|Leaf) is placed as the selected array element when the path ends at a selector
+    (used for registry-$ref additionalProperty entries)."""
     node = root
     segs = parsed.segments
     for i, seg in enumerate(segs):
@@ -73,14 +76,18 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema, require=False):
             if seg.selector:
                 key, val = seg.selector
                 arr.selkey = key
+                if require:
+                    arr.required.add(val)
+                if is_last:
+                    if element is not None:
+                        arr.branches[val] = element     # provided element (e.g. a $ref Leaf)
+                    elif val not in arr.branches:
+                        o = Obj(); o.props[key] = Leaf({"const": val}); arr.branches[val] = o
+                    return                     # value IS the selected element
                 item = arr.branches.get(val)
                 if item is None:
                     item = Obj(); item.props[key] = Leaf({"const": val})
                     arr.branches[val] = item
-                if require:
-                    arr.required.add(val)
-                if is_last:
-                    return                     # value IS the selected element (already keyed)
                 node = item
             else:                              # bare "[]"
                 if is_last:
@@ -108,7 +115,15 @@ def to_schema(node):
                 "properties": {k: to_schema(v) for k, v in node.props.items()}}
     if isinstance(node, Arr):
         if node.branches:
-            branches = [to_schema(o) for o in node.branches.values()]
+            vals = list(node.branches.values())
+            if all(isinstance(v, Leaf) for v in vals):
+                # registry-$ref elements (schema:additionalProperty): anyOf of the refs, each
+                # optional-and-at-most-one via allOf/contains (mirrors build_tapp's overlay).
+                refs = [v.schema for v in vals]
+                return {"type": "array",
+                        "items": {"anyOf": refs} if len(refs) > 1 else refs[0],
+                        "allOf": [{"contains": r, "minContains": 0, "maxContains": 1} for r in refs]}
+            branches = [to_schema(o) for o in vals]
             out = {"type": "array",
                    "items": {"anyOf": branches} if len(branches) > 1 else branches[0]}
             if node.required:
@@ -167,14 +182,30 @@ def _load_rows(tapp):
 
 
 IS_INSTRUMENT = re.compile(r"schema:instrument\b")
+# registry-ref path prefix per artifact root (from the artifact's own directory)
+_REG_PREFIX = {"MethodDefinition": "..", "Dataset": "../../techniqueProtocols"}
+
+
+def _is_addl_param(p: spp.ParsedPath) -> bool:
+    """True for a `…schema:additionalProperty[schema:name='X'].schema:(value|defaultValue)` path —
+    an ADA method/analysis parameter that resolves to a registry PropertyValue(Spec) $ref."""
+    s = p.segments
+    return (len(s) >= 2 and not s[-1].is_array and s[-1].selector is None
+            and s[-1].prop in ("schema:value", "schema:defaultValue")
+            and s[-2].prop == "schema:additionalProperty" and s[-2].selector is not None)
 
 
 def build(tapp):
-    """Return {root -> JSON-Schema overlay object} for the CLEAN families of one TAPP."""
-    meta = _load_rows(tapp)   # configures b.XLSX
+    """Return ({root -> JSON-Schema overlay}, {registry -> {$defs}}, skipped) for the CLEAN
+    families of one TAPP. additionalProperty parameters resolve to registry PropertyValue /
+    PropertyValueSpecification $defs (reusing build_tapp), referenced by $ref from the overlay."""
+    meta = _load_rows(tapp)   # configures b.XLSX / PARAM_BASE
+    sidecar = b.load_sidecar()
     spec_path = os.path.join(ROOT, "docs", os.path.splitext(os.path.basename(b.XLSX))[0] + ".schemapaths.json")
     spec = json.load(open(spec_path, encoding="utf-8"))
     roots = {"MethodDefinition": Obj(), "Dataset": Obj()}
+    registries = {"parameterTemplates": {}, "parameterValues": {}}
+    pt_seen, pv_seen = set(), set()
     skipped = []
     for item, rec in spec.items():
         path = rec["path"]
@@ -182,35 +213,55 @@ def build(tapp):
             skipped.append(item); continue
         parsed = spp.parse(path)
         m = meta.get(item, {})
-        # enum from Example/Allowed Content for controlled lists (best-effort, same rule as build_tapp)
+        require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
+        if _is_addl_param(parsed):
+            bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
+                  "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
+                  "desc": m.get("desc", ""), "A": m.get("A", "")}
+            if parsed.segments[-1].prop == "schema:defaultValue":
+                name, body = b.param_template_def(bd, pt_seen)
+                registries["parameterTemplates"].update(body); pt_seen.add(name)
+                ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterTemplates/schema.yaml#/$defs/{name}"}
+            else:
+                name, body = b.param_value_def(bd, pv_seen)
+                registries["parameterValues"].update(body); pv_seen.add(name)
+                ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterValues/schema.yaml#/$defs/{name}"}
+            truncated = spp.ParsedPath(parsed.root, parsed.segments[:-1])
+            insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
+            continue
         enum = None
         dl = (m.get("dt") or "").lower()
         if "controlled" in dl:
             parts = [p.strip().strip("'\"") for p in (m.get("ex") or "").split("|")
                      if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
             enum = parts or None
-        leaf = leaf_for(m.get("desc"), m.get("dt"), enum)
-        require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
-        insert(roots[parsed.root], parsed, leaf, require=require)
-    return {r: to_schema(o) for r, o in roots.items()}, skipped
+        insert(roots[parsed.root], parsed, leaf_for(m.get("desc"), m.get("dt"), enum), require=require)
+    return {r: to_schema(o) for r, o in roots.items()}, registries, skipped
 
 
 def _self_test(tapp="laicpmsTAPP"):
     import jsonschema
-    overlays, skipped = build(tapp)
+    overlays, registries, skipped = build(tapp)
     print(f"=== {tapp}: path-driven CLEAN-family overlays ===")
     for root, sch in overlays.items():
-        props = sch.get("properties", {})
-        print(f"\n[{root}] {len(props)} top-level properties")
+        print(f"\n[{root}] {len(sch.get('properties', {}))} top-level properties")
         try:
             jsonschema.Draft202012Validator.check_schema(sch)
             print("   check_schema: OK")
         except jsonschema.SchemaError as e:
             print(f"   check_schema: FAIL — {e.message}")
-    print(f"\nskipped (instrument bucket): {len(skipped)}")
-    # show the Dataset overlay (the new analysis-instance level) in full
-    print("\n--- $Dataset overlay (analysis-instance level) ---")
-    print(json.dumps(overlays["Dataset"], indent=2)[:2600])
+    print(f"\nregistry $defs generated: parameterTemplates={len(registries['parameterTemplates'])}"
+          f"  parameterValues={len(registries['parameterValues'])}")
+    print(f"skipped (instrument bucket): {len(skipped)}")
+    # show a TAPP additionalProperty (registry $ref) and one generated PropertyValueSpecification
+    ap = overlays["MethodDefinition"]["properties"].get("schema:additionalProperty")
+    if ap:
+        print("\n--- TAPP schema:additionalProperty (registry $refs) ---")
+        print(json.dumps(ap, indent=2)[:900])
+    if registries["parameterTemplates"]:
+        k = next(iter(registries["parameterTemplates"]))
+        print(f"\n--- sample parameterTemplates $def: {k} ---")
+        print(json.dumps(registries["parameterTemplates"][k], indent=2)[:700])
     return 0
 
 

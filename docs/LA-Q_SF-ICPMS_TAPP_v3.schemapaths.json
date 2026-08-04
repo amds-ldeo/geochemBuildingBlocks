@@ -11,6 +11,10 @@
     "path": "$MethodDefinition.schema:creator.schema:name",
     "family": "multi-target-primary"
   },
+  "Analyst": {
+    "path": "$Dataset.schema:contributor[schema:roleName='analyst'].schema:name",
+    "family": "dataset-contributor"
+  },
   "Laboratory": {
     "path": "$MethodDefinition.schema:location.schema:Place.schema:defaultname",
     "family": "inherited-identity"
@@ -62,6 +66,10 @@
   "Coupled Dataset or Publication Reference": {
     "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target",
     "family": "dataset-related-link"
+  },
+  "Target Material": {
+    "path": "$MethodDefinition.schema:object[schema:additionalType='materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[]",
+    "family": "protocol-sample-parameter"
   },
   "Sample Form / Analytical Substrate": {
     "path": "$MethodDefinition.schema:object[schema:additionalType='materialsample'].schema:additionalProperty[schema:name='Sample Form'].schema:defaultValue",
@@ -196,7 +204,7 @@
     "family": "method-parameter"
   },
   "Signal Collection Mode": {
-    "path": "$MethodDefinition.ada:signalCollectionMethod",
+    "path": "$MethodDefinition.ada:signalCollectionMode",
     "family": "direct-ada"
   },
   "Dwell Time per Mass": {

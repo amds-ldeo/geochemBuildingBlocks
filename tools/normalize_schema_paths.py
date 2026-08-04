@@ -88,7 +88,7 @@ def mechanical(s):
     # selector unification -> [schema:name='X']
     s = re.sub(r"\[\]\.schema:name[:=]'([^']*)'", r"[schema:name='\1']", s)
     s = re.sub(r"bios:computationalTool\[\]\.schema:name='([^']*)'", r"bios:computationalTool[schema:name='\1']", s)
-    s = re.sub(r"schema:relatedLink\[\]\.schema:linkRelationship\[name='([^']*)'\]",
+    s = re.sub(r"schema:relatedLink\[\]\.schema:linkRelationship\[(?:schema:)?name='([^']*)'\]",
                r"schema:relatedLink[schema:linkRelationship='\1']", s)
     s = re.sub(r"schema:step\[\]\[(schema:(?:name|additionalType)='[^']*')\]", r"schema:step[\1]", s)
     s = re.sub(r"schema:additionalProperty\['([^']*)'\]", r"schema:additionalProperty[schema:name='\1']", s)
