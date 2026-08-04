@@ -46,6 +46,11 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
 | related link target | `$MethodDefinition.schema:relatedLink[schema:linkRelationship='<rel>'].schema:target.<field>` |
 | workflow step (whole/field) | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'](.<field>)?` |
 | workflow-step parameter | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:value` |
+| instrument identity | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:<model\|manufacturer>.schema:name` (or `.schema:<name\|identifier\|additionalType>`) |
+| instrument direct property | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].ada:<name>` |
+| instrument parameter | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
+| instrument component | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:hasPart[schema:additionalType='<component>'].schema:<name\|identifier>` |
+| instrument component parameter | `…schema:hasPart[schema:additionalType='<component>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
 | dataset scalar | `$Dataset.ada:<name>` |
 | dataset provenance | `$Dataset.prov:wasGeneratedBy.<schema:startDate\|schema:endDate>` |
 | dataset prov parameter | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<param>'].schema:value` |
