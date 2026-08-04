@@ -129,6 +129,14 @@ def recognize(s):
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "workflow-step-parameter"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
         (r"^\$MethodDefinition\.schema:object\[schema:additionalType='materialsample'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
+        # instrument: a typed instrument array (selector=additionalType), optional component hasPart
+        # (also selector=additionalType), carrying identity fields, direct ada: props, or parameters.
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(model|manufacturer)(\.schema:[A-Z][A-Za-z]*)?\.schema:name$", "instrument-identity"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(name|identifier|additionalType)$", "instrument-identity"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "instrument-direct-ada"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-parameter"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:(name|identifier)$", "instrument-component"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-component-parameter"),
         (r"^\$MethodDefinition\.schema:(creator|location|measurementTechnique|object|funding)\b.*", "inherited-identity"),
         # dataset side (belongs on the analysis session / detail, not the reusable protocol)
         (r"^\$Dataset\.schema:contributor\[schema:roleName='[^']*'\](\.schema:(name|identifier))?$", "dataset-contributor"),

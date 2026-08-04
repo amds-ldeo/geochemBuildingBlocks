@@ -98,7 +98,16 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 node = arr.append
         else:                                  # plain property
             if is_last:
-                node.props[curie] = Leaf(leaf_schema)
+                existing = node.props.get(curie)
+                if (isinstance(existing, Leaf) and isinstance(existing.schema, dict)
+                        and "const" in existing.schema):
+                    # collision with a selector const (e.g. an instrument's schema:additionalType,
+                    # which is array-valued): model as an array whose items match this row and that
+                    # CONTAINS the selector value — keeps the selector meaning + the row's value.
+                    node.props[curie] = Leaf({"type": "array", "items": leaf_schema or {"type": "string"},
+                                              "allOf": [{"contains": existing.schema}]})
+                else:
+                    node.props[curie] = Leaf(leaf_schema)
                 return
             child = node.props.get(curie)
             if not isinstance(child, Obj):
@@ -181,7 +190,6 @@ def _load_rows(tapp):
     return out
 
 
-IS_INSTRUMENT = re.compile(r"schema:instrument\b")
 # registry-ref path prefix per artifact root (from the artifact's own directory)
 _REG_PREFIX = {"MethodDefinition": "..", "Dataset": "../../techniqueProtocols"}
 
@@ -196,9 +204,10 @@ def _is_addl_param(p: spp.ParsedPath) -> bool:
 
 
 def build(tapp):
-    """Return ({root -> JSON-Schema overlay}, {registry -> {$defs}}, skipped) for the CLEAN
-    families of one TAPP. additionalProperty parameters resolve to registry PropertyValue /
-    PropertyValueSpecification $defs (reusing build_tapp), referenced by $ref from the overlay."""
+    """Return ({root -> JSON-Schema overlay}, {registry -> {$defs}}) for one TAPP, driven entirely
+    by its canonical schema paths — including instrument nesting. additionalProperty parameters
+    (at any depth) resolve to registry PropertyValue / PropertyValueSpecification $defs (reusing
+    build_tapp), referenced by $ref from the overlay."""
     meta = _load_rows(tapp)   # configures b.XLSX / PARAM_BASE
     sidecar = b.load_sidecar()
     spec_path = os.path.join(ROOT, "docs", os.path.splitext(os.path.basename(b.XLSX))[0] + ".schemapaths.json")
@@ -206,11 +215,8 @@ def build(tapp):
     roots = {"MethodDefinition": Obj(), "Dataset": Obj()}
     registries = {"parameterTemplates": {}, "parameterValues": {}}
     pt_seen, pv_seen = set(), set()
-    skipped = []
     for item, rec in spec.items():
         path = rec["path"]
-        if IS_INSTRUMENT.search(path):
-            skipped.append(item); continue
         parsed = spp.parse(path)
         m = meta.get(item, {})
         require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
@@ -236,13 +242,13 @@ def build(tapp):
                      if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
             enum = parts or None
         insert(roots[parsed.root], parsed, leaf_for(m.get("desc"), m.get("dt"), enum), require=require)
-    return {r: to_schema(o) for r, o in roots.items()}, registries, skipped
+    return {r: to_schema(o) for r, o in roots.items()}, registries
 
 
 def _self_test(tapp="laicpmsTAPP"):
     import jsonschema
-    overlays, registries, skipped = build(tapp)
-    print(f"=== {tapp}: path-driven CLEAN-family overlays ===")
+    overlays, registries = build(tapp)
+    print(f"=== {tapp}: path-driven overlays (all families, incl. instrument) ===")
     for root, sch in overlays.items():
         print(f"\n[{root}] {len(sch.get('properties', {}))} top-level properties")
         try:
@@ -252,16 +258,10 @@ def _self_test(tapp="laicpmsTAPP"):
             print(f"   check_schema: FAIL — {e.message}")
     print(f"\nregistry $defs generated: parameterTemplates={len(registries['parameterTemplates'])}"
           f"  parameterValues={len(registries['parameterValues'])}")
-    print(f"skipped (instrument bucket): {len(skipped)}")
-    # show a TAPP additionalProperty (registry $ref) and one generated PropertyValueSpecification
-    ap = overlays["MethodDefinition"]["properties"].get("schema:additionalProperty")
-    if ap:
-        print("\n--- TAPP schema:additionalProperty (registry $refs) ---")
-        print(json.dumps(ap, indent=2)[:900])
-    if registries["parameterTemplates"]:
-        k = next(iter(registries["parameterTemplates"]))
-        print(f"\n--- sample parameterTemplates $def: {k} ---")
-        print(json.dumps(registries["parameterTemplates"][k], indent=2)[:700])
+    inst = overlays["MethodDefinition"]["properties"].get("schema:instrument")
+    if inst:
+        types = [br.get("properties", {}).get("schema:additionalType") for br in inst["items"]["anyOf"]]
+        print(f"instrument branches: {len(inst['items']['anyOf'])} typed instruments")
     return 0
 
 

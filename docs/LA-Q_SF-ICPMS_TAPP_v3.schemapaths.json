@@ -95,9 +95,57 @@
     "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Pre-Ablation Surface Treatment'].schema:value",
     "family": "workflow-step-parameter"
   },
+  "Laser Manufacturer & Model": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].schema:model.schema:name",
+    "family": "instrument-identity"
+  },
+  "ICP-MS Manufacturer & Model": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:model.schema:name",
+    "family": "instrument-identity"
+  },
+  "ICP-MS Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:additionalType",
+    "family": "instrument-identity"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:identifier",
+    "family": "instrument-identity"
+  },
+  "Interface Cone Configuration": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Configuration'].schema:value",
+    "family": "instrument-component-parameter"
+  },
+  "Sampler and Skimmer Cone Material": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Sampler and Skimmer Cone Material'].schema:value",
+    "family": "instrument-component-parameter"
+  },
+  "Torch Depth": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Torch'].schema:additionalProperty[schema:name='Torch Depth'].schema:value",
+    "family": "instrument-component-parameter"
+  },
+  "Torch Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Torch'].schema:name",
+    "family": "instrument-component"
+  },
   "Guard Electrode": {
     "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataAquisition'].schema:additionalProperty[schema:name='Guard Electrode'].schema:value",
     "family": "workflow-step-parameter"
+  },
+  "Mass Resolution Setting": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:additionalProperty[schema:name='Mass Resolution Setting'].schema:value",
+    "family": "instrument-parameter"
+  },
+  "Detector Configuration": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:additionalProperty[schema:name='Detector Configuration'].schema:value",
+    "family": "instrument-parameter"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:name",
+    "family": "instrument-component"
+  },
+  "Laser Wavelength and Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].ada:laserType",
+    "family": "instrument-direct-ada"
   },
   "Acquisition Software": {
     "path": "$MethodDefinition.bios:computationalTool[]",
@@ -107,13 +155,41 @@
     "path": "$MethodDefinition.bios:computationalTool[]",
     "family": "computational-tool-list"
   },
+  "Ablation Cell Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].schema:name",
+    "family": "instrument-identity"
+  },
   "Analytical Mode": {
     "path": "$MethodDefinition.ada:analyticalMode[]",
     "family": "direct-ada"
   },
+  "Laser Spot Geometry": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].ada:laserSpotGeometry",
+    "family": "instrument-direct-ada"
+  },
   "Laser Spot Path / Ablation Mode": {
     "path": "$MethodDefinition.ada:ablationSamplingMode",
     "family": "direct-ada"
+  },
+  "Laser Energy": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].schema:additionalProperty[schema:name='Laser Energy'].schema:defaultValue",
+    "family": "instrument-parameter"
+  },
+  "Laser Fluence (Energy Density)": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].ada:laserFluence",
+    "family": "instrument-direct-ada"
+  },
+  "Laser Beam Energy Profile": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].schema:additionalProperty[schema:name='Laser Beam Energy Profile'].schema:value",
+    "family": "instrument-parameter"
+  },
+  "Laser Repetition Rate": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].ada:laserRepetitionRate",
+    "family": "instrument-direct-ada"
+  },
+  "Laser Pulse Duration": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='Laser ablation system'].schema:additionalProperty[schema:name='Laser Pulse Duration'].schema:value",
+    "family": "instrument-parameter"
   },
   "Ablation Duration per Spot": {
     "path": "$MethodDefinition.ada:ablationSpotDuration",
@@ -206,6 +282,26 @@
   "Signal Collection Mode": {
     "path": "$MethodDefinition.ada:signalCollectionMode",
     "family": "direct-ada"
+  },
+  "Collision Gas Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Collision Gas'].schema:value",
+    "family": "instrument-component-parameter"
+  },
+  "Collision Gas Flow Rate": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Gas Flow Rate'].schema:value",
+    "family": "instrument-component-parameter"
+  },
+  "Cell Exit Discrimination Voltage": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Cell Exit Voltage'].schema:value",
+    "family": "instrument-component-parameter"
+  },
+  "Reaction Gas Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas'].schema:value",
+    "family": "instrument-component-parameter"
+  },
+  "Reaction Gas Flow Rate": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:value",
+    "family": "instrument-component-parameter"
   },
   "Dwell Time per Mass": {
     "path": "$MethodDefinition.ada:dwellTime",
