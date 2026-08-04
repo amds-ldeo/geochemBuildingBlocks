@@ -11,13 +11,6 @@ properties:
     type: array
     items:
       type: object
-      properties:
-        schema:roleName:
-          const: analyst
-        schema:name:
-          description: Name(s) of the analyst(s) who performed the actual analysis. ORCID is recommended
-            for persistent identification.
-          type: string
     allOf:
     - contains:
         properties:
@@ -26,291 +19,188 @@ properties:
         required:
         - schema:roleName
   prov:wasGeneratedBy:
-    type: object
-    properties:
-      schema:startDate:
-        description: 'Date on which the analytical session began. For analyses spanning multiple days,
-          use the date of the first session. Format: YYYY-MM-DD.'
-        type: string
-      schema:endDate:
-        description: 'Date on which the analytical session ended. May equal Analysis Start Date for single-day
-          sessions. Format: YYYY-MM-DD.'
-        type: string
-      schema:object:
-        type: array
-        items:
-          type: object
-          properties:
-            schema:additionalType:
-              type: array
-              items:
-                anyOf:
-                - const: materialsample
-                - type: string
-              allOf:
-              - contains:
-                  const: materialsample
-            schema:name:
-              description: Name or identifier of the sample analysed, as used in the laboratory. Should
-                match the identifier used in associated publications or data tables.
-              type: string
-            schema:identifier:
-              description: Globally unique, persistent identifier for the analysed sample. IGSN (International
-                Geo Sample Number) is the recommended standard for geological and cosmochemical samples,
-                as used by Astromat, EarthChem, and SESAR.
-              type: string
-            schema:additionalProperty:
-              type: array
-              items: &id001
-                title: Analysis Location/Spot Coordinates
-                description: 'Location of the analysis on the sample surface. For spot and transect analysis:
-                  stage coordinates (X, Y in µm) or a description relative to a named reference feature
-                  (e.g., mineral rim, inclusion boundary). For mapping: coordinates of the map corner(s)
-                  or centre, plus map dimensions. Enables spatial reconstruction and co-registration with
-                  other analytical images.'
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laicpmsTAPP/analysisLocationSpotCoordinates
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                      '@id': ada:parameter/laicpmsTAPP/analysisLocationSpotCoordinates
-                  schema:name:
-                    const: Analysis Location/Spot Coordinates
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-              allOf:
-              - contains: *id001
-                minContains: 0
-                maxContains: 1
-        allOf:
-        - contains:
-            properties:
-              schema:additionalType:
-                contains:
-                  const: materialsample
-            required:
-            - schema:additionalType
-      schema:additionalProperty:
-        type: array
-        items:
-          anyOf:
-          - &id002
-            title: Number of Replicates
-            description: 'Number of replicate analyses performed on the same sample (or same nominal location
-              for spot analysis) in this session. For spot analysis: number of individual spot analyses
-              per grain or location. For transect: number of replicate transect lines. For mapping: number
-              of map acquisitions of the same area (usually 1).'
-            type: object
-            properties:
-              '@id':
-                const: ada:parameter/laicpmsTAPP/numberOfReplicates
-              '@type':
-                const:
-                - schema:PropertyValue
-              schema:propertyID:
-                const:
-                  '@id': ada:parameter/laicpmsTAPP/numberOfReplicates
-              schema:name:
-                const: Number of Replicates
-              schema:value:
-                anyOf:
-                - type: number
-                - type: string
-            required:
-            - '@id'
-            - '@type'
-            - schema:propertyID
-            - schema:name
-            - schema:value
-          - &id003
-            title: Transect Length
-            description: Total length of the transect line analysed in micrometres. This is an analysis-level
-              parameter because it depends on the size of the feature of interest rather than being fixed
-              in the protocol. The protocol fixes scan speed (captured in Transect Rate, Mapping Rate
-              or Step Size); transect length is determined at analysis time based on grain or feature
-              size.
-            type: object
-            properties:
-              '@id':
-                const: ada:parameter/laicpmsTAPP/transectLength
-              '@type':
-                const:
-                - schema:PropertyValue
-              schema:propertyID:
-                const:
-                  '@id': ada:parameter/laicpmsTAPP/transectLength
-              schema:name:
-                const: Transect Length
-              schema:value:
-                anyOf:
-                - type: number
-                - type: string
-              schema:unitText:
-                type: string
-            required:
-            - '@id'
-            - '@type'
-            - schema:propertyID
-            - schema:name
-            - schema:value
-            - schema:unitText
-          - &id004
-            title: Mapping Area
-            description: Total area covered by the 2D raster map, expressed as width × height in µm or
-              as total area in µm² or mm². This is an analysis-level parameter because it depends on the
-              size of the grain or phase to be mapped. The protocol fixes scan speed, line spacing, and
-              spot size; the map area is chosen at analysis time to cover the target feature.
-            type: object
-            properties:
-              '@id':
-                const: ada:parameter/laicpmsTAPP/mappingArea
-              '@type':
-                const:
-                - schema:PropertyValue
-              schema:propertyID:
-                const:
-                  '@id': ada:parameter/laicpmsTAPP/mappingArea
-              schema:name:
-                const: Mapping Area
-              schema:value:
-                type: string
-            required:
-            - '@id'
-            - '@type'
-            - schema:propertyID
-            - schema:name
-            - schema:value
-          - &id005
-            title: Signal Integration Time
-            description: 'Actual integration time used for the ablation signal in this analysis, in seconds.
-              This is an analysis-level outcome determined during data reduction by applying the Signal
-              Integration Interval Method to the time-resolved signal. It is equal to or shorter than
-              the Ablation Duration per Spot because the signal start and end transients are typically
-              discarded. Not applicable to mapping analysis: for mapping, the equivalent concept is the
-              per-pixel cycle time, which is determined by the spectrometer dwell time settings (a protocol-level
-              field) rather than being an analysis-level outcome.'
-            type: object
-            properties:
-              '@id':
-                const: ada:parameter/laicpmsTAPP/signalIntegrationTime
-              '@type':
-                const:
-                - schema:PropertyValue
-              schema:propertyID:
-                const:
-                  '@id': ada:parameter/laicpmsTAPP/signalIntegrationTime
-              schema:name:
-                const: Signal Integration Time
-              schema:value:
-                anyOf:
-                - type: number
-                - type: string
-              schema:unitText:
-                type: string
-            required:
-            - '@id'
-            - '@type'
-            - schema:propertyID
-            - schema:name
-            - schema:value
-            - schema:unitText
-        allOf:
-        - contains: *id002
-          minContains: 0
-          maxContains: 1
-        - contains: *id003
-          minContains: 0
-          maxContains: 1
-        - contains: *id004
-          minContains: 0
-          maxContains: 1
-        - contains: *id005
-          minContains: 0
-          maxContains: 1
-  schema:measurementTechnique:
-    type: object
-    properties:
-      schema:identifier:
-        description: DOI or unique persistent identifier for the registered protocol used in this analysis,
-          generated upon protocol submission to a data repository. This field is mandatory when submitting
-          analytical data to encourage formal protocol registration and ensure traceability. If a DOI
-          has been applied for but not yet minted, enter "pending".
-        type: string
-  schema:funding:
-    description: Grants and other funding sources that supported the specific sample analyses and data
-      collection reported here. Include grant numbers and funding agencies. Distinct from protocol development
-      funding, which may have been awarded years earlier.
-    type: string
-  schema:relatedLink:
-    type: array
-    items:
-      anyOf:
-      - type: object
-        properties:
-          schema:linkRelationship:
-            const: coupledTechnique
-          schema:target:
-            type: object
-            properties:
-              schema:name:
-                description: Analytical technique(s) applied to the same sample or aliquot in conjunction
-                  with this protocol, where the two analyses are designed to be interpreted together or
-                  where one provides input to the other. Use the same controlled vocabulary as the Technique
-                  field. Enter "None" if no coupling is intended.
-                type: string
-                enum:
-                - EPMA
-                - SIMS
-                - ICP-MS (solution)
-                - Noble Gas MS
-                - None
-      - type: object
-        properties:
-          schema:linkRelationship:
-            const: coupledProtocol
-          schema:target:
-            type: object
-            properties:
-              schema:url:
-                description: Registered protocol DOI for the coupled technique named above. Provides a
-                  stable, citable link to the companion method independent of whether a dataset has been
-                  deposited. If the coupled protocol has not yet been registered, enter the DOI of a publication
-                  describing the coupled method, or "pending". Enter "None" if no coupling is planned.
-                type: string
-      - type: object
-        properties:
-          schema:linkRelationship:
-            const: coupledDataset
-          schema:target:
-            description: 'DOI or other persistent identifier for the co-registered dataset or publication
-              where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately
-              deposited), a shared dataset DOI (if co-submitted in the same package), or a publication
-              DOI. Use "same submission" if the coupled dataset is included in this data package, or "pending"
-              if not yet assigned. If coupling is documented through a shared sample identifier only,
-              that information is already captured in Sample Persistent Identifier (Group 2).'
-            type: string
-  dqv:hasQualityMeasurement:
     type: array
     items:
       type: object
       properties:
-        dqv:isMeasurementOf:
-          const: Oxide production ratio
-        dqv:value:
-          description: Actual oxide production ratio measured during this analytical session, using the
-            method specified in the protocol-level field "Oxide Production Method and Threshold". Report
-            the measured value and confirm it met the protocol threshold.
+        schema:startDate:
+          description: 'Date on which the analytical session began. For analyses spanning multiple days,
+            use the date of the first session. Format: YYYY-MM-DD.'
           type: string
+        schema:endDate:
+          description: 'Date on which the analytical session ended. May equal Analysis Start Date for
+            single-day sessions. Format: YYYY-MM-DD.'
+          type: string
+        schema:object:
+          type: array
+          items:
+            type: object
+          allOf:
+          - contains:
+              properties:
+                schema:additionalType:
+                  contains:
+                    const: materialsample
+              required:
+              - schema:additionalType
+        schema:additionalProperty:
+          type: array
+          items:
+            anyOf:
+            - &id001
+              title: Number of Replicates
+              description: 'Number of replicate analyses performed on the same sample (or same nominal
+                location for spot analysis) in this session. For spot analysis: number of individual spot
+                analyses per grain or location. For transect: number of replicate transect lines. For
+                mapping: number of map acquisitions of the same area (usually 1).'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laicpmsTAPP/numberOfReplicates
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/laicpmsTAPP/numberOfReplicates
+                schema:name:
+                  const: Number of Replicates
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id002
+              title: Transect Length
+              description: Total length of the transect line analysed in micrometres. This is an analysis-level
+                parameter because it depends on the size of the feature of interest rather than being
+                fixed in the protocol. The protocol fixes scan speed (captured in Transect Rate, Mapping
+                Rate or Step Size); transect length is determined at analysis time based on grain or feature
+                size.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laicpmsTAPP/transectLength
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/laicpmsTAPP/transectLength
+                schema:name:
+                  const: Transect Length
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - &id003
+              title: Mapping Area
+              description: Total area covered by the 2D raster map, expressed as width × height in µm
+                or as total area in µm² or mm². This is an analysis-level parameter because it depends
+                on the size of the grain or phase to be mapped. The protocol fixes scan speed, line spacing,
+                and spot size; the map area is chosen at analysis time to cover the target feature.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laicpmsTAPP/mappingArea
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/laicpmsTAPP/mappingArea
+                schema:name:
+                  const: Mapping Area
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id004
+              title: Signal Integration Time
+              description: 'Actual integration time used for the ablation signal in this analysis, in
+                seconds. This is an analysis-level outcome determined during data reduction by applying
+                the Signal Integration Interval Method to the time-resolved signal. It is equal to or
+                shorter than the Ablation Duration per Spot because the signal start and end transients
+                are typically discarded. Not applicable to mapping analysis: for mapping, the equivalent
+                concept is the per-pixel cycle time, which is determined by the spectrometer dwell time
+                settings (a protocol-level field) rather than being an analysis-level outcome.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laicpmsTAPP/signalIntegrationTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/laicpmsTAPP/signalIntegrationTime
+                schema:name:
+                  const: Signal Integration Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+          allOf:
+          - contains: *id001
+            minContains: 0
+            maxContains: 1
+          - contains: *id002
+            minContains: 0
+            maxContains: 1
+          - contains: *id003
+            minContains: 0
+            maxContains: 1
+          - contains: *id004
+            minContains: 0
+            maxContains: 1
+  schema:measurementTechnique:
+    type: array
+    items:
+      type: object
+      properties:
+        schema:identifier:
+          description: DOI or unique persistent identifier for the registered protocol used in this analysis,
+            generated upon protocol submission to a data repository. This field is mandatory when submitting
+            analytical data to encourage formal protocol registration and ensure traceability. If a DOI
+            has been applied for but not yet minted, enter "pending".
+          type: string
+  schema:funding:
+    type: array
+  schema:relatedLink:
+    type: array
+    items:
+      type: object
+  dqv:hasQualityMeasurement:
+    type: array
+    items:
+      type: object
     allOf:
     - contains:
         properties:

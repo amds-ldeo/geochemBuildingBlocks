@@ -60,6 +60,12 @@ class Leaf:
 # selector branches and any terminal on the same key compose (e.g. instrument ICP-MS Type appends).
 ARRAY_VALUED = {"schema:additionalType"}
 
+# schema.org / PROV properties whose value is always a JSON array. A plain nav into one yields an
+# array-of-objects container; a bare terminal on one asserts array cardinality without constraining
+# the item shape (adaProduct owns it). Selector-keyed arrays (contributor, additionalProperty, …)
+# are handled separately via branches.
+KNOWN_ARRAY = {"prov:wasGeneratedBy", "schema:measurementTechnique", "schema:funding"}
+
 
 class AddlType:
     """An array-valued key (schema:additionalType): required selector token(s) + an optional finer
@@ -124,13 +130,23 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                     # a terminal on an array-valued key (e.g. instrument ICP-MS Type) -> a finer
                     # value appended alongside the selector token(s).
                     existing.item_leaf = leaf_schema
+                elif curie in KNOWN_ARRAY:
+                    node.props[curie] = Arr()   # assert array cardinality only (base owns the shape)
                 else:
                     node.props[curie] = Leaf(leaf_schema)
                 return
-            child = node.props.get(curie)
-            if not isinstance(child, Obj):
-                child = Obj(); node.props[curie] = child
-            node = child
+            if curie in KNOWN_ARRAY:            # nav into an always-array property -> array of objects
+                arr = node.props.get(curie)
+                if not isinstance(arr, Arr):
+                    arr = Arr(); node.props[curie] = arr
+                if not isinstance(arr.append, Obj):
+                    arr.append = Obj()
+                node = arr.append
+            else:
+                child = node.props.get(curie)
+                if not isinstance(child, Obj):
+                    child = Obj(); node.props[curie] = child
+                node = child
 
 
 # ---------- serialize IR -> JSON Schema ----------
@@ -147,10 +163,17 @@ def to_schema(node):
                 "properties": {k: to_schema(v) for k, v in node.props.items()}}
     if isinstance(node, Arr):
         if node.branches:
-            items = [to_schema(v) for v in node.branches.values()]
-            out = {"type": "array", "items": {"anyOf": items} if len(items) > 1 else items[0]}
-            # per-branch presence constraint: a $ref (registry) branch is optional-and-at-most-one;
-            # an object branch that is required must be present (selector key = the token/name).
+            vals = list(node.branches.values())
+            # items: strict anyOf of the registry $ref branches; but if any branch is an object
+            # (e.g. schema:contributor selected by roleName), keep items OPEN so other members
+            # (a principalInvestigator contributor, extra additionalProperty entries) are allowed.
+            if all(isinstance(v, Leaf) for v in vals):
+                items = {"anyOf": [v.schema for v in vals]} if len(vals) > 1 else vals[0].schema
+            else:
+                items = {"type": "object"}
+            out = {"type": "array", "items": items}
+            # per-branch presence: a $ref branch is optional-and-at-most-one; a required object
+            # branch must be CONTAINED (selector key = the token/name).
             allof = []
             arr_key = node.selkey in ARRAY_VALUED
             for val, br in node.branches.items():
