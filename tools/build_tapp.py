@@ -60,6 +60,22 @@ TAPP_CONFIGS = {
         "prefix": "empa",
         "mode": "empa",
     },
+    "geochronTAPP": {
+        "xlsx": "docs/LA-ICPMS_Geochron_Horstwood_TAPP_v6.xlsx",
+        "prefix": "geochron",
+        "component_types": ["ada:LAICPMSGeochronTabular"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": {},
+        "conditional_mode": "MC-ICP-MS",
+        "enum_props": {},
+        "title": "LA-ICP-MS Geochronology TAPP (geochronTAPP)",
+        "description": ("Laser-ablation ICP-MS geochronology (U-Pb / Pb-Pb and related) Technique-"
+                        "Aligned Protocol Profile. Covers LA-Q/SF/MC-ICP-MS variants. Generated from "
+                        "docs/LA-ICPMS_Geochron_Horstwood_TAPP_v6.xlsx via the path-driven pipeline."),
+        "detail_title": "LA-ICP-MS Geochronology Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for LA-ICP-MS geochronology, "
+                               "reusing CDIF/schema.org slots on the schema:Dataset root."),
+    },
     "laicpmsTAPP": {
         "xlsx": "docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx",
         "prefix": "laicpms",
