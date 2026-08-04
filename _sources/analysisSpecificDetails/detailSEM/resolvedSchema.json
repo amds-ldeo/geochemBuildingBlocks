@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEM Analysis Detail",
+  "description": "Dataset-level analysis-instance detail for SEM (superset), reusing CDIF/schema.org slots on the schema:Dataset root.",
+  "type": "object",
+  "properties": {
+    "schema:measurementTechnique": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schema:identifier": {
+            "description": "Persistent identifier (DOI) assigned to this registered protocol. Enter 'pending' if a DOI has been applied for but not yet minted.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "schema:contributor": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "schema:roleName": {
+                "const": "analyst"
+              }
+            },
+            "required": [
+              "schema:roleName"
+            ]
+          }
+        }
+      ]
+    },
+    "prov:wasGeneratedBy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schema:startDate": {
+            "description": "Date on which the analysis session began.",
+            "type": "string"
+          },
+          "schema:endDate": {
+            "description": "Date on which the analysis session ended (if spanning multiple days).",
+            "type": "string"
+          },
+          "schema:object": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "allOf": [
+              {
+                "contains": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "schema:funding": {
+      "type": "array"
+    },
+    "schema:relatedLink": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "schema:funding"
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "Protocol Name": {
+    "path": "$MethodDefinition.schema:name",
+    "family": "reuse"
+  },
+  "Technique": {
+    "path": "$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode",
+    "family": "reuse"
+  },
+  "Protocol Author": {
+    "path": "$MethodDefinition.schema:creator.schema:name",
+    "family": "reuse"
+  },
+  "Laboratory": {
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:defaultname",
+    "family": "reuse"
+  },
+  "Laboratory ID": {
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:identifier",
+    "family": "reuse"
+  },
+  "Protocol Start Date": {
+    "path": "$MethodDefinition.schema:datePublished",
+    "family": "reuse"
+  },
+  "Funding Source for Protocol Development": {
+    "path": "$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name",
+    "family": "reuse"
+  },
+  "Protocol Reference(s)": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name",
+    "family": "reuse"
+  },
+  "Protocol DOI": {
+    "path": "$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier",
+    "family": "reuse"
+  },
+  "Analyst": {
+    "path": "$Dataset.schema:contributor[schema:roleName='analyst'].schema:name",
+    "family": "reuse"
+  },
+  "Analysis Start Date": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:startDate",
+    "family": "reuse"
+  },
+  "Analysis End Date": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:endDate",
+    "family": "reuse"
+  },
+  "Funding Source for Analysis": {
+    "path": "$Dataset.schema:funding",
+    "family": "reuse"
+  },
+  "Coupled Technique(s)": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name",
+    "family": "reuse"
+  },
+  "Coupling Description": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description",
+    "family": "reuse"
+  },
+  "Coupled Protocol DOI": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url",
+    "family": "reuse"
+  },
+  "Coupled Dataset or Publication Reference": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target",
+    "family": "reuse"
+  },
+  "Target Material": {
+    "path": "$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[]",
+    "family": "reuse"
+  },
+  "Sample Preparation Method": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description",
+    "family": "reuse"
+  },
+  "Sample Name": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name",
+    "family": "reuse"
+  },
+  "Sample Persistent Identifier": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier",
+    "family": "reuse"
+  },
+  "Instrument Manufacturer": {
+    "path": "$MethodDefinition.ada:instrumentManufacturer",
+    "family": "infer:direct-ada"
+  },
+  "Instrument Model": {
+    "path": "$MethodDefinition.ada:instrumentModel",
+    "family": "infer:direct-ada"
+  },
+  "Electron Source": {
+    "path": "$MethodDefinition.ada:electronSource",
+    "family": "infer:direct-ada"
+  },
+  "Instrument Variant": {
+    "path": "$MethodDefinition.ada:instrumentVariant",
+    "family": "infer:direct-ada"
+  },
+  "Ion Beam Source": {
+    "path": "$MethodDefinition.ada:ionBeamSource",
+    "family": "infer:direct-ada"
+  },
+  "SE Detector Type": {
+    "path": "$MethodDefinition.ada:seDetectorType",
+    "family": "infer:direct-ada"
+  },
+  "BSE Detector Type": {
+    "path": "$MethodDefinition.ada:bseDetectorType",
+    "family": "infer:direct-ada"
+  },
+  "EDS Detector Configuration": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='EDS Detector Configuration'].schema:value",
+    "family": "infer:param"
+  },
+  "WDS Spectrometer Configuration": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='WDS Spectrometer Configuration'].schema:value",
+    "family": "infer:param"
+  },
+  "CL Detector Configuration": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='CL Detector Configuration'].schema:value",
+    "family": "infer:param"
+  },
+  "EBSD Detector Configuration": {
+    "path": "$MethodDefinition.ada:ebsdDetectorConfiguration",
+    "family": "infer:direct-ada"
+  },
+  "Acquisition Software": {
+    "path": "$MethodDefinition.bios:computationalTool[]",
+    "family": "reuse"
+  },
+  "Data Reduction Software": {
+    "path": "$MethodDefinition.bios:computationalTool[]",
+    "family": "reuse"
+  },
+  "Analytical Mode": {
+    "path": "$MethodDefinition.ada:analyticalMode[]",
+    "family": "reuse"
+  },
+  "Beam Mode": {
+    "path": "$MethodDefinition.ada:beamMode",
+    "family": "infer:direct-ada"
+  },
+  "Accelerating Voltage": {
+    "path": "$MethodDefinition.ada:acceleratingVoltage",
+    "family": "infer:direct-ada"
+  },
+  "Beam Current": {
+    "path": "$MethodDefinition.ada:beamCurrent",
+    "family": "infer:direct-ada"
+  },
+  "Beam Diameter": {
+    "path": "$MethodDefinition.ada:beamDiameter",
+    "family": "infer:direct-ada"
+  },
+  "Beam Raster Dimensions": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Beam Damage Minimization": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Drift Correction": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Drift Correction'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Stage Scan vs. Beam Scan": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs.Beam Scan'].schema:value",
+    "family": "infer:param"
+  },
+  "Working Distance": {
+    "path": "$MethodDefinition.ada:workingDistance",
+    "family": "infer:direct-ada"
+  },
+  "Chamber Pressure": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Image Pixel Size": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:value",
+    "family": "infer:param"
+  },
+  "Dwell Time per Pixel": {
+    "path": "$MethodDefinition.ada:dwellTimePerPixel",
+    "family": "infer:direct-ada"
+  },
+  "EDS Acquisition Mode": {
+    "path": "$MethodDefinition.ada:edsAcquisitionMode",
+    "family": "infer:direct-ada"
+  },
+  "Analyte": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]",
+    "family": "reuse"
+  },
+  "Technique per Analyte": {
+    "path": "$MethodDefinition.ada:techniquePerAnalyte",
+    "family": "infer:direct-ada"
+  },
+  "X-ray Line": {
+    "path": "$MethodDefinition.ada:xRayLine",
+    "family": "infer:direct-ada"
+  },
+  "EDS Live Time per Point or Pixel": {
+    "path": "$MethodDefinition.ada:edsLiveTimePerPointOrPixel",
+    "family": "infer:direct-ada"
+  },
+  "Step Size / Pixel Size": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Step Size / Pixel Size'].schema:value",
+    "family": "infer:param"
+  },
+  "Diffracting Crystal": {
+    "path": "$MethodDefinition.ada:diffractingCrystal",
+    "family": "infer:direct-ada"
+  },
+  "WDS Spectrometer Channel": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='WDS Spectrometer Channel'].schema:value",
+    "family": "infer:param"
+  },
+  "Sequence": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Sequence'].schema:value",
+    "family": "infer:param"
+  },
+  "Proportional Counter / Detector": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Proportional Counter / Detector'].schema:value",
+    "family": "infer:param"
+  },
+  "WDS PHA Setting": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='WDS PHA Setting'].schema:value",
+    "family": "infer:param"
+  },
+  "Peak Counting Time": {
+    "path": "$MethodDefinition.ada:peakCountingTime",
+    "family": "infer:direct-ada"
+  },
+  "Background Counting Time": {
+    "path": "$MethodDefinition.ada:backgroundCountingTime",
+    "family": "infer:direct-ada"
+  },
+  "Background Position(s)": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Background Position(s)'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "CL Acquisition Mode": {
+    "path": "$MethodDefinition.ada:clAcquisitionMode",
+    "family": "infer:direct-ada"
+  },
+  "CL Wavelength Range": {
+    "path": "$MethodDefinition.ada:clWavelengthRange",
+    "family": "infer:direct-ada"
+  },
+  "CL Grating": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='CL Grating'].schema:value",
+    "family": "infer:param"
+  },
+  "CL Integration Time": {
+    "path": "$MethodDefinition.ada:clIntegrationTime",
+    "family": "infer:direct-ada"
+  },
+  "Sample Tilt Angle": {
+    "path": "$MethodDefinition.ada:sampleTiltAngle",
+    "family": "infer:direct-ada"
+  },
+  "EBSD Step Size": {
+    "path": "$MethodDefinition.ada:ebsdStepSize",
+    "family": "infer:direct-ada"
+  },
+  "EBSD Frame Time": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='EBSD Frame Time'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "EBSD Phase List": {
+    "path": "$MethodDefinition.ada:ebsdPhaseList",
+    "family": "infer:direct-ada"
+  },
+  "Protective Coating Deposition": {
+    "path": "$MethodDefinition.ada:protectiveCoatingDeposition",
+    "family": "infer:direct-ada"
+  },
+  "Coarse Milling Conditions": {
+    "path": "$MethodDefinition.ada:coarseMillingConditions",
+    "family": "infer:direct-ada"
+  },
+  "Fine Polishing Conditions": {
+    "path": "$MethodDefinition.ada:finePolishingConditions",
+    "family": "infer:direct-ada"
+  },
+  "Target Foil Thickness": {
+    "path": "$MethodDefinition.ada:targetFoilThickness",
+    "family": "infer:direct-ada"
+  },
+  "Lift-out Method": {
+    "path": "$MethodDefinition.ada:liftOutMethod",
+    "family": "infer:direct-ada"
+  },
+  "Ion Milling Conditions (3D Tomography)": {
+    "path": "$MethodDefinition.ada:ionMillingConditions",
+    "family": "infer:direct-ada"
+  },
+  "Slice Thickness": {
+    "path": "$MethodDefinition.ada:sliceThickness",
+    "family": "infer:direct-ada"
+  },
+  "Matrix Correction Method": {
+    "path": "$MethodDefinition.ada:matrixCorrectionMethod",
+    "family": "infer:direct-ada"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+    "path": "$MethodDefinition.ada:massAbsorptionCoefficients",
+    "family": "infer:direct-ada"
+  },
+  "Background Correction Method": {
+    "path": "$MethodDefinition.ada:backgroundCorrectionMethod",
+    "family": "infer:direct-ada"
+  },
+  "Time-Dependent Intensity Correction": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Time-Dependent Intensity Correction'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Analyte Estimation Method": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Analyte Estimation Method'].schema:value",
+    "family": "infer:param"
+  },
+  "Halogen Correction on Oxygen": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "EDS Spectral Processing Type": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value",
+    "family": "infer:param"
+  },
+  "Blank Correction": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Blank Correction'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Normalization / Standards-Based Correction": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Normalization or Correction'].schema:defaultValue",
+    "family": "reuse"
+  },
+  "WDS Dead Time Correction": {
+    "path": "$MethodDefinition.ada:wdsDeadTimeCorrection",
+    "family": "infer:direct-ada"
+  },
+  "EBSD Indexing Method": {
+    "path": "$MethodDefinition.ada:ebsdIndexingMethod",
+    "family": "infer:direct-ada"
+  },
+  "Crystal Structure Database": {
+    "path": "$MethodDefinition.ada:crystalStructureDatabase",
+    "family": "infer:direct-ada"
+  },
+  "EBSD Pattern Quality Threshold": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='EBSD Pattern Quality Threshold'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Primary Calibration Standard Name": {
+    "path": "$MethodDefinition.ada:primaryStandardName",
+    "family": "reuse"
+  },
+  "Secondary Reference Materials": {
+    "path": "$MethodDefinition.ada:secondaryReferenceMaterial[]",
+    "family": "reuse"
+  },
+  "Interference Corrections Applied": {
+    "path": "$MethodDefinition.ada:interferenceCorrectionsApplied",
+    "family": "infer:direct-ada"
+  },
+  "Interfering Elements": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Interfering Elements'].schema:value",
+    "family": "infer:param"
+  },
+  "Interference Correction Standard": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Interference Correction Standard'].schema:value",
+    "family": "infer:param"
+  },
+  "Detection Limit": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Detection Limit Method": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Analytical Precision": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Analytical Precision'].schema:value",
+    "family": "infer:param"
+  },
+  "Analytical Accuracy": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Analytical Accuracy'].schema:value",
+    "family": "infer:param"
+  },
+  "Counting Statistics Error": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Counting Statistics Error'].schema:value",
+    "family": "infer:param"
+  },
+  "CL Wavelength Calibration Reference": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Additional Notes": {
+    "path": "$MethodDefinition.schema:description",
+    "family": "reuse"
+  }
+}

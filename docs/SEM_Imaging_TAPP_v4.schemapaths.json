@@ -1,194 +1,214 @@
 {
   "Protocol Name": {
     "path": "$MethodDefinition.schema:name",
-    "family": "inherited-identity"
+    "family": "reuse"
   },
   "Technique": {
     "path": "$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode",
-    "family": "inherited-identity"
+    "family": "reuse"
   },
   "Protocol Author": {
     "path": "$MethodDefinition.schema:creator.schema:name",
-    "family": "multi-target-primary"
+    "family": "reuse"
   },
   "Laboratory": {
-    "path": "$MethodDefinition.schema:location.schema:Place.schema:name",
-    "family": "inherited-identity"
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:defaultname",
+    "family": "reuse"
   },
   "Laboratory ID": {
     "path": "$MethodDefinition.schema:location.schema:Place.schema:identifier",
-    "family": "inherited-identity"
+    "family": "reuse"
   },
   "Protocol Start Date": {
     "path": "$MethodDefinition.schema:datePublished",
-    "family": "inherited-identity"
+    "family": "reuse"
   },
   "Funding Source for Protocol Development": {
     "path": "$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name",
-    "family": "inherited-identity"
+    "family": "reuse"
+  },
+  "Protocol Reference(s)": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name",
+    "family": "reuse"
   },
   "Protocol DOI": {
-    "path": "$Dataset.schema:measurementTechnique.schema:identifier",
-    "family": "multi-target-primary"
+    "path": "$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier",
+    "family": "reuse"
   },
   "Analyst": {
-    "path": "$Dataset.prov:wasGeneratedBy.schema:agent.schema:name",
-    "family": "multi-target-primary"
+    "path": "$Dataset.schema:contributor[schema:roleName='analyst'].schema:name",
+    "family": "reuse"
   },
   "Analysis Start Date": {
     "path": "$Dataset.prov:wasGeneratedBy.schema:startDate",
-    "family": "dataset-provenance"
+    "family": "reuse"
   },
   "Analysis End Date": {
     "path": "$Dataset.prov:wasGeneratedBy.schema:endDate",
-    "family": "dataset-provenance"
+    "family": "reuse"
   },
   "Funding Source for Analysis": {
     "path": "$Dataset.schema:funding",
-    "family": "dataset-funding"
+    "family": "reuse"
   },
   "Coupled Technique(s)": {
-    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name",
-    "family": "related-link"
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name",
+    "family": "reuse"
   },
   "Coupling Description": {
     "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description",
-    "family": "related-link"
+    "family": "reuse"
   },
   "Coupled Protocol DOI": {
-    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:url",
-    "family": "dataset-related-link"
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url",
+    "family": "reuse"
   },
   "Coupled Dataset or Publication Reference": {
     "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target",
-    "family": "dataset-related-link"
+    "family": "reuse"
   },
   "Target Material": {
-    "path": "$MethodDefinition.schema:object[].schema:DefinedTerm.schema:name",
-    "family": "inherited-identity"
+    "path": "$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[]",
+    "family": "reuse"
   },
   "Sample Preparation Method": {
     "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description",
-    "family": "workflow-step"
+    "family": "reuse"
   },
   "Sample Name": {
     "path": "$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name",
-    "family": "dataset-sample"
+    "family": "reuse"
   },
   "Sample Persistent Identifier": {
     "path": "$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier",
-    "family": "dataset-sample"
+    "family": "reuse"
+  },
+  "Instrument Manufacturer": {
+    "path": "$MethodDefinition.ada:instrumentManufacturer",
+    "family": "infer:direct-ada"
+  },
+  "Instrument Model": {
+    "path": "$MethodDefinition.ada:instrumentModel",
+    "family": "infer:direct-ada"
+  },
+  "Electron Source": {
+    "path": "$MethodDefinition.ada:electronSource",
+    "family": "infer:direct-ada"
+  },
+  "Instrument Variant": {
+    "path": "$MethodDefinition.ada:instrumentVariant",
+    "family": "infer:direct-ada"
   },
   "SE Detector Type": {
     "path": "$MethodDefinition.ada:seDetectorType",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "BSE Detector Type": {
     "path": "$MethodDefinition.ada:bseDetectorType",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "CL Detector Configuration": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='clDetectorConfiguration'].schema:value",
-    "family": "method-parameter"
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='CL Detector Configuration'].schema:value",
+    "family": "infer:param"
   },
   "EBSD Detector Configuration": {
     "path": "$MethodDefinition.ada:ebsdDetectorConfiguration",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "Acquisition Software": {
     "path": "$MethodDefinition.bios:computationalTool[]",
-    "family": "computational-tool-list"
+    "family": "reuse"
   },
   "Data Reduction Software": {
     "path": "$MethodDefinition.bios:computationalTool[]",
-    "family": "computational-tool-list"
+    "family": "reuse"
   },
   "Analytical Mode": {
-    "path": "$MethodDefinition.ada:analyticalMode",
-    "family": "direct-ada"
+    "path": "$MethodDefinition.ada:analyticalMode[]",
+    "family": "reuse"
   },
   "Accelerating Voltage": {
     "path": "$MethodDefinition.ada:acceleratingVoltage",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "Beam Current": {
     "path": "$MethodDefinition.ada:beamCurrent",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "Working Distance": {
     "path": "$MethodDefinition.ada:workingDistance",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "Chamber Pressure": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='chamberPressure'].schema:value",
-    "family": "method-parameter"
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue",
+    "family": "infer:param"
   },
   "Image Pixel Size": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='imagePixelSize'].schema:value",
-    "family": "method-parameter"
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:value",
+    "family": "infer:param"
   },
   "Dwell Time per Pixel": {
     "path": "$MethodDefinition.ada:dwellTimePerPixel",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "CL Acquisition Mode": {
     "path": "$MethodDefinition.ada:clAcquisitionMode",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "CL Wavelength Range": {
     "path": "$MethodDefinition.ada:clWavelengthRange",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "CL Grating": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='clGrating'].schema:value",
-    "family": "method-parameter"
+    "path": "$Dataset.ada:clWavelengthRange",
+    "family": "sidecar:name"
   },
   "CL Integration Time": {
     "path": "$MethodDefinition.ada:clIntegrationTime",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "Sample Tilt Angle": {
     "path": "$MethodDefinition.ada:sampleTiltAngle",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "EBSD Step Size": {
-    "path": "$MethodDefinition.ada:stepSize",
-    "family": "direct-ada"
+    "path": "$Dataset.ada:stepSize",
+    "family": "sidecar:name"
   },
   "EBSD Frame Time": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='clFrameTime'].schema:value",
-    "family": "method-parameter"
+    "path": "$Dataset.ada:frameTime",
+    "family": "sidecar:name"
   },
   "EBSD Phase List": {
-    "path": "$MethodDefinition.ada:phaseList[]",
-    "family": "direct-ada"
+    "path": "$Dataset.ada:phaseList",
+    "family": "sidecar:name"
   },
   "EBSD Indexing Method": {
-    "path": "$MethodDefinition.ada:indexingMethod",
-    "family": "direct-ada"
+    "path": "$Dataset.ada:indexingMethod",
+    "family": "sidecar:name"
   },
   "Crystal Structure Database": {
     "path": "$MethodDefinition.ada:crystalStructureDatabase",
-    "family": "direct-ada"
+    "family": "infer:direct-ada"
   },
   "EBSD Pattern Quality Threshold": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='patternQualityThreshold'].schema:value",
-    "family": "method-parameter"
+    "path": "$Dataset.ada:patternQualityThreshold",
+    "family": "sidecar:name"
   },
   "EBSD Mean Angular Deviation": {
     "path": "$Dataset.ada:meanAngularDeviation",
-    "family": "dataset-scalar"
+    "family": "sidecar:name"
   },
   "EBSD Indexing Rate": {
     "path": "$Dataset.ada:indexingRate",
-    "family": "dataset-scalar"
+    "family": "sidecar:name"
   },
   "CL Wavelength Calibration Reference": {
-    "path": "$MethodDefinition.schema:additionalProperty[schema:name='clWavelengthCalibrationReference'].schema:value",
-    "family": "method-parameter"
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:defaultValue",
+    "family": "infer:param"
   },
   "Additional Notes": {
     "path": "$MethodDefinition.schema:description",
-    "family": "protocol-description"
+    "family": "reuse"
   }
 }

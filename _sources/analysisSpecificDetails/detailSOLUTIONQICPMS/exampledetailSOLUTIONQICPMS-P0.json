@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
+  },
+  "@id": "ex:detailSOLUTIONQICPMS-P0",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example protocolDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/signalIntegrationTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/solutionQicpmsTAPP/signalIntegrationTime"
+          },
+          "schema:name": "Signal Integration Time",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        }
+      ]
+    }
+  ],
+  "schema:funding": [],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProtocol",
+      "schema:target": {
+        "schema:url": "example coupledProtocolDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
+    }
+  ]
+}

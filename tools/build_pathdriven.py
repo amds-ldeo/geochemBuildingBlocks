@@ -21,6 +21,7 @@ registries + vocab + gen_index (the TAPP schema $refs those registry $defs).
     python tools/build_pathdriven.py <tapp>          # e.g. geochronTAPP
 """
 import copy
+import json
 import os
 import re
 import sys
@@ -28,6 +29,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 import schema_path_emitter as e
+import schema_path_example_emitter as ex
 
 _REG_RE = re.compile(r"/(parameterTemplates|parameterValues)/schema\.yaml#/\$defs/(.+)$")
 
@@ -72,12 +74,57 @@ def build_pathdriven(tapp):
         detail["required"] = required["Dataset"]
     b.write(os.path.join(b.DETAIL_DIR, "schema.yaml"), b.dump_yaml(detail))
 
+    # ---- examples: synthetic -P0 for the TAPP and the detail, built from the same schema paths
+    short = tapp.replace("TAPP", "").upper()
+    examples = ex.build_example(tapp)
+    tapp_inst = {"@context": ex._CTX, "@id": f"ex:{tapp}-P0", "@type": ex._TAPP_TYPE,
+                 "schema:name": f"Example {tapp}", **examples["MethodDefinition"]}
+    detail_inst = {"@context": ex._CTX, "@id": f"ex:detail{short}-P0",
+                   "@type": ["schema:Dataset", "schema:Product"], **examples["Dataset"]}
+    _write_json(os.path.join(b.TAPP_DIR, f"example{tapp}-P0.json"), tapp_inst)
+    _write_json(os.path.join(b.DETAIL_DIR, f"exampledetail{short}-P0.json"), detail_inst)
+
     print(f"DONE {tapp}: TAPP overlay {len(overlays['MethodDefinition'].get('properties', {}))} props; "
           f"detail {len(ds.get('properties', {}))} props; required MD={required['MethodDefinition']} "
           f"DS={required['Dataset']}")
 
 
+def _write_json(path, obj):
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(obj, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    print("wrote", os.path.relpath(path, e.ROOT))
+
+
+def validate(tapp):
+    """Validate the shipped -P0 examples against the locally-resolved resolvedSchema.json for both
+    the TAPP and its detail. Returns 0 if both green."""
+    import jsonschema
+    b.configure(tapp)
+    short = tapp.replace("TAPP", "").upper()
+    rc = 0
+    for label, ex_path, res_path in [
+        (tapp, os.path.join(b.TAPP_DIR, f"example{tapp}-P0.json"),
+         os.path.join(b.TAPP_DIR, "resolvedSchema.json")),
+        (f"detail{short}", os.path.join(b.DETAIL_DIR, f"exampledetail{short}-P0.json"),
+         os.path.join(b.DETAIL_DIR, "resolvedSchema.json"))]:
+        inst = json.load(open(ex_path, encoding="utf-8"))
+        schema = json.load(open(res_path, encoding="utf-8"))
+        errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(inst), key=lambda x: list(x.path))
+        if errs:
+            rc = 1
+            print(f"{label}: {len(errs)} error(s)")
+            for er in errs[:12]:
+                print(f"  /{'/'.join(map(str, er.path))}: {er.message[:110]}")
+        else:
+            print(f"{label}: GREEN")
+    return rc
+
+
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        raise SystemExit("usage: build_pathdriven.py <tapp>   (run build_tapp.py <tapp> first)")
-    build_pathdriven(sys.argv[1])
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if not args:
+        raise SystemExit("usage: build_pathdriven.py <tapp> [--validate]   (run build_tapp.py <tapp> first)")
+    if "--validate" in sys.argv:
+        sys.exit(validate(args[0]))
+    build_pathdriven(args[0])

@@ -1,0 +1,91 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Solution Q-ICP-MS Analysis Detail
+description: Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing CDIF/schema.org slots
+  on the schema:Dataset root.
+type: object
+properties:
+  schema:measurementTechnique:
+    type: array
+    items:
+      type: object
+      properties:
+        schema:identifier:
+          description: Persistent identifier (DOI) assigned to this registered protocol. Enter 'pending'
+            if a DOI has been applied for but not yet minted.
+          type: string
+  schema:contributor:
+    type: array
+    items:
+      type: object
+    allOf:
+    - contains:
+        properties:
+          schema:roleName:
+            const: analyst
+        required:
+        - schema:roleName
+  prov:wasGeneratedBy:
+    type: array
+    items:
+      type: object
+      properties:
+        schema:startDate:
+          description: Date on which the analysis session began.
+          type: string
+        schema:endDate:
+          description: Date on which the analysis session ended (if spanning multiple days).
+          type: string
+        schema:additionalProperty:
+          type: array
+          items: &id001
+            title: Signal Integration Time
+            description: Total integration time per analyte per replicate (s). Determined at analysis
+              time from the actual acquisition.
+            type: object
+            properties:
+              '@id':
+                const: ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
+              '@type':
+                const:
+                - schema:PropertyValue
+              schema:propertyID:
+                const:
+                  '@id': ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
+              schema:name:
+                const: Signal Integration Time
+              schema:value:
+                anyOf:
+                - type: number
+                - type: string
+              schema:unitText:
+                type: string
+            required:
+            - '@id'
+            - '@type'
+            - schema:propertyID
+            - schema:name
+            - schema:value
+            - schema:unitText
+          allOf:
+          - contains: *id001
+            minContains: 0
+            maxContains: 1
+  schema:funding:
+    type: array
+  schema:relatedLink:
+    type: array
+    items:
+      type: object
+  dqv:hasQualityMeasurement:
+    type: array
+    items:
+      type: object
+    allOf:
+    - contains:
+        properties:
+          dqv:isMeasurementOf:
+            const: Oxide production ratio
+        required:
+        - dqv:isMeasurementOf
+required:
+- schema:funding

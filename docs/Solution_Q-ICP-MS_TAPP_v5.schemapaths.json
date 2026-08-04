@@ -1,0 +1,386 @@
+{
+  "Protocol Name": {
+    "path": "$MethodDefinition.schema:name",
+    "family": "reuse"
+  },
+  "Technique": {
+    "path": "$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode",
+    "family": "reuse"
+  },
+  "Protocol Author": {
+    "path": "$MethodDefinition.schema:creator.schema:name",
+    "family": "reuse"
+  },
+  "Laboratory": {
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:defaultname",
+    "family": "reuse"
+  },
+  "Laboratory ID": {
+    "path": "$MethodDefinition.schema:location.schema:Place.schema:identifier",
+    "family": "reuse"
+  },
+  "Protocol Start Date": {
+    "path": "$MethodDefinition.schema:datePublished",
+    "family": "reuse"
+  },
+  "Funding Source for Protocol Development": {
+    "path": "$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name",
+    "family": "reuse"
+  },
+  "Protocol Reference(s)": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name",
+    "family": "reuse"
+  },
+  "Protocol DOI": {
+    "path": "$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier",
+    "family": "reuse"
+  },
+  "Analyst": {
+    "path": "$Dataset.schema:contributor[schema:roleName='analyst'].schema:name",
+    "family": "reuse"
+  },
+  "Analysis Start Date": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:startDate",
+    "family": "reuse"
+  },
+  "Analysis End Date": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:endDate",
+    "family": "reuse"
+  },
+  "Funding Source for Analysis": {
+    "path": "$Dataset.schema:funding",
+    "family": "reuse"
+  },
+  "Coupled Technique(s)": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name",
+    "family": "reuse"
+  },
+  "Coupling Description": {
+    "path": "$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description",
+    "family": "reuse"
+  },
+  "Coupled Protocol DOI": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url",
+    "family": "reuse"
+  },
+  "Coupled Dataset or Publication Reference": {
+    "path": "$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target",
+    "family": "reuse"
+  },
+  "Target Material": {
+    "path": "$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[]",
+    "family": "reuse"
+  },
+  "Sample IGSN": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Sample IGSN'].schema:value",
+    "family": "infer:param"
+  },
+  "Sample Preparation Method": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description",
+    "family": "reuse"
+  },
+  "Digestion Acid(s)": {
+    "path": "$MethodDefinition.ada:digestionAcid",
+    "family": "infer:direct-ada"
+  },
+  "Digestion Vessel Type": {
+    "path": "$MethodDefinition.ada:digestionVesselType",
+    "family": "infer:direct-ada"
+  },
+  "Number of Digestion Steps": {
+    "path": "$MethodDefinition.ada:numberOfDigestionSteps",
+    "family": "infer:direct-ada"
+  },
+  "Digestion Temperature": {
+    "path": "$MethodDefinition.ada:digestionTemperature",
+    "family": "infer:direct-ada"
+  },
+  "Digestion Duration": {
+    "path": "$MethodDefinition.ada:digestionDuration",
+    "family": "infer:direct-ada"
+  },
+  "Final Solution Matrix": {
+    "path": "$MethodDefinition.ada:finalSolutionMatrix",
+    "family": "infer:direct-ada"
+  },
+  "Sample Aliquot Mass or Volume": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Sample Aliquot Mass or Volume'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Chromatographic Separation Applied": {
+    "path": "$MethodDefinition.ada:chromatographicSeparationApplied",
+    "family": "infer:direct-ada"
+  },
+  "Isotope Dilution Spike": {
+    "path": "$MethodDefinition.ada:isotopeDilutionSpike",
+    "family": "infer:direct-ada"
+  },
+  "Instrument Make and Model": {
+    "path": "$MethodDefinition.ada:instrumentMakeAndModel",
+    "family": "infer:direct-ada"
+  },
+  "ICP-MS Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:additionalType",
+    "family": "reuse"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:identifier",
+    "family": "reuse"
+  },
+  "Torch Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Torch'].schema:name",
+    "family": "reuse"
+  },
+  "Interface Cone Configuration": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Configuration'].schema:value",
+    "family": "reuse"
+  },
+  "Sampler and Skimmer Cone Material": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Sampler and Skimmer Cone Material'].schema:value",
+    "family": "reuse"
+  },
+  "Torch Depth": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Torch'].schema:additionalProperty[schema:name='Torch Depth'].schema:value",
+    "family": "reuse"
+  },
+  "Guard Electrode": {
+    "path": "$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataAquisition'].schema:additionalProperty[schema:name='Guard Electrode'].schema:value",
+    "family": "reuse"
+  },
+  "Mass Resolution Setting": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:additionalProperty[schema:name='Mass Resolution Setting'].schema:value",
+    "family": "reuse"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:name",
+    "family": "reuse"
+  },
+  "Detector Configuration": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:additionalProperty[schema:name='Detector Configuration'].schema:value",
+    "family": "reuse"
+  },
+  "Nebulizer Type": {
+    "path": "$MethodDefinition.ada:nebulizerType",
+    "family": "infer:direct-ada"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+    "path": "$MethodDefinition.ada:sprayChamberTypeAndCoolingTemperature",
+    "family": "infer:direct-ada"
+  },
+  "Desolvation System": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Desolvation System'].schema:value",
+    "family": "infer:param"
+  },
+  "Sample Uptake Rate": {
+    "path": "$MethodDefinition.ada:sampleUptakeRate",
+    "family": "infer:direct-ada"
+  },
+  "Acquisition Software": {
+    "path": "$MethodDefinition.bios:computationalTool[]",
+    "family": "reuse"
+  },
+  "Data Reduction Software": {
+    "path": "$MethodDefinition.bios:computationalTool[]",
+    "family": "reuse"
+  },
+  "RF Power": {
+    "path": "$MethodDefinition.ada:rfPower",
+    "family": "reuse"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+    "path": "$MethodDefinition.ada:coolantGasFlowRate",
+    "family": "reuse"
+  },
+  "Auxiliary Gas Flow Rate": {
+    "path": "$MethodDefinition.ada:auxiliaryGasFlowRate",
+    "family": "reuse"
+  },
+  "Nebulizer Gas Flow Rate": {
+    "path": "$MethodDefinition.ada:nebulizerGasFlowRate",
+    "family": "infer:direct-ada"
+  },
+  "Make-up Gas Flow Rate": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Make-up Gas Flow Rate'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Plasma Thermal Mode": {
+    "path": "$MethodDefinition.ada:plasmaThermalMode",
+    "family": "reuse"
+  },
+  "Analyte": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]",
+    "family": "reuse"
+  },
+  "Monitored Isotopes": {
+    "path": "$MethodDefinition.ada:monitoredIsotopes[]",
+    "family": "reuse"
+  },
+  "Dwell Time per Mass": {
+    "path": "$MethodDefinition.ada:dwellTime",
+    "family": "reuse"
+  },
+  "Mass Cycles per Replicate": {
+    "path": "$MethodDefinition.ada:massCyclesPerReplicate",
+    "family": "infer:direct-ada"
+  },
+  "Number of Replicates per Sample": {
+    "path": "$MethodDefinition.ada:numberOfReplicatesPerSample",
+    "family": "infer:direct-ada"
+  },
+  "Sample Sequence Design": {
+    "path": "$MethodDefinition.ada:sampleSequenceDesign",
+    "family": "infer:direct-ada"
+  },
+  "Wash Time Between Samples": {
+    "path": "$MethodDefinition.ada:washTimeBetweenSamples",
+    "family": "infer:direct-ada"
+  },
+  "Signal Collection Mode": {
+    "path": "$MethodDefinition.ada:signalCollectionMode",
+    "family": "reuse"
+  },
+  "Collision Gas Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Collision Gas'].schema:value",
+    "family": "reuse"
+  },
+  "Collision Gas Flow Rate": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Gas Flow Rate'].schema:value",
+    "family": "reuse"
+  },
+  "Cell Exit Discrimination Voltage": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Cell Exit Voltage'].schema:value",
+    "family": "reuse"
+  },
+  "Reaction Gas Type": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas'].schema:value",
+    "family": "reuse"
+  },
+  "Reaction Gas Flow Rate": {
+    "path": "$MethodDefinition.schema:instrument[schema:additionalType='ICP-MS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:value",
+    "family": "reuse"
+  },
+  "Internal Standard Element": {
+    "path": "$MethodDefinition.ada:internalStandardElement",
+    "family": "reuse"
+  },
+  "Internal Standard Concentration": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Internal Standard Concentration'].schema:value",
+    "family": "infer:param"
+  },
+  "Oxide Production Method and Threshold": {
+    "path": "$MethodDefinition.ada:oxideProductionMethodAndThreshold",
+    "family": "reuse"
+  },
+  "Oxide Production": {
+    "path": "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Oxide production ratio'].dqv:value",
+    "family": "reuse"
+  },
+  "Doubly-Charged Species Monitor": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Doubly-Charged Species Monitor'].schema:defaultValue",
+    "family": "reuse"
+  },
+  "Doubly-Charged Species Production": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Doubly-Charged Species Production'].schema:defaultValue",
+    "family": "reuse"
+  },
+  "Internal Standard Approach": {
+    "path": "$MethodDefinition.ada:internalStandardApproach",
+    "family": "reuse"
+  },
+  "Drift Correction Method": {
+    "path": "$MethodDefinition.ada:driftCorrectionMethod",
+    "family": "infer:direct-ada"
+  },
+  "Per-Analyte Calibration Strategy": {
+    "path": "$MethodDefinition.ada:perAnalyteCalibrationStrategy[]",
+    "family": "reuse"
+  },
+  "Signal Integration Interval Method": {
+    "path": "$MethodDefinition.ada:signalIntegrationIntervalMethod",
+    "family": "reuse"
+  },
+  "Signal Integration Time": {
+    "path": "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value",
+    "family": "reuse"
+  },
+  "Blank/Background Correction Method": {
+    "path": "$MethodDefinition.ada:blankBackgroundCorrectionMethod",
+    "family": "infer:direct-ada"
+  },
+  "Spike/Outlier Filtering Approach": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Spike/Outlier Filtering Approach'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Pulse/Analog Detector Nonlinearity Correction'].schema:defaultValue",
+    "family": "reuse"
+  },
+  "Isobaric Interference Corrections Applied": {
+    "path": "$MethodDefinition.ada:isobaricInterferenceCorrection[]",
+    "family": "reuse"
+  },
+  "Interfering Species": {
+    "path": "$MethodDefinition.ada:interferingSpecies[]",
+    "family": "reuse"
+  },
+  "Interference Correction Method": {
+    "path": "$MethodDefinition.ada:isobaricInterferenceCorrectionMethod[]",
+    "family": "reuse"
+  },
+  "Isotope Dilution Data Reduction Method": {
+    "path": "$MethodDefinition.ada:isotopeDilutionDataReductionMethod",
+    "family": "reuse"
+  },
+  "Memory Effect Mitigation": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue",
+    "family": "reuse"
+  },
+  "Uncertainty Propagation Method": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Uncertainty Propagation Method'].schema:defaultValue",
+    "family": "reuse"
+  },
+  "Normalization/Standards-Based Correction": {
+    "path": "$MethodDefinition.schema:additionalProperty[schema:name='Normalization/Standards-Based Correction'].schema:defaultValue",
+    "family": "infer:param"
+  },
+  "Primary Calibration Standard Name": {
+    "path": "$MethodDefinition.ada:primaryStandardName",
+    "family": "reuse"
+  },
+  "Calibration Standard Measurement Frequency": {
+    "path": "$MethodDefinition.ada:calibrationMeasurementFrequency",
+    "family": "reuse"
+  },
+  "Secondary Reference Materials": {
+    "path": "$MethodDefinition.ada:secondaryReferenceMaterial[]",
+    "family": "reuse"
+  },
+  "Detection Limit": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Detection Limit Method": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Limit of Quantification (LOQ) Method": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Analytical Accuracy and Assessment Method": {
+    "path": "$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]",
+    "family": "reuse"
+  },
+  "Additional Notes": {
+    "path": "$MethodDefinition.schema:description",
+    "family": "reuse"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
+  },
+  "@id": "ex:detailSEMIMAGING-P0",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example protocolDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
+        }
+      ]
+    }
+  ],
+  "schema:funding": [],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProtocol",
+      "schema:target": {
+        "schema:url": "example coupledProtocolDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ],
+  "ada:clWavelengthRange": "example clWavelengthRange",
+  "ada:stepSize": 1.0,
+  "ada:frameTime": 1.0,
+  "ada:phaseList": "example phaseList",
+  "ada:indexingMethod": "Hough transform",
+  "ada:patternQualityThreshold": "example patternQualityThreshold",
+  "ada:meanAngularDeviation": 1.0,
+  "ada:indexingRate": 1.0
+}

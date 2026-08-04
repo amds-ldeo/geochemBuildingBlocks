@@ -3912,18 +3912,227 @@
     {
       "type": "object",
       "properties": {
-        "ada:analyticalMode": {
-          "description": "Primary analytical mode(s) executed under this protocol. For multi-mode protocols (e.g., simultaneous BSE + EDS mapping), list all active modes.",
+        "schema:name": {
+          "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, analytical mode(s), and target material scope.",
+          "type": "string"
+        },
+        "schema:measurementTechnique": {
           "type": "array",
           "items": {
+            "type": "object",
+            "properties": {
+              "schema:termCode": {
+                "description": "Top-level analytical technique identifier.",
+                "type": "string",
+                "enum": [
+                  "SEM",
+                  "SEM/FIB-SEM",
+                  "N/A",
+                  "None"
+                ]
+              }
+            }
+          }
+        },
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
+              "type": "string"
+            }
+          }
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "schema:defaultname": {
+              "description": "Name of the laboratory or institution hosting the instrument.",
+              "type": "string"
+            },
+            "schema:identifier": {
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+              "type": "string"
+            }
+          }
+        },
+        "schema:datePublished": {
+          "description": "First date this protocol configuration was used in production.",
+          "type": "string"
+        },
+        "schema:funding": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:relatedLink": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "schema:object": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "@type": {
+                    "contains": {
+                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                    }
+                  }
+                },
+                "required": [
+                  "@type"
+                ]
+              }
+            }
+          ]
+        },
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "samplePreparation"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ada:instrumentManufacturer": {
+          "description": "Make of the SEM or FIB-SEM instrument.",
+          "type": "string",
+          "enum": [
+            "JEOL",
+            "Zeiss",
+            "FEI / Thermo Fisher Scientific",
+            "Hitachi",
+            "Tescan",
+            "Phenom",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:instrumentModel": {
+          "description": "Model designation of the SEM or FIB-SEM instrument, including generation suffix if applicable.",
+          "type": "string"
+        },
+        "ada:electronSource": {
+          "description": "Type of electron gun used in the SEM instrument.",
+          "type": "string",
+          "enum": [
+            "Cold-FEG",
+            "Schottky FEG",
+            "LaB6 / CeB6",
+            "Tungsten (W)",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:instrumentVariant": {
+          "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
+          "type": "string",
+          "enum": [
+            "Standard SEM",
+            "FIB-SEM dual-beam",
+            "VP-SEM / ESEM",
+            "FIB-SEM dual-beam + VP",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:ionBeamSource": {
+          "description": "Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume milling; helium and neon ion microscopes (GFIS) provide nanometre-resolution imaging and low-damage milling.",
+          "type": "string",
+          "enum": [
+            "Gallium LMIS (Ga+)",
+            "Xenon plasma FIB (PFIB)",
+            "Helium GFIS",
+            "Neon GFIS",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:seDetectorType": {
+          "description": "Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.",
+          "type": "string",
+          "enum": [
+            "Everhart-Thornley (ET)",
+            "In-lens / TLD (through-the-lens)",
+            "GSED (VP/ESEM)",
+            "ESED (VP/ESEM)",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:bseDetectorType": {
+          "description": "Type of backscattered electron detector. Solid-state diode detectors (single or segmented) are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments). In-lens BSE detectors provide improved BSE collection at short working distances.",
+          "type": "string",
+          "enum": [
+            "Solid-state diode (single)",
+            "Solid-state diode (segmented, composition mode)",
+            "Solid-state diode (segmented, topography mode)",
+            "In-lens BSE",
+            "YAG scintillator",
+            "N/A",
+            "None"
+          ]
+        },
+        "bios:computationalTool": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this protocol. For multi-mode protocols (e.g., simultaneous BSE + EDS mapping), list all active modes.",
             "type": "string",
             "enum": [
+              "SE Imaging",
+              "BSE Imaging",
+              "EDS",
+              "SEM-WDS",
+              "CL",
+              "EBSD",
               "TEM Sample Preparation",
-              "3D Tomography"
+              "3D Tomography",
+              "N/A",
+              "None"
             ]
           }
         },
-        "ada:acceleratingVoltageDefault": {
+        "ada:acceleratingVoltage": {
           "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
           "anyOf": [
             {
@@ -3934,7 +4143,7 @@
             }
           ]
         },
-        "ada:beamCurrentDefault": {
+        "ada:beamCurrent": {
           "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
           "anyOf": [
             {
@@ -3945,7 +4154,7 @@
             }
           ]
         },
-        "ada:workingDistanceDefault": {
+        "ada:workingDistance": {
           "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
           "anyOf": [
             {
@@ -3956,7 +4165,7 @@
             }
           ]
         },
-        "ada:dwellTimePerPixelDefault": {
+        "ada:dwellTimePerPixel": {
           "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
           "anyOf": [
             {
@@ -3967,19 +4176,19 @@
             }
           ]
         },
-        "ada:protectiveCoatingDepositionDefault": {
+        "ada:protectiveCoatingDeposition": {
           "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
           "type": "string"
         },
-        "ada:coarseMillingConditionsDefault": {
+        "ada:coarseMillingConditions": {
           "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
           "type": "string"
         },
-        "ada:finePolishingConditionsDefault": {
+        "ada:finePolishingConditions": {
           "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
           "type": "string"
         },
-        "ada:targetFoilThicknessDefault": {
+        "ada:targetFoilThickness": {
           "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
           "anyOf": [
             {
@@ -3992,13 +4201,19 @@
         },
         "ada:liftOutMethod": {
           "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
+            "Ex-situ",
+            "N/A",
+            "None"
+          ]
         },
-        "ada:ionMillingConditionsDefault": {
+        "ada:ionMillingConditions": {
           "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning. These parameters determine material removal rate per slice and exposed surface quality.",
           "type": "string"
         },
-        "ada:sliceThicknessDefault": {
+        "ada:sliceThickness": {
           "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
           "anyOf": [
             {
@@ -4008,19 +4223,33 @@
               "type": "string"
             }
           ]
+        },
+        "schema:description": {
+          "description": "Any additional context about this protocol or analysis session not captured by structured fields above.",
+          "type": "string"
         }
       },
       "required": [
-        "ada:analyticalMode",
-        "ada:acceleratingVoltageDefault",
-        "ada:beamCurrentDefault",
-        "ada:workingDistanceDefault",
-        "ada:protectiveCoatingDepositionDefault",
-        "ada:coarseMillingConditionsDefault",
-        "ada:finePolishingConditionsDefault",
-        "ada:targetFoilThicknessDefault",
+        "schema:name",
+        "schema:datePublished",
+        "ada:instrumentManufacturer",
+        "ada:instrumentModel",
+        "ada:electronSource",
+        "ada:instrumentVariant",
+        "ada:ionBeamSource",
+        "ada:seDetectorType",
+        "ada:bseDetectorType",
+        "ada:acceleratingVoltage",
+        "ada:beamCurrent",
+        "ada:workingDistance",
+        "ada:dwellTimePerPixel",
+        "ada:protectiveCoatingDeposition",
+        "ada:coarseMillingConditions",
+        "ada:finePolishingConditions",
+        "ada:targetFoilThickness",
         "ada:liftOutMethod",
-        "ada:sliceThicknessDefault"
+        "ada:ionMillingConditions",
+        "ada:sliceThickness"
       ]
     }
   ],
