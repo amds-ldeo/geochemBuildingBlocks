@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "title": "EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-  "description": "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA properties (beam mode, accelerating voltage default, matrix correction method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Each ada:analyteColumns[] entry must match one of the catalog files in analyteColumns/ (or the inherited identifier column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0] carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.",
+  "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
+  "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from docs/EPMA_TAPP_v7.xlsx via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "properties": {
     "@context": {
       "type": "object",
@@ -3912,2417 +3912,165 @@
     {
       "type": "object",
       "properties": {
-        "ada:beamModeDefault": {
-          "description": "Whether the beam was focused, defocused, or rastered over an area.",
-          "type": "string",
-          "enum": [
-            "Focused",
-            "Defocused",
-            "Raster",
-            "missing"
-          ]
-        },
-        "ada:acceleratingVoltageDefault": {
-          "description": "Electron beam accelerating voltage in kilovolts (kV).",
+        "schema:name": {
+          "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, and analyte scope.",
           "type": "string"
         },
-        "ada:beamDiameterDefault": {
-          "description": "Diameter of the focused or defocused electron beam in micrometers.",
-          "type": "string"
+        "schema:measurementTechnique": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:termCode": {
+                "description": "Top-level analytical technique identifier.",
+                "type": "string",
+                "enum": [
+                  "EPMA-WDS",
+                  "EPMA-EDS",
+                  "EPMA-WDS+EDS",
+                  "N/A",
+                  "None"
+                ]
+              }
+            }
+          }
         },
-        "ada:beamCurrentDefault": {
-          "description": "Probe current in nanoamperes (nA).",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
               "type": "string"
+            }
+          }
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "schema:defaultname": {
+              "description": "Name of the laboratory or institution hosting the instrument.",
+              "type": "string"
+            },
+            "schema:identifier": {
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+              "type": "string"
+            }
+          }
+        },
+        "schema:datePublished": {
+          "description": "First date this protocol configuration was used in production.",
+          "type": "string"
+        },
+        "schema:funding": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:relatedLink": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "schema:object": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "@type": {
+                    "contains": {
+                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                    }
+                  }
+                },
+                "required": [
+                  "@type"
+                ]
+              }
             }
           ]
         },
-        "ada:matrixCorrectionMethod": {
-          "description": "X-ray matrix correction algorithm applied during data reduction.",
-          "type": "string",
-          "enum": [
-            "PAP (Pouchou & Pichoir Full)",
-            "XPP (Simplified PAP)",
-            "PhiRhoZ Bastin (EPQ-91)",
-            "Love-Scott I",
-            "Love-Scott II",
-            "Armstrong/Love-Scott",
-            "Heinrich/Duncumb-Reed",
-            "Conventional Philibert/Duncumb-Reed",
-            "Other",
-            "Unknown",
-            "missing"
-          ]
-        },
-        "ada:massAbsorptionCoefficients": {
-          "description": "Database of mass absorption coefficients used in the matrix correction.",
-          "type": "string",
-          "enum": [
-            "LINEMU",
-            "CITZMU",
-            "MCMASTER",
-            "MAC30",
-            "MACJTA",
-            "FFAST",
-            "Other",
-            "Unknown",
-            "missing"
-          ]
-        },
-        "ada:wdsDeadTimeCorrectionDefault": {
-          "description": "Method used to correct WDS proportional counter dead time at high count rates.",
-          "type": "string",
-          "enum": [
-            "Default constant 3µs (Cameca)",
-            "Adjusted constant (Cameca)",
-            "Default constant (JEOL)",
-            "Adjusted constant (JEOL)",
-            "High-precision (Probe for EPMA)",
-            "Logarithmic",
-            "Super-precision",
-            "Simple",
-            "Other",
-            "Unknown",
-            "missing"
-          ]
-        },
-        "ada:analyteTemplate": {
+        "schema:actionProcess": {
           "type": "object",
           "properties": {
-            "ada:analyteColumns": {
+            "schema:step": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
-                    "allOf": [
-                      {
-                        "type": "object",
-                        "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
-                        "properties": {
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "contains": {
-                              "const": "schema:PropertyValueSpecification"
-                            },
-                            "minItems": 1
-                          },
-                          "schema:name": {
-                            "type": "string",
-                            "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
-                          },
-                          "schema:valueName": {
-                            "type": "string",
-                            "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
-                          },
-                          "schema:description": {
-                            "type": "string",
-                            "description": "Guidance text for this column."
-                          },
-                          "schema:propertyID": {
-                            "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                            "anyOf": [
-                              {
-                                "type": "string",
-                                "format": "uri"
-                              },
-                              {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "properties": {
-                                  "@id": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              {
-                                "$ref": "#/$defs/DefinedTerm"
-                              }
-                            ]
-                          },
-                          "schema:inDefinedTermSet": {
-                            "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-                            "anyOf": [
-                              {
-                                "type": "string",
-                                "format": "uri"
-                              },
-                              {
-                                "type": "object",
-                                "description": "Object reference to a vocabulary defined elsewhere.",
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "format": "uri"
-                                  }
-                                },
-                                "required": [
-                                  "@id"
-                                ]
-                              },
-                              {
-                                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-                                "type": "object",
-                                "properties": {
-                                  "@type": {
-                                    "default": "schema:CreativeWork",
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    },
-                                    "contains": {
-                                      "const": "schema:CreativeWork"
-                                    },
-                                    "minItems": 1
-                                  },
-                                  "schema:name": {
-                                    "type": "string"
-                                  },
-                                  "schema:description": {
-                                    "type": "string"
-                                  },
-                                  "schema:url": {
-                                    "type": "string",
-                                    "format": "uri"
-                                  }
-                                },
-                                "required": [
-                                  "@type",
-                                  "schema:url"
-                                ]
-                              },
-                              {
-                                "type": "object",
-                                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                                "properties": {
-                                  "@type": {
-                                    "const": "schema:DefinedTermSet"
-                                  },
-                                  "schema:hasDefinedTerm": {
-                                    "type": "array",
-                                    "minItems": 1,
-                                    "items": {
-                                      "type": "object",
-                                      "properties": {
-                                        "@type": {
-                                          "const": "schema:DefinedTerm"
-                                        },
-                                        "schema:termCode": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@type",
-                                        "schema:termCode"
-                                      ]
-                                    }
-                                  }
-                                },
-                                "required": [
-                                  "@type",
-                                  "schema:hasDefinedTerm"
-                                ]
-                              }
-                            ]
-                          },
-                          "schema:defaultValue": {
-                            "description": "Default value for this column (pre-filled per row).",
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "boolean"
-                              }
-                            ]
-                          },
-                          "schema:readonlyValue": {
-                            "type": "boolean",
-                            "description": "true = constant across all analytes (read-only column)."
-                          },
-                          "schema:valueRequired": {
-                            "type": "boolean",
-                            "description": "true = must be provided for every analyte row."
-                          },
-                          "schema:minValue": {
-                            "type": "number"
-                          },
-                          "schema:maxValue": {
-                            "type": "number"
-                          },
-                          "schema:valuePattern": {
-                            "type": "string"
-                          },
-                          "ada:dataType": {
-                            "type": "string",
-                            "enum": [
-                              "string",
-                              "number",
-                              "integer",
-                              "boolean",
-                              "date",
-                              "uri"
-                            ]
-                          },
-                          "schema:unitText": {
-                            "type": "string"
-                          },
-                          "ada:tier": {
-                            "type": "string",
-                            "enum": [
-                              "M",
-                              "R",
-                              "O"
-                            ]
-                          },
-                          "ada:cdifPropertyPath": {
-                            "type": "string",
-                            "description": "How this column maps into the variableMeasured JSON-LD structure."
-                          }
-                        },
-                        "required": [
-                          "schema:name",
-                          "ada:dataType"
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "schema:valueName": {
-                            "const": "analyte"
-                          },
-                          "ada:dataType": {
-                            "const": "string"
-                          },
-                          "schema:readonlyValue": {
-                            "const": true
-                          },
-                          "schema:valueRequired": {
-                            "const": true
-                          },
-                          "ada:tier": {
-                            "const": "M"
-                          },
-                          "ada:cdifPropertyPath": {
-                            "const": "#/schema:variableMeasured/schema:name"
-                          }
-                        },
-                        "required": [
-                          "schema:valueName",
-                          "ada:dataType",
-                          "schema:readonlyValue",
-                          "schema:valueRequired",
-                          "ada:tier",
-                          "ada:cdifPropertyPath"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Sequence",
-                    "description": "Order of analysis on spectormeter.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/analysisOrder"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analysisOrder"
-                      },
-                      "schema:name": {
-                        "const": "Sequence"
-                      },
-                      "ada:dataType": {
-                        "const": "integer"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Background Correction Method",
-                    "description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Background Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Typical Background Position(s)",
-                    "description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCountingPosition"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingPosition"
-                      },
-                      "schema:name": {
-                        "const": "Typical Background Position(s)"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Default Background Counting Time",
-                    "description": "Total time spent counting at background position(s) in seconds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Default Background Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Blank Correction",
-                    "description": "Method and reference materials used to determine and apply blank corrections.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/blankCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "blankCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Blank Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Detection Limit Method",
-                    "description": "Method used to compute detection limits.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "EDS Dead Time",
-                    "description": "Percent dead time reported by the EDS spectrometer",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/edsDeadTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "edsDeadTime"
-                      },
-                      "schema:name": {
-                        "const": "EDS Dead Time"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Element Estimation Method",
-                    "description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/elementEstimationMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "elementEstimationMethod"
-                      },
-                      "schema:name": {
-                        "const": "Element Estimation Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "EPMA Technique per Element",
-                    "description": "Whether this element was measured by WDS or EDS.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/epmaTechnique"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "epmaTechnique"
-                      },
-                      "schema:name": {
-                        "const": "EPMA Technique per Element"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/epmaTechnique"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Interference Corrections Applied",
-                    "description": "Flag indicating whether a spectral interference correction was applied for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "boolean"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Interference Correction Standard",
-                    "description": "Reference material used to quantify and calibrate the interference correction.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionStandard"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Standard"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Interfering Elements",
-                    "description": "List of elements whose X-ray lines overlap with the measured line for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/interferingElements"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingElements"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Elements"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Diffracting Crystal",
-                    "description": "Analysing crystal (monochromator) used in the WDS spectrometer for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/monochromatorCrystal"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "monochromatorCrystal"
-                      },
-                      "schema:name": {
-                        "const": "Diffracting Crystal"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/monochromatorCrystal"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Post-acquisition normalization applied using secondary reference materials.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/normalization-standardsCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "normalization-standardsCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Default Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position in seconds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/peakCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "peakCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Default Peak Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Primary reference material used for element standardization (calibration).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/primaryCalibrationStandard"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "primaryCalibrationStandard"
-                      },
-                      "schema:name": {
-                        "const": "Primary Calibration Standard Name"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "WDS PHA Setting",
-                    "description": "Pulse height analyzer setting used for the WDS detector.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "pulseHeightAnalyzeSetting"
-                      },
-                      "schema:name": {
-                        "const": "WDS PHA Setting"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Secondary Reference Materials",
-                    "description": "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "secondaryReferenceMaterial"
-                      },
-                      "schema:name": {
-                        "const": "Secondary Reference Materials"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "WDS Spectrometer Channel",
-                    "description": "WDS spectrometer number used for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/spectrometerNumber"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "spectrometerNumber"
-                      },
-                      "schema:name": {
-                        "const": "WDS Spectrometer Channel"
-                      },
-                      "ada:dataType": {
-                        "const": "integer"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Time-Dependent Intensity Correction",
-                    "description": "Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "timeDependentIntensityCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Time-Dependent Intensity Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Typical Analytical Accuracy",
-                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as % relative bias.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalAccuracy"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalAnalyticalAccuracy"
-                      },
-                      "schema:name": {
-                        "const": "Typical Analytical Accuracy"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Typical Analytical Precision",
-                    "description": "Reproducibility of repeated measurements on the same or equivalent standard, expressed as 1σ relative standard deviation (%).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalPrecision"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalAnalyticalPrecision"
-                      },
-                      "schema:name": {
-                        "const": "Typical Analytical Precision"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Typical Counting Statistics Error",
-                    "description": "1σ uncertainty propagated from counting statistics on peak and background intensities.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalCountingStatisticsError"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalCountingStatisticsError"
-                      },
-                      "schema:name": {
-                        "const": "Typical Counting Statistics Error"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Typical Detection Limit",
-                    "description": "Method detection limit at 99% confidence (3σ) for each measured element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalDetectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalDetectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Typical Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Proportional Counter / Detector",
-                    "description": "Type of detector used in the WDS spectrometer for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/wdsDetectorType"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "wdsDetectorType"
-                      },
-                      "schema:name": {
-                        "const": "Proportional Counter / Detector"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/wdsDetectorType"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "X-ray Line",
-                    "description": "The X-ray emission line measured for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/xrayEmissionLine"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "xrayEmissionLine"
-                      },
-                      "schema:name": {
-                        "const": "X-ray Line"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  }
-                ]
+                "type": "object"
               },
               "allOf": [
                 {
                   "contains": {
-                    "title": "Sequence",
-                    "description": "Order of analysis on spectormeter.",
-                    "type": "object",
                     "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/analysisOrder"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analysisOrder"
-                      },
                       "schema:name": {
-                        "const": "Sequence"
-                      },
-                      "ada:dataType": {
-                        "const": "integer"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
+                        "const": "samplePreparation"
                       }
                     },
                     "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
+                      "schema:name"
                     ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Background Correction Method",
-                    "description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Background Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Typical Background Position(s)",
-                    "description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCountingPosition"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingPosition"
-                      },
-                      "schema:name": {
-                        "const": "Typical Background Position(s)"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Default Background Counting Time",
-                    "description": "Total time spent counting at background position(s) in seconds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Default Background Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Blank Correction",
-                    "description": "Method and reference materials used to determine and apply blank corrections.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/blankCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "blankCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Blank Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Detection Limit Method",
-                    "description": "Method used to compute detection limits.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "EDS Dead Time",
-                    "description": "Percent dead time reported by the EDS spectrometer",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/edsDeadTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "edsDeadTime"
-                      },
-                      "schema:name": {
-                        "const": "EDS Dead Time"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Element Estimation Method",
-                    "description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/elementEstimationMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "elementEstimationMethod"
-                      },
-                      "schema:name": {
-                        "const": "Element Estimation Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "EPMA Technique per Element",
-                    "description": "Whether this element was measured by WDS or EDS.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/epmaTechnique"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "epmaTechnique"
-                      },
-                      "schema:name": {
-                        "const": "EPMA Technique per Element"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/epmaTechnique"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interference Corrections Applied",
-                    "description": "Flag indicating whether a spectral interference correction was applied for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "boolean"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interference Correction Standard",
-                    "description": "Reference material used to quantify and calibrate the interference correction.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionStandard"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Standard"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interfering Elements",
-                    "description": "List of elements whose X-ray lines overlap with the measured line for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/interferingElements"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingElements"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Elements"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Diffracting Crystal",
-                    "description": "Analysing crystal (monochromator) used in the WDS spectrometer for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/monochromatorCrystal"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "monochromatorCrystal"
-                      },
-                      "schema:name": {
-                        "const": "Diffracting Crystal"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/monochromatorCrystal"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Post-acquisition normalization applied using secondary reference materials.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/normalization-standardsCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "normalization-standardsCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Default Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position in seconds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/peakCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "peakCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Default Peak Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Primary reference material used for element standardization (calibration).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/primaryCalibrationStandard"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "primaryCalibrationStandard"
-                      },
-                      "schema:name": {
-                        "const": "Primary Calibration Standard Name"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "WDS PHA Setting",
-                    "description": "Pulse height analyzer setting used for the WDS detector.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "pulseHeightAnalyzeSetting"
-                      },
-                      "schema:name": {
-                        "const": "WDS PHA Setting"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Secondary Reference Materials",
-                    "description": "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "secondaryReferenceMaterial"
-                      },
-                      "schema:name": {
-                        "const": "Secondary Reference Materials"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "WDS Spectrometer Channel",
-                    "description": "WDS spectrometer number used for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/spectrometerNumber"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "spectrometerNumber"
-                      },
-                      "schema:name": {
-                        "const": "WDS Spectrometer Channel"
-                      },
-                      "ada:dataType": {
-                        "const": "integer"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Time-Dependent Intensity Correction",
-                    "description": "Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "timeDependentIntensityCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Time-Dependent Intensity Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Typical Analytical Accuracy",
-                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as % relative bias.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalAccuracy"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalAnalyticalAccuracy"
-                      },
-                      "schema:name": {
-                        "const": "Typical Analytical Accuracy"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Typical Analytical Precision",
-                    "description": "Reproducibility of repeated measurements on the same or equivalent standard, expressed as 1σ relative standard deviation (%).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalPrecision"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalAnalyticalPrecision"
-                      },
-                      "schema:name": {
-                        "const": "Typical Analytical Precision"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Typical Counting Statistics Error",
-                    "description": "1σ uncertainty propagated from counting statistics on peak and background intensities.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalCountingStatisticsError"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalCountingStatisticsError"
-                      },
-                      "schema:name": {
-                        "const": "Typical Counting Statistics Error"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Typical Detection Limit",
-                    "description": "Method detection limit at 99% confidence (3σ) for each measured element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/typicalDetectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "typicalDetectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Typical Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Proportional Counter / Detector",
-                    "description": "Type of detector used in the WDS spectrometer for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/wdsDetectorType"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "wdsDetectorType"
-                      },
-                      "schema:name": {
-                        "const": "Proportional Counter / Detector"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:inDefinedTermSet": {
-                        "const": {
-                          "@id": "ada:vocab/empaTAPP/wdsDetectorType"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "X-ray Line",
-                    "description": "The X-ray emission line measured for this element.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/xrayEmissionLine"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "xrayEmissionLine"
-                      },
-                      "schema:name": {
-                        "const": "X-ray Line"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
+                  }
                 }
               ]
             }
+          }
+        },
+        "ada:instrumentManufacturer": {
+          "description": "Make of the EPMA instrument.",
+          "type": "string",
+          "enum": [
+            "JEOL",
+            "Cameca",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:instrumentModel": {
+          "description": "Model of the EPMA instrument.",
+          "type": "string",
+          "enum": [
+            "JXA-8530F Plus",
+            "JXA-8230",
+            "JXA-8200",
+            "JXA-8100",
+            "SXFiveTactis",
+            "SXFive",
+            "SX100",
+            "iHP200F",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:electronSource": {
+          "description": "Type of electron gun used in the EPMA instrument.",
+          "type": "string",
+          "enum": [
+            "Field Emission (FEG)",
+            "LaB6 / CeB6",
+            "Tungsten (W)",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "bios:computationalTool": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {}
           }
         },
         "schema:additionalProperty": {
@@ -6330,8 +4078,74 @@
           "items": {
             "anyOf": [
               {
+                "title": "WDS Spectrometer Configuration",
+                "description": "Number, type, and crystal range of WDS spectrometers on the instrument. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "WDS Spectrometer Configuration"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "EDS Detector Configuration",
+                "description": "EDS detector type, manufacturer, window type, active area, and detector geometry (take-off angle, position).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/edsDetectorConfiguration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/edsDetectorConfiguration"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "EDS Detector Configuration"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
                 "title": "Beam Raster Dimensions",
-                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+                "description": "X x Y dimensions of a small beam raster used at a single analysis point to average a coarse-grained or beam-sensitive phase. Different from X-ray mapping mode; not applicable when mapping.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6347,6 +4161,50 @@
                   },
                   "schema:name": {
                     "const": "Beam Raster Dimensions"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "um x um"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Beam Damage Minimization",
+                "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/beamDamageMinimizationDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "beamDamageMinimizationDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Damage Minimization"
                   },
                   "ada:dataType": {
                     "const": "string"
@@ -6372,7 +4230,7 @@
               },
               {
                 "title": "Drift Correction",
-                "description": "Describe method used to monitor and correct for instrument drift",
+                "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6412,12 +4270,12 @@
                 ]
               },
               {
-                "title": "Beam Damage Minimization",
-                "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
+                "title": "WDS Spectrometer Channel",
+                "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
+                    "const": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
                   },
                   "@type": {
                     "const": [
@@ -6426,11 +4284,91 @@
                   },
                   "schema:propertyID": {
                     "const": {
-                      "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
+                      "@id": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
                     }
                   },
                   "schema:name": {
-                    "const": "Beam Damage Minimization"
+                    "const": "WDS Spectrometer Channel"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Sequence",
+                "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/sequence"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/sequence"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Sequence"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Proportional Counter / Detector",
+                "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/proportionalCounterDetector"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/proportionalCounterDetector"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Proportional Counter / Detector"
                   },
                   "schema:value": {
                     "type": "string"
@@ -6445,8 +4383,230 @@
                 ]
               },
               {
+                "title": "WDS PHA Setting",
+                "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsPhaSetting"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/wdsPhaSetting"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "WDS PHA Setting"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Background Position(s)",
+                "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/backgroundPositionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "backgroundPositionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Background Position(s)"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Stage Scan vs. Beam Scan",
+                "description": "Whether the X-ray map was acquired by moving the sample stage (stage scan) or by deflecting the electron beam (beam scan). Stage scan preserves beam geometry and spot size across the full map but is slower; beam scan is faster but may introduce geometric distortion at large deflections.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Stage Scan vs. Beam Scan"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Time-Dependent Intensity Correction",
+                "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis; uncommon for X-ray mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/timeDependentIntensityCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "timeDependentIntensityCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Time-Dependent Intensity Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Analyte Estimation Method",
+                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/analyteEstimationMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Analyte Estimation Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Halogen Correction on Oxygen",
+                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "halogenCorrectionOnOxygenDefault"
+                  },
+                  "schema:name": {
+                    "const": "Halogen Correction on Oxygen"
+                  },
+                  "ada:dataType": {
+                    "const": "boolean"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "EDS Spectral Processing Type",
-                "description": "Method used to process EDS spectra and extract net peak intensities.",
+                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6467,11 +4627,6 @@
                   },
                   "schema:value": {
                     "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/edsSpectralProcessingType"
-                    }
                   }
                 },
                 "required": [
@@ -6483,12 +4638,94 @@
                 ]
               },
               {
-                "title": "Halogen Correction on Oxygen",
-                "description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
+                "title": "Blank Correction",
+                "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                    "const": "ada:parameter/empaTAPP/blankCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "blankCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Blank Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Interfering Elements",
+                "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/interferingElements"
                   },
                   "@type": {
                     "const": [
@@ -6497,14 +4734,146 @@
                   },
                   "schema:propertyID": {
                     "const": {
-                      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                      "@id": "ada:parameter/empaTAPP/interferingElements"
                     }
                   },
                   "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
+                    "const": "Interfering Elements"
                   },
                   "schema:value": {
-                    "type": "boolean"
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Interference Correction Standard",
+                "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Interference Correction Standard"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Analytical Precision",
+                "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and value per analyte or element group.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/analyticalPrecision"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/analyticalPrecision"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Analytical Precision"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Analytical Accuracy",
+                "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and per-analyte value.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/analyticalAccuracy"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/analyticalAccuracy"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Analytical Accuracy"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Counting Statistics Error",
+                "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/countingStatisticsError"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/countingStatisticsError"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Counting Statistics Error"
+                  },
+                  "schema:value": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -6520,8 +4889,82 @@
           "allOf": [
             {
               "contains": {
+                "title": "WDS Spectrometer Configuration",
+                "description": "Number, type, and crystal range of WDS spectrometers on the instrument. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "WDS Spectrometer Configuration"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EDS Detector Configuration",
+                "description": "EDS detector type, manufacturer, window type, active area, and detector geometry (take-off angle, position).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/edsDetectorConfiguration"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/edsDetectorConfiguration"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "EDS Detector Configuration"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Beam Raster Dimensions",
-                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
+                "description": "X x Y dimensions of a small beam raster used at a single analysis point to average a coarse-grained or beam-sensitive phase. Different from X-ray mapping mode; not applicable when mapping.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6537,6 +4980,54 @@
                   },
                   "schema:name": {
                     "const": "Beam Raster Dimensions"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "um x um"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Beam Damage Minimization",
+                "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/beamDamageMinimizationDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "beamDamageMinimizationDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Damage Minimization"
                   },
                   "ada:dataType": {
                     "const": "string"
@@ -6566,7 +5057,7 @@
             {
               "contains": {
                 "title": "Drift Correction",
-                "description": "Describe method used to monitor and correct for instrument drift",
+                "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6610,12 +5101,12 @@
             },
             {
               "contains": {
-                "title": "Beam Damage Minimization",
-                "description": "Description of the approach used to minimize beam damage, especially Na- and K-loss in glasses, micas, and hydrous minerals.",
+                "title": "WDS Spectrometer Channel",
+                "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
+                    "const": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
                   },
                   "@type": {
                     "const": [
@@ -6624,11 +5115,99 @@
                   },
                   "schema:propertyID": {
                     "const": {
-                      "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
+                      "@id": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
                     }
                   },
                   "schema:name": {
-                    "const": "Beam Damage Minimization"
+                    "const": "WDS Spectrometer Channel"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Sequence",
+                "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/sequence"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/sequence"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Sequence"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Proportional Counter / Detector",
+                "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/proportionalCounterDetector"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/proportionalCounterDetector"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Proportional Counter / Detector"
                   },
                   "schema:value": {
                     "type": "string"
@@ -6647,8 +5226,254 @@
             },
             {
               "contains": {
+                "title": "WDS PHA Setting",
+                "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsPhaSetting"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/wdsPhaSetting"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "WDS PHA Setting"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Background Position(s)",
+                "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/backgroundPositionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "backgroundPositionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Background Position(s)"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Stage Scan vs. Beam Scan",
+                "description": "Whether the X-ray map was acquired by moving the sample stage (stage scan) or by deflecting the electron beam (beam scan). Stage scan preserves beam geometry and spot size across the full map but is slower; beam scan is faster but may introduce geometric distortion at large deflections.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Stage Scan vs. Beam Scan"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Time-Dependent Intensity Correction",
+                "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis; uncommon for X-ray mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/timeDependentIntensityCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "timeDependentIntensityCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Time-Dependent Intensity Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Analyte Estimation Method",
+                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/analyteEstimationMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Analyte Estimation Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Halogen Correction on Oxygen",
+                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "halogenCorrectionOnOxygenDefault"
+                  },
+                  "schema:name": {
+                    "const": "Halogen Correction on Oxygen"
+                  },
+                  "ada:dataType": {
+                    "const": "boolean"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "EDS Spectral Processing Type",
-                "description": "Method used to process EDS spectra and extract net peak intensities.",
+                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6669,11 +5494,6 @@
                   },
                   "schema:value": {
                     "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/edsSpectralProcessingType"
-                    }
                   }
                 },
                 "required": [
@@ -6689,12 +5509,102 @@
             },
             {
               "contains": {
-                "title": "Halogen Correction on Oxygen",
-                "description": "Whether a halogen correction was applied to calculate oxygen content by stoichiometry in halogen-bearing phases.",
+                "title": "Blank Correction",
+                "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                    "const": "ada:parameter/empaTAPP/blankCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "blankCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Blank Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Interfering Elements",
+                "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/interferingElements"
                   },
                   "@type": {
                     "const": [
@@ -6703,14 +5613,162 @@
                   },
                   "schema:propertyID": {
                     "const": {
-                      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                      "@id": "ada:parameter/empaTAPP/interferingElements"
                     }
                   },
                   "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
+                    "const": "Interfering Elements"
                   },
                   "schema:value": {
-                    "type": "boolean"
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Interference Correction Standard",
+                "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Interference Correction Standard"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Analytical Precision",
+                "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and value per analyte or element group.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/analyticalPrecision"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/analyticalPrecision"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Analytical Precision"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Analytical Accuracy",
+                "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and per-analyte value.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/analyticalAccuracy"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/analyticalAccuracy"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Analytical Accuracy"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Counting Statistics Error",
+                "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/countingStatisticsError"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": {
+                      "@id": "ada:parameter/empaTAPP/countingStatisticsError"
+                    }
+                  },
+                  "schema:name": {
+                    "const": "Counting Statistics Error"
+                  },
+                  "schema:value": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -6726,165 +5784,310 @@
             }
           ]
         },
-        "schema:instrument": {
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this protocol. For single-mode protocols, records one value (e.g., WDS Point Analysis). For multi-mode protocols (e.g., simultaneous WDS point analysis and EDS mapping), list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
+            "type": "string",
+            "enum": [
+              "WDS Point Analysis",
+              "EDS Point Analysis",
+              "WDS Mapping",
+              "EDS Mapping",
+              "WDS Point Analysis; EDS Point Analysis"
+            ]
+          }
+        },
+        "ada:beamMode": {
+          "description": "Whether the electron beam was stationary-focused, defocused to a fixed diameter, or rastered over a small area during a single-point analysis. For X-ray mapping, beam scanning is controlled by Step Size and Stage Scan vs. Beam Scan fields instead.",
+          "type": "string",
+          "enum": [
+            "Focused",
+            "Defocused",
+            "Raster",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:acceleratingVoltage": {
+          "description": "Electron beam accelerating voltage in kilovolts (kV). The protocol specifies the standard operating voltage; analysts record and justify any deviations.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:beamCurrent": {
+          "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the protocol-standard value(s).",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:beamDiameter": {
+          "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:analyteTemplate": {
           "type": "object",
           "properties": {
-            "schema:hasPart": {
+            "ada:defaultAnalytes": {
               "type": "array",
-              "description": "Instrument sub-components. Each item is a schema:Thing with at least one schema:additionalType. Spreadsheet-known types: ElectronSource, edsDetector, wdsSpectrometer. Other additionalType values are accepted via the catch-all branch.",
               "items": {
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:Thing"
-                        }
-                      },
-                      "schema:additionalType": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "ElectronSource"
-                        }
-                      },
-                      "schema:name": {
-                        "type": "string",
-                        "enum": [
-                          "Field Emission (FEG)",
-                          "LaB6/CeB6",
-                          "Tungsten (W)",
-                          "Other",
-                          "Unknown"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:additionalType",
-                      "schema:name"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:Thing"
-                        }
-                      },
-                      "schema:additionalType": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "wdsSpectrometer"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:additionalType"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:Thing"
-                        }
-                      },
-                      "schema:additionalType": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "edsDetector"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:additionalType"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "description": "Catch-all for instrument sub-component types not enumerated above. Authors may use any schema:additionalType outside the known set; schema:name is unconstrained on this branch.",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:Thing"
-                        }
-                      },
-                      "schema:additionalType": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "minItems": 1,
-                        "not": {
-                          "anyOf": [
-                            {
-                              "contains": {
-                                "const": "ElectronSource"
-                              }
-                            },
-                            {
-                              "contains": {
-                                "const": "wdsSpectrometer"
-                              }
-                            },
-                            {
-                              "contains": {
-                                "const": "edsDetector"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:additionalType"
-                    ]
-                  }
-                ]
+                "description": "The element(s) measured by this protocol. The protocol registers the full analyte suite the protocol is designed to measure; analysts record the specific subset actually measured in a given session, which may be narrower. Fields below flagged as Analyte-Specific in the Comments column apply individually to each element in this list.",
+                "type": "string"
+              }
+            },
+            "ada:analyteColumns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {}
               }
             }
           }
+        },
+        "ada:epmaTechniquePerAnalyte": {
+          "description": "Whether each analyte was measured by WDS or EDS. In a WDS+EDS protocol, some elements may be assigned to WDS and others to EDS.",
+          "type": "string",
+          "enum": [
+            "WDS",
+            "EDS",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:xRayLine": {
+          "description": "X-ray emission line measured for each analyte. Choice of line affects sensitivity, interference susceptibility, and matrix correction accuracy.",
+          "type": "string",
+          "enum": [
+            "Ka",
+            "Kb",
+            "La",
+            "Lb",
+            "Lg",
+            "Ma",
+            "Mb",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:diffractingCrystal": {
+          "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+          "type": "string",
+          "enum": [
+            "LIF",
+            "LLIF",
+            "LIFL",
+            "LIFH",
+            "PET",
+            "LPET",
+            "PETL",
+            "PETH",
+            "PETJ",
+            "TAP",
+            "TAPL",
+            "TAPH",
+            "LTAP",
+            "LDE1",
+            "LDE2",
+            "LDE3",
+            "RAP",
+            "KAP",
+            "ADP",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:peakCountingTime": {
+          "description": "Time spent counting X-ray intensity at the peak position in seconds. Protocol specifies standard values per analyte; analysts may adjust within protocol-defined bounds.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:backgroundCountingTime": {
+          "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:edsLiveTimePerPointOrPixel": {
+          "description": "EDS spectral acquisition live time per analysis point in seconds. Previously referred to as \"EDS Acquisition Time\" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts. Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode vs. spectrum image) is explicit. In EPMA, acquisition is always per point.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:edsAcquisitionMode": {
+          "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared Analytical Mode. Particularly important when a protocol includes linescans as a distinct acquisition approach not fully captured by the mode flag columns.",
+          "type": "string",
+          "enum": [
+            "Point",
+            "Linescan",
+            "Map"
+          ]
+        },
+        "ada:dwellTimePerPixel": {
+          "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: per spectrometer per pixel; may differ by analyte if spectrometers are assigned differently. For EDS: total live-time per spectrum per pixel.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:stepSizePixelSize": {
+          "description": "Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:matrixCorrectionMethod": {
+          "description": "X-ray matrix correction algorithm applied during quantitative data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps.",
+          "type": "string",
+          "enum": [
+            "PAP (Pouchou & Pichoir Full)",
+            "XPP (Simplified PAP)",
+            "PhiRhoZ Bastin (EPQ-91)",
+            "Love-Scott I",
+            "Love-Scott II",
+            "Armstrong / Love-Scott",
+            "ZAF",
+            "CITZAF (Armstrong 1995)",
+            "Bence-Albee",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:massAbsorptionCoefficients": {
+          "description": "Database of mass absorption coefficients used in the matrix correction. MAC database choice affects accuracy particularly for light elements (B, C, N, O, F, Na).",
+          "type": "string",
+          "enum": [
+            "LINEMU",
+            "CITZMU",
+            "MCMASTER",
+            "MAC30",
+            "MACJTA",
+            "FFAST",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:backgroundCorrectionMethod": {
+          "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+          "type": "string",
+          "enum": [
+            "2-point off-peak linear",
+            "2-point off-peak exponential",
+            "2-point off-peak polynomial",
+            "1-point high with slope factor",
+            "1-point low with slope factor",
+            "Mean Atomic Number (MAN)",
+            "EDS background fit",
+            "Top-hat filter",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:wdsDeadTimeCorrection": {
+          "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion.",
+          "type": "string",
+          "enum": [
+            "Default constant 3 us (Cameca)",
+            "Adjusted constant (Cameca)",
+            "Default constant (JEOL)",
+            "Adjusted constant (JEOL)",
+            "High-precision (Probe for EPMA)",
+            "Logarithmic",
+            "Super-precision",
+            "Unknown",
+            "N/A",
+            "None"
+          ]
+        },
+        "ada:primaryStandardName": {
+          "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration).",
+          "type": "string"
+        },
+        "ada:secondaryReferenceMaterial": {
+          "type": "array",
+          "items": {
+            "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values.",
+            "type": "string"
+          }
+        },
+        "ada:interferenceCorrectionsApplied": {
+          "description": "Whether a spectral interference correction was applied for each analyte. Common EPMA interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
+          "type": "boolean"
+        },
+        "schema:description": {
+          "description": "Any additional context about this protocol or analysis session not captured by structured fields above.",
+          "type": "string"
         }
       },
       "required": [
-        "ada:acceleratingVoltageDefault",
-        "ada:beamCurrentDefault",
-        "ada:beamDiameterDefault",
-        "ada:beamModeDefault",
-        "ada:massAbsorptionCoefficients",
+        "schema:name",
+        "schema:datePublished",
+        "ada:instrumentManufacturer",
+        "ada:instrumentModel",
+        "ada:electronSource",
+        "ada:beamMode",
+        "ada:acceleratingVoltage",
+        "ada:beamCurrent",
+        "ada:beamDiameter",
+        "ada:epmaTechniquePerAnalyte",
+        "ada:xRayLine",
+        "ada:diffractingCrystal",
+        "ada:peakCountingTime",
+        "ada:backgroundCountingTime",
+        "ada:edsLiveTimePerPointOrPixel",
+        "ada:edsAcquisitionMode",
+        "ada:dwellTimePerPixel",
+        "ada:stepSizePixelSize",
         "ada:matrixCorrectionMethod",
-        "ada:wdsDeadTimeCorrectionDefault"
+        "ada:massAbsorptionCoefficients",
+        "ada:backgroundCorrectionMethod",
+        "ada:wdsDeadTimeCorrection",
+        "ada:primaryStandardName",
+        "ada:interferenceCorrectionsApplied"
       ]
     }
   ],

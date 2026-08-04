@@ -3,10 +3,11 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
-  "@id": "ex:empaTAPP-p0",
+  "@id": "ex:empaTAPP-P0",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -14,572 +15,297 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA TAPP example P0",
-  "schema:description": "empaTAPP example derived from Richard & Deng 2026 (synthetic comprehensive WDS example).",
+  "schema:name": "example protocolName",
   "schema:measurementTechnique": [
     {
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "EPMA-WDS",
-      "schema:name": "Electron Microprobe Analysis - WDS"
+      "schema:termCode": "EPMA-WDS"
     }
   ],
+  "schema:creator": {
+    "schema:name": "example protocolAuthor"
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "IEDA| Columbia University"
+    "schema:defaultname": "example laboratory",
+    "schema:identifier": "example laboratoryId"
   },
-  "schema:datePublished": "2026-04-28",
+  "schema:datePublished": "example protocolStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "NSF EAR-1234567"
+      "schema:name": "example fundingSourceForProtocolDevelopment"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://example.org/EMPA/WDS",
-      "schema:name": "Method reference"
-    }
-  ],
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Feldspar"
-    },
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Pyroxene"
-    },
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Olivine"
-    }
-  ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product",
-      "https://w3id.org/nfdi4ing/metadata4ing#Instrument"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      "ada:EPMAInstrument"
-    ],
-    "schema:name": "Cameca SXFiveFE",
-    "schema:manufacturer": {
-      "@type": [
-        "schema:Organization"
-      ],
-      "schema:name": "Cameca"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
-      ],
-      "schema:name": "SXFiveFE"
-    },
-    "schema:hasPart": [
-      {
-        "@type": [
-          "schema:Thing",
-          "schema:Product"
-        ],
-        "schema:additionalType": [
-          "ElectronSource"
-        ],
-        "schema:name": "Field Emission (FEG)"
-      },
-      {
-        "@type": [
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "wdsSpectrometer"
-        ],
-        "schema:name": "SP1",
-        "schema:additionalProperty": [
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Orientation",
-            "schema:value": "Inclined"
-          },
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Crystals",
-            "schema:value": "LiF, PET, TAP, PC2"
-          }
-        ],
-        "schema:description": "Less sensitive to specimen height; good for rough surfaces; low pressure"
-      },
-      {
-        "@type": [
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "wdsSpectrometer"
-        ],
-        "schema:name": "SP2",
-        "schema:additionalProperty": [
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Orientation",
-            "schema:value": "Vertical"
-          },
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Crystals",
-            "schema:value": "LLiF,LPET"
-          }
-        ],
-        "schema:description": "High pressure for greater sensitivity; large crystals for trace/light elements"
-      },
-      {
-        "@type": [
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "wdsSpectrometer"
-        ],
-        "schema:name": "SP3",
-        "schema:additionalProperty": [
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Orientation",
-            "schema:value": "Vertical"
-          },
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Crystals",
-            "schema:value": "TAP, PC0"
-          }
-        ],
-        "schema:description": "Low pressure; light element coverage"
-      },
-      {
-        "@type": [
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "wdsSpectrometer"
-        ],
-        "schema:name": "SP4",
-        "schema:additionalProperty": [
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Orientation",
-            "schema:value": "Vertical"
-          },
-          {
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:name": "Crystals",
-            "schema:value": "LPET, TAP"
-          }
-        ],
-        "schema:description": "Low pressure"
-      }
-    ]
-  },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Probe for EPMA v12.9.5",
-      "ada:toolRole": "acquisition"
-    },
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Cameca PeakSight",
-      "ada:toolRole": "reduction"
-    },
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "CalcZAF",
-      "ada:toolRole": "reduction"
-    }
-  ],
-  "ada:beamModeDefault": "Focused",
-  "ada:acceleratingVoltageDefault": "20",
-  "ada:beamDiameterDefault": "5",
-  "ada:beamCurrentDefault": "10",
-  "ada:matrixCorrectionMethod": "Armstrong/Love-Scott",
-  "ada:massAbsorptionCoefficients": "MCMASTER",
-  "ada:wdsDeadTimeCorrectionDefault": "Super-precision",
+  "ada:instrumentManufacturer": "JEOL",
+  "ada:instrumentModel": "JXA-8530F Plus",
+  "ada:electronSource": "Field Emission (FEG)",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
+      },
+      "schema:name": "WDS Spectrometer Configuration",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/edsDetectorConfiguration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/edsDetectorConfiguration"
+      },
+      "schema:name": "EDS Detector Configuration",
+      "schema:value": "example value"
+    },
     {
       "@id": "ada:parameter/empaTAPP/beamRasterDimensionsDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:name": "Beam Raster Dimensions",
       "schema:valueName": "beamRasterDimensionsDefault",
-      "schema:description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "10 by 10"
+      "schema:name": "Beam Raster Dimensions",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/empaTAPP/beamDamageMinimization",
+      "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
-      },
+      "schema:valueName": "beamDamageMinimizationDefault",
       "schema:name": "Beam Damage Minimization",
-      "schema:value": "None required (anhydrous minerals)"
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/empaTAPP/driftCorrectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:name": "Drift Correction",
       "schema:valueName": "driftCorrectionDefault",
-      "schema:description": "Describe method used to monitor and correct for instrument drift",
+      "schema:name": "Drift Correction",
       "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Primary major element reference materials are run at beginning and end of every analytical session and the calibration is interpolated"
+      "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen",
+      "@id": "ada:parameter/empaTAPP/wdsSpectrometerChannel",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+        "@id": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
       },
+      "schema:name": "WDS Spectrometer Channel",
+      "schema:value": 1
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/sequence",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/sequence"
+      },
+      "schema:name": "Sequence",
+      "schema:value": 1
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/proportionalCounterDetector",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/proportionalCounterDetector"
+      },
+      "schema:name": "Proportional Counter / Detector",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/wdsPhaSetting",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/wdsPhaSetting"
+      },
+      "schema:name": "WDS PHA Setting",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/backgroundPositionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "backgroundPositionDefault",
+      "schema:name": "Background Position(s)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+      },
+      "schema:name": "Stage Scan vs. Beam Scan",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/timeDependentIntensityCorrectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "timeDependentIntensityCorrectionDefault",
+      "schema:name": "Time-Dependent Intensity Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/analyteEstimationMethod",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
+      },
+      "schema:name": "Analyte Estimation Method",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "halogenCorrectionOnOxygenDefault",
       "schema:name": "Halogen Correction on Oxygen",
-      "schema:value": false
+      "ada:dataType": "boolean",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/edsSpectralProcessingType",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/edsSpectralProcessingType"
+      },
+      "schema:name": "EDS Spectral Processing Type",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/blankCorrectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "blankCorrectionDefault",
+      "schema:name": "Blank Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+      "schema:name": "Normalization / Standards-Based Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/interferingElements",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/interferingElements"
+      },
+      "schema:name": "Interfering Elements",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
+      },
+      "schema:name": "Interference Correction Standard",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/analyticalPrecision",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/analyticalPrecision"
+      },
+      "schema:name": "Analytical Precision",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/analyticalAccuracy",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/analyticalAccuracy"
+      },
+      "schema:name": "Analytical Accuracy",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/countingStatisticsError",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": {
+        "@id": "ada:parameter/empaTAPP/countingStatisticsError"
+      },
+      "schema:name": "Counting Statistics Error",
+      "schema:value": "example value"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:analyteColumns": [
-      {
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "Analyzed constituent",
-        "schema:valueName": "analyte",
-        "schema:description": "Analyzed constituent identified by the analyte row.",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
-      }
-    ],
-    "ada:defaultAnalytes": [
-      {
-        "analyte": "Si",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 2,
-        "analysisOrder": 1,
-        "monochromatorCrystal": "LPET",
-        "wdsDetectorType": "High Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 20,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Linear",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Anorthite",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalAnalyticalPrecision": "0.5% (1σ, n=20 for SiO2)",
-        "typicalAnalyticalAccuracy": "1.2% relative to GeoReM preferred value for VG-2 SiO2",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Al",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 2,
-        "analysisOrder": 3,
-        "monochromatorCrystal": "LPET",
-        "wdsDetectorType": "High Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 20,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Linear",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Anorthite",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "K",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 2,
-        "analysisOrder": 2,
-        "monochromatorCrystal": "LLIF",
-        "wdsDetectorType": "High Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 20,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Linear",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "K-feldspar",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Ca",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 2,
-        "analysisOrder": 4,
-        "monochromatorCrystal": "LLIF",
-        "wdsDetectorType": "High Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 20,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Linear",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Anorthite",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Na",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 2,
-        "analysisOrder": 5,
-        "monochromatorCrystal": "LPET",
-        "wdsDetectorType": "High Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 30,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Linear",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Jadeite",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Fe",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 4,
-        "analysisOrder": 1,
-        "monochromatorCrystal": "LPET",
-        "wdsDetectorType": "Low Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 20,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Exponential",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Fayalite",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Mg",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 3,
-        "analysisOrder": 1,
-        "monochromatorCrystal": "TAP",
-        "wdsDetectorType": "Low Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 20,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Double exponential",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Forsterite",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Ti",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 1,
-        "analysisOrder": 2,
-        "monochromatorCrystal": "LiF",
-        "wdsDetectorType": "Low Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 60,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Double exponential",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Synthetic rutile",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Cr",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 1,
-        "analysisOrder": 3,
-        "monochromatorCrystal": "LiF",
-        "wdsDetectorType": "Low Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 60,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Double exponential",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Cr2O3",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      },
-      {
-        "analyte": "Mn",
-        "epmaTechnique": "WDS",
-        "spectrometerNumber": 1,
-        "analysisOrder": 1,
-        "monochromatorCrystal": "LiF",
-        "wdsDetectorType": "Low Pressure P10 Flow",
-        "pulseHeightAnalyzeSetting": "Integral",
-        "xrayEmissionLine": "Kalpha",
-        "peakCountingTime": 60,
-        "backgroundCountingTime": 10,
-        "backgroundCountingPosition": "+5 mm (High)",
-        "blankCorrection": "single-sample mean; quartz",
-        "normalization-standardsCorrection": "Single-sample normalization to JdF-D2 basalt glass",
-        "edsDeadTime": "10-12 %",
-        "backgroundCorrectionMethod": "1-point low with slope factor",
-        "timeDependentIntensityCorrection": "Exponential",
-        "elementEstimationMethod": "Direct (measured)",
-        "primaryCalibrationStandard": "Mn2SiO4",
-        "secondaryReferenceMaterial": "USNM 111240/52 VG-2",
-        "interferenceCorrection": "Yes",
-        "interferingElements": "None",
-        "interferenceCorrectionStandard": "N/A",
-        "typicalDetectionLimit": "0.01 wt%",
-        "detectionLimitMethod": "A.B.(1997)",
-        "typicalCountingStatisticsError": "Propagated 1σ error per measurement"
-      }
-    ]
-  }
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
+  ],
+  "ada:beamMode": "Focused",
+  "ada:acceleratingVoltage": 1.0,
+  "ada:beamCurrent": 1.0,
+  "ada:beamDiameter": 1.0,
+  "ada:epmaTechniquePerAnalyte": "WDS",
+  "ada:xRayLine": "Ka",
+  "ada:diffractingCrystal": "LIF",
+  "ada:peakCountingTime": 1.0,
+  "ada:backgroundCountingTime": 1.0,
+  "ada:edsLiveTimePerPointOrPixel": 1.0,
+  "ada:edsAcquisitionMode": "Point",
+  "ada:dwellTimePerPixel": 1.0,
+  "ada:stepSizePixelSize": 1.0,
+  "ada:matrixCorrectionMethod": "PAP (Pouchou & Pichoir Full)",
+  "ada:massAbsorptionCoefficients": "LINEMU",
+  "ada:backgroundCorrectionMethod": "2-point off-peak linear",
+  "ada:wdsDeadTimeCorrection": "Default constant 3 us (Cameca)",
+  "ada:primaryStandardName": "example primaryCalibrationStandardName",
+  "ada:secondaryReferenceMaterial": [
+    "example secondaryReferenceMaterials"
+  ],
+  "ada:interferenceCorrectionsApplied": true,
+  "schema:description": "example additionalNotes"
 }

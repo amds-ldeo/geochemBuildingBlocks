@@ -1,399 +1,90 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "EMPA Instrument Detail",
-  "description": "Detail block for Electron Microprobe Analysis hasPart items. Discriminates on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed as sibling properties on the hasPart item. Per-dataset schema:additionalProperty entries are constrained inline via $refs to the parameterValues registry (one schema:PropertyValue branch per readOnly:false empaTAPP parameter, plus a catch-all). schema:measurementTechnique is an @id reference to a registered empaTAPP TAPP definition.",
-  "allOf": [
-    {
-      "type": "object",
-      "properties": {
-        "ada:componentType": {
-          "anyOf": [
-            {
-              "const": "ada:EMPAImage"
-            },
-            {
-              "const": "ada:EMPAImageMap"
-            },
-            {
-              "const": "ada:EMPAQEATabular"
-            },
-            {
-              "const": "ada:EMPAImageCollection"
-            },
-            {
-              "const": "ada:EMPAESPCTabular"
-            },
-            {
-              "const": "ada:EMPAESPCPlot"
-            }
-          ]
-        },
-        "ada:spectrometersUsed": {
-          "type": "string",
-          "description": "Spectrometers used in analysis"
-        },
-        "ada:signalUsed": {
-          "type": "string"
-        },
-        "schema:measurementTechnique": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "description": "@id reference to a registered empaTAPP TAPP definition.",
+  "title": "EPMA/EMPA Analysis Detail",
+  "description": "Dataset-level analysis-instance detail for EPMA/EMPA, reusing CDIF/schema.org slots on the schema:Dataset root.",
+  "type": "object",
+  "properties": {
+    "schema:measurementTechnique": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schema:identifier": {
+            "description": "Persistent identifier (DOI) assigned to this registered protocol. Enter 'pending' if a DOI has been applied for but not yet minted.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "schema:contributor": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "allOf": [
+        {
+          "contains": {
             "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
+              "schema:roleName": {
+                "const": "analyst"
               }
             },
             "required": [
-              "@id"
+              "schema:roleName"
             ]
           }
         }
-      },
-      "required": [
-        "ada:componentType"
       ]
     },
-    {
-      "type": "object",
-      "properties": {
-        "schema:additionalProperty": {
-          "type": "array",
-          "description": "Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item is any of the empaTAPP-derived parameter types or (via the catch-all branch) any other PropertyValue. All entries are optional — include only the parameters you have values for.",
-          "items": {
-            "anyOf": [
+    "prov:wasGeneratedBy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schema:startDate": {
+            "description": "Date on which the analysis session began.",
+            "type": "string"
+          },
+          "schema:endDate": {
+            "description": "Date on which the analysis session ended (if spanning multiple days).",
+            "type": "string"
+          },
+          "schema:object": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "allOf": [
               {
-                "title": "Accelerating Voltage",
-                "description": "Electron beam accelerating voltage in kilovolts (kV).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/acceleratingVoltage"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/empaTAPP/acceleratingVoltage"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Accelerating Voltage"
-                  },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ]
-              },
-              {
-                "title": "Beam Current",
-                "description": "Probe current in nanoamperes (nA).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/beamCurrent"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/empaTAPP/beamCurrent"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Beam Current"
-                  },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ]
-              },
-              {
-                "title": "Beam Diameter",
-                "description": "Diameter of the focused or defocused electron beam in micrometers.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/beamDiameter"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/empaTAPP/beamDiameter"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Beam Diameter"
-                  },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ]
-              },
-              {
-                "title": "Beam Mode",
-                "description": "Whether the beam was focused, defocused, or rastered over an area.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/beamMode"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/empaTAPP/beamMode"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Beam Mode"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/beamMode"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Beam Raster Dimensions",
-                "description": "X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/beamRasterDimensions"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Beam Raster Dimensions"
-                  },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ]
-              },
-              {
-                "title": "Drift Correction",
-                "description": "Describe method used to monitor and correct for instrument drift",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/driftCorrection"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/empaTAPP/driftCorrection"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Drift Correction"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "WDS Dead Time Correction",
-                "description": "Method used to correct WDS proportional counter dead time at high count rates.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "WDS Dead Time Correction"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/empaTAPP/wdsDeadTimeCorrection"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "Catch-all for additional schema:PropertyValue entries beyond those enumerated in the empaTAPP-derived catalog above.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:PropertyValue"
-                    }
-                  },
-                  "schema:propertyID": {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "not": {
-                          "enum": [
-                            "ada:parameter/empaTAPP/acceleratingVoltage",
-                            "ada:parameter/empaTAPP/beamCurrent",
-                            "ada:parameter/empaTAPP/beamDiameter",
-                            "ada:parameter/empaTAPP/beamMode",
-                            "ada:parameter/empaTAPP/beamRasterDimensions",
-                            "ada:parameter/empaTAPP/driftCorrection",
-                            "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-                          ]
-                        }
+                "contains": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
                       }
                     }
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:propertyID"
-                ]
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                }
               }
             ]
           }
         }
       }
+    },
+    "schema:funding": {
+      "type": "array"
+    },
+    "schema:relatedLink": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
     }
+  },
+  "required": [
+    "schema:funding"
   ]
 }

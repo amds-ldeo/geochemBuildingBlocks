@@ -53,12 +53,23 @@ _IDENTITY_COMMON = {"Protocol Name", "Technique", "Protocol Author", "Laboratory
 
 TAPP_CONFIGS = {
     "empaTAPP": {
-        # Evolved-past prototype workbook, routed by the canonical matrix +
-        # `schema path` roles (see route_empa/build_empa). Titles/descriptions and
-        # the rich emitters come from _tapp_lib (TAPP_PROFILES['empaTAPP']).
-        "xlsx": "docs/TAPP_EPMA_filled-noInterp.xlsx",
+        # Converted to the path-driven pipeline (2026-08-04) from the v-numbered workbook, replacing
+        # the earlier matrix/`schema path` route (build_empa) + _tapp_lib publication examples.
+        "xlsx": "docs/EPMA_TAPP_v7.xlsx",
         "prefix": "empa",
-        "mode": "empa",
+        "component_types": ["ada:EMPAImage", "ada:EMPAImageMap", "ada:EMPAQEATabular",
+                            "ada:EMPAImageCollection", "ada:EMPAESPCTabular", "ada:EMPAESPCPlot"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
+        "description": ("Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP "
+                        "definition, generated from docs/EPMA_TAPP_v7.xlsx via the path-driven pipeline "
+                        "(bootstrap_schemapaths.py + build_pathdriven.py)."),
+        "detail_title": "EPMA/EMPA Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for EPMA/EMPA, reusing "
+                               "CDIF/schema.org slots on the schema:Dataset root."),
     },
     "geochronTAPP": {
         "xlsx": "docs/LA-ICPMS_Geochron_Horstwood_TAPP_v6.xlsx",

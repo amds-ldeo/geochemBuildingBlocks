@@ -13,13 +13,13 @@
     "ex": "https://example.org/",
     "dcat": "http://www.w3.org/ns/dcat#"
   },
-  "@id": "ex:adaEMPA-example-001",
+  "@id": "ex:empaProfile-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:name": "EMPA Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Electron Microprobe Analysis (EMPA) product metadata demonstrating properties defined by the adaEMPA profile. Mock data for testing and validation.",
+  "schema:name": "EMPA Product: Meteorite Thin-Section WDS Maps",
+  "schema:description": "Example path-driven EMPA product metadata: dataset-level analysis detail (analyst, session, sample, parameters) plus EMPA component types on distribution.hasPart and an empaTAPP linkage.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EMPA)",
     "ada:DataDeliveryPackage"
@@ -101,6 +101,19 @@
       "@type": [
         "schema:Role"
       ],
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Analytica, Maria",
+        "schema:identifier": "https://orcid.org/0000-0001-2345-6789"
+      }
+    },
+    {
+      "@type": [
+        "schema:Role"
+      ],
       "schema:roleName": "principalInvestigator",
       "schema:contributor": {
         "@type": [
@@ -143,11 +156,7 @@
   ],
   "schema:measurementTechnique": [
     {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "Inductively Coupled Plasma Mass Spectrometry (ICP-MS)",
-      "schema:identifier": "https://ada.astromat.org/vocabulary/techniques/ICPMS"
+      "@id": "ex:empaTAPP-spot"
     }
   ],
   "prov:wasGeneratedBy": [
@@ -288,7 +297,7 @@
           "schema:name": "ALH84001_ICPMS_001.tif",
           "schema:description": "ICPMS data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:HRICPMSProcessed"
+            "ada:LAICPMSTabular"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -308,6 +317,21 @@
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
           "ada:componentType": "ada:EMPAQEATabular",
+          "schema:measurementTechnique": [
+            {
+              "@id": "ex:empaTAPP-spot"
+            }
+          ],
+          "ada:analyst": "Analytica, Maria",
+          "ada:analysisStartDate": "2026-01-10",
+          "ada:analysisEndDate": "2026-01-10",
+          "ada:fundingSourceForAnalysis": "NASA NNX17AE48G",
+          "ada:sampleName": "ALH 84001,123",
+          "ada:oxideProduction": "0.3% (below 0.5% threshold)",
+          "ada:analysisLocationSpotCoordinates": "spot grid on thin section; X,Y in um",
+          "ada:numberOfReplicates": 3,
+          "ada:transectLength": "not applicable (spot analysis)",
+          "ada:signalIntegrationTime": 1.0,
           "cdi:isDelimited": true,
           "cdif:hasPhysicalMapping": [
             {

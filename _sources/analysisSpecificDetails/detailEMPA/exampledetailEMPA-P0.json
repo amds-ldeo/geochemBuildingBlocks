@@ -1,99 +1,63 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
-  "@id": "ex:detailEMPA-p0",
+  "@id": "ex:detailEMPA-P0",
   "@type": [
-    "schema:Thing"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:EMPAQEATabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-p0"
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example protocolDoi"
     }
   ],
-  "schema:additionalProperty": [
+  "schema:contributor": [
     {
-      "@id": "ada:parameter/empaTAPP/beamMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/beamMode"
-      },
-      "schema:name": "Beam Mode",
-      "schema:value": "Focused"
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
+        }
+      ]
+    }
+  ],
+  "schema:funding": [],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique"
+      }
     },
     {
-      "@id": "ada:parameter/empaTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/acceleratingVoltage"
-      },
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 20,
-      "schema:unitText": "kV"
+      "schema:linkRelationship": "coupledProtocol",
+      "schema:target": {
+        "schema:url": "example coupledProtocolDoi"
+      }
     },
     {
-      "@id": "ada:parameter/empaTAPP/beamDiameter",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/beamDiameter"
-      },
-      "schema:name": "Beam Diameter",
-      "schema:value": 5,
-      "schema:unitText": "µm"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/beamRasterDimensions",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
-      },
-      "schema:name": "Beam Raster Dimensions",
-      "schema:value": "10 by 10",
-      "schema:unitText": "µm × µm"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/driftCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/driftCorrection"
-      },
-      "schema:name": "Drift Correction",
-      "schema:value": "Primary major element reference materials are run at beginning and end of every analytical session and the calibration is interpolated"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/beamCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/beamCurrent"
-      },
-      "schema:name": "Beam Current",
-      "schema:value": 10,
-      "schema:unitText": "nA"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/wdsDeadTimeCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/wdsDeadTimeCorrection"
-      },
-      "schema:name": "WDS Dead Time Correction",
-      "schema:value": "Super-precision"
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ]
 }

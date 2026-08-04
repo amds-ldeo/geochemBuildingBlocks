@@ -1152,65 +1152,6 @@ $defs:
       - schema:name
       - ada:dataType
       - ada:fieldScope
-  beamRasterDimensionsDefault:
-    title: Beam Raster Dimensions
-    description: X × Y dimensions of beam raster area in micrometers, if beam raster mode was used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/beamRasterDimensionsDefault
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: beamRasterDimensionsDefault
-      schema:name:
-        const: Beam Raster Dimensions
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-      - ada:fieldScope
-  driftCorrectionDefault:
-    title: Drift Correction
-    description: Describe method used to monitor and correct for instrument drift
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/driftCorrectionDefault
-      '@type':
-        const:
-          - schema:PropertyValueSpecification
-      schema:valueName:
-        const: driftCorrectionDefault
-      schema:name:
-        const: Drift Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-      - '@id'
-      - '@type'
-      - schema:valueName
-      - schema:name
-      - ada:dataType
-      - ada:fieldScope
-
   imagingDefault:
     title: Imaging
     description: Pre-ablation characterisation imaging (typically cathodoluminescence [CL] or backscattered
@@ -5112,6 +5053,403 @@ $defs:
         const: analyticalAccuracyAndAssessmentMethodDefault
       schema:name:
         const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
+  beamRasterDimensionsDefault:
+    title: Beam Raster Dimensions
+    description: X x Y dimensions of a small beam raster used at a single analysis point to average a coarse-grained
+      or beam-sensitive phase. Different from X-ray mapping mode; not applicable when mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/beamRasterDimensionsDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: beamRasterDimensionsDefault
+      schema:name:
+        const: Beam Raster Dimensions
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: um x um
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_beamDamageMinimizationDefault:
+    title: Beam Damage Minimization
+    description: Measures taken to minimize beam damage, particularly volatilization or migration of Na,
+      K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach,
+      beam conditions used, and phases for which it was applied.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/beamDamageMinimizationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: beamDamageMinimizationDefault
+      schema:name:
+        const: Beam Damage Minimization
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  driftCorrectionDefault:
+    title: Drift Correction
+    description: Method used to monitor and correct for instrument drift (beam current drift, spectrometer
+      drift) during the analytical session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/driftCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: driftCorrectionDefault
+      schema:name:
+        const: Drift Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_backgroundPositionDefault:
+    title: Background Position(s)
+    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
+      and whether on the high- or low-energy side.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/backgroundPositionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundPositionDefault
+      schema:name:
+        const: Background Position(s)
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_timeDependentIntensityCorrectionDefault:
+    title: Time-Dependent Intensity Correction
+    description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced
+      volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
+      Most commonly applied in point analysis; uncommon for X-ray mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/timeDependentIntensityCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: timeDependentIntensityCorrectionDefault
+      schema:name:
+        const: Time-Dependent Intensity Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_halogenCorrectionOnOxygenDefault:
+    title: Halogen Correction on Oxygen
+    description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing
+      OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by
+      stoichiometry.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: halogenCorrectionOnOxygenDefault
+      schema:name:
+        const: Halogen Correction on Oxygen
+      ada:dataType:
+        const: boolean
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_blankCorrectionDefault:
+    title: Blank Correction
+    description: Method and reference material(s) used to determine and subtract blank signal contributions
+      (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/blankCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: blankCorrectionDefault
+      schema:name:
+        const: Blank Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_normalizationStandardsBasedCorrectionDefault:
+    title: Normalization / Standards-Based Correction
+    description: Post-acquisition normalization applied using secondary reference materials to correct for
+      session-to-session calibration drift.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrectionDefault
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_detectionLimitDefault:
+    title: Detection Limit
+    description: Method detection limit at 99% confidence (3-sigma) for each analyte, derived from counting
+      statistics on peak and background. Include the method and resulting value per analyte.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/detectionLimitDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitDefault
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_detectionLimitMethodDefault:
+    title: Detection Limit Method
+    description: Formula or procedure used to calculate detection limits. Reference method publication if
+      applicable. When the protocol does not specify a method, the analyst should complete this field.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/detectionLimitMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethodDefault
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_analyticalPrecisionDefault:
+    title: Analytical Precision
+    description: Reproducibility of repeated measurements on the same or equivalent reference material,
+      expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses
+      (n), and value per analyte or element group.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/analyticalPrecisionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalPrecisionDefault
+      schema:name:
+        const: Analytical Precision
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_analyticalAccuracyDefault:
+    title: Analytical Accuracy
+    description: Offset between measured and accepted reference values for secondary standards, expressed
+      as percent relative bias. Include reference material, reference value source, and per-analyte value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/analyticalAccuracyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyDefault
+      schema:name:
+        const: Analytical Accuracy
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_countingStatisticsErrorDefault:
+    title: Counting Statistics Error
+    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities
+      for each analyte per analysis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/countingStatisticsErrorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: countingStatisticsErrorDefault
+      schema:name:
+        const: Counting Statistics Error
       ada:dataType:
         const: string
       ada:fieldScope:
