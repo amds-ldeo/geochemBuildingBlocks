@@ -229,20 +229,22 @@ allOf:
       "schema:creativeWorkStatus":
         type: string
       "schema:measurementTechnique":
-        type: object
-        description: Text description of the measurement method
-        properties:
-          "@type":
-            type: array
-            items:
+        type: array
+        items:
+          type: object
+          description: Text description of the measurement method
+          properties:
+            "@type":
+              type: array
+              items:
+                type: string
+              contains:
+                const: "schema:DefinedTerm"
+              minItems: 1
+            "schema:name":
               type: string
-            contains:
-              const: "schema:DefinedTerm"
-            minItems: 1
-          "schema:name":
-            type: string
-          "schema:identifier":
-            type: string
+            "schema:identifier":
+              type: string
       "prov:wasGeneratedBy":
         description: >-
           ADA analysis events. Extends cdifProvActivity (from cdifProvenance) with
@@ -333,26 +335,28 @@ allOf:
                 type: string
                 description: Human intelligible name for variable that conveys semantics
             "schema:measurementTechnique":
-              anyOf:
-                - type: string
-                - type: object
-                  properties:
-                    "@id":
-                      type: string
-                - type: object
-                  properties:
-                    "@type":
-                      type: array
-                      items:
+              type: array
+              items:
+                anyOf:
+                  - type: string
+                  - type: object
+                    properties:
+                      "@id":
                         type: string
-                      contains:
-                        const: "schema:DefinedTerm"
-                      minItems: 1
-                    "schema:name":
-                      type: string
-                  required:
-                    - "@type"
-                    - "schema:name"
+                  - type: object
+                    properties:
+                      "@type":
+                        type: array
+                        items:
+                          type: string
+                        contains:
+                          const: "schema:DefinedTerm"
+                        minItems: 1
+                      "schema:name":
+                        type: string
+                    required:
+                      - "@type"
+                      - "schema:name"
             "schema:unitText":
               type: string
             "schema:unitCode":

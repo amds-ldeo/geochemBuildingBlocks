@@ -14,14 +14,16 @@ allOf:
       - const: ada:XCTRenderedImage
       - const: ada:XCTQuantitativeTabular
     schema:measurementTechnique:
-      type: object
-      description: '@id reference to a registered labxctTAPP TAPP definition.'
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-      - '@id'
+      type: array
+      items:
+        type: object
+        description: '@id reference to a registered labxctTAPP TAPP definition.'
+        properties:
+          '@id':
+            type: string
+            format: uri
+        required:
+        - '@id'
     ada:analyst:
       description: Name(s) of the analyst(s) who operated the CT instrument for this specific analysis
         session. ORCID recommended.

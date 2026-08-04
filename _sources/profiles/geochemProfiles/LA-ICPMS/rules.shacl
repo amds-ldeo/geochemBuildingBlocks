@@ -8,13 +8,13 @@
 @prefix dcterms:     <http://purl.org/dc/terms/> .
 @base <https://www.ogc.org/rules/template/> .
 
-# ICPMS technique profile SHACL rules.
+# LA-ICP-MS technique profile SHACL rules.
 # Base product validation (creator, distribution, wasGeneratedBy, etc.)
 # is inherited from adaProduct rules.shacl.
-# This shape constrains schema:additionalType to valid ICPMS values.
-# Covers HR-ICPMS, Q-ICPMS, and MC-ICPMS sub-techniques.
+# This shape constrains schema:additionalType to valid LA-ICP-MS values.
+# Covers LA-Q-ICP-MS and LA-SF-ICP-MS sub-techniques.
 
-cdifd:icpmsProductShape
+cdifd:laicpmsProductShape
     a sh:NodeShape ;
     sh:target [
         a sh:SPARQLTarget ;
@@ -27,7 +27,7 @@ cdifd:icpmsProductShape
                 ?this a schema:Product .
                 ?this schema:subjectOf ?meta .
                 ?meta schema:additionalType "dcat:CatalogRecord" .
-                ?meta dcterms:conformsTo <https://w3id.org/geochem/metadata/profiles/adaICPMS> .
+                ?meta dcterms:conformsTo <https://w3id.org/geochem/metadata/profiles/adaLAICPMS> .
             }
         """ ;
     ] ;
@@ -36,18 +36,15 @@ cdifd:icpmsProductShape
         sh:qualifiedMinCount 1 ;
         sh:qualifiedValueShape [
             sh:or (
-        [sh:hasValue "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed"]
-        [sh:hasValue "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Raw"]
-        [sh:hasValue "Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Processed"]
-        [sh:hasValue "Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Raw"]
-        [sh:hasValue "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed"]
-        [sh:hasValue "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) Raw"]
-        [sh:hasValue "High-resolution inductively coupled plasma mass spectrometry"]
-        [sh:hasValue "Quadrupole Inductively Coupled Plasma Mass Spectrometry"]
-        [sh:hasValue "Multi-Collector Inductively Coupled Plasma Mass Spectrometry"]
+        [sh:hasValue "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed"]
+        [sh:hasValue "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Raw"]
+        [sh:hasValue "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed"]
+        [sh:hasValue "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Raw"]
+        [sh:hasValue "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"]
+        [sh:hasValue "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"]
             )
         ] ;
-        sh:message "ICPMS products must have at least one schema:additionalType matching a valid ICPMS type." ;
+        sh:message "LA-ICP-MS products must have at least one schema:additionalType matching a valid LA-ICP-MS type." ;
     ] ;
-    sh:message "ICPMS technique profile: additionalType must identify a valid ICPMS product type." ;
+    sh:message "LA-ICP-MS technique profile: additionalType must identify a valid LA-ICP-MS product type." ;
     .

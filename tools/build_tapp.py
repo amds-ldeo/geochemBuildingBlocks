@@ -598,9 +598,9 @@ def build():
     req = ["ada:componentType"]
     block1 = {
         "ada:componentType": {"anyOf": [{"const": c} for c in CFG["component_types"]]},
-        "schema:measurementTechnique": {"type": "object",
+        "schema:measurementTechnique": {"type": "array", "items": {"type": "object",
             "description": f"@id reference to a registered {TAPP} TAPP definition.",
-            "properties": {"@id": {"type": "string", "format": "uri"}}, "required": ["@id"]}}
+            "properties": {"@id": {"type": "string", "format": "uri"}}, "required": ["@id"]}}}
     for b in R["detail_req"]:
         key = "ada:" + b["name"]
         if b["jtype"] in ("number", "integer"):

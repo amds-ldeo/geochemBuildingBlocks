@@ -1,23 +1,19 @@
-# ADA ICP-MS Profile
+# ADA LA-ICP-MS Profile
 
-Technique-specific metadata profile for Inductively Coupled Plasma Mass Spectrometry (ICP-MS) products in the Astromat Data Archive. ICP-MS measures elemental and isotopic concentrations by ionizing samples in an argon plasma and separating ions by mass-to-charge ratio. This profile covers HR-ICP-MS (high resolution), Q-ICP-MS (quadrupole), and MC-ICP-MS (multi-collector) variants.
+Technique-specific metadata profile for Laser-Ablation Inductively Coupled Plasma Mass Spectrometry (LA-ICP-MS) products in the Astromat Data Archive. LA-ICP-MS measures in-situ elemental and isotopic concentrations of solid samples by ablating material with a laser and ionizing the aerosol in an argon plasma, separating ions by mass-to-charge ratio. This profile covers LA-Q-ICP-MS (quadrupole) and LA-SF-ICP-MS (sector-field / high-resolution) variants.
 
 ## Product Types
-- **HR-ICP-MS Processed/Raw** - High-resolution ICP-MS data
-- **Q-ICP-MS Processed/Raw** - Quadrupole ICP-MS data
-- **MC-ICP-MS Raw/Processed** - Multi-collector ICP-MS data
+- **LA-Q-ICP-MS Processed/Raw** - Laser-ablation quadrupole ICP-MS data
+- **LA-SF-ICP-MS Processed/Raw** - Laser-ablation sector-field ICP-MS data
 
 ## Valid Component Types
-- `ada:HRICPMSProcessed` - HR-ICP-MS processed tabular data
-- `ada:HRICPMSRaw` - HR-ICP-MS raw tabular data or documents
-- `ada:QICPMSProcessedTabular` - Q-ICP-MS processed tabular data
-- `ada:QICPMSRawTabular` - Q-ICP-MS raw tabular data
-- `ada:MCICPMSTabular` - MC-ICP-MS tabular data
-- `ada:MCICPMSCollection` - MC-ICP-MS data collections
-- `ada:MCICPMSRaw` - MC-ICP-MS raw documents (e.g., Neptune Plus .exp files)
-- `ada:methodDescription` - Method description documents
-- `ada:instrumentMetadata` - Instrument metadata documents
-- `ada:calibrationFile` - Calibration documents
+Technique-specific component types are defined by the `detailLAICPMS` detail block:
+- `ada:LAICPMSTabular` - LA-ICP-MS tabular data
+- `ada:LAICPMSMap` - LA-ICP-MS map (2-D raster) data
+- `ada:LAICPMSImage` - LA-ICP-MS image data
+- `ada:LAICPMSTransect` - LA-ICP-MS transect (line-scan) data
+
+Universal component types (e.g. `ada:methodDescription`, `ada:instrumentMetadata`, `ada:calibrationFile`) remain valid via the shared universal component-type branch.
 
 ## Detail Type
-No ICP-MS-specific detail type; component types are enum-only.
+`detailLAICPMS` — carries analysis-level required properties (analyst, analysis dates, sample name, oxide production, spot coordinates, replicate count, transect length, signal integration time) plus per-dataset `schema:additionalProperty` entries and an `@id` reference to the registered laicpmsTAPP protocol.

@@ -7,15 +7,17 @@ allOf:
     properties:
       schema:measurementTechnique:
         description: TAPP definition reference or inline.
-        anyOf:
-          - type: object
-            properties:
-              '@id':
-                type: string
-                format: uri
-            required:
-              - '@id'
-          - $ref: ../../../techniqueProtocols/empaTAPP/schema.yaml
+        type: array
+        items:
+          anyOf:
+            - type: object
+              properties:
+                '@id':
+                  type: string
+                  format: uri
+              required:
+                - '@id'
+            - $ref: ../../../techniqueProtocols/empaTAPP/schema.yaml
       schema:distribution:
         type: array
         items:

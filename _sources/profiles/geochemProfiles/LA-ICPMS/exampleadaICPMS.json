@@ -18,10 +18,10 @@
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:name": "ICPMS Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Inductively Coupled Plasma Mass Spectrometry (ICP-MS) product metadata demonstrating all properties defined by the adaICPMS profile. Contains mock data for testing and validation.",
+  "schema:name": "LA-ICP-MS Analysis of Meteorite ALH 84001 Fragment",
+  "schema:description": "Example Laser-Ablation Inductively Coupled Plasma Mass Spectrometry (LA-ICP-MS) product metadata demonstrating all properties defined by the adaLAICPMS profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
-    "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed",
+    "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -101,6 +101,19 @@
       "@type": [
         "schema:Role"
       ],
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Analytica, Maria",
+        "schema:identifier": "https://orcid.org/0000-0001-2345-6789"
+      }
+    },
+    {
+      "@type": [
+        "schema:Role"
+      ],
       "schema:roleName": "principalInvestigator",
       "schema:contributor": {
         "@type": [
@@ -141,9 +154,11 @@
       }
     }
   ],
-  "schema:measurementTechnique": {
-    "@id": "ex:laicpmsTAPP-spot"
-  },
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:laicpmsTAPP-spot"
+    }
+  ],
   "prov:wasGeneratedBy": [
     {
       "@type": [
@@ -185,7 +200,8 @@
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
           "schema:additionalType": [
-            "MaterialSample"
+            "MaterialSample",
+            "materialsample"
           ],
           "schema:name": "ALH 84001,123",
           "schema:identifier": [
@@ -282,7 +298,7 @@
           "schema:name": "ALH84001_ICPMS_001.tif",
           "schema:description": "ICPMS data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:HRICPMSProcessed"
+            "ada:LAICPMSTabular"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -301,7 +317,22 @@
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": "ada:HRICPMSProcessed",
+          "ada:componentType": "ada:LAICPMSTabular",
+          "schema:measurementTechnique": [
+            {
+              "@id": "ex:laicpmsTAPP-spot"
+            }
+          ],
+          "ada:analyst": "Analytica, Maria",
+          "ada:analysisStartDate": "2026-01-10",
+          "ada:analysisEndDate": "2026-01-10",
+          "ada:fundingSourceForAnalysis": "NASA NNX17AE48G",
+          "ada:sampleName": "ALH 84001,123",
+          "ada:oxideProduction": "0.3% (below 0.5% threshold)",
+          "ada:analysisLocationSpotCoordinates": "spot grid on thin section; X,Y in um",
+          "ada:numberOfReplicates": 3,
+          "ada:transectLength": "not applicable (spot analysis)",
+          "ada:signalIntegrationTime": 1.0,
           "cdi:isDelimited": true,
           "cdif:hasPhysicalMapping": [
             {
@@ -358,7 +389,7 @@
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaICPMS"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaLAICPMS"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
