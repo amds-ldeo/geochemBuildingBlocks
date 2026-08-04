@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA SEM Imaging Product Profile",
+  "description": "Path-driven technique-specific profile for ADA SEM Imaging Product Profile. Extends the base ADA product profile with the SEMIMAGING analysis-instance detail on the schema:Dataset root, narrows prov:used to the semImagingTAPP protocol, and constrains valid component types on schema:distribution.hasPart.",
+  "allOf": [
+    {
+      "$ref": "../../adaProfiles/adaProduct/adaProductSchema.json"
+    },
+    {
+      "$ref": "../../../analysisSpecificDetails/detailSEMIMAGING/detailSEMIMAGINGSchema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "prov:wasGeneratedBy": {
+          "description": "Narrow the base prov:used to the semImagingTAPP definition — inline, or by node @id — alongside the instrument.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "prov:used": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "../../../geochemProperties/instrument/instrumentSchema.json"
+                    },
+                    {
+                      "type": "object",
+                      "description": "Reference by node @id to a semImagingTAPP definition object defined elsewhere.",
+                      "properties": {
+                        "@id": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ]
+                    },
+                    {
+                      "$ref": "../../../techniqueProtocols/semImagingTAPP/semImagingTAPPSchema.json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "schema:additionalType": {
+          "description": "Must include a SEMIMAGING product type identifier.",
+          "contains": {
+            "enum": [
+              "Scanning Electron Microscopy (SEM) Image",
+              "Scanning electron microscopy"
+            ]
+          }
+        },
+        "schema:distribution": {
+          "description": "Distribution items for adaSEMImaging. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:hasPart": {
+                "items": {
+                  "type": "object",
+                  "anyOf": [
+                    {
+                      "$ref": "../../adaProfiles/adaProduct/adaProductSchema.json#/$defs/universalComponentTypeBranch"
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:SEMImage",
+                            "ada:BSEImage",
+                            "ada:CLImage",
+                            "ada:CLSpectrum",
+                            "ada:EBSDMap",
+                            "ada:SEMTabular"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "schema:subjectOf": {
+          "properties": {
+            "dcterms:conformsTo": {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/geochem/metadata/profiles/adaSEMImaging"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA Solution Q-ICP-MS Product Profile",
+  "description": "Path-driven technique-specific profile for ADA Solution Q-ICP-MS Product Profile. Extends the base ADA product profile with the SOLUTIONQICPMS analysis-instance detail on the schema:Dataset root, narrows prov:used to the solutionQicpmsTAPP protocol, and constrains valid component types on schema:distribution.hasPart.",
+  "allOf": [
+    {
+      "$ref": "../../adaProfiles/adaProduct/adaProductSchema.json"
+    },
+    {
+      "$ref": "../../../analysisSpecificDetails/detailSOLUTIONQICPMS/detailSOLUTIONQICPMSSchema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "prov:wasGeneratedBy": {
+          "description": "Narrow the base prov:used to the solutionQicpmsTAPP definition — inline, or by node @id — alongside the instrument.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "prov:used": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "../../../geochemProperties/instrument/instrumentSchema.json"
+                    },
+                    {
+                      "type": "object",
+                      "description": "Reference by node @id to a solutionQicpmsTAPP definition object defined elsewhere.",
+                      "properties": {
+                        "@id": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ]
+                    },
+                    {
+                      "$ref": "../../../techniqueProtocols/solutionQicpmsTAPP/solutionQicpmsTAPPSchema.json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "schema:additionalType": {
+          "description": "Must include a SOLUTIONQICPMS product type identifier.",
+          "contains": {
+            "enum": [
+              "Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Processed",
+              "Quadrupole Inductively Coupled Plasma Mass Spectrometry"
+            ]
+          }
+        },
+        "schema:distribution": {
+          "description": "Distribution items for adaSolutionQICPMS. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:hasPart": {
+                "items": {
+                  "type": "object",
+                  "anyOf": [
+                    {
+                      "$ref": "../../adaProfiles/adaProduct/adaProductSchema.json#/$defs/universalComponentTypeBranch"
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:SolutionICPMSTabular"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "schema:subjectOf": {
+          "properties": {
+            "dcterms:conformsTo": {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/geochem/metadata/profiles/adaSolutionQICPMS"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
