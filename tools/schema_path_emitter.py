@@ -55,6 +55,17 @@ class Leaf:
         self.schema = schema
 
 
+class Collision:
+    """A scalar terminal landing on a prop already holding a selector const (an array-valued key
+    like an instrument's schema:additionalType). Mode-neutral: to_schema renders an array that
+    CONTAINS the selector value; to_instance renders the [selector-value, row-value] list."""
+    __slots__ = ("const_val", "leaf")
+
+    def __init__(self, const_val, leaf):
+        self.const_val = const_val
+        self.leaf = leaf
+
+
 # ---------- merger: fold one path into the tree ----------
 def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, element=None):
     """Fold one path into the tree. `leaf_schema` sets a scalar terminal field; `element`
@@ -101,11 +112,9 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 existing = node.props.get(curie)
                 if (isinstance(existing, Leaf) and isinstance(existing.schema, dict)
                         and "const" in existing.schema):
-                    # collision with a selector const (e.g. an instrument's schema:additionalType,
-                    # which is array-valued): model as an array whose items match this row and that
-                    # CONTAINS the selector value — keeps the selector meaning + the row's value.
-                    node.props[curie] = Leaf({"type": "array", "items": leaf_schema or {"type": "string"},
-                                              "allOf": [{"contains": existing.schema}]})
+                    # collision with a selector const (e.g. an instrument's array-valued
+                    # schema:additionalType) -> a mode-neutral Collision node.
+                    node.props[curie] = Collision(existing.schema["const"], leaf_schema)
                 else:
                     node.props[curie] = Leaf(leaf_schema)
                 return
@@ -119,6 +128,11 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
 def to_schema(node):
     if isinstance(node, Leaf):
         return node.schema
+    if isinstance(node, Collision):
+        # array-valued key holding the coarse selector token AND the row's finer value
+        return {"type": "array",
+                "items": {"anyOf": [node.leaf or {"type": "string"}, {"const": node.const_val}]},
+                "allOf": [{"contains": {"const": node.const_val}}]}
     if isinstance(node, Obj):
         return {"type": "object",
                 "properties": {k: to_schema(v) for k, v in node.props.items()}}
@@ -145,6 +159,31 @@ def to_schema(node):
         if isinstance(node.append, Obj):
             return {"type": "array", "items": to_schema(node.append)}
         return {"type": "array"}
+    raise TypeError(node)
+
+
+# ---------- serialize IR -> JSON-LD instance (Phase 2, same merger) ----------
+def to_instance(node):
+    if isinstance(node, Leaf):
+        s = node.schema
+        if isinstance(s, dict) and set(s.keys()) == {"const"}:   # a selector key -> its literal value
+            return s["const"]
+        return s                                                  # a placeholder value or built element
+    if isinstance(node, Collision):                              # array-valued key: [selector, row value]
+        return [node.const_val, node.leaf]
+    if isinstance(node, Obj):
+        out = {}
+        if node.types:
+            out["@type"] = list(node.types)
+        for k, v in node.props.items():
+            out[k] = to_instance(v)
+        return out
+    if isinstance(node, Arr):
+        if node.branches:
+            return [to_instance(v) for v in node.branches.values()]
+        if node.append is not None:
+            return [to_instance(node.append)]
+        return []
     raise TypeError(node)
 
 
