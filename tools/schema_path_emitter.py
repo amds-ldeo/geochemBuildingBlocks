@@ -214,12 +214,17 @@ def build(tapp):
     spec = json.load(open(spec_path, encoding="utf-8"))
     roots = {"MethodDefinition": Obj(), "Dataset": Obj()}
     registries = {"parameterTemplates": {}, "parameterValues": {}}
+    required = {"MethodDefinition": [], "Dataset": []}
     pt_seen, pv_seen = set(), set()
     for item, rec in spec.items():
         path = rec["path"]
         parsed = spp.parse(path)
         m = meta.get(item, {})
         require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
+        non_type = [s for s in parsed.segments if not s.is_type]
+        if require and len(non_type) == 1 and non_type[0].selector is None and not non_type[0].is_array:
+            if non_type[0].prop not in required[parsed.root]:   # top-level direct prop, Basic tier
+                required[parsed.root].append(non_type[0].prop)
         if _is_addl_param(parsed):
             bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
                   "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
@@ -242,28 +247,98 @@ def build(tapp):
                      if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
             enum = parts or None
         insert(roots[parsed.root], parsed, leaf_for(m.get("desc"), m.get("dt"), enum), require=require)
-    return {r: to_schema(o) for r, o in roots.items()}, registries
+    return {r: to_schema(o) for r, o in roots.items()}, registries, required
 
 
-def _self_test(tapp="laicpmsTAPP"):
+# base building block each overlay extends via allOf (relative to the artifact's own dir)
+_BASE_REF = {"MethodDefinition": "../tappDefinition/schema.yaml",
+             "Dataset": "../../adaProfiles/adaProduct/schema.yaml"}
+
+
+def wrap(root, overlay, required, title=None, description=None):
+    """Wrap an overlay as a full artifact schema: allOf[{$ref base}, {overlay + required}]."""
+    inner = {"type": "object", "properties": overlay.get("properties", {})}
+    if required:
+        inner["required"] = required
+    out = {"$schema": "https://json-schema.org/draft/2020-12/schema"}
+    if title:
+        out["title"] = title
+    if description:
+        out["description"] = description
+    out["allOf"] = [{"$ref": _BASE_REF[root]}, inner]
+    return out
+
+
+def full_tapp(tapp):
+    """Assemble the complete path-driven TAPP artifact: wrapped schema + registries + Dataset overlay."""
+    overlays, registries, required = build(tapp)
+    tapp_schema = wrap("MethodDefinition", overlays["MethodDefinition"], required["MethodDefinition"],
+                       title=b.CFG.get("title"), description=b.CFG.get("description"))
+    return tapp_schema, registries, overlays["Dataset"]
+
+
+def _ref_names(node, acc):
+    if isinstance(node, dict):
+        r = node.get("$ref", "")
+        m = re.search(r"/(parameterTemplates|parameterValues)/schema\.yaml#/\$defs/(.+)$", r)
+        if m:
+            acc.setdefault(m.group(1), set()).add(m.group(2))
+        for v in node.values():
+            _ref_names(v, acc)
+    elif isinstance(node, list):
+        for v in node:
+            _ref_names(v, acc)
+    return acc
+
+
+def _shipped_top_props(tapp):
+    import yaml
+    p = os.path.join(b.TAPP_DIR, "schema.yaml")
+    d = yaml.safe_load(open(p, encoding="utf-8"))
+    for blk in d.get("allOf", []):
+        if isinstance(blk, dict) and blk.get("type") == "object":
+            return set((blk.get("properties") or {}).keys())
+    return set()
+
+
+def _self_test(tapp="laicpmsTAPP", out_dir=None):
     import jsonschema
-    overlays, registries = build(tapp)
-    print(f"=== {tapp}: path-driven overlays (all families, incl. instrument) ===")
-    for root, sch in overlays.items():
-        print(f"\n[{root}] {len(sch.get('properties', {}))} top-level properties")
-        try:
-            jsonschema.Draft202012Validator.check_schema(sch)
-            print("   check_schema: OK")
-        except jsonschema.SchemaError as e:
-            print(f"   check_schema: FAIL — {e.message}")
-    print(f"\nregistry $defs generated: parameterTemplates={len(registries['parameterTemplates'])}"
-          f"  parameterValues={len(registries['parameterValues'])}")
-    inst = overlays["MethodDefinition"]["properties"].get("schema:instrument")
-    if inst:
-        types = [br.get("properties", {}).get("schema:additionalType") for br in inst["items"]["anyOf"]]
-        print(f"instrument branches: {len(inst['items']['anyOf'])} typed instruments")
+    tapp_schema, registries, dataset_overlay = full_tapp(tapp)
+    print(f"=== {tapp}: path-driven TAPP artifact (base allOf-wrapped) ===")
+    # 1. structural validity
+    try:
+        jsonschema.Draft202012Validator.check_schema(tapp_schema)
+        print("check_schema (wrapped TAPP): OK")
+    except jsonschema.SchemaError as e:
+        print(f"check_schema: FAIL — {e.message}"); return 1
+    # 2. $ref consistency: every registry $ref must resolve to a generated $def
+    used = _ref_names(tapp_schema, {})
+    dangling = {reg: sorted(names - set(registries[reg])) for reg, names in used.items()
+                if names - set(registries[reg])}
+    print("$ref consistency:", "OK (every ref has a generated $def)" if not dangling else f"DANGLING {dangling}")
+    overlay_props = tapp_schema["allOf"][1]["properties"]
+    print(f"TAPP overlay: {len(overlay_props)} props, {len(tapp_schema['allOf'][1].get('required', []))} required; "
+          f"registries: {len(registries['parameterTemplates'])} templates + {len(registries['parameterValues'])} values; "
+          f"Dataset overlay (for detail rework): {len(dataset_overlay.get('properties', {}))} props")
+    # 3. diff vs the shipped (tier-matrix) schema
+    shipped = _shipped_top_props(tapp)
+    gen = set(overlay_props)
+    print(f"\n--- top-level property diff vs shipped {tapp}/schema.yaml ---")
+    print(f"  added by path-driven ({len(gen - shipped)}): {sorted(gen - shipped)[:12]}")
+    print(f"  gone from shipped   ({len(shipped - gen)}): {sorted(shipped - gen)[:12]}")
+    print(f"  unchanged           ({len(gen & shipped)})")
+    # 4. write the generated artifact to a sandbox for inspection (non-destructive)
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
+        with open(os.path.join(out_dir, f"{tapp}.schema.json"), "w", encoding="utf-8") as f:
+            json.dump(tapp_schema, f, indent=2, ensure_ascii=False)
+        with open(os.path.join(out_dir, f"{tapp}.registries.json"), "w", encoding="utf-8") as f:
+            json.dump(registries, f, indent=2, ensure_ascii=False)
+        print(f"\nwrote generated artifact to {out_dir}")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(_self_test(sys.argv[1] if len(sys.argv) > 1 else "laicpmsTAPP"))
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    od = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--out=")), None)
+    sys.exit(_self_test(args[0] if args else "laicpmsTAPP", out_dir=od))
