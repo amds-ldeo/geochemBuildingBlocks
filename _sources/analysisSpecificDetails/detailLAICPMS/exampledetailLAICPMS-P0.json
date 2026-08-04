@@ -1,37 +1,126 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
   "@id": "ex:detailLAICPMS-P0",
   "@type": [
-    "ada:LAICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LAICPMSTabular",
-  "schema:measurementTechnique": {
-    "@id": "ex:laicpmsTAPP-Navarro2024spot"
-  },
-  "ada:analyst": "example analyst",
-  "ada:analysisStartDate": "2022-04-22",
-  "ada:analysisEndDate": "2022-04-22",
-  "ada:fundingSourceForAnalysis": "example fundingSourceForAnalysis",
-  "ada:sampleName": "example sampleName",
-  "ada:oxideProduction": "example oxideProduction",
-  "ada:analysisLocationSpotCoordinates": "example analysisLocationSpotCoordinates",
-  "ada:numberOfReplicates": 3,
-  "ada:transectLength": 1.0,
-  "ada:signalIntegrationTime": 1.0,
-  "schema:additionalProperty": [
+  "schema:contributor": [
     {
-      "@id": "ada:parameter/laicpmsTAPP/coupledProtocolDoi",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/laicpmsTAPP/coupledProtocolDoi"
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "schema:startDate": "example analysisStartDate",
+    "schema:endDate": "example analysisEndDate",
+    "schema:object": [
+      {
+        "schema:additionalType": [
+          "materialsample"
+        ],
+        "schema:name": "example sampleName",
+        "schema:identifier": "example samplePersistentIdentifier",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laicpmsTAPP/analysisLocationSpotCoordinates",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": {
+              "@id": "ada:parameter/laicpmsTAPP/analysisLocationSpotCoordinates"
+            },
+            "schema:name": "Analysis Location/Spot Coordinates",
+            "schema:value": "example value"
+          }
+        ]
+      }
+    ],
+    "schema:additionalProperty": [
+      {
+        "@id": "ada:parameter/laicpmsTAPP/numberOfReplicates",
+        "@type": [
+          "schema:PropertyValue"
+        ],
+        "schema:propertyID": {
+          "@id": "ada:parameter/laicpmsTAPP/numberOfReplicates"
+        },
+        "schema:name": "Number of Replicates",
+        "schema:value": 1
       },
-      "schema:name": "Coupled Protocol DOI",
-      "schema:value": "example coupledProtocolDoi"
+      {
+        "@id": "ada:parameter/laicpmsTAPP/transectLength",
+        "@type": [
+          "schema:PropertyValue"
+        ],
+        "schema:propertyID": {
+          "@id": "ada:parameter/laicpmsTAPP/transectLength"
+        },
+        "schema:name": "Transect Length",
+        "schema:value": 1,
+        "schema:unitText": "example value"
+      },
+      {
+        "@id": "ada:parameter/laicpmsTAPP/mappingArea",
+        "@type": [
+          "schema:PropertyValue"
+        ],
+        "schema:propertyID": {
+          "@id": "ada:parameter/laicpmsTAPP/mappingArea"
+        },
+        "schema:name": "Mapping Area",
+        "schema:value": "example value"
+      },
+      {
+        "@id": "ada:parameter/laicpmsTAPP/signalIntegrationTime",
+        "@type": [
+          "schema:PropertyValue"
+        ],
+        "schema:propertyID": {
+          "@id": "ada:parameter/laicpmsTAPP/signalIntegrationTime"
+        },
+        "schema:name": "Signal Integration Time",
+        "schema:value": 1,
+        "schema:unitText": "example value"
+      }
+    ]
+  },
+  "schema:measurementTechnique": {
+    "@type": [
+      "schema:DefinedTerm"
+    ],
+    "schema:identifier": "example protocolDoi"
+  },
+  "schema:funding": "example fundingSourceForAnalysis",
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProtocol",
+      "schema:target": {
+        "schema:url": "example coupledProtocolDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
     }
   ]
 }

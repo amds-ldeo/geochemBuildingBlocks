@@ -297,8 +297,23 @@ allOf:
                     type: array
                     items:
                       type: string
+                  "schema:name":
+                    description: Sample name/identifier as used in the lab.
+                    type: string
+                  "schema:additionalProperty":
+                    description: Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.
+                    type: array
+                    items:
+                      type: object
             "schema:startDate":
               type: string
+            "schema:endDate":
+              type: string
+            "schema:additionalProperty":
+              description: Per-analysis PropertyValue entries (replicates, transect length, …); technique profiles constrain these.
+              type: array
+              items:
+                type: object
           required:
             - "prov:used"
       "schema:variableMeasured":
