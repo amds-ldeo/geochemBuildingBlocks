@@ -12935,209 +12935,7 @@
                                   "$ref": "#/$defs/AttributeComponent"
                                 },
                                 {
-                                  "type": "object",
-                                  "description": "Role given to a represented variable in the context of a dimensional data structure to identify the universes associated with data points. The variable acts as a field in the compound identifier (the key structure) to disambiguate the cells in the multi-dimensional \"cube\".  AG: references to the variables which are the components of a compound identifier, in which each variable is a single field - an axis - in a coordinate system addressing a location in a matrix. These variables are often categorical, but also commonly include time. Unlike other Components, they may be ordered using instances of cdi:ComponentPosition.",
-                                  "properties": {
-                                    "@type": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      },
-                                      "contains": {
-                                        "const": "cdi:DimensionComponent"
-                                      },
-                                      "minItems": 1
-                                    },
-                                    "@id": {
-                                      "type": "string",
-                                      "description": "Identifier for this DimensionComponent node"
-                                    },
-                                    "cdif:isDefinedBy_RepresentedVariable": {
-                                      "anyOf": [
-                                        {
-                                          "title": "DDI-CDI Represented Variable",
-                                          "description": "Conceptual variable with a substantive value domain specified.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@type": {
-                                              "type": "array",
-                                              "items": {
-                                                "type": "string"
-                                              },
-                                              "contains": {
-                                                "const": "cdi:RepresentedVariable"
-                                              },
-                                              "minItems": 1
-                                            },
-                                            "@id": {
-                                              "type": "string",
-                                              "description": "Identifier for this RepresentedVariable node"
-                                            },
-                                            "cdi:describedUnitOfMeasure": {
-                                              "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
-                                              "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
-                                            },
-                                            "cdi:hasIntendedDataType": {
-                                              "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
-                                              "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
-                                            },
-                                            "cdi:takesSentinelValuesFrom": {
-                                              "type": "array",
-                                              "items": {
-                                                "anyOf": [
-                                                  {
-                                                    "$ref": "#/$defs/SentinelValueDomain"
-                                                  },
-                                                  {
-                                                    "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                                  }
-                                                ]
-                                              },
-                                              "minItems": 1,
-                                              "description": "Sentinel (missing / not-applicable) value domain(s) for this RepresentedVariable (RepresentedVariable.takesSentinelValuesFrom)."
-                                            },
-                                            "cdi:takesSubstantiveValuesFrom": {
-                                              "anyOf": [
-                                                {
-                                                  "$ref": "#/$defs/SubstantiveValueDomain"
-                                                },
-                                                {
-                                                  "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                                }
-                                              ],
-                                              "description": "The substantive value domain for this RepresentedVariable - the set of valid, meaningful values (RepresentedVariable.takesSubstantiveValuesFrom)."
-                                            },
-                                            "cdi:simpleUnitOfMeasure": {
-                                              "type": "string",
-                                              "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])"
-                                            },
-                                            "cdif:descriptiveText": {
-                                              "type": "string",
-                                              "description": "A short natural language account of the characteristics of the object."
-                                            },
-                                            "cdi:measures": {
-                                              "anyOf": [
-                                                {
-                                                  "$ref": "#/$defs/UnitType"
-                                                },
-                                                {
-                                                  "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                                }
-                                              ]
-                                            },
-                                            "cdi:unitOfMeasureKind": {
-                                              "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
-                                              "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
-                                            },
-                                            "cdif:definition": {
-                                              "type": "string",
-                                              "description": "Natural language statement conveying the meaning of a concept, differentiating it from other concepts. Supports the use of multiple languages and structured text. 'externalDefinition' can't be used if 'definition' is used."
-                                            },
-                                            "cdif:displayLabel": {
-                                              "type": "array",
-                                              "items": {
-                                                "type": "string"
-                                              },
-                                              "minItems": 1,
-                                              "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
-                                            },
-                                            "cdi:externalDefinition": {
-                                              "$ref": "#/$defs/CdifRepresentedVariable_Reference",
-                                              "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
-                                            },
-                                            "cdi:identifier": {
-                                              "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-                                              "type": "object",
-                                              "properties": {
-                                                "@type": {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  },
-                                                  "contains": {
-                                                    "const": "schema:PropertyValue"
-                                                  },
-                                                  "minItems": 1
-                                                },
-                                                "schema:propertyID": {
-                                                  "type": "string",
-                                                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
-                                                },
-                                                "schema:value": {
-                                                  "type": "string",
-                                                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                                                },
-                                                "schema:url": {
-                                                  "type": "string",
-                                                  "format": "uri",
-                                                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                                                }
-                                              },
-                                              "allOf": [
-                                                {
-                                                  "required": [
-                                                    "@type"
-                                                  ]
-                                                },
-                                                {
-                                                  "anyOf": [
-                                                    {
-                                                      "required": [
-                                                        "schema:value"
-                                                      ]
-                                                    },
-                                                    {
-                                                      "required": [
-                                                        "schema:url"
-                                                      ]
-                                                    }
-                                                  ]
-                                                }
-                                              ]
-                                            },
-                                            "cdif:name": {
-                                              "type": "array",
-                                              "items": {
-                                                "type": "string"
-                                              },
-                                              "minItems": 1,
-                                              "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage."
-                                            },
-                                            "cdif:uses_Concept": {
-                                              "type": "array",
-                                              "items": {
-                                                "anyOf": [
-                                                  {
-                                                    "title": "SKOS Concept",
-                                                    "description": "JSON Schema for a SKOS Concept in JSON-LD form. A unit of thought within a concept scheme. Supports labels (prefLabel, altLabel, hiddenLabel), notations, hierarchical relations (broader/narrower), associative relations (related), cross-scheme mapping properties, scheme membership, and documentary notes. Based on the W3C SKOS Reference (https://www.w3.org/TR/skos-reference/).",
-                                                    "allOf": [
-                                                      {
-                                                        "$ref": "#/$defs/Concept"
-                                                      }
-                                                    ]
-                                                  },
-                                                  {
-                                                    "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                                  }
-                                                ]
-                                              },
-                                              "minItems": 1
-                                            }
-                                          },
-                                          "required": [
-                                            "@type"
-                                          ]
-                                        },
-                                        {
-                                          "$ref": "#/$defs/CdifDataStructureComponent_id-reference"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "@type",
-                                    "cdif:isDefinedBy_RepresentedVariable"
-                                  ]
+                                  "$ref": "#/$defs/DimensionComponent"
                                 },
                                 {
                                   "$ref": "#/$defs/VariableValueComponent"
@@ -13195,209 +12993,7 @@
                               "$ref": "#/$defs/AttributeComponent"
                             },
                             {
-                              "type": "object",
-                              "description": "Role given to a represented variable in the context of a dimensional data structure to identify the universes associated with data points. The variable acts as a field in the compound identifier (the key structure) to disambiguate the cells in the multi-dimensional \"cube\".  AG: references to the variables which are the components of a compound identifier, in which each variable is a single field - an axis - in a coordinate system addressing a location in a matrix. These variables are often categorical, but also commonly include time. Unlike other Components, they may be ordered using instances of cdi:ComponentPosition.",
-                              "properties": {
-                                "@type": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  },
-                                  "contains": {
-                                    "const": "cdi:DimensionComponent"
-                                  },
-                                  "minItems": 1
-                                },
-                                "@id": {
-                                  "type": "string",
-                                  "description": "Identifier for this DimensionComponent node"
-                                },
-                                "cdif:isDefinedBy_RepresentedVariable": {
-                                  "anyOf": [
-                                    {
-                                      "title": "DDI-CDI Represented Variable",
-                                      "description": "Conceptual variable with a substantive value domain specified.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@type": {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          },
-                                          "contains": {
-                                            "const": "cdi:RepresentedVariable"
-                                          },
-                                          "minItems": 1
-                                        },
-                                        "@id": {
-                                          "type": "string",
-                                          "description": "Identifier for this RepresentedVariable node"
-                                        },
-                                        "cdi:describedUnitOfMeasure": {
-                                          "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
-                                          "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
-                                        },
-                                        "cdi:hasIntendedDataType": {
-                                          "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
-                                          "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
-                                        },
-                                        "cdi:takesSentinelValuesFrom": {
-                                          "type": "array",
-                                          "items": {
-                                            "anyOf": [
-                                              {
-                                                "$ref": "#/$defs/SentinelValueDomain"
-                                              },
-                                              {
-                                                "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                              }
-                                            ]
-                                          },
-                                          "minItems": 1,
-                                          "description": "Sentinel (missing / not-applicable) value domain(s) for this RepresentedVariable (RepresentedVariable.takesSentinelValuesFrom)."
-                                        },
-                                        "cdi:takesSubstantiveValuesFrom": {
-                                          "anyOf": [
-                                            {
-                                              "$ref": "#/$defs/SubstantiveValueDomain"
-                                            },
-                                            {
-                                              "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                            }
-                                          ],
-                                          "description": "The substantive value domain for this RepresentedVariable - the set of valid, meaningful values (RepresentedVariable.takesSubstantiveValuesFrom)."
-                                        },
-                                        "cdi:simpleUnitOfMeasure": {
-                                          "type": "string",
-                                          "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])"
-                                        },
-                                        "cdif:descriptiveText": {
-                                          "type": "string",
-                                          "description": "A short natural language account of the characteristics of the object."
-                                        },
-                                        "cdi:measures": {
-                                          "anyOf": [
-                                            {
-                                              "$ref": "#/$defs/UnitType"
-                                            },
-                                            {
-                                              "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                            }
-                                          ]
-                                        },
-                                        "cdi:unitOfMeasureKind": {
-                                          "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
-                                          "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
-                                        },
-                                        "cdif:definition": {
-                                          "type": "string",
-                                          "description": "Natural language statement conveying the meaning of a concept, differentiating it from other concepts. Supports the use of multiple languages and structured text. 'externalDefinition' can't be used if 'definition' is used."
-                                        },
-                                        "cdif:displayLabel": {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          },
-                                          "minItems": 1,
-                                          "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
-                                        },
-                                        "cdi:externalDefinition": {
-                                          "$ref": "#/$defs/CdifRepresentedVariable_Reference",
-                                          "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
-                                        },
-                                        "cdi:identifier": {
-                                          "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@type": {
-                                              "type": "array",
-                                              "items": {
-                                                "type": "string"
-                                              },
-                                              "contains": {
-                                                "const": "schema:PropertyValue"
-                                              },
-                                              "minItems": 1
-                                            },
-                                            "schema:propertyID": {
-                                              "type": "string",
-                                              "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
-                                            },
-                                            "schema:value": {
-                                              "type": "string",
-                                              "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                                            },
-                                            "schema:url": {
-                                              "type": "string",
-                                              "format": "uri",
-                                              "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                                            }
-                                          },
-                                          "allOf": [
-                                            {
-                                              "required": [
-                                                "@type"
-                                              ]
-                                            },
-                                            {
-                                              "anyOf": [
-                                                {
-                                                  "required": [
-                                                    "schema:value"
-                                                  ]
-                                                },
-                                                {
-                                                  "required": [
-                                                    "schema:url"
-                                                  ]
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        },
-                                        "cdif:name": {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          },
-                                          "minItems": 1,
-                                          "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage."
-                                        },
-                                        "cdif:uses_Concept": {
-                                          "type": "array",
-                                          "items": {
-                                            "anyOf": [
-                                              {
-                                                "title": "SKOS Concept",
-                                                "description": "JSON Schema for a SKOS Concept in JSON-LD form. A unit of thought within a concept scheme. Supports labels (prefLabel, altLabel, hiddenLabel), notations, hierarchical relations (broader/narrower), associative relations (related), cross-scheme mapping properties, scheme membership, and documentary notes. Based on the W3C SKOS Reference (https://www.w3.org/TR/skos-reference/).",
-                                                "allOf": [
-                                                  {
-                                                    "$ref": "#/$defs/Concept"
-                                                  }
-                                                ]
-                                              },
-                                              {
-                                                "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
-                                              }
-                                            ]
-                                          },
-                                          "minItems": 1
-                                        }
-                                      },
-                                      "required": [
-                                        "@type"
-                                      ]
-                                    },
-                                    {
-                                      "$ref": "#/$defs/CdifDataStructureComponent_id-reference"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "@type",
-                                "cdif:isDefinedBy_RepresentedVariable"
-                              ]
+                              "$ref": "#/$defs/DimensionComponent"
                             }
                           ]
                         },
@@ -14197,6 +13793,318 @@
                                     "cdif:hasPhysicalMapping"
                                   ]
                                 }
+                              ]
+                            },
+                            {
+                              "title": "Structured Data File Type",
+                              "description": "A container/array data file (e.g. HDF5, NeXus) within an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy, rather than the flat CSVW layout + per-column cdif:hasPhysicalMapping of a tabular text file (tabularData) or the locator mappings of a dataCube. This is the bundle-part analog of the monolithic single-file cdi:isStructuredBy pattern: the pattern is chosen by the file's encoding, not its position. Typed as ada:structuredData and cdi:PhysicalDataSet.",
+                              "type": "object",
+                              "properties": {
+                                "@type": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "minItems": 2,
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "const": "ada:structuredData"
+                                      }
+                                    },
+                                    {
+                                      "contains": {
+                                        "const": "cdi:PhysicalDataSet"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "ada:componentType": {
+                                  "type": "string",
+                                  "description": "ADA componentType for a structured container file, as a single string. Allowed values are constrained at the technique-profile level."
+                                },
+                                "cdi:isStructuredBy": {
+                                  "description": "The data structure of this container file — one of the four CDIF DataStructure variants (DataStructure, Dimensional, Long, Wide) inline, or an @id reference to a structure declared elsewhere in the document (e.g. shared across parts).",
+                                  "anyOf": [
+                                    {
+                                      "type": "object",
+                                      "description": "Data organization based on reusable data structure components.",
+                                      "properties": {
+                                        "@type": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "contains": {
+                                            "const": "cdi:DataStructure"
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "@id": {
+                                          "type": "string",
+                                          "description": "Identifier for this DataStructure node"
+                                        },
+                                        "cdi:has_ForeignKey": {
+                                          "type": "array",
+                                          "items": {
+                                            "anyOf": [
+                                              {
+                                                "$ref": "#/$defs/ForeignKey"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/id-reference"
+                                              }
+                                            ]
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "cdi:has_DataStructureComponent": {
+                                          "type": "array",
+                                          "items": {
+                                            "anyOf": [
+                                              {
+                                                "title": "DDI-CDI Data Structure Component",
+                                                "description": "Role given to a represented variable in the context of a long or wide data structure to identify the units associated to data points, and in dimensional and key value data structures to provide identifying fields for the instance values.",
+                                                "anyOf": [
+                                                  {
+                                                    "$ref": "#/$defs/IdentifierComponent"
+                                                  },
+                                                  {
+                                                    "$ref": "#/$defs/MeasureComponent"
+                                                  },
+                                                  {
+                                                    "$ref": "#/$defs/AttributeComponent"
+                                                  },
+                                                  {
+                                                    "$ref": "#/$defs/DimensionComponent"
+                                                  },
+                                                  {
+                                                    "$ref": "#/$defs/VariableValueComponent"
+                                                  },
+                                                  {
+                                                    "$ref": "#/$defs/VariableDescriptorComponent"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "$ref": "#/$defs/id-reference"
+                                              }
+                                            ]
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "cdi:has_PrimaryKey": {
+                                          "$ref": "#/$defs/PrimaryKey"
+                                        }
+                                      },
+                                      "required": [
+                                        "@type",
+                                        "cdi:has_DataStructureComponent"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "description": "Structure of a dimensional data set (organized collection of multidimensional data). It is described by dimension, measure and attribute components.",
+                                      "properties": {
+                                        "@type": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "contains": {
+                                            "const": "cdi:DimensionalDataStructure"
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "@id": {
+                                          "type": "string",
+                                          "description": "Identifier for this DimensionalDataStructure node"
+                                        },
+                                        "cdi:has_DataStructureComponent": {
+                                          "type": "array",
+                                          "items": {
+                                            "anyOf": [
+                                              {
+                                                "$ref": "#/$defs/IdentifierComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/MeasureComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/AttributeComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/DimensionComponent"
+                                              }
+                                            ]
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "cdi:has_PrimaryKey": {
+                                          "$ref": "#/$defs/PrimaryKey"
+                                        },
+                                        "cdi:has_ForeignKey": {
+                                          "type": "array",
+                                          "items": {
+                                            "anyOf": [
+                                              {
+                                                "$ref": "#/$defs/ForeignKey"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/id-reference"
+                                              }
+                                            ]
+                                          },
+                                          "minItems": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "@type",
+                                        "cdi:has_DataStructureComponent"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "description": "Structure of a long dataset (organized collection of long data). It is described by identifier, measure, attribute, variable descriptor and variable value components.",
+                                      "properties": {
+                                        "@type": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "contains": {
+                                            "const": "cdi:LongDataStructure"
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "@id": {
+                                          "type": "string",
+                                          "description": "Identifier for this LongDataStructure node"
+                                        },
+                                        "cdi:has_DataStructureComponent": {
+                                          "type": "array",
+                                          "description": "A LongDataStructure must include exactly one IdentifierComponent, exactly one VariableDescriptorComponent, exactly one VariableValueComponent, plus zero or more AttributeComponents.",
+                                          "items": {
+                                            "anyOf": [
+                                              {
+                                                "$ref": "#/$defs/IdentifierComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/VariableDescriptorComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/VariableValueComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/AttributeComponent"
+                                              }
+                                            ]
+                                          },
+                                          "allOf": [
+                                            {
+                                              "contains": {
+                                                "$ref": "#/$defs/IdentifierComponent"
+                                              },
+                                              "minContains": 1,
+                                              "maxContains": 1
+                                            },
+                                            {
+                                              "contains": {
+                                                "$ref": "#/$defs/VariableDescriptorComponent"
+                                              },
+                                              "minContains": 1,
+                                              "maxContains": 1
+                                            },
+                                            {
+                                              "contains": {
+                                                "$ref": "#/$defs/VariableValueComponent"
+                                              },
+                                              "minContains": 1,
+                                              "maxContains": 1
+                                            }
+                                          ],
+                                          "minItems": 3
+                                        },
+                                        "cdi:has_PrimaryKey": {
+                                          "$ref": "#/$defs/PrimaryKey"
+                                        }
+                                      },
+                                      "required": [
+                                        "@type",
+                                        "cdi:has_DataStructureComponent"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "description": "Structure of a wide dataset (organized collection of wide data). It is described by identifier, measure and attribute components.",
+                                      "properties": {
+                                        "@type": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "contains": {
+                                            "const": "cdi:WideDataStructure"
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "@id": {
+                                          "type": "string",
+                                          "description": "Identifier for this WideDataStructure node"
+                                        },
+                                        "cdi:has_DataStructureComponent": {
+                                          "type": "array",
+                                          "items": {
+                                            "anyOf": [
+                                              {
+                                                "$ref": "#/$defs/IdentifierComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/MeasureComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/AttributeComponent"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/id-reference"
+                                              }
+                                            ]
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "cdi:has_PrimaryKey": {
+                                          "$ref": "#/$defs/PrimaryKey"
+                                        },
+                                        "cdi:has_ForeignKey": {
+                                          "type": "array",
+                                          "items": {
+                                            "anyOf": [
+                                              {
+                                                "$ref": "#/$defs/ForeignKey"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/id-reference"
+                                              }
+                                            ]
+                                          },
+                                          "minItems": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "@type",
+                                        "cdi:has_DataStructureComponent"
+                                      ]
+                                    },
+                                    {
+                                      "$ref": "#/$defs/id-reference"
+                                    }
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "@type",
+                                "ada:componentType",
+                                "cdi:isStructuredBy"
                               ]
                             },
                             {
@@ -22658,6 +22566,211 @@
       },
       "required": [
         "@type"
+      ]
+    },
+    "DimensionComponent": {
+      "type": "object",
+      "description": "Role given to a represented variable in the context of a dimensional data structure to identify the universes associated with data points. The variable acts as a field in the compound identifier (the key structure) to disambiguate the cells in the multi-dimensional \"cube\".  AG: references to the variables which are the components of a compound identifier, in which each variable is a single field - an axis - in a coordinate system addressing a location in a matrix. These variables are often categorical, but also commonly include time. Unlike other Components, they may be ordered using instances of cdi:ComponentPosition.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "cdi:DimensionComponent"
+          },
+          "minItems": 1
+        },
+        "@id": {
+          "type": "string",
+          "description": "Identifier for this DimensionComponent node"
+        },
+        "cdif:isDefinedBy_RepresentedVariable": {
+          "anyOf": [
+            {
+              "title": "DDI-CDI Represented Variable",
+              "description": "Conceptual variable with a substantive value domain specified.",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "cdi:RepresentedVariable"
+                  },
+                  "minItems": 1
+                },
+                "@id": {
+                  "type": "string",
+                  "description": "Identifier for this RepresentedVariable node"
+                },
+                "cdi:describedUnitOfMeasure": {
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
+                  "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
+                },
+                "cdi:hasIntendedDataType": {
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
+                  "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
+                },
+                "cdi:takesSentinelValuesFrom": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/$defs/SentinelValueDomain"
+                      },
+                      {
+                        "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
+                      }
+                    ]
+                  },
+                  "minItems": 1,
+                  "description": "Sentinel (missing / not-applicable) value domain(s) for this RepresentedVariable (RepresentedVariable.takesSentinelValuesFrom)."
+                },
+                "cdi:takesSubstantiveValuesFrom": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/SubstantiveValueDomain"
+                    },
+                    {
+                      "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
+                    }
+                  ],
+                  "description": "The substantive value domain for this RepresentedVariable - the set of valid, meaningful values (RepresentedVariable.takesSubstantiveValuesFrom)."
+                },
+                "cdi:simpleUnitOfMeasure": {
+                  "type": "string",
+                  "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])"
+                },
+                "cdif:descriptiveText": {
+                  "type": "string",
+                  "description": "A short natural language account of the characteristics of the object."
+                },
+                "cdi:measures": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/UnitType"
+                    },
+                    {
+                      "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
+                    }
+                  ]
+                },
+                "cdi:unitOfMeasureKind": {
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
+                  "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
+                },
+                "cdif:definition": {
+                  "type": "string",
+                  "description": "Natural language statement conveying the meaning of a concept, differentiating it from other concepts. Supports the use of multiple languages and structured text. 'externalDefinition' can't be used if 'definition' is used."
+                },
+                "cdif:displayLabel": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
+                },
+                "cdi:externalDefinition": {
+                  "$ref": "#/$defs/CdifRepresentedVariable_Reference",
+                  "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
+                },
+                "cdi:identifier": {
+                  "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "const": "schema:PropertyValue"
+                      },
+                      "minItems": 1
+                    },
+                    "schema:propertyID": {
+                      "type": "string",
+                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                    },
+                    "schema:value": {
+                      "type": "string",
+                      "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                    },
+                    "schema:url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                    }
+                  },
+                  "allOf": [
+                    {
+                      "required": [
+                        "@type"
+                      ]
+                    },
+                    {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "schema:value"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "schema:url"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "cdif:name": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage."
+                },
+                "cdif:uses_Concept": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "title": "SKOS Concept",
+                        "description": "JSON Schema for a SKOS Concept in JSON-LD form. A unit of thought within a concept scheme. Supports labels (prefLabel, altLabel, hiddenLabel), notations, hierarchical relations (broader/narrower), associative relations (related), cross-scheme mapping properties, scheme membership, and documentary notes. Based on the W3C SKOS Reference (https://www.w3.org/TR/skos-reference/).",
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/Concept"
+                          }
+                        ]
+                      },
+                      {
+                        "$ref": "#/$defs/CdifRepresentedVariable_id-reference"
+                      }
+                    ]
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "@type"
+              ]
+            },
+            {
+              "$ref": "#/$defs/CdifDataStructureComponent_id-reference"
+            }
+          ]
+        }
+      },
+      "required": [
+        "@type",
+        "cdif:isDefinedBy_RepresentedVariable"
       ]
     },
     "VariableValueComponent": {
