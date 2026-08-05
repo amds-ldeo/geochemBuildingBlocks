@@ -21,6 +21,7 @@ allOf:
       description: A short descriptive name for this analytical procedure, with version number. Should
         include instrument/mass-analyzer configuration, technique, and target mineral or isotopic system.
       type: string
+      readOnly: true
     schema:measurementTechnique:
       type: array
       items:
@@ -35,6 +36,7 @@ allOf:
             - LA-Q-ICP-MS U-(Th-)Pb Geochronology
             - LA-SF-ICP-MS U-(Th-)Pb Geochronology
             - LA-MC-ICP-MS U-(Th-)Pb Geochronology
+            readOnly: true
     schema:creator:
       type: object
       properties:
@@ -42,9 +44,11 @@ allOf:
           description: Person(s) or laboratory responsible for developing and registering this procedure.
             ORCID recommended for individuals.
           type: string
+          readOnly: true
     schema:datePublished:
       description: First date this procedure configuration was used in production.
       type: string
+      readOnly: true
     schema:funding:
       type: array
       items:
@@ -54,6 +58,7 @@ allOf:
             description: Grants and other funding sources that supported instrument purchase, major upgrades,
               and procedure development. Include grant numbers and funding agencies.
             type: string
+            readOnly: true
     schema:relatedLink:
       type: array
       items:
@@ -93,8 +98,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id002
-          title: Faraday Cup Array Configuration
+        - title: Faraday Cup Array Configuration
           description: 'Description of the multi-collector Faraday cup array: total number of Faraday
             cup detectors (fixed and moveable), their labelled positions, and the presence and position
             of any ion counter (SEM) or Daly detector. The number and span of cups constrains which isotope
@@ -119,8 +123,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id003
-          title: Faraday Cup Amplifier Resistor Values
+          readOnly: true
+        - title: Faraday Cup Amplifier Resistor Values
           description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers.
             Standard amplifiers use 10¹¹ Ω resistors; high-gain amplifiers (10¹² or 10¹³ Ω) are fitted
             to selected cups to improve signal-to-noise for very low-intensity beams (e.g., low-abundance
@@ -145,8 +149,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id004
-          title: Faraday Cup Gain Calibration Method
+          readOnly: true
+        - title: Faraday Cup Gain Calibration Method
           description: Method used to calibrate the relative gain (amplification factor) of each Faraday
             cup amplifier at the start of or during each analytical session. Relative gain differences
             between amplifiers cause systematic errors in isotope ratios if uncorrected. For instruments
@@ -171,7 +175,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id005
+          readOnly: true
+        - &id002
           title: Ablation Pit Depth/Ablation Rate
           description: Depth of the ablation pit produced under the registered laser conditions, the method
             used to measure it, and the resulting per-pulse ablation rate. Characterises the achievable
@@ -202,7 +207,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id006
+        - &id003
           title: Make-up Gas Flow (L min⁻¹)
           description: Source and estimated flow rate of any make-up gas added downstream of the ablation
             cell, including any desolvating nebuliser used for tracer co-aspiration.
@@ -232,8 +237,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id007
-          title: Collector Configuration
+        - title: Collector Configuration
           description: Assignment of isotope masses to Faraday cup or ion counter detector positions for
             this procedure. For static multi-collection, one configuration applies throughout the measurement;
             for multi-dynamic procedures, lists all configurations and the cycling sequence. Includes
@@ -258,7 +262,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id008
+          readOnly: true
+        - &id004
           title: Number of Blocks per Measurement
           description: Number of measurement blocks acquired per spot. Each block typically begins with
             a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks allow
@@ -289,7 +294,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id005
           title: Number of Cycles per Block
           description: Number of measurement cycles acquired per block. One cycle corresponds to a single
             set of simultaneous Faraday cup readings integrated for the duration in Integration Time per
@@ -320,7 +325,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id006
           title: Integration Time per Cycle
           description: Duration of signal integration per measurement cycle. Total integration time per
             spot = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per
@@ -353,7 +358,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id007
           title: IC Dead Time (ns)
           description: Dead time of each ion-counting detector channel, used in dead-time correction of
             high count rates.
@@ -383,7 +388,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id008
           title: Signal Smoothing
           description: Description of any signal smoothing device or approach installed between the ablation
             cell and the ICP-MS to reduce pulse-to-pulse signal variability.
@@ -413,7 +418,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id013
+        - &id009
           title: ICP Tuning
           description: Description of the approach used to optimise ICP plasma conditions prior to analysis,
             including the reference material used for tuning and the acceptance criteria.
@@ -443,7 +448,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id014
+        - &id010
           title: Doubly-Charged Species Monitor
           description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during
             instrument tuning.
@@ -473,7 +478,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id015
+        - &id011
           title: Doubly-Charged Species Production
           description: Measured percentage of doubly-charged ion production for the monitored species
             at the time of instrument tuning.
@@ -503,8 +508,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
-          title: Instrument Warm-up / Session Duration Limit
+        - title: Instrument Warm-up / Session Duration Limit
           description: Minimum warm-up time required after plasma ignition before analyses begin, and
             any maximum session duration enforced to maintain stable operating conditions.
           type: object
@@ -527,8 +531,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id017
-          title: Baseline Measurement Approach
+          readOnly: true
+        - title: Baseline Measurement Approach
           description: Method and timing for measuring the ion beam baseline (background) during acquisition,
             distinct from the data-processing-level blank subtraction method (see Gas Blank, Group 5).
             For LA-ICP-MS, baseline is measured with the laser off (gas blank), typically before each
@@ -553,8 +557,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id018
-          title: Multi-Run Sequential Analysis Design
+          readOnly: true
+        - title: Multi-Run Sequential Analysis Design
           description: Whether the procedure uses a single acquisition pass or multiple sequential runs
             on the same sample location, each optimised for different analytical objectives.
           type: object
@@ -577,8 +581,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id019
-          title: E-scan Range
+          readOnly: true
+        - title: E-scan Range
           description: Electric scan range used for peak acquisition, expressed as percentage of the centre
             mass. Varies the accelerating voltage to cover nearby masses without re-scanning the magnet.
             Applicable only to sector-field instruments.
@@ -607,8 +611,8 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
-        - &id020
-          title: Triple Scanning Mode
+          readOnly: true
+        - title: Triple Scanning Mode
           description: Whether each mass peak is scanned three times per cycle and the results averaged,
             to reduce noise from short-term magnetic field instabilities. Applicable only to sector-field
             instruments with this capability.
@@ -632,7 +636,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id021
+          readOnly: true
+        - &id012
           title: Other Information
           description: Supplementary methodological context not captured by the structured fields above,
             as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes
@@ -664,8 +669,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id022
-          title: Mass Fractionation Law
+        - title: Mass Fractionation Law
           description: Mathematical law used to parameterize instrumental isotope mass fractionation as
             a function of mass difference. Not stated in Table 3 (Horstwood et al. 2016) for the worked
             example; the exponential law is most widely used and theoretically best justified for MC-ICP-MS.
@@ -689,7 +693,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id023
+          readOnly: true
+        - &id013
           title: Uncertainty Level and Propagation
           description: Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method
             used to propagate component uncertainties (e.g., quadratic addition) into the final reported
@@ -720,8 +725,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id024
-          title: Matrix Offset Correction (LIEF)
+        - title: Matrix Offset Correction (LIEF)
           description: Whether an empirical correction was applied to account for systematic differences
             in laser-induced elemental fractionation (LIEF) patterns between the external calibration
             standard and the sample matrix.
@@ -745,7 +749,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id025
+          readOnly: true
+        - &id014
           title: Spike / Outlier Filtering Approach
           description: Method used to identify and remove anomalous signal spikes arising from micronuggets,
             inclusions, cracks, or instrument artifacts during time-resolved signal processing.
@@ -775,8 +780,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id026
-          title: Double-Spike Isotope Pair
+        - title: Double-Spike Isotope Pair
           description: The pair of enriched isotopes used to construct a double spike for combined mass
             bias and/or common-Pb correction. Both isotopes must be naturally rare and free from isobaric
             interferences. Record 'N/A' if double-spike method is not used.
@@ -800,7 +804,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id027
+          readOnly: true
+        - &id015
           title: Double-Spike Mixing Ratio
           description: Target proportion of double-spike signal relative to total analyte signal in the
             spiked mixture. An optimal mixing ratio minimises error propagation through the double-spike
@@ -831,8 +836,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id028
-          title: Double-Spike Inversion Algorithm
+        - title: Double-Spike Inversion Algorithm
           description: Mathematical algorithm used to simultaneously solve for the true sample isotope
             ratio and the mass fractionation factor from the measured spike-sample mixture. Record 'N/A'
             if double-spike method is not used.
@@ -856,7 +860,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id029
+          readOnly: true
+        - &id016
           title: Memory Effect Mitigation
           description: Procedure applied to identify and minimise memory effects from high-concentration
             elements in the previous sample or standard that may contaminate subsequent analyses.
@@ -886,7 +891,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id030
+        - &id017
           title: Normalization/Standards-Based Correction
           description: Any post-acquisition normalization applied to correct for systematic biases identified
             from secondary reference materials.
@@ -920,10 +925,126 @@ allOf:
       - contains: *id001
         minContains: 0
         maxContains: 1
+      - contains:
+          title: Faraday Cup Array Configuration
+          description: 'Description of the multi-collector Faraday cup array: total number of Faraday
+            cup detectors (fixed and moveable), their labelled positions, and the presence and position
+            of any ion counter (SEM) or Daly detector. The number and span of cups constrains which isotope
+            combinations can be simultaneously collected.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/faradayCupArrayConfiguration
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/faradayCupArrayConfiguration
+            schema:name:
+              const: Faraday Cup Array Configuration
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Faraday Cup Amplifier Resistor Values
+          description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers.
+            Standard amplifiers use 10¹¹ Ω resistors; high-gain amplifiers (10¹² or 10¹³ Ω) are fitted
+            to selected cups to improve signal-to-noise for very low-intensity beams (e.g., low-abundance
+            Pb isotopes in young or low-U material).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/faradayCupAmplifierResistorValues
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/faradayCupAmplifierResistorValues
+            schema:name:
+              const: Faraday Cup Amplifier Resistor Values
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Faraday Cup Gain Calibration Method
+          description: Method used to calibrate the relative gain (amplification factor) of each Faraday
+            cup amplifier at the start of or during each analytical session. Relative gain differences
+            between amplifiers cause systematic errors in isotope ratios if uncorrected. For instruments
+            with ion-counting detectors, also describes the SEM-to-Faraday cross-calibration sequence.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/faradayCupGainCalibrationMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/faradayCupGainCalibrationMethod
+            schema:name:
+              const: Faraday Cup Gain Calibration Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id002
         minContains: 0
         maxContains: 1
       - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Collector Configuration
+          description: Assignment of isotope masses to Faraday cup or ion counter detector positions for
+            this procedure. For static multi-collection, one configuration applies throughout the measurement;
+            for multi-dynamic procedures, lists all configurations and the cycling sequence. Includes
+            interference-monitor masses collected alongside analyte isotopes.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/collectorConfiguration
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/collectorConfiguration
+            schema:name:
+              const: Collector Configuration
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id004
@@ -950,61 +1071,278 @@ allOf:
       - contains: *id011
         minContains: 0
         maxContains: 1
+      - contains:
+          title: Instrument Warm-up / Session Duration Limit
+          description: Minimum warm-up time required after plasma ignition before analyses begin, and
+            any maximum session duration enforced to maintain stable operating conditions.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/instrumentWarmUpSessionDurationLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/instrumentWarmUpSessionDurationLimit
+            schema:name:
+              const: Instrument Warm-up / Session Duration Limit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Baseline Measurement Approach
+          description: Method and timing for measuring the ion beam baseline (background) during acquisition,
+            distinct from the data-processing-level blank subtraction method (see Gas Blank, Group 5).
+            For LA-ICP-MS, baseline is measured with the laser off (gas blank), typically before each
+            ablation or block.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/baselineMeasurementApproach
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/baselineMeasurementApproach
+            schema:name:
+              const: Baseline Measurement Approach
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Multi-Run Sequential Analysis Design
+          description: Whether the procedure uses a single acquisition pass or multiple sequential runs
+            on the same sample location, each optimised for different analytical objectives.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/multiRunSequentialAnalysisDesign
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/multiRunSequentialAnalysisDesign
+            schema:name:
+              const: Multi-Run Sequential Analysis Design
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: E-scan Range
+          description: Electric scan range used for peak acquisition, expressed as percentage of the centre
+            mass. Varies the accelerating voltage to cover nearby masses without re-scanning the magnet.
+            Applicable only to sector-field instruments.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/eScanRange
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/eScanRange
+            schema:name:
+              const: E-scan Range
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Triple Scanning Mode
+          description: Whether each mass peak is scanned three times per cycle and the results averaged,
+            to reduce noise from short-term magnetic field instabilities. Applicable only to sector-field
+            instruments with this capability.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/tripleScanningMode
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/tripleScanningMode
+            schema:name:
+              const: Triple Scanning Mode
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id012
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Mass Fractionation Law
+          description: Mathematical law used to parameterize instrumental isotope mass fractionation as
+            a function of mass difference. Not stated in Table 3 (Horstwood et al. 2016) for the worked
+            example; the exponential law is most widely used and theoretically best justified for MC-ICP-MS.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/massFractionationLaw
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/massFractionationLaw
+            schema:name:
+              const: Mass Fractionation Law
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id013
         minContains: 0
         maxContains: 1
+      - contains:
+          title: Matrix Offset Correction (LIEF)
+          description: Whether an empirical correction was applied to account for systematic differences
+            in laser-induced elemental fractionation (LIEF) patterns between the external calibration
+            standard and the sample matrix.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/matrixOffsetCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/matrixOffsetCorrection
+            schema:name:
+              const: Matrix Offset Correction (LIEF)
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id014
         minContains: 0
         maxContains: 1
+      - contains:
+          title: Double-Spike Isotope Pair
+          description: The pair of enriched isotopes used to construct a double spike for combined mass
+            bias and/or common-Pb correction. Both isotopes must be naturally rare and free from isobaric
+            interferences. Record 'N/A' if double-spike method is not used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/doubleSpikeIsotopePair
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/doubleSpikeIsotopePair
+            schema:name:
+              const: Double-Spike Isotope Pair
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id015
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Double-Spike Inversion Algorithm
+          description: Mathematical algorithm used to simultaneously solve for the true sample isotope
+            ratio and the mass fractionation factor from the measured spike-sample mixture. Record 'N/A'
+            if double-spike method is not used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/doubleSpikeInversionAlgorithm
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/geochronTAPP/doubleSpikeInversionAlgorithm
+            schema:name:
+              const: Double-Spike Inversion Algorithm
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id016
         minContains: 0
         maxContains: 1
       - contains: *id017
-        minContains: 0
-        maxContains: 1
-      - contains: *id018
-        minContains: 0
-        maxContains: 1
-      - contains: *id019
-        minContains: 0
-        maxContains: 1
-      - contains: *id020
-        minContains: 0
-        maxContains: 1
-      - contains: *id021
-        minContains: 0
-        maxContains: 1
-      - contains: *id022
-        minContains: 0
-        maxContains: 1
-      - contains: *id023
-        minContains: 0
-        maxContains: 1
-      - contains: *id024
-        minContains: 0
-        maxContains: 1
-      - contains: *id025
-        minContains: 0
-        maxContains: 1
-      - contains: *id026
-        minContains: 0
-        maxContains: 1
-      - contains: *id027
-        minContains: 0
-        maxContains: 1
-      - contains: *id028
-        minContains: 0
-        maxContains: 1
-      - contains: *id029
-        minContains: 0
-        maxContains: 1
-      - contains: *id030
         minContains: 0
         maxContains: 1
     schema:object:
@@ -1027,6 +1365,7 @@ allOf:
         co-aspirated tracer or spike solution (e.g., a Tl solution used for instrumental mass bias correction,
         or a ²³⁵U spike used for isotope dilution).
       type: string
+      readOnly: true
     bios:computationalTool:
       type: array
       items:
@@ -1041,6 +1380,7 @@ allOf:
         type: string
         enum:
         - Spot Analysis
+        readOnly: true
     ada:ablationSamplingMode:
       description: Sampling mode or ablation pattern used during analysis, as described in Table 3 of
         Horstwood et al. (2016).
@@ -1050,6 +1390,7 @@ allOf:
       - Transect (continuous line scan)
       - Raster area (2D elemental mapping)
       - Stepped line profile
+      readOnly: true
     ada:spotDiameter:
       description: Diameter of the laser spot as set in the acquisition method (nominal/target value).
       type: string
@@ -1089,6 +1430,7 @@ allOf:
       enum:
       - Normal plasma (>1000 W RF)
       - Cool plasma (≤900 W RF)
+      readOnly: true
     ada:massesMeasured:
       description: Mass-to-charge positions (isotope masses) this procedure is designed to measure. Defines
         the scope of the procedure; the analyst may record the specific subset actually measured in a
@@ -1101,6 +1443,7 @@ allOf:
         (age, δ or ε notation) with their reference standard where relevant. For non-mass-spectrometry
         techniques, this field is generalised to any reported physical or chemical property and its units.
       type: string
+      readOnly: true
     ada:integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps:
       description: Count time (dwell time) per mass position for each measured isotope, and the settling
         time allowed between mass jumps, as reported in Table 3 of Horstwood et al. (2016). Applies to
@@ -1119,6 +1462,7 @@ allOf:
         before commencing analysis. ThO⁺/Th⁺ (mass 248/232) is the standard proxy for U-Th-Pb geochronology,
         directly relevant to Th/U ratio accuracy.
       type: string
+      readOnly: true
     ada:analysisSequence:
       description: Repeating order of primary calibration standard(s), quality control standard(s), and
         unknown analyses within a measurement session.
@@ -1137,6 +1481,7 @@ allOf:
       - Peak hopping
       - Scanning
       - Not applicable (SF/MC-ICP-MS)
+      readOnly: true
     ada:massResolutionPerAnalyte:
       type: array
       items:
@@ -1144,10 +1489,12 @@ allOf:
           determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant to common-Pb correction)
           are physically resolved by the magnetic sector. Applicable only to sector-field instruments.
         type: string
+        readOnly: true
     ada:gasBlank:
       description: Duration of the background (gas blank) measurement and how it is applied to correct
         the ablation signal.
       type: string
+      readOnly: true
     ada:elementalFractionationCorrection:
       type: array
       items:
@@ -1155,20 +1502,24 @@ allOf:
           any assumption about reference-material/sample behaviour equivalence, as reported in Table 3
           of Horstwood et al. (2016).
         type: string
+        readOnly: true
     ada:massBiasCorrectionStrategy:
       description: Primary strategy used to correct for instrumental isotopic mass fractionation (mass
         bias/mass discrimination).
       type: string
       enum:
       - Internal normalization
+      readOnly: true
     ada:internalNormalizationElementAndIsotopeRatio:
       description: Element and isotope ratio used as the internal normalization standard for mass bias
         correction, and how the resulting correction is applied to analyte ratios.
       type: string
+      readOnly: true
     ada:commonPbCorrectionCompositionAndUncertainty:
       description: Whether a common-Pb correction was applied, and if so, the model composition (e.g.,
         Stacey and Kramers 1975) and its uncertainty used in the correction.
       type: string
+      readOnly: true
     ada:constantsAndReferenceValuesUsed:
       description: 'Physical constants and reference values used in data reduction to calculate the final
         reported quantity (e.g., decay constants for age calculation, the 238U/235U ratio used to convert
@@ -1189,11 +1540,13 @@ allOf:
         enum:
         - 'Single strategy: matrix-matched primary reference material for all analytes'
         - N/A
+        readOnly: true
     ada:signalIntegrationIntervalMethod:
       description: Approach used to select the stable signal interval for integration during data reduction,
         and to exclude anomalous signals from inclusions, cracks, or mixed domains. Central to interpreting
         excess scatter/MSWD in the resulting age population.
       type: string
+      readOnly: true
     ada:isobaricInterferenceCorrection:
       type: array
       items:
@@ -1201,23 +1554,27 @@ allOf:
           this procedure. A procedure-level Boolean; element-specific detail is in Interfering Species
           and Interference Correction Method.
         type: boolean
+        readOnly: true
     ada:interferingSpecies:
       type: array
       items:
         description: Elemental or molecular species overlapping with the measured isotope, relevant to
           U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field above).
         type: string
+        readOnly: true
     ada:isobaricInterferenceCorrectionMethod:
       type: array
       items:
         description: Equation or procedure used to correct for isobaric interferences, including the reference
           material or monitor isotope used to characterise it.
         type: string
+        readOnly: true
     ada:isotopeDilutionDataReductionMethod:
       description: Mass balance approach used to calculate sample mass fractions from spike-sample isotope
         ratio measurements, relevant when a concentration spike (e.g., ²³⁵U, as in Table 3's own worked
         example) is co-aspirated. Record 'None' if isotope dilution is not used.
       type: string
+      readOnly: true
     ada:primaryStandardName:
       description: Primary reference material used to calibrate the instrument and convert raw signal
         intensities to ages/isotope ratios. Include citation for the accepted values used.
@@ -1242,3 +1599,4 @@ allOf:
         Implied but not stated explicitly in Table 3 (Horstwood et al. 2016) via the validation-material
         n counts.
       type: string
+      readOnly: true

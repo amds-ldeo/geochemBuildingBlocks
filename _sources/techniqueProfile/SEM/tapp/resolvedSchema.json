@@ -3914,7 +3914,8 @@
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, analytical mode(s), and target material scope.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -3929,7 +3930,8 @@
                   "SEM/FIB-SEM",
                   "N/A",
                   "None"
-                ]
+                ],
+                "readOnly": true
               }
             }
           }
@@ -3939,7 +3941,8 @@
           "properties": {
             "schema:name": {
               "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
-              "type": "string"
+              "type": "string",
+              "readOnly": true
             }
           }
         },
@@ -3958,7 +3961,8 @@
         },
         "schema:datePublished": {
           "description": "First date this protocol configuration was used in production.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:funding": {
           "type": "array",
@@ -3967,7 +3971,8 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
-                "type": "string"
+                "type": "string",
+                "readOnly": true
               }
             }
           }
@@ -4038,11 +4043,13 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:instrumentModel": {
           "description": "Model designation of the SEM or FIB-SEM instrument, including generation suffix if applicable.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:electronSource": {
           "description": "Type of electron gun used in the SEM instrument.",
@@ -4055,7 +4062,8 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:instrumentVariant": {
           "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
@@ -4067,7 +4075,8 @@
             "FIB-SEM dual-beam + VP",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:ionBeamSource": {
           "description": "Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume milling; helium and neon ion microscopes (GFIS) provide nanometre-resolution imaging and low-damage milling.",
@@ -4079,7 +4088,8 @@
             "Neon GFIS",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:seDetectorType": {
           "description": "Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.",
@@ -4091,7 +4101,8 @@
             "ESED (VP/ESEM)",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:bseDetectorType": {
           "description": "Type of backscattered electron detector. Solid-state diode detectors (single or segmented) are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments). In-lens BSE detectors provide improved BSE collection at short working distances.",
@@ -4104,7 +4115,8 @@
             "YAG scintillator",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "schema:additionalProperty": {
           "type": "array",
@@ -4141,7 +4153,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "WDS Spectrometer Configuration",
@@ -4174,7 +4187,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "CL Detector Configuration",
@@ -4207,7 +4221,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Beam Raster Dimensions",
@@ -4363,7 +4378,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Chamber Pressure",
@@ -4524,7 +4540,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Sequence",
@@ -4564,7 +4581,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Proportional Counter / Detector",
@@ -4597,7 +4615,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "WDS PHA Setting",
@@ -4630,7 +4649,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Background Position(s)",
@@ -4704,7 +4724,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "EBSD Frame Time",
@@ -4822,7 +4843,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Halogen Correction on Oxygen",
@@ -4896,7 +4918,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Blank Correction",
@@ -5052,7 +5075,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Interference Correction Standard",
@@ -5085,7 +5109,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Analytical Precision",
@@ -5262,7 +5287,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5299,7 +5325,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5336,7 +5363,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5508,7 +5536,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5685,7 +5714,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5729,7 +5759,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5766,7 +5797,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5803,7 +5835,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5885,7 +5918,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -6015,7 +6049,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -6097,7 +6132,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -6269,7 +6305,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -6306,7 +6343,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -6471,7 +6509,8 @@
         },
         "ada:ebsdDetectorConfiguration": {
           "description": "EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "bios:computationalTool": {
           "type": "array",
@@ -6496,7 +6535,8 @@
               "3D Tomography",
               "N/A",
               "None"
-            ]
+            ],
+            "readOnly": true
           }
         },
         "ada:beamMode": {
@@ -6506,7 +6546,8 @@
             "Focused",
             "Defocused",
             "Rastered"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:acceleratingVoltage": {
           "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
@@ -6573,7 +6614,8 @@
             "Automated mineralogy",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:analyteTemplate": {
           "type": "object",
@@ -6599,7 +6641,8 @@
           "type": "string",
           "enum": [
             "Si: WDS; Al: WDS; Fe: WDS; Na: EDS; C: EDS"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:xRayLine": {
           "description": "X-ray emission line measured for each analyte. Line choice affects sensitivity, matrix correction accuracy, and peak overlap susceptibility.",
@@ -6614,7 +6657,8 @@
             "Mb",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:edsLiveTimePerPointOrPixel": {
           "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer live time improves counting statistics but increases beam damage risk and total acquisition time.",
@@ -6650,7 +6694,8 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:peakCountingTime": {
           "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Protocol specifies standard values; analysts may adjust within protocol-defined bounds.",
@@ -6684,7 +6729,8 @@
             "Multi-channel pseudo-color",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:clWavelengthRange": {
           "description": "Detection wavelength range of the CL system in nm. The range is set by the detector sensitivity and any optical filters installed.",
@@ -6695,7 +6741,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:clIntegrationTime": {
           "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
@@ -6717,7 +6764,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:ebsdStepSize": {
           "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
@@ -6765,7 +6813,8 @@
             "Ex-situ",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:ionMillingConditions": {
           "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning. These parameters determine material removal rate per slice and exposed surface quality.",
@@ -6794,7 +6843,8 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:massAbsorptionCoefficients": {
           "description": "Database of mass absorption coefficients used in the matrix correction. MAC database choice affects accuracy particularly for light elements (B, C, N, O, F, Na).",
@@ -6809,7 +6859,8 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:backgroundCorrectionMethod": {
           "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
@@ -6835,7 +6886,8 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:ebsdIndexingMethod": {
           "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
@@ -6847,7 +6899,8 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:crystalStructureDatabase": {
           "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",
@@ -6866,7 +6919,8 @@
         },
         "ada:interferenceCorrectionsApplied": {
           "description": "Whether a spectral interference correction was applied for each analyte.",
-          "type": "boolean"
+          "type": "boolean",
+          "readOnly": true
         },
         "schema:description": {
           "description": "Any additional context about this protocol or analysis session not captured by structured fields above.",

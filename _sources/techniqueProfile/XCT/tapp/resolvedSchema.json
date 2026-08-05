@@ -3914,7 +3914,8 @@
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical protocol, with version number. Should include instrument make/model, technique, and target application.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -3926,7 +3927,8 @@
                 "type": "string",
                 "enum": [
                   "XCT (laboratory, polychromatic cone-beam)"
-                ]
+                ],
+                "readOnly": true
               }
             }
           }
@@ -3936,7 +3938,8 @@
           "properties": {
             "schema:name": {
               "description": "Author(s) of the protocol. Can be individual names or lab names. ORCID is recommended for individuals.",
-              "type": "string"
+              "type": "string",
+              "readOnly": true
             }
           }
         },
@@ -3955,7 +3958,8 @@
         },
         "schema:datePublished": {
           "description": "First date this protocol configuration was used in production.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:funding": {
           "type": "array",
@@ -3964,7 +3968,8 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, protocol development, and associated personnel time. Include grant numbers and funding agencies.",
-                "type": "string"
+                "type": "string",
+                "readOnly": true
               }
             }
           }
@@ -3999,11 +4004,13 @@
         },
         "ada:targetFeature": {
           "description": "The 3D internal features or properties the protocol is designed to characterize. Defines the scientific purpose of the scan and informs resolution and contrast requirements. Used for protocol discoverability: a researcher can identify whether this protocol is suitable for their scientific question. Note for Phase 3 literature assessment: evaluate whether protocols in the literature are feature-specific (acquisition parameters tuned to a specific feature type, e.g., opaque-phase contrast) or general-purpose (designed to capture all structural features in a given sample type). This will inform whether the field warrants a controlled list or remains free text.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:applicableSampleDimensionRange": {
           "description": "The range of sample sizes compatible with this protocol at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the protocol's target magnification: FOV ≈ detector array width × pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: samples spanning fewer than ~10 voxels in their smallest dimension are difficult to characterize reliably.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:additionalProperty": {
           "type": "array",
@@ -4155,7 +4162,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Detector Array Size",
@@ -4188,7 +4196,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Detector Pixel Size",
@@ -4232,7 +4241,8 @@
                   "schema:name",
                   "schema:value",
                   "schema:unitText"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Optical Objective",
@@ -4265,7 +4275,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "X-ray Power",
@@ -5097,7 +5108,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5134,7 +5146,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5182,7 +5195,8 @@
                   "schema:name",
                   "schema:value",
                   "schema:unitText"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5219,7 +5233,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5960,7 +5975,8 @@
         },
         "ada:ctSystemManufacturerAndModel": {
           "description": "Manufacturer and model name of the CT system. For custom-built systems, report the make/model of the X-ray source and detector separately. Include facility name for multi-user shared instruments.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:xRaySourceConfiguration": {
           "description": "Focal spot geometry and scale of the X-ray tube. Reflection target configurations are most common in lab XCT (X-rays emitted from the face of the anode toward the sample); transmission target configurations allow smaller focal spots by thinning the anode into a membrane and collecting X-rays from the back, enabling higher spatial resolution at the cost of lower maximum power.",
@@ -5969,7 +5985,8 @@
             "Reflection target, microfocal",
             "Reflection target, rotating (high-power)",
             "Transmission target, nanofocal"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:detectorType": {
           "description": "Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre voxel sizes.",
@@ -5978,7 +5995,8 @@
             "Flat-panel (amorphous silicon, a-Si)",
             "CCD + scintillator (with optical objective)",
             "CMOS + scintillator"
-          ]
+          ],
+          "readOnly": true
         },
         "bios:computationalTool": {
           "type": "array",
@@ -6004,7 +6022,8 @@
               "Single-volume",
               "Multi-volume stitching",
               "Single-volume; Multi-volume stitching"
-            ]
+            ],
+            "readOnly": true
           }
         },
         "ada:acceleratingVoltage": {
@@ -6100,7 +6119,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:reconstructionAlgorithm": {
           "description": "Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images. The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative methods offer better artifact suppression at the cost of computation time.",
@@ -6110,7 +6130,8 @@
             "FBP (filtered back-projection, parallel-beam)",
             "Iterative reconstruction",
             "SART"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:beamHardeningCorrectionMethod": {
           "description": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filtering (Group 4: X-ray Pre-filter) and software correction are complementary approaches. The method is a protocol-level design choice; the specific correction parameter value is session-specific and recorded separately at analysis level.",
@@ -6119,7 +6140,8 @@
             "Software polynomial correction (instrument-specific algorithm)",
             "Ketcham & Hanna (2014) iterative BH correction",
             "None applied"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:outputDataFormat": {
           "description": "File format of the reconstructed CT volume as output by the reconstruction software. Bit depth is recorded separately in Output Bit Depth.",

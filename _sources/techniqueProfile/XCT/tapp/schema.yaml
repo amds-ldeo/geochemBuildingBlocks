@@ -12,6 +12,7 @@ allOf:
       description: A short descriptive name for this analytical protocol, with version number. Should
         include instrument make/model, technique, and target application.
       type: string
+      readOnly: true
     schema:measurementTechnique:
       type: array
       items:
@@ -22,6 +23,7 @@ allOf:
             type: string
             enum:
             - XCT (laboratory, polychromatic cone-beam)
+            readOnly: true
     schema:creator:
       type: object
       properties:
@@ -29,6 +31,7 @@ allOf:
           description: Author(s) of the protocol. Can be individual names or lab names. ORCID is recommended
             for individuals.
           type: string
+          readOnly: true
     schema:location:
       type: object
       properties:
@@ -41,6 +44,7 @@ allOf:
     schema:datePublished:
       description: First date this protocol configuration was used in production.
       type: string
+      readOnly: true
     schema:funding:
       type: array
       items:
@@ -51,6 +55,7 @@ allOf:
               upgrades, protocol development, and associated personnel time. Include grant numbers and
               funding agencies.
             type: string
+            readOnly: true
     schema:relatedLink:
       type: array
       items:
@@ -76,6 +81,7 @@ allOf:
         opaque-phase contrast) or general-purpose (designed to capture all structural features in a given
         sample type). This will inform whether the field warrants a controlled list or remains free text.'
       type: string
+      readOnly: true
     ada:applicableSampleDimensionRange:
       description: 'The range of sample sizes compatible with this protocol at the target voxel size and
         geometric configuration. The upper bound is a hard constraint set by the instrument field of view
@@ -87,6 +93,7 @@ allOf:
         a practical guideline: samples spanning fewer than ~10 voxels in their smallest dimension are
         difficult to characterize reliably.'
       type: string
+      readOnly: true
     schema:additionalProperty:
       type: array
       items:
@@ -179,8 +186,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id004
-          title: X-ray Tube Anode Material
+        - title: X-ray Tube Anode Material
           description: Material of the X-ray tube anode (target). Determines the characteristic line energies
             superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific
             energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.
@@ -204,8 +210,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id005
-          title: Detector Array Size
+          readOnly: true
+        - title: Detector Array Size
           description: Number of pixels in the detector array (width × height). Combined with detector
             pixel size and geometric magnification, determines the field of view.
           type: object
@@ -228,8 +234,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id006
-          title: Detector Pixel Size
+          readOnly: true
+        - title: Detector Pixel Size
           description: Physical size of a single pixel on the detector in micrometres. This is a fixed
             hardware property of the detector array, distinct from the reconstructed voxel size (which
             depends on geometric magnification and binning).
@@ -258,8 +264,8 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
-        - &id007
-          title: Optical Objective
+          readOnly: true
+        - title: Optical Objective
           description: Optical magnification objective installed between the scintillator and CCD/CMOS
             detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa
             series). For systems using only geometric magnification, report "Not applicable".
@@ -283,7 +289,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id008
+          readOnly: true
+        - &id004
           title: X-ray Power
           description: 'X-ray tube power in watts (W) registered by the protocol. Derivable as voltage
             (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for
@@ -319,7 +326,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id005
           title: Source-to-Object Distance (SOD)
           description: Distance from the X-ray source focal spot to the centre of the sample rotation
             axis, in mm, as registered by the protocol. Together with SDD, determines geometric magnification
@@ -352,7 +359,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id006
           title: Source-to-Detector Distance (SDD)
           description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
             by the protocol. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel
@@ -386,7 +393,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id007
           title: Rotation Step Size
           description: Angular increment between successive projection images, in degrees. Equal to Rotation
             Range divided by Number of Projections when both are reported; however, some sources report
@@ -421,7 +428,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id008
           title: Frames Averaged per Projection
           description: Number of individual detector frames acquired and averaged to produce each saved
             projection image, as registered by the protocol. Frame averaging reduces random electronic
@@ -452,7 +459,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id013
+        - &id009
           title: Detector Binning
           description: Detector pixel binning factor applied during acquisition. Binning combines adjacent
             pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing
@@ -483,7 +490,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id014
+        - &id010
           title: Reconstruction Convolution Filter
           description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
             Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother
@@ -515,7 +522,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id015
+        - &id011
           title: Beam Hardening Correction Parameter
           description: Numerical value or setting applied in the software beam hardening correction algorithm
             for this specific analysis. May be tuned empirically per material type or per scan session.
@@ -546,7 +553,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
+        - &id012
           title: Ring Artifact Correction Method
           description: Protocol specification for how ring artifacts are handled. Ring artifacts appear
             as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated
@@ -578,7 +585,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id017
+        - &id013
           title: CT Number Calibration
           description: Whether the raw CT grayscale values have been calibrated to physically meaningful
             units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session
@@ -611,7 +618,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id014
           title: Segmentation Threshold Values or Criteria
           description: Specific CT number range(s) or quantitative criteria used to define each segmented
             phase or feature. Documenting these values enables reproducibility assessment and cross-study
@@ -642,7 +649,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id019
+        - &id015
           title: Phase Identification Method
           description: Method used to assign reconstructed CT number ranges to specific mineral phases
             or material types. Approaches include comparison to calculated linear attenuation coefficients
@@ -673,7 +680,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id020
+        - &id016
           title: VOI Selection Criteria
           description: Protocol-level rules specifying how the Volume of Interest (VOI) is to be defined
             for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges,
@@ -705,7 +712,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id021
+        - &id017
           title: Output Bit Depth
           description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's
             grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels),
@@ -739,7 +746,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id022
+        - &id018
           title: Partial Volume Effect Criteria
           description: Protocol-level specification of how partial volume effects (PVE) are managed in
             quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the
@@ -774,7 +781,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id023
+        - &id019
           title: Cross-Validation Protocol Requirement
           description: Protocol-level specification of what independent analytical validation is required
             to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
@@ -816,6 +823,122 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: X-ray Tube Anode Material
+          description: Material of the X-ray tube anode (target). Determines the characteristic line energies
+            superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific
+            energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/xRayTubeAnodeMaterial
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/xRayTubeAnodeMaterial
+            schema:name:
+              const: X-ray Tube Anode Material
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detector Array Size
+          description: Number of pixels in the detector array (width × height). Combined with detector
+            pixel size and geometric magnification, determines the field of view.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/detectorArraySize
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/detectorArraySize
+            schema:name:
+              const: Detector Array Size
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detector Pixel Size
+          description: Physical size of a single pixel on the detector in micrometres. This is a fixed
+            hardware property of the detector array, distinct from the reconstructed voxel size (which
+            depends on geometric magnification and binning).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/detectorPixelSize
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/detectorPixelSize
+            schema:name:
+              const: Detector Pixel Size
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Optical Objective
+          description: Optical magnification objective installed between the scintillator and CCD/CMOS
+            detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa
+            series). For systems using only geometric magnification, report "Not applicable".
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/opticalObjective
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/opticalObjective
+            schema:name:
+              const: Optical Objective
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id004
@@ -866,23 +989,12 @@ allOf:
       - contains: *id019
         minContains: 0
         maxContains: 1
-      - contains: *id020
-        minContains: 0
-        maxContains: 1
-      - contains: *id021
-        minContains: 0
-        maxContains: 1
-      - contains: *id022
-        minContains: 0
-        maxContains: 1
-      - contains: *id023
-        minContains: 0
-        maxContains: 1
     ada:ctSystemManufacturerAndModel:
       description: Manufacturer and model name of the CT system. For custom-built systems, report the
         make/model of the X-ray source and detector separately. Include facility name for multi-user shared
         instruments.
       type: string
+      readOnly: true
     ada:xRaySourceConfiguration:
       description: Focal spot geometry and scale of the X-ray tube. Reflection target configurations are
         most common in lab XCT (X-rays emitted from the face of the anode toward the sample); transmission
@@ -893,6 +1005,7 @@ allOf:
       - Reflection target, microfocal
       - Reflection target, rotating (high-power)
       - Transmission target, nanofocal
+      readOnly: true
     ada:detectorType:
       description: Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous
         silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator
@@ -903,6 +1016,7 @@ allOf:
       - Flat-panel (amorphous silicon, a-Si)
       - CCD + scintillator (with optical objective)
       - CMOS + scintillator
+      readOnly: true
     bios:computationalTool:
       type: array
       items:
@@ -928,6 +1042,7 @@ allOf:
         - Single-volume
         - Multi-volume stitching
         - Single-volume; Multi-volume stitching
+        readOnly: true
     ada:acceleratingVoltage:
       description: 'X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines
         the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages
@@ -1013,6 +1128,7 @@ allOf:
       anyOf:
       - type: integer
       - type: string
+      readOnly: true
     ada:reconstructionAlgorithm:
       description: Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images.
         The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative
@@ -1023,6 +1139,7 @@ allOf:
       - FBP (filtered back-projection, parallel-beam)
       - Iterative reconstruction
       - SART
+      readOnly: true
     ada:beamHardeningCorrectionMethod:
       description: 'Strategy used to reduce beam hardening artifacts caused by preferential attenuation
         of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts
@@ -1035,6 +1152,7 @@ allOf:
       - Software polynomial correction (instrument-specific algorithm)
       - Ketcham & Hanna (2014) iterative BH correction
       - None applied
+      readOnly: true
     ada:outputDataFormat:
       description: File format of the reconstructed CT volume as output by the reconstruction software.
         Bit depth is recorded separately in Output Bit Depth.

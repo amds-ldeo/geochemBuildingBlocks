@@ -12,6 +12,7 @@ allOf:
       description: A short descriptive name for this analytical protocol. Should include instrument, technique,
         analytical mode(s), and target material scope.
       type: string
+      readOnly: true
     schema:measurementTechnique:
       type: array
       items:
@@ -25,12 +26,14 @@ allOf:
             - SEM/FIB-SEM
             - N/A
             - None
+            readOnly: true
     schema:creator:
       type: object
       properties:
         schema:name:
           description: Person(s) or laboratory responsible for developing and registering this protocol.
           type: string
+          readOnly: true
     schema:location:
       type: object
       properties:
@@ -43,6 +46,7 @@ allOf:
     schema:datePublished:
       description: First date this protocol configuration was used in production.
       type: string
+      readOnly: true
     schema:funding:
       type: array
       items:
@@ -52,6 +56,7 @@ allOf:
             description: Grants and funding that supported development of this protocol. Include grant
               IDs.
             type: string
+            readOnly: true
     schema:relatedLink:
       type: array
       items:
@@ -95,10 +100,12 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:instrumentModel:
       description: Model designation of the SEM or FIB-SEM instrument, including generation suffix if
         applicable.
       type: string
+      readOnly: true
     ada:electronSource:
       description: Type of electron gun used in the SEM instrument.
       type: string
@@ -110,6 +117,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:instrumentVariant:
       description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only SEM
         column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables TEM specimen
@@ -124,6 +132,7 @@ allOf:
       - FIB-SEM dual-beam + VP
       - N/A
       - None
+      readOnly: true
     ada:seDetectorType:
       description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard
         off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution
@@ -137,6 +146,7 @@ allOf:
       - ESED (VP/ESEM)
       - N/A
       - None
+      readOnly: true
     ada:bseDetectorType:
       description: Type of backscattered electron detector. Solid-state diode detectors (single or segmented)
         are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors
@@ -151,12 +161,12 @@ allOf:
       - YAG scintillator
       - N/A
       - None
+      readOnly: true
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - &id001
-          title: CL Detector Configuration
+        - title: CL Detector Configuration
           description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror,
             elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic,
             CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
@@ -180,7 +190,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id002
+          readOnly: true
+        - &id001
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
             and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
@@ -211,7 +222,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id003
+        - &id002
           title: Image Pixel Size
           description: Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial
             sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual
@@ -238,7 +249,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id004
+        - &id003
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate the wavelength axis
             of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
@@ -269,6 +280,34 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
+      - contains:
+          title: CL Detector Configuration
+          description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror,
+            elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic,
+            CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/clDetectorConfiguration
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semImagingTAPP/clDetectorConfiguration
+            schema:name:
+              const: CL Detector Configuration
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id001
         minContains: 0
         maxContains: 1
@@ -278,13 +317,11 @@ allOf:
       - contains: *id003
         minContains: 0
         maxContains: 1
-      - contains: *id004
-        minContains: 0
-        maxContains: 1
     ada:ebsdDetectorConfiguration:
       description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and
         EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
       type: string
+      readOnly: true
     bios:computationalTool:
       type: array
       items:
@@ -307,6 +344,7 @@ allOf:
         - 3D Tomography
         - N/A
         - None
+        readOnly: true
     ada:acceleratingVoltage:
       description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS),
         EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve
@@ -349,12 +387,14 @@ allOf:
       - Multi-channel pseudo-color
       - N/A
       - None
+      readOnly: true
     ada:clWavelengthRange:
       description: Detection wavelength range of the CL system in nm. The range is set by the detector
         sensitivity and any optical filters installed.
       anyOf:
       - type: number
       - type: string
+      readOnly: true
     ada:clIntegrationTime:
       description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point
         mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition
@@ -368,6 +408,7 @@ allOf:
       anyOf:
       - type: number
       - type: string
+      readOnly: true
     ada:crystalStructureDatabase:
       description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
       type: string

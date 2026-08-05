@@ -10,6 +10,7 @@ allOf:
       description: A short descriptive name for this analytical protocol. Should include instrument, technique,
         analytical mode(s), and target material scope.
       type: string
+      readOnly: true
     schema:measurementTechnique:
       type: array
       items:
@@ -23,12 +24,14 @@ allOf:
             - SEM/FIB-SEM
             - N/A
             - None
+            readOnly: true
     schema:creator:
       type: object
       properties:
         schema:name:
           description: Person(s) or laboratory responsible for developing and registering this protocol.
           type: string
+          readOnly: true
     schema:location:
       type: object
       properties:
@@ -41,6 +44,7 @@ allOf:
     schema:datePublished:
       description: First date this protocol configuration was used in production.
       type: string
+      readOnly: true
     schema:funding:
       type: array
       items:
@@ -50,6 +54,7 @@ allOf:
             description: Grants and funding that supported development of this protocol. Include grant
               IDs.
             type: string
+            readOnly: true
     schema:relatedLink:
       type: array
       items:
@@ -93,10 +98,12 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:instrumentModel:
       description: Model designation of the SEM or FIB-SEM instrument, including generation suffix if
         applicable.
       type: string
+      readOnly: true
     ada:electronSource:
       description: Type of electron gun used in the SEM instrument.
       type: string
@@ -108,6 +115,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:instrumentVariant:
       description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only SEM
         column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables TEM specimen
@@ -122,6 +130,7 @@ allOf:
       - FIB-SEM dual-beam + VP
       - N/A
       - None
+      readOnly: true
     ada:ionBeamSource:
       description: Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most
         common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume
@@ -135,6 +144,7 @@ allOf:
       - Neon GFIS
       - N/A
       - None
+      readOnly: true
     ada:seDetectorType:
       description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard
         off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution
@@ -148,6 +158,7 @@ allOf:
       - ESED (VP/ESEM)
       - N/A
       - None
+      readOnly: true
     ada:bseDetectorType:
       description: Type of backscattered electron detector. Solid-state diode detectors (single or segmented)
         are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors
@@ -162,12 +173,12 @@ allOf:
       - YAG scintillator
       - N/A
       - None
+      readOnly: true
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - &id001
-          title: EDS Detector Configuration
+        - title: EDS Detector Configuration
           description: EDS detector type, manufacturer, active area, solid angle, window type, and geometry
             (take-off angle, position). Multiple detectors should be listed separately.
           type: object
@@ -190,8 +201,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id002
-          title: WDS Spectrometer Configuration
+          readOnly: true
+        - title: WDS Spectrometer Configuration
           description: Number, type, and crystal range of WDS spectrometers attached to the SEM. Include
             manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA
             platform), include WDS manufacturer and model.
@@ -215,8 +226,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id003
-          title: CL Detector Configuration
+          readOnly: true
+        - title: CL Detector Configuration
           description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror,
             elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic,
             CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
@@ -240,7 +251,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id004
+          readOnly: true
+        - &id001
           title: Beam Raster Dimensions
           description: Dimensions of the small area over which the beam is rastered during a single analysis
             point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the
@@ -272,7 +284,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id005
+        - &id002
           title: Beam Damage Minimization
           description: 'Describes any measures taken to reduce electron beam damage to the sample during
             analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered
@@ -305,7 +317,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id006
+        - &id003
           title: Drift Correction
           description: 'Describes whether and how stage or beam drift was monitored and corrected during
             the measurement session. Examples: periodic stage realignment to a fiducial marker, automated
@@ -338,8 +350,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id007
-          title: Stage Scan vs. Beam Scan
+        - title: Stage Scan vs. Beam Scan
           description: For mapping modes, records whether the map was acquired by moving the stage while
             the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage
             is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric
@@ -365,7 +376,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id008
+          readOnly: true
+        - &id004
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
             and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
@@ -396,7 +408,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id005
           title: Image Pixel Size
           description: Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial
             sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual
@@ -423,7 +435,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id010
+        - &id006
           title: Step Size / Pixel Size
           description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or
             pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together
@@ -451,8 +463,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id011
-          title: WDS Spectrometer Channel
+        - title: WDS Spectrometer Channel
           description: WDS spectrometer number assigned to each analyte. Different spectrometers may have
             different crystal configurations.
           type: object
@@ -477,8 +488,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id012
-          title: Sequence
+          readOnly: true
+        - title: Sequence
           description: Order in which analytes are acquired in the spectrometer sequence during point
             analysis. Relevant for minimizing beam damage (volatile elements measured first).
           type: object
@@ -503,8 +514,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id013
-          title: Proportional Counter / Detector
+          readOnly: true
+        - title: Proportional Counter / Detector
           description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity
             and count rate linearity.
           type: object
@@ -527,8 +538,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id014
-          title: WDS PHA Setting
+          readOnly: true
+        - title: WDS PHA Setting
           description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts
             all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order
             reflections and escape peaks.
@@ -552,7 +563,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id015
+          readOnly: true
+        - &id007
           title: Background Position(s)
           description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or
             sin-theta, and whether on the high- or low-energy side.
@@ -582,8 +594,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
-          title: CL Grating
+        - title: CL Grating
           description: Diffraction grating specification for spectral or hyperspectral CL acquisition,
             including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.
           type: object
@@ -606,7 +617,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id017
+          readOnly: true
+        - &id008
           title: EBSD Frame Time
           description: Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame
             time improves pattern quality and indexing rate but increases total acquisition time.
@@ -638,7 +650,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id009
           title: Time-Dependent Intensity Correction
           description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced
             volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
@@ -669,8 +681,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id019
-          title: Analyte Estimation Method
+        - title: Analyte Estimation Method
           description: Whether elemental concentrations were calculated directly from measured X-ray intensities,
             or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates;
             carbon from stoichiometry in carbonates).
@@ -694,7 +705,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id020
+          readOnly: true
+        - &id010
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
             Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
@@ -725,8 +737,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id021
-          title: EDS Spectral Processing Type
+        - title: EDS Spectral Processing Type
           description: Method used to process raw EDS spectra and extract net peak intensities from raw
             spectral data.
           type: object
@@ -749,7 +760,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id022
+          readOnly: true
+        - &id011
           title: Blank Correction
           description: Method and reference material(s) used to determine and subtract blank signal contributions
             (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
@@ -779,7 +791,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id023
+        - &id012
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference materials to correct
             for session-to-session calibration drift.
@@ -809,7 +821,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id024
+        - &id013
           title: EBSD Pattern Quality Threshold
           description: Minimum pattern quality or confidence index threshold applied during EBSD data
             processing to exclude unreliably indexed points from orientation maps. Include metric name
@@ -840,8 +852,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id025
-          title: Interfering Elements
+        - title: Interfering Elements
           description: Element(s) whose X-ray lines overlap with the measured peak for one or more analytes,
             requiring a correction.
           type: object
@@ -864,8 +875,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id026
-          title: Interference Correction Standard
+          readOnly: true
+        - title: Interference Correction Standard
           description: Reference material used to quantify and calibrate the interference correction for
             each affected analyte.
           type: object
@@ -888,7 +899,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id027
+          readOnly: true
+        - &id014
           title: Analytical Precision
           description: Reproducibility of repeated measurements on the same or equivalent reference material,
             expressed as 1-sigma relative standard deviation (%). Include reference material name and
@@ -913,7 +925,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id028
+        - &id015
           title: Analytical Accuracy
           description: Offset between measured and accepted reference values for secondary standards,
             expressed as percent relative bias.
@@ -937,7 +949,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id029
+        - &id016
           title: Counting Statistics Error
           description: 1-sigma uncertainty propagated from counting statistics on peak and background
             intensities for each analyte per analysis.
@@ -961,7 +973,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id030
+        - &id017
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate the wavelength axis
             of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
@@ -992,6 +1004,89 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
+      - contains:
+          title: EDS Detector Configuration
+          description: EDS detector type, manufacturer, active area, solid angle, window type, and geometry
+            (take-off angle, position). Multiple detectors should be listed separately.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/edsDetectorConfiguration
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/edsDetectorConfiguration
+            schema:name:
+              const: EDS Detector Configuration
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: WDS Spectrometer Configuration
+          description: Number, type, and crystal range of WDS spectrometers attached to the SEM. Include
+            manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA
+            platform), include WDS manufacturer and model.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/wdsSpectrometerConfiguration
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/wdsSpectrometerConfiguration
+            schema:name:
+              const: WDS Spectrometer Configuration
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: CL Detector Configuration
+          description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror,
+            elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic,
+            CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/clDetectorConfiguration
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/clDetectorConfiguration
+            schema:name:
+              const: CL Detector Configuration
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id001
         minContains: 0
         maxContains: 1
@@ -999,6 +1094,36 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Stage Scan vs. Beam Scan
+          description: For mapping modes, records whether the map was acquired by moving the stage while
+            the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage
+            is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric
+            fidelity; beam scan is faster for smaller fields but may introduce geometric distortion at
+            the map edges.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/stageScanVsBeamScan
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/stageScanVsBeamScan
+            schema:name:
+              const: Stage Scan vs. Beam Scan
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id004
@@ -1010,7 +1135,147 @@ allOf:
       - contains: *id006
         minContains: 0
         maxContains: 1
+      - contains:
+          title: WDS Spectrometer Channel
+          description: WDS spectrometer number assigned to each analyte. Different spectrometers may have
+            different crystal configurations.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/wdsSpectrometerChannel
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/wdsSpectrometerChannel
+            schema:name:
+              const: WDS Spectrometer Channel
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Sequence
+          description: Order in which analytes are acquired in the spectrometer sequence during point
+            analysis. Relevant for minimizing beam damage (volatile elements measured first).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/sequence
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/sequence
+            schema:name:
+              const: Sequence
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Proportional Counter / Detector
+          description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity
+            and count rate linearity.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/proportionalCounterDetector
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/proportionalCounterDetector
+            schema:name:
+              const: Proportional Counter / Detector
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: WDS PHA Setting
+          description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts
+            all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order
+            reflections and escape peaks.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/wdsPhaSetting
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/wdsPhaSetting
+            schema:name:
+              const: WDS PHA Setting
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id007
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: CL Grating
+          description: Diffraction grating specification for spectral or hyperspectral CL acquisition,
+            including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/clGrating
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/clGrating
+            schema:name:
+              const: CL Grating
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id008
@@ -1019,7 +1284,62 @@ allOf:
       - contains: *id009
         minContains: 0
         maxContains: 1
+      - contains:
+          title: Analyte Estimation Method
+          description: Whether elemental concentrations were calculated directly from measured X-ray intensities,
+            or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates;
+            carbon from stoichiometry in carbonates).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/analyteEstimationMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/analyteEstimationMethod
+            schema:name:
+              const: Analyte Estimation Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id010
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: EDS Spectral Processing Type
+          description: Method used to process raw EDS spectra and extract net peak intensities from raw
+            spectral data.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/edsSpectralProcessingType
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/edsSpectralProcessingType
+            schema:name:
+              const: EDS Spectral Processing Type
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id011
@@ -1029,6 +1349,60 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id013
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Interfering Elements
+          description: Element(s) whose X-ray lines overlap with the measured peak for one or more analytes,
+            requiring a correction.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/interferingElements
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/interferingElements
+            schema:name:
+              const: Interfering Elements
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Interference Correction Standard
+          description: Reference material used to quantify and calibrate the interference correction for
+            each affected analyte.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/interferenceCorrectionStandard
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/interferenceCorrectionStandard
+            schema:name:
+              const: Interference Correction Standard
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id014
@@ -1043,49 +1417,11 @@ allOf:
       - contains: *id017
         minContains: 0
         maxContains: 1
-      - contains: *id018
-        minContains: 0
-        maxContains: 1
-      - contains: *id019
-        minContains: 0
-        maxContains: 1
-      - contains: *id020
-        minContains: 0
-        maxContains: 1
-      - contains: *id021
-        minContains: 0
-        maxContains: 1
-      - contains: *id022
-        minContains: 0
-        maxContains: 1
-      - contains: *id023
-        minContains: 0
-        maxContains: 1
-      - contains: *id024
-        minContains: 0
-        maxContains: 1
-      - contains: *id025
-        minContains: 0
-        maxContains: 1
-      - contains: *id026
-        minContains: 0
-        maxContains: 1
-      - contains: *id027
-        minContains: 0
-        maxContains: 1
-      - contains: *id028
-        minContains: 0
-        maxContains: 1
-      - contains: *id029
-        minContains: 0
-        maxContains: 1
-      - contains: *id030
-        minContains: 0
-        maxContains: 1
     ada:ebsdDetectorConfiguration:
       description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and
         EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
       type: string
+      readOnly: true
     bios:computationalTool:
       type: array
       items:
@@ -1108,6 +1444,7 @@ allOf:
         - 3D Tomography
         - N/A
         - None
+        readOnly: true
     ada:beamMode:
       description: Whether the electron beam was operated as a stationary focused spot, defocused to a
         specified diameter, or rastered over a small area during analysis. Controls the effective sampling
@@ -1119,6 +1456,7 @@ allOf:
       - Focused
       - Defocused
       - Rastered
+      readOnly: true
     ada:acceleratingVoltage:
       description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS),
         EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve
@@ -1171,6 +1509,7 @@ allOf:
       - Automated mineralogy
       - N/A
       - None
+      readOnly: true
     ada:analyteTemplate:
       type: object
       properties:
@@ -1195,6 +1534,7 @@ allOf:
       type: string
       enum:
       - 'Si: WDS; Al: WDS; Fe: WDS; Na: EDS; C: EDS'
+      readOnly: true
     ada:xRayLine:
       description: X-ray emission line measured for each analyte. Line choice affects sensitivity, matrix
         correction accuracy, and peak overlap susceptibility.
@@ -1209,6 +1549,7 @@ allOf:
       - Mb
       - N/A
       - None
+      readOnly: true
     ada:edsLiveTimePerPointOrPixel:
       description: EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer
         live time improves counting statistics but increases beam damage risk and total acquisition time.
@@ -1239,6 +1580,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:peakCountingTime:
       description: Time spent counting X-ray intensity at the peak position in seconds per analyte. Protocol
         specifies standard values; analysts may adjust within protocol-defined bounds.
@@ -1263,12 +1605,14 @@ allOf:
       - Multi-channel pseudo-color
       - N/A
       - None
+      readOnly: true
     ada:clWavelengthRange:
       description: Detection wavelength range of the CL system in nm. The range is set by the detector
         sensitivity and any optical filters installed.
       anyOf:
       - type: number
       - type: string
+      readOnly: true
     ada:clIntegrationTime:
       description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point
         mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition
@@ -1282,6 +1626,7 @@ allOf:
       anyOf:
       - type: number
       - type: string
+      readOnly: true
     ada:ebsdStepSize:
       description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller
         than the smallest grain of interest to resolve grain boundary positions and intragrain orientation
@@ -1327,6 +1672,7 @@ allOf:
       - Ex-situ
       - N/A
       - None
+      readOnly: true
     ada:ionMillingConditions:
       description: Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning.
         These parameters determine material removal rate per slice and exposed surface quality.
@@ -1349,6 +1695,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction. MAC database
         choice affects accuracy particularly for light elements (B, C, N, O, F, Na).
@@ -1363,6 +1710,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:backgroundCorrectionMethod:
       description: 'Method used to estimate and subtract background X-ray intensity beneath the peak.
         For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For
@@ -1390,6 +1738,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:ebsdIndexingMethod:
       description: Algorithm used to index EBSD diffraction patterns and assign crystal orientations.
         Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches
@@ -1402,6 +1751,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:crystalStructureDatabase:
       description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
       type: string
@@ -1419,6 +1769,7 @@ allOf:
     ada:interferenceCorrectionsApplied:
       description: Whether a spectral interference correction was applied for each analyte.
       type: boolean
+      readOnly: true
     schema:description:
       description: Any additional context about this protocol or analysis session not captured by structured
         fields above.

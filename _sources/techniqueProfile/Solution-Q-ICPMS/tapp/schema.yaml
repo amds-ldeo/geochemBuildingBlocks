@@ -10,6 +10,7 @@ allOf:
       description: A short descriptive name for this analytical protocol. Should include instrument, technique,
         and analyte scope.
       type: string
+      readOnly: true
     schema:measurementTechnique:
       type: array
       items:
@@ -20,12 +21,14 @@ allOf:
             type: string
             enum:
             - Solution Q-ICP-MS
+            readOnly: true
     schema:creator:
       type: object
       properties:
         schema:name:
           description: Person(s) or laboratory responsible for developing and registering this protocol.
           type: string
+          readOnly: true
     schema:location:
       type: object
       properties:
@@ -38,6 +41,7 @@ allOf:
     schema:datePublished:
       description: First date this protocol configuration was used in production.
       type: string
+      readOnly: true
     schema:funding:
       type: array
       items:
@@ -47,6 +51,7 @@ allOf:
             description: Grants and funding that supported development of this protocol. Include grant
               IDs.
             type: string
+            readOnly: true
     schema:relatedLink:
       type: array
       items:
@@ -122,8 +127,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id003
-          title: Desolvation System
+        - title: Desolvation System
           description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
             solvent load. Lowers oxide production rates and increases sensitivity for selected element
             groups (e.g., ApexQ for chalcophile elements). Record 'None' if not used.
@@ -147,7 +151,8 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id004
+          readOnly: true
+        - &id003
           title: Make-up Gas Flow Rate
           description: Supplementary argon flow added downstream of a desolvation system to maintain total
             gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
@@ -179,8 +184,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id005
-          title: Internal Standard Concentration
+        - title: Internal Standard Concentration
           description: Target concentration of internal standard element(s) in all measured solutions
             (µg/L or ppb).
           type: object
@@ -208,7 +212,8 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
-        - &id006
+          readOnly: true
+        - &id004
           title: Doubly-Charged Species Monitor
           description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument
             tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere
@@ -240,7 +245,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id007
+        - &id005
           title: Doubly-Charged Species Production
           description: Measured percentage of doubly-charged ion production for the monitored species
             at the time of instrument tuning. Record both the acceptance threshold and the measured value.
@@ -272,7 +277,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id008
+        - &id006
           title: Spike/Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous replicate measurements or data
             points from the calculated mean.
@@ -302,7 +307,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id007
           title: Pulse/Analog Detector Nonlinearity Correction
           description: Whether a correction was applied for nonlinear detector response at the transition
             between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode
@@ -335,7 +340,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id008
           title: Memory Effect Mitigation
           description: Protocol applied to identify and minimize carry-over of high-concentration elements
             between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily
@@ -369,7 +374,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id009
           title: Uncertainty Propagation Method
           description: Method used to propagate analytical uncertainties from raw signals through to final
             concentration values.
@@ -399,7 +404,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id010
           title: Normalization/Standards-Based Correction
           description: Post-acquisition normalization applied to output concentrations relative to a reference
             value (e.g., correction to a monitor element's certified value in the calibration standard).
@@ -436,7 +441,67 @@ allOf:
       - contains: *id002
         minContains: 0
         maxContains: 1
+      - contains:
+          title: Desolvation System
+          description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
+            solvent load. Lowers oxide production rates and increases sensitivity for selected element
+            groups (e.g., ApexQ for chalcophile elements). Record 'None' if not used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/desolvationSystem
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/solutionQicpmsTAPP/desolvationSystem
+            schema:name:
+              const: Desolvation System
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Internal Standard Concentration
+          description: Target concentration of internal standard element(s) in all measured solutions
+            (µg/L or ppb).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
+            schema:name:
+              const: Internal Standard Concentration
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains: *id004
@@ -460,12 +525,6 @@ allOf:
       - contains: *id010
         minContains: 0
         maxContains: 1
-      - contains: *id011
-        minContains: 0
-        maxContains: 1
-      - contains: *id012
-        minContains: 0
-        maxContains: 1
     schema:actionProcess:
       type: object
       properties:
@@ -484,6 +543,7 @@ allOf:
       description: Acid mixture used for sample dissolution. Record acid type(s) and concentration(s)
         where known (e.g., concentrated HF–HNO3, HNO3–HCl).
       type: string
+      readOnly: true
     ada:digestionVesselType:
       description: Type of vessel used for acid digestion. Vessel type constrains maximum temperature
         and pressure and determines suitability for refractory mineral dissolution.
@@ -496,6 +556,7 @@ allOf:
       - Open beaker
       - N/A
       - None
+      readOnly: true
     ada:numberOfDigestionSteps:
       description: Total number of distinct acid digestion steps required to dissolve the sample. Some
         protocols require multiple sequential steps (e.g., an initial open-beaker HF–HNO3 dissolution
@@ -503,6 +564,7 @@ allOf:
       anyOf:
       - type: integer
       - type: string
+      readOnly: true
     ada:digestionTemperature:
       description: Temperature at which acid digestion was carried out (°C). Protocol specifies the target
         temperature.
@@ -516,6 +578,7 @@ allOf:
       description: Acid type and concentration of the final dissolved sample solution introduced to the
         instrument. Directly affects instrument response and ion transmission.
       type: string
+      readOnly: true
     ada:chromatographicSeparationApplied:
       description: Whether chromatographic separation of element groups (e.g., using ion exchange resin)
         was performed prior to ICP-MS analysis. Common for protocols requiring matrix removal or interference
@@ -528,16 +591,19 @@ allOf:
       - AG1-X8 (HBr)
       - None
       - N/A
+      readOnly: true
     ada:isotopeDilutionSpike:
       description: Isotopic spike material added to the sample before or during digestion for isotope
         dilution (ID) analysis. Record spike name or certificate reference and spike isotope(s). Record
         'None' if ID technique is not used.
       type: string
+      readOnly: true
     ada:instrumentMakeAndModel:
       description: Manufacturer and model name of the quadrupole ICP-MS instrument (e.g., Thermo iCAP
         RQ, Agilent 7900, PerkinElmer NexION 350D). Determines instrument-specific tuning parameters and
         available cell configurations.
       type: string
+      readOnly: true
     schema:instrument:
       type: array
       items:
@@ -547,17 +613,19 @@ allOf:
           properties:
             schema:additionalType:
               contains:
-                const: ICP-MS
+                const: ICPMS
           required:
           - schema:additionalType
     ada:nebulizerType:
       description: Type and material of the pneumatic nebulizer used for sample introduction. Affects
         droplet size distribution and sample introduction efficiency.
       type: string
+      readOnly: true
     ada:sprayChamberTypeAndCoolingTemperature:
       description: Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and
         temperature control aerosol droplet size and the solvent vapor load reaching the plasma.
       type: string
+      readOnly: true
     ada:sampleUptakeRate:
       description: Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min
         or mL/min).
@@ -604,6 +672,7 @@ allOf:
       - Cool plasma
       - N/A
       - None
+      readOnly: true
     ada:analyteTemplate:
       type: object
       properties:
@@ -627,32 +696,38 @@ allOf:
         description: Specific isotope(s) monitored per analyte element in this protocol, including any
           interference-monitor masses. Analyte-specific field.
         type: string
+        readOnly: true
     ada:dwellTime:
       description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if
         analyte-specific dwell times are programmed.
       anyOf:
       - type: number
       - type: string
+      readOnly: true
     ada:massCyclesPerReplicate:
       description: Number of complete mass scans (sweeps) accumulated per analytical replicate.
       anyOf:
       - type: integer
       - type: string
+      readOnly: true
     ada:numberOfReplicatesPerSample:
       description: Number of discrete replicate measurements acquired per sample solution.
       anyOf:
       - type: integer
       - type: string
+      readOnly: true
     ada:sampleSequenceDesign:
       description: 'Description of the measurement order within a session: how samples, blanks, calibration
         standards, and reference materials are interleaved.'
       type: string
+      readOnly: true
     ada:washTimeBetweenSamples:
       description: Duration of instrument rinse between successive sample solutions (seconds). Controls
         carryover and memory effects.
       anyOf:
       - type: number
       - type: string
+      readOnly: true
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In peak hopping mode,
         the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning
@@ -664,17 +739,20 @@ allOf:
       - Scanning
       - N/A
       - None
+      readOnly: true
     ada:internalStandardElement:
       description: Element(s) added at a known concentration to all solutions (samples, blanks, calibration
         standards) and used as internal standards for drift correction and matrix normalization. Specify
         element and monitored isotope.
       type: string
+      readOnly: true
     ada:oxideProductionMethodAndThreshold:
       description: Method used to quantify plasma oxide production and the acceptance threshold applied
         before commencing analysis. For solution ICP-MS, CeO+/Ce+ (m/z 156/140) is the standard monitor
         proxy. Record both the monitored mass ratio and the maximum allowed oxide rate threshold. Measured
         values are recorded in Oxide Production.
       type: string
+      readOnly: true
     ada:internalStandardApproach:
       description: 'Role(s) assigned to the internal standard(s) in data reduction: drift correction only,
         matrix normalization, or a combination.'
@@ -685,6 +763,7 @@ allOf:
       - Drift + matrix normalization
       - N/A
       - None
+      readOnly: true
     ada:driftCorrectionMethod:
       description: Method used to correct for instrumental signal drift across a session.
       type: string
@@ -694,6 +773,7 @@ allOf:
       - IS normalization + bracketing
       - None
       - N/A
+      readOnly: true
     ada:perAnalyteCalibrationStrategy:
       type: array
       items:
@@ -708,6 +788,7 @@ allOf:
         - External calibration + standard addition
         - N/A
         - None
+        readOnly: true
     ada:signalIntegrationIntervalMethod:
       description: Method used to define the integration window for each replicate measurement (e.g.,
         full acquisition time, stable-interval selection, automated criteria).
@@ -718,6 +799,7 @@ allOf:
       - Automated peak detection
       - N/A
       - None
+      readOnly: true
     ada:blankBackgroundCorrectionMethod:
       description: Method used to subtract instrument background and/or procedural blank from sample signals.
       type: string
@@ -727,6 +809,7 @@ allOf:
       - Procedural blank
       - N/A
       - None
+      readOnly: true
     ada:isobaricInterferenceCorrection:
       type: array
       items:
@@ -739,6 +822,7 @@ allOf:
         - Analyte-specific
         - N/A
         - None
+        readOnly: true
     ada:interferingSpecies:
       type: array
       items:
@@ -747,6 +831,7 @@ allOf:
           Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented
           in Group 3 and Group 4.
         type: string
+        readOnly: true
     ada:isobaricInterferenceCorrectionMethod:
       type: array
       items:
@@ -754,10 +839,12 @@ allOf:
           measured signals (e.g., interference standard solutions isolating specific polyatomics, mass-balance
           equations using empirical correction factors).
         type: string
+        readOnly: true
     ada:isotopeDilutionDataReductionMethod:
       description: Mass balance approach used to calculate sample mass fractions from spike–sample isotope
         ratio measurements. Record 'None' if isotope dilution is not used.
       type: string
+      readOnly: true
     ada:primaryStandardName:
       description: Name and reference material identifier of the external calibration standard used to
         convert signal intensities to elemental concentrations.
@@ -766,6 +853,7 @@ allOf:
       description: How often the primary calibration standard is measured relative to unknown samples
         within a session.
       type: string
+      readOnly: true
     ada:secondaryReferenceMaterial:
       type: array
       items:

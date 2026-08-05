@@ -3914,7 +3914,8 @@
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, and analyte scope.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -3926,7 +3927,8 @@
                 "type": "string",
                 "enum": [
                   "Solution Q-ICP-MS"
-                ]
+                ],
+                "readOnly": true
               }
             }
           }
@@ -3936,7 +3938,8 @@
           "properties": {
             "schema:name": {
               "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
-              "type": "string"
+              "type": "string",
+              "readOnly": true
             }
           }
         },
@@ -3955,7 +3958,8 @@
         },
         "schema:datePublished": {
           "description": "First date this protocol configuration was used in production.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:funding": {
           "type": "array",
@@ -3964,7 +3968,8 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
-                "type": "string"
+                "type": "string",
+                "readOnly": true
               }
             }
           }
@@ -4109,7 +4114,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Make-up Gas Flow Rate",
@@ -4197,7 +4203,8 @@
                   "schema:name",
                   "schema:value",
                   "schema:unitText"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Doubly-Charged Species Monitor",
@@ -4606,7 +4613,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -4702,7 +4710,8 @@
                   "schema:name",
                   "schema:value",
                   "schema:unitText"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -5051,7 +5060,8 @@
         },
         "ada:digestionAcid": {
           "description": "Acid mixture used for sample dissolution. Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3, HNO3–HCl).",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:digestionVesselType": {
           "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution.",
@@ -5064,7 +5074,8 @@
             "Open beaker",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:numberOfDigestionSteps": {
           "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some protocols require multiple sequential steps (e.g., an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals).",
@@ -5075,7 +5086,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:digestionTemperature": {
           "description": "Temperature at which acid digestion was carried out (°C). Protocol specifies the target temperature.",
@@ -5094,7 +5106,8 @@
         },
         "ada:finalSolutionMatrix": {
           "description": "Acid type and concentration of the final dissolved sample solution introduced to the instrument. Directly affects instrument response and ion transmission.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:chromatographicSeparationApplied": {
           "description": "Whether chromatographic separation of element groups (e.g., using ion exchange resin) was performed prior to ICP-MS analysis. Common for protocols requiring matrix removal or interference elimination before measurement (e.g., Fe and Cu–Zn for isotope dilution). Record resin type and matrix conditions if applied. Record 'None' if direct digestion solution is analyzed.",
@@ -5105,15 +5118,18 @@
             "AG1-X8 (HBr)",
             "None",
             "N/A"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:isotopeDilutionSpike": {
           "description": "Isotopic spike material added to the sample before or during digestion for isotope dilution (ID) analysis. Record spike name or certificate reference and spike isotope(s). Record 'None' if ID technique is not used.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:instrumentMakeAndModel": {
           "description": "Manufacturer and model name of the quadrupole ICP-MS instrument (e.g., Thermo iCAP RQ, Agilent 7900, PerkinElmer NexION 350D). Determines instrument-specific tuning parameters and available cell configurations.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:instrument": {
           "type": "array",
@@ -5126,7 +5142,7 @@
                 "properties": {
                   "schema:additionalType": {
                     "contains": {
-                      "const": "ICP-MS"
+                      "const": "ICPMS"
                     }
                   }
                 },
@@ -5139,11 +5155,13 @@
         },
         "ada:nebulizerType": {
           "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:sprayChamberTypeAndCoolingTemperature": {
           "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:sampleUptakeRate": {
           "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
@@ -5215,7 +5233,8 @@
             "Cool plasma",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:analyteTemplate": {
           "type": "object",
@@ -5240,7 +5259,8 @@
           "type": "array",
           "items": {
             "description": "Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor masses. Analyte-specific field.",
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           }
         },
         "ada:dwellTime": {
@@ -5252,7 +5272,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:massCyclesPerReplicate": {
           "description": "Number of complete mass scans (sweeps) accumulated per analytical replicate.",
@@ -5263,7 +5284,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:numberOfReplicatesPerSample": {
           "description": "Number of discrete replicate measurements acquired per sample solution.",
@@ -5274,11 +5296,13 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:sampleSequenceDesign": {
           "description": "Description of the measurement order within a session: how samples, blanks, calibration standards, and reference materials are interleaved.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:washTimeBetweenSamples": {
           "description": "Duration of instrument rinse between successive sample solutions (seconds). Controls carryover and memory effects.",
@@ -5289,7 +5313,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:signalCollectionMode": {
           "description": "Mode used to collect ion signal across the monitored masses. In peak hopping mode, the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning mode, the quadrupole sweeps continuously across a defined mass range. Peak hopping is standard for multi-element trace analysis as it maximises integration time at each mass.",
@@ -5299,15 +5324,18 @@
             "Scanning",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:internalStandardElement": {
           "description": "Element(s) added at a known concentration to all solutions (samples, blanks, calibration standards) and used as internal standards for drift correction and matrix normalization. Specify element and monitored isotope.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:oxideProductionMethodAndThreshold": {
           "description": "Method used to quantify plasma oxide production and the acceptance threshold applied before commencing analysis. For solution ICP-MS, CeO+/Ce+ (m/z 156/140) is the standard monitor proxy. Record both the monitored mass ratio and the maximum allowed oxide rate threshold. Measured values are recorded in Oxide Production.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:internalStandardApproach": {
           "description": "Role(s) assigned to the internal standard(s) in data reduction: drift correction only, matrix normalization, or a combination.",
@@ -5318,7 +5346,8 @@
             "Drift + matrix normalization",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:driftCorrectionMethod": {
           "description": "Method used to correct for instrumental signal drift across a session.",
@@ -5329,7 +5358,8 @@
             "IS normalization + bracketing",
             "None",
             "N/A"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:perAnalyteCalibrationStrategy": {
           "type": "array",
@@ -5343,7 +5373,8 @@
               "External calibration + standard addition",
               "N/A",
               "None"
-            ]
+            ],
+            "readOnly": true
           }
         },
         "ada:signalIntegrationIntervalMethod": {
@@ -5355,7 +5386,8 @@
             "Automated peak detection",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:blankBackgroundCorrectionMethod": {
           "description": "Method used to subtract instrument background and/or procedural blank from sample signals.",
@@ -5366,7 +5398,8 @@
             "Procedural blank",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:isobaricInterferenceCorrection": {
           "type": "array",
@@ -5379,26 +5412,30 @@
               "Analyte-specific",
               "N/A",
               "None"
-            ]
+            ],
+            "readOnly": true
           }
         },
         "ada:interferingSpecies": {
           "type": "array",
           "items": {
             "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.",
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           }
         },
         "ada:isobaricInterferenceCorrectionMethod": {
           "type": "array",
           "items": {
             "description": "Mathematical approach used to calculate and remove interference contributions from measured signals (e.g., interference standard solutions isolating specific polyatomics, mass-balance equations using empirical correction factors).",
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           }
         },
         "ada:isotopeDilutionDataReductionMethod": {
           "description": "Mass balance approach used to calculate sample mass fractions from spike–sample isotope ratio measurements. Record 'None' if isotope dilution is not used.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:primaryStandardName": {
           "description": "Name and reference material identifier of the external calibration standard used to convert signal intensities to elemental concentrations.",
@@ -5406,7 +5443,8 @@
         },
         "ada:calibrationMeasurementFrequency": {
           "description": "How often the primary calibration standard is measured relative to unknown samples within a session.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:secondaryReferenceMaterial": {
           "type": "array",

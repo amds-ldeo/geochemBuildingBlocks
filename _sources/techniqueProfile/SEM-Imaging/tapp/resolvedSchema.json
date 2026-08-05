@@ -3914,7 +3914,8 @@
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, analytical mode(s), and target material scope.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -3929,7 +3930,8 @@
                   "SEM/FIB-SEM",
                   "N/A",
                   "None"
-                ]
+                ],
+                "readOnly": true
               }
             }
           }
@@ -3939,7 +3941,8 @@
           "properties": {
             "schema:name": {
               "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
-              "type": "string"
+              "type": "string",
+              "readOnly": true
             }
           }
         },
@@ -3958,7 +3961,8 @@
         },
         "schema:datePublished": {
           "description": "First date this protocol configuration was used in production.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:funding": {
           "type": "array",
@@ -3967,7 +3971,8 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
-                "type": "string"
+                "type": "string",
+                "readOnly": true
               }
             }
           }
@@ -4038,11 +4043,13 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:instrumentModel": {
           "description": "Model designation of the SEM or FIB-SEM instrument, including generation suffix if applicable.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "ada:electronSource": {
           "description": "Type of electron gun used in the SEM instrument.",
@@ -4055,7 +4062,8 @@
             "Unknown",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:instrumentVariant": {
           "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
@@ -4067,7 +4075,8 @@
             "FIB-SEM dual-beam + VP",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:seDetectorType": {
           "description": "Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.",
@@ -4079,7 +4088,8 @@
             "ESED (VP/ESEM)",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:bseDetectorType": {
           "description": "Type of backscattered electron detector. Solid-state diode detectors (single or segmented) are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments). In-lens BSE detectors provide improved BSE collection at short working distances.",
@@ -4092,7 +4102,8 @@
             "YAG scintillator",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "schema:additionalProperty": {
           "type": "array",
@@ -4129,7 +4140,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               {
                 "title": "Chamber Pressure",
@@ -4288,7 +4300,8 @@
                   "schema:propertyID",
                   "schema:name",
                   "schema:value"
-                ]
+                ],
+                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -4431,7 +4444,8 @@
         },
         "ada:ebsdDetectorConfiguration": {
           "description": "EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "bios:computationalTool": {
           "type": "array",
@@ -4456,7 +4470,8 @@
               "3D Tomography",
               "N/A",
               "None"
-            ]
+            ],
+            "readOnly": true
           }
         },
         "ada:acceleratingVoltage": {
@@ -4513,7 +4528,8 @@
             "Multi-channel pseudo-color",
             "N/A",
             "None"
-          ]
+          ],
+          "readOnly": true
         },
         "ada:clWavelengthRange": {
           "description": "Detection wavelength range of the CL system in nm. The range is set by the detector sensitivity and any optical filters installed.",
@@ -4524,7 +4540,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:clIntegrationTime": {
           "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
@@ -4546,7 +4563,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "ada:crystalStructureDatabase": {
           "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",

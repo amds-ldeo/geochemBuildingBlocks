@@ -12,6 +12,7 @@ allOf:
       description: A short descriptive name for this analytical protocol. Should include instrument, technique,
         analytical mode(s), and target material scope.
       type: string
+      readOnly: true
     schema:measurementTechnique:
       type: array
       items:
@@ -25,12 +26,14 @@ allOf:
             - SEM/FIB-SEM
             - N/A
             - None
+            readOnly: true
     schema:creator:
       type: object
       properties:
         schema:name:
           description: Person(s) or laboratory responsible for developing and registering this protocol.
           type: string
+          readOnly: true
     schema:location:
       type: object
       properties:
@@ -43,6 +46,7 @@ allOf:
     schema:datePublished:
       description: First date this protocol configuration was used in production.
       type: string
+      readOnly: true
     schema:funding:
       type: array
       items:
@@ -52,6 +56,7 @@ allOf:
             description: Grants and funding that supported development of this protocol. Include grant
               IDs.
             type: string
+            readOnly: true
     schema:relatedLink:
       type: array
       items:
@@ -95,10 +100,12 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:instrumentModel:
       description: Model designation of the SEM or FIB-SEM instrument, including generation suffix if
         applicable.
       type: string
+      readOnly: true
     ada:electronSource:
       description: Type of electron gun used in the SEM instrument.
       type: string
@@ -110,6 +117,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      readOnly: true
     ada:instrumentVariant:
       description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only SEM
         column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables TEM specimen
@@ -124,6 +132,7 @@ allOf:
       - FIB-SEM dual-beam + VP
       - N/A
       - None
+      readOnly: true
     ada:ionBeamSource:
       description: Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most
         common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume
@@ -137,6 +146,7 @@ allOf:
       - Neon GFIS
       - N/A
       - None
+      readOnly: true
     ada:seDetectorType:
       description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard
         off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution
@@ -150,6 +160,7 @@ allOf:
       - ESED (VP/ESEM)
       - N/A
       - None
+      readOnly: true
     ada:bseDetectorType:
       description: Type of backscattered electron detector. Solid-state diode detectors (single or segmented)
         are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors
@@ -164,6 +175,7 @@ allOf:
       - YAG scintillator
       - N/A
       - None
+      readOnly: true
     bios:computationalTool:
       type: array
       items:
@@ -186,6 +198,7 @@ allOf:
         - 3D Tomography
         - N/A
         - None
+        readOnly: true
     ada:acceleratingVoltage:
       description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS),
         EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve
@@ -249,6 +262,7 @@ allOf:
       - Ex-situ
       - N/A
       - None
+      readOnly: true
     ada:ionMillingConditions:
       description: Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning.
         These parameters determine material removal rate per slice and exposed surface quality.
