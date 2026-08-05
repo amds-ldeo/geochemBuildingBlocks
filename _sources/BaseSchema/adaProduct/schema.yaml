@@ -470,6 +470,20 @@ allOf:
                           schemas (e.g. detailEMPA) that enumerate technique
                           componentType values and contribute detail-specific
                           sibling properties (e.g. ada:spectrometersUsed).
+          allOf:
+            # pattern-per-datatype: a MONOLITHIC single-file distribution that is a
+            # tabular text file validates its CSVW/DDI-CDI layout + per-column
+            # cdif:hasPhysicalMapping via cdifTabularData. (cdi:isStructuredBy above
+            # covers container/array single files.) A bundle DataDownload is an
+            # archive, not itself tabular, so this never fires there.
+            - if:
+                properties:
+                  "@type":
+                    type: array
+                    contains:
+                      const: "cdi:TabularTextDataSet"
+              then:
+                $ref: ../tabularData/schema.yaml
       "schema:subjectOf":
         properties:
           "dcterms:conformsTo":
