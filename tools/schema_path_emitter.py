@@ -289,43 +289,44 @@ def build(tapp):
     build_tapp), referenced by $ref from the overlay."""
     meta = _load_rows(tapp)   # configures b.XLSX / PARAM_BASE
     sidecar = b.load_sidecar()
-    spec_path = os.path.join(ROOT, "docs", os.path.splitext(os.path.basename(b.XLSX))[0] + ".schemapaths.json")
-    spec = json.load(open(spec_path, encoding="utf-8"))
+    import schemapath_io
+    spec = schemapath_io.load_spec(schemapath_io.csv_path(b.XLSX))
     roots = {"MethodDefinition": Obj(), "Dataset": Obj()}
     registries = {"parameterTemplates": {}, "parameterValues": {}}
     required = {"MethodDefinition": [], "Dataset": []}
     pt_seen, pv_seen = set(), set()
     for item, rec in spec.items():
-        path = rec["path"]
-        parsed = spp.parse(path)
         m = meta.get(item, {})
-        require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
-        non_type = [s for s in parsed.segments if not s.is_type]
-        if require and len(non_type) == 1 and non_type[0].selector is None and not non_type[0].is_array:
-            if non_type[0].prop not in required[parsed.root]:   # top-level direct prop, Basic tier
-                required[parsed.root].append(non_type[0].prop)
-        if _is_addl_param(parsed):
-            bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
-                  "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
-                  "desc": m.get("desc", ""), "A": m.get("A", "")}
-            if parsed.segments[-1].prop == "schema:defaultValue":
-                name, body = b.param_template_def(bd, pt_seen)
-                registries["parameterTemplates"].update(body); pt_seen.add(name)
-                ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterTemplates/schema.yaml#/$defs/{name}"}
-            else:
-                name, body = b.param_value_def(bd, pv_seen)
-                registries["parameterValues"].update(body); pv_seen.add(name)
-                ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterValues/schema.yaml#/$defs/{name}"}
-            truncated = spp.ParsedPath(parsed.root, parsed.segments[:-1])
-            insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
-            continue
-        enum = None
-        dl = (m.get("dt") or "").lower()
-        if "controlled" in dl:
-            parts = [p.strip().strip("'\"") for p in (m.get("ex") or "").split("|")
-                     if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
-            enum = parts or None
-        insert(roots[parsed.root], parsed, leaf_for(m.get("desc"), m.get("dt"), enum), require=require)
+        paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
+        for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
+            parsed = spp.parse(path)
+            require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
+            non_type = [s for s in parsed.segments if not s.is_type]
+            if require and len(non_type) == 1 and non_type[0].selector is None and not non_type[0].is_array:
+                if non_type[0].prop not in required[parsed.root]:   # top-level direct prop, Basic tier
+                    required[parsed.root].append(non_type[0].prop)
+            if _is_addl_param(parsed):
+                bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
+                      "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
+                      "desc": m.get("desc", ""), "A": m.get("A", "")}
+                if parsed.segments[-1].prop == "schema:defaultValue":
+                    name, body = b.param_template_def(bd, pt_seen)
+                    registries["parameterTemplates"].update(body); pt_seen.add(name)
+                    ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterTemplates/schema.yaml#/$defs/{name}"}
+                else:
+                    name, body = b.param_value_def(bd, pv_seen)
+                    registries["parameterValues"].update(body); pv_seen.add(name)
+                    ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterValues/schema.yaml#/$defs/{name}"}
+                truncated = spp.ParsedPath(parsed.root, parsed.segments[:-1])
+                insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
+                continue
+            enum = None
+            dl = (m.get("dt") or "").lower()
+            if "controlled" in dl:
+                parts = [p.strip().strip("'\"") for p in (m.get("ex") or "").split("|")
+                         if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
+                enum = parts or None
+            insert(roots[parsed.root], parsed, leaf_for(m.get("desc"), m.get("dt"), enum), require=require)
     return {r: to_schema(o) for r, o in roots.items()}, registries, required
 
 

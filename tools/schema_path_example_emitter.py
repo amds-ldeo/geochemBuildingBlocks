@@ -70,8 +70,8 @@ def build_example(tapp):
     """{root -> instance dict} built from the canonical paths, reusing the schema-emitter merger."""
     meta = e._load_rows(tapp)
     sidecar = b.load_sidecar()
-    spec_path = os.path.join(ROOT, "docs", os.path.splitext(os.path.basename(b.XLSX))[0] + ".schemapaths.json")
-    spec = json.load(open(spec_path, encoding="utf-8"))
+    import schemapath_io
+    spec = schemapath_io.load_spec(schemapath_io.csv_path(b.XLSX))
     roots = {"MethodDefinition": e.Obj(), "Dataset": e.Obj()}
     pt_seen, pv_seen = set(), set()
     # base-owned rich-object properties (analyteTemplate, computationalTool, workflow steps, the
@@ -82,23 +82,25 @@ def build_example(tapp):
     SKIP_MD = ("ada:analyteTemplate", "bios:computationalTool", "schema:actionProcess",
                "schema:instrument", "schema:object", "schema:relatedLink")
     for item, rec in spec.items():
-        parsed = spp.parse(rec["path"])
-        if parsed.root == "MethodDefinition" and any(t in rec["path"] for t in SKIP_MD):
-            continue
         m = meta.get(item, {})
-        if e._is_addl_param(parsed):
-            bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
-                  "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
-                  "desc": m.get("desc", ""), "A": m.get("A", "")}
-            if parsed.segments[-1].prop == "schema:defaultValue":
-                _, body = b.param_template_def(bd, pt_seen); pt_seen.add(next(iter(body)))
-            else:
-                _, body = b.param_value_def(bd, pv_seen); pv_seen.add(next(iter(body)))
-            elem = instance_from_def(next(iter(body.values())))
-            trunc = spp.ParsedPath(parsed.root, parsed.segments[:-1])
-            e.insert(roots[parsed.root], trunc, element=e.Leaf(elem))
-            continue
-        e.insert(roots[parsed.root], parsed, placeholder(m, item, sidecar))
+        paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
+        for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
+            parsed = spp.parse(path)
+            if parsed.root == "MethodDefinition" and any(t in path for t in SKIP_MD):
+                continue
+            if e._is_addl_param(parsed):
+                bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
+                      "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
+                      "desc": m.get("desc", ""), "A": m.get("A", "")}
+                if parsed.segments[-1].prop == "schema:defaultValue":
+                    _, body = b.param_template_def(bd, pt_seen); pt_seen.add(next(iter(body)))
+                else:
+                    _, body = b.param_value_def(bd, pv_seen); pv_seen.add(next(iter(body)))
+                elem = instance_from_def(next(iter(body.values())))
+                trunc = spp.ParsedPath(parsed.root, parsed.segments[:-1])
+                e.insert(roots[parsed.root], trunc, element=e.Leaf(elem))
+                continue
+            e.insert(roots[parsed.root], parsed, placeholder(m, item, sidecar))
     return {r: e.to_instance(o) for r, o in roots.items()}
 
 

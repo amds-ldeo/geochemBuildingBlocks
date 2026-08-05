@@ -53,5 +53,237 @@ properties:
     type: array
     items:
       type: object
+  schema:additionalProperty:
+    type: array
+    items:
+      anyOf:
+      - &id001
+        title: Beam Raster Dimensions
+        description: X x Y dimensions of a small beam raster used at a single analysis point to average
+          a coarse-grained or beam-sensitive phase. Different from X-ray mapping mode; not applicable
+          when mapping.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/beamRasterDimensions
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/beamRasterDimensions
+          schema:name:
+            const: Beam Raster Dimensions
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+          schema:unitText:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+        - schema:unitText
+      - &id002
+        title: Beam Damage Minimization
+        description: Measures taken to minimize beam damage, particularly volatilization or migration
+          of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document
+          approach, beam conditions used, and phases for which it was applied.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/beamDamageMinimization
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/beamDamageMinimization
+          schema:name:
+            const: Beam Damage Minimization
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id003
+        title: Drift Correction
+        description: Method used to monitor and correct for instrument drift (beam current drift, spectrometer
+          drift) during the analytical session.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/driftCorrection
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/driftCorrection
+          schema:name:
+            const: Drift Correction
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id004
+        title: Background Position(s)
+        description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or
+          sin-theta, and whether on the high- or low-energy side.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/backgroundPosition
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/backgroundPosition
+          schema:name:
+            const: Background Position(s)
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id005
+        title: Time-Dependent Intensity Correction
+        description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced
+          volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
+          Most commonly applied in point analysis; uncommon for X-ray mapping.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/timeDependentIntensityCorrection
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/timeDependentIntensityCorrection
+          schema:name:
+            const: Time-Dependent Intensity Correction
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id006
+        title: Halogen Correction on Oxygen
+        description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
+          Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
+          is calculated by stoichiometry.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+          schema:name:
+            const: Halogen Correction on Oxygen
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id007
+        title: Blank Correction
+        description: Method and reference material(s) used to determine and subtract blank signal contributions
+          (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/blankCorrection
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/blankCorrection
+          schema:name:
+            const: Blank Correction
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id008
+        title: Normalization / Standards-Based Correction
+        description: Post-acquisition normalization applied using secondary reference materials to correct
+          for session-to-session calibration drift.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+          schema:name:
+            const: Normalization / Standards-Based Correction
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+    allOf:
+    - contains: *id001
+      minContains: 0
+      maxContains: 1
+    - contains: *id002
+      minContains: 0
+      maxContains: 1
+    - contains: *id003
+      minContains: 0
+      maxContains: 1
+    - contains: *id004
+      minContains: 0
+      maxContains: 1
+    - contains: *id005
+      minContains: 0
+      maxContains: 1
+    - contains: *id006
+      minContains: 0
+      maxContains: 1
+    - contains: *id007
+      minContains: 0
+      maxContains: 1
+    - contains: *id008
+      minContains: 0
+      maxContains: 1
 required:
 - schema:funding

@@ -83,6 +83,169 @@
         "type": "object"
       }
     },
+    "schema:additionalProperty": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "title": "Chamber Pressure",
+            "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/semImagingTAPP/chamberPressure"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+                }
+              },
+              "schema:name": {
+                "const": "Chamber Pressure"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          {
+            "title": "CL Wavelength Calibration Reference",
+            "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+                }
+              },
+              "schema:name": {
+                "const": "CL Wavelength Calibration Reference"
+              },
+              "schema:value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          }
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "title": "Chamber Pressure",
+            "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/semImagingTAPP/chamberPressure"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+                }
+              },
+              "schema:name": {
+                "const": "Chamber Pressure"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "title": "CL Wavelength Calibration Reference",
+            "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+                }
+              },
+              "schema:name": {
+                "const": "CL Wavelength Calibration Reference"
+              },
+              "schema:value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        }
+      ]
+    },
     "ada:clWavelengthRange": {
       "description": "Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.",
       "type": "string"
