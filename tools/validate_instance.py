@@ -127,11 +127,12 @@ class SchemaRegistry:
         self._cache: dict[str, dict] = {}
 
     def _find_schema_path(self, profile_name: str) -> Path:
-        """Find <profile_name>/resolvedSchema.json anywhere under _sources (group-by-technique
-        layout). NB: generic/product profiles were renamed to role dirs (profile / profile-ada);
-        look them up by technique dir + role, not the old adaXxx name."""
-        for cand in self.schema_root.rglob(f"{profile_name}/resolvedSchema.json"):
-            return cand
+        """Resolve <profile_name>'s resolvedSchema.json under the group-by-technique layout, including
+        role-renamed dirs (<x>TAPP, detail<X>, ada<X>, geochem profiles) via bb_locate."""
+        import bb_locate
+        hit = bb_locate.find_bb_dir(profile_name, self.schema_root)
+        if hit is not None:
+            return hit / "resolvedSchema.json"
         legacy = self.schema_root / "profiles"
         return legacy / profile_name / "resolvedSchema.json"
 

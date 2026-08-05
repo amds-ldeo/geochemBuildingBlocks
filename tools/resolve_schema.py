@@ -1265,11 +1265,13 @@ def resolve_and_write_structured(schema_path: Path) -> Path:
 # ---------------------------------------------------------------------------
 
 def _find_profile_dir(name: str) -> Path:
-    """Find a BB directory by name anywhere under _sources (group-by-technique layout: registry/,
-    BaseSchema/, techniqueProfile/<tech>/<role>). Falls back to the legacy flat profiles/ layout."""
-    for cand in SOURCES_DIR.rglob(name):
-        if cand.is_dir() and (cand / "schema.yaml").exists():
-            return cand
+    """Find a BB directory by its (pre-reorg) identity name under the group-by-technique layout —
+    including the role-renamed dirs (<x>TAPP, detail<X>, ada<X>, geochem profiles). Falls back to
+    the legacy flat profiles/ layout."""
+    import bb_locate
+    hit = bb_locate.find_bb_dir(name, SOURCES_DIR)
+    if hit is not None:
+        return hit
     legacy = SOURCES_DIR / "profiles"
     if legacy.exists():
         for subdir in legacy.iterdir():
