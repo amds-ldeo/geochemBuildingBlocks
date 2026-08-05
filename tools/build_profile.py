@@ -94,12 +94,23 @@ def _schema(tapp, cfg, component_types):
                     "description": f"Must include a {cfg['short']} product type identifier.",
                     "contains": {"enum": cfg["addtype"]}},
                 "schema:distribution": {
-                    "description": f"Distribution items for {cfg['cid']}. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+                    "description": (f"Each distribution item is EITHER a monolithic single-file dataset whose "
+                                    f"ada:componentType is a {cfg['short']}-specific or universal value (and may "
+                                    f"carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each "
+                                    f"carry such a componentType (the ADA/SAMIS archive form)."),
                     "type": "array",
-                    "items": {"type": "object", "properties": {"schema:hasPart": {"items": {"type": "object", "anyOf": [
-                        {"$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
-                        {"properties": {"ada:componentType": {"type": "string", "enum": component_types}},
-                         "required": ["ada:componentType"]}]}}}}},
+                    "items": {"anyOf": [
+                        # monolithic: the single file IS the dataset -> componentType on the distribution item
+                        {"type": "object", "required": ["ada:componentType"],
+                         "properties": {"ada:componentType": {"type": "string", "anyOf": [
+                             {"$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType"},
+                             {"enum": component_types}]}}},
+                        # bundle: componentType on each hasPart member
+                        {"type": "object", "required": ["schema:hasPart"],
+                         "properties": {"schema:hasPart": {"items": {"type": "object", "anyOf": [
+                             {"$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
+                             {"properties": {"ada:componentType": {"type": "string", "enum": component_types}},
+                              "required": ["ada:componentType"]}]}}}}]}},
                 "schema:subjectOf": {"properties": {"dcterms:conformsTo": {"contains": {
                     "type": "object", "properties": {"@id": {"const": CID_BASE + cfg["cid"]}}}}}},
             }},
@@ -162,6 +173,58 @@ def _example(tapp, cfg, component_types):
     return ex
 
 
+def _example_monolithic(ex, cfg, component_types):
+    """Derive a MONOLITHIC single-file variant from the bundle example `ex`: one schema:DataDownload
+    (typed cdi:PhysicalDataSet) that IS the dataset, carrying ada:componentType + cdi:isStructuredBy,
+    with no schema:hasPart. Not an archive, so manifest/1.1 is dropped from conformsTo and
+    data_structure/1.1 added."""
+    m = copy.deepcopy(ex)
+    m["@id"] = f"ex:{cfg['cid']}-monolithic-001"
+    m["schema:name"] = m.get("schema:name", cfg["title"]) + " (single-file dataset)"
+    m["schema:description"] = (f"Monolithic single-file {cfg['short']} dataset: one schema:DataDownload that "
+                               f"is the dataset, with ada:componentType and cdi:isStructuredBy on the "
+                               f"distribution and no schema:hasPart. Mock data.")
+    # structure components reference the example's measured variables where available
+    comps = []
+    for i, v in enumerate((m.get("schema:variableMeasured") or [])[:2]):
+        if not isinstance(v, dict):
+            continue
+        comp = {"@type": ["cdi:MeasureComponent" if i == 0 else "cdi:DimensionComponent"],
+                "cdif:name": v.get("schema:name", f"component_{i}")}
+        if v.get("@id"):
+            comp["cdif:isDefinedBy_RepresentedVariable"] = {"@id": v["@id"]}
+        comps.append(comp)
+    if not comps:
+        comps = [{"@type": ["cdi:MeasureComponent"], "cdif:name": "measurement_value"}]
+    m["schema:distribution"] = [{
+        "@type": ["schema:DataDownload", "cdi:PhysicalDataSet"],
+        "schema:name": f"{cfg['cid']}-monolithic.dat",
+        "schema:description": f"Single {cfg['short']} data file (the whole dataset).",
+        "schema:contentUrl": f"https://astromat.org/downloads/{cfg['cid']}-monolithic-001.dat",
+        "schema:encodingFormat": ["application/x-hdf5"],
+        "spdx:checksum": {"@type": ["spdx:Checksum"], "spdx:algorithm": "SHA256",
+                          "spdx:checksumValue": "c3d4e5f6" * 8},
+        "schema:size": {"@type": ["schema:QuantitativeValue"], "schema:value": 1048576, "schema:unitText": "byte"},
+        "ada:componentType": component_types[0],
+        "cdi:isStructuredBy": {
+            "@id": f"ex:{cfg['cid']}-struct-001",
+            "@type": ["cdi:DimensionalDataStructure"],
+            "schema:name": f"{cfg['short']} single-file data structure",
+            "cdi:has_DataStructureComponent": comps}}]
+    so = m.get("schema:subjectOf")
+    if isinstance(so, dict):
+        so = copy.deepcopy(so)
+        so["@id"] = f"ex:{cfg['cid']}-monolithic-metadata-001"
+        so["schema:about"] = {"@id": m["@id"]}
+        ct = [x for x in so.get("dcterms:conformsTo", [])
+              if not (isinstance(x, dict) and x.get("@id") == "https://w3id.org/cdif/manifest/1.1")]
+        if not any(isinstance(x, dict) and x.get("@id") == "https://w3id.org/cdif/data_structure/1.1" for x in ct):
+            ct.append({"@id": "https://w3id.org/cdif/data_structure/1.1"})
+        so["dcterms:conformsTo"] = ct
+        m["schema:subjectOf"] = so
+    return m
+
+
 def _bblock(cfg):
     return {"$schema": "metaschema.yaml", "name": cfg["title"],
             "abstract": f"Path-driven ADA product profile for {cfg['title']}.",
@@ -201,7 +264,9 @@ def build(tapp):
     os.makedirs(d, exist_ok=True)
     schema = _schema(tapp, cfg, cts)
     b.write(os.path.join(d, "schema.yaml"), b.dump_yaml(schema))
-    _wj(os.path.join(d, "example" + cfg["cid"] + ".json"), _example(tapp, cfg, cts))
+    ex = _example(tapp, cfg, cts)
+    _wj(os.path.join(d, "example" + cfg["cid"] + ".json"), ex)
+    _wj(os.path.join(d, "example" + cfg["cid"] + "-monolithic.json"), _example_monolithic(ex, cfg, cts))
     _wj(os.path.join(d, "bblock.json"), _bblock(cfg))
     with open(os.path.join(d, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(_examples_yaml(cfg))
@@ -218,15 +283,21 @@ def validate(tapp):
     cfg = PROFILES[tapp]
     d = _profile_dir(tapp)
     schema = json.load(open(os.path.join(d, "resolvedSchema.json"), encoding="utf-8"))
-    inst = json.load(open(os.path.join(d, "example" + cfg["cid"] + ".json"), encoding="utf-8"))
-    errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(inst), key=lambda e: list(e.path))
-    if errs:
-        print(f"{cfg['dir']}: {len(errs)} error(s)")
-        for e in errs[:12]:
-            print(f"  /{'/'.join(map(str, e.path))}: {e.message[:110]}")
-        return 1
-    print(f"{cfg['dir']}: GREEN")
-    return 0
+    V = jsonschema.Draft202012Validator(schema)
+    rc = 0
+    for suffix, label in [("", "bundle"), ("-monolithic", "monolithic")]:
+        path = os.path.join(d, "example" + cfg["cid"] + suffix + ".json")
+        if not os.path.exists(path):
+            continue
+        errs = sorted(V.iter_errors(json.load(open(path, encoding="utf-8"))), key=lambda e: list(e.path))
+        if errs:
+            rc = 1
+            print(f"{cfg['dir']} [{label}]: {len(errs)} error(s)")
+            for e in errs[:12]:
+                print(f"  /{'/'.join(map(str, e.path))}: {e.message[:110]}")
+        else:
+            print(f"{cfg['dir']} [{label}]: GREEN")
+    return rc
 
 
 if __name__ == "__main__":

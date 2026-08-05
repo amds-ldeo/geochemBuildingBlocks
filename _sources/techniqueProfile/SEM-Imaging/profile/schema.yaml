@@ -36,29 +36,42 @@ allOf:
         - Scanning Electron Microscopy (SEM) Image
         - Scanning electron microscopy
     schema:distribution:
-      description: Distribution items for adaSEMImaging. Archive hasPart items must have ada:componentType
-        from technique-specific or universal values.
+      description: Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType
+        is a SEMIMAGING-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose
+        schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).
       type: array
       items:
-        type: object
-        properties:
-          schema:hasPart:
-            items:
-              type: object
+        anyOf:
+        - type: object
+          required:
+          - ada:componentType
+          properties:
+            ada:componentType:
+              type: string
               anyOf:
-              - $ref: ../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
-              - properties:
-                  ada:componentType:
-                    type: string
-                    enum:
-                    - ada:SEMImage
-                    - ada:BSEImage
-                    - ada:CLImage
-                    - ada:CLSpectrum
-                    - ada:EBSDMap
-                    - ada:SEMTabular
-                required:
-                - ada:componentType
+              - $ref: ../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
+              - enum: &id001
+                - ada:SEMImage
+                - ada:BSEImage
+                - ada:CLImage
+                - ada:CLSpectrum
+                - ada:EBSDMap
+                - ada:SEMTabular
+        - type: object
+          required:
+          - schema:hasPart
+          properties:
+            schema:hasPart:
+              items:
+                type: object
+                anyOf:
+                - $ref: ../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                - properties:
+                    ada:componentType:
+                      type: string
+                      enum: *id001
+                  required:
+                  - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
