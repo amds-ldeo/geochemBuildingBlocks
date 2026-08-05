@@ -11,7 +11,20 @@ type: object
 allOf:
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/schema.yaml
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
-  - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
+  # cdifManifest is the BUNDLE/archive profile: it applies (and its manifest/1.1
+  # conformance is required) ONLY when a distribution carries schema:hasPart. A
+  # monolithic single-file distribution is not an archive, so it is not held to the
+  # manifest profile. (The bundle case still declares manifest/1.1 in conformsTo.)
+  - if:
+      properties:
+        "schema:distribution":
+          type: array
+          contains:
+            type: object
+            required:
+              - "schema:hasPart"
+    then:
+      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml
   - type: object
     properties:
@@ -406,13 +419,40 @@ allOf:
           $ref: '#/$defs/QualityMeasure'
       "schema:distribution":
         description: >-
-          Distribution inherits from cdifCore (DataDownload, WebAPI) and
-          cdifArchiveDistribution (archive with hasPart). ADA file-type
-          classification uses ada:componentType on hasPart items.
+          A distribution is EITHER a MONOLITHIC single-file dataset — a
+          schema:DataDownload that carries its own ada:componentType and, when its
+          structure is described, cdi:isStructuredBy, with NO schema:hasPart — OR a
+          BUNDLE/archive — a schema:DataDownload whose schema:hasPart lists the
+          member files, each a schema:MediaObject carrying its own ada:componentType
+          (the ADA SAMIS delivery pattern). DataDownload/WebAPI are inherited from
+          cdifCore and the archive hasPart from cdifManifest; the monolithic form is
+          the XAS/NeXus single-file pattern (structure sits on the distribution
+          because the file IS the dataset, so a part would only repeat it).
         type: array
         items:
           type: object
           properties:
+            "ada:componentType":
+              type: string
+              description: >-
+                ADA file-type classification for a MONOLITHIC single-file
+                distribution — it classifies the file that IS the dataset. On a
+                bundle this sits on each schema:hasPart member instead, not here.
+                Technique profiles narrow it (universal enum, or a technique detail
+                schema) in both positions.
+            "cdi:isStructuredBy":
+              description: >-
+                Data-structure description of a MONOLITHIC single-file distribution
+                (the file is the dataset), or a structure shared across bundle parts
+                and referenced from them by @id. One of the four CDIF DataStructure
+                variants inline, or an @id reference. Optional: absent when the
+                structure is not described (detect, don't assert).
+              anyOf:
+                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
+                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
+                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
+                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
+                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/id-reference
             "schema:hasPart":
               items:
                 allOf:
