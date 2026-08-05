@@ -25,8 +25,14 @@ def csv_path(xlsx_path):
 
 
 def read(csv_file):
-    """List of row dicts (raw), in file order."""
-    with open(csv_file, newline="", encoding="utf-8-sig") as f:
+    """List of row dicts (raw), in file order. Tolerates the cp1252 encoding Excel writes by default."""
+    for enc in ("utf-8-sig", "cp1252"):
+        try:
+            with open(csv_file, newline="", encoding=enc) as f:
+                return list(csv.DictReader(f))
+        except UnicodeDecodeError:
+            continue
+    with open(csv_file, newline="", encoding="utf-8", errors="replace") as f:
         return list(csv.DictReader(f))
 
 
@@ -41,7 +47,9 @@ def write(csv_file, rows):
 def load_spec(csv_file):
     """{item: {"path": str | [str, ...], "family": source}} for the schema/example emitters.
     Rows with a blank Schema Path (flagged) are skipped; multiple pathed rows for one item collapse
-    into a list (dual-home)."""
+    into a list (dual-home). Each path is CANONICALISED (so hand-authored shorthand like `$.` or
+    unquoted/space-y selectors work) — the raw CSV keeps whatever the author typed."""
+    import normalize_schema_paths as norm  # lazy: keeps schemapath_io light for non-emitter users
     spec = {}
     for r in read(csv_file):
         item = (r.get("Metadata Item") or "").strip()
@@ -49,7 +57,7 @@ def load_spec(csv_file):
         if not item or not path:
             continue
         e = spec.setdefault(item, {"path": [], "family": (r.get("Source") or "")})
-        e["path"].append(path)
+        e["path"].append(norm.mechanical(norm.preclean(path)))
     for e in spec.values():
         if len(e["path"]) == 1:
             e["path"] = e["path"][0]

@@ -30,6 +30,145 @@
     {
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:identifier": "example sampleIgsn",
+          "schema:description": "example sampleDescription",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
+              },
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 1,
+              "schema:unitText": "example value"
+            }
+          ]
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:additionalType": [
+            "ICPMS"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
+              },
+              "schema:name": "Doubly-Charged Species Monitor",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
+              },
+              "schema:name": "Doubly-Charged Species Production",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
+              },
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "example value"
+            }
+          ],
+          "schema:hasPart": [
+            {
+              "schema:additionalType": [
+                "Sample Introduction System"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                  },
+                  "schema:name": "Make-up Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "dataReduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection"
+                },
+                "schema:name": "Normalization/Standards-Based Correction",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
+                },
+                "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach"
+                },
+                "schema:name": "Spike/Outlier Filtering Approach",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod"
+                },
+                "schema:name": "Uncertainty Propagation Method",
+                "schema:value": "example value"
+              }
+            ]
+          }
+        ]
+      },
       "schema:additionalProperty": [
         {
           "@id": "ada:parameter/solutionSficpmsTAPP/signalIntegrationTime",
@@ -49,12 +188,6 @@
   "schema:funding": [],
   "schema:relatedLink": [
     {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "example coupledTechnique"
-      }
-    },
-    {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {
         "schema:url": "example coupledProtocolDoi"
@@ -63,109 +196,12 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
-      },
-      "schema:name": "Sample Aliquot Mass or Volume",
-      "schema:value": 1,
-      "schema:unitText": "example value"
     },
     {
-      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-      },
-      "schema:name": "Make-up Gas Flow Rate",
-      "schema:value": 1,
-      "schema:unitText": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
-      },
-      "schema:name": "Doubly-Charged Species Monitor",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
-      },
-      "schema:name": "Doubly-Charged Species Production",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach"
-      },
-      "schema:name": "Spike/Outlier Filtering Approach",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-      },
-      "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
-      },
-      "schema:name": "Memory Effect Mitigation",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod"
-      },
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection"
-      },
-      "schema:name": "Normalization/Standards-Based Correction",
-      "schema:value": "example value"
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique"
+      }
     }
   ],
   "dqv:hasQualityMeasurement": [

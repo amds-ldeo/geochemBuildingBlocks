@@ -143,19 +143,20 @@ def main():
     sidecar = json.load(open(sc_path, encoding="utf-8")) if os.path.exists(sc_path) else {}
     rows = load_rows(wb)
     out_csv = schemapath_io.csv_path(wb)
-    # preserve any human-authored rows verbatim, keyed by Metadata Item
-    existing = schemapath_io.read(out_csv) if os.path.exists(out_csv) else []
-    authored = {}
+    reseed = "--reseed" in sys.argv                     # force full re-inference (drop existing rows)
+    # By default PRESERVE every existing row verbatim (keyed by Metadata Item) so hand edits survive a
+    # re-seed regardless of their Source; only NEW workbook items are inferred. --reseed re-infers all.
+    existing = schemapath_io.read(out_csv) if (os.path.exists(out_csv) and not reseed) else []
+    keep = {}
     for r in existing:
-        if (r.get("Source") or "").strip() == "authored":
-            authored.setdefault((r.get("Metadata Item") or "").strip(), []).append(r)
+        keep.setdefault((r.get("Metadata Item") or "").strip(), []).append(r)
     out_rows, flagged, sources = [], [], {}
     for row in rows:
         it = row["item"]
-        if it in authored:                              # keep the human paths; refresh context columns
-            for r in authored[it]:
+        if it in keep:                                  # keep the existing paths; refresh context columns
+            for r in keep[it]:
                 out_rows.append({**r, **_base(row)})
-            sources["authored"] = sources.get("authored", 0) + 1
+            sources["kept"] = sources.get("kept", 0) + 1
             continue
         paths, src = infer(row, lib, lib_norm, sidecar)
         canon = []
@@ -173,9 +174,9 @@ def main():
         for c in canon:
             out_rows.append({**_base(row), "Schema Path": c, "Source": source, "Notes": ""})
         sources[source] = sources.get(source, 0) + 1
-    # authored items no longer present in the workbook are kept but noted
+    # kept items no longer present in the workbook are retained but noted
     wb_items = {r["item"] for r in rows}
-    for it, rs in authored.items():
+    for it, rs in keep.items():
         if it not in wb_items:
             for r in rs:
                 out_rows.append({**r, "Notes": ((r.get("Notes") or "") + " [not in current workbook]").strip()})

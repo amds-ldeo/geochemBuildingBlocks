@@ -43,7 +43,10 @@ def _inline_registry_refs(node, registries, cache):
             key = (m.group(1), m.group(2))
             if key not in cache:
                 cache[key] = copy.deepcopy(registries[m.group(1)][m.group(2)])
-            return cache[key]
+            siblings = {k: v for k, v in node.items() if k != "$ref"}
+            if siblings:                       # e.g. readOnly on a read-only TAPP param — preserve it
+                return {**copy.deepcopy(cache[key]), **siblings}
+            return cache[key]                  # shared object -> PyYAML anchors/aliases
         return {k: _inline_registry_refs(v, registries, cache) for k, v in node.items()}
     if isinstance(node, list):
         return [_inline_registry_refs(v, registries, cache) for v in node]

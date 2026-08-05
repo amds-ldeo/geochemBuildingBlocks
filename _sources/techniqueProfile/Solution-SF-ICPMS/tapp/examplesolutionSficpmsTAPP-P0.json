@@ -27,13 +27,6 @@
   "schema:creator": {
     "schema:name": "example protocolAuthor"
   },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
-  },
   "schema:datePublished": "example protocolStartDate",
   "schema:funding": [
     {
@@ -43,28 +36,10 @@
       "schema:name": "example fundingSourceForProtocolDevelopment"
     }
   ],
+  "ada:finalSolutionMatrix": "example finalSolutionMatrix",
+  "ada:chromatographicSeparationApplied": "Anion exchange resin (HCl)",
+  "ada:isotopeDilutionSpike": "example isotopeDilutionSpike",
   "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/sampleIgsn",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionSficpmsTAPP/sampleIgsn"
-      },
-      "schema:name": "Sample IGSN",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-      "schema:name": "Sample Aliquot Mass or Volume",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session"
-    },
     {
       "@id": "ada:parameter/solutionSficpmsTAPP/desolvationSystem",
       "@type": [
@@ -75,16 +50,6 @@
       },
       "schema:name": "Desolvation System",
       "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "makeUpGasFlowRateDefault",
-      "schema:name": "Make-up Gas Flow Rate",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/solutionSficpmsTAPP/eScanRange",
@@ -122,52 +87,12 @@
       "schema:unitText": "example value"
     },
     {
-      "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitorDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "doublyChargedSpeciesMonitorDefault",
-      "schema:name": "Doubly-Charged Species Monitor",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProductionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "doublyChargedSpeciesProductionDefault",
-      "schema:name": "Doubly-Charged Species Production",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
       "@id": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:valueName": "spikeOutlierFilteringApproachDefault",
       "schema:name": "Spike/Outlier Filtering Approach",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-      "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "memoryEffectMitigationDefault",
-      "schema:name": "Memory Effect Mitigation",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
@@ -180,48 +105,22 @@
       "schema:name": "Uncertainty Propagation Method",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
-      "schema:name": "Normalization/Standards-Based Correction",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
     }
   ],
-  "ada:digestionAcid": "example digestionAcid",
-  "ada:digestionVesselType": "Savillex beaker",
-  "ada:numberOfDigestionSteps": 1,
-  "ada:digestionTemperature": 1.0,
-  "ada:digestionDuration": "example digestionDuration",
-  "ada:finalSolutionMatrix": "example finalSolutionMatrix",
-  "ada:chromatographicSeparationApplied": "Anion exchange resin (HCl)",
-  "ada:isotopeDilutionSpike": "example isotopeDilutionSpike",
-  "ada:instrumentMakeAndModel": "example instrumentMakeAndModel",
-  "ada:nebulizerType": "example nebulizerType",
-  "ada:sprayChamberTypeAndCoolingTemperature": "example sprayChamberTypeAndCoolingTemperature",
-  "ada:sampleUptakeRate": 1.0,
-  "ada:rfPower": 1.0,
-  "ada:coolantGasFlowRate": 1.0,
-  "ada:auxiliaryGasFlowRate": 1.0,
-  "ada:nebulizerGasFlowRate": 1.0,
-  "ada:plasmaThermalMode": "Normal plasma",
-  "ada:monitoredIsotopes": [
-    "example monitoredIsotopes"
-  ],
-  "ada:massResolutionPerAnalyte": [
-    "example massResolutionPerAnalyte"
-  ],
-  "ada:dwellTime": 1.0,
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
+  },
   "ada:numberOfScansPerReplicate": 1,
   "ada:numberOfReplicatesPerSample": 1,
   "ada:sampleSequenceDesign": "example sampleSequenceDesign",
   "ada:washTimeBetweenSamples": 1.0,
   "ada:internalStandardElement": "example internalStandardElement",
   "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
+  "ada:primaryStandardName": "example primaryCalibrationStandardName",
   "ada:internalStandardApproach": "Drift correction only",
   "ada:driftCorrectionMethod": "IS normalization",
   "ada:perAnalyteCalibrationStrategy": [
@@ -229,20 +128,10 @@
   ],
   "ada:signalIntegrationIntervalMethod": "Full replicate",
   "ada:blankBackgroundCorrectionMethod": "On-peak zero",
-  "ada:isobaricInterferenceCorrection": [
-    "Y"
-  ],
-  "ada:interferingSpecies": [
-    "example interferingSpecies"
-  ],
-  "ada:isobaricInterferenceCorrectionMethod": [
-    "example interferenceCorrectionMethod"
-  ],
   "ada:isotopeDilutionDataReductionMethod": "example isotopeDilutionDataReductionMethod",
-  "ada:primaryStandardName": "example primaryCalibrationStandardName",
-  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
   "ada:secondaryReferenceMaterial": [
     "example secondaryReferenceMaterials"
   ],
+  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
   "schema:description": "example additionalNotes"
 }

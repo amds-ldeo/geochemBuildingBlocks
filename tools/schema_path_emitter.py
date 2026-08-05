@@ -301,6 +301,11 @@ def build(tapp):
         for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
             parsed = spp.parse(path)
             require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
+            # A TAPP-definition property is JSON-Schema readOnly unless it is editable at the dataset
+            # level (Analysis tier Editable/Basic/Advanced) — i.e. read-only / protocol-only fields are
+            # locked, so a UI editing a dataset instance (which uses the TAPP) knows what it may change.
+            read_only = (parsed.root == "MethodDefinition"
+                         and (m.get("A") or "").strip() not in ("Editable", "Basic", "Advanced"))
             non_type = [s for s in parsed.segments if not s.is_type]
             if require and len(non_type) == 1 and non_type[0].selector is None and not non_type[0].is_array:
                 if non_type[0].prop not in required[parsed.root]:   # top-level direct prop, Basic tier
@@ -317,6 +322,8 @@ def build(tapp):
                     name, body = b.param_value_def(bd, pv_seen)
                     registries["parameterValues"].update(body); pv_seen.add(name)
                     ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterValues/schema.yaml#/$defs/{name}"}
+                if read_only:
+                    ref["readOnly"] = True   # $ref + sibling keyword is valid in JSON Schema 2020-12
                 truncated = spp.ParsedPath(parsed.root, parsed.segments[:-1])
                 insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
                 continue
@@ -326,7 +333,10 @@ def build(tapp):
                 parts = [p.strip().strip("'\"") for p in (m.get("ex") or "").split("|")
                          if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
                 enum = parts or None
-            insert(roots[parsed.root], parsed, leaf_for(m.get("desc"), m.get("dt"), enum), require=require)
+            leaf = leaf_for(m.get("desc"), m.get("dt"), enum)
+            if read_only:
+                leaf = {**leaf, "readOnly": True}
+            insert(roots[parsed.root], parsed, leaf, require=require)
     return {r: to_schema(o) for r, o in roots.items()}, registries, required
 
 
