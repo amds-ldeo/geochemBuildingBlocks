@@ -6554,249 +6554,306 @@
           ]
         },
         "schema:additionalProperty": {
-          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step).",
+          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step). Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value.",
           "type": "array",
           "items": {
-            "type": "object",
-            "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "schema:PropertyValueSpecification"
-                },
-                "minItems": 1
-              },
-              "schema:name": {
-                "type": "string",
-                "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
-              },
-              "schema:valueName": {
-                "type": "string",
-                "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
-              },
-              "schema:description": {
-                "type": "string",
-                "description": "Guidance text shown to the user in the form."
-              },
-              "schema:propertyID": {
-                "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                "anyOf": [
-                  {
+            "anyOf": [
+              {
+                "type": "object",
+                "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValueSpecification"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
                     "type": "string",
-                    "format": "uri"
+                    "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
                   },
-                  {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
-              },
-              "schema:inDefinedTermSet": {
-                "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-                "anyOf": [
-                  {
+                  "schema:valueName": {
                     "type": "string",
-                    "format": "uri"
+                    "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
                   },
-                  {
-                    "type": "object",
-                    "description": "Object reference to a vocabulary defined elsewhere.",
-                    "properties": {
-                      "@id": {
+                  "schema:description": {
+                    "type": "string",
+                    "description": "Guidance text shown to the user in the form."
+                  },
+                  "schema:propertyID": {
+                    "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                    "anyOf": [
+                      {
                         "type": "string",
                         "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "@id"
-                    ]
-                  },
-                  {
-                    "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "default": "schema:CreativeWork",
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:CreativeWork"
-                        },
-                        "minItems": 1
                       },
-                      "schema:name": {
-                        "type": "string"
-                      },
-                      "schema:description": {
-                        "type": "string"
-                      },
-                      "schema:url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:url"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                    "properties": {
-                      "@type": {
-                        "const": "schema:DefinedTermSet"
-                      },
-                      "schema:hasDefinedTerm": {
-                        "type": "array",
-                        "minItems": 1,
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "@type": {
-                              "const": "schema:DefinedTerm"
-                            },
-                            "schema:termCode": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "@type",
-                            "schema:termCode"
-                          ]
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
                         }
+                      },
+                      {
+                        "$ref": "#/$defs/DefinedTerm"
                       }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:hasDefinedTerm"
                     ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      {
+                        "type": "object",
+                        "description": "Object reference to a vocabulary defined elsewhere.",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ]
+                      },
+                      {
+                        "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "default": "schema:CreativeWork",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:CreativeWork"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string"
+                          },
+                          "schema:description": {
+                            "type": "string"
+                          },
+                          "schema:url": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:url"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                        "properties": {
+                          "@type": {
+                            "const": "schema:DefinedTermSet"
+                          },
+                          "schema:hasDefinedTerm": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "@type": {
+                                  "const": "schema:DefinedTerm"
+                                },
+                                "schema:termCode": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@type",
+                                "schema:termCode"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:hasDefinedTerm"
+                        ]
+                      }
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      }
+                    ]
+                  },
+                  "schema:readonlyValue": {
+                    "type": "boolean",
+                    "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
+                  },
+                  "schema:valueRequired": {
+                    "type": "boolean",
+                    "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
+                  },
+                  "schema:minValue": {
+                    "type": "number",
+                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
+                  },
+                  "schema:maxValue": {
+                    "type": "number",
+                    "description": "Maximum allowed numeric value. Upper bound of valid range."
+                  },
+                  "schema:stepValue": {
+                    "type": "number",
+                    "description": "Granularity expected of the value (e.g. 0.1 for nA)."
+                  },
+                  "schema:valuePattern": {
+                    "type": "string",
+                    "description": "Regex pattern for validating string values."
+                  },
+                  "schema:multipleValues": {
+                    "type": "boolean",
+                    "description": "Whether multiple values are allowed (default false)."
+                  },
+                  "ada:fieldScope": {
+                    "type": "string",
+                    "enum": [
+                      "method",
+                      "session",
+                      "element"
+                    ],
+                    "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
+                  },
+                  "ada:category": {
+                    "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/DefinedTerm"
+                      }
+                    ]
+                  },
+                  "ada:dataType": {
+                    "type": "string",
+                    "enum": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "date",
+                      "uri"
+                    ],
+                    "description": "Expected data type for the parameter value."
+                  },
+                  "schema:unitText": {
+                    "type": "string",
+                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+                  },
+                  "schema:unitCode": {
+                    "description": "URI for unit of measure (QUDT preferred).",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/DefinedTerm"
+                      }
+                    ]
+                  },
+                  "ada:cdifPropertyPath": {
+                    "type": "string",
+                    "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
+                  },
+                  "ada:tier": {
+                    "type": "string",
+                    "enum": [
+                      "M",
+                      "R",
+                      "O"
+                    ],
+                    "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
                   }
+                },
+                "required": [
+                  "schema:name",
+                  "ada:fieldScope",
+                  "ada:dataType"
                 ]
               },
-              "schema:defaultValue": {
-                "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
-                "anyOf": [
-                  {
-                    "type": "string"
+              {
+                "type": "object",
+                "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValue"
+                    },
+                    "minItems": 1
                   },
-                  {
-                    "type": "number"
+                  "schema:name": {
+                    "type": "string",
+                    "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
                   },
-                  {
-                    "type": "boolean"
+                  "schema:propertyID": {
+                    "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      {
+                        "$ref": "#/$defs/DefinedTerm"
+                      }
+                    ]
+                  },
+                  "schema:value": {
+                    "description": "The fixed protocol value for this read-only parameter."
+                  },
+                  "schema:unitText": {
+                    "type": "string",
+                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
                   }
+                },
+                "required": [
+                  "schema:name",
+                  "schema:value"
                 ]
-              },
-              "schema:readonlyValue": {
-                "type": "boolean",
-                "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
-              },
-              "schema:valueRequired": {
-                "type": "boolean",
-                "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
-              },
-              "schema:minValue": {
-                "type": "number",
-                "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
-              },
-              "schema:maxValue": {
-                "type": "number",
-                "description": "Maximum allowed numeric value. Upper bound of valid range."
-              },
-              "schema:stepValue": {
-                "type": "number",
-                "description": "Granularity expected of the value (e.g. 0.1 for nA)."
-              },
-              "schema:valuePattern": {
-                "type": "string",
-                "description": "Regex pattern for validating string values."
-              },
-              "schema:multipleValues": {
-                "type": "boolean",
-                "description": "Whether multiple values are allowed (default false)."
-              },
-              "ada:fieldScope": {
-                "type": "string",
-                "enum": [
-                  "method",
-                  "session",
-                  "element"
-                ],
-                "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
-              },
-              "ada:category": {
-                "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
-              },
-              "ada:dataType": {
-                "type": "string",
-                "enum": [
-                  "string",
-                  "number",
-                  "integer",
-                  "boolean",
-                  "date",
-                  "uri"
-                ],
-                "description": "Expected data type for the parameter value."
-              },
-              "schema:unitText": {
-                "type": "string",
-                "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
-              },
-              "schema:unitCode": {
-                "description": "URI for unit of measure (QUDT preferred).",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
-              },
-              "ada:cdifPropertyPath": {
-                "type": "string",
-                "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
-              },
-              "ada:tier": {
-                "type": "string",
-                "enum": [
-                  "M",
-                  "R",
-                  "O"
-                ],
-                "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
               }
-            },
-            "required": [
-              "schema:name",
-              "ada:fieldScope",
-              "ada:dataType"
             ]
           }
         },

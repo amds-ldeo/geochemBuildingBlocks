@@ -402,10 +402,14 @@ $defs:
       'schema:additionalProperty':
         description: >-
           Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings
-          for the data processing step).
+          for the data processing step). Editable parameters are schema:PropertyValueSpecification entries
+          (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying
+          the fixed protocol value.
         type: array
         items:
-          $ref: '#/$defs/MethodParameter'
+          anyOf:
+            - $ref: '#/$defs/MethodParameter'
+            - $ref: '#/$defs/MethodParameterValue'
       'schema:actionProcess':
         description: >-
           Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use
