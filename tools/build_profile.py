@@ -25,8 +25,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROF_ROOT = os.path.join(ROOT, "_sources", "profiles", "geochemProfiles")
-LAI = os.path.join(PROF_ROOT, "LA-ICPMS", "exampleadaICPMS.json")
+TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
+LAI = os.path.join(TPROF, "LA-ICPMS", "profile", "exampleadaICPMS.json")
+
+
+def _profile_dir(tapp):
+    return os.path.join(TPROF, b.TECH_DIR[tapp], "profile")
 
 # per-TAPP profile config: dir name, detail short, conformsTo @id, additionalType product strings,
 # titles. componentType enum is pulled from the TAPP CFG at build time.
@@ -74,18 +78,18 @@ def _schema(tapp, cfg, component_types):
                         f"schema:Dataset root, narrows prov:used to the {tapp} protocol, and constrains "
                         f"valid component types on schema:distribution.hasPart."),
         "allOf": [
-            {"$ref": "../../adaProfiles/adaProduct/schema.yaml"},
-            {"$ref": f"../../../analysisSpecificDetails/detail{cfg['short']}/schema.yaml"},
+            {"$ref": "../../../BaseSchema/adaProduct/schema.yaml"},
+            {"$ref": "../detail/schema.yaml"},
             {"type": "object", "properties": {
                 "prov:wasGeneratedBy": {
                     "description": f"Narrow the base prov:used to the {tapp} definition — inline, or by node @id — alongside the instrument.",
                     "type": "array",
                     "items": {"type": "object", "properties": {"prov:used": {"type": "array", "items": {"anyOf": [
-                        {"$ref": "../../../geochemProperties/instrument/schema.yaml"},
+                        {"$ref": "../../../BaseSchema/instrument/schema.yaml"},
                         {"type": "object",
                          "description": f"Reference by node @id to a {tapp} definition object defined elsewhere.",
                          "properties": {"@id": {"type": "string", "format": "uri"}}, "required": ["@id"]},
-                        {"$ref": f"../../../techniqueProtocols/{tapp}/schema.yaml"}]}}}}},
+                        {"$ref": "../tapp/schema.yaml"}]}}}}},
                 "schema:additionalType": {
                     "description": f"Must include a {cfg['short']} product type identifier.",
                     "contains": {"enum": cfg["addtype"]}},
@@ -93,7 +97,7 @@ def _schema(tapp, cfg, component_types):
                     "description": f"Distribution items for {cfg['cid']}. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
                     "type": "array",
                     "items": {"type": "object", "properties": {"schema:hasPart": {"items": {"type": "object", "anyOf": [
-                        {"$ref": "../../adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
+                        {"$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
                         {"properties": {"ada:componentType": {"type": "string", "enum": component_types}},
                          "required": ["ada:componentType"]}]}}}}},
                 "schema:subjectOf": {"properties": {"dcterms:conformsTo": {"contains": {
@@ -123,8 +127,8 @@ def _example(tapp, cfg, component_types):
     ada: props + dqv measurement (copied from that detail's own -P0, which carries valid values)."""
     b.configure(tapp)
     lai = json.load(open(LAI, encoding="utf-8"))
-    det = json.load(open(os.path.join(ROOT, "_sources", "analysisSpecificDetails",
-                                      "detail" + cfg["short"], f"exampledetail{cfg['short']}-P0.json"), encoding="utf-8"))
+    det = json.load(open(os.path.join(TPROF, b.TECH_DIR[tapp], "detail",
+                                      f"exampledetail{cfg['short']}-P0.json"), encoding="utf-8"))
     ex = copy.deepcopy(lai)                       # adaProduct-compliant scaffolding + generic detail slots
     ex["@id"] = f"ex:{cfg['cid']}-example-001"
     ex["@type"] = ["schema:Dataset", "schema:Product"]
@@ -193,16 +197,15 @@ def _bundled(node):
 def build(tapp):
     cfg = PROFILES[tapp]
     cts = b.TAPP_CONFIGS[tapp]["component_types"]
-    d = os.path.join(PROF_ROOT, cfg["dir"])
+    d = _profile_dir(tapp)
     os.makedirs(d, exist_ok=True)
     schema = _schema(tapp, cfg, cts)
     b.write(os.path.join(d, "schema.yaml"), b.dump_yaml(schema))
-    _wj(os.path.join(d, cfg["dir"] + "Schema.json"), _bundled(schema))
     _wj(os.path.join(d, "example" + cfg["cid"] + ".json"), _example(tapp, cfg, cts))
     _wj(os.path.join(d, "bblock.json"), _bblock(cfg))
     with open(os.path.join(d, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(_examples_yaml(cfg))
-    print(f"DONE {tapp} -> geochemProfiles/{cfg['dir']} (conformsTo {cfg['cid']}, {len(cts)} componentTypes)")
+    print(f"DONE {tapp} -> techniqueProfile/{b.TECH_DIR[tapp]}/profile (conformsTo {cfg['cid']}, {len(cts)} componentTypes)")
 
 
 def _wj(path, obj):
@@ -213,7 +216,7 @@ def _wj(path, obj):
 def validate(tapp):
     import jsonschema
     cfg = PROFILES[tapp]
-    d = os.path.join(PROF_ROOT, cfg["dir"])
+    d = _profile_dir(tapp)
     schema = json.load(open(os.path.join(d, "resolvedSchema.json"), encoding="utf-8"))
     inst = json.load(open(os.path.join(d, "example" + cfg["cid"] + ".json"), encoding="utf-8"))
     errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(inst), key=lambda e: list(e.path))

@@ -270,7 +270,7 @@ def _load_rows(tapp):
 
 
 # registry-ref path prefix per artifact root (from the artifact's own directory)
-_REG_PREFIX = {"MethodDefinition": "..", "Dataset": "../../techniqueProtocols"}
+_REG_PREFIX = {"MethodDefinition": "../../../registry", "Dataset": "../../../registry"}
 
 
 def _is_addl_param(p: spp.ParsedPath) -> bool:
@@ -330,8 +330,8 @@ def build(tapp):
 
 
 # base building block each overlay extends via allOf (relative to the artifact's own dir)
-_BASE_REF = {"MethodDefinition": "../tappDefinition/schema.yaml",
-             "Dataset": "../../adaProfiles/adaProduct/schema.yaml"}
+_BASE_REF = {"MethodDefinition": "../../../BaseSchema/tappDefinition/schema.yaml",
+             "Dataset": "../../../BaseSchema/adaProduct/schema.yaml"}
 
 
 def wrap(root, overlay, required, title=None, description=None):

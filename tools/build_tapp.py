@@ -26,10 +26,20 @@ import openpyxl
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TP = os.path.join(ROOT, "_sources", "techniqueProtocols")
-VOCAB_DIR = os.path.join(TP, "vocab")
-PT = os.path.join(TP, "parameterTemplates", "schema.yaml")
-PV = os.path.join(TP, "parameterValues", "schema.yaml")
+# group-by-technique layout: registry/ (catalogs+vocab), BaseSchema/ (tappDefinition+adaProduct+
+# geochemProperties), techniqueProfile/<tech>/{tapp,detail,profile,profile-ada}.
+REG = os.path.join(ROOT, "_sources", "registry")
+TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
+VOCAB_DIR = os.path.join(REG, "vocab")
+PT = os.path.join(REG, "parameterTemplates", "schema.yaml")
+PV = os.path.join(REG, "parameterValues", "schema.yaml")
+# each TAPP -> its technique directory under techniqueProfile/
+TECH_DIR = {
+    "empaTAPP": "EMPA", "geochronTAPP": "Geochron", "laicpmsTAPP": "LA-ICPMS", "labxctTAPP": "XCT",
+    "semTAPP": "SEM", "semImagingTAPP": "SEM-Imaging", "semFibsemTAPP": "SEM-FIBSEM",
+    "semCompositionTAPP": "SEM-Composition", "solutionQicpmsTAPP": "Solution-Q-ICPMS",
+    "solutionSficpmsTAPP": "Solution-SF-ICPMS", "temTAPP": "TEM",
+}
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
 # Analyte-specific rows -> existing analyteColumns $def names (reused, not regenerated).
@@ -283,9 +293,9 @@ def configure(tapp_name):
     TAPP = tapp_name
     PARAM_BASE = "ada:parameter/" + TAPP
     VOCAB_BASE = "ada:vocab/" + TAPP
-    TAPP_DIR = os.path.join(TP, TAPP)
-    short = TAPP.replace("TAPP", "").upper()
-    DETAIL_DIR = os.path.join(ROOT, "_sources", "analysisSpecificDetails", "detail" + short)
+    tech = TECH_DIR[TAPP]
+    TAPP_DIR = os.path.join(TPROF, tech, "tapp")
+    DETAIL_DIR = os.path.join(TPROF, tech, "detail")
     XLSX = os.path.join(ROOT, *CFG["xlsx"].split("/"))
 
 
@@ -663,17 +673,17 @@ def build():
         if b["cov"] > 0:
             basic_required.append(key)
     if acols:
-        ac_refs = [{"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"}] + \
-                  [{"$ref": "../analyteColumns/schema.yaml#/$defs/" + c} for c in acols]
-        ac_contains = [{"contains": {"$ref": "../analyteColumns/schema.yaml#/$defs/" + c},
+        ac_refs = [{"$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"}] + \
+                  [{"$ref": "../../../registry/analyteColumns/schema.yaml#/$defs/" + c} for c in acols]
+        ac_contains = [{"contains": {"$ref": "../../../registry/analyteColumns/schema.yaml#/$defs/" + c},
                         "minContains": 0, "maxContains": 1} for c in acols]
         tapp_props["ada:analyteTemplate"] = {"type": "object", "properties": {
             "ada:analyteColumns": {"type": "array", "items": {"anyOf": ac_refs}, "allOf": ac_contains}}}
-    sap_refs = [{"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys] + \
-               [{"$ref": "../parameterValues/schema.yaml#/$defs/" + n} for n in mv_keys]
-    sap_contains = [{"contains": {"$ref": "../parameterTemplates/schema.yaml#/$defs/" + n},
+    sap_refs = [{"$ref": "../../../registry/parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys] + \
+               [{"$ref": "../../../registry/parameterValues/schema.yaml#/$defs/" + n} for n in mv_keys]
+    sap_contains = [{"contains": {"$ref": "../../../registry/parameterTemplates/schema.yaml#/$defs/" + n},
                      "minContains": 0, "maxContains": 1} for n in pt_keys] + \
-                   [{"contains": {"$ref": "../parameterValues/schema.yaml#/$defs/" + n},
+                   [{"contains": {"$ref": "../../../registry/parameterValues/schema.yaml#/$defs/" + n},
                      "minContains": 0, "maxContains": 1} for n in mv_keys]
     if sap_refs:  # omit the overlay constraint when the technique has no Advanced params
         tapp_props["schema:additionalProperty"] = {
@@ -686,7 +696,7 @@ def build():
     tapp_schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "title": CFG["title"], "description": CFG["description"],
-        "allOf": [{"$ref": "../tappDefinition/schema.yaml"},
+        "allOf": [{"$ref": "../../../BaseSchema/tappDefinition/schema.yaml"},
                   {"type": "object", "properties": tapp_props, "required": basic_required}]}
     write(os.path.join(TAPP_DIR, "schema.yaml"), dump_yaml(tapp_schema))
 
@@ -708,7 +718,7 @@ def build():
             block1[key] = {"description": b["desc"], "type": "string"}
         if not b["multivol_only"]:
             req.append(key)
-    pv_branches = [{"$ref": "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/" + n} for n in pv_keys]
+    pv_branches = [{"$ref": "../../../registry/parameterValues/schema.yaml#/$defs/" + n} for n in pv_keys]
     catchall = {"type": "object",
         "description": f"Catch-all for additional schema:PropertyValue entries beyond the {TAPP}-derived catalog.",
         "properties": {"@type": {"type": "array", "items": {"type": "string"},
@@ -933,7 +943,7 @@ def _regen_detail_addl_constraint(L, detail_param_names):
     y.indent(mapping=2, sequence=4, offset=2)
     doc = y.load(open(sp, encoding="utf-8"))
     names = sorted(detail_param_names)
-    pvbase = "../../techniqueProtocols/parameterValues/schema.yaml#/$defs/"
+    pvbase = "../../../registry/parameterValues/schema.yaml#/$defs/"
     anyof = [{"$ref": pvbase + n} for n in names]
     anyof.append({
         "type": "object",
