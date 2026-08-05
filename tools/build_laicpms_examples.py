@@ -199,34 +199,21 @@ def main():
             print("removed obsolete", os.path.basename(old))
 
     # ---- detailLAICPMS example (synthetic P0) ----
-    def sample_value(b):
-        return {"date": "2022-04-22", "integer": 3, "number": 1.0,
-                "boolean": True}.get(b["jtype"], f"example {b['name']}")
-
-    detail = {"@context": CTX2, "@id": "ex:detailLAICPMS-P0", "@type": ["ada:LAICPMSTabular"],
-              "ada:componentType": "ada:LAICPMSTabular",
-              "schema:measurementTechnique": [{"@id": "ex:laicpmsTAPP-Navarro2024spot"}]}
-    # only required (non-multivol) detail props, with representative values
-    for b in R["detail_req"]:
-        if b["multivol_only"]:
-            continue
-        detail["ada:" + b["name"]] = sample_value(b)
-    # one additionalProperty from the parameterValues registry (first detail_addl)
-    if R["detail_addl"]:
-        b0 = R["detail_addl"][0]
-        e = {"@id": f"{PARAM_BASE}/{b0['name']}", "@type": ["schema:PropertyValue"],
-             "schema:propertyID": {"@id": f"{PARAM_BASE}/{b0['name']}"}, "schema:name": b0["item"],
-             "schema:value": f"example {b0['name']}"}
-        if b0.get("unit") and b0["unit"] != "free":
-            e["schema:unitText"] = b0["unit"]
-        detail["schema:additionalProperty"] = [e]
+    # detailLAICPMS is a path-driven schema:Dataset analysis-instance overlay (schema:contributor
+    # analyst, prov:wasGeneratedBy, schema:funding, per-analysis parameters, dqv, …), NOT the old
+    # matrix hasPart-item shape. Emit it via the same path-driven example emitter build_pathdriven
+    # uses, so it stays consistent with the detailLAICPMS Dataset overlay.
+    import schema_path_example_emitter as _spx
+    dataset = _spx.build_example("laicpmsTAPP")["Dataset"]
+    detail = {"@context": _spx._CTX, "@id": "ex:detailLAICPMS-P0",
+              "@type": ["schema:Dataset", "schema:Product"], **dataset}
     fp = os.path.join(DETAIL_DIR, "exampledetailLAICPMS-P0.json")
     json.dump(detail, open(fp, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False)
     open(fp, "a", encoding="utf-8", newline="\n").write("\n")
     with open(os.path.join(DETAIL_DIR, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         yaml.safe_dump([{"title": "detailLAICPMS example P0",
-                         "content": "detailLAICPMS instance for an LA-ICP-MS tabular dataset.",
-                         "prefixes": CTX2,
+                         "content": "Path-driven detailLAICPMS analysis-instance example (schema:Dataset overlay).",
+                         "prefixes": _spx._CTX,
                          "snippets": [{"language": "json", "ref": "exampledetailLAICPMS-P0.json"}]}],
                        f, sort_keys=False, allow_unicode=True)
 
