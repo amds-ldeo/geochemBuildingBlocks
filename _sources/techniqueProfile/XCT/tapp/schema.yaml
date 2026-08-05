@@ -1,0 +1,1087 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)
+description: 'Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP
+  definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier
+  fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte
+  axis, so no ada:analyteTemplate is defined. Generated from docs/Lab-XCT_TAPP_v8.xlsx by tools/build_tapp.py.'
+allOf:
+- $ref: ../../../BaseSchema/tappDefinition/schema.yaml
+- type: object
+  properties:
+    schema:name:
+      description: A short descriptive name for this analytical protocol, with version number. Should
+        include instrument make/model, technique, and target application.
+      type: string
+    schema:measurementTechnique:
+      type: array
+      items:
+        type: object
+        properties:
+          schema:termCode:
+            description: Top-level analytical technique identifier for this TAPP.
+            type: string
+            enum:
+            - XCT (laboratory, polychromatic cone-beam)
+    schema:creator:
+      type: object
+      properties:
+        schema:name:
+          description: Author(s) of the protocol. Can be individual names or lab names. ORCID is recommended
+            for individuals.
+          type: string
+    schema:location:
+      type: object
+      properties:
+        schema:defaultname:
+          description: Name of the laboratory or institution hosting the CT instrument.
+          type: string
+        schema:identifier:
+          description: Persistent identifier for the laboratory, e.g., ROR ID.
+          type: string
+    schema:datePublished:
+      description: First date this protocol configuration was used in production.
+      type: string
+    schema:funding:
+      type: array
+      items:
+        type: object
+        properties:
+          schema:name:
+            description: Grants and other funding sources that supported instrument acquisition, major
+              upgrades, protocol development, and associated personnel time. Include grant numbers and
+              funding agencies.
+            type: string
+    schema:relatedLink:
+      type: array
+      items:
+        type: object
+    schema:object:
+      type: array
+      items:
+        type: object
+      allOf:
+      - contains:
+          properties:
+            '@type':
+              contains:
+                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+          required:
+          - '@type'
+    ada:targetFeature:
+      description: 'The 3D internal features or properties the protocol is designed to characterize. Defines
+        the scientific purpose of the scan and informs resolution and contrast requirements. Used for
+        protocol discoverability: a researcher can identify whether this protocol is suitable for their
+        scientific question. Note for Phase 3 literature assessment: evaluate whether protocols in the
+        literature are feature-specific (acquisition parameters tuned to a specific feature type, e.g.,
+        opaque-phase contrast) or general-purpose (designed to capture all structural features in a given
+        sample type). This will inform whether the field warrants a controlled list or remains free text.'
+      type: string
+    ada:applicableSampleDimensionRange:
+      description: 'The range of sample sizes compatible with this protocol at the target voxel size and
+        geometric configuration. The upper bound is a hard constraint set by the instrument field of view
+        (FOV) at the protocol''s target magnification: FOV ≈ detector array width × pixel size / geometric
+        magnification (divide additionally by optical objective multiplier for Versa-class systems using
+        optical magnification). For Mode A (single-volume): all three sample dimensions must fall within
+        the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample
+        length along the rotation axis is effectively unlimited through stitching. The lower bound is
+        a practical guideline: samples spanning fewer than ~10 voxels in their smallest dimension are
+        difficult to characterize reliably.'
+      type: string
+    schema:additionalProperty:
+      type: array
+      items:
+        anyOf:
+        - &id001
+          title: Sample Dimensions (L × W × H)
+          description: Physical dimensions of the sample in mm, reported as length × width × height (or
+            equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable
+            field of view and therefore the coarsest achievable voxel size. The minimum dimension determines
+            how many voxels span the smallest feature of interest.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/sampleDimensions
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/sampleDimensions
+            schema:name:
+              const: Sample Dimensions (L × W × H)
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - &id002
+          title: Sample Mounting Method
+          description: Method used to mount or hold the sample on the instrument rotation stage. Mounting
+            material should transmit X-rays at the selected voltage without dominating beam attenuation.
+            Report the holder type, adhesive or support material, and any alignment aids used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/sampleMountingMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: sampleMountingMethodDefault
+            schema:name:
+              const: Sample Mounting Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id003
+          title: Sample Preparation Notes
+          description: Any preparation steps applied to the sample before scanning, including cleaning,
+            trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation
+            required; note any exceptions.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: samplePreparationNotesDefault
+            schema:name:
+              const: Sample Preparation Notes
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id004
+          title: X-ray Tube Anode Material
+          description: Material of the X-ray tube anode (target). Determines the characteristic line energies
+            superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific
+            energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/xRayTubeAnodeMaterial
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/xRayTubeAnodeMaterial
+            schema:name:
+              const: X-ray Tube Anode Material
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - &id005
+          title: Detector Array Size
+          description: Number of pixels in the detector array (width × height). Combined with detector
+            pixel size and geometric magnification, determines the field of view.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/detectorArraySize
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/detectorArraySize
+            schema:name:
+              const: Detector Array Size
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - &id006
+          title: Detector Pixel Size
+          description: Physical size of a single pixel on the detector in micrometres. This is a fixed
+            hardware property of the detector array, distinct from the reconstructed voxel size (which
+            depends on geometric magnification and binning).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/detectorPixelSize
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/detectorPixelSize
+            schema:name:
+              const: Detector Pixel Size
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        - &id007
+          title: Optical Objective
+          description: Optical magnification objective installed between the scintillator and CCD/CMOS
+            detector. Applies only to instruments using optical magnification (e.g., Zeiss Xradia Versa
+            series). For systems using only geometric magnification, report "Not applicable".
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/opticalObjective
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/labxctTAPP/opticalObjective
+            schema:name:
+              const: Optical Objective
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - &id008
+          title: X-ray Power
+          description: 'X-ray tube power in watts (W) registered by the protocol. Derivable as voltage
+            (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for
+            microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for
+            SNR. Retained as a standalone field because it is routinely reported in the literature and
+            directly constrains instrument operating limits. If power was varied across samples within
+            the session, report the full range applied (e.g., 7–13 W).'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/xRayPowerDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: xRayPowerDefault
+            schema:name:
+              const: X-ray Power
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: W
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id009
+          title: Source-to-Object Distance (SOD)
+          description: Distance from the X-ray source focal spot to the centre of the sample rotation
+            axis, in mm, as registered by the protocol. Together with SDD, determines geometric magnification
+            (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/sourceToObjectDistanceDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: sourceToObjectDistanceDefault
+            schema:name:
+              const: Source-to-Object Distance (SOD)
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: mm
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id010
+          title: Source-to-Detector Distance (SDD)
+          description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
+            by the protocol. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel
+            size ≈ detector pixel size / M (before binning; divide additionally by optical objective for
+            Versa-class systems).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: sourceToDetectorDistanceDefault
+            schema:name:
+              const: Source-to-Detector Distance (SDD)
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: mm
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id011
+          title: Rotation Step Size
+          description: Angular increment between successive projection images, in degrees. Equal to Rotation
+            Range divided by Number of Projections when both are reported; however, some sources report
+            step size as the primary rotation parameter without stating the total number of projections
+            explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost
+            of longer scan time.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/rotationStepSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: rotationStepSizeDefault
+            schema:name:
+              const: Rotation Step Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: °
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id012
+          title: Frames Averaged per Projection
+          description: Number of individual detector frames acquired and averaged to produce each saved
+            projection image, as registered by the protocol. Frame averaging reduces random electronic
+            noise. The effective exposure per projection = exposure time per frame × frames averaged.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: framesAveragedPerProjectionDefault
+            schema:name:
+              const: Frames Averaged per Projection
+            ada:dataType:
+              const: integer
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id013
+          title: Detector Binning
+          description: Detector pixel binning factor applied during acquisition. Binning combines adjacent
+            pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing
+            per-pixel SNR and reducing file size. 1×1 indicates no binning.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/detectorBinningDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectorBinningDefault
+            schema:name:
+              const: Detector Binning
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id014
+          title: Reconstruction Convolution Filter
+          description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
+            Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother
+            filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents
+            a deliberate protocol-level tradeoff.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/reconstructionConvolutionFilterDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: reconstructionConvolutionFilterDefault
+            schema:name:
+              const: Reconstruction Convolution Filter
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id015
+          title: Beam Hardening Correction Parameter
+          description: Numerical value or setting applied in the software beam hardening correction algorithm
+            for this specific analysis. May be tuned empirically per material type or per scan session.
+            Analysis-level companion to Beam Hardening Correction Method.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: beamHardeningCorrectionParameterDefault
+            schema:name:
+              const: Beam Hardening Correction Parameter
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id016
+          title: Ring Artifact Correction Method
+          description: Protocol specification for how ring artifacts are handled. Ring artifacts appear
+            as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated
+            detector pixels. Method is the protocol-level specification; whether correction was applied
+            and its outcome are recorded at analysis level in Group 6.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ringArtifactCorrectionMethodDefault
+            schema:name:
+              const: Ring Artifact Correction Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id017
+          title: CT Number Calibration
+          description: Whether the raw CT grayscale values have been calibrated to physically meaningful
+            units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session
+            comparison and support phase identification by comparison to calculated linear attenuation
+            coefficient (LAC) values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale
+            values are instrument- and session-specific.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/ctNumberCalibrationDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ctNumberCalibrationDefault
+            schema:name:
+              const: CT Number Calibration
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id018
+          title: Segmentation Threshold Values or Criteria
+          description: Specific CT number range(s) or quantitative criteria used to define each segmented
+            phase or feature. Documenting these values enables reproducibility assessment and cross-study
+            comparison. For LAC-calibrated datasets, report values in cm⁻¹.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: segmentationThresholdValuesOrCriteriaDefault
+            schema:name:
+              const: Segmentation Threshold Values or Criteria
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id019
+          title: Phase Identification Method
+          description: Method used to assign reconstructed CT number ranges to specific mineral phases
+            or material types. Approaches include comparison to calculated linear attenuation coefficients
+            (LAC), cross-validation with independent analytical techniques, or empirical calibration.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/phaseIdentificationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: phaseIdentificationMethodDefault
+            schema:name:
+              const: Phase Identification Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id020
+          title: VOI Selection Criteria
+          description: Protocol-level rules specifying how the Volume of Interest (VOI) is to be defined
+            for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges,
+            beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied
+            in a specific analysis is recorded separately at analysis level.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/voiSelectionCriteriaDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: voiSelectionCriteriaDefault
+            schema:name:
+              const: VOI Selection Criteria
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id021
+          title: Output Bit Depth
+          description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's
+            grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels),
+            or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation
+            and quantitative attenuation analysis. The protocol may specify a required output bit depth
+            if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms
+            or adjusts at analysis time.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/outputBitDepthDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: outputBitDepthDefault
+            schema:name:
+              const: Output Bit Depth
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id022
+          title: Partial Volume Effect Criteria
+          description: Protocol-level specification of how partial volume effects (PVE) are managed in
+            quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the
+            surfaces of small features, because each voxel integrates the attenuation of all material
+            within its volume. PVE correction can be implemented via PSF-based deconvolution tools such
+            as Blob3D. Record the minimum feature size criterion adopted for the protocol (in voxels or
+            µm), the treatment of boundary voxels in modal abundance or size distribution calculations,
+            and whether PVE correction is required or optional.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: partialVolumeEffectCriteriaDefault
+            schema:name:
+              const: Partial Volume Effect Criteria
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id023
+          title: Cross-Validation Protocol Requirement
+          description: Protocol-level specification of what independent analytical validation is required
+            to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
+            is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation
+            coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
+            for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s)
+            and the sampling fraction (e.g., every sample, one per session, or a representative subset).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/crossValidationProtocolRequirementDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: crossValidationProtocolRequirementDefault
+            schema:name:
+              const: Cross-Validation Protocol Requirement
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains: *id001
+        minContains: 0
+        maxContains: 1
+      - contains: *id002
+        minContains: 0
+        maxContains: 1
+      - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains: *id004
+        minContains: 0
+        maxContains: 1
+      - contains: *id005
+        minContains: 0
+        maxContains: 1
+      - contains: *id006
+        minContains: 0
+        maxContains: 1
+      - contains: *id007
+        minContains: 0
+        maxContains: 1
+      - contains: *id008
+        minContains: 0
+        maxContains: 1
+      - contains: *id009
+        minContains: 0
+        maxContains: 1
+      - contains: *id010
+        minContains: 0
+        maxContains: 1
+      - contains: *id011
+        minContains: 0
+        maxContains: 1
+      - contains: *id012
+        minContains: 0
+        maxContains: 1
+      - contains: *id013
+        minContains: 0
+        maxContains: 1
+      - contains: *id014
+        minContains: 0
+        maxContains: 1
+      - contains: *id015
+        minContains: 0
+        maxContains: 1
+      - contains: *id016
+        minContains: 0
+        maxContains: 1
+      - contains: *id017
+        minContains: 0
+        maxContains: 1
+      - contains: *id018
+        minContains: 0
+        maxContains: 1
+      - contains: *id019
+        minContains: 0
+        maxContains: 1
+      - contains: *id020
+        minContains: 0
+        maxContains: 1
+      - contains: *id021
+        minContains: 0
+        maxContains: 1
+      - contains: *id022
+        minContains: 0
+        maxContains: 1
+      - contains: *id023
+        minContains: 0
+        maxContains: 1
+    ada:ctSystemManufacturerAndModel:
+      description: Manufacturer and model name of the CT system. For custom-built systems, report the
+        make/model of the X-ray source and detector separately. Include facility name for multi-user shared
+        instruments.
+      type: string
+    ada:xRaySourceConfiguration:
+      description: Focal spot geometry and scale of the X-ray tube. Reflection target configurations are
+        most common in lab XCT (X-rays emitted from the face of the anode toward the sample); transmission
+        target configurations allow smaller focal spots by thinning the anode into a membrane and collecting
+        X-rays from the back, enabling higher spatial resolution at the cost of lower maximum power.
+      type: string
+      enum:
+      - Reflection target, microfocal
+      - Reflection target, rotating (high-power)
+      - Transmission target, nanofocal
+    ada:detectorType:
+      description: Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous
+        silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator
+        via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification
+        for sub-micrometre voxel sizes.
+      type: string
+      enum:
+      - Flat-panel (amorphous silicon, a-Si)
+      - CCD + scintillator (with optical objective)
+      - CMOS + scintillator
+    bios:computationalTool:
+      type: array
+      items:
+        type: object
+        properties: {}
+    ada:reconstructionSoftware:
+      description: Software used to reconstruct 2D projection images into a 3D CT volume, including version
+        number. Often bundled with the instrument and proprietary to the manufacturer.
+      type: string
+    ada:segmentationAndAnalysisSoftware:
+      description: Software used for image segmentation, phase identification, and quantitative 3D analysis
+        after reconstruction. Report all packages used, with version numbers.
+      type: string
+    ada:analyticalMode:
+      type: array
+      items:
+        description: Primary analytical mode(s) executed under this protocol. For single-mode protocols,
+          records one value (e.g., Single-volume). For protocols covering both single-volume and multi-volume
+          stitched acquisitions, list all applicable modes. Serves as the protocol-level declaration of
+          measurement type, distinct from the mode flag columns which indicate per-field applicability.
+        type: string
+        enum:
+        - Single-volume
+        - Multi-volume stitching
+        - Single-volume; Multi-volume stitching
+    ada:acceleratingVoltage:
+      description: 'X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines
+        the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages
+        provide greater penetration for dense or large samples; lower voltages improve contrast between
+        low-density phases. If the voltage was varied across samples within the same protocol or session,
+        report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as ''X
+        keV'' (maximum Bremsstrahlung photon energy) rather than ''X kV'' (tube voltage). For polychromatic
+        lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as stated in
+        the source and add a parenthetical note if the unit used is keV.'
+      anyOf:
+      - type: number
+      - type: string
+    ada:tubeCurrent:
+      description: X-ray tube current in microamperes (µA) registered by the protocol. Controls photon
+        flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading
+        on the source and may increase focal spot size. If the current was varied across samples within
+        the same protocol or session, report the full range applied (e.g., 65–115 µA).
+      anyOf:
+      - type: number
+      - type: string
+    ada:xRayPreFilter:
+      description: Material and thickness of the beam-hardening filter placed between the X-ray source
+        and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts
+        and improving CT number stability across the sample. Both filter material and thickness must be
+        reported. Instrument-proprietary filter codes should be decoded where possible.
+      type: string
+    ada:voxelSize:
+      description: Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The protocol
+        registers the target voxel size, set based on the minimum feature size to be resolved (target
+        voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved
+        voxel size as reported by the reconstruction software, which may differ slightly from the target
+        due to final geometric calibration.
+      anyOf:
+      - type: number
+      - type: string
+    ada:rotationRange:
+      description: Total angular range over which projection images are acquired, in degrees. Full 360°
+        rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes used for faster
+        acquisition but may introduce additional artifacts.
+      anyOf:
+      - type: number
+      - type: string
+    ada:numberOfProjections:
+      description: Total number of equally-spaced projection images acquired over the full rotation range.
+        More projections improve reconstruction quality by reducing under-sampling streak artifacts but
+        increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.
+      anyOf:
+      - type: integer
+      - type: string
+    ada:exposureTimePerProjection:
+      description: 'Duration of X-ray exposure for each individual projection image frame, in seconds,
+        as registered by the protocol. Set as a deliberate choice for the target sample type and voxel
+        size: longer exposures increase SNR at the cost of total scan time. May be adjusted within protocol-allowed
+        bounds for samples that are unusually dense or unusually transparent. If the exposure time was
+        varied across samples within the same protocol or session, report the full range applied (e.g.,
+        0.5–2 s).'
+      anyOf:
+      - type: number
+      - type: string
+    ada:flatFieldCorrection:
+      description: Whether dark-field (detector read with X-ray source off; electronic noise baseline)
+        and bright-field (source on, no sample; gain calibration) reference images are acquired and applied
+        to normalize detector response before reconstruction. Standard practice in all quantitative lab
+        XCT;.
+      type: boolean
+    ada:rotationMode:
+      description: Whether projection images are acquired during continuous sample rotation (faster; may
+        introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage
+        stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation
+        has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows
+        (Eckley et al. 2025).
+      type: string
+      enum:
+      - Step rotation (stop-and-shoot)
+      - Continuous rotation
+      - N/A
+      - None
+    ada:minimumSubVolumeOverlap:
+      description: Minimum number of reconstructed slices that must overlap between adjacent sub-volumes
+        in a stitched dataset. This is a protocol-level quality specification. Eckley et al. (2025) report
+        that 500 slices of overlap were used in the Apollo 73001 stitching workflow, while 180 slices
+        proved insufficient for their cone-beam geometry.
+      anyOf:
+      - type: integer
+      - type: string
+    ada:reconstructionAlgorithm:
+      description: Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images.
+        The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative
+        methods offer better artifact suppression at the cost of computation time.
+      type: string
+      enum:
+      - FDK (Feldkamp-Davis-Kress, cone-beam)
+      - FBP (filtered back-projection, parallel-beam)
+      - Iterative reconstruction
+      - SART
+    ada:beamHardeningCorrectionMethod:
+      description: 'Strategy used to reduce beam hardening artifacts caused by preferential attenuation
+        of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts
+        (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds.
+        Hardware pre-filtering (Group 4: X-ray Pre-filter) and software correction are complementary approaches.
+        The method is a protocol-level design choice; the specific correction parameter value is session-specific
+        and recorded separately at analysis level.'
+      type: string
+      enum:
+      - Software polynomial correction (instrument-specific algorithm)
+      - Ketcham & Hanna (2014) iterative BH correction
+      - None applied
+    ada:outputDataFormat:
+      description: File format of the reconstructed CT volume as output by the reconstruction software.
+        Bit depth is recorded separately in Output Bit Depth.
+      type: string
+      enum:
+      - TIFF image stack
+      - VGI/VOL (VGStudio)
+      - RAW volume
+      - DICOM
+    ada:segmentationMethod:
+      description: General approach used to separate distinct phases or features in the reconstructed
+        CT volume. The method must be reported for any quantitative result to be reproducible.
+      type: string
+      enum:
+      - Global threshold (single CT number boundary)
+      - Multi-threshold (separate CT number range per phase)
+      - Manual threshold per phase
+      - 'Semi-automated: threshold + morphological filtering'
+    ada:subVolumeStitchingAndRegistrationMethod:
+      description: 'Method used to register adjacent sub-volume datasets to each other and stitch them
+        into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based),
+        the software used, and any correction steps applied. Note: rotational mismatch artifacts have
+        been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025);
+        their correction via raw projection re-alignment should be documented here.'
+      type: string
+  required:
+  - schema:name
+  - schema:datePublished
+  - ada:targetFeature
+  - ada:applicableSampleDimensionRange
+  - ada:ctSystemManufacturerAndModel
+  - ada:xRaySourceConfiguration
+  - ada:detectorType
+  - ada:reconstructionSoftware
+  - ada:segmentationAndAnalysisSoftware
+  - ada:acceleratingVoltage
+  - ada:tubeCurrent
+  - ada:xRayPreFilter
+  - ada:voxelSize
+  - ada:rotationRange
+  - ada:numberOfProjections
+  - ada:exposureTimePerProjection
+  - ada:flatFieldCorrection
+  - ada:rotationMode
+  - ada:minimumSubVolumeOverlap
+  - ada:reconstructionAlgorithm
+  - ada:beamHardeningCorrectionMethod
+  - ada:outputDataFormat
+  - ada:segmentationMethod
+  - ada:subVolumeStitchingAndRegistrationMethod
