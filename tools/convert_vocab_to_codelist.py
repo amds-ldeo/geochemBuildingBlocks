@@ -19,7 +19,7 @@ from collections import OrderedDict
 import _tapp_lib as _L
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VOCAB_DIR = os.path.join(ROOT, "_sources", "techniqueProtocols", "vocab")
+VOCAB_DIR = os.path.join(ROOT, "_sources", "registry", "vocab")
 
 
 def _terms(doc: dict):

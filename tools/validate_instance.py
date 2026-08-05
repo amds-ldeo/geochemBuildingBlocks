@@ -42,7 +42,7 @@ except ImportError:
     sys.exit("jsonschema package is required: pip install jsonschema")
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-PROFILES_DIR = REPO_ROOT / "_sources" / "profiles"
+PROFILES_DIR = REPO_ROOT / "_sources"
 
 # All known profiles and their resolved schema locations
 KNOWN_PROFILES = [
@@ -123,18 +123,17 @@ class SchemaRegistry:
     """Caches loaded resolvedSchema.json files."""
 
     def __init__(self, schema_root: Path):
-        self.schema_root = schema_root / "_sources" / "profiles"
+        self.schema_root = schema_root / "_sources"
         self._cache: dict[str, dict] = {}
 
     def _find_schema_path(self, profile_name: str) -> Path:
-        """Search subdirectories for the profile's resolvedSchema.json."""
-        for subdir in self.schema_root.iterdir():
-            if subdir.is_dir():
-                candidate = subdir / profile_name / "resolvedSchema.json"
-                if candidate.exists():
-                    return candidate
-        # Legacy flat layout fallback
-        return self.schema_root / profile_name / "resolvedSchema.json"
+        """Find <profile_name>/resolvedSchema.json anywhere under _sources (group-by-technique
+        layout). NB: generic/product profiles were renamed to role dirs (profile / profile-ada);
+        look them up by technique dir + role, not the old adaXxx name."""
+        for cand in self.schema_root.rglob(f"{profile_name}/resolvedSchema.json"):
+            return cand
+        legacy = self.schema_root / "profiles"
+        return legacy / profile_name / "resolvedSchema.json"
 
     def get(self, profile_name: str) -> Optional[dict]:
         if profile_name in self._cache:

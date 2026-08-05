@@ -1265,19 +1265,17 @@ def resolve_and_write_structured(schema_path: Path) -> Path:
 # ---------------------------------------------------------------------------
 
 def _find_profile_dir(name: str) -> Path:
-    """Find the profile directory by searching subdirectories of profiles/."""
-    profiles_root = SOURCES_DIR / "profiles"
-    # Search subdirectories (adaProfiles/, cdifProfiles/)
-    for subdir in profiles_root.iterdir():
-        if subdir.is_dir():
-            candidate = subdir / name
-            if candidate.is_dir():
-                return candidate
-    # Fall back to direct child (legacy flat layout)
-    direct = profiles_root / name
-    if direct.is_dir():
-        return direct
-    raise FileNotFoundError(f"Profile directory not found: {name}")
+    """Find a BB directory by name anywhere under _sources (group-by-technique layout: registry/,
+    BaseSchema/, techniqueProfile/<tech>/<role>). Falls back to the legacy flat profiles/ layout."""
+    for cand in SOURCES_DIR.rglob(name):
+        if cand.is_dir() and (cand / "schema.yaml").exists():
+            return cand
+    legacy = SOURCES_DIR / "profiles"
+    if legacy.exists():
+        for subdir in legacy.iterdir():
+            if subdir.is_dir() and (subdir / name).is_dir():
+                return subdir / name
+    raise FileNotFoundError(f"Profile/BB directory not found: {name}")
 
 
 def find_profile_schema(name: str) -> Path:

@@ -9,8 +9,8 @@ import openpyxl
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 XLSX = os.path.join(ROOT, "docs", "LA-Q_SF-ICPMS_TAPP_v3.xlsx")
-TAPP_DIR = os.path.join(ROOT, "_sources", "techniqueProtocols", "laicpmsTAPP")
-DETAIL_DIR = os.path.join(ROOT, "_sources", "analysisSpecificDetails", "detailLAICPMS")
+TAPP_DIR = os.path.join(ROOT, "_sources", "techniqueProfile", "LA-ICPMS", "tapp")
+DETAIL_DIR = os.path.join(ROOT, "_sources", "techniqueProfile", "LA-ICPMS", "detail")
 PARAM_BASE = "ada:parameter/laicpmsTAPP"
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "bios": "https://bioschemas.org/", "prov": "http://www.w3.org/ns/prov#"}

@@ -22,19 +22,22 @@ import json
 import os
 from collections import OrderedDict
 
+import yaml
+
 import _tapp_lib as _L
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TP = os.path.join(ROOT, "_sources", "techniqueProtocols")
+REG = os.path.join(ROOT, "_sources", "registry")
 REGISTRIES = ["parameterValues", "parameterTemplates", "analyteColumns"]
 SCHEME_ID = "ada:vocab/adaAnalyticalParameters"
-OUT = os.path.join(TP, "vocab", "adaAnalyticalParameters.json")
+OUT = os.path.join(REG, "vocab", "adaAnalyticalParameters.json")
 
 
 def _load_defs(registry):
-    path = os.path.join(TP, registry, f"{registry}Schema.json")
+    # read the registry's schema.yaml $defs (the bundled *Schema.json was removed in the reorg)
+    path = os.path.join(REG, registry, "schema.yaml")
     with open(path, encoding="utf-8") as f:
-        d = json.load(f)
+        d = yaml.safe_load(f)
     return d.get("$defs", d.get("definitions", {}))
 
 

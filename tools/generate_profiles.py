@@ -673,7 +673,7 @@ description: >-
   Extends the base ADA product profile with constraints on valid {cfg['short_name']} component
   types{detail_note}.
 allOf:
-  - $ref: ../adaProduct/schema.yaml
+  - $ref: ../../../BaseSchema/adaProduct/schema.yaml
   - type: object
     properties:
       "schema:additionalType":
@@ -693,7 +693,7 @@ allOf:
                         "@type":
                           enum:
 {technique_ct_lines}
-                    - $ref: ../adaProduct/schema.yaml#/$defs/universalComponentType
+                    - $ref: ../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
             - required:
                 - "schema:hasPart"
               properties:
@@ -706,7 +706,7 @@ allOf:
                               "@type":
                                 enum:
 {haspart_ct_lines}
-                          - $ref: ../adaProduct/schema.yaml#/$defs/universalComponentType
+                          - $ref: ../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
 """
 
 
@@ -871,9 +871,26 @@ def _generate_examples_yaml(cfg: dict, profile_name: str) -> str:
 # Main generation logic
 # ---------------------------------------------------------------------------
 
+# adaXxx generic-profile name -> technique dir under techniqueProfile/<tech>/profile-ada
+_TECH_ALIAS = {
+    "empa": "EMPA", "geochron": "Geochron", "icpms": "ICPMS", "sem": "SEM", "tem": "TEM",
+    "xct": "XCT", "xrd": "XRD", "vnmir": "VNMIR", "aiva": "AIVA", "ams": "AMS", "argt": "ARGT",
+    "dsc": "DSC", "eairms": "EAIRMS", "fticrms": "FTICRMS", "gcms": "GCMS", "gpyc": "GPYC",
+    "ic": "IC", "icpoes": "ICPOES", "l2ms": "L2MS", "laf": "LAF", "lcms": "LCMS", "lit": "LIT",
+    "ngnsms": "NGNSMS", "nanoir": "NanoIR", "nanosims": "NanoSIMS", "psfd": "PSFD", "qris": "QRIS",
+    "raman": "RAMAN", "ritofngms": "RITOFNGMS", "sims": "SIMS", "sls": "SLS", "svruec": "SVRUEC",
+    "tofsims": "ToFSIMS", "uvfm": "UVFM", "vlm": "VLM", "xanes": "XANES", "basemap": "Basemap",
+}
+
+
+def _tech(name: str) -> str:
+    raw = name[3:] if name.startswith("ada") else name
+    return _TECH_ALIAS.get(raw.lower(), raw)
+
+
 def generate_profile(name: str, cfg: dict, base_dir: Path) -> None:
     """Generate all files for a single profile."""
-    profile_dir = base_dir / "_sources" / "profiles" / "adaProfiles" / name
+    profile_dir = base_dir / "_sources" / "techniqueProfile" / _tech(name) / "profile-ada"
     profile_dir.mkdir(parents=True, exist_ok=True)
 
     files = {
@@ -934,7 +951,7 @@ def main():
     else:
         to_generate = PROFILES
 
-    print(f"Generating {len(to_generate)} profile(s) in {base_dir}/_sources/profiles/adaProfiles/")
+    print(f"Generating {len(to_generate)} profile(s) under {base_dir}/_sources/techniqueProfile/<tech>/profile-ada/")
     for name, cfg in sorted(to_generate.items()):
         generate_profile(name, cfg, base_dir)
     print("Done.")

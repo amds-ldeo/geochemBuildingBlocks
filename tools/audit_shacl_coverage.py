@@ -167,33 +167,18 @@ def audit_building_block(bb_dir, verbose=False):
 def main():
     verbose = "--verbose" in sys.argv or "-v" in sys.argv
 
-    # Collect all BB dirs — scan all category directories under _sources
-    bb_dirs = []
-    for category in sorted(BB_ROOT.iterdir()):
-        if category.is_dir() and category.name != "profiles":
-            for d in sorted(category.iterdir()):
-                if d.is_dir() and (d / "schema.yaml").exists():
-                    bb_dirs.append(d)
-
-    # Sort: leaves first, then composites
+    # Collect every BB dir (any dir with a schema.yaml) under _sources — group-by-technique layout.
+    all_dirs = sorted({p.parent for p in BB_ROOT.rglob("schema.yaml")})
+    # product profiles are the technique product profiles (techniqueProfile/<tech>/{profile,profile-ada});
+    # everything else is a leaf or composite BB.
+    profiles = [d for d in all_dirs if d.name in ("profile", "profile-ada")]
     leaves = []
     composites = []
-    for d in bb_dirs:
+    for d in all_dirs:
+        if d in profiles:
+            continue
         schema = load_yaml(d / "schema.yaml")
-        if has_external_refs(schema):
-            composites.append(d)
-        else:
-            leaves.append(d)
-
-    # Profiles — scan all profile category directories
-    profiles = []
-    profiles_root = BB_ROOT / "profiles"
-    if profiles_root.exists():
-        for profile_category in sorted(profiles_root.iterdir()):
-            if profile_category.is_dir():
-                for d in sorted(profile_category.iterdir()):
-                    if d.is_dir() and (d / "schema.yaml").exists():
-                        profiles.append(d)
+        (composites if has_external_refs(schema) else leaves).append(d)
 
     total_issues = 0
 
