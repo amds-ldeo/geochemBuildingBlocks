@@ -110,8 +110,8 @@ def main():
             "schema:name": name,
             "schema:description": f"laicpmsTAPP instance derived from {pub_hdr[L]} (column {L} of "
                                   f"LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
-            "schema:measurementTechnique": {"@type": ["schema:DefinedTerm"],
-                                            "schema:termCode": technique, "schema:name": technique},
+            "schema:measurementTechnique": [{"@type": ["schema:DefinedTerm"],
+                                             "schema:termCode": technique, "schema:name": technique}],
         }
         lab = cell("Laboratory", L)
         if lab:
@@ -205,7 +205,7 @@ def main():
 
     detail = {"@context": CTX2, "@id": "ex:detailLAICPMS-P0", "@type": ["ada:LAICPMSTabular"],
               "ada:componentType": "ada:LAICPMSTabular",
-              "schema:measurementTechnique": {"@id": "ex:laicpmsTAPP-Navarro2024spot"}}
+              "schema:measurementTechnique": [{"@id": "ex:laicpmsTAPP-Navarro2024spot"}]}
     # only required (non-multivol) detail props, with representative values
     for b in R["detail_req"]:
         if b["multivol_only"]:

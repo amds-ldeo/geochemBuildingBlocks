@@ -1557,18 +1557,18 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
     ]
     parts["schema:name"] = ""
     parts["schema:description"] = CFG["example_description_template"].format(pub_label=pub_label)
-    parts["schema:measurementTechnique"] = {
+    parts["schema:measurementTechnique"] = [{
         "@type": ["schema:DefinedTerm"],
         "schema:termCode": CFG["termcode"],
         "schema:name": CFG["termname"],
-    }
+    }]
 
     detail = OrderedDict()
     detail["@context"] = dict(_ADA_CONTEXT)
     detail["@id"] = detail_id
     detail["@type"] = ["schema:Thing"]
     detail["ada:componentType"] = CFG["detail_componenttype_default"]
-    detail["schema:measurementTechnique"] = {"@id": empa_id}
+    detail["schema:measurementTechnique"] = [{"@id": empa_id}]
     detail["schema:additionalProperty"] = []
 
     method_params = []
@@ -2030,7 +2030,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         ("ada:componentType", detail_componenttype),
         ("ada:spectrometersUsed", detail_spectrometers),
         ("ada:signalUsed", detail_signal),
-        ("schema:measurementTechnique", {"@id": tapp_id}),
+        ("schema:measurementTechnique", [{"@id": tapp_id}]),
         ("schema:additionalProperty", detail_addprops),
     ])
 
@@ -2075,11 +2075,11 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     out["schema:version"] = "0.1"
     out["schema:license"] = ["https://creativecommons.org/licenses/by/4.0/"]
     out["schema:creativeWorkStatus"] = "Draft"
-    out["schema:measurementTechnique"] = OrderedDict([
+    out["schema:measurementTechnique"] = [OrderedDict([
         ("@type", ["schema:DefinedTerm"]),
         ("schema:name", "Electron Microprobe Analysis (EMPA)"),
         ("schema:identifier", "https://ada.astromat.org/vocabulary/techniques/EMPA"),
-    ])
+    ])]
     tapp_object_first = (tapp_ex.get("schema:object") or [None])[0]
     out["prov:wasGeneratedBy"] = [OrderedDict([
         ("@type", ["prov:Activity", "schema:Action"]),
