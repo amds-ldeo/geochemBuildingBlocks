@@ -636,7 +636,19 @@ allOf:
       type: array
       items:
         type: object
-        properties: {}
+      allOf:
+      - contains:
+          properties:
+            ada:toolRole:
+              const: acquisition
+          required:
+          - ada:toolRole
+      - contains:
+          properties:
+            ada:toolRole:
+              const: dataReduction
+          required:
+          - ada:toolRole
     ada:rfPower:
       description: Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency
         and oxide production rates.

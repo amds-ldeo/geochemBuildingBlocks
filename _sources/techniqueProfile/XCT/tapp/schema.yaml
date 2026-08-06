@@ -1021,7 +1021,13 @@ allOf:
       type: array
       items:
         type: object
-        properties: {}
+      allOf:
+      - contains:
+          properties:
+            ada:toolRole:
+              const: acquisition
+          required:
+          - ada:toolRole
     ada:reconstructionSoftware:
       description: Software used to reconstruct 2D projection images into a 3D CT volume, including version
         number. Often bundled with the instrument and proprietary to the manufacturer.

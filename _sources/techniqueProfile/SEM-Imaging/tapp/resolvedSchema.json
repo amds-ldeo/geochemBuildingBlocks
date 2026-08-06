@@ -4450,9 +4450,34 @@
         "bios:computationalTool": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {}
-          }
+            "type": "object"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "ada:toolRole": {
+                    "const": "acquisition"
+                  }
+                },
+                "required": [
+                  "ada:toolRole"
+                ]
+              }
+            },
+            {
+              "contains": {
+                "properties": {
+                  "ada:toolRole": {
+                    "const": "dataReduction"
+                  }
+                },
+                "required": [
+                  "ada:toolRole"
+                ]
+              }
+            }
+          ]
         },
         "ada:analyticalMode": {
           "type": "array",

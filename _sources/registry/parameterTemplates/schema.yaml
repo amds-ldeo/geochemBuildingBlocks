@@ -1551,560 +1551,6 @@ $defs:
 
 
 
-  solutionSficpms_sampleIgsnDefault:
-    title: Sample IGSN
-    description: International Geo Sample Number (IGSN) or other persistent identifier for the sample.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleIgsnDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleIgsnDefault
-      schema:name:
-        const: Sample IGSN
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_sampleAliquotMassOrVolumeDefault:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
-      for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleAliquotMassOrVolumeDefault
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mg or mL
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_instrumentSerialNumberOrLabIdentifierDefault:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
-      traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: instrumentSerialNumberOrLabIdentifierDefault
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_torchDepthDefault:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
-      the target torch position; analyst confirms or adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/torchDepthDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: torchDepthDefault
-      schema:name:
-        const: Torch Depth
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_makeUpGasFlowRateDefault:
-    title: Make-up Gas Flow Rate
-    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
-      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRateDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: makeUpGasFlowRateDefault
-      schema:name:
-        const: Make-up Gas Flow Rate
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: L/min
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_doublyChargedSpeciesMonitorDefault:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
-      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
-      analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require
-      monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitorDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesMonitorDefault
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_doublyChargedSpeciesProductionDefault:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored species at the time
-      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
-      production indicates incomplete ionization and potential interference on elements at approximately
-      half the mass of abundant matrix components.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProductionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesProductionDefault
-      schema:name:
-        const: Doubly-Charged Species Production
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_spikeOutlierFilteringApproachDefault:
-    title: Spike/Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
-      the calculated mean.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: spikeOutlierFilteringApproachDefault
-      schema:name:
-        const: Spike/Outlier Filtering Approach
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response at the transition between
-      pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS
-      instruments, the signal transitions between pulse counting (low concentrations) and analog detection
-      (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition
-      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between
-      detector modes must be confirmed, typically measured each session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: pulseAnalogDetectorNonlinearityCorrectionDefault
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_memoryEffectMitigationDefault:
-    title: Memory Effect Mitigation
-    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
-      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
-      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
-      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
-      where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: memoryEffectMitigationDefault
-      schema:name:
-        const: Memory Effect Mitigation
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_uncertaintyPropagationMethodDefault:
-    title: Uncertainty Propagation Method
-    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
-      values.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: uncertaintyPropagationMethodDefault
-      schema:name:
-        const: Uncertainty Propagation Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_normalizationStandardsBasedCorrectionDefault:
-    title: Normalization/Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative to a reference
-      value (e.g., correction to a BHVO-2 working value).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: normalizationStandardsBasedCorrectionDefault
-      schema:name:
-        const: Normalization/Standards-Based Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_detectionLimitDefault:
-    title: Detection Limit
-    description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values
-      are protocol-typical estimates or session-specific measured values.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/detectionLimitDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitDefault
-      schema:name:
-        const: Detection Limit
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_detectionLimitMethodDefault:
-    title: Detection Limit Method
-    description: Method used to calculate detection limits for each analyte.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/detectionLimitMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitMethodDefault
-      schema:name:
-        const: Detection Limit Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_limitOfQuantificationMethodDefault:
-    title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/limitOfQuantificationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: limitOfQuantificationMethodDefault
-      schema:name:
-        const: Limit of Quantification (LOQ) Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethodDefault:
-    title: Within-Session Analytical Precision and Assessment Method
-    description: Precision of repeated measurements within a single analysis session and the method used
-      to assess it (e.g., %RSD of replicate standard or reference material measurements).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: withinSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      schema:name:
-        const: Within-Session Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
-    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
-      and the assessment method.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      schema:name:
-        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_analyticalAccuracyAndAssessmentMethodDefault:
-    title: Analytical Accuracy and Assessment Method
-    description: Accuracy of final concentration measurements relative to certified or consensus values
-      and the method used to assess it.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analyticalAccuracyAndAssessmentMethodDefault
-      schema:name:
-        const: Analytical Accuracy and Assessment Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-
   imagingDefault:
     title: Imaging
     description: Pre-ablation characterisation imaging (typically cathodoluminescence [CL] or backscattered
@@ -4390,7 +3836,6 @@ $defs:
     - ada:fieldScope
 
 
-
   sampleDimensionsDefault:
     title: Sample Dimensions (L × W × H)
     description: Physical dimensions of the sample in mm, reported as length × width × height (or equivalent
@@ -5453,6 +4898,560 @@ $defs:
         const: countingStatisticsErrorDefault
       schema:name:
         const: Counting Statistics Error
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
+  solutionSficpms_sampleIgsnDefault:
+    title: Sample IGSN
+    description: International Geo Sample Number (IGSN) or other persistent identifier for the sample.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleIgsnDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleIgsnDefault
+      schema:name:
+        const: Sample IGSN
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_sampleAliquotMassOrVolumeDefault:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
+      for yield calculations and concentration back-calculation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleAliquotMassOrVolumeDefault
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mg or mL
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_instrumentSerialNumberOrLabIdentifierDefault:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
+      traceability to instrument service records.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: instrumentSerialNumberOrLabIdentifierDefault
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_torchDepthDefault:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
+      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
+      the target torch position; analyst confirms or adjusts during session tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/torchDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: torchDepthDefault
+      schema:name:
+        const: Torch Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_makeUpGasFlowRateDefault:
+    title: Make-up Gas Flow Rate
+    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
+      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: makeUpGasFlowRateDefault
+      schema:name:
+        const: Make-up Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: L/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_doublyChargedSpeciesMonitorDefault:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
+      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
+      analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require
+      monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesMonitorDefault
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_doublyChargedSpeciesProductionDefault:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored species at the time
+      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
+      production indicates incomplete ionization and potential interference on elements at approximately
+      half the mass of abundant matrix components.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProductionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesProductionDefault
+      schema:name:
+        const: Doubly-Charged Species Production
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_spikeOutlierFilteringApproachDefault:
+    title: Spike/Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
+      the calculated mean.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spikeOutlierFilteringApproachDefault
+      schema:name:
+        const: Spike/Outlier Filtering Approach
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response at the transition between
+      pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS
+      instruments, the signal transitions between pulse counting (low concentrations) and analog detection
+      (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition
+      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between
+      detector modes must be confirmed, typically measured each session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: pulseAnalogDetectorNonlinearityCorrectionDefault
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_memoryEffectMitigationDefault:
+    title: Memory Effect Mitigation
+    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
+      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
+      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
+      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
+      where the required washout time may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: memoryEffectMitigationDefault
+      schema:name:
+        const: Memory Effect Mitigation
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_uncertaintyPropagationMethodDefault:
+    title: Uncertainty Propagation Method
+    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
+      values.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: uncertaintyPropagationMethodDefault
+      schema:name:
+        const: Uncertainty Propagation Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_normalizationStandardsBasedCorrectionDefault:
+    title: Normalization/Standards-Based Correction
+    description: Post-acquisition normalization applied to output concentrations relative to a reference
+      value (e.g., correction to a BHVO-2 working value).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrectionDefault
+      schema:name:
+        const: Normalization/Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_detectionLimitDefault:
+    title: Detection Limit
+    description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values
+      are protocol-typical estimates or session-specific measured values.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/detectionLimitDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitDefault
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_detectionLimitMethodDefault:
+    title: Detection Limit Method
+    description: Method used to calculate detection limits for each analyte.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/detectionLimitMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethodDefault
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_limitOfQuantificationMethodDefault:
+    title: Limit of Quantification (LOQ) Method
+    description: Method used to determine the limit of quantification.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/limitOfQuantificationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethodDefault
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethodDefault:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: Precision of repeated measurements within a single analysis session and the method used
+      to assess it (e.g., %RSD of replicate standard or reference material measurements).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
+      and the assessment method.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_analyticalAccuracyAndAssessmentMethodDefault:
+    title: Analytical Accuracy and Assessment Method
+    description: Accuracy of final concentration measurements relative to certified or consensus values
+      and the method used to assess it.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyAndAssessmentMethodDefault
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
       ada:dataType:
         const: string
       ada:fieldScope:

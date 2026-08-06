@@ -2943,795 +2943,6 @@ $defs:
 
 
 
-  solutionSficpms_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/coupledProtocolDoi
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/coupledProtocolDoi
-      schema:name:
-        const: Coupled Protocol DOI
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_coupledDatasetOrPublicationReference:
-    title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN (Group 2), this field may be 'None'.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
-      schema:name:
-        const: Coupled Dataset or Publication Reference
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_digestionTemperature:
-    title: Digestion Temperature
-    description: Temperature at which acid digestion was carried out (°C). Protocol specifies the target
-      temperature.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/digestionTemperature
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/digestionTemperature
-      schema:name:
-        const: Digestion Temperature
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_digestionDuration:
-    title: Digestion Duration
-    description: Duration of the primary acid digestion step (hours or days).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/digestionDuration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/digestionDuration
-      schema:name:
-        const: Digestion Duration
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_sampleAliquotMassOrVolume:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
-      for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_instrumentSerialNumberOrLabIdentifier:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
-      traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_torchDepth:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
-      the target torch position; analyst confirms or adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/torchDepth
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/torchDepth
-      schema:name:
-        const: Torch Depth
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_massResolutionSetting:
-    title: Mass Resolution Setting
-    description: Mass resolution mode(s) used in this protocol. Sector-field instruments allow selection
-      of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution
-      (HR; m/Δm ≈ 10,000). Multi-resolution protocols assign individual analytes to specific modes (documented
-      in Group 4 under Mass Resolution per Analyte). Protocol registers the mode(s) in use; analyst confirms
-      at session start.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-      schema:name:
-        const: Mass Resolution Setting
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_sampleUptakeRate:
-    title: Sample Uptake Rate
-    description: Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or
-      mL/min).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
-      schema:name:
-        const: Sample Uptake Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_rfPower:
-    title: RF Power
-    description: Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency
-      and oxide production rates.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/rfPower
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/rfPower
-      schema:name:
-        const: RF Power
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_coolantGasFlowRate:
-    title: Coolant (Plasma) Gas Flow Rate
-    description: Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature
-      and oxide ion formation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-      schema:name:
-        const: Coolant (Plasma) Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_auxiliaryGasFlowRate:
-    title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector
-      tube (L/min).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-      schema:name:
-        const: Auxiliary Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_nebulizerGasFlowRate:
-    title: Nebulizer Gas Flow Rate
-    description: Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol
-      transport and strongly influences signal sensitivity.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
-      schema:name:
-        const: Nebulizer Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_makeUpGasFlowRate:
-    title: Make-up Gas Flow Rate
-    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
-      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
-      schema:name:
-        const: Make-up Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_doublyChargedSpeciesMonitor:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
-      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
-      analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require
-      monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_doublyChargedSpeciesProduction:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored species at the time
-      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
-      production indicates incomplete ionization and potential interference on elements at approximately
-      half the mass of abundant matrix components.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
-      schema:name:
-        const: Doubly-Charged Species Production
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_spikeOutlierFilteringApproach:
-    title: Spike/Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
-      the calculated mean.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-      schema:name:
-        const: Spike/Outlier Filtering Approach
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_pulseAnalogDetectorNonlinearityCorrection:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response at the transition between
-      pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS
-      instruments, the signal transitions between pulse counting (low concentrations) and analog detection
-      (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition
-      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between
-      detector modes must be confirmed, typically measured each session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_memoryEffectMitigation:
-    title: Memory Effect Mitigation
-    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
-      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
-      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
-      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
-      where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-      schema:name:
-        const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_uncertaintyPropagationMethod:
-    title: Uncertainty Propagation Method
-    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
-      values.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-      schema:name:
-        const: Uncertainty Propagation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_normalizationStandardsBasedCorrection:
-    title: Normalization/Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative to a reference
-      value (e.g., correction to a BHVO-2 working value).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-      schema:name:
-        const: Normalization/Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: Name and reference material identifier of the external calibration standard used to convert
-      signal intensities to elemental concentrations.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Reference material(s) measured as unknowns to independently assess analytical accuracy.
-      Specify material name and expected-value source.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_torchType:
-    title: Torch Type
-    description: Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/torchType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/torchType
-      schema:name:
-        const: Torch Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_samplerAndSkimmerConeMaterial:
-    title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most
-      aqueous matrices. Aluminium (Al) cones are used in some SF-ICP-MS labs for enhanced sensitivity at
-      high resolution. Platinum (Pt) is used for HCl-rich matrices.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
-      schema:name:
-        const: Sampler and Skimmer Cone Material
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_guardElectrode:
-    title: Guard Electrode
-    description: Whether a guard electrode (grounded shield electrode) is installed and active on the torch
-      assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving
-      ion extraction efficiency. Actively used as a design feature on Thermo Element 2 and Element XR instruments.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/guardElectrode
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/guardElectrode
-      schema:name:
-        const: Guard Electrode
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_desolvationSystem:
-    title: Desolvation System
-    description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
-      load. Reduces oxide production rates and increases sensitivity for selected element groups. Specific
-      systems (e.g., Aridus-I) are often assigned to particular element fractions in multi-fraction protocols.
-      Record 'None' if not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/desolvationSystem
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/desolvationSystem
-      schema:name:
-        const: Desolvation System
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_eScanRange:
-    title: E-scan Range
-    description: Electric scan range used for peak acquisition, expressed as percentage of the center mass
-      (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without
-      re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/eScanRange
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/eScanRange
-      schema:name:
-        const: E-scan Range
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_tripleScanningMode:
-    title: Triple Scanning Mode
-    description: Whether each mass peak is scanned three times per cycle and the results averaged (Y/N).
-      Used to reduce noise from short-term magnetic field instabilities. Record 'N/A' if not applicable
-      to the instrument.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/tripleScanningMode
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/tripleScanningMode
-      schema:name:
-        const: Triple Scanning Mode
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_internalStandardConcentration:
-    title: Internal Standard Concentration
-    description: Target concentration of internal standard element(s) in all measured solutions (µg/L or
-      ppb).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-      schema:name:
-        const: Internal Standard Concentration
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-
   coupledProcedureDoi:
     title: Coupled Procedure DOI
     description: Registered procedure DOI for the coupled technique named above.
@@ -8452,7 +7663,6 @@ $defs:
     - schema:name
     - schema:value
 
-
   semFibsem_coupledProtocolDoi:
     title: Coupled Protocol DOI
     description: DOI of the registered protocol for the coupled technique.
@@ -11147,3 +10357,792 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+
+  solutionSficpms_coupledProtocolDoi:
+    title: Coupled Protocol DOI
+    description: DOI of the registered protocol for the coupled technique.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/coupledProtocolDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/coupledProtocolDoi
+      schema:name:
+        const: Coupled Protocol DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
+      documented only through a shared sample IGSN (Group 2), this field may be 'None'.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_digestionTemperature:
+    title: Digestion Temperature
+    description: Temperature at which acid digestion was carried out (°C). Protocol specifies the target
+      temperature.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/digestionTemperature
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/digestionTemperature
+      schema:name:
+        const: Digestion Temperature
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_digestionDuration:
+    title: Digestion Duration
+    description: Duration of the primary acid digestion step (hours or days).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/digestionDuration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/digestionDuration
+      schema:name:
+        const: Digestion Duration
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_sampleAliquotMassOrVolume:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
+      for yield calculations and concentration back-calculation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_instrumentSerialNumberOrLabIdentifier:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
+      traceability to instrument service records.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_torchDepth:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
+      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
+      the target torch position; analyst confirms or adjusts during session tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/torchDepth
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/torchDepth
+      schema:name:
+        const: Torch Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_massResolutionSetting:
+    title: Mass Resolution Setting
+    description: Mass resolution mode(s) used in this protocol. Sector-field instruments allow selection
+      of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution
+      (HR; m/Δm ≈ 10,000). Multi-resolution protocols assign individual analytes to specific modes (documented
+      in Group 4 under Mass Resolution per Analyte). Protocol registers the mode(s) in use; analyst confirms
+      at session start.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/massResolutionSetting
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/massResolutionSetting
+      schema:name:
+        const: Mass Resolution Setting
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_sampleUptakeRate:
+    title: Sample Uptake Rate
+    description: Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or
+      mL/min).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
+      schema:name:
+        const: Sample Uptake Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_rfPower:
+    title: RF Power
+    description: Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency
+      and oxide production rates.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/rfPower
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/rfPower
+      schema:name:
+        const: RF Power
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_coolantGasFlowRate:
+    title: Coolant (Plasma) Gas Flow Rate
+    description: Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature
+      and oxide ion formation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
+      schema:name:
+        const: Coolant (Plasma) Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_auxiliaryGasFlowRate:
+    title: Auxiliary Gas Flow Rate
+    description: Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector
+      tube (L/min).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
+      schema:name:
+        const: Auxiliary Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_nebulizerGasFlowRate:
+    title: Nebulizer Gas Flow Rate
+    description: Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol
+      transport and strongly influences signal sensitivity.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
+      schema:name:
+        const: Nebulizer Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_makeUpGasFlowRate:
+    title: Make-up Gas Flow Rate
+    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
+      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
+      schema:name:
+        const: Make-up Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_doublyChargedSpeciesMonitor:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
+      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
+      analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require
+      monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_doublyChargedSpeciesProduction:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored species at the time
+      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
+      production indicates incomplete ionization and potential interference on elements at approximately
+      half the mass of abundant matrix components.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
+      schema:name:
+        const: Doubly-Charged Species Production
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_spikeOutlierFilteringApproach:
+    title: Spike/Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
+      the calculated mean.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
+      schema:name:
+        const: Spike/Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_pulseAnalogDetectorNonlinearityCorrection:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response at the transition between
+      pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS
+      instruments, the signal transitions between pulse counting (low concentrations) and analog detection
+      (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition
+      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between
+      detector modes must be confirmed, typically measured each session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_memoryEffectMitigation:
+    title: Memory Effect Mitigation
+    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
+      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
+      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
+      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
+      where the required washout time may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
+      schema:name:
+        const: Memory Effect Mitigation
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_uncertaintyPropagationMethod:
+    title: Uncertainty Propagation Method
+    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
+      values.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
+      schema:name:
+        const: Uncertainty Propagation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_normalizationStandardsBasedCorrection:
+    title: Normalization/Standards-Based Correction
+    description: Post-acquisition normalization applied to output concentrations relative to a reference
+      value (e.g., correction to a BHVO-2 working value).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization/Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_primaryCalibrationStandardName:
+    title: Primary Calibration Standard Name
+    description: Name and reference material identifier of the external calibration standard used to convert
+      signal intensities to elemental concentrations.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
+      schema:name:
+        const: Primary Calibration Standard Name
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_secondaryReferenceMaterials:
+    title: Secondary Reference Materials
+    description: Reference material(s) measured as unknowns to independently assess analytical accuracy.
+      Specify material name and expected-value source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
+      schema:name:
+        const: Secondary Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_torchType:
+    title: Torch Type
+    description: Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/torchType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/torchType
+      schema:name:
+        const: Torch Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_samplerAndSkimmerConeMaterial:
+    title: Sampler and Skimmer Cone Material
+    description: Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most
+      aqueous matrices. Aluminium (Al) cones are used in some SF-ICP-MS labs for enhanced sensitivity at
+      high resolution. Platinum (Pt) is used for HCl-rich matrices.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
+      schema:name:
+        const: Sampler and Skimmer Cone Material
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_guardElectrode:
+    title: Guard Electrode
+    description: Whether a guard electrode (grounded shield electrode) is installed and active on the torch
+      assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving
+      ion extraction efficiency. Actively used as a design feature on Thermo Element 2 and Element XR instruments.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/guardElectrode
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/guardElectrode
+      schema:name:
+        const: Guard Electrode
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_desolvationSystem:
+    title: Desolvation System
+    description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
+      load. Reduces oxide production rates and increases sensitivity for selected element groups. Specific
+      systems (e.g., Aridus-I) are often assigned to particular element fractions in multi-fraction protocols.
+      Record 'None' if not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/desolvationSystem
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/desolvationSystem
+      schema:name:
+        const: Desolvation System
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_eScanRange:
+    title: E-scan Range
+    description: Electric scan range used for peak acquisition, expressed as percentage of the center mass
+      (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without
+      re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/eScanRange
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/eScanRange
+      schema:name:
+        const: E-scan Range
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_tripleScanningMode:
+    title: Triple Scanning Mode
+    description: Whether each mass peak is scanned three times per cycle and the results averaged (Y/N).
+      Used to reduce noise from short-term magnetic field instabilities. Record 'N/A' if not applicable
+      to the instrument.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/tripleScanningMode
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/tripleScanningMode
+      schema:name:
+        const: Triple Scanning Mode
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_internalStandardConcentration:
+    title: Internal Standard Concentration
+    description: Target concentration of internal standard element(s) in all measured solutions (µg/L or
+      ppb).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
+      schema:name:
+        const: Internal Standard Concentration
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
