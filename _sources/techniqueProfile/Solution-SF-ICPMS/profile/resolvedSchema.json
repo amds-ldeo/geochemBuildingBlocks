@@ -9041,8 +9041,18 @@
                           }
                         },
                         "schema:instrument": {
-                          "$ref": "#/$defs/Instrument",
-                          "description": "Primary instrument specification for this method. Use schema:hasPart for instrument sub-components (spectrometers, detectors)."
+                          "description": "Instrument specification(s) for this method: a single instrument object, or an array of instruments when the method uses more than one (e.g. LA-ICP-MS = a laser ablation system plus the ICP-MS). Use schema:hasPart for instrument sub-components (spectrometers, detectors, ICP source, sample introduction system). Path-driven technique overlays select a specific instrument by schema:additionalType and constrain its sub-component tree.",
+                          "anyOf": [
+                            {
+                              "$ref": "#/$defs/Instrument"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/$defs/Instrument"
+                              }
+                            }
+                          ]
                         },
                         "bios:computationalTool": {
                           "description": "Software tools used for data acquisition, reduction, and processing. Each tool carries name, version, and optional URL.",
@@ -14401,8 +14411,18 @@
                               }
                             },
                             "schema:instrument": {
-                              "$ref": "#/$defs/Instrument",
-                              "description": "Primary instrument specification for this method. Use schema:hasPart for instrument sub-components (spectrometers, detectors)."
+                              "description": "Instrument specification(s) for this method: a single instrument object, or an array of instruments when the method uses more than one (e.g. LA-ICP-MS = a laser ablation system plus the ICP-MS). Use schema:hasPart for instrument sub-components (spectrometers, detectors, ICP source, sample introduction system). Path-driven technique overlays select a specific instrument by schema:additionalType and constrain its sub-component tree.",
+                              "anyOf": [
+                                {
+                                  "$ref": "#/$defs/Instrument"
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/Instrument"
+                                  }
+                                }
+                              ]
                             },
                             "bios:computationalTool": {
                               "description": "Software tools used for data acquisition, reduction, and processing. Each tool carries name, version, and optional URL.",
