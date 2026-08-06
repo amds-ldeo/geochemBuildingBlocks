@@ -59,6 +59,12 @@
               }
             ]
           },
+          "prov:used": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
           "schema:additionalProperty": {
             "type": "array",
             "items": {
@@ -243,6 +249,17 @@
                 "maxContains": 1
               }
             ]
+          },
+          "schema:actionProcess": {
+            "type": "object",
+            "properties": {
+              "schema:step": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       }
@@ -595,72 +612,6 @@
             ]
           },
           {
-            "title": "Doubly-Charged Species Monitor",
-            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Monitor"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Doubly-Charged Species Production",
-            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Production"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
             "title": "Other Information",
             "description": "Supplementary methodological context not captured by the structured fields above, as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes on ablation-cell and sample-line configuration for depth-profiling/single-pulse ablation studies, a variant not otherwise in scope for this single-mode (Spot Analysis) TAPP.",
             "type": "object",
@@ -779,72 +730,6 @@
               },
               "schema:name": {
                 "const": "Double-Spike Mixing Ratio"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Memory Effect Mitigation",
-            "description": "Procedure applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/memoryEffectMitigation"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/memoryEffectMitigation"
-                }
-              },
-              "schema:name": {
-                "const": "Memory Effect Mitigation"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Normalization/Standards-Based Correction",
-            "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-                }
-              },
-              "schema:name": {
-                "const": "Normalization/Standards-Based Correction"
               },
               "schema:value": {
                 "type": "string"
@@ -1221,80 +1106,6 @@
         },
         {
           "contains": {
-            "title": "Doubly-Charged Species Monitor",
-            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Monitor"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Doubly-Charged Species Production",
-            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Production"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
             "title": "Other Information",
             "description": "Supplementary methodological context not captured by the structured fields above, as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes on ablation-cell and sample-line configuration for depth-profiling/single-pulse ablation studies, a variant not otherwise in scope for this single-mode (Spot Analysis) TAPP.",
             "type": "object",
@@ -1425,80 +1236,6 @@
               },
               "schema:name": {
                 "const": "Double-Spike Mixing Ratio"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Memory Effect Mitigation",
-            "description": "Procedure applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/memoryEffectMitigation"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/memoryEffectMitigation"
-                }
-              },
-              "schema:name": {
-                "const": "Memory Effect Mitigation"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Normalization/Standards-Based Correction",
-            "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-                }
-              },
-              "schema:name": {
-                "const": "Normalization/Standards-Based Correction"
               },
               "schema:value": {
                 "type": "string"

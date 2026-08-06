@@ -40,6 +40,10 @@ properties:
                     const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
+        prov:used:
+          type: array
+          items:
+            type: object
         schema:additionalProperty:
           type: array
           items:
@@ -107,6 +111,13 @@ properties:
           - contains: *id002
             minContains: 0
             maxContains: 1
+        schema:actionProcess:
+          type: object
+          properties:
+            schema:step:
+              type: array
+              items:
+                type: object
   schema:measurementTechnique:
     type: array
     items:
@@ -357,54 +368,6 @@ properties:
         - schema:name
         - schema:value
       - &id012
-        title: Doubly-Charged Species Monitor
-        description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument
-          tuning.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-              '@id': ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor
-          schema:name:
-            const: Doubly-Charged Species Monitor
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      - &id013
-        title: Doubly-Charged Species Production
-        description: Measured percentage of doubly-charged ion production for the monitored species at
-          the time of instrument tuning.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/geochronTAPP/doublyChargedSpeciesProduction
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-              '@id': ada:parameter/geochronTAPP/doublyChargedSpeciesProduction
-          schema:name:
-            const: Doubly-Charged Species Production
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      - &id014
         title: Other Information
         description: Supplementary methodological context not captured by the structured fields above,
           as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes
@@ -430,7 +393,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id015
+      - &id013
         title: Uncertainty Level and Propagation
         description: Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method used
           to propagate component uncertainties (e.g., quadratic addition) into the final reported value.
@@ -454,7 +417,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id016
+      - &id014
         title: Spike / Outlier Filtering Approach
         description: Method used to identify and remove anomalous signal spikes arising from micronuggets,
           inclusions, cracks, or instrument artifacts during time-resolved signal processing.
@@ -478,7 +441,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id017
+      - &id015
         title: Double-Spike Mixing Ratio
         description: Target proportion of double-spike signal relative to total analyte signal in the
           spiked mixture. An optimal mixing ratio minimises error propagation through the double-spike
@@ -495,54 +458,6 @@ properties:
               '@id': ada:parameter/geochronTAPP/doubleSpikeMixingRatio
           schema:name:
             const: Double-Spike Mixing Ratio
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      - &id018
-        title: Memory Effect Mitigation
-        description: Procedure applied to identify and minimise memory effects from high-concentration
-          elements in the previous sample or standard that may contaminate subsequent analyses.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/geochronTAPP/memoryEffectMitigation
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-              '@id': ada:parameter/geochronTAPP/memoryEffectMitigation
-          schema:name:
-            const: Memory Effect Mitigation
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      - &id019
-        title: Normalization/Standards-Based Correction
-        description: Any post-acquisition normalization applied to correct for systematic biases identified
-          from secondary reference materials.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-              '@id': ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection
-          schema:name:
-            const: Normalization/Standards-Based Correction
           schema:value:
             type: string
         required:
@@ -589,18 +504,6 @@ properties:
       minContains: 0
       maxContains: 1
     - contains: *id015
-      minContains: 0
-      maxContains: 1
-    - contains: *id016
-      minContains: 0
-      maxContains: 1
-    - contains: *id017
-      minContains: 0
-      maxContains: 1
-    - contains: *id018
-      minContains: 0
-      maxContains: 1
-    - contains: *id019
       minContains: 0
       maxContains: 1
   ada:spotDiameterMeasured:

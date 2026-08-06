@@ -448,66 +448,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
-          title: Doubly-Charged Species Monitor
-          description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during
-            instrument tuning.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/geochronTAPP/doublyChargedSpeciesMonitorDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: doublyChargedSpeciesMonitorDefault
-            schema:name:
-              const: Doubly-Charged Species Monitor
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id011
-          title: Doubly-Charged Species Production
-          description: Measured percentage of doubly-charged ion production for the monitored species
-            at the time of instrument tuning.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/geochronTAPP/doublyChargedSpeciesProductionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: doublyChargedSpeciesProductionDefault
-            schema:name:
-              const: Doubly-Charged Species Production
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Instrument Warm-up / Session Duration Limit
           description: Minimum warm-up time required after plasma ignition before analyses begin, and
             any maximum session duration enforced to maintain stable operating conditions.
@@ -637,7 +577,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id012
+        - &id010
           title: Other Information
           description: Supplementary methodological context not captured by the structured fields above,
             as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes
@@ -694,7 +634,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id013
+        - &id011
           title: Uncertainty Level and Propagation
           description: Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method
             used to propagate component uncertainties (e.g., quadratic addition) into the final reported
@@ -750,7 +690,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id014
+        - &id012
           title: Spike / Outlier Filtering Approach
           description: Method used to identify and remove anomalous signal spikes arising from micronuggets,
             inclusions, cracks, or instrument artifacts during time-resolved signal processing.
@@ -805,7 +745,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id015
+        - &id013
           title: Double-Spike Mixing Ratio
           description: Target proportion of double-spike signal relative to total analyte signal in the
             spiked mixture. An optimal mixing ratio minimises error propagation through the double-spike
@@ -861,66 +801,6 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id016
-          title: Memory Effect Mitigation
-          description: Procedure applied to identify and minimise memory effects from high-concentration
-            elements in the previous sample or standard that may contaminate subsequent analyses.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/geochronTAPP/memoryEffectMitigationDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: memoryEffectMitigationDefault
-            schema:name:
-              const: Memory Effect Mitigation
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id017
-          title: Normalization/Standards-Based Correction
-          description: Any post-acquisition normalization applied to correct for systematic biases identified
-            from secondary reference materials.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/geochronTAPP/normalizationStandardsBasedCorrectionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: normalizationStandardsBasedCorrectionDefault
-            schema:name:
-              const: Normalization/Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
       allOf:
       - contains: *id001
         minContains: 0
@@ -1063,12 +943,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id009
-        minContains: 0
-        maxContains: 1
-      - contains: *id010
-        minContains: 0
-        maxContains: 1
-      - contains: *id011
         minContains: 0
         maxContains: 1
       - contains:
@@ -1215,7 +1089,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id012
+      - contains: *id010
         minContains: 0
         maxContains: 1
       - contains:
@@ -1246,7 +1120,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id013
+      - contains: *id011
         minContains: 0
         maxContains: 1
       - contains:
@@ -1277,7 +1151,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id014
+      - contains: *id012
         minContains: 0
         maxContains: 1
       - contains:
@@ -1308,7 +1182,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id015
+      - contains: *id013
         minContains: 0
         maxContains: 1
       - contains:
@@ -1337,12 +1211,6 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        minContains: 0
-        maxContains: 1
-      - contains: *id016
-        minContains: 0
-        maxContains: 1
-      - contains: *id017
         minContains: 0
         maxContains: 1
     schema:object:
@@ -1409,27 +1277,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:coolantGasFlowRate:
-      description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains the ICP plasma.
-        Determines plasma volume and stability.
-      anyOf:
-      - type: number
-      - type: string
-    ada:auxiliaryGasFlowRate:
-      description: Flow rate of the intermediate (auxiliary) argon gas stream that positions the plasma
-        relative to the load coil. Affects ion extraction efficiency and oxide production rates.
-      anyOf:
-      - type: number
-      - type: string
-    ada:plasmaThermalMode:
-      description: Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions.
-        Normal plasma is standard for U-(Th-)Pb geochronology; cool plasma would reduce sensitivity for
-        these high-mass analytes and is not typically used.
-      type: string
-      enum:
-      - Normal plasma (>1000 W RF)
-      - Cool plasma (≤900 W RF)
-      readOnly: true
     ada:massesMeasured:
       description: Mass-to-charge positions (isotope masses) this procedure is designed to measure. Defines
         the scope of the procedure; the analyst may record the specific subset actually measured in a
@@ -1481,14 +1328,14 @@ allOf:
       - Scanning
       - Not applicable (SF/MC-ICP-MS)
       readOnly: true
-    ada:massResolutionPerAnalyte:
-      type: array
-      items:
-        description: Mass resolution mode assigned to each analyte in this procedure. The selected resolution
-          determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant to common-Pb correction)
-          are physically resolved by the magnetic sector. Applicable only to sector-field instruments.
-        type: string
-        readOnly: true
+    ada:analyteTemplate:
+      type: object
+      properties:
+        ada:analyteColumns:
+          type: array
+          items:
+            type: object
+            properties: {}
     ada:gasBlank:
       description: Duration of the background (gas blank) measurement and how it is applied to correct
         the ablation signal.
@@ -1546,28 +1393,6 @@ allOf:
         excess scatter/MSWD in the resulting age population.
       type: string
       readOnly: true
-    ada:isobaricInterferenceCorrection:
-      type: array
-      items:
-        description: Whether isobaric interference corrections were applied for any measured isotope in
-          this procedure. A procedure-level Boolean; element-specific detail is in Interfering Species
-          and Interference Correction Method.
-        type: boolean
-        readOnly: true
-    ada:interferingSpecies:
-      type: array
-      items:
-        description: Elemental or molecular species overlapping with the measured isotope, relevant to
-          U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field above).
-        type: string
-        readOnly: true
-    ada:isobaricInterferenceCorrectionMethod:
-      type: array
-      items:
-        description: Equation or procedure used to correct for isobaric interferences, including the reference
-          material or monitor isotope used to characterise it.
-        type: string
-        readOnly: true
     ada:isotopeDilutionDataReductionMethod:
       description: Mass balance approach used to calculate sample mass fractions from spike-sample isotope
         ratio measurements, relevant when a concentration spike (e.g., ²³⁵U, as in Table 3's own worked
@@ -1584,14 +1409,6 @@ allOf:
         description: Quality-control reference material(s) analysed as unknowns alongside samples in the
           same session to assess accuracy and monitor drift. Include citation/accepted values for each.
         type: string
-    ada:analyteTemplate:
-      type: object
-      properties:
-        ada:analyteColumns:
-          type: array
-          items:
-            type: object
-            properties: {}
     ada:calibrationMeasurementFrequency:
       description: How often the primary calibration standard is measured relative to unknown samples
         within a session, i.e. the bracketing interval used to monitor and correct for instrumental drift.
