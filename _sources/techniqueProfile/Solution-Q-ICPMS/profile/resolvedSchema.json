@@ -10203,6 +10203,34 @@
                 "description": "Date on which the analysis session ended (if spanning multiple days).",
                 "type": "string"
               },
+              "schema:object": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "properties": {
+                        "@type": {
+                          "contains": {
+                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                          }
+                        }
+                      },
+                      "required": [
+                        "@type"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "prov:used": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
               "schema:additionalProperty": {
                 "type": "array",
                 "items": {
@@ -10299,6 +10327,17 @@
                     "maxContains": 1
                   }
                 ]
+              },
+              "schema:actionProcess": {
+                "type": "object",
+                "properties": {
+                  "schema:step": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
               }
             }
           }
@@ -12437,689 +12476,6 @@
               "dqv:isMeasurementOf"
             ]
           }
-        }
-      ]
-    },
-    "schema:additionalProperty": {
-      "type": "array",
-      "items": {
-        "anyOf": [
-          {
-            "title": "Sample Aliquot Mass or Volume",
-            "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
-                }
-              },
-              "schema:name": {
-                "const": "Sample Aliquot Mass or Volume"
-              },
-              "schema:value": {
-                "anyOf": [
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              },
-              "schema:unitText": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value",
-              "schema:unitText"
-            ]
-          },
-          {
-            "title": "Make-up Gas Flow Rate",
-            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
-                }
-              },
-              "schema:name": {
-                "const": "Make-up Gas Flow Rate"
-              },
-              "schema:value": {
-                "anyOf": [
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              },
-              "schema:unitText": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value",
-              "schema:unitText"
-            ]
-          },
-          {
-            "title": "Doubly-Charged Species Monitor",
-            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Monitor"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Doubly-Charged Species Production",
-            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Production"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Spike/Outlier Filtering Approach",
-            "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
-                }
-              },
-              "schema:name": {
-                "const": "Spike/Outlier Filtering Approach"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-                }
-              },
-              "schema:name": {
-                "const": "Pulse/Analog Detector Nonlinearity Correction"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Memory Effect Mitigation",
-            "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
-                }
-              },
-              "schema:name": {
-                "const": "Memory Effect Mitigation"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Uncertainty Propagation Method",
-            "description": "Method used to propagate analytical uncertainties from raw signals through to final concentration values.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
-                }
-              },
-              "schema:name": {
-                "const": "Uncertainty Propagation Method"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          {
-            "title": "Normalization/Standards-Based Correction",
-            "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
-                }
-              },
-              "schema:name": {
-                "const": "Normalization/Standards-Based Correction"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          }
-        ]
-      },
-      "allOf": [
-        {
-          "contains": {
-            "title": "Sample Aliquot Mass or Volume",
-            "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
-                }
-              },
-              "schema:name": {
-                "const": "Sample Aliquot Mass or Volume"
-              },
-              "schema:value": {
-                "anyOf": [
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              },
-              "schema:unitText": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value",
-              "schema:unitText"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Make-up Gas Flow Rate",
-            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
-                }
-              },
-              "schema:name": {
-                "const": "Make-up Gas Flow Rate"
-              },
-              "schema:value": {
-                "anyOf": [
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              },
-              "schema:unitText": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value",
-              "schema:unitText"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Doubly-Charged Species Monitor",
-            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Monitor"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Doubly-Charged Species Production",
-            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
-                }
-              },
-              "schema:name": {
-                "const": "Doubly-Charged Species Production"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Spike/Outlier Filtering Approach",
-            "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
-                }
-              },
-              "schema:name": {
-                "const": "Spike/Outlier Filtering Approach"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-                }
-              },
-              "schema:name": {
-                "const": "Pulse/Analog Detector Nonlinearity Correction"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Memory Effect Mitigation",
-            "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
-                }
-              },
-              "schema:name": {
-                "const": "Memory Effect Mitigation"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Uncertainty Propagation Method",
-            "description": "Method used to propagate analytical uncertainties from raw signals through to final concentration values.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
-                }
-              },
-              "schema:name": {
-                "const": "Uncertainty Propagation Method"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Normalization/Standards-Based Correction",
-            "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue"
-                ]
-              },
-              "schema:propertyID": {
-                "const": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
-                }
-              },
-              "schema:name": {
-                "const": "Normalization/Standards-Based Correction"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
         }
       ]
     }
@@ -15368,87 +14724,91 @@
                                 }
                               ]
                             },
+                            "schema:actionProcess": {
+                              "type": "object",
+                              "properties": {
+                                "schema:step": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object"
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "const": "samplePreparation"
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "contains": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "const": "sampleDigestion"
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            "ada:finalSolutionMatrix": {
+                              "description": "Acid type and concentration of the final dissolved sample solution introduced to the instrument. Directly affects instrument response and ion transmission.",
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            "ada:chromatographicSeparationApplied": {
+                              "description": "Whether chromatographic separation of element groups (e.g., using ion exchange resin) was performed prior to ICP-MS analysis. Common for protocols requiring matrix removal or interference elimination before measurement (e.g., Fe and Cu–Zn for isotope dilution). Record resin type and matrix conditions if applied. Record 'None' if direct digestion solution is analyzed.",
+                              "type": "string",
+                              "enum": [
+                                "Anion exchange resin (HCl)",
+                                "Cation exchange resin",
+                                "AG1-X8 (HBr)",
+                                "None",
+                                "N/A"
+                              ],
+                              "readOnly": true
+                            },
+                            "ada:isotopeDilutionSpike": {
+                              "description": "Isotopic spike material added to the sample before or during digestion for isotope dilution (ID) analysis. Record spike name or certificate reference and spike isotope(s). Record 'None' if ID technique is not used.",
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            "schema:instrument": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              },
+                              "allOf": [
+                                {
+                                  "contains": {
+                                    "properties": {
+                                      "schema:additionalType": {
+                                        "contains": {
+                                          "const": "ICPMS"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "schema:additionalType"
+                                    ]
+                                  }
+                                }
+                              ]
+                            },
                             "schema:additionalProperty": {
                               "type": "array",
                               "items": {
                                 "anyOf": [
-                                  {
-                                    "title": "Sample IGSN",
-                                    "description": "International Geo Sample Number (IGSN) or other persistent identifier for the sample.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/sampleIgsn"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValue"
-                                        ]
-                                      },
-                                      "schema:propertyID": {
-                                        "const": {
-                                          "@id": "ada:parameter/solutionQicpmsTAPP/sampleIgsn"
-                                        }
-                                      },
-                                      "schema:name": {
-                                        "const": "Sample IGSN"
-                                      },
-                                      "schema:value": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:propertyID",
-                                      "schema:name",
-                                      "schema:value"
-                                    ]
-                                  },
-                                  {
-                                    "title": "Sample Aliquot Mass or Volume",
-                                    "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolumeDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "sampleAliquotMassOrVolumeDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Sample Aliquot Mass or Volume"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "number"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      },
-                                      "schema:unitText": {
-                                        "const": "mg or mL"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
                                   {
                                     "title": "Desolvation System",
                                     "description": "Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity for selected element groups (e.g., ApexQ for chalcophile elements). Record 'None' if not used.",
@@ -15482,50 +14842,6 @@
                                       "schema:value"
                                     ],
                                     "readOnly": true
-                                  },
-                                  {
-                                    "title": "Make-up Gas Flow Rate",
-                                    "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "makeUpGasFlowRateDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Make-up Gas Flow Rate"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "number"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      },
-                                      "schema:unitText": {
-                                        "const": "L/min"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
                                   },
                                   {
                                     "title": "Internal Standard Concentration",
@@ -15573,88 +14889,6 @@
                                     "readOnly": true
                                   },
                                   {
-                                    "title": "Doubly-Charged Species Monitor",
-                                    "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "doublyChargedSpeciesMonitorDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Doubly-Charged Species Monitor"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  {
-                                    "title": "Doubly-Charged Species Production",
-                                    "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "doublyChargedSpeciesProductionDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Doubly-Charged Species Production"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  {
                                     "title": "Spike/Outlier Filtering Approach",
                                     "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
                                     "type": "object",
@@ -15696,88 +14930,6 @@
                                     ]
                                   },
                                   {
-                                    "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                    "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Pulse/Analog Detector Nonlinearity Correction"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  {
-                                    "title": "Memory Effect Mitigation",
-                                    "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "memoryEffectMitigationDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Memory Effect Mitigation"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  {
                                     "title": "Uncertainty Propagation Method",
                                     "description": "Method used to propagate analytical uncertainties from raw signals through to final concentration values.",
                                     "type": "object",
@@ -15795,47 +14947,6 @@
                                       },
                                       "schema:name": {
                                         "const": "Uncertainty Propagation Method"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  {
-                                    "title": "Normalization/Standards-Based Correction",
-                                    "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "normalizationStandardsBasedCorrectionDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Normalization/Standards-Based Correction"
                                       },
                                       "ada:dataType": {
                                         "const": "string"
@@ -15864,91 +14975,6 @@
                               "allOf": [
                                 {
                                   "contains": {
-                                    "title": "Sample IGSN",
-                                    "description": "International Geo Sample Number (IGSN) or other persistent identifier for the sample.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/sampleIgsn"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValue"
-                                        ]
-                                      },
-                                      "schema:propertyID": {
-                                        "const": {
-                                          "@id": "ada:parameter/solutionQicpmsTAPP/sampleIgsn"
-                                        }
-                                      },
-                                      "schema:name": {
-                                        "const": "Sample IGSN"
-                                      },
-                                      "schema:value": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:propertyID",
-                                      "schema:name",
-                                      "schema:value"
-                                    ]
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
-                                },
-                                {
-                                  "contains": {
-                                    "title": "Sample Aliquot Mass or Volume",
-                                    "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolumeDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "sampleAliquotMassOrVolumeDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Sample Aliquot Mass or Volume"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "number"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      },
-                                      "schema:unitText": {
-                                        "const": "mg or mL"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
-                                },
-                                {
-                                  "contains": {
                                     "title": "Desolvation System",
                                     "description": "Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity for selected element groups (e.g., ApexQ for chalcophile elements). Record 'None' if not used.",
                                     "type": "object",
@@ -15981,54 +15007,6 @@
                                       "schema:value"
                                     ],
                                     "readOnly": true
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
-                                },
-                                {
-                                  "contains": {
-                                    "title": "Make-up Gas Flow Rate",
-                                    "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "makeUpGasFlowRateDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Make-up Gas Flow Rate"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "number"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      },
-                                      "schema:unitText": {
-                                        "const": "L/min"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
                                   },
                                   "minContains": 0,
                                   "maxContains": 1
@@ -16084,96 +15062,6 @@
                                 },
                                 {
                                   "contains": {
-                                    "title": "Doubly-Charged Species Monitor",
-                                    "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "doublyChargedSpeciesMonitorDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Doubly-Charged Species Monitor"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
-                                },
-                                {
-                                  "contains": {
-                                    "title": "Doubly-Charged Species Production",
-                                    "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "doublyChargedSpeciesProductionDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Doubly-Charged Species Production"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
-                                },
-                                {
-                                  "contains": {
                                     "title": "Spike/Outlier Filtering Approach",
                                     "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
                                     "type": "object",
@@ -16191,96 +15079,6 @@
                                       },
                                       "schema:name": {
                                         "const": "Spike/Outlier Filtering Approach"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
-                                },
-                                {
-                                  "contains": {
-                                    "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                    "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Pulse/Analog Detector Nonlinearity Correction"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
-                                },
-                                {
-                                  "contains": {
-                                    "title": "Memory Effect Mitigation",
-                                    "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "memoryEffectMitigationDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Memory Effect Mitigation"
                                       },
                                       "ada:dataType": {
                                         "const": "string"
@@ -16351,153 +15149,10 @@
                                   },
                                   "minContains": 0,
                                   "maxContains": 1
-                                },
-                                {
-                                  "contains": {
-                                    "title": "Normalization/Standards-Based Correction",
-                                    "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "normalizationStandardsBasedCorrectionDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Normalization/Standards-Based Correction"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "minContains": 0,
-                                  "maxContains": 1
                                 }
                               ]
                             },
-                            "schema:actionProcess": {
-                              "type": "object",
-                              "properties": {
-                                "schema:step": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object"
-                                  },
-                                  "allOf": [
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "samplePreparation"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            "ada:digestionAcid": {
-                              "description": "Acid mixture used for sample dissolution. Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3, HNO3–HCl).",
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            "ada:digestionVesselType": {
-                              "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution.",
-                              "type": "string",
-                              "enum": [
-                                "Savillex beaker",
-                                "Parr bomb",
-                                "Carius tube",
-                                "HPA-S",
-                                "Open beaker",
-                                "N/A",
-                                "None"
-                              ],
-                              "readOnly": true
-                            },
-                            "ada:numberOfDigestionSteps": {
-                              "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some protocols require multiple sequential steps (e.g., an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals).",
-                              "anyOf": [
-                                {
-                                  "type": "integer"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ],
-                              "readOnly": true
-                            },
-                            "ada:digestionTemperature": {
-                              "description": "Temperature at which acid digestion was carried out (°C). Protocol specifies the target temperature.",
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            },
-                            "ada:digestionDuration": {
-                              "description": "Duration of the primary acid digestion step (hours or days).",
-                              "type": "string"
-                            },
-                            "ada:finalSolutionMatrix": {
-                              "description": "Acid type and concentration of the final dissolved sample solution introduced to the instrument. Directly affects instrument response and ion transmission.",
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            "ada:chromatographicSeparationApplied": {
-                              "description": "Whether chromatographic separation of element groups (e.g., using ion exchange resin) was performed prior to ICP-MS analysis. Common for protocols requiring matrix removal or interference elimination before measurement (e.g., Fe and Cu–Zn for isotope dilution). Record resin type and matrix conditions if applied. Record 'None' if direct digestion solution is analyzed.",
-                              "type": "string",
-                              "enum": [
-                                "Anion exchange resin (HCl)",
-                                "Cation exchange resin",
-                                "AG1-X8 (HBr)",
-                                "None",
-                                "N/A"
-                              ],
-                              "readOnly": true
-                            },
-                            "ada:isotopeDilutionSpike": {
-                              "description": "Isotopic spike material added to the sample before or during digestion for isotope dilution (ID) analysis. Record spike name or certificate reference and spike isotope(s). Record 'None' if ID technique is not used.",
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            "ada:instrumentMakeAndModel": {
-                              "description": "Manufacturer and model name of the quadrupole ICP-MS instrument (e.g., Thermo iCAP RQ, Agilent 7900, PerkinElmer NexION 350D). Determines instrument-specific tuning parameters and available cell configurations.",
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            "schema:instrument": {
+                            "bios:computationalTool": {
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -16506,101 +15161,28 @@
                                 {
                                   "contains": {
                                     "properties": {
-                                      "schema:additionalType": {
-                                        "contains": {
-                                          "const": "ICPMS"
-                                        }
+                                      "ada:toolRole": {
+                                        "const": "acquisition"
                                       }
                                     },
                                     "required": [
-                                      "schema:additionalType"
+                                      "ada:toolRole"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "contains": {
+                                    "properties": {
+                                      "ada:toolRole": {
+                                        "const": "dataReduction"
+                                      }
+                                    },
+                                    "required": [
+                                      "ada:toolRole"
                                     ]
                                   }
                                 }
                               ]
-                            },
-                            "ada:nebulizerType": {
-                              "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            "ada:sprayChamberTypeAndCoolingTemperature": {
-                              "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma.",
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            "ada:sampleUptakeRate": {
-                              "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            },
-                            "bios:computationalTool": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {}
-                              }
-                            },
-                            "ada:rfPower": {
-                              "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            },
-                            "ada:coolantGasFlowRate": {
-                              "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            },
-                            "ada:auxiliaryGasFlowRate": {
-                              "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            },
-                            "ada:nebulizerGasFlowRate": {
-                              "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity.",
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            },
-                            "ada:plasmaThermalMode": {
-                              "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
-                              "type": "string",
-                              "enum": [
-                                "Normal plasma",
-                                "Cool plasma",
-                                "N/A",
-                                "None"
-                              ],
-                              "readOnly": true
                             },
                             "ada:analyteTemplate": {
                               "type": "object",
@@ -16620,26 +15202,6 @@
                                   }
                                 }
                               }
-                            },
-                            "ada:monitoredIsotopes": {
-                              "type": "array",
-                              "items": {
-                                "description": "Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor masses. Analyte-specific field.",
-                                "type": "string",
-                                "readOnly": true
-                              }
-                            },
-                            "ada:dwellTime": {
-                              "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ],
-                              "readOnly": true
                             },
                             "ada:massCyclesPerReplicate": {
                               "description": "Number of complete mass scans (sweeps) accumulated per analytical replicate.",
@@ -16767,37 +15329,6 @@
                               ],
                               "readOnly": true
                             },
-                            "ada:isobaricInterferenceCorrection": {
-                              "type": "array",
-                              "items": {
-                                "description": "Whether mathematical corrections for isobaric or polyatomic interferences are applied during data reduction (in addition to any KED or DRC mitigation in the instrument).",
-                                "type": "string",
-                                "enum": [
-                                  "Y",
-                                  "N",
-                                  "Analyte-specific",
-                                  "N/A",
-                                  "None"
-                                ],
-                                "readOnly": true
-                              }
-                            },
-                            "ada:interferingSpecies": {
-                              "type": "array",
-                              "items": {
-                                "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.",
-                                "type": "string",
-                                "readOnly": true
-                              }
-                            },
-                            "ada:isobaricInterferenceCorrectionMethod": {
-                              "type": "array",
-                              "items": {
-                                "description": "Mathematical approach used to calculate and remove interference contributions from measured signals (e.g., interference standard solutions isolating specific polyatomics, mass-balance equations using empirical correction factors).",
-                                "type": "string",
-                                "readOnly": true
-                              }
-                            },
                             "ada:isotopeDilutionDataReductionMethod": {
                               "description": "Mass balance approach used to calculate sample mass fractions from spike–sample isotope ratio measurements. Record 'None' if isotope dilution is not used.",
                               "type": "string",
@@ -16827,24 +15358,9 @@
                           "required": [
                             "schema:name",
                             "schema:datePublished",
-                            "ada:digestionAcid",
-                            "ada:digestionVesselType",
-                            "ada:numberOfDigestionSteps",
-                            "ada:digestionTemperature",
-                            "ada:digestionDuration",
                             "ada:finalSolutionMatrix",
                             "ada:chromatographicSeparationApplied",
                             "ada:isotopeDilutionSpike",
-                            "ada:instrumentMakeAndModel",
-                            "ada:nebulizerType",
-                            "ada:sprayChamberTypeAndCoolingTemperature",
-                            "ada:sampleUptakeRate",
-                            "ada:rfPower",
-                            "ada:coolantGasFlowRate",
-                            "ada:auxiliaryGasFlowRate",
-                            "ada:nebulizerGasFlowRate",
-                            "ada:plasmaThermalMode",
-                            "ada:dwellTime",
                             "ada:massCyclesPerReplicate",
                             "ada:numberOfReplicatesPerSample",
                             "ada:sampleSequenceDesign",

@@ -4987,820 +4987,6 @@ $defs:
     - schema:name
     - schema:value
 
-  solutionQicpms_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/coupledProtocolDoi
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/coupledProtocolDoi
-      schema:name:
-        const: Coupled Protocol DOI
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_coupledDatasetOrPublicationReference:
-    title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN (Group 2), this field may be 'None'.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
-      schema:name:
-        const: Coupled Dataset or Publication Reference
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  digestionTemperature:
-    title: Digestion Temperature
-    description: Temperature at which acid digestion was carried out (°C). Protocol specifies the target
-      temperature.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/digestionTemperature
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/digestionTemperature
-      schema:name:
-        const: Digestion Temperature
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  digestionDuration:
-    title: Digestion Duration
-    description: Duration of the primary acid digestion step (hours or days).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/digestionDuration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/digestionDuration
-      schema:name:
-        const: Digestion Duration
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  sampleAliquotMassOrVolume:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
-      for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_instrumentSerialNumberOrLabIdentifier:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
-      traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_torchDepth:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
-      the target torch position; analyst confirms or adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/torchDepth
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/torchDepth
-      schema:name:
-        const: Torch Depth
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  sampleUptakeRate:
-    title: Sample Uptake Rate
-    description: Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or
-      mL/min).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
-      schema:name:
-        const: Sample Uptake Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_rfPower:
-    title: RF Power
-    description: Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency
-      and oxide production rates.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/rfPower
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/rfPower
-      schema:name:
-        const: RF Power
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_coolantGasFlowRate:
-    title: Coolant (Plasma) Gas Flow Rate
-    description: Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature
-      and oxide ion formation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
-      schema:name:
-        const: Coolant (Plasma) Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_auxiliaryGasFlowRate:
-    title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector
-      tube (L/min).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
-      schema:name:
-        const: Auxiliary Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  nebulizerGasFlowRate:
-    title: Nebulizer Gas Flow Rate
-    description: Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol
-      transport and strongly influences signal sensitivity.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-      schema:name:
-        const: Nebulizer Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  makeUpGasFlowRate:
-    title: Make-up Gas Flow Rate
-    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
-      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
-      schema:name:
-        const: Make-up Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_collisionGasFlowRate:
-    title: Collision Gas Flow Rate
-    description: Flow rate of the collision gas in KED mode (mL/min). Higher flow rates provide greater
-      interference suppression at the cost of analyte sensitivity. Record 'N/A' if KED mode is not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
-      schema:name:
-        const: Collision Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_cellExitDiscriminationVoltage:
-    title: Cell Exit Discrimination Voltage
-    description: Kinetic energy discrimination offset voltage applied at the exit of the collision cell
-      (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
-      schema:name:
-        const: Cell Exit Discrimination Voltage
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_reactionGasFlowRate:
-    title: Reaction Gas Flow Rate
-    description: Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
-      schema:name:
-        const: Reaction Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_doublyChargedSpeciesMonitor:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
-      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
-      analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution
-      ICP-MS.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_doublyChargedSpeciesProduction:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored species at the time
-      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
-      production indicates incomplete ionization and potential interference on elements at approximately
-      half the mass of abundant matrix components.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
-      schema:name:
-        const: Doubly-Charged Species Production
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_spikeOutlierFilteringApproach:
-    title: Spike/Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
-      the calculated mean.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
-      schema:name:
-        const: Spike/Outlier Filtering Approach
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  pulseAnalogDetectorNonlinearityCorrection:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response at the transition between
-      pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors,
-      a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate
-      cross-calibration is critical for analytes spanning a wide concentration range in the same session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_memoryEffectMitigation:
-    title: Memory Effect Mitigation
-    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
-      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
-      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
-      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
-      where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
-      schema:name:
-        const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  uncertaintyPropagationMethod:
-    title: Uncertainty Propagation Method
-    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
-      values.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
-      schema:name:
-        const: Uncertainty Propagation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_normalizationStandardsBasedCorrection:
-    title: Normalization/Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative to a reference
-      value (e.g., correction to a monitor element's certified value in the calibration standard).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
-      schema:name:
-        const: Normalization/Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: Name and reference material identifier of the external calibration standard used to convert
-      signal intensities to elemental concentrations.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Reference material(s) measured as unknowns to independently assess analytical accuracy.
-      Specify material name and expected-value source.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_torchType:
-    title: Torch Type
-    description: Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/torchType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/torchType
-      schema:name:
-        const: Torch Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_samplerAndSkimmerConeMaterial:
-    title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most
-      aqueous matrices. Platinum (Pt) is used for samples in HCl-rich or organic matrices due to greater
-      corrosion resistance.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-      schema:name:
-        const: Sampler and Skimmer Cone Material
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_guardElectrode:
-    title: Guard Electrode
-    description: Whether a guard electrode (grounded shield electrode) is installed and active on the torch
-      assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving
-      ion extraction efficiency.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/guardElectrode
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/guardElectrode
-      schema:name:
-        const: Guard Electrode
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  desolvationSystem:
-    title: Desolvation System
-    description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
-      load. Lowers oxide production rates and increases sensitivity for selected element groups (e.g., ApexQ
-      for chalcophile elements). Record 'None' if not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/desolvationSystem
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/desolvationSystem
-      schema:name:
-        const: Desolvation System
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_reactionGasType:
-    title: Reaction Gas Type
-    description: Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4). Record
-      'N/A' if DRC mode is not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/reactionGasType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/reactionGasType
-      schema:name:
-        const: Reaction Gas Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  internalStandardConcentration:
-    title: Internal Standard Concentration
-    description: Target concentration of internal standard element(s) in all measured solutions (µg/L or
-      ppb).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
-      schema:name:
-        const: Internal Standard Concentration
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-
   semImaging_coupledProtocolDoi:
     title: Coupled Protocol DOI
     description: DOI of the registered protocol for the coupled technique.
@@ -11131,6 +10317,820 @@ $defs:
       schema:propertyID:
         const:
           '@id': ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
+      schema:name:
+        const: Internal Standard Concentration
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+
+  solutionQicpms_coupledProtocolDoi:
+    title: Coupled Protocol DOI
+    description: DOI of the registered protocol for the coupled technique.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/coupledProtocolDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/coupledProtocolDoi
+      schema:name:
+        const: Coupled Protocol DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
+      documented only through a shared sample IGSN (Group 2), this field may be 'None'.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  digestionTemperature:
+    title: Digestion Temperature
+    description: Temperature at which acid digestion was carried out (°C). Protocol specifies the target
+      temperature.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/digestionTemperature
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/digestionTemperature
+      schema:name:
+        const: Digestion Temperature
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  digestionDuration:
+    title: Digestion Duration
+    description: Duration of the primary acid digestion step (hours or days).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/digestionDuration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/digestionDuration
+      schema:name:
+        const: Digestion Duration
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sampleAliquotMassOrVolume:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
+      for yield calculations and concentration back-calculation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_instrumentSerialNumberOrLabIdentifier:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
+      traceability to instrument service records.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_torchDepth:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
+      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
+      the target torch position; analyst confirms or adjusts during session tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/torchDepth
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/torchDepth
+      schema:name:
+        const: Torch Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sampleUptakeRate:
+    title: Sample Uptake Rate
+    description: Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or
+      mL/min).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+      schema:name:
+        const: Sample Uptake Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_rfPower:
+    title: RF Power
+    description: Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency
+      and oxide production rates.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/rfPower
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/rfPower
+      schema:name:
+        const: RF Power
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_coolantGasFlowRate:
+    title: Coolant (Plasma) Gas Flow Rate
+    description: Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature
+      and oxide ion formation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
+      schema:name:
+        const: Coolant (Plasma) Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_auxiliaryGasFlowRate:
+    title: Auxiliary Gas Flow Rate
+    description: Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector
+      tube (L/min).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
+      schema:name:
+        const: Auxiliary Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  nebulizerGasFlowRate:
+    title: Nebulizer Gas Flow Rate
+    description: Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol
+      transport and strongly influences signal sensitivity.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
+      schema:name:
+        const: Nebulizer Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  makeUpGasFlowRate:
+    title: Make-up Gas Flow Rate
+    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
+      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
+      schema:name:
+        const: Make-up Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_collisionGasFlowRate:
+    title: Collision Gas Flow Rate
+    description: Flow rate of the collision gas in KED mode (mL/min). Higher flow rates provide greater
+      interference suppression at the cost of analyte sensitivity. Record 'N/A' if KED mode is not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
+      schema:name:
+        const: Collision Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_cellExitDiscriminationVoltage:
+    title: Cell Exit Discrimination Voltage
+    description: Kinetic energy discrimination offset voltage applied at the exit of the collision cell
+      (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
+      schema:name:
+        const: Cell Exit Discrimination Voltage
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_reactionGasFlowRate:
+    title: Reaction Gas Flow Rate
+    description: Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
+      schema:name:
+        const: Reaction Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_doublyChargedSpeciesMonitor:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
+      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
+      analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution
+      ICP-MS.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_doublyChargedSpeciesProduction:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored species at the time
+      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
+      production indicates incomplete ionization and potential interference on elements at approximately
+      half the mass of abundant matrix components.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
+      schema:name:
+        const: Doubly-Charged Species Production
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_spikeOutlierFilteringApproach:
+    title: Spike/Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
+      the calculated mean.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
+      schema:name:
+        const: Spike/Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pulseAnalogDetectorNonlinearityCorrection:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response at the transition between
+      pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors,
+      a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate
+      cross-calibration is critical for analytes spanning a wide concentration range in the same session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_memoryEffectMitigation:
+    title: Memory Effect Mitigation
+    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
+      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
+      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
+      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
+      where the required washout time may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
+      schema:name:
+        const: Memory Effect Mitigation
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  uncertaintyPropagationMethod:
+    title: Uncertainty Propagation Method
+    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
+      values.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
+      schema:name:
+        const: Uncertainty Propagation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_normalizationStandardsBasedCorrection:
+    title: Normalization/Standards-Based Correction
+    description: Post-acquisition normalization applied to output concentrations relative to a reference
+      value (e.g., correction to a monitor element's certified value in the calibration standard).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization/Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_primaryCalibrationStandardName:
+    title: Primary Calibration Standard Name
+    description: Name and reference material identifier of the external calibration standard used to convert
+      signal intensities to elemental concentrations.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
+      schema:name:
+        const: Primary Calibration Standard Name
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_secondaryReferenceMaterials:
+    title: Secondary Reference Materials
+    description: Reference material(s) measured as unknowns to independently assess analytical accuracy.
+      Specify material name and expected-value source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
+      schema:name:
+        const: Secondary Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_torchType:
+    title: Torch Type
+    description: Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/torchType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/torchType
+      schema:name:
+        const: Torch Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_samplerAndSkimmerConeMaterial:
+    title: Sampler and Skimmer Cone Material
+    description: Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most
+      aqueous matrices. Platinum (Pt) is used for samples in HCl-rich or organic matrices due to greater
+      corrosion resistance.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
+      schema:name:
+        const: Sampler and Skimmer Cone Material
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_guardElectrode:
+    title: Guard Electrode
+    description: Whether a guard electrode (grounded shield electrode) is installed and active on the torch
+      assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving
+      ion extraction efficiency.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/guardElectrode
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/guardElectrode
+      schema:name:
+        const: Guard Electrode
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  desolvationSystem:
+    title: Desolvation System
+    description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
+      load. Lowers oxide production rates and increases sensitivity for selected element groups (e.g., ApexQ
+      for chalcophile elements). Record 'None' if not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/desolvationSystem
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/desolvationSystem
+      schema:name:
+        const: Desolvation System
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_reactionGasType:
+    title: Reaction Gas Type
+    description: Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4). Record
+      'N/A' if DRC mode is not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/reactionGasType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/reactionGasType
+      schema:name:
+        const: Reaction Gas Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  internalStandardConcentration:
+    title: Internal Standard Concentration
+    description: Target concentration of internal standard element(s) in all measured solutions (µg/L or
+      ppb).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
       schema:name:
         const: Internal Standard Concentration
       schema:value:

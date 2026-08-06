@@ -30,6 +30,92 @@
     {
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:identifier": "example sampleIgsn",
+          "schema:description": "example sampleDescription",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
+              },
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 1,
+              "schema:unitText": "example value"
+            }
+          ]
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:additionalType": [
+            "ICPMS"
+          ],
+          "schema:hasPart": [
+            {
+              "schema:additionalType": [
+                "Sample Introduction System"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
+                  },
+                  "schema:name": "Make-up Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
+              },
+              "schema:name": "Doubly-Charged Species Monitor",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
+              },
+              "schema:name": "Doubly-Charged Species Production",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
+              },
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "example value"
+            }
+          ]
+        }
+      ],
       "schema:additionalProperty": [
         {
           "@id": "ada:parameter/solutionQicpmsTAPP/signalIntegrationTime",
@@ -43,7 +129,60 @@
           "schema:value": 1,
           "schema:unitText": "example value"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "dataReduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
+                },
+                "schema:name": "Spike/Outlier Filtering Approach",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
+                },
+                "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
+                },
+                "schema:name": "Uncertainty Propagation Method",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
+                },
+                "schema:name": "Normalization/Standards-Based Correction",
+                "schema:value": "example value"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "schema:funding": [],
@@ -63,109 +202,6 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
-      },
-      "schema:name": "Sample Aliquot Mass or Volume",
-      "schema:value": 1,
-      "schema:unitText": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
-      },
-      "schema:name": "Make-up Gas Flow Rate",
-      "schema:value": 1,
-      "schema:unitText": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
-      },
-      "schema:name": "Doubly-Charged Species Monitor",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
-      },
-      "schema:name": "Doubly-Charged Species Production",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
-      },
-      "schema:name": "Spike/Outlier Filtering Approach",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-      },
-      "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
-      },
-      "schema:name": "Memory Effect Mitigation",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
-      },
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
-      },
-      "schema:name": "Normalization/Standards-Based Correction",
-      "schema:value": "example value"
     }
   ],
   "dqv:hasQualityMeasurement": [
