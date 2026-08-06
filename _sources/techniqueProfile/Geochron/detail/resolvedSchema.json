@@ -7,7 +7,39 @@
     "schema:contributor": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:roleName": {
+                  "const": "analyst"
+                }
+              },
+              "required": [
+                "schema:roleName"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:name": {
+                  "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID recommended for persistent identification.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       },
       "allOf": [
         {
@@ -40,7 +72,130 @@
           "schema:object": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "@type": {
+                        "contains": {
+                          "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Name or identifier of the sample analysed, as used in the laboratory. Should match the identifier used in associated publications or data tables.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "schema:identifier": {
+                        "description": "Globally unique, persistent identifier for the analysed sample. IGSN is the recommended standard for geological and cosmochemical samples.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "schema:additionalProperty": {
+                        "type": "array",
+                        "items": {
+                          "title": "Analysis Location/Spot Coordinates",
+                          "description": "Location of the analysis on the sample surface: stage coordinates (X, Y) or a description relative to a named reference feature (e.g., mineral rim, growth zone identified by imaging).",
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "const": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                            },
+                            "@type": {
+                              "const": [
+                                "schema:PropertyValue"
+                              ]
+                            },
+                            "schema:propertyID": {
+                              "const": {
+                                "@id": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                              }
+                            },
+                            "schema:name": {
+                              "const": "Analysis Location/Spot Coordinates"
+                            },
+                            "schema:value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                          ]
+                        },
+                        "allOf": [
+                          {
+                            "contains": {
+                              "title": "Analysis Location/Spot Coordinates",
+                              "description": "Location of the analysis on the sample surface: stage coordinates (X, Y) or a description relative to a named reference feature (e.g., mineral rim, growth zone identified by imaging).",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Analysis Location/Spot Coordinates"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
             },
             "allOf": [
               {
@@ -62,7 +217,246 @@
           "prov:used": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "schema:additionalType": {
+                        "contains": {
+                          "const": "ICPMS"
+                        }
+                      }
+                    },
+                    "required": [
+                      "schema:additionalType"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:additionalProperty": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "title": "Doubly-Charged Species Monitor",
+                              "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Doubly-Charged Species Monitor"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "title": "Doubly-Charged Species Production",
+                              "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Doubly-Charged Species Production"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "title": "Memory Effect Mitigation",
+                              "description": "Procedure applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Memory Effect Mitigation"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            }
+                          ]
+                        },
+                        "allOf": [
+                          {
+                            "contains": {
+                              "title": "Doubly-Charged Species Monitor",
+                              "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Doubly-Charged Species Monitor"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                          },
+                          {
+                            "contains": {
+                              "title": "Doubly-Charged Species Production",
+                              "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Doubly-Charged Species Production"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                          },
+                          {
+                            "contains": {
+                              "title": "Memory Effect Mitigation",
+                              "description": "Procedure applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Memory Effect Mitigation"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
             }
           },
           "schema:additionalProperty": {
@@ -256,7 +650,100 @@
               "schema:step": {
                 "type": "array",
                 "items": {
-                  "type": "object"
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "schema:name": {
+                            "const": "dataReduction"
+                          }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:additionalProperty": {
+                            "type": "array",
+                            "items": {
+                              "title": "Normalization/Standards-Based Correction",
+                              "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Normalization/Standards-Based Correction"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "allOf": [
+                              {
+                                "contains": {
+                                  "title": "Normalization/Standards-Based Correction",
+                                  "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Normalization/Standards-Based Correction"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -282,7 +769,96 @@
     "schema:relatedLink": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledTechnique"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:name": {
+                      "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with, or used to independently validate, this dataset. Enter 'None' if no coupling is intended.",
+                      "type": "string",
+                      "enum": [
+                        "CA-ID-TIMS",
+                        "SIMS",
+                        "EPMA",
+                        "CL/BSE Imaging",
+                        "None"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledProtocol"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:url": {
+                      "description": "Registered procedure DOI for the coupled technique named above.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledDataset"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "description": "DOI or persistent identifier for the co-registered dataset or publication reporting both datasets together.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "schema:additionalProperty": {
@@ -1265,7 +1841,39 @@
     "dqv:hasQualityMeasurement": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Oxide production ratio"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Actual oxide production ratio measured during this analytical session, using the method specified in Oxide Production Method and Threshold.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       },
       "allOf": [
         {

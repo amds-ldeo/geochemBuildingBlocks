@@ -3980,13 +3980,147 @@
         "schema:relatedLink": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for publications or reports describing or evaluating this protocol.",
+                          "type": "string",
+                          "readOnly": true
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:description": {
+                          "description": "Describes (1) the functional relationship between this SEM/FIB-SEM dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
         },
         "schema:object": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:name": {
+                                  "const": "Target Material"
+                                }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:value": {
+                                  "type": "array",
+                                  "items": {
+                                    "description": "General description of the material type(s) this protocol is designed to analyze.",
+                                    "type": "string",
+                                    "enum": [
+                                      "Silicate mineral",
+                                      "Oxide",
+                                      "Sulfide",
+                                      "Carbonate",
+                                      "Phosphate",
+                                      "Metal alloy",
+                                      "Organic matter",
+                                      "Glass",
+                                      "Regolith",
+                                      "Whole rock / polished section",
+                                      "Porous material",
+                                      "N/A",
+                                      "None"
+                                    ],
+                                    "readOnly": true
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:name": {
+                                "const": "Target Material"
+                              }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "allOf": [
             {
@@ -4011,7 +4145,39 @@
             "schema:step": {
               "type": "array",
               "items": {
-                "type": "object"
+                "type": "object",
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "samplePreparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:description": {
+                          "description": "Method by which samples were prepared for SEM analysis prior to loading in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing steps (alumina, colloidal silica, argon ion mill), and conductive coating type and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and the gas type used. FIB-specific in-session operations (protective coating deposition, milling conditions, lamella preparation) are documented separately in Group 4.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
               },
               "allOf": [
                 {
@@ -5978,7 +6144,69 @@
         "bios:computationalTool": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Software used to control the SEM and acquire data, including version number. For FIB-SEM 3D tomography, include the automated slice-and-view module name and version.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Software used for post-acquisition data reduction and analysis. List all packages with version numbers.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "allOf": [
             {

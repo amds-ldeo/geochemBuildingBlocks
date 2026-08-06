@@ -3977,13 +3977,144 @@
         "schema:relatedLink": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this protocol.",
+                          "type": "string",
+                          "readOnly": true
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:description": {
+                          "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
         },
         "schema:object": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:name": {
+                                  "const": "Target Material"
+                                }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:value": {
+                                  "type": "array",
+                                  "items": {
+                                    "description": "General description of the material type(s) this protocol is designed to scan. Used for discoverability and protocol matching.",
+                                    "type": "string",
+                                    "enum": [
+                                      "Chondrite meteorite",
+                                      "Achondrite meteorite",
+                                      "Lunar sample",
+                                      "Mission-returned sample",
+                                      "Drill core (rock)",
+                                      "Sediment core",
+                                      "Terrestrial rock",
+                                      "Cosmic spherule",
+                                      "N/A",
+                                      "None"
+                                    ],
+                                    "readOnly": true
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:name": {
+                                "const": "Target Material"
+                              }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "allOf": [
             {
@@ -6001,7 +6132,39 @@
         "bios:computationalTool": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "allOf": [
             {

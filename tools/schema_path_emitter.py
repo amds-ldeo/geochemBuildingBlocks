@@ -157,6 +157,18 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 node = child
 
 
+def _jsonld_card(sch):
+    """A scalar-typed property in JSON-LD may appear as the value OR an array of it. When
+    materializing a nested leaf as a constraint, tolerate both so real instances (e.g.
+    schema:identifier as ['igsn:...']) validate. Non-scalar schemas pass through unchanged."""
+    if isinstance(sch, dict) and sch.get("type") in ("string", "integer", "number", "boolean"):
+        desc = sch.get("description")
+        base = {k: v for k, v in sch.items() if k != "description"}
+        out = {"anyOf": [base, {"type": "array", "items": base}]}
+        return {"description": desc, **out} if desc else out
+    return sch
+
+
 # ---------- serialize IR -> JSON Schema ----------
 def to_schema(node):
     if isinstance(node, Leaf):
@@ -178,7 +190,22 @@ def to_schema(node):
             if all(isinstance(v, Leaf) for v in vals):
                 items = {"anyOf": [v.schema for v in vals]} if len(vals) > 1 else vals[0].schema
             else:
-                items = {"type": "object"}
+                # MATERIALIZE nested structure: for each object branch that carries content beyond its
+                # selector (e.g. schema:instrument[ICPMS] -> hasPart[ICP Source] -> additionalProperty),
+                # emit `if <member matches this selector> then <the branch's nested properties>`. The
+                # nested props are OPTIONAL (no `required`), so the array stays open and a minimal
+                # instance that omits the tree still validates — while an instance that DOES carry an
+                # ICPMS instrument has its hasPart/additionalProperty shape enforced (recursively).
+                cond = []
+                for val, br in node.branches.items():
+                    if not isinstance(br, Obj):
+                        continue
+                    nested = {k: _jsonld_card(to_schema(v)) for k, v in br.props.items() if k != node.selkey}
+                    if nested:
+                        sel = {"contains": {"const": val}} if node.selkey in ARRAY_VALUED else {"const": val}
+                        cond.append({"if": {"properties": {node.selkey: sel}, "required": [node.selkey]},
+                                     "then": {"properties": nested}})
+                items = {"type": "object", "allOf": cond} if cond else {"type": "object"}
             out = {"type": "array", "items": items}
             # per-branch presence: a $ref branch is optional-and-at-most-one; a required object
             # branch must be CONTAINED (selector key = the token/name).

@@ -7,7 +7,39 @@
     "schema:contributor": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:roleName": {
+                  "const": "analyst"
+                }
+              },
+              "required": [
+                "schema:roleName"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:name": {
+                  "description": "Name(s) of the analyst(s) who operated the CT instrument for this specific analysis session. ORCID recommended.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       },
       "allOf": [
         {
@@ -40,7 +72,55 @@
           "schema:object": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "@type": {
+                        "contains": {
+                          "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Name or identifier of the sample as used in the laboratory. Should match the identifier used in associated publications or data tables.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "schema:identifier": {
+                        "description": "Globally unique, persistent identifier for the analysed sample. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
             },
             "allOf": [
               {
@@ -80,7 +160,96 @@
     "schema:relatedLink": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledTechnique"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:name": {
+                      "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                      "type": "string",
+                      "enum": [
+                        "NCT",
+                        "EPMA",
+                        "LA-ICP-MS",
+                        "SIMS",
+                        "None"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledProtocol"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:url": {
+                      "description": "Registered protocol DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled protocol has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledDataset"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "schema:additionalProperty": {

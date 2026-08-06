@@ -3977,13 +3977,180 @@
         "schema:relatedLink": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for publications or reports describing or evaluating this protocol.",
+                          "type": "string",
+                          "readOnly": true
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:description": {
+                          "description": "Describes (1) the functional relationship between this dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
         },
         "schema:object": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:name": {
+                                  "const": "Target Material"
+                                }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:value": {
+                                  "type": "array",
+                                  "items": {
+                                    "description": "Type of geological or experimental material being analyzed (e.g., basalt, peridotite, meteorite, synthetic solution). Constrains the calibration strategy and matrix-matching requirements.",
+                                    "type": "string",
+                                    "readOnly": true
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:name": {
+                                "const": "Target Material"
+                              }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
+                          }
+                        },
+                        {
+                          "contains": {
+                            "title": "Sample Aliquot Mass or Volume",
+                            "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolumeDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "sampleAliquotMassOrVolumeDefault"
+                              },
+                              "schema:name": {
+                                "const": "Sample Aliquot Mass or Volume"
+                              },
+                              "ada:dataType": {
+                                "const": "number"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              },
+                              "schema:unitText": {
+                                "const": "mg or mL"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "allOf": [
             {
@@ -4008,7 +4175,689 @@
             "schema:step": {
               "type": "array",
               "items": {
-                "type": "object"
+                "type": "object",
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "samplePreparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:description": {
+                          "description": "General approach to mechanical sample preparation prior to dissolution (e.g., whole-rock crushing and powdering, mineral separation). Documents how the solid material was conditioned before acid digestion.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "readOnly": true
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "sampleDigestion"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "bios:reagent": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema:name": {
+                                "description": "Acid mixture used for sample dissolution. Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3, HNO3–HCl).",
+                                "type": "string",
+                                "readOnly": true
+                              }
+                            }
+                          }
+                        },
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "title": "Digestion Vessel Type",
+                                "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Digestion Vessel Type"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              {
+                                "title": "Number of Digestion Steps",
+                                "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some protocols require multiple sequential steps (e.g., an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals).",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Number of Digestion Steps"
+                                  },
+                                  "schema:value": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              {
+                                "title": "Digestion Temperature",
+                                "description": "Temperature at which acid digestion was carried out (°C). Protocol specifies the target temperature.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/digestionTemperature"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionTemperature"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Digestion Temperature"
+                                  },
+                                  "schema:value": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  },
+                                  "schema:unitText": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value",
+                                  "schema:unitText"
+                                ]
+                              },
+                              {
+                                "title": "Digestion Duration",
+                                "description": "Duration of the primary acid digestion step (hours or days).",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/digestionDuration"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionDuration"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Digestion Duration"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ]
+                              }
+                            ]
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "title": "Digestion Vessel Type",
+                                "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Digestion Vessel Type"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Number of Digestion Steps",
+                                "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some protocols require multiple sequential steps (e.g., an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals).",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Number of Digestion Steps"
+                                  },
+                                  "schema:value": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Digestion Temperature",
+                                "description": "Temperature at which acid digestion was carried out (°C). Protocol specifies the target temperature.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/digestionTemperature"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionTemperature"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Digestion Temperature"
+                                  },
+                                  "schema:value": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  },
+                                  "schema:unitText": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value",
+                                  "schema:unitText"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Digestion Duration",
+                                "description": "Duration of the primary acid digestion step (hours or days).",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/digestionDuration"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionDuration"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Digestion Duration"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "dataAcquisition"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "title": "Guard Electrode",
+                            "description": "Whether a guard electrode (grounded shield electrode) is installed and active on the torch assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving ion extraction efficiency.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": {
+                                  "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
+                                }
+                              },
+                              "schema:name": {
+                                "const": "Guard Electrode"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "title": "Guard Electrode",
+                                "description": "Whether a guard electrode (grounded shield electrode) is installed and active on the torch assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving ion extraction efficiency.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Guard Electrode"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "dataReduction"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "title": "Pulse/Analog Detector Nonlinearity Correction",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Pulse/Analog Detector Nonlinearity Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Normalization/Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization/Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              }
+                            ]
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "title": "Pulse/Analog Detector Nonlinearity Correction",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Pulse/Analog Detector Nonlinearity Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Normalization/Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization/Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
               },
               "allOf": [
                 {
@@ -4064,7 +4913,2115 @@
         "schema:instrument": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "ICPMS"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:identifier": {
+                      "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    },
+                    "schema:hasPart": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "Torch"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:name": {
+                                  "description": "Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                },
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "title": "Torch Depth",
+                                    "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                    "type": "object",
+                                    "properties": {
+                                      "@id": {
+                                        "const": "ada:parameter/solutionQicpmsTAPP/torchDepth"
+                                      },
+                                      "@type": {
+                                        "const": [
+                                          "schema:PropertyValue"
+                                        ]
+                                      },
+                                      "schema:propertyID": {
+                                        "const": {
+                                          "@id": "ada:parameter/solutionQicpmsTAPP/torchDepth"
+                                        }
+                                      },
+                                      "schema:name": {
+                                        "const": "Torch Depth"
+                                      },
+                                      "schema:value": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "@id",
+                                      "@type",
+                                      "schema:propertyID",
+                                      "schema:name",
+                                      "schema:value"
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "Torch Depth",
+                                        "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/torchDepth"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/torchDepth"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Torch Depth"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "Interface Cone"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "title": "Interface Cone Configuration",
+                                        "description": "Geometry and designation of the sampler and skimmer cones installed during analysis. Some instruments offer multiple skimmer cone geometries (standard, high-sensitivity) that differ in aperture size and affect ion transmission efficiency and matrix tolerance.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Interface Cone Configuration"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      {
+                                        "title": "Sampler and Skimmer Cone Material",
+                                        "description": "Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most aqueous matrices. Platinum (Pt) is used for samples in HCl-rich or organic matrices due to greater corrosion resistance.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Sampler and Skimmer Cone Material"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      }
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "Interface Cone Configuration",
+                                        "description": "Geometry and designation of the sampler and skimmer cones installed during analysis. Some instruments offer multiple skimmer cone geometries (standard, high-sensitivity) that differ in aperture size and affect ion transmission efficiency and matrix tolerance.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Interface Cone Configuration"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Sampler and Skimmer Cone Material",
+                                        "description": "Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most aqueous matrices. Platinum (Pt) is used for samples in HCl-rich or organic matrices due to greater corrosion resistance.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Sampler and Skimmer Cone Material"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "Collision Reaction Cell"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:name": {
+                                  "description": "Whether a collision or reaction cell is installed and its operating mode for this protocol. STD = standard mode with no cell gas; KED = kinetic energy discrimination with He or H2 collision gas to suppress polyatomic interferences; DRC = dynamic reaction cell with reactive gas (e.g., NH3). Specific gas types, flow rates, and voltages are documented in Group 4.",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "None (STD mode)",
+                                        "KED (He)",
+                                        "DRC (NH3)",
+                                        "KED+DRC",
+                                        "Not installed",
+                                        "N/A"
+                                      ],
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "enum": [
+                                          "None (STD mode)",
+                                          "KED (He)",
+                                          "DRC (NH3)",
+                                          "KED+DRC",
+                                          "Not installed",
+                                          "N/A"
+                                        ],
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                },
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "title": "Collision Gas Type",
+                                        "description": "Type of collision gas used in KED mode for polyatomic interference suppression. Record 'N/A' if KED mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Collision Gas Type"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      {
+                                        "title": "Collision Gas Flow Rate",
+                                        "description": "Flow rate of the collision gas in KED mode (mL/min). Higher flow rates provide greater interference suppression at the cost of analyte sensitivity. Record 'N/A' if KED mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Collision Gas Flow Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Cell Exit Discrimination Voltage",
+                                        "description": "Kinetic energy discrimination offset voltage applied at the exit of the collision cell (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Cell Exit Discrimination Voltage"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Reaction Gas Type",
+                                        "description": "Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4). Record 'N/A' if DRC mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Reaction Gas Type"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      {
+                                        "title": "Reaction Gas Flow Rate",
+                                        "description": "Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Reaction Gas Flow Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "Collision Gas Type",
+                                        "description": "Type of collision gas used in KED mode for polyatomic interference suppression. Record 'N/A' if KED mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Collision Gas Type"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Collision Gas Flow Rate",
+                                        "description": "Flow rate of the collision gas in KED mode (mL/min). Higher flow rates provide greater interference suppression at the cost of analyte sensitivity. Record 'N/A' if KED mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Collision Gas Flow Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Cell Exit Discrimination Voltage",
+                                        "description": "Kinetic energy discrimination offset voltage applied at the exit of the collision cell (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Cell Exit Discrimination Voltage"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Reaction Gas Type",
+                                        "description": "Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4). Record 'N/A' if DRC mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Reaction Gas Type"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Reaction Gas Flow Rate",
+                                        "description": "Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Reaction Gas Flow Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "Sample Introduction System"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "title": "Nebulizer Type",
+                                        "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Nebulizer Type"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      {
+                                        "title": "Spray Chamber Type and Cooling Temperature",
+                                        "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Spray Chamber Type and Cooling Temperature"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      {
+                                        "title": "Sample Uptake Rate",
+                                        "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Sample Uptake Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Nebulizer Gas Flow Rate",
+                                        "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Nebulizer Gas Flow Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "Nebulizer Type",
+                                        "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Nebulizer Type"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Spray Chamber Type and Cooling Temperature",
+                                        "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Spray Chamber Type and Cooling Temperature"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Sample Uptake Rate",
+                                        "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Sample Uptake Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Nebulizer Gas Flow Rate",
+                                        "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Nebulizer Gas Flow Rate"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "ICP Source"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "title": "RF Power",
+                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/rfPower"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/rfPower"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "RF Power"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Coolant (Plasma) Gas Flow Rate",
+                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "coolantGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Coolant (Plasma) Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Auxiliary Gas Flow Rate",
+                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "auxiliaryGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Auxiliary Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Plasma Thermal Mode",
+                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "plasmaThermalMode"
+                                          },
+                                          "schema:name": {
+                                            "const": "Plasma Thermal Mode"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ],
+                                        "readOnly": true
+                                      }
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "RF Power",
+                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/rfPower"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionQicpmsTAPP/rfPower"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "RF Power"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Coolant (Plasma) Gas Flow Rate",
+                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "coolantGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Coolant (Plasma) Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Auxiliary Gas Flow Rate",
+                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "auxiliaryGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Auxiliary Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Plasma Thermal Mode",
+                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "plasmaThermalMode"
+                                          },
+                                          "schema:name": {
+                                            "const": "Plasma Thermal Mode"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "Interface Cone"
+                                }
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        },
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "Collision Reaction Cell"
+                                }
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        },
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "Sample Introduction System"
+                                }
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        },
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "ICP Source"
+                                }
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "title": "Mass Resolution Setting",
+                            "description": "Mass resolution of the quadrupole analyser. For quadrupole instruments, mass resolution is fixed at unit resolution by instrument design (m/Δm ≈ 300); no operator selection is possible. This field documents the instrument class constraint at protocol level.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": {
+                                  "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+                                }
+                              },
+                              "schema:name": {
+                                "const": "Mass Resolution Setting"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          {
+                            "title": "Detector Configuration",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single SEM in dual mode (pulse counting at low signals, analog at high signals), with an instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction is documented in Group 5.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": {
+                                  "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                                }
+                              },
+                              "schema:name": {
+                                "const": "Detector Configuration"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          {
+                            "title": "Make-up Gas Flow Rate",
+                            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "makeUpGasFlowRateDefault"
+                              },
+                              "schema:name": {
+                                "const": "Make-up Gas Flow Rate"
+                              },
+                              "ada:dataType": {
+                                "const": "number"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              },
+                              "schema:unitText": {
+                                "const": "L/min"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Doubly-Charged Species Monitor",
+                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesMonitorDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Monitor"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Doubly-Charged Species Production",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesProductionDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Production"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Memory Effect Mitigation",
+                            "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "memoryEffectMitigationDefault"
+                              },
+                              "schema:name": {
+                                "const": "Memory Effect Mitigation"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "title": "Mass Resolution Setting",
+                            "description": "Mass resolution of the quadrupole analyser. For quadrupole instruments, mass resolution is fixed at unit resolution by instrument design (m/Δm ≈ 300); no operator selection is possible. This field documents the instrument class constraint at protocol level.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": {
+                                  "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+                                }
+                              },
+                              "schema:name": {
+                                "const": "Mass Resolution Setting"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Detector Configuration",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single SEM in dual mode (pulse counting at low signals, analog at high signals), with an instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction is documented in Group 5.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": {
+                                  "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                                }
+                              },
+                              "schema:name": {
+                                "const": "Detector Configuration"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Make-up Gas Flow Rate",
+                            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "makeUpGasFlowRateDefault"
+                              },
+                              "schema:name": {
+                                "const": "Make-up Gas Flow Rate"
+                              },
+                              "ada:dataType": {
+                                "const": "number"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              },
+                              "schema:unitText": {
+                                "const": "L/min"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Doubly-Charged Species Monitor",
+                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesMonitorDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Monitor"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Doubly-Charged Species Production",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesProductionDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Production"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Memory Effect Mitigation",
+                            "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "memoryEffectMitigationDefault"
+                              },
+                              "schema:name": {
+                                "const": "Memory Effect Mitigation"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "allOf": [
             {
@@ -4433,7 +7390,69 @@
         "bios:computationalTool": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Name and version of the software used to control the instrument and acquire raw mass spectrum data (e.g., Qtegra, MassLynx).",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Name and version of the software used for data reduction: blank correction, internal standard normalization, calibration, and concentration calculation (e.g., Iolite, lab spreadsheet). Include version number.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "allOf": [
             {

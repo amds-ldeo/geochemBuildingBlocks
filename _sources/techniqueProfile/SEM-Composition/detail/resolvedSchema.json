@@ -19,7 +19,39 @@
     "schema:contributor": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:roleName": {
+                  "const": "analyst"
+                }
+              },
+              "required": [
+                "schema:roleName"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:name": {
+                  "description": "Name of the analyst who conducted the analysis session.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       },
       "allOf": [
         {
@@ -52,7 +84,55 @@
           "schema:object": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "@type": {
+                        "contains": {
+                          "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Name or identifier of the sample or sample mount analyzed in this session.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "schema:identifier": {
+                        "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
             },
             "allOf": [
               {
@@ -80,7 +160,89 @@
     "schema:relatedLink": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledTechnique"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:name": {
+                      "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with this dataset. For SEM/FIB-SEM, common couplings include TEM/STEM (FIB-prepared sections), EPMA (quantitative major-element context), NanoSIMS, SIMS, Raman, and XCT.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledProtocol"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:url": {
+                      "description": "DOI of the registered protocol for the coupled technique.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledDataset"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "description": "DOI of the dataset or publication containing the coupled technique data. If coupling is documented only through a shared sample IGSN, this field may be 'None'.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "schema:additionalProperty": {
