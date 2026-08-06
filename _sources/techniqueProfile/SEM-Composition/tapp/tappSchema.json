@@ -1,0 +1,2643 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)",
+    "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from docs/SEM_Composition_TAPP_v4.xlsx via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+    "allOf": [
+        {
+            "$ref": "../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "schema:name": {
+                    "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, analytical mode(s), and target material scope.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "schema:measurementTechnique": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:termCode": {
+                                "description": "Top-level analytical technique identifier.",
+                                "type": "string",
+                                "enum": [
+                                    "SEM",
+                                    "SEM/FIB-SEM",
+                                    "N/A",
+                                    "None"
+                                ],
+                                "readOnly": true
+                            }
+                        }
+                    }
+                },
+                "schema:creator": {
+                    "type": "object",
+                    "properties": {
+                        "schema:name": {
+                            "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
+                            "type": "string",
+                            "readOnly": true
+                        }
+                    }
+                },
+                "schema:location": {
+                    "type": "object",
+                    "properties": {
+                        "schema:name": {
+                            "description": "Name of the laboratory or institution hosting the instrument.",
+                            "type": "string"
+                        },
+                        "schema:identifier": {
+                            "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+                            "type": "string"
+                        }
+                    }
+                },
+                "schema:datePublished": {
+                    "description": "First date this protocol configuration was used in production.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "schema:funding": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:name": {
+                                "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
+                                "type": "string",
+                                "readOnly": true
+                            }
+                        }
+                    }
+                },
+                "schema:relatedLink": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "schema:linkRelationship": {
+                                            "const": "techniquePublication"
+                                        }
+                                    },
+                                    "required": [
+                                        "schema:linkRelationship"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:target": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:name": {
+                                                    "description": "DOI or URL for publications or reports describing or evaluating this protocol.",
+                                                    "type": "string",
+                                                    "readOnly": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "schema:linkRelationship": {
+                                            "const": "coupledTechnique"
+                                        }
+                                    },
+                                    "required": [
+                                        "schema:linkRelationship"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:target": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:description": {
+                                                    "description": "Describes (1) the functional relationship between this SEM/FIB-SEM dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "schema:object": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "@type": {
+                                            "contains": {
+                                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "@type"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:additionalProperty": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "allOf": [
+                                                    {
+                                                        "if": {
+                                                            "properties": {
+                                                                "schema:name": {
+                                                                    "const": "Target Material"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:name"
+                                                            ]
+                                                        },
+                                                        "then": {
+                                                            "properties": {
+                                                                "schema:value": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "description": "General description of the material type(s) this protocol is designed to analyze.",
+                                                                        "type": "string",
+                                                                        "enum": [
+                                                                            "Silicate mineral",
+                                                                            "Oxide",
+                                                                            "Sulfide",
+                                                                            "Carbonate",
+                                                                            "Phosphate",
+                                                                            "Metal alloy",
+                                                                            "Organic matter",
+                                                                            "Glass",
+                                                                            "Regolith",
+                                                                            "Whole rock / polished section",
+                                                                            "Porous material",
+                                                                            "N/A",
+                                                                            "None"
+                                                                        ],
+                                                                        "readOnly": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "contains": {
+                                                        "properties": {
+                                                            "schema:name": {
+                                                                "const": "Target Material"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "schema:name"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "properties": {
+                                    "@type": {
+                                        "contains": {
+                                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "@type"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "schema:actionProcess": {
+                    "type": "object",
+                    "properties": {
+                        "schema:step": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "allOf": [
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "schema:name": {
+                                                    "const": "samplePreparation"
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        },
+                                        "then": {
+                                            "properties": {
+                                                "schema:description": {
+                                                    "description": "Method by which samples were prepared for SEM analysis prior to loading in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing steps (alumina, colloidal silica, argon ion mill), and conductive coating type and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and the gas type used. FIB-specific in-session operations (protective coating deposition, milling conditions, lamella preparation) are documented separately in Group 4.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "const": "samplePreparation"
+                                            }
+                                        },
+                                        "required": [
+                                            "schema:name"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "ada:instrumentManufacturer": {
+                    "description": "Make of the SEM or FIB-SEM instrument.",
+                    "type": "string",
+                    "enum": [
+                        "JEOL",
+                        "Zeiss",
+                        "FEI / Thermo Fisher Scientific",
+                        "Hitachi",
+                        "Tescan",
+                        "Phenom",
+                        "Unknown",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:instrumentModel": {
+                    "description": "Model designation of the SEM or FIB-SEM instrument, including generation suffix if applicable.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "ada:electronSource": {
+                    "description": "Type of electron gun used in the SEM instrument.",
+                    "type": "string",
+                    "enum": [
+                        "Cold-FEG",
+                        "Schottky FEG",
+                        "LaB6 / CeB6",
+                        "Tungsten (W)",
+                        "Unknown",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:instrumentVariant": {
+                    "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
+                    "type": "string",
+                    "enum": [
+                        "Standard SEM",
+                        "FIB-SEM dual-beam",
+                        "VP-SEM / ESEM",
+                        "FIB-SEM dual-beam + VP",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "schema:additionalProperty": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "EDS Detector Configuration",
+                                "description": "EDS detector type, manufacturer, active area, solid angle, window type, and geometry (take-off angle, position). Multiple detectors should be listed separately.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/edsDetectorConfiguration"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/edsDetectorConfiguration"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "EDS Detector Configuration"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "WDS Spectrometer Configuration",
+                                "description": "Number, type, and crystal range of WDS spectrometers attached to the SEM. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/wdsSpectrometerConfiguration"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/wdsSpectrometerConfiguration"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "WDS Spectrometer Configuration"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Beam Raster Dimensions",
+                                "description": "Dimensions of the small area over which the beam is rastered during a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement and distributes dose over a larger area to reduce beam damage on sensitive phases.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/beamRasterDimensionsDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "beamRasterDimensionsDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Beam Raster Dimensions"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Beam Damage Minimization",
+                                "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points. Particularly important for volatile-bearing phases, hydrous minerals, glasses, organic materials, and biological samples.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/beamDamageMinimizationDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "beamDamageMinimizationDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Beam Damage Minimization"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Drift Correction",
+                                "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/driftCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "driftCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Drift Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Stage Scan vs. Beam Scan",
+                                "description": "For mapping modes, records whether the map was acquired by moving the stage while the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric fidelity; beam scan is faster for smaller fields but may introduce geometric distortion at the map edges.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/stageScanVsBeamScan"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/stageScanVsBeamScan"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Stage Scan vs. Beam Scan"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Chamber Pressure",
+                                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/chamberPressureDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "chamberPressureDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Chamber Pressure"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Step Size / Pixel Size",
+                                "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/stepSizePixelSize"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSize"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Step Size / Pixel Size"
+                                    },
+                                    "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            {
+                                "title": "WDS Spectrometer Channel",
+                                "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/wdsSpectrometerChannel"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/wdsSpectrometerChannel"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "WDS Spectrometer Channel"
+                                    },
+                                    "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Sequence",
+                                "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first).",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/sequence"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/sequence"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Sequence"
+                                    },
+                                    "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Proportional Counter / Detector",
+                                "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/proportionalCounterDetector"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/proportionalCounterDetector"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Proportional Counter / Detector"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "WDS PHA Setting",
+                                "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/wdsPhaSetting"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/wdsPhaSetting"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "WDS PHA Setting"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Background Position(s)",
+                                "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/backgroundPositionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "backgroundPositionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Background Position(s)"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Time-Dependent Intensity Correction",
+                                "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/timeDependentIntensityCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "timeDependentIntensityCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Time-Dependent Intensity Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Analyte Estimation Method",
+                                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Analyte Estimation Method"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Halogen Correction on Oxygen",
+                                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygenDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "halogenCorrectionOnOxygenDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Halogen Correction on Oxygen"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "boolean"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "EDS Spectral Processing Type",
+                                "description": "Method used to process raw EDS spectra and extract net peak intensities from raw spectral data.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "EDS Spectral Processing Type"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Blank Correction",
+                                "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/blankCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "blankCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Blank Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Normalization / Standards-Based Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Interfering Elements",
+                                "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/interferingElements"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/interferingElements"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Interfering Elements"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Interference Correction Standard",
+                                "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Interference Correction Standard"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
+                                "title": "Analytical Precision",
+                                "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name and number of analyses.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/analyticalPrecision"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/analyticalPrecision"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Analytical Precision"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            {
+                                "title": "Analytical Accuracy",
+                                "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/analyticalAccuracy"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/analyticalAccuracy"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Analytical Accuracy"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            {
+                                "title": "Counting Statistics Error",
+                                "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/countingStatisticsError"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/countingStatisticsError"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Counting Statistics Error"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            }
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "title": "EDS Detector Configuration",
+                                "description": "EDS detector type, manufacturer, active area, solid angle, window type, and geometry (take-off angle, position). Multiple detectors should be listed separately.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/edsDetectorConfiguration"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/edsDetectorConfiguration"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "EDS Detector Configuration"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "WDS Spectrometer Configuration",
+                                "description": "Number, type, and crystal range of WDS spectrometers attached to the SEM. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/wdsSpectrometerConfiguration"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/wdsSpectrometerConfiguration"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "WDS Spectrometer Configuration"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Beam Raster Dimensions",
+                                "description": "Dimensions of the small area over which the beam is rastered during a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement and distributes dose over a larger area to reduce beam damage on sensitive phases.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/beamRasterDimensionsDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "beamRasterDimensionsDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Beam Raster Dimensions"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Beam Damage Minimization",
+                                "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points. Particularly important for volatile-bearing phases, hydrous minerals, glasses, organic materials, and biological samples.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/beamDamageMinimizationDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "beamDamageMinimizationDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Beam Damage Minimization"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Drift Correction",
+                                "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/driftCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "driftCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Drift Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Stage Scan vs. Beam Scan",
+                                "description": "For mapping modes, records whether the map was acquired by moving the stage while the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric fidelity; beam scan is faster for smaller fields but may introduce geometric distortion at the map edges.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/stageScanVsBeamScan"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/stageScanVsBeamScan"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Stage Scan vs. Beam Scan"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Chamber Pressure",
+                                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/chamberPressureDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "chamberPressureDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Chamber Pressure"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Step Size / Pixel Size",
+                                "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/stepSizePixelSize"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSize"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Step Size / Pixel Size"
+                                    },
+                                    "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "WDS Spectrometer Channel",
+                                "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/wdsSpectrometerChannel"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/wdsSpectrometerChannel"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "WDS Spectrometer Channel"
+                                    },
+                                    "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Sequence",
+                                "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first).",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/sequence"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/sequence"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Sequence"
+                                    },
+                                    "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Proportional Counter / Detector",
+                                "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/proportionalCounterDetector"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/proportionalCounterDetector"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Proportional Counter / Detector"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "WDS PHA Setting",
+                                "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/wdsPhaSetting"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/wdsPhaSetting"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "WDS PHA Setting"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Background Position(s)",
+                                "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/backgroundPositionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "backgroundPositionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Background Position(s)"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Time-Dependent Intensity Correction",
+                                "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/timeDependentIntensityCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "timeDependentIntensityCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Time-Dependent Intensity Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Analyte Estimation Method",
+                                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Analyte Estimation Method"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Halogen Correction on Oxygen",
+                                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygenDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "halogenCorrectionOnOxygenDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Halogen Correction on Oxygen"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "boolean"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "EDS Spectral Processing Type",
+                                "description": "Method used to process raw EDS spectra and extract net peak intensities from raw spectral data.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "EDS Spectral Processing Type"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Blank Correction",
+                                "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/blankCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "blankCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Blank Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Normalization / Standards-Based Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Interfering Elements",
+                                "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/interferingElements"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/interferingElements"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Interfering Elements"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Interference Correction Standard",
+                                "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Interference Correction Standard"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Analytical Precision",
+                                "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name and number of analyses.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/analyticalPrecision"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/analyticalPrecision"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Analytical Precision"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Analytical Accuracy",
+                                "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/analyticalAccuracy"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/analyticalAccuracy"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Analytical Accuracy"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Counting Statistics Error",
+                                "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/semCompositionTAPP/countingStatisticsError"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": {
+                                            "@id": "ada:parameter/semCompositionTAPP/countingStatisticsError"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "const": "Counting Statistics Error"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        }
+                    ]
+                },
+                "bios:computationalTool": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "ada:toolRole": {
+                                            "const": "acquisition"
+                                        }
+                                    },
+                                    "required": [
+                                        "ada:toolRole"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:name": {
+                                            "description": "Software used to control the SEM and acquire data, including version number. For FIB-SEM 3D tomography, include the automated slice-and-view module name and version.",
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "ada:toolRole": {
+                                            "const": "dataReduction"
+                                        }
+                                    },
+                                    "required": [
+                                        "ada:toolRole"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:name": {
+                                            "description": "Software used for post-acquisition data reduction and analysis. List all packages with version numbers.",
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "properties": {
+                                    "ada:toolRole": {
+                                        "const": "acquisition"
+                                    }
+                                },
+                                "required": [
+                                    "ada:toolRole"
+                                ]
+                            }
+                        },
+                        {
+                            "contains": {
+                                "properties": {
+                                    "ada:toolRole": {
+                                        "const": "dataReduction"
+                                    }
+                                },
+                                "required": [
+                                    "ada:toolRole"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ada:analyticalMode": {
+                    "type": "array",
+                    "items": {
+                        "description": "Primary analytical mode(s) executed under this protocol. For multi-mode protocols (e.g., simultaneous BSE + EDS mapping), list all active modes.",
+                        "type": "string",
+                        "enum": [
+                            "SE Imaging",
+                            "BSE Imaging",
+                            "EDS",
+                            "SEM-WDS",
+                            "CL",
+                            "EBSD",
+                            "TEM Sample Preparation",
+                            "3D Tomography",
+                            "N/A",
+                            "None"
+                        ],
+                        "readOnly": true
+                    }
+                },
+                "ada:beamMode": {
+                    "description": "Whether the electron beam was operated as a stationary focused spot, defocused to a specified diameter, or rastered over a small area during analysis. Controls the effective sampling volume and irradiation footprint; critical for beam-sensitive phases such as hydrous minerals, glasses, and carbonates. Must be consistent with the Beam Diameter and Beam Raster Dimensions fields.",
+                    "type": "string",
+                    "enum": [
+                        "Focused",
+                        "Defocused",
+                        "Rastered"
+                    ],
+                    "readOnly": true
+                },
+                "ada:acceleratingVoltage": {
+                    "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:beamCurrent": {
+                    "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:beamDiameter": {
+                    "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. Controls the spatial resolution and X-ray excitation volume. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:workingDistance": {
+                    "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:dwellTimePerPixel": {
+                    "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:edsAcquisitionMode": {
+                    "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared Analytical Mode. Particularly important when a protocol includes linescans as a distinct acquisition approach not fully captured by the mode flag columns.",
+                    "type": "string",
+                    "enum": [
+                        "Point / spot",
+                        "Line scan",
+                        "Map",
+                        "Automated mineralogy",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:analyteTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultAnalytes": {
+                            "type": "array",
+                            "items": {
+                                "description": "Element(s) measured by this protocol. The protocol registers the full intended analyte suite; analysts record the specific subset measured in a given session, which may be narrower. Fields below flagged as Analyte-Specific in the Comments column apply individually to each element in this list.",
+                                "type": "string"
+                            }
+                        },
+                        "ada:analyteColumns": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {}
+                            }
+                        }
+                    }
+                },
+                "ada:techniquePerAnalyte": {
+                    "description": "For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a protocol employs both EDS and WDS simultaneously, assigning each element to the detector appropriate to its concentration range, line overlap situation, or required precision. List in the same order as the Analyte field.",
+                    "type": "string",
+                    "enum": [
+                        "Si: WDS; Al: WDS; Fe: WDS; Na: EDS; C: EDS"
+                    ],
+                    "readOnly": true
+                },
+                "ada:xRayLine": {
+                    "description": "X-ray emission line measured for each analyte. Line choice affects sensitivity, matrix correction accuracy, and peak overlap susceptibility.",
+                    "type": "string",
+                    "enum": [
+                        "Ka",
+                        "Kb",
+                        "La",
+                        "Lb",
+                        "Lg",
+                        "Ma",
+                        "Mb",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:edsLiveTimePerPointOrPixel": {
+                    "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer live time improves counting statistics but increases beam damage risk and total acquisition time.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:diffractingCrystal": {
+                    "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+                    "type": "string",
+                    "enum": [
+                        "LIF",
+                        "LLIF",
+                        "LIFL",
+                        "LIFH",
+                        "PET",
+                        "LPET",
+                        "PETL",
+                        "PETH",
+                        "TAP",
+                        "TAPL",
+                        "TAPH",
+                        "LDE1",
+                        "LDE2",
+                        "LDE3",
+                        "RAP",
+                        "KAP",
+                        "Unknown",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:peakCountingTime": {
+                    "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Protocol specifies standard values; analysts may adjust within protocol-defined bounds.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:backgroundCountingTime": {
+                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:matrixCorrectionMethod": {
+                    "description": "X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction.",
+                    "type": "string",
+                    "enum": [
+                        "XPP (Simplified PAP)",
+                        "PAP (Pouchou & Pichoir Full)",
+                        "ZAF",
+                        "CITZAF (Armstrong 1995)",
+                        "Phi-rho-z (EPQ-91)",
+                        "Unknown",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:massAbsorptionCoefficients": {
+                    "description": "Database of mass absorption coefficients used in the matrix correction. MAC database choice affects accuracy particularly for light elements (B, C, N, O, F, Na).",
+                    "type": "string",
+                    "enum": [
+                        "LINEMU",
+                        "CITZMU",
+                        "MCMASTER",
+                        "MAC30",
+                        "MACJTA",
+                        "FFAST",
+                        "Unknown",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:backgroundCorrectionMethod": {
+                    "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
+                    "type": "string",
+                    "enum": [
+                        "2-point off-peak linear",
+                        "2-point off-peak exponential",
+                        "Mean Atomic Number (MAN)",
+                        "EDS background fit",
+                        "Top-hat filter",
+                        "N/A",
+                        "None"
+                    ]
+                },
+                "ada:wdsDeadTimeCorrection": {
+                    "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates. Unlike EDS dead time (hardware-managed, reported as QC percentage), WDS dead time correction is a user-selectable algorithm.",
+                    "type": "string",
+                    "enum": [
+                        "Default constant (manufacturer)",
+                        "Adjusted constant",
+                        "High-precision (Probe for EPMA)",
+                        "Logarithmic",
+                        "Unknown",
+                        "N/A",
+                        "None"
+                    ],
+                    "readOnly": true
+                },
+                "ada:primaryStandardName": {
+                    "description": "Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS quantification.",
+                    "type": "string"
+                },
+                "ada:secondaryReferenceMaterial": {
+                    "type": "array",
+                    "items": {
+                        "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values where available.",
+                        "type": "string"
+                    }
+                },
+                "ada:interferenceCorrectionsApplied": {
+                    "description": "Whether a spectral interference correction was applied for each analyte.",
+                    "type": "boolean",
+                    "readOnly": true
+                },
+                "schema:description": {
+                    "description": "Any additional context about this protocol or analysis session not captured by structured fields above.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "schema:name",
+                "schema:datePublished",
+                "ada:instrumentManufacturer",
+                "ada:instrumentModel",
+                "ada:electronSource",
+                "ada:instrumentVariant",
+                "ada:beamMode",
+                "ada:acceleratingVoltage",
+                "ada:beamCurrent",
+                "ada:beamDiameter",
+                "ada:workingDistance",
+                "ada:dwellTimePerPixel",
+                "ada:edsAcquisitionMode",
+                "ada:techniquePerAnalyte",
+                "ada:xRayLine",
+                "ada:edsLiveTimePerPointOrPixel",
+                "ada:diffractingCrystal",
+                "ada:peakCountingTime",
+                "ada:backgroundCountingTime",
+                "ada:matrixCorrectionMethod",
+                "ada:massAbsorptionCoefficients",
+                "ada:backgroundCorrectionMethod",
+                "ada:wdsDeadTimeCorrection",
+                "ada:primaryStandardName",
+                "ada:interferenceCorrectionsApplied"
+            ]
+        }
+    ]
+}

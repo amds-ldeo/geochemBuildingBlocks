@@ -101,8 +101,23 @@
               "minItems": 1
             },
             "schema:propertyID": {
-              "type": "string",
-              "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ],
+              "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
             },
             "schema:value": {
               "type": "string",
@@ -204,8 +219,23 @@
                     "minItems": 1
                   },
                   "schema:propertyID": {
-                    "type": "string",
-                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ],
+                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                   },
                   "schema:value": {
                     "type": "string",
@@ -518,8 +548,23 @@
                       "minItems": 1
                     },
                     "schema:propertyID": {
-                      "type": "string",
-                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ],
+                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                     },
                     "schema:value": {
                       "type": "string",
@@ -785,8 +830,23 @@
                       "minItems": 1
                     },
                     "schema:propertyID": {
-                      "type": "string",
-                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ],
+                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                     },
                     "schema:value": {
                       "type": "string",
@@ -897,8 +957,23 @@
                           "minItems": 1
                         },
                         "schema:propertyID": {
-                          "type": "string",
-                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                         },
                         "schema:value": {
                           "type": "string",
@@ -1000,6 +1075,7 @@
                 }
               },
               "required": [
+                "@type",
                 "schema:email"
               ]
             },
@@ -1113,8 +1189,23 @@
                       "minItems": 1
                     },
                     "schema:propertyID": {
-                      "type": "string",
-                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ],
+                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                     },
                     "schema:value": {
                       "type": "string",
@@ -2094,8 +2185,23 @@
                 "minItems": 1
               },
               "schema:propertyID": {
-                "type": "string",
-                "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ],
+                "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
               },
               "schema:value": {
                 "type": "string",
@@ -2193,8 +2299,23 @@
                             "minItems": 1
                           },
                           "schema:propertyID": {
-                            "type": "string",
-                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                           },
                           "schema:value": {
                             "type": "string",
@@ -2305,8 +2426,23 @@
                                 "minItems": 1
                               },
                               "schema:propertyID": {
-                                "type": "string",
-                                "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "object",
+                                    "required": [
+                                      "@id"
+                                    ],
+                                    "properties": {
+                                      "@id": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                ],
+                                "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                               },
                               "schema:value": {
                                 "type": "string",
@@ -2408,6 +2544,7 @@
                       }
                     },
                     "required": [
+                      "@type",
                       "schema:email"
                     ]
                   },
@@ -2521,8 +2658,23 @@
                             "minItems": 1
                           },
                           "schema:propertyID": {
-                            "type": "string",
-                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                           },
                           "schema:value": {
                             "type": "string",
@@ -5322,7 +5474,22 @@
               "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
               "type": "array",
               "items": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
               },
               "minItems": 1
             },
@@ -5339,7 +5506,22 @@
               "description": "Alternate name(s), e.g. specific make/model designation, common abbreviation.",
               "type": "array",
               "items": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
               }
             },
             "schema:identifier": {
@@ -5396,6 +5578,7 @@
                 }
               },
               "required": [
+                "@type",
                 "schema:name"
               ]
             },
@@ -5440,8 +5623,23 @@
                             "minItems": 1
                           },
                           "schema:propertyID": {
-                            "type": "string",
-                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                           },
                           "schema:value": {
                             "type": "string",
@@ -5593,8 +5791,23 @@
                                         "minItems": 1
                                       },
                                       "schema:propertyID": {
-                                        "type": "string",
-                                        "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                        "anyOf": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "object",
+                                            "required": [
+                                              "@id"
+                                            ],
+                                            "properties": {
+                                              "@id": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                                       },
                                       "schema:value": {
                                         "type": "string",
@@ -5729,8 +5942,23 @@
                                     "minItems": 1
                                   },
                                   "schema:propertyID": {
-                                    "type": "string",
-                                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "object",
+                                        "required": [
+                                          "@id"
+                                        ],
+                                        "properties": {
+                                          "@id": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                                   },
                                   "schema:value": {
                                     "type": "string",
@@ -5841,8 +6069,23 @@
                                         "minItems": 1
                                       },
                                       "schema:propertyID": {
-                                        "type": "string",
-                                        "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                        "anyOf": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "object",
+                                            "required": [
+                                              "@id"
+                                            ],
+                                            "properties": {
+                                              "@id": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                                       },
                                       "schema:value": {
                                         "type": "string",
@@ -5944,6 +6187,7 @@
                               }
                             },
                             "required": [
+                              "@type",
                               "schema:email"
                             ]
                           },
@@ -6057,8 +6301,23 @@
                                     "minItems": 1
                                   },
                                   "schema:propertyID": {
-                                    "type": "string",
-                                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "object",
+                                        "required": [
+                                          "@id"
+                                        ],
+                                        "properties": {
+                                          "@id": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                                   },
                                   "schema:value": {
                                     "type": "string",
@@ -6286,7 +6545,22 @@
                         "description": "Component type classification.",
                         "type": "array",
                         "items": {
-                          "type": "string"
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       "schema:additionalProperty": {
@@ -6377,7 +6651,22 @@
                           "@type": {
                             "type": "array",
                             "items": {
-                              "type": "string"
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              ]
                             },
                             "contains": {
                               "const": "schema:ProductModel"
@@ -6397,10 +6686,14 @@
                               }
                             ]
                           }
-                        }
+                        },
+                        "required": [
+                          "@type"
+                        ]
                       }
                     },
                     "required": [
+                      "@type",
                       "schema:name"
                     ]
                   },
@@ -6528,8 +6821,23 @@
                                             "minItems": 1
                                           },
                                           "schema:propertyID": {
-                                            "type": "string",
-                                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "object",
+                                                "required": [
+                                                  "@id"
+                                                ],
+                                                "properties": {
+                                                  "@id": {
+                                                    "type": "string"
+                                                  }
+                                                }
+                                              }
+                                            ],
+                                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                                           },
                                           "schema:value": {
                                             "type": "string",
@@ -6663,7 +6971,10 @@
                     ]
                   }
                 }
-              }
+              },
+              "required": [
+                "@type"
+              ]
             }
           },
           "required": [
@@ -6742,8 +7053,23 @@
                   "minItems": 1
                 },
                 "schema:propertyID": {
-                  "type": "string",
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                 },
                 "schema:value": {
                   "type": "string",
@@ -6872,8 +7198,23 @@
                           "minItems": 1
                         },
                         "schema:propertyID": {
-                          "type": "string",
-                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                         },
                         "schema:value": {
                           "type": "string",
@@ -7030,8 +7371,23 @@
           "minItems": 1
         },
         "schema:propertyID": {
-          "type": "string",
-          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
         },
         "schema:value": {
           "type": "string",
@@ -7133,8 +7489,23 @@
                   "minItems": 1
                 },
                 "schema:propertyID": {
-                  "type": "string",
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                 },
                 "schema:value": {
                   "type": "string",
@@ -7253,8 +7624,23 @@
                   "minItems": 1
                 },
                 "schema:propertyID": {
-                  "type": "string",
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                 },
                 "schema:value": {
                   "type": "string",
@@ -8181,8 +8567,23 @@
                   "minItems": 1
                 },
                 "schema:propertyID": {
-                  "type": "string",
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                 },
                 "schema:value": {
                   "type": "string",
@@ -8292,8 +8693,23 @@
                   "minItems": 1
                 },
                 "schema:propertyID": {
-                  "type": "string",
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability"
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                 },
                 "schema:value": {
                   "type": "string",

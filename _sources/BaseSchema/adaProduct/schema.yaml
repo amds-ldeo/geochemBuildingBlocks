@@ -12,17 +12,25 @@ allOf:
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/schema.yaml
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
   # cdifManifest is the BUNDLE/archive profile: it applies (and its manifest/1.1
-  # conformance is required) ONLY when a distribution carries schema:hasPart. A
-  # monolithic single-file distribution is not an archive, so it is not held to the
-  # manifest profile. (The bundle case still declares manifest/1.1 in conformsTo.)
+  # conformance is required) ONLY when a distribution is positively typed as a
+  # bundle/archive — schema:Collection in @type (alongside schema:DataDownload),
+  # symmetric with the monolithic cdi:PhysicalDataSet marker. A monolithic
+  # single-file distribution is not an archive, so it is not held to the manifest
+  # profile. (The bundle case declares manifest/1.1 in conformsTo and enumerates its
+  # members in schema:hasPart, per the upstream cdifManifest schema:Collection trigger.)
   - if:
       properties:
         "schema:distribution":
           type: array
           contains:
             type: object
+            properties:
+              "@type":
+                type: array
+                contains:
+                  const: "schema:Collection"
             required:
-              - "schema:hasPart"
+              - "@type"
     then:
       $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml

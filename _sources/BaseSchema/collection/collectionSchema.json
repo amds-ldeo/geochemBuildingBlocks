@@ -1,0 +1,76 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Collection Type",
+    "description": "A collection can be a set of files with identical information model and serialization/formatting, or a heterogeneous set of files that together constitute a dataset (a composite dataset).",
+    "type": "object",
+    "properties": {
+        "@type": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 2,
+            "allOf": [
+                {
+                    "contains": {
+                        "const": "ada:collection"
+                    }
+                },
+                {
+                    "contains": {
+                        "const": "https://schema.org/Collection"
+                    }
+                }
+            ],
+            "description": "GeneralType for collections"
+        },
+        "ada:componentType": {
+            "type": "string",
+            "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema."
+        },
+        "ada:memberTypes": {
+            "description": "List of the component types in the collection",
+            "$ref": "../stringArray/stringArraySchema.json"
+        },
+        "ada:nFiles": {
+            "type": "integer",
+            "description": "Number of files in the collection, including metadata files"
+        },
+        "ada:filelist": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "ada:fileName": {
+                        "type": "string",
+                        "description": "Full path to file in container object"
+                    },
+                    "ada:fileNamePattern": {
+                        "type": "string",
+                        "description": "Pattern for collection members with differentiating suffix at '*'"
+                    },
+                    "ada:componentType": {
+                        "type": "string",
+                        "description": "componentType of an individual file within the collection. Not constrained to the collection-level enum, since a collection holds heterogeneous files (each carrying its own file-type componentType)."
+                    },
+                    "schema:encodingFormat": {
+                        "type": "string",
+                        "description": "MIME type with extension"
+                    }
+                },
+                "oneOf": [
+                    {
+                        "required": [
+                            "ada:fileName"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "ada:fileNamePattern"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

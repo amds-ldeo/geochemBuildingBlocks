@@ -1,0 +1,933 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "SEM Composition Analysis Detail",
+    "description": "Dataset-level analysis-instance detail for SEM composition (EDS/WDS), reusing CDIF/schema.org slots on the schema:Dataset root.",
+    "type": "object",
+    "properties": {
+        "schema:measurementTechnique": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "schema:identifier": {
+                        "description": "Persistent identifier (DOI) assigned to this registered protocol. Enter 'pending' if a DOI has been applied for but not yet minted.",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "schema:contributor": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:roleName": {
+                                    "const": "analyst"
+                                }
+                            },
+                            "required": [
+                                "schema:roleName"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:name": {
+                                    "description": "Name of the analyst who conducted the analysis session.",
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "properties": {
+                            "schema:roleName": {
+                                "const": "analyst"
+                            }
+                        },
+                        "required": [
+                            "schema:roleName"
+                        ]
+                    }
+                }
+            ]
+        },
+        "prov:wasGeneratedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "schema:startDate": {
+                        "description": "Date on which the analysis session began.",
+                        "type": "string"
+                    },
+                    "schema:endDate": {
+                        "description": "Date on which the analysis session ended (if spanning multiple days).",
+                        "type": "string"
+                    },
+                    "schema:object": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "@type": {
+                                                "contains": {
+                                                    "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "@type"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "description": "Name or identifier of the sample or sample mount analyzed in this session.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "schema:identifier": {
+                                                "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "allOf": [
+                            {
+                                "contains": {
+                                    "properties": {
+                                        "@type": {
+                                            "contains": {
+                                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "@type"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "schema:funding": {
+            "type": "array"
+        },
+        "schema:relatedLink": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:linkRelationship": {
+                                    "const": "coupledTechnique"
+                                }
+                            },
+                            "required": [
+                                "schema:linkRelationship"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:target": {
+                                    "type": "object",
+                                    "properties": {
+                                        "schema:name": {
+                                            "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with this dataset. For SEM/FIB-SEM, common couplings include TEM/STEM (FIB-prepared sections), EPMA (quantitative major-element context), NanoSIMS, SIMS, Raman, and XCT.",
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:linkRelationship": {
+                                    "const": "coupledProtocol"
+                                }
+                            },
+                            "required": [
+                                "schema:linkRelationship"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:target": {
+                                    "type": "object",
+                                    "properties": {
+                                        "schema:url": {
+                                            "description": "DOI of the registered protocol for the coupled technique.",
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:linkRelationship": {
+                                    "const": "coupledDataset"
+                                }
+                            },
+                            "required": [
+                                "schema:linkRelationship"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:target": {
+                                    "description": "DOI of the dataset or publication containing the coupled technique data. If coupling is documented only through a shared sample IGSN, this field may be 'None'.",
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "schema:additionalProperty": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "title": "Beam Raster Dimensions",
+                        "description": "Dimensions of the small area over which the beam is rastered during a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement and distributes dose over a larger area to reduce beam damage on sensitive phases.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/beamRasterDimensions"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/beamRasterDimensions"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Beam Raster Dimensions"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Beam Damage Minimization",
+                        "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points. Particularly important for volatile-bearing phases, hydrous minerals, glasses, organic materials, and biological samples.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/beamDamageMinimization"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/beamDamageMinimization"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Beam Damage Minimization"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Drift Correction",
+                        "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/driftCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/driftCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Drift Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Chamber Pressure",
+                        "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/chamberPressure"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/chamberPressure"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Chamber Pressure"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Background Position(s)",
+                        "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/backgroundPosition"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/backgroundPosition"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Background Position(s)"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Time-Dependent Intensity Correction",
+                        "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/timeDependentIntensityCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/timeDependentIntensityCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Time-Dependent Intensity Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Halogen Correction on Oxygen",
+                        "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygen"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygen"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Halogen Correction on Oxygen"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Blank Correction",
+                        "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/blankCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/blankCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Blank Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Normalization / Standards-Based Correction",
+                        "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Normalization / Standards-Based Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "title": "Beam Raster Dimensions",
+                        "description": "Dimensions of the small area over which the beam is rastered during a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement and distributes dose over a larger area to reduce beam damage on sensitive phases.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/beamRasterDimensions"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/beamRasterDimensions"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Beam Raster Dimensions"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Beam Damage Minimization",
+                        "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points. Particularly important for volatile-bearing phases, hydrous minerals, glasses, organic materials, and biological samples.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/beamDamageMinimization"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/beamDamageMinimization"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Beam Damage Minimization"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Drift Correction",
+                        "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/driftCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/driftCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Drift Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Chamber Pressure",
+                        "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/chamberPressure"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/chamberPressure"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Chamber Pressure"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Background Position(s)",
+                        "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/backgroundPosition"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/backgroundPosition"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Background Position(s)"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Time-Dependent Intensity Correction",
+                        "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/timeDependentIntensityCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/timeDependentIntensityCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Time-Dependent Intensity Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Halogen Correction on Oxygen",
+                        "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygen"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygen"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Halogen Correction on Oxygen"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Blank Correction",
+                        "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/blankCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/blankCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Blank Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Normalization / Standards-Based Correction",
+                        "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Normalization / Standards-Based Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                }
+            ]
+        }
+    },
+    "required": [
+        "schema:funding"
+    ]
+}

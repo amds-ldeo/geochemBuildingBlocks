@@ -1,0 +1,1898 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "LA-ICP-MS Geochronology Analysis Detail",
+    "description": "Dataset-level analysis-instance detail for LA-ICP-MS geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.",
+    "type": "object",
+    "properties": {
+        "schema:contributor": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:roleName": {
+                                    "const": "analyst"
+                                }
+                            },
+                            "required": [
+                                "schema:roleName"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:name": {
+                                    "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID recommended for persistent identification.",
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "properties": {
+                            "schema:roleName": {
+                                "const": "analyst"
+                            }
+                        },
+                        "required": [
+                            "schema:roleName"
+                        ]
+                    }
+                }
+            ]
+        },
+        "prov:wasGeneratedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "schema:startDate": {
+                        "description": "Date on which the analytical session began. For sessions spanning multiple days, use the date of the first session.",
+                        "type": "string"
+                    },
+                    "schema:endDate": {
+                        "description": "Date on which the analytical session ended. May equal Analysis Start Date for single-day sessions.",
+                        "type": "string"
+                    },
+                    "schema:object": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "@type": {
+                                                "contains": {
+                                                    "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "@type"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "description": "Name or identifier of the sample analysed, as used in the laboratory. Should match the identifier used in associated publications or data tables.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "schema:identifier": {
+                                                "description": "Globally unique, persistent identifier for the analysed sample. IGSN is the recommended standard for geological and cosmochemical samples.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "schema:additionalProperty": {
+                                                "type": "array",
+                                                "items": {
+                                                    "title": "Analysis Location/Spot Coordinates",
+                                                    "description": "Location of the analysis on the sample surface: stage coordinates (X, Y) or a description relative to a named reference feature (e.g., mineral rim, growth zone identified by imaging).",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "@id": {
+                                                            "const": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                                                        },
+                                                        "@type": {
+                                                            "const": [
+                                                                "schema:PropertyValue"
+                                                            ]
+                                                        },
+                                                        "schema:propertyID": {
+                                                            "const": {
+                                                                "@id": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                                                            }
+                                                        },
+                                                        "schema:name": {
+                                                            "const": "Analysis Location/Spot Coordinates"
+                                                        },
+                                                        "schema:value": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:propertyID",
+                                                        "schema:name",
+                                                        "schema:value"
+                                                    ]
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "contains": {
+                                                            "title": "Analysis Location/Spot Coordinates",
+                                                            "description": "Location of the analysis on the sample surface: stage coordinates (X, Y) or a description relative to a named reference feature (e.g., mineral rim, growth zone identified by imaging).",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/analysisLocationSpotCoordinates"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Analysis Location/Spot Coordinates"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "allOf": [
+                            {
+                                "contains": {
+                                    "properties": {
+                                        "@type": {
+                                            "contains": {
+                                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "@type"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "prov:used": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "schema:additionalType": {
+                                                "contains": {
+                                                    "const": "ICPMS"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "schema:additionalType"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:additionalProperty": {
+                                                "type": "array",
+                                                "items": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "Doubly-Charged Species Monitor",
+                                                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Monitor"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "Doubly-Charged Species Production",
+                                                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Production"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "Memory Effect Mitigation",
+                                                            "description": "Procedure applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Memory Effect Mitigation"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "contains": {
+                                                            "title": "Doubly-Charged Species Monitor",
+                                                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesMonitor"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Monitor"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    },
+                                                    {
+                                                        "contains": {
+                                                            "title": "Doubly-Charged Species Production",
+                                                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/doublyChargedSpeciesProduction"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Production"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    },
+                                                    {
+                                                        "contains": {
+                                                            "title": "Memory Effect Mitigation",
+                                                            "description": "Procedure applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/memoryEffectMitigation"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Memory Effect Mitigation"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "schema:additionalProperty": {
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "title": "Number of Replicates",
+                                    "description": "Number of replicate spot analyses performed on the same grain or nominal location in this session.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/geochronTAPP/numberOfReplicates"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": {
+                                                "@id": "ada:parameter/geochronTAPP/numberOfReplicates"
+                                            }
+                                        },
+                                        "schema:name": {
+                                            "const": "Number of Replicates"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                {
+                                    "title": "Signal Integration Time",
+                                    "description": "Actual integration time used for the ablation signal in this analysis. Determined at analysis time by applying the Signal Integration Interval Method to the time-resolved signal.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/geochronTAPP/signalIntegrationTime"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": {
+                                                "@id": "ada:parameter/geochronTAPP/signalIntegrationTime"
+                                            }
+                                        },
+                                        "schema:name": {
+                                            "const": "Signal Integration Time"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "schema:unitText": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                    ]
+                                }
+                            ]
+                        },
+                        "allOf": [
+                            {
+                                "contains": {
+                                    "title": "Number of Replicates",
+                                    "description": "Number of replicate spot analyses performed on the same grain or nominal location in this session.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/geochronTAPP/numberOfReplicates"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": {
+                                                "@id": "ada:parameter/geochronTAPP/numberOfReplicates"
+                                            }
+                                        },
+                                        "schema:name": {
+                                            "const": "Number of Replicates"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            },
+                            {
+                                "contains": {
+                                    "title": "Signal Integration Time",
+                                    "description": "Actual integration time used for the ablation signal in this analysis. Determined at analysis time by applying the Signal Integration Interval Method to the time-resolved signal.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/geochronTAPP/signalIntegrationTime"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": {
+                                                "@id": "ada:parameter/geochronTAPP/signalIntegrationTime"
+                                            }
+                                        },
+                                        "schema:name": {
+                                            "const": "Signal Integration Time"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "schema:unitText": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            }
+                        ]
+                    },
+                    "schema:actionProcess": {
+                        "type": "object",
+                        "properties": {
+                            "schema:step": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "schema:name": {
+                                                        "const": "dataReduction"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "schema:name"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:additionalProperty": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "title": "Normalization/Standards-Based Correction",
+                                                            "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Normalization/Standards-Based Correction"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "allOf": [
+                                                            {
+                                                                "contains": {
+                                                                    "title": "Normalization/Standards-Based Correction",
+                                                                    "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": {
+                                                                                "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                                                            }
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Normalization/Standards-Based Correction"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "schema:measurementTechnique": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "schema:identifier": {
+                        "description": "DOI or unique persistent identifier for the registered procedure used in this analysis. Mandatory when submitting analytical data, to encourage formal procedure registration. Enter 'pending' if applied for but not yet minted.",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "schema:funding": {
+            "type": "array"
+        },
+        "schema:relatedLink": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:linkRelationship": {
+                                    "const": "coupledTechnique"
+                                }
+                            },
+                            "required": [
+                                "schema:linkRelationship"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:target": {
+                                    "type": "object",
+                                    "properties": {
+                                        "schema:name": {
+                                            "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with, or used to independently validate, this dataset. Enter 'None' if no coupling is intended.",
+                                            "type": "string",
+                                            "enum": [
+                                                "CA-ID-TIMS",
+                                                "SIMS",
+                                                "EPMA",
+                                                "CL/BSE Imaging",
+                                                "None"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:linkRelationship": {
+                                    "const": "coupledProtocol"
+                                }
+                            },
+                            "required": [
+                                "schema:linkRelationship"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:target": {
+                                    "type": "object",
+                                    "properties": {
+                                        "schema:url": {
+                                            "description": "Registered procedure DOI for the coupled technique named above.",
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:linkRelationship": {
+                                    "const": "coupledDataset"
+                                }
+                            },
+                            "required": [
+                                "schema:linkRelationship"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:target": {
+                                    "description": "DOI or persistent identifier for the co-registered dataset or publication reporting both datasets together.",
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "schema:additionalProperty": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "title": "Imaging",
+                        "description": "Pre-ablation characterisation imaging (typically cathodoluminescence [CL] or backscattered electron [BSE]) used to reveal internal zoning, inherited cores, and metamict domains for selecting valid spot locations, including the imaging instrument and settings used.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/imaging"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/imaging"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Imaging"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Ablation Pit Depth/Ablation Rate",
+                        "description": "Depth of the ablation pit produced under the registered laser conditions, the method used to measure it, and the resulting per-pulse ablation rate. Characterises the achievable depth/time resolution of the procedure.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/ablationPitDepthAblationRate"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/ablationPitDepthAblationRate"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Ablation Pit Depth/Ablation Rate"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Make-up Gas Flow (L min⁻¹)",
+                        "description": "Source and estimated flow rate of any make-up gas added downstream of the ablation cell, including any desolvating nebuliser used for tracer co-aspiration.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/makeUpGasFlow"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/makeUpGasFlow"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Make-up Gas Flow (L min⁻¹)"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Number of Blocks per Measurement",
+                        "description": "Number of measurement blocks acquired per spot. Each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks allow inspection of signal stability and within-measurement drift.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/numberOfBlocksPerMeasurement"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/numberOfBlocksPerMeasurement"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Number of Blocks per Measurement"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Number of Cycles per Block",
+                        "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration in Integration Time per Cycle.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/numberOfCyclesPerBlock"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/numberOfCyclesPerBlock"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Number of Cycles per Block"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Integration Time per Cycle",
+                        "description": "Duration of signal integration per measurement cycle. Total integration time per spot = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/integrationTimePerCycle"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/integrationTimePerCycle"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Integration Time per Cycle"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "schema:unitText": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
+                        ]
+                    },
+                    {
+                        "title": "IC Dead Time (ns)",
+                        "description": "Dead time of each ion-counting detector channel, used in dead-time correction of high count rates.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/icDeadTime"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/icDeadTime"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "IC Dead Time (ns)"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Signal Smoothing",
+                        "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/signalSmoothing"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/signalSmoothing"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Signal Smoothing"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "ICP Tuning",
+                        "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/icpTuning"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/icpTuning"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "ICP Tuning"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Other Information",
+                        "description": "Supplementary methodological context not captured by the structured fields above, as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes on ablation-cell and sample-line configuration for depth-profiling/single-pulse ablation studies, a variant not otherwise in scope for this single-mode (Spot Analysis) TAPP.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/otherInformation"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/otherInformation"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Other Information"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Uncertainty Level and Propagation",
+                        "description": "Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method used to propagate component uncertainties (e.g., quadratic addition) into the final reported value.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/uncertaintyLevelAndPropagation"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/uncertaintyLevelAndPropagation"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Uncertainty Level and Propagation"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Spike / Outlier Filtering Approach",
+                        "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Spike / Outlier Filtering Approach"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    {
+                        "title": "Double-Spike Mixing Ratio",
+                        "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture. An optimal mixing ratio minimises error propagation through the double-spike inversion. Record 'N/A' if double-spike method is not used.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/doubleSpikeMixingRatio"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/doubleSpikeMixingRatio"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Double-Spike Mixing Ratio"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "title": "Imaging",
+                        "description": "Pre-ablation characterisation imaging (typically cathodoluminescence [CL] or backscattered electron [BSE]) used to reveal internal zoning, inherited cores, and metamict domains for selecting valid spot locations, including the imaging instrument and settings used.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/imaging"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/imaging"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Imaging"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Ablation Pit Depth/Ablation Rate",
+                        "description": "Depth of the ablation pit produced under the registered laser conditions, the method used to measure it, and the resulting per-pulse ablation rate. Characterises the achievable depth/time resolution of the procedure.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/ablationPitDepthAblationRate"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/ablationPitDepthAblationRate"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Ablation Pit Depth/Ablation Rate"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Make-up Gas Flow (L min⁻¹)",
+                        "description": "Source and estimated flow rate of any make-up gas added downstream of the ablation cell, including any desolvating nebuliser used for tracer co-aspiration.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/makeUpGasFlow"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/makeUpGasFlow"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Make-up Gas Flow (L min⁻¹)"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Number of Blocks per Measurement",
+                        "description": "Number of measurement blocks acquired per spot. Each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks allow inspection of signal stability and within-measurement drift.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/numberOfBlocksPerMeasurement"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/numberOfBlocksPerMeasurement"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Number of Blocks per Measurement"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Number of Cycles per Block",
+                        "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration in Integration Time per Cycle.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/numberOfCyclesPerBlock"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/numberOfCyclesPerBlock"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Number of Cycles per Block"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Integration Time per Cycle",
+                        "description": "Duration of signal integration per measurement cycle. Total integration time per spot = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/integrationTimePerCycle"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/integrationTimePerCycle"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Integration Time per Cycle"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "schema:unitText": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "IC Dead Time (ns)",
+                        "description": "Dead time of each ion-counting detector channel, used in dead-time correction of high count rates.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/icDeadTime"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/icDeadTime"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "IC Dead Time (ns)"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Signal Smoothing",
+                        "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/signalSmoothing"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/signalSmoothing"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Signal Smoothing"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "ICP Tuning",
+                        "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/icpTuning"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/icpTuning"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "ICP Tuning"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Other Information",
+                        "description": "Supplementary methodological context not captured by the structured fields above, as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes on ablation-cell and sample-line configuration for depth-profiling/single-pulse ablation studies, a variant not otherwise in scope for this single-mode (Spot Analysis) TAPP.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/otherInformation"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/otherInformation"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Other Information"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Uncertainty Level and Propagation",
+                        "description": "Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method used to propagate component uncertainties (e.g., quadratic addition) into the final reported value.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/uncertaintyLevelAndPropagation"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/uncertaintyLevelAndPropagation"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Uncertainty Level and Propagation"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Spike / Outlier Filtering Approach",
+                        "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Spike / Outlier Filtering Approach"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Double-Spike Mixing Ratio",
+                        "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture. An optimal mixing ratio minimises error propagation through the double-spike inversion. Record 'N/A' if double-spike method is not used.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/geochronTAPP/doubleSpikeMixingRatio"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": {
+                                    "@id": "ada:parameter/geochronTAPP/doubleSpikeMixingRatio"
+                                }
+                            },
+                            "schema:name": {
+                                "const": "Double-Spike Mixing Ratio"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                }
+            ]
+        },
+        "ada:spotDiameterMeasured": {
+            "description": "Diameter of the laser spot as independently measured on the sample or a test material, distinct from the nominal/target value registered by the procedure.",
+            "type": "string"
+        },
+        "ada:sensitivityYield": {
+            "description": "Instrument sensitivity expressed as useful yield — the percentage of sampled atoms of a given element that are ultimately detected as ions — for the analytical session, following the method cited.",
+            "type": "string"
+        },
+        "dqv:hasQualityMeasurement": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "dqv:isMeasurementOf": {
+                                    "const": "Oxide production ratio"
+                                }
+                            },
+                            "required": [
+                                "dqv:isMeasurementOf"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "dqv:value": {
+                                    "description": "Actual oxide production ratio measured during this analytical session, using the method specified in Oxide Production Method and Threshold.",
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "properties": {
+                            "dqv:isMeasurementOf": {
+                                "const": "Oxide production ratio"
+                            }
+                        },
+                        "required": [
+                            "dqv:isMeasurementOf"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "required": [
+        "schema:funding",
+        "ada:spotDiameterMeasured"
+    ]
+}

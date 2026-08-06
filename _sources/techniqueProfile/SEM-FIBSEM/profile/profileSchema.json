@@ -1,0 +1,142 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA FIB-SEM Product Profile",
+    "description": "Path-driven technique-specific profile for ADA FIB-SEM Product Profile. Extends the base ADA product profile with the SEMFIBSEM analysis-instance detail on the schema:Dataset root, narrows prov:used to the semFibsemTAPP protocol, and constrains valid component types on schema:distribution.hasPart.",
+    "allOf": [
+        {
+            "$ref": "../../../BaseSchema/adaProduct/adaProductSchema.json"
+        },
+        {
+            "$ref": "../detail/detailSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "prov:wasGeneratedBy": {
+                    "description": "Narrow the base prov:used to the semFibsemTAPP definition — inline, or by node @id — alongside the instrument.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "prov:used": {
+                                "type": "array",
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "../../../BaseSchema/instrument/instrumentSchema.json"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "description": "Reference by node @id to a semFibsemTAPP definition object defined elsewhere.",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../tapp/tappSchema.json"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:additionalType": {
+                    "description": "Must include a SEMFIBSEM product type identifier.",
+                    "contains": {
+                        "enum": [
+                            "Focused ion beam-scanning electron microscopy",
+                            "Scanning electron microscopy"
+                        ]
+                    }
+                },
+                "schema:distribution": {
+                    "description": "Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType is a SEMFIBSEM-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).",
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "required": [
+                                    "ada:componentType"
+                                ],
+                                "properties": {
+                                    "ada:componentType": {
+                                        "type": "string",
+                                        "anyOf": [
+                                            {
+                                                "$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType"
+                                            },
+                                            {
+                                                "enum": [
+                                                    "ada:FIBSEMVolume",
+                                                    "ada:FIBSEMImage",
+                                                    "ada:FIBSEMSegmentation",
+                                                    "ada:FIBSEMTabular"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "required": [
+                                    "schema:hasPart"
+                                ],
+                                "properties": {
+                                    "schema:hasPart": {
+                                        "items": {
+                                            "type": "object",
+                                            "anyOf": [
+                                                {
+                                                    "$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "ada:componentType": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "ada:FIBSEMVolume",
+                                                                "ada:FIBSEMImage",
+                                                                "ada:FIBSEMSegmentation",
+                                                                "ada:FIBSEMTabular"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "ada:componentType"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "schema:subjectOf": {
+                    "properties": {
+                        "dcterms:conformsTo": {
+                            "contains": {
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "https://w3id.org/geochem/metadata/profiles/adaSEMFIBSEM"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

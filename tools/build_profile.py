@@ -154,8 +154,14 @@ def _example(tapp, cfg, component_types):
     ex["schema:description"] = (f"Example path-driven {cfg['short']} product record: dataset-level analysis "
                                 f"detail plus technique component types on distribution.hasPart. Mock data.")
     ex["schema:additionalType"] = [cfg["addtype"][0], "ada:DataDeliveryPackage"]
-    # swap distribution componentType -> this technique's first componentType
+    # swap distribution componentType -> this technique's first componentType, and mark each
+    # BUNDLE distribution (one with schema:hasPart) as a schema:Collection so it is recognized as
+    # an archive and held to the manifest profile (symmetric with the monolithic cdi:PhysicalDataSet).
     for dist in ex.get("schema:distribution", []):
+        if "schema:hasPart" in dist:
+            at = dist.setdefault("@type", [])
+            if "schema:Collection" not in at:
+                at.append("schema:Collection")
         for hp in dist.get("schema:hasPart", []):
             if isinstance(hp, dict) and "ada:componentType" in hp:
                 hp["ada:componentType"] = component_types[0]
@@ -190,12 +196,12 @@ def _example_monolithic(ex, cfg, component_types):
         if not isinstance(v, dict):
             continue
         comp = {"@type": ["cdi:MeasureComponent" if i == 0 else "cdi:DimensionComponent"],
-                "cdif:name": v.get("schema:name", f"component_{i}")}
+                "cdif:name": [v.get("schema:name", f"component_{i}")]}  # cdif:name is array-valued
         if v.get("@id"):
             comp["cdif:isDefinedBy_RepresentedVariable"] = {"@id": v["@id"]}
         comps.append(comp)
     if not comps:
-        comps = [{"@type": ["cdi:MeasureComponent"], "cdif:name": "measurement_value"}]
+        comps = [{"@type": ["cdi:MeasureComponent"], "cdif:name": ["measurement_value"]}]
     m["schema:distribution"] = [{
         "@type": ["schema:DataDownload", "cdi:PhysicalDataSet"],
         "schema:name": f"{cfg['cid']}-monolithic.dat",

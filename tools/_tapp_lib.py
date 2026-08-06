@@ -2110,7 +2110,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     ])]
     out["schema:subjectOf"] = OrderedDict([
         ("@type", ["schema:Dataset"]),
-        ("schema:additionalType", ["dcat:CatalogRecord"]),
+        ("schema:additionalType", [{"@id": "dcat:CatalogRecord"}]),
         ("@id", f"ex:adaEMPA-{pub_label}-metadata"),
         ("schema:about", {"@id": f"ex:adaEMPA-{pub_label}"}),
         ("schema:dateModified", "2026-04-29"),
