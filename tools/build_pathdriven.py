@@ -26,6 +26,8 @@ import os
 import re
 import sys
 
+import yaml
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 import schema_path_emitter as e
@@ -53,9 +55,65 @@ def _inline_registry_refs(node, registries, cache):
     return node
 
 
-def build_pathdriven(tapp):
+_REGISTRY_ID_PREFIX = {
+    "analyteColumns": "ada:analyteColumn/",
+    "parameterTemplates": "ada:parameter/",
+    "parameterValues": "ada:parameter/",
+}
+
+
+def _def_id(body):
+    return str(((body.get("properties") or {}).get("@id") or {}).get("const", ""))
+
+
+def _write_registry(reg_name, defs, tapp):
+    """Publish this TAPP's generated $defs into the shared registry file, ADDITIVELY.
+
+    Deliberately additive, deduplicated on the def's @id const (its true identity) rather than on
+    the $def key. Replace-by-ownership was tried and is wrong here: the legacy matrix route
+    (build_tapp/_tapp_lib, reading the richer annotated workbooks) and the path-driven route read
+    DIFFERENT sources and have different coverage — EPMA has 26 analyte columns in the registry but
+    only 2 rows in its schema-path sidecar — so replacing a TAPP's entries would have destroyed 24
+    real EPMA columns, ~46 parameterTemplates and ~136 parameterValues that no path-driven run
+    reproduces.
+
+    Consequence: entries the path-driven route no longer generates are NOT pruned. Converging the
+    two routes is a separate decision; until then the registry is a union and never loses content.
+    """
+    path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
+    if not os.path.exists(path):
+        print(f"  registry {reg_name}: {path} missing, skipped")
+        return
+    with open(path, encoding="utf-8") as f:
+        doc = yaml.safe_load(f)
+
+    existing = doc.get("$defs") or {}
+    have_ids = {_def_id(v) for v in existing.values()}
+    new = {k: v for k, v in defs.items() if _def_id(v) not in have_ids}
+    if not new:
+        print(f"  registry {reg_name}: {tapp} already represented, no change")
+        return
+    merged = dict(existing)
+    merged.update(new)
+    doc["$defs"] = dict(sorted(merged.items()))
+    b.write(path, b.dump_yaml(doc))
+    print(f"  registry {reg_name}: +{len(new)} from {tapp} "
+          f"({len(defs) - len(new)} already present), {len(doc['$defs'])} total")
+
+
+def build_pathdriven(tapp, write_registries=True):
     b.configure(tapp)
     overlays, registries, required = e.build(tapp)
+
+    # ---- shared registries: publish this TAPP's generated analyte columns so the catalog covers
+    # every technique, not just the two the legacy route happened to write. The schemas below still
+    # INLINE the defs (see the note on the TAPP schema); publishing and inlining are independent.
+    #
+    # Only analyteColumns for now. The parameter registries hold ~180 legacy-route defs the
+    # path-driven route does not regenerate, so publishing there would add a second, namespaced
+    # copy of everything alongside them — churn without a decision on converging the two routes.
+    if write_registries and registries.get("analyteColumns"):
+        _write_registry("analyteColumns", registries["analyteColumns"], tapp)
 
     # ---- TAPP schema: MethodDefinition overlay over the base tappDefinition.
     # Inline the parameter defs (like the detail) rather than $ref the shared registry: the shared

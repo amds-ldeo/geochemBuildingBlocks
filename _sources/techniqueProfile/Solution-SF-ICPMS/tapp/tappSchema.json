@@ -147,9 +147,950 @@
                         "ada:analyteColumns": {
                             "type": "array",
                             "items": {
-                                "type": "object",
-                                "properties": {}
-                            }
+                                "anyOf": [
+                                    {
+                                        "$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
+                                    },
+                                    {
+                                        "title": "Monitored Isotopes",
+                                        "description": "Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor masses. Analyte-specific field.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredIsotopes"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "monitoredIsotopes"
+                                            },
+                                            "schema:name": {
+                                                "const": "Monitored Isotopes"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Mass Resolution per Analyte",
+                                        "description": "Mass resolution mode assigned to each analyte in this protocol. The selected resolution determines which polyatomic interferences are physically resolved by the magnet sector. Per-analyte assignments are documented here; the overall mode(s) used in the protocol are recorded in Mass Resolution Setting (Group 3). Analyte-specific field.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionPerAnalyte"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "massResolutionPerAnalyte"
+                                            },
+                                            "schema:name": {
+                                                "const": "Mass Resolution per Analyte"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Dwell Time per Mass",
+                                        "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "dwellTimePerMass"
+                                            },
+                                            "schema:name": {
+                                                "const": "Dwell Time per Mass"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Isobaric Interference Corrections Applied",
+                                        "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "isobaricInterferenceCorrectionsApplied"
+                                            },
+                                            "schema:name": {
+                                                "const": "Isobaric Interference Corrections Applied"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Interfering Species",
+                                        "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution. Analyte-specific.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferingSpecies"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interfering Species"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Interference Correction Method",
+                                        "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferenceCorrectionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interference Correction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Detection Limit",
+                                        "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are protocol-typical estimates or session-specific measured values.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimit"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Detection Limit Method",
+                                        "description": "Method used to calculate detection limits for each analyte.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimitMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Limit of Quantification (LOQ) Method",
+                                        "description": "Method used to determine the limit of quantification.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "limitOfQuantificationMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Limit of Quantification (LOQ) Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Within-Session Analytical Precision and Assessment Method",
+                                        "description": "Precision of repeated measurements within a single analysis session and the method used to assess it (e.g., %RSD of replicate standard or reference material measurements).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Within-Session Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                                        "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Analytical Accuracy and Assessment Method",
+                                        "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "analyticalAccuracyAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Analytical Accuracy and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "title": "Monitored Isotopes",
+                                        "description": "Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor masses. Analyte-specific field.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredIsotopes"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "monitoredIsotopes"
+                                            },
+                                            "schema:name": {
+                                                "const": "Monitored Isotopes"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Mass Resolution per Analyte",
+                                        "description": "Mass resolution mode assigned to each analyte in this protocol. The selected resolution determines which polyatomic interferences are physically resolved by the magnet sector. Per-analyte assignments are documented here; the overall mode(s) used in the protocol are recorded in Mass Resolution Setting (Group 3). Analyte-specific field.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionPerAnalyte"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "massResolutionPerAnalyte"
+                                            },
+                                            "schema:name": {
+                                                "const": "Mass Resolution per Analyte"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Dwell Time per Mass",
+                                        "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "dwellTimePerMass"
+                                            },
+                                            "schema:name": {
+                                                "const": "Dwell Time per Mass"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Isobaric Interference Corrections Applied",
+                                        "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "isobaricInterferenceCorrectionsApplied"
+                                            },
+                                            "schema:name": {
+                                                "const": "Isobaric Interference Corrections Applied"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Interfering Species",
+                                        "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution. Analyte-specific.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferingSpecies"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interfering Species"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Interference Correction Method",
+                                        "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferenceCorrectionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interference Correction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Detection Limit",
+                                        "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are protocol-typical estimates or session-specific measured values.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimit"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Detection Limit Method",
+                                        "description": "Method used to calculate detection limits for each analyte.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimitMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Limit of Quantification (LOQ) Method",
+                                        "description": "Method used to determine the limit of quantification.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "limitOfQuantificationMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Limit of Quantification (LOQ) Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Within-Session Analytical Precision and Assessment Method",
+                                        "description": "Precision of repeated measurements within a single analysis session and the method used to assess it (e.g., %RSD of replicate standard or reference material measurements).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Within-Session Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                                        "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Analytical Accuracy and Assessment Method",
+                                        "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "analyticalAccuracyAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Analytical Accuracy and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                }
+                            ]
                         }
                     }
                 },

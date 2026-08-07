@@ -2980,9 +2980,170 @@
                         "ada:analyteColumns": {
                             "type": "array",
                             "items": {
-                                "type": "object",
-                                "properties": {}
-                            }
+                                "anyOf": [
+                                    {
+                                        "$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
+                                    },
+                                    {
+                                        "title": "Detection Limit",
+                                        "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/semTAPP/detectionLimit"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimit"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Detection Limit Method",
+                                        "description": "Formula or procedure used to calculate detection limits.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/semTAPP/detectionLimitMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimitMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "title": "Detection Limit",
+                                        "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/semTAPP/detectionLimit"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimit"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Detection Limit Method",
+                                        "description": "Formula or procedure used to calculate detection limits.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/semTAPP/detectionLimitMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "detectionLimitMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Detection Limit Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                }
+                            ]
                         }
                     }
                 },

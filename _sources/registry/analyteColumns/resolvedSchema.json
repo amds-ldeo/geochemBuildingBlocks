@@ -1,1296 +1,3109 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "ADA Analyte-Column Specification Registry",
-    "description": "Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived from technique TAPP spreadsheets. Each $def constrains one analyte-table reporting column (e.g. detectionLimit, xrayEmissionLine). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
-    "type": "object",
-    "$defs": {
-        "epmaTechnique": {
-            "title": "EPMA Technique per Element",
-            "description": "Whether this element was measured by WDS or EDS.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/epmaTechnique"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "epmaTechnique"
-                },
-                "schema:name": {
-                    "const": "EPMA Technique per Element"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/epmaTechnique"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA Analyte-Column Specification Registry",
+  "description": "Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived from technique TAPP spreadsheets. Each $def constrains one analyte-table reporting column (e.g. detectionLimit, xrayEmissionLine). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
+  "type": "object",
+  "$defs": {
+    "analysisOrder": {
+      "title": "Sequence",
+      "description": "Order of analysis on spectormeter.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/analysisOrder"
         },
-        "spectrometerNumber": {
-            "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer number used for this element.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/spectrometerNumber"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "spectrometerNumber"
-                },
-                "schema:name": {
-                    "const": "WDS Spectrometer Channel"
-                },
-                "ada:dataType": {
-                    "const": "integer"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
         },
-        "analysisOrder": {
-            "title": "Sequence",
-            "description": "Order of analysis on spectormeter.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/analysisOrder"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "analysisOrder"
-                },
-                "schema:name": {
-                    "const": "Sequence"
-                },
-                "ada:dataType": {
-                    "const": "integer"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
+        "schema:valueName": {
+          "const": "analysisOrder"
         },
-        "monochromatorCrystal": {
-            "title": "Diffracting Crystal",
-            "description": "Analysing crystal (monochromator) used in the WDS spectrometer for this element.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/monochromatorCrystal"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "monochromatorCrystal"
-                },
-                "schema:name": {
-                    "const": "Diffracting Crystal"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/monochromatorCrystal"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
+        "schema:name": {
+          "const": "Sequence"
         },
-        "wdsDetectorType": {
-            "title": "Proportional Counter / Detector",
-            "description": "Type of detector used in the WDS spectrometer for this element.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/wdsDetectorType"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "wdsDetectorType"
-                },
-                "schema:name": {
-                    "const": "Proportional Counter / Detector"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/wdsDetectorType"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
+        "ada:dataType": {
+          "const": "integer"
         },
-        "pulseHeightAnalyzeSetting": {
-            "title": "WDS PHA Setting",
-            "description": "Pulse height analyzer setting used for the WDS detector.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "pulseHeightAnalyzeSetting"
-                },
-                "schema:name": {
-                    "const": "WDS PHA Setting"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
+        "schema:readonlyValue": {
+          "const": true
         },
-        "xrayEmissionLine": {
-            "title": "X-ray Line",
-            "description": "The X-ray emission line measured for this element.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/xrayEmissionLine"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "xrayEmissionLine"
-                },
-                "schema:name": {
-                    "const": "X-ray Line"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "peakCountingTime": {
-            "title": "Default Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/peakCountingTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "peakCountingTime"
-                },
-                "schema:name": {
-                    "const": "Default Peak Counting Time"
-                },
-                "ada:dataType": {
-                    "const": "number"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "backgroundCountingTime": {
-            "title": "Default Background Counting Time",
-            "description": "Total time spent counting at background position(s) in seconds.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/backgroundCountingTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "backgroundCountingTime"
-                },
-                "schema:name": {
-                    "const": "Default Background Counting Time"
-                },
-                "ada:dataType": {
-                    "const": "number"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "backgroundCountingPosition": {
-            "title": "Typical Background Position(s)",
-            "description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/backgroundCountingPosition"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "backgroundCountingPosition"
-                },
-                "schema:name": {
-                    "const": "Typical Background Position(s)"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "blankCorrection": {
-            "title": "Blank Correction",
-            "description": "Method and reference materials used to determine and apply blank corrections.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/blankCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "blankCorrection"
-                },
-                "schema:name": {
-                    "const": "Blank Correction"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "normalization-standardsCorrection": {
-            "title": "Normalization / Standards-Based Correction",
-            "description": "Post-acquisition normalization applied using secondary reference materials.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/normalization-standardsCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "normalization-standardsCorrection"
-                },
-                "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "edsDeadTime": {
-            "title": "EDS Dead Time",
-            "description": "Percent dead time reported by the EDS spectrometer",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/edsDeadTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "edsDeadTime"
-                },
-                "schema:name": {
-                    "const": "EDS Dead Time"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "backgroundCorrectionMethod": {
-            "title": "Background Correction Method",
-            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/backgroundCorrectionMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "backgroundCorrectionMethod"
-                },
-                "schema:name": {
-                    "const": "Background Correction Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "timeDependentIntensityCorrection": {
-            "title": "Time-Dependent Intensity Correction",
-            "description": "Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "timeDependentIntensityCorrection"
-                },
-                "schema:name": {
-                    "const": "Time-Dependent Intensity Correction"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "elementEstimationMethod": {
-            "title": "Element Estimation Method",
-            "description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/elementEstimationMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "elementEstimationMethod"
-                },
-                "schema:name": {
-                    "const": "Element Estimation Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
-                    }
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "primaryCalibrationStandard": {
-            "title": "Primary Calibration Standard Name",
-            "description": "Primary reference material used for element standardization (calibration).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/primaryCalibrationStandard"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "primaryCalibrationStandard"
-                },
-                "schema:name": {
-                    "const": "Primary Calibration Standard Name"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "secondaryReferenceMaterial": {
-            "title": "Secondary Reference Materials",
-            "description": "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "secondaryReferenceMaterial"
-                },
-                "schema:name": {
-                    "const": "Secondary Reference Materials"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "interferenceCorrection": {
-            "title": "Interference Corrections Applied",
-            "description": "Flag indicating whether a spectral interference correction was applied for this element.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/interferenceCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "interferenceCorrection"
-                },
-                "schema:name": {
-                    "const": "Interference Corrections Applied"
-                },
-                "ada:dataType": {
-                    "const": "boolean"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "interferingElements": {
-            "title": "Interfering Elements",
-            "description": "List of elements whose X-ray lines overlap with the measured line for this element.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/interferingElements"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "interferingElements"
-                },
-                "schema:name": {
-                    "const": "Interfering Elements"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "interferenceCorrectionStandard": {
-            "title": "Interference Correction Standard",
-            "description": "Reference material used to quantify and calibrate the interference correction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "interferenceCorrectionStandard"
-                },
-                "schema:name": {
-                    "const": "Interference Correction Standard"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "typicalDetectionLimit": {
-            "title": "Typical Detection Limit",
-            "description": "Method detection limit at 99% confidence (3σ) for each measured element.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/typicalDetectionLimit"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "typicalDetectionLimit"
-                },
-                "schema:name": {
-                    "const": "Typical Detection Limit"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "detectionLimitMethod": {
-            "title": "Detection Limit Method",
-            "description": "Method used to compute detection limits.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "detectionLimitMethod"
-                },
-                "schema:name": {
-                    "const": "Detection Limit Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "typicalAnalyticalPrecision": {
-            "title": "Typical Analytical Precision",
-            "description": "Reproducibility of repeated measurements on the same or equivalent standard, expressed as 1σ relative standard deviation (%).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalPrecision"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "typicalAnalyticalPrecision"
-                },
-                "schema:name": {
-                    "const": "Typical Analytical Precision"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "typicalAnalyticalAccuracy": {
-            "title": "Typical Analytical Accuracy",
-            "description": "Offset between measured and accepted reference values for secondary standards, expressed as % relative bias.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalAccuracy"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "typicalAnalyticalAccuracy"
-                },
-                "schema:name": {
-                    "const": "Typical Analytical Accuracy"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "typicalCountingStatisticsError": {
-            "title": "Typical Counting Statistics Error",
-            "description": "1σ uncertainty propagated from counting statistics on peak and background intensities.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/empaTAPP/typicalCountingStatisticsError"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "typicalCountingStatisticsError"
-                },
-                "schema:name": {
-                    "const": "Typical Counting Statistics Error"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "detectionLimit": {
-            "title": "Detection Limit",
-            "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/detectionLimit"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "detectionLimit"
-                },
-                "schema:name": {
-                    "const": "Detection Limit"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "limitOfQuantification": {
-            "title": "Limit of Quantification (LOQ) Method",
-            "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "limitOfQuantification"
-                },
-                "schema:name": {
-                    "const": "Limit of Quantification (LOQ) Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "withinSessionReproducibility": {
-            "title": "Within-Session Analytical Precision and Assessment Method",
-            "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "withinSessionReproducibility"
-                },
-                "schema:name": {
-                    "const": "Within-Session Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "withinSessionReproducibilityMethod": {
-            "title": "Within-Session Analytical Precision and Assessment Method",
-            "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "withinSessionReproducibilityMethod"
-                },
-                "schema:name": {
-                    "const": "Within-Session Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "betweenSessionReproducibility": {
-            "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "betweenSessionReproducibility"
-                },
-                "schema:name": {
-                    "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "betweenSessionReproducibilityMethod": {
-            "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "betweenSessionReproducibilityMethod"
-                },
-                "schema:name": {
-                    "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "analyticalAccuracy": {
-            "title": "Analytical Accuracy and Assessment Method",
-            "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "analyticalAccuracy"
-                },
-                "schema:name": {
-                    "const": "Analytical Accuracy and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
-        },
-        "analyticalAccuracyMethod": {
-            "title": "Analytical Accuracy and Assessment Method",
-            "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "analyticalAccuracyMethod"
-                },
-                "schema:name": {
-                    "const": "Analytical Accuracy and Assessment Method"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "M"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType"
-            ]
+        "ada:tier": {
+          "const": "M"
         }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "analyticalAccuracy": {
+      "title": "Analytical Accuracy and Assessment Method",
+      "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracy"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "analyticalAccuracy"
+        },
+        "schema:name": {
+          "const": "Analytical Accuracy and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "analyticalAccuracyMethod": {
+      "title": "Analytical Accuracy and Assessment Method",
+      "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "analyticalAccuracyMethod"
+        },
+        "schema:name": {
+          "const": "Analytical Accuracy and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "backgroundCorrectionMethod": {
+      "title": "Background Correction Method",
+      "description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/backgroundCorrectionMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "backgroundCorrectionMethod"
+        },
+        "schema:name": {
+          "const": "Background Correction Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:inDefinedTermSet": {
+          "const": {
+            "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "backgroundCountingPosition": {
+      "title": "Typical Background Position(s)",
+      "description": "Positions of background measurements relative to the peak, in mm and/or sinθ, and whether on the high or low energy side.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/backgroundCountingPosition"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "backgroundCountingPosition"
+        },
+        "schema:name": {
+          "const": "Typical Background Position(s)"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "backgroundCountingTime": {
+      "title": "Default Background Counting Time",
+      "description": "Total time spent counting at background position(s) in seconds.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/backgroundCountingTime"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "backgroundCountingTime"
+        },
+        "schema:name": {
+          "const": "Default Background Counting Time"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "betweenSessionReproducibility": {
+      "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibility"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "betweenSessionReproducibility"
+        },
+        "schema:name": {
+          "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "betweenSessionReproducibilityMethod": {
+      "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionReproducibilityMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "betweenSessionReproducibilityMethod"
+        },
+        "schema:name": {
+          "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "blankCorrection": {
+      "title": "Blank Correction",
+      "description": "Method and reference materials used to determine and apply blank corrections.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/blankCorrection"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "blankCorrection"
+        },
+        "schema:name": {
+          "const": "Blank Correction"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "detectionLimit": {
+      "title": "Detection Limit",
+      "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/detectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimit"
+        },
+        "schema:name": {
+          "const": "Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "detectionLimitMethod": {
+      "title": "Detection Limit Method",
+      "description": "Method used to compute detection limits.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimitMethod"
+        },
+        "schema:name": {
+          "const": "Detection Limit Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "edsDeadTime": {
+      "title": "EDS Dead Time",
+      "description": "Percent dead time reported by the EDS spectrometer",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/edsDeadTime"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "edsDeadTime"
+        },
+        "schema:name": {
+          "const": "EDS Dead Time"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "elementEstimationMethod": {
+      "title": "Element Estimation Method",
+      "description": "How elemental concentrations were calculated — directly from measured X-ray intensities or via cation stoichiometry.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/elementEstimationMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "elementEstimationMethod"
+        },
+        "schema:name": {
+          "const": "Element Estimation Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:inDefinedTermSet": {
+          "const": {
+            "@id": "ada:vocab/empaTAPP/elementEstimationMethod"
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "empa_detectionLimit": {
+      "title": "Detection Limit",
+      "description": "Method detection limit at 99% confidence (3-sigma) for each analyte, derived from counting statistics on peak and background. Include the method and resulting value per analyte.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/detectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimit"
+        },
+        "schema:name": {
+          "const": "Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "epmaTechnique": {
+      "title": "EPMA Technique per Element",
+      "description": "Whether this element was measured by WDS or EDS.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/epmaTechnique"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "epmaTechnique"
+        },
+        "schema:name": {
+          "const": "EPMA Technique per Element"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:inDefinedTermSet": {
+          "const": {
+            "@id": "ada:vocab/empaTAPP/epmaTechnique"
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_analyticalAccuracyAndAssessmentMethod": {
+      "title": "Analytical Accuracy and Assessment Method",
+      "description": "Offset between measured and accepted reference values for secondary reference materials. Table 3's validation weighted-average ages, compared against each material's independently accepted age (cited in Secondary Reference Materials above), serve as the accuracy statement for this worked example.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/analyticalAccuracyAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "analyticalAccuracyAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Analytical Accuracy and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_betweenSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months. Not addressed in Table 3 of Horstwood et al. (2016), which reports only within-session validation results.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_detectionLimit": {
+      "title": "Detection Limit",
+      "description": "Session detection limit for U, Th, and/or Pb, demonstrating the reliability of reported concentrations near the detection limit. Not requested by Table 3 of Horstwood et al. (2016), which focuses on age uncertainty rather than elemental detection limits.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/detectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimit"
+        },
+        "schema:name": {
+          "const": "Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_detectionLimitMethod": {
+      "title": "Detection Limit Method",
+      "description": "Reference or description of the method used to calculate the session detection limit reported above.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/detectionLimitMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimitMethod"
+        },
+        "schema:name": {
+          "const": "Detection Limit Method"
+        },
+        "ada:dataType": {
+          "const": "uri"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_interferenceCorrectionMethod": {
+      "title": "Interference Correction Method",
+      "description": "Equation or procedure used to correct for isobaric interferences, including the reference material or monitor isotope used to characterise it.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/interferenceCorrectionMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferenceCorrectionMethod"
+        },
+        "schema:name": {
+          "const": "Interference Correction Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_interferingSpecies": {
+      "title": "Interfering Species",
+      "description": "Elemental or molecular species overlapping with the measured isotope, relevant to U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field above).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/interferingSpecies"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferingSpecies"
+        },
+        "schema:name": {
+          "const": "Interfering Species"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_isobaricInterferenceCorrectionsApplied": {
+      "title": "Isobaric Interference Corrections Applied",
+      "description": "Whether isobaric interference corrections were applied for any measured isotope in this procedure. A procedure-level Boolean; element-specific detail is in Interfering Species and Interference Correction Method.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/isobaricInterferenceCorrectionsApplied"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "isobaricInterferenceCorrectionsApplied"
+        },
+        "schema:name": {
+          "const": "Isobaric Interference Corrections Applied"
+        },
+        "ada:dataType": {
+          "const": "boolean"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_limitOfQuantificationMethod": {
+      "title": "Limit of Quantification (LOQ) Method",
+      "description": "Reference or description of the method used to calculate the limit of quantification: the lowest concentration reliably measurable with acceptable precision and accuracy.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/limitOfQuantificationMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "limitOfQuantificationMethod"
+        },
+        "schema:name": {
+          "const": "Limit of Quantification (LOQ) Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_massResolutionPerAnalyte": {
+      "title": "Mass Resolution per Analyte",
+      "description": "Mass resolution mode assigned to each analyte in this procedure. The selected resolution determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant to common-Pb correction) are physically resolved by the magnetic sector. Applicable only to sector-field instruments.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/massResolutionPerAnalyte"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "massResolutionPerAnalyte"
+        },
+        "schema:name": {
+          "const": "Mass Resolution per Analyte"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "geochron_withinSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Within-Session Analytical Precision and Assessment Method",
+      "description": "Reproducibility of repeated measurements within a single analytical session. Assessment method specifies the reference material used, number of replicates n, and the statistic reported.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/geochronTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Within-Session Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "interferenceCorrection": {
+      "title": "Interference Corrections Applied",
+      "description": "Flag indicating whether a spectral interference correction was applied for this element.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/interferenceCorrection"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferenceCorrection"
+        },
+        "schema:name": {
+          "const": "Interference Corrections Applied"
+        },
+        "ada:dataType": {
+          "const": "boolean"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "interferenceCorrectionStandard": {
+      "title": "Interference Correction Standard",
+      "description": "Reference material used to quantify and calibrate the interference correction.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferenceCorrectionStandard"
+        },
+        "schema:name": {
+          "const": "Interference Correction Standard"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "interferingElements": {
+      "title": "Interfering Elements",
+      "description": "List of elements whose X-ray lines overlap with the measured line for this element.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/interferingElements"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferingElements"
+        },
+        "schema:name": {
+          "const": "Interfering Elements"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_analyticalAccuracyAndAssessmentMethod": {
+      "title": "Analytical Accuracy and Assessment Method",
+      "description": "Offset between measured and accepted reference values for secondary reference materials, expressed as % relative bias. Report both the assessment method and the accuracy values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or element groups assessed. Report any systematic biases and likely causes.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "analyticalAccuracyAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Analytical Accuracy and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_detectionLimitMethod": {
+      "title": "Detection Limit Method",
+      "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/detectionLimitMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimitMethod"
+        },
+        "schema:name": {
+          "const": "Detection Limit Method"
+        },
+        "ada:dataType": {
+          "const": "uri"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_dwellTime": {
+      "title": "Dwell Time per Mass",
+      "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/dwellTime"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "dwellTime"
+        },
+        "schema:name": {
+          "const": "Dwell Time per Mass"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_interferingSpecies": {
+      "title": "Interfering Species",
+      "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/interferingSpecies"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferingSpecies"
+        },
+        "schema:name": {
+          "const": "Interfering Species"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_isobaricInterferenceCorrection": {
+      "title": "Isobaric Interference Corrections Applied",
+      "description": "Whether isobaric interference corrections were applied for any measured isotope in this protocol. A protocol-level Boolean: if the protocol includes interference corrections, this is always Yes. Element-specific detail is captured in Interfering Species and Interference Correction Method.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/isobaricInterferenceCorrection"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "isobaricInterferenceCorrection"
+        },
+        "schema:name": {
+          "const": "Isobaric Interference Corrections Applied"
+        },
+        "ada:dataType": {
+          "const": "boolean"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_isobaricInterferenceCorrectionMethod": {
+      "title": "Interference Correction Method",
+      "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/isobaricInterferenceCorrectionMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "isobaricInterferenceCorrectionMethod"
+        },
+        "schema:name": {
+          "const": "Interference Correction Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_limitOfQuantificationMethod": {
+      "title": "Limit of Quantification (LOQ) Method",
+      "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantificationMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "limitOfQuantificationMethod"
+        },
+        "schema:name": {
+          "const": "Limit of Quantification (LOQ) Method"
+        },
+        "ada:dataType": {
+          "const": "uri"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_massResolutionPerAnalyte": {
+      "title": "Mass Resolution per Analyte",
+      "description": "Mass resolution mode assigned to each analyte in this protocol. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. Per-analyte assignments are documented here; the overall mode(s) used in the protocol are recorded in Mass Resolution Setting (Group 3). Analyte-specific field. SF-ICP-MS only;",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/massResolutionPerAnalyte"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "massResolutionPerAnalyte"
+        },
+        "schema:name": {
+          "const": "Mass Resolution per Analyte"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_monitoredIsotopes": {
+      "title": "Monitored Isotopes",
+      "description": "Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor masses. Analyte-specific field.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/monitoredIsotopes"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "monitoredIsotopes"
+        },
+        "schema:name": {
+          "const": "Monitored Isotopes"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "laicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Within-Session Analytical Precision and Assessment Method",
+      "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Within-Session Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "limitOfQuantification": {
+      "title": "Limit of Quantification (LOQ) Method",
+      "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/limitOfQuantification"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "limitOfQuantification"
+        },
+        "schema:name": {
+          "const": "Limit of Quantification (LOQ) Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "monochromatorCrystal": {
+      "title": "Diffracting Crystal",
+      "description": "Analysing crystal (monochromator) used in the WDS spectrometer for this element.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/monochromatorCrystal"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "monochromatorCrystal"
+        },
+        "schema:name": {
+          "const": "Diffracting Crystal"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:inDefinedTermSet": {
+          "const": {
+            "@id": "ada:vocab/empaTAPP/monochromatorCrystal"
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "normalization-standardsCorrection": {
+      "title": "Normalization / Standards-Based Correction",
+      "description": "Post-acquisition normalization applied using secondary reference materials.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/normalization-standardsCorrection"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "normalization-standardsCorrection"
+        },
+        "schema:name": {
+          "const": "Normalization / Standards-Based Correction"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "peakCountingTime": {
+      "title": "Default Peak Counting Time",
+      "description": "Time spent counting X-ray intensity at the peak position in seconds.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/peakCountingTime"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "peakCountingTime"
+        },
+        "schema:name": {
+          "const": "Default Peak Counting Time"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "primaryCalibrationStandard": {
+      "title": "Primary Calibration Standard Name",
+      "description": "Primary reference material used for element standardization (calibration).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/primaryCalibrationStandard"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "primaryCalibrationStandard"
+        },
+        "schema:name": {
+          "const": "Primary Calibration Standard Name"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "pulseHeightAnalyzeSetting": {
+      "title": "WDS PHA Setting",
+      "description": "Pulse height analyzer setting used for the WDS detector.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "pulseHeightAnalyzeSetting"
+        },
+        "schema:name": {
+          "const": "WDS PHA Setting"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "secondaryReferenceMaterial": {
+      "title": "Secondary Reference Materials",
+      "description": "List of quality-control reference materials (secondary standards) routinely analyzed alongside unknowns.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterial"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "secondaryReferenceMaterial"
+        },
+        "schema:name": {
+          "const": "Secondary Reference Materials"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "semComposition_detectionLimit": {
+      "title": "Detection Limit",
+      "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/semCompositionTAPP/detectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimit"
+        },
+        "schema:name": {
+          "const": "Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "semComposition_detectionLimitMethod": {
+      "title": "Detection Limit Method",
+      "description": "Formula or procedure used to calculate detection limits.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/semCompositionTAPP/detectionLimitMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimitMethod"
+        },
+        "schema:name": {
+          "const": "Detection Limit Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "sem_detectionLimit": {
+      "title": "Detection Limit",
+      "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/semTAPP/detectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimit"
+        },
+        "schema:name": {
+          "const": "Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "sem_detectionLimitMethod": {
+      "title": "Detection Limit Method",
+      "description": "Formula or procedure used to calculate detection limits.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/semTAPP/detectionLimitMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimitMethod"
+        },
+        "schema:name": {
+          "const": "Detection Limit Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_analyticalAccuracyAndAssessmentMethod": {
+      "title": "Analytical Accuracy and Assessment Method",
+      "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "analyticalAccuracyAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Analytical Accuracy and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_detectionLimit": {
+      "title": "Detection Limit",
+      "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are protocol-typical estimates or session-specific measured values.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimit"
+        },
+        "schema:name": {
+          "const": "Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_detectionLimitMethod": {
+      "title": "Detection Limit Method",
+      "description": "Method used to calculate detection limits for each analyte.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimitMethod"
+        },
+        "schema:name": {
+          "const": "Detection Limit Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_dwellTimePerMass": {
+      "title": "Dwell Time per Mass",
+      "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/dwellTimePerMass"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "dwellTimePerMass"
+        },
+        "schema:name": {
+          "const": "Dwell Time per Mass"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_interferenceCorrectionMethod": {
+      "title": "Interference Correction Method",
+      "description": "Mathematical approach used to calculate and remove interference contributions from measured signals (e.g., interference standard solutions isolating specific polyatomics, mass-balance equations using empirical correction factors).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferenceCorrectionMethod"
+        },
+        "schema:name": {
+          "const": "Interference Correction Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_interferingSpecies": {
+      "title": "Interfering Species",
+      "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/interferingSpecies"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferingSpecies"
+        },
+        "schema:name": {
+          "const": "Interfering Species"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_isobaricInterferenceCorrectionsApplied": {
+      "title": "Isobaric Interference Corrections Applied",
+      "description": "Whether mathematical corrections for isobaric or polyatomic interferences are applied during data reduction (in addition to any KED or DRC mitigation in the instrument).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "isobaricInterferenceCorrectionsApplied"
+        },
+        "schema:name": {
+          "const": "Isobaric Interference Corrections Applied"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_limitOfQuantificationMethod": {
+      "title": "Limit of Quantification (LOQ) Method",
+      "description": "Method used to determine the limit of quantification.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "limitOfQuantificationMethod"
+        },
+        "schema:name": {
+          "const": "Limit of Quantification (LOQ) Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_monitoredIsotopes": {
+      "title": "Monitored Isotopes",
+      "description": "Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor masses. Analyte-specific field.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/monitoredIsotopes"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "monitoredIsotopes"
+        },
+        "schema:name": {
+          "const": "Monitored Isotopes"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionQicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Within-Session Analytical Precision and Assessment Method",
+      "description": "Precision of repeated measurements within a single analysis session and the method used to assess it (e.g., %RSD of replicate standard or reference material measurements).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Within-Session Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_analyticalAccuracyAndAssessmentMethod": {
+      "title": "Analytical Accuracy and Assessment Method",
+      "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "analyticalAccuracyAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Analytical Accuracy and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_detectionLimit": {
+      "title": "Detection Limit",
+      "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are protocol-typical estimates or session-specific measured values.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimit"
+        },
+        "schema:name": {
+          "const": "Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_detectionLimitMethod": {
+      "title": "Detection Limit Method",
+      "description": "Method used to calculate detection limits for each analyte.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "detectionLimitMethod"
+        },
+        "schema:name": {
+          "const": "Detection Limit Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_dwellTimePerMass": {
+      "title": "Dwell Time per Mass",
+      "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "dwellTimePerMass"
+        },
+        "schema:name": {
+          "const": "Dwell Time per Mass"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_interferenceCorrectionMethod": {
+      "title": "Interference Correction Method",
+      "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferenceCorrectionMethod"
+        },
+        "schema:name": {
+          "const": "Interference Correction Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_interferingSpecies": {
+      "title": "Interfering Species",
+      "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution. Analyte-specific.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "interferingSpecies"
+        },
+        "schema:name": {
+          "const": "Interfering Species"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_isobaricInterferenceCorrectionsApplied": {
+      "title": "Isobaric Interference Corrections Applied",
+      "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "isobaricInterferenceCorrectionsApplied"
+        },
+        "schema:name": {
+          "const": "Isobaric Interference Corrections Applied"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_limitOfQuantificationMethod": {
+      "title": "Limit of Quantification (LOQ) Method",
+      "description": "Method used to determine the limit of quantification.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "limitOfQuantificationMethod"
+        },
+        "schema:name": {
+          "const": "Limit of Quantification (LOQ) Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_massResolutionPerAnalyte": {
+      "title": "Mass Resolution per Analyte",
+      "description": "Mass resolution mode assigned to each analyte in this protocol. The selected resolution determines which polyatomic interferences are physically resolved by the magnet sector. Per-analyte assignments are documented here; the overall mode(s) used in the protocol are recorded in Mass Resolution Setting (Group 3). Analyte-specific field.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionPerAnalyte"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "massResolutionPerAnalyte"
+        },
+        "schema:name": {
+          "const": "Mass Resolution per Analyte"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_monitoredIsotopes": {
+      "title": "Monitored Isotopes",
+      "description": "Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor masses. Analyte-specific field.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredIsotopes"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "monitoredIsotopes"
+        },
+        "schema:name": {
+          "const": "Monitored Isotopes"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "solutionSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Within-Session Analytical Precision and Assessment Method",
+      "description": "Precision of repeated measurements within a single analysis session and the method used to assess it (e.g., %RSD of replicate standard or reference material measurements).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Within-Session Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "spectrometerNumber": {
+      "title": "WDS Spectrometer Channel",
+      "description": "WDS spectrometer number used for this element.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/spectrometerNumber"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "spectrometerNumber"
+        },
+        "schema:name": {
+          "const": "WDS Spectrometer Channel"
+        },
+        "ada:dataType": {
+          "const": "integer"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "timeDependentIntensityCorrection": {
+      "title": "Time-Dependent Intensity Correction",
+      "description": "Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "timeDependentIntensityCorrection"
+        },
+        "schema:name": {
+          "const": "Time-Dependent Intensity Correction"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:inDefinedTermSet": {
+          "const": {
+            "@id": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "typicalAnalyticalAccuracy": {
+      "title": "Typical Analytical Accuracy",
+      "description": "Offset between measured and accepted reference values for secondary standards, expressed as % relative bias.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalAccuracy"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "typicalAnalyticalAccuracy"
+        },
+        "schema:name": {
+          "const": "Typical Analytical Accuracy"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "typicalAnalyticalPrecision": {
+      "title": "Typical Analytical Precision",
+      "description": "Reproducibility of repeated measurements on the same or equivalent standard, expressed as 1σ relative standard deviation (%).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/typicalAnalyticalPrecision"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "typicalAnalyticalPrecision"
+        },
+        "schema:name": {
+          "const": "Typical Analytical Precision"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "typicalCountingStatisticsError": {
+      "title": "Typical Counting Statistics Error",
+      "description": "1σ uncertainty propagated from counting statistics on peak and background intensities.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/typicalCountingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "typicalCountingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Typical Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "typicalDetectionLimit": {
+      "title": "Typical Detection Limit",
+      "description": "Method detection limit at 99% confidence (3σ) for each measured element.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/typicalDetectionLimit"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "typicalDetectionLimit"
+        },
+        "schema:name": {
+          "const": "Typical Detection Limit"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "wdsDetectorType": {
+      "title": "Proportional Counter / Detector",
+      "description": "Type of detector used in the WDS spectrometer for this element.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/wdsDetectorType"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "wdsDetectorType"
+        },
+        "schema:name": {
+          "const": "Proportional Counter / Detector"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:inDefinedTermSet": {
+          "const": {
+            "@id": "ada:vocab/empaTAPP/wdsDetectorType"
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "withinSessionReproducibility": {
+      "title": "Within-Session Analytical Precision and Assessment Method",
+      "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibility"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "withinSessionReproducibility"
+        },
+        "schema:name": {
+          "const": "Within-Session Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "withinSessionReproducibilityMethod": {
+      "title": "Within-Session Analytical Precision and Assessment Method",
+      "description": "Reproducibility of repeated measurements within a single analytical session. Report both the assessment method and the precision values. Assessment method must specify: (1) the reference material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material area at session start and end, or from replicate analyses of a homogeneous reference phase within the map.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laicpmsTAPP/withinSessionReproducibilityMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "withinSessionReproducibilityMethod"
+        },
+        "schema:name": {
+          "const": "Within-Session Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "xrayEmissionLine": {
+      "title": "X-ray Line",
+      "description": "The X-ray emission line measured for this element.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/empaTAPP/xrayEmissionLine"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "xrayEmissionLine"
+        },
+        "schema:name": {
+          "const": "X-ray Line"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
     }
+  }
 }

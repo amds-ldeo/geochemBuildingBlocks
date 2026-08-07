@@ -420,9 +420,10 @@ def build(tapp):
                 # the shared registry: that registry keys defs by bare name, so a column name used
                 # by two TAPPs (e.g. detectionLimit) would resolve to the other TAPP's def and its
                 # @id const — the same reason parameter defs are inlined.
-                name = sidecar.get(item, {}).get("name") or b.camel(item)
+                bare = sidecar.get(item, {}).get("name") or b.camel(item)
+                name = b.def_key(bare)   # TAPP-namespaced: the registry is shared across TAPPs
                 registries["analyteColumns"][name] = analyte_column_def(
-                    name, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only)
+                    bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only)
                 ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/analyteColumns/schema.yaml#/$defs/{name}"}
                 insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require)
                 # keep the base's identifier column permissible under the narrowed `items`
