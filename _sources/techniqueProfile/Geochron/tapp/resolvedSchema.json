@@ -7346,9 +7346,1024 @@
             "ada:analyteColumns": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {}
-              }
+                "anyOf": [
+                  {
+                    "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:PropertyValueSpecification"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+                          },
+                          "schema:valueName": {
+                            "type": "string",
+                            "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+                          },
+                          "schema:description": {
+                            "type": "string",
+                            "description": "Guidance text for this column."
+                          },
+                          "schema:propertyID": {
+                            "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "$ref": "#/$defs/DefinedTerm"
+                              }
+                            ]
+                          },
+                          "schema:inDefinedTermSet": {
+                            "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              {
+                                "type": "object",
+                                "description": "Object reference to a vocabulary defined elsewhere.",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ]
+                              },
+                              {
+                                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                                "type": "object",
+                                "properties": {
+                                  "@type": {
+                                    "default": "schema:CreativeWork",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:CreativeWork"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:name": {
+                                    "type": "string"
+                                  },
+                                  "schema:description": {
+                                    "type": "string"
+                                  },
+                                  "schema:url": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "schema:url"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                                "properties": {
+                                  "@type": {
+                                    "const": "schema:DefinedTermSet"
+                                  },
+                                  "schema:hasDefinedTerm": {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "@type": {
+                                          "const": "schema:DefinedTerm"
+                                        },
+                                        "schema:termCode": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@type",
+                                        "schema:termCode"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "schema:hasDefinedTerm"
+                                ]
+                              }
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "description": "Default value for this column (pre-filled per row).",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "boolean"
+                              }
+                            ]
+                          },
+                          "schema:readonlyValue": {
+                            "type": "boolean",
+                            "description": "true = constant across all analytes (read-only column)."
+                          },
+                          "schema:valueRequired": {
+                            "type": "boolean",
+                            "description": "true = must be provided for every analyte row."
+                          },
+                          "schema:minValue": {
+                            "type": "number"
+                          },
+                          "schema:maxValue": {
+                            "type": "number"
+                          },
+                          "schema:valuePattern": {
+                            "type": "string"
+                          },
+                          "ada:dataType": {
+                            "type": "string",
+                            "enum": [
+                              "string",
+                              "number",
+                              "integer",
+                              "boolean",
+                              "date",
+                              "uri"
+                            ]
+                          },
+                          "schema:unitText": {
+                            "type": "string"
+                          },
+                          "ada:tier": {
+                            "type": "string",
+                            "enum": [
+                              "M",
+                              "R",
+                              "O"
+                            ]
+                          },
+                          "ada:cdifPropertyPath": {
+                            "type": "string",
+                            "description": "How this column maps into the variableMeasured JSON-LD structure."
+                          }
+                        },
+                        "required": [
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "analyte"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Mass Resolution per Analyte",
+                    "description": "Mass resolution mode assigned to each analyte in this procedure. The selected resolution determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant to common-Pb correction) are physically resolved by the magnetic sector. Applicable only to sector-field instruments.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/massResolutionPerAnalyte"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionPerAnalyte"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution per Analyte"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether isobaric interference corrections were applied for any measured isotope in this procedure. A procedure-level Boolean; element-specific detail is in Interfering Species and Interference Correction Method.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/isobaricInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "isobaricInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "boolean"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Interfering Species",
+                    "description": "Elemental or molecular species overlapping with the measured isotope, relevant to U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field above).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Interference Correction Method",
+                    "description": "Equation or procedure used to correct for isobaric interferences, including the reference material or monitor isotope used to characterise it.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of repeated measurements within a single analytical session. Assessment method specifies the reference material used, number of replicates n, and the statistic reported.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months. Not addressed in Table 3 of Horstwood et al. (2016), which reports only within-session validation results.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted reference values for secondary reference materials. Table 3's validation weighted-average ages, compared against each material's independently accepted age (cited in Secondary Reference Materials above), serve as the accuracy statement for this worked example.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit",
+                    "description": "Session detection limit for U, Th, and/or Pb, demonstrating the reliability of reported concentrations near the detection limit. Not requested by Table 3 of Horstwood et al. (2016), which focuses on age uncertainty rather than elemental detection limits.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit Method",
+                    "description": "Reference or description of the method used to calculate the session detection limit reported above.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "uri"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Limit of Quantification (LOQ) Method",
+                    "description": "Reference or description of the method used to calculate the limit of quantification: the lowest concentration reliably measurable with acceptable precision and accuracy.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/limitOfQuantificationMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "limitOfQuantificationMethod"
+                      },
+                      "schema:name": {
+                        "const": "Limit of Quantification (LOQ) Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Mass Resolution per Analyte",
+                    "description": "Mass resolution mode assigned to each analyte in this procedure. The selected resolution determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant to common-Pb correction) are physically resolved by the magnetic sector. Applicable only to sector-field instruments.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/massResolutionPerAnalyte"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionPerAnalyte"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution per Analyte"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether isobaric interference corrections were applied for any measured isotope in this procedure. A procedure-level Boolean; element-specific detail is in Interfering Species and Interference Correction Method.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/isobaricInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "isobaricInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "boolean"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interfering Species",
+                    "description": "Elemental or molecular species overlapping with the measured isotope, relevant to U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field above).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interference Correction Method",
+                    "description": "Equation or procedure used to correct for isobaric interferences, including the reference material or monitor isotope used to characterise it.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of repeated measurements within a single analytical session. Assessment method specifies the reference material used, number of replicates n, and the statistic reported.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months. Not addressed in Table 3 of Horstwood et al. (2016), which reports only within-session validation results.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted reference values for secondary reference materials. Table 3's validation weighted-average ages, compared against each material's independently accepted age (cited in Secondary Reference Materials above), serve as the accuracy statement for this worked example.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Detection Limit",
+                    "description": "Session detection limit for U, Th, and/or Pb, demonstrating the reliability of reported concentrations near the detection limit. Not requested by Table 3 of Horstwood et al. (2016), which focuses on age uncertainty rather than elemental detection limits.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Detection Limit Method",
+                    "description": "Reference or description of the method used to calculate the session detection limit reported above.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "uri"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Limit of Quantification (LOQ) Method",
+                    "description": "Reference or description of the method used to calculate the limit of quantification: the lowest concentration reliably measurable with acceptable precision and accuracy.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/geochronTAPP/limitOfQuantificationMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "limitOfQuantificationMethod"
+                      },
+                      "schema:name": {
+                        "const": "Limit of Quantification (LOQ) Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
             }
           }
         },

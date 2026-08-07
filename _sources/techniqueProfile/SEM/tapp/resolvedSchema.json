@@ -5761,9 +5761,400 @@
             "ada:analyteColumns": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {}
-              }
+                "anyOf": [
+                  {
+                    "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:PropertyValueSpecification"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+                          },
+                          "schema:valueName": {
+                            "type": "string",
+                            "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+                          },
+                          "schema:description": {
+                            "type": "string",
+                            "description": "Guidance text for this column."
+                          },
+                          "schema:propertyID": {
+                            "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "$ref": "#/$defs/DefinedTerm"
+                              }
+                            ]
+                          },
+                          "schema:inDefinedTermSet": {
+                            "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              {
+                                "type": "object",
+                                "description": "Object reference to a vocabulary defined elsewhere.",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ]
+                              },
+                              {
+                                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+                                "type": "object",
+                                "properties": {
+                                  "@type": {
+                                    "default": "schema:CreativeWork",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:CreativeWork"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:name": {
+                                    "type": "string"
+                                  },
+                                  "schema:description": {
+                                    "type": "string"
+                                  },
+                                  "schema:url": {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "schema:url"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                                "properties": {
+                                  "@type": {
+                                    "const": "schema:DefinedTermSet"
+                                  },
+                                  "schema:hasDefinedTerm": {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "@type": {
+                                          "const": "schema:DefinedTerm"
+                                        },
+                                        "schema:termCode": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@type",
+                                        "schema:termCode"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "@type",
+                                  "schema:hasDefinedTerm"
+                                ]
+                              }
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "description": "Default value for this column (pre-filled per row).",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "boolean"
+                              }
+                            ]
+                          },
+                          "schema:readonlyValue": {
+                            "type": "boolean",
+                            "description": "true = constant across all analytes (read-only column)."
+                          },
+                          "schema:valueRequired": {
+                            "type": "boolean",
+                            "description": "true = must be provided for every analyte row."
+                          },
+                          "schema:minValue": {
+                            "type": "number"
+                          },
+                          "schema:maxValue": {
+                            "type": "number"
+                          },
+                          "schema:valuePattern": {
+                            "type": "string"
+                          },
+                          "ada:dataType": {
+                            "type": "string",
+                            "enum": [
+                              "string",
+                              "number",
+                              "integer",
+                              "boolean",
+                              "date",
+                              "uri"
+                            ]
+                          },
+                          "schema:unitText": {
+                            "type": "string"
+                          },
+                          "ada:tier": {
+                            "type": "string",
+                            "enum": [
+                              "M",
+                              "R",
+                              "O"
+                            ]
+                          },
+                          "ada:cdifPropertyPath": {
+                            "type": "string",
+                            "description": "How this column maps into the variableMeasured JSON-LD structure."
+                          }
+                        },
+                        "required": [
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "analyte"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit",
+                    "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit Method",
+                    "description": "Formula or procedure used to calculate detection limits.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Detection Limit",
+                    "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Detection Limit Method",
+                    "description": "Formula or procedure used to calculate detection limits.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
             }
           }
         },

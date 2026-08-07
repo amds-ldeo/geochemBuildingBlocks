@@ -1271,8 +1271,71 @@ allOf:
         ada:analyteColumns:
           type: array
           items:
-            type: object
-            properties: {}
+            anyOf:
+            - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - &id012
+              title: Detection Limit
+              description: Method detection limit at 99% confidence (3-sigma) for each analyte, derived
+                from counting statistics on peak and background. Include the method and resulting value
+                per analyte.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/empaTAPP/detectionLimit
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimit
+                schema:name:
+                  const: Detection Limit
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id013
+              title: Detection Limit Method
+              description: Formula or procedure used to calculate detection limits. Reference method publication
+                if applicable. When the protocol does not specify a method, the analyst should complete
+                this field.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/empaTAPP/detectionLimitMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimitMethod
+                schema:name:
+                  const: Detection Limit Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id012
+            minContains: 0
+            maxContains: 1
+          - contains: *id013
+            minContains: 0
+            maxContains: 1
     ada:epmaTechniquePerAnalyte:
       description: Whether each analyte was measured by WDS or EDS. In a WDS+EDS protocol, some elements
         may be assigned to WDS and others to EDS.

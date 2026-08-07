@@ -31,7 +31,7 @@ import build_tapp as b
 import schema_path_emitter as e
 import schema_path_example_emitter as ex
 
-_REG_RE = re.compile(r"/(parameterTemplates|parameterValues)/schema\.yaml#/\$defs/(.+)$")
+_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|analyteColumns)/schema\.yaml#/\$defs/(.+)$")
 
 
 def _inline_registry_refs(node, registries, cache):

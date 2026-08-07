@@ -39,13 +39,15 @@ class Obj:
 
 
 class Arr:
-    __slots__ = ("selkey", "branches", "append", "required")
+    __slots__ = ("selkey", "branches", "append", "required", "extra_items")
 
     def __init__(self):
         self.selkey = None      # selector key curie, e.g. "schema:name"
         self.branches = {}      # selector value -> Obj (the item shape for that value)
         self.append = None      # Obj | Leaf for a bare "[]" append (no selector)
         self.required = set()   # selector values that must be present (=> contains)
+        self.extra_items = []   # item schemas permitted alongside the branches, but not `contains`ed
+                                # (the base's analyte-identifier column)
 
 
 class Leaf:
@@ -67,9 +69,26 @@ ARRAY_VALUED = {"schema:additionalType", "@type"}
 KNOWN_ARRAY = {"prov:wasGeneratedBy", "schema:measurementTechnique", "schema:funding"}
 
 # base-owned array properties whose items are rich objects defined in tappDefinition
-# (ComputationalTool, AnalyteColumn). A bare "[]" append leaves items as {type:object} so the
-# base's object shape applies instead of a spurious string-item constraint from the path leaf.
-BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool", "ada:analyteColumns"}
+# (ComputationalTool). A bare "[]" append leaves items as {type:object} so the base's object shape
+# applies instead of a spurious string-item constraint from the path leaf.
+#
+# ada:analyteColumns used to be listed here too, which silently dropped every technique's analyte
+# columns. Each such row ends at "…ada:analyteColumns[]" carrying a SCALAR Data Type (the column's
+# value type), so falling through to Leaf(leaf_schema) would emit items:{type:string} — wrong,
+# since items are AnalyteColumn objects — and with every row writing the same append, last-one-wins.
+# It is now handled by ANALYTE_COLUMN_ARRAY below, which turns each row into a generated column def
+# rather than consuming the row's leaf.
+BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
+
+# The per-analyte column array. Each row targeting it names one column; the emitter generates a
+# column def per row and narrows the array to those columns plus the base's identifier column.
+ANALYTE_COLUMN_ARRAY = "ada:analyteColumns"
+
+# tappDefinition's mandatory analyte-identifier column, which must stay permissible once the
+# overlay narrows `items` to the technique's own columns.
+ANALYTE_IDENTIFIER_REF = {
+    "$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
+}
 
 
 class AddlType:
@@ -88,10 +107,13 @@ def _sel_key_node(key, val):
 
 
 # ---------- merger: fold one path into the tree ----------
-def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, element=None):
+def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, element=None,
+           branch_key=None):
     """Fold one path into the tree. `leaf_schema` sets a scalar terminal field; `element`
     (an Obj|Leaf) is placed as the selected array element when the path ends at a selector
-    (used for registry-$ref additionalProperty entries)."""
+    (used for registry-$ref additionalProperty entries). `branch_key` places `element` as a
+    named branch of a bare "[]" array — the analyte-column case, where the array has no
+    selector but each row still contributes one distinct permitted item."""
     node = root
     segs = parsed.segments
     for i, seg in enumerate(segs):
@@ -123,7 +145,10 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 node = item
             else:                              # bare "[]"
                 if is_last:
-                    if curie in BASE_OWNED_OBJECT_ARRAY:
+                    if branch_key is not None and element is not None:
+                        # one named permitted item (analyte column) rather than an item-shape leaf
+                        arr.branches[branch_key] = element
+                    elif curie in BASE_OWNED_OBJECT_ARRAY:
                         arr.append = Obj()     # base-owned object array -> items:{object}, defer shape to base
                     else:
                         arr.append = Leaf(leaf_schema) if leaf_schema is not None else Obj()
@@ -188,7 +213,8 @@ def to_schema(node):
             # (e.g. schema:contributor selected by roleName), keep items OPEN so other members
             # (a principalInvestigator contributor, extra additionalProperty entries) are allowed.
             if all(isinstance(v, Leaf) for v in vals):
-                items = {"anyOf": [v.schema for v in vals]} if len(vals) > 1 else vals[0].schema
+                opts = list(node.extra_items) + [v.schema for v in vals]
+                items = {"anyOf": opts} if len(opts) > 1 else opts[0]
             else:
                 # MATERIALIZE nested structure: for each object branch that carries content beyond its
                 # selector (e.g. schema:instrument[ICPMS] -> hasPart[ICP Source] -> additionalProperty),
@@ -309,6 +335,40 @@ def _is_addl_param(p: spp.ParsedPath) -> bool:
             and s[-2].prop == "schema:additionalProperty" and s[-2].selector is not None)
 
 
+def analyte_column_def(name, item, desc, jtype, read_only):
+    """One generated AnalyteColumn $def, mirroring build_tapp.param_template_def.
+
+    Built here rather than via _tapp_lib.analyte_column_obj: that helper keys its @id off a
+    module-global TAPP_NAME (which stays 'empaTAPP' unless the legacy matrix route configured it,
+    so LA-ICP-MS columns came out with empaTAPP @ids) and returns OrderedDicts that
+    yaml.safe_dump cannot represent. b.PARAM_BASE is configured per TAPP by b.configure().
+    """
+    base = (b.PARAM_BASE or "ada:parameter/unknownTAPP").replace("ada:parameter/", "ada:analyteColumn/")
+    col_id = f"{base}/{name}"
+    props = {
+        "@id": {"const": col_id},
+        "@type": {"const": ["schema:PropertyValueSpecification"]},
+        "schema:valueName": {"const": name},
+        "schema:name": {"const": item},
+        "ada:dataType": {"const": jtype},
+        "schema:readonlyValue": {"const": bool(read_only)},
+        "ada:tier": {"const": "M"},
+    }
+    # No `$id`: these defs are INLINED into the overlay, and an inlined $id would re-base $ref
+    # resolution for that subschema. Identity lives in the @id const, matching param_template_def.
+    return {"title": item, "description": desc, "type": "object",
+            "properties": props,
+            "required": ["@id", "@type", "schema:valueName", "schema:name", "ada:dataType"]}
+
+
+def _is_analyte_column(p: spp.ParsedPath) -> bool:
+    """True for a `…ada:analyteTemplate.ada:analyteColumns[]` path — one per-analyte column of the
+    technique's element table. The row's Data Type describes the COLUMN'S VALUE, not the array
+    item, so the leaf is used to type the generated column def rather than the array's items."""
+    s = p.segments
+    return bool(s) and s[-1].prop == ANALYTE_COLUMN_ARRAY and s[-1].is_array and s[-1].selector is None
+
+
 def build(tapp):
     """Return ({root -> JSON-Schema overlay}, {registry -> {$defs}}) for one TAPP, driven entirely
     by its canonical schema paths — including instrument nesting. additionalProperty parameters
@@ -319,7 +379,7 @@ def build(tapp):
     import schemapath_io
     spec = schemapath_io.load_spec(schemapath_io.csv_path(b.XLSX))
     roots = {"MethodDefinition": Obj(), "Dataset": Obj()}
-    registries = {"parameterTemplates": {}, "parameterValues": {}}
+    registries = {"parameterTemplates": {}, "parameterValues": {}, "analyteColumns": {}}
     required = {"MethodDefinition": [], "Dataset": []}
     pt_seen, pv_seen = set(), set()
     for item, rec in spec.items():
@@ -353,6 +413,23 @@ def build(tapp):
                     ref["readOnly"] = True   # $ref + sibling keyword is valid in JSON Schema 2020-12
                 truncated = spp.ParsedPath(parsed.root, parsed.segments[:-1])
                 insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
+                continue
+            if _is_analyte_column(parsed):
+                # One generated AnalyteColumn def per row, referenced as a permitted item of the
+                # array. The defs are INLINED downstream (build_pathdriven) rather than $ref'd to
+                # the shared registry: that registry keys defs by bare name, so a column name used
+                # by two TAPPs (e.g. detectionLimit) would resolve to the other TAPP's def and its
+                # @id const — the same reason parameter defs are inlined.
+                name = sidecar.get(item, {}).get("name") or b.camel(item)
+                registries["analyteColumns"][name] = analyte_column_def(
+                    name, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only)
+                ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/analyteColumns/schema.yaml#/$defs/{name}"}
+                insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require)
+                # keep the base's identifier column permissible under the narrowed `items`
+                arr = roots[parsed.root].props.get("ada:analyteTemplate")
+                arr = arr.props.get(ANALYTE_COLUMN_ARRAY) if isinstance(arr, Obj) else None
+                if isinstance(arr, Arr) and ANALYTE_IDENTIFIER_REF not in arr.extra_items:
+                    arr.extra_items.append(ANALYTE_IDENTIFIER_REF)
                 continue
             enum = None
             dl = (m.get("dt") or "").lower()

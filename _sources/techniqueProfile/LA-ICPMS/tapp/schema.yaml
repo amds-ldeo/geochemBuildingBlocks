@@ -2160,8 +2160,390 @@ allOf:
         ada:analyteColumns:
           type: array
           items:
-            type: object
-            properties: {}
+            anyOf:
+            - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - &id023
+              title: Monitored Isotopes
+              description: Specific isotope(s) monitored per analyte element in this protocol, including
+                any interference-monitor masses. Analyte-specific field.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/monitoredIsotopes
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: monitoredIsotopes
+                schema:name:
+                  const: Monitored Isotopes
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id024
+              title: Mass Resolution per Analyte
+              description: Mass resolution mode assigned to each analyte in this protocol. The selected
+                resolution determines which polyatomic interferences are physically resolved by the magnetic
+                sector. Per-analyte assignments are documented here; the overall mode(s) used in the protocol
+                are recorded in Mass Resolution Setting (Group 3). Analyte-specific field. SF-ICP-MS only;
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/massResolutionPerAnalyte
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionPerAnalyte
+                schema:name:
+                  const: Mass Resolution per Analyte
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id025
+              title: Dwell Time per Mass
+              description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
+                Longer dwell times improve counting statistics and lower detection limits but reduce the
+                number of isotopes measurable within a given scan cycle time. For mapping, scan cycle
+                time directly determines spatial resolution at a given scan speed: shorter cycle time
+                = finer spatial resolution.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/dwellTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTime
+                schema:name:
+                  const: Dwell Time per Mass
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id026
+              title: Isobaric Interference Corrections Applied
+              description: 'Whether isobaric interference corrections were applied for any measured isotope
+                in this protocol. A protocol-level Boolean: if the protocol includes interference corrections,
+                this is always Yes. Element-specific detail is captured in Interfering Species and Interference
+                Correction Method.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/isobaricInterferenceCorrection
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: isobaricInterferenceCorrection
+                schema:name:
+                  const: Isobaric Interference Corrections Applied
+                ada:dataType:
+                  const: boolean
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id027
+              title: Interfering Species
+              description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping
+                with the measured isotope.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/interferingSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferingSpecies
+                schema:name:
+                  const: Interfering Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id028
+              title: Interference Correction Method
+              description: Equation or procedure used to correct for isobaric interferences, including
+                the production rate factor and the reference material used to measure it.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/isobaricInterferenceCorrectionMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: isobaricInterferenceCorrectionMethod
+                schema:name:
+                  const: Interference Correction Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id029
+              title: Detection Limit
+              description: Session detection limit for each measured isotope, expressed in µg g⁻¹, ng
+                g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group.
+                Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection Limit Method.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/detectionLimit
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimit
+                schema:name:
+                  const: Detection Limit
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id030
+              title: Detection Limit Method
+              description: Reference or description of the method used to calculate session detection
+                limits. Mandatory at analysis level. Must be consistent with the method applied to generate
+                the Detection Limit values reported above.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/detectionLimitMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimitMethod
+                schema:name:
+                  const: Detection Limit Method
+                ada:dataType:
+                  const: uri
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id031
+              title: Limit of Quantification (LOQ) Method
+              description: 'Reference or description of the method used to calculate the limit of quantification
+                (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
+                Mandatory at analysis level when concentrations near the LOD are reported. Concentrations
+                between LOD and LOQ are detectable but not reliably quantifiable.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/limitOfQuantificationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: limitOfQuantificationMethod
+                schema:name:
+                  const: Limit of Quantification (LOQ) Method
+                ada:dataType:
+                  const: uri
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id032
+              title: Within-Session Analytical Precision and Assessment Method
+              description: 'Reproducibility of repeated measurements within a single analytical session.
+                Report both the assessment method and the precision values. Assessment method must specify:
+                (1) the reference material used, (2) number of replicates n, and (3) the statistic reported
+                (1σ RSD, 2σ RSD, etc.). For mapping: assess from repeated analyses of a reference material
+                area at session start and end, or from replicate analyses of a homogeneous reference phase
+                within the map.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Within-Session Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id033
+              title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+              description: 'Reproducibility of measurements across multiple analytical sessions over weeks
+                to months (long-term or intermediate precision). Report both the assessment method and
+                the precision values. Specify: reference material used, number of sessions n, time span
+                covered, and statistic reported. Long-term precision is typically assessed from a compiled
+                record of secondary reference material values across all sessions.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id034
+              title: Analytical Accuracy and Assessment Method
+              description: 'Offset between measured and accepted reference values for secondary reference
+                materials, expressed as % relative bias. Report both the assessment method and the accuracy
+                values. Specify: (1) secondary RM used and source of reference values, (2) number of analyses,
+                and (3) elements or element groups assessed. Report any systematic biases and likely causes.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: analyticalAccuracyAndAssessmentMethod
+                schema:name:
+                  const: Analytical Accuracy and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id023
+            minContains: 0
+            maxContains: 1
+          - contains: *id024
+            minContains: 0
+            maxContains: 1
+          - contains: *id025
+            minContains: 0
+            maxContains: 1
+          - contains: *id026
+            minContains: 0
+            maxContains: 1
+          - contains: *id027
+            minContains: 0
+            maxContains: 1
+          - contains: *id028
+            minContains: 0
+            maxContains: 1
+          - contains: *id029
+            minContains: 0
+            maxContains: 1
+          - contains: *id030
+            minContains: 0
+            maxContains: 1
+          - contains: *id031
+            minContains: 0
+            maxContains: 1
+          - contains: *id032
+            minContains: 0
+            maxContains: 1
+          - contains: *id033
+            minContains: 0
+            maxContains: 1
+          - contains: *id034
+            minContains: 0
+            maxContains: 1
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In peak hopping mode,
         the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning

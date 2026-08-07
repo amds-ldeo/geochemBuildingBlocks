@@ -2553,8 +2553,318 @@ allOf:
         ada:analyteColumns:
           type: array
           items:
-            type: object
-            properties: {}
+            anyOf:
+            - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - &id026
+              title: Mass Resolution per Analyte
+              description: Mass resolution mode assigned to each analyte in this procedure. The selected
+                resolution determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant
+                to common-Pb correction) are physically resolved by the magnetic sector. Applicable only
+                to sector-field instruments.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/massResolutionPerAnalyte
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionPerAnalyte
+                schema:name:
+                  const: Mass Resolution per Analyte
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id027
+              title: Isobaric Interference Corrections Applied
+              description: Whether isobaric interference corrections were applied for any measured isotope
+                in this procedure. A procedure-level Boolean; element-specific detail is in Interfering
+                Species and Interference Correction Method.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/isobaricInterferenceCorrectionsApplied
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: isobaricInterferenceCorrectionsApplied
+                schema:name:
+                  const: Isobaric Interference Corrections Applied
+                ada:dataType:
+                  const: boolean
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id028
+              title: Interfering Species
+              description: Elemental or molecular species overlapping with the measured isotope, relevant
+                to U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field
+                above).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/interferingSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferingSpecies
+                schema:name:
+                  const: Interfering Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id029
+              title: Interference Correction Method
+              description: Equation or procedure used to correct for isobaric interferences, including
+                the reference material or monitor isotope used to characterise it.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/interferenceCorrectionMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferenceCorrectionMethod
+                schema:name:
+                  const: Interference Correction Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id030
+              title: Within-Session Analytical Precision and Assessment Method
+              description: Reproducibility of repeated measurements within a single analytical session.
+                Assessment method specifies the reference material used, number of replicates n, and the
+                statistic reported.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Within-Session Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id031
+              title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+              description: Reproducibility of measurements across multiple analytical sessions over weeks
+                to months. Not addressed in Table 3 of Horstwood et al. (2016), which reports only within-session
+                validation results.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id032
+              title: Analytical Accuracy and Assessment Method
+              description: Offset between measured and accepted reference values for secondary reference
+                materials. Table 3's validation weighted-average ages, compared against each material's
+                independently accepted age (cited in Secondary Reference Materials above), serve as the
+                accuracy statement for this worked example.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/analyticalAccuracyAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: analyticalAccuracyAndAssessmentMethod
+                schema:name:
+                  const: Analytical Accuracy and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id033
+              title: Detection Limit
+              description: Session detection limit for U, Th, and/or Pb, demonstrating the reliability
+                of reported concentrations near the detection limit. Not requested by Table 3 of Horstwood
+                et al. (2016), which focuses on age uncertainty rather than elemental detection limits.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/detectionLimit
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimit
+                schema:name:
+                  const: Detection Limit
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id034
+              title: Detection Limit Method
+              description: Reference or description of the method used to calculate the session detection
+                limit reported above.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/detectionLimitMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimitMethod
+                schema:name:
+                  const: Detection Limit Method
+                ada:dataType:
+                  const: uri
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id035
+              title: Limit of Quantification (LOQ) Method
+              description: 'Reference or description of the method used to calculate the limit of quantification:
+                the lowest concentration reliably measurable with acceptable precision and accuracy.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/limitOfQuantificationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: limitOfQuantificationMethod
+                schema:name:
+                  const: Limit of Quantification (LOQ) Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id026
+            minContains: 0
+            maxContains: 1
+          - contains: *id027
+            minContains: 0
+            maxContains: 1
+          - contains: *id028
+            minContains: 0
+            maxContains: 1
+          - contains: *id029
+            minContains: 0
+            maxContains: 1
+          - contains: *id030
+            minContains: 0
+            maxContains: 1
+          - contains: *id031
+            minContains: 0
+            maxContains: 1
+          - contains: *id032
+            minContains: 0
+            maxContains: 1
+          - contains: *id033
+            minContains: 0
+            maxContains: 1
+          - contains: *id034
+            minContains: 0
+            maxContains: 1
+          - contains: *id035
+            minContains: 0
+            maxContains: 1
     ada:gasBlank:
       description: Duration of the background (gas blank) measurement and how it is applied to correct
         the ablation signal.
