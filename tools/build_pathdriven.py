@@ -101,6 +101,84 @@ def _write_registry(reg_name, defs, tapp):
           f"({len(defs) - len(new)} already present), {len(doc['$defs'])} total")
 
 
+def registry_diff(tapp):
+    """Report what switching this TAPP's registry merge to replace-by-ownership would do.
+
+    The merge is currently ADDITIVE (see _write_registry): it only ever adds, so the registry
+    still holds legacy-route defs the schema-path sidecar does not reproduce. Replacing would make
+    the sidecar authoritative — deleting a TAPP's entire existing set and rewriting it — which is
+    the goal, but only once the sidecar's coverage has caught up.
+
+    This answers that question without writing anything: for each registry it compares the @ids the
+    sidecar generates against the @ids the registry currently holds for this TAPP.
+
+      WOULD DELETE  in the registry, not generated -> a sidecar row still missing (or a genuinely
+                    retired column, which only you can tell apart)
+      WOULD ADD     generated, not yet in the registry
+      unchanged     present in both
+
+    Exit status is 0 when nothing would be deleted (safe to replace) and 1 otherwise, so it can
+    gate a script.
+    """
+    b.configure(tapp)
+
+    # Pre-flight: parse each sidecar path on its own. e.build() dies on the first bad one with a
+    # bare traceback, which is useless mid-review — report every malformed row instead.
+    import schemapath_io
+    import schema_path_parser
+    spec = schemapath_io.load_spec(schemapath_io.csv_path(b.XLSX))
+    malformed = []
+    for item, rec in spec.items():
+        for p in (rec["path"] if isinstance(rec["path"], list) else [rec["path"]]):
+            try:
+                schema_path_parser.parse(p)
+            except Exception as ex:
+                malformed.append((item, p, str(ex)))
+    if malformed:
+        print(f"{len(malformed)} unparseable Schema Path(s) in the {tapp} sidecar — fix these first:\n")
+        for item, p, msg in malformed:
+            print(f"  {item}\n     {p}\n     -> {msg}\n")
+        return 1
+
+    _, registries, _ = e.build(tapp)
+
+    print(f"registry diff for {tapp} — what replace-by-ownership would do\n")
+    total_del = 0
+    for reg_name in ("analyteColumns", "parameterTemplates", "parameterValues"):
+        path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as f:
+            existing = (yaml.safe_load(f) or {}).get("$defs") or {}
+
+        owned = f"{_REGISTRY_ID_PREFIX[reg_name]}{tapp}/"
+        # key by @id, the stable identity: $def keys changed when they were namespaced by TAPP,
+        # so comparing keys would report every legacy entry as deleted-and-re-added.
+        have = {_def_id(v): k for k, v in existing.items() if _def_id(v).startswith(owned)}
+        gen = {_def_id(v): k for v, k in ((v, k) for k, v in registries.get(reg_name, {}).items())}
+
+        to_delete = sorted(set(have) - set(gen))
+        to_add = sorted(set(gen) - set(have))
+        same = len(set(have) & set(gen))
+        total_del += len(to_delete)
+
+        verdict = "SAFE" if not to_delete else f"{len(to_delete)} WOULD BE DELETED"
+        print(f"  {reg_name}: {len(have)} owned in registry, {len(gen)} generated, "
+              f"{same} unchanged  -> {verdict}")
+        for i in to_delete:
+            print(f"      - DELETE  {have[i]:38s} {i}")
+        for i in to_add:
+            print(f"      + ADD     {gen[i]:38s} {i}")
+
+    print()
+    if total_del:
+        print(f"NOT safe to replace yet: {total_del} def(s) would be lost. Each is either a "
+              f"sidecar row still to map, or a column genuinely retired from the workbook.")
+    else:
+        print("Safe to replace: the sidecar reproduces everything the registry holds for this TAPP.")
+    return 1 if total_del else 0
+
+
 def build_pathdriven(tapp, write_registries=True):
     b.configure(tapp)
     overlays, registries, required = e.build(tapp)
@@ -185,7 +263,11 @@ def validate(tapp):
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if not args:
-        raise SystemExit("usage: build_pathdriven.py <tapp> [--validate]   (run build_tapp.py <tapp> first)")
+        raise SystemExit("usage: build_pathdriven.py <tapp> [--validate | --registry-diff]\n"
+                         "  (run build_tapp.py <tapp> first)\n"
+                         "  --registry-diff  show what replace-by-ownership would add/delete; writes nothing")
     if "--validate" in sys.argv:
         sys.exit(validate(args[0]))
+    if "--registry-diff" in sys.argv:
+        sys.exit(registry_diff(args[0]))
     build_pathdriven(args[0])
