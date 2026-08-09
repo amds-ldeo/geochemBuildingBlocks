@@ -16,7 +16,12 @@ workbook on re-seed and are context only; the authoritative content is (item, Sc
 import csv
 import os
 
-FIELDS = ["Metadata Item", "Protocol Tier", "Analysis Tier", "Data Type", "Schema Path", "Source", "Notes"]
+FIELDS = ["Metadata Item", "Protocol Tier", "Analysis Tier", "Data Type", "Schema Path", "Source",
+          "Scope", "Notes"]
+# `Scope` is DERIVED, not authored: mark_shared_mappings.py computes it across ALL sidecars at once
+# (shared / divergent / blank = technique-specific) so a reviewer can skip the boilerplate rows.
+# It is listed here so write() preserves it, but bootstrap_schemapaths rebuilds rows from the
+# workbook and will drop it — re-run mark_shared_mappings.py after a re-seed.
 
 
 def csv_path(xlsx_path):
