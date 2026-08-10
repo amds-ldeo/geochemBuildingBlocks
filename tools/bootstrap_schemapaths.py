@@ -76,12 +76,14 @@ DUAL_HOMED = {("Advanced", "Editable"), ("Advanced", "Advanced"), ("Advanced", "
 # Matching $Dataset counterpart for a direct ada: protocol property (the Basic tier shape).
 _MD_ADA_DEFAULT_RE = re.compile(r"^\$MethodDefinition\.ada:(.+?)Default$")
 
-# A TAPP default nested under an instrument or a workflow step, e.g.
-#   $MethodDefinition.schema:instrument[schema:additionalType='SEM']
-#       .schema:additionalProperty[schema:name='Accelerating Voltage'].schema:defaultValue
-_MD_NESTED_DEFAULT_RE = re.compile(
+# A TAPP path nested under an instrument or a workflow step. The tail may express its default
+# either way, and both forms are in use:
+#   …schema:instrument[X].schema:additionalProperty[P].schema:defaultValue   (Advanced shape)
+#   …schema:instrument[X].ada:acceleratingVoltageDefault                     (Basic shape, nested)
+_MD_NESTED_RE = re.compile(
     r"^\$MethodDefinition\.(schema:instrument\[[^\]]*\]|schema:actionProcess\.schema:step\[[^\]]*\])"
-    r"\.(.+)\.schema:defaultValue$")
+    r"\.(.+)$")
+_ADA_DEFAULT_TAIL_RE = re.compile(r"^(ada:.+)Default$")
 
 
 def _dataset_counterpart(path, item):
@@ -93,18 +95,29 @@ def _dataset_counterpart(path, item):
       $MethodDefinition.schema:instrument[X].schema:additionalProperty[P].schema:defaultValue
         -> $Dataset.prov:wasGeneratedBy.prov:used[X].schema:additionalProperty[P].schema:value
 
+      $MethodDefinition.schema:instrument[X].ada:acceleratingVoltageDefault
+        -> $Dataset.prov:wasGeneratedBy.prov:used[X].ada:acceleratingVoltage
+
       $MethodDefinition.schema:actionProcess.schema:step[S]....schema:defaultValue
         -> $Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[S]....schema:value
 
     schema:instrument maps to prov:used because that is where adaProduct's provenance activity
-    carries the instrument. Un-nested defaults get the flat detail property the matrix specifies.
+    carries the instrument. The Default marker is dropped on the dataset side — that value is the
+    actual one, not a default. Un-nested defaults get the flat detail property the matrix specifies.
     """
-    m = _MD_NESTED_DEFAULT_RE.match(path)
+    m = _MD_NESTED_RE.match(path)
     if m:
-        head, middle = m.group(1), m.group(2)
+        head, tail = m.group(1), m.group(2)
+        if tail.endswith(".schema:defaultValue"):
+            tail = tail[: -len(".schema:defaultValue")] + ".schema:value"
+        else:
+            ada = _ADA_DEFAULT_TAIL_RE.match(tail)
+            if not ada:
+                return None      # nested but not a default (identity / read-only) -> no partner
+            tail = ada.group(1)
         if head.startswith("schema:instrument["):
             head = "prov:used[" + head[len("schema:instrument["):]
-        return f"$Dataset.prov:wasGeneratedBy.{head}.{middle}.schema:value"
+        return f"$Dataset.prov:wasGeneratedBy.{head}.{tail}"
     if _MD_DEFAULT_RE.match(path):
         return (f"$Dataset.schema:additionalProperty"
                 f"[schema:name='{_MD_DEFAULT_RE.match(path).group(1)}'].schema:value")
