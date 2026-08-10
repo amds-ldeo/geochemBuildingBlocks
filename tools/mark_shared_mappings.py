@@ -32,6 +32,8 @@ import glob
 import os
 import sys
 
+import openpyxl
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import normalize_schema_paths as norm  # noqa: E402
 import schemapath_io  # noqa: E402
@@ -98,6 +100,47 @@ def tiers_by_item(sidecars):
     return out
 
 
+# The workbook Comments column marks some properties `Analyte-Specific`: the value varies per
+# analyte, so the property belongs in the analyte column template rather than being a scalar. That
+# governs the SHAPE of the path, which is exactly what a divergence decision settles — and two
+# sidecars can disagree about the marker for one item, which is itself a likely cause of divergence.
+_ANALYTE_SPECIFIC_RE = re.compile(r"analyte-specific", re.I)
+
+
+def analyte_specific_by_item(sidecars):
+    """{sidecar short name: {item, ...}} — items the workbook Comments column marks Analyte-Specific.
+
+    Read from the WORKBOOK, not the sidecar: the sidecar carries no Comments column, so this is the
+    only place the marker exists. A sidecar whose workbook is missing simply contributes nothing.
+    """
+    out = {}
+    for path in sidecars:
+        short = os.path.basename(path).replace(".schemapaths.csv", "")
+        xlsx = os.path.join(os.path.dirname(path), short + ".xlsx")
+        marked = set()
+        out[short] = marked
+        if not os.path.exists(xlsx):
+            continue
+        wb = openpyxl.load_workbook(xlsx, read_only=True, data_only=True)
+        if "TAPP" not in wb.sheetnames:
+            wb.close()
+            continue
+        rows = list(wb["TAPP"].iter_rows(values_only=True))
+        wb.close()
+        if not rows:
+            continue
+        hdr = [(str(c).strip() if c is not None else "") for c in rows[0]]
+        ci = next((i for i, h in enumerate(hdr) if h.lower().startswith("comment")), None)
+        if ci is None:
+            continue
+        for r in rows[1:]:
+            item = (str(r[0]).strip() if r[0] else "")
+            note = str(r[ci]) if ci < len(r) and r[ci] else ""
+            if item and _ANALYTE_SPECIFIC_RE.search(note):
+                marked.add(item)
+    return out
+
+
 def write_divergent_report(sidecars, scopes, out_path):
     """Markdown listing every divergent item and each variant with the sidecars that use it."""
     tiers = tiers_by_item(sidecars)
@@ -159,7 +202,7 @@ def write_divergent_report(sidecars, scopes, out_path):
 
 
 DECISION_FIELDS = ["Metadata Item", "sidecar", "Protocol Tier", "Analysis Tier",
-                   "current Schema Path", "proposed Schema Path", "note"]
+                   "Analyte-Specific", "current Schema Path", "proposed Schema Path", "note"]
 
 _CONFORMING = re.compile(r"(\.schema:defaultValue$)|(Default$)")
 _INSTRUMENT_SEL = re.compile(r"(schema:instrument|prov:used)\[schema:additionalType='([^']+)'\]")
@@ -241,11 +284,15 @@ def write_decision_csv(sidecars, scopes, out_path, merge=True):
     regenerating never discards hand-filled work — notably the instrument tokens, which are the one
     thing a tool cannot derive. Everything else (tiers, current path, note) is refreshed, and rows
     whose item is no longer divergent are reported rather than silently dropped.
+
+    `Analyte-Specific` is read from the source workbook's Comments column — context for deciding
+    the shape, since a per-analyte property cannot take a scalar path.
     """
     exact, loose = _load_existing_proposals(out_path) if merge else ({}, {})
     carried_keys = set()
 
     tiers = tiers_by_item(sidecars)
+    analyte_specific = analyte_specific_by_item(sidecars)
     divergent = sorted(i for i, (s, _) in scopes.items() if s == DIVERGENT)
     rows = []
     for item in divergent:
@@ -257,12 +304,14 @@ def write_decision_csv(sidecars, scopes, out_path, merge=True):
                 short = f.replace(".schemapaths.csv", "")
                 p, a = tiers.get(item, {}).get(f, ("", ""))
                 already = proposed is not None and path == proposed
+                spec = "yes" if item in analyte_specific.get(short, ()) else ""
                 kept = exact.get((item, short, path)) or loose.get((item, short))
                 if kept:
                     carried_keys.add((item, short))
                     rows.append({
                         "Metadata Item": item, "sidecar": short,
                         "Protocol Tier": p, "Analysis Tier": a,
+                        "Analyte-Specific": spec,
                         "current Schema Path": path,
                         "proposed Schema Path": kept,
                         "note": "kept from previous file",
@@ -271,6 +320,7 @@ def write_decision_csv(sidecars, scopes, out_path, merge=True):
                 rows.append({
                     "Metadata Item": item, "sidecar": short,
                     "Protocol Tier": p, "Analysis Tier": a,
+                    "Analyte-Specific": spec,
                     "current Schema Path": path,
                     "proposed Schema Path": "" if already else (proposed or ""),
                     "note": "already conforms" if already else note,
@@ -285,7 +335,15 @@ def write_decision_csv(sidecars, scopes, out_path, merge=True):
         w.writerows(rows)
     blank = sum(1 for r in rows if not r["proposed Schema Path"]
                 and r["note"] != "already conforms")
-    return len(divergent), len(rows), blank, len(carried_keys), orphaned
+    # An item whose sidecars disagree about Analyte-Specific is a prime divergence suspect: one
+    # workbook wants a per-analyte column and another a scalar, so the paths CANNOT match.
+    per_item = collections.defaultdict(lambda: (set(), set()))
+    for r in rows:
+        yes, no = per_item[r["Metadata Item"]]
+        (yes if r["Analyte-Specific"] else no).add(r["sidecar"])
+    disagree = sorted((i, sorted(y), sorted(n)) for i, (y, n) in per_item.items() if y and n)
+    n_spec = sum(1 for r in rows if r["Analyte-Specific"])
+    return len(divergent), len(rows), blank, len(carried_keys), orphaned, n_spec, disagree
 
 
 def declared_instrument_tokens(sidecars):
@@ -440,11 +498,19 @@ def main():
     if args.decisions:
         out = args.decisions
         out = out if os.path.isabs(out) else os.path.join(ROOT, out)
-        n_items, n_rows, n_blank, n_kept, orphaned = write_decision_csv(
+        n_items, n_rows, n_blank, n_kept, orphaned, n_spec, disagree = write_decision_csv(
             sidecars, scopes, out, merge=not args.decisions_overwrite)
         print(f"\nwrote {n_items} items / {n_rows} rows -> {os.path.relpath(out, ROOT)}")
         print(f"  {n_kept} hand-filled proposal(s) carried over")
         print(f"  {n_blank} row(s) have no proposal and need the shape decided")
+        print(f"  {n_spec} row(s) marked Analyte-Specific in the workbook Comments")
+        if disagree:
+            print(f"  {len(disagree)} item(s) where sidecars DISAGREE on Analyte-Specific "
+                  f"— likely the cause of the divergence:")
+            for item, yes, no in disagree:
+                print(f"      {item}")
+                print(f"          marked: {', '.join(yes)}")
+                print(f"          not:    {', '.join(no)}")
         if orphaned:
             print(f"  {len(orphaned)} hand-filled row(s) DROPPED — item no longer divergent:")
             for item, car in orphaned:
