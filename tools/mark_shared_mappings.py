@@ -208,8 +208,43 @@ def _propose(item, variants, tiers_seen):
     return f"$MethodDefinition.ada:{name}Default", "synthesised (flat — no nesting in use)"
 
 
-def write_decision_csv(sidecars, scopes, out_path):
-    """Pre-filled worklist: one row per (divergent item, sidecar) for a human to complete."""
+def _load_existing_proposals(path):
+    """Hand-filled proposals from a previous decisions CSV, indexed for re-matching.
+
+    Two keys per row: the exact (item, sidecar, current path) triple, and the looser
+    (item, sidecar) pair used only when it is unambiguous. The looser key matters because the
+    CURRENT path is what changes when a sidecar is edited — keying on the triple alone would
+    silently lose a hand-filled proposal the moment its row's current path moved.
+    """
+    if not os.path.exists(path):
+        return {}, {}
+    exact, loose, seen_twice = {}, {}, set()
+    for r in csv.DictReader(open(path, encoding="utf-8-sig")):
+        proposed = (r.get("proposed Schema Path") or "").strip()
+        if not proposed:
+            continue
+        item = (r.get("Metadata Item") or "").strip()
+        car = (r.get("sidecar") or "").strip()
+        exact[(item, car, (r.get("current Schema Path") or "").strip())] = proposed
+        if (item, car) in loose and loose[(item, car)] != proposed:
+            seen_twice.add((item, car))     # ambiguous: same item+sidecar, different proposals
+        loose[(item, car)] = proposed
+    for k in seen_twice:
+        loose.pop(k, None)
+    return exact, loose
+
+
+def write_decision_csv(sidecars, scopes, out_path, merge=True):
+    """Pre-filled worklist: one row per (divergent item, sidecar) for a human to complete.
+
+    MERGES by default: a non-empty `proposed Schema Path` from an existing file is carried over, so
+    regenerating never discards hand-filled work — notably the instrument tokens, which are the one
+    thing a tool cannot derive. Everything else (tiers, current path, note) is refreshed, and rows
+    whose item is no longer divergent are reported rather than silently dropped.
+    """
+    exact, loose = _load_existing_proposals(out_path) if merge else ({}, {})
+    carried_keys = set()
+
     tiers = tiers_by_item(sidecars)
     divergent = sorted(i for i, (s, _) in scopes.items() if s == DIVERGENT)
     rows = []
@@ -222,6 +257,17 @@ def write_decision_csv(sidecars, scopes, out_path):
                 short = f.replace(".schemapaths.csv", "")
                 p, a = tiers.get(item, {}).get(f, ("", ""))
                 already = proposed is not None and path == proposed
+                kept = exact.get((item, short, path)) or loose.get((item, short))
+                if kept:
+                    carried_keys.add((item, short))
+                    rows.append({
+                        "Metadata Item": item, "sidecar": short,
+                        "Protocol Tier": p, "Analysis Tier": a,
+                        "current Schema Path": path,
+                        "proposed Schema Path": kept,
+                        "note": "kept from previous file",
+                    })
+                    continue
                 rows.append({
                     "Metadata Item": item, "sidecar": short,
                     "Protocol Tier": p, "Analysis Tier": a,
@@ -229,12 +275,17 @@ def write_decision_csv(sidecars, scopes, out_path):
                     "proposed Schema Path": "" if already else (proposed or ""),
                     "note": "already conforms" if already else note,
                 })
+    # a hand-filled row whose item is no longer divergent has nowhere to go — say so, never drop it
+    # silently, since it represents a decision someone made.
+    orphaned = sorted({(i, c) for (i, c) in loose} - carried_keys)
+
     with open(out_path, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=DECISION_FIELDS)
         w.writeheader()
         w.writerows(rows)
-    return len(divergent), len(rows), sum(1 for r in rows if not r["proposed Schema Path"]
-                                          and r["note"] != "already conforms")
+    blank = sum(1 for r in rows if not r["proposed Schema Path"]
+                and r["note"] != "already conforms")
+    return len(divergent), len(rows), blank, len(carried_keys), orphaned
 
 
 def declared_instrument_tokens(sidecars):
@@ -322,6 +373,8 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true", help="report only; write nothing")
     ap.add_argument("--list-shared", action="store_true", help="also list the shared items")
+    ap.add_argument("--decisions-overwrite", action="store_true",
+                    help="with --decisions, discard hand-filled proposals instead of merging")
     ap.add_argument("--check-decisions", nargs="?", const="docs/divergent-decisions.csv",
                     metavar="PATH",
                     help="validate the instrument tokens filled into a decisions CSV against the "
@@ -373,9 +426,15 @@ def main():
     if args.decisions:
         out = args.decisions
         out = out if os.path.isabs(out) else os.path.join(ROOT, out)
-        n_items, n_rows, n_blank = write_decision_csv(sidecars, scopes, out)
+        n_items, n_rows, n_blank, n_kept, orphaned = write_decision_csv(
+            sidecars, scopes, out, merge=not args.decisions_overwrite)
         print(f"\nwrote {n_items} items / {n_rows} rows -> {os.path.relpath(out, ROOT)}")
+        print(f"  {n_kept} hand-filled proposal(s) carried over")
         print(f"  {n_blank} row(s) have no proposal and need the shape decided")
+        if orphaned:
+            print(f"  {len(orphaned)} hand-filled row(s) DROPPED — item no longer divergent:")
+            for item, car in orphaned:
+                print(f"      {item}  [{car}]")
         return 0     # reporting only; leave the sidecars alone
 
     if args.divergent_report:
