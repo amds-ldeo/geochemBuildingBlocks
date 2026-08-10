@@ -64,6 +64,8 @@ def plan(csv_path):
             continue                                   # flagged row, nothing to pair
         if any(p.startswith("$Dataset.") for p in paths):
             continue                                   # already dual-homed
+        if any(bs.is_analyte_template(p) for p in paths):
+            continue        # analyte columns have no analysis-tier path at all; not a gap to fill
 
         partner = idx = None
         for i, r in entries:

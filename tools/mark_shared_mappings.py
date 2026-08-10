@@ -36,6 +36,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import normalize_schema_paths as norm  # noqa: E402
 import schemapath_io  # noqa: E402
 import build_tapp  # noqa: E402  (camel(), for synthesising a proposed property name)
+import bootstrap_schemapaths  # noqa: E402  (is_analyte_template)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -125,9 +126,18 @@ def write_divergent_report(sidecars, scopes, out_path):
     ]
 
     for item in divergent:
-        lines.append(f"## {item}")
-        lines.append("")
         variants = sorted(scopes[item][1].items(), key=lambda kv: (-len(kv[1]), kv[0]))
+        analyte = any(bootstrap_schemapaths.is_analyte_template(p) for p, _ in variants)
+        lines.append(f"## {item}" + ("  *(analyte template)*" if analyte else ""))
+        lines.append("")
+        if analyte:
+            lines.append("> Some sidecars model this as a per-analyte COLUMN and others as a "
+                         "per-session property. That is a real modelling difference, not "
+                         "necessarily an inconsistency — decide which the measurement actually is. "
+                         "An analyte column has no analysis-tier path: its values are the "
+                         "`ada:defaultAnalytes` rows, surfacing on the dataset as "
+                         "`schema:variableMeasured`.")
+            lines.append("")
         for path, files in variants:
             lines.append(f"- **`{path}`**")
             for f in sorted(files):
@@ -174,6 +184,10 @@ def _propose(item, variants, tiers_seen):
     declare no instrument selector at all and three declare two, so nothing can know whether a
     parameter hangs off the SEM or the FIBSEM, the laser or the ICP-MS.
     """
+    if any(bootstrap_schemapaths.is_analyte_template(p) for p in variants):
+        return None, ("analyte template — per-analyte column, no analysis-tier path; "
+                      "read-only vs editable is carried on the column")
+
     conforming = [p for p in variants if _CONFORMING.search(p)]
     if conforming:
         target = sorted(conforming, key=lambda p: (-len(variants[p]), -len(p)))[0]
@@ -223,6 +237,68 @@ def write_decision_csv(sidecars, scopes, out_path):
                                           and r["note"] != "already conforms")
 
 
+def declared_instrument_tokens(sidecars):
+    """{sidecar short name: {token, ...}} — instrument selectors a sidecar already uses."""
+    out = {}
+    for path in sidecars:
+        short = os.path.basename(path).replace(".schemapaths.csv", "")
+        toks = set()
+        for row in schemapath_io.read(path):
+            for m in _INSTRUMENT_SEL.finditer(row.get("Schema Path") or ""):
+                toks.add(m.group(2))
+        out[short] = toks
+    return out
+
+
+def check_decisions(decisions_path, sidecars):
+    """Cross-check each filled-in instrument token against what that sidecar actually declares.
+
+    The token is the one thing a human supplies per row, so it is the one thing worth checking. A
+    token that sidecar has never used is usually a copy-paste slip from the row above — but not
+    always: four sidecars declare no instrument selector at all, so there the token is genuinely
+    new and NEW is the right verdict, not an error.
+    """
+    declared = declared_instrument_tokens(sidecars)
+    rows = list(csv.DictReader(open(decisions_path, encoding="utf-8-sig")))
+    buckets = collections.defaultdict(list)
+
+    for r in rows:
+        proposed = (r.get("proposed Schema Path") or "").strip()
+        if not proposed:
+            continue
+        toks = [m.group(2) for m in _INSTRUMENT_SEL.finditer(proposed)]
+        if not toks:
+            continue
+        short = (r.get("sidecar") or "").strip()
+        known = declared.get(short, set())
+        for tok in toks:
+            if tok == "{?}":
+                buckets["unfilled"].append((r, tok, known))
+            elif tok in known:
+                buckets["ok"].append((r, tok, known))
+            elif not known:
+                buckets["new"].append((r, tok, known))
+            else:
+                buckets["suspect"].append((r, tok, known))
+
+    print(f"instrument tokens in {os.path.basename(decisions_path)}")
+    print(f"  {len(buckets['ok']):>4d}  match a selector the sidecar already uses")
+    print(f"  {len(buckets['new']):>4d}  new token — that sidecar declares no instrument yet")
+    print(f"  {len(buckets['unfilled']):>4d}  still {{?}}")
+    print(f"  {len(buckets['suspect']):>4d}  SUSPECT — token not used anywhere in that sidecar")
+
+    for label, key in (("SUSPECT", "suspect"), ("new", "new"), ("still {?}", "unfilled")):
+        if not buckets[key]:
+            continue
+        print(f"\n{label}:")
+        for r, tok, known in buckets[key]:
+            print(f"  {r['Metadata Item']:<38s} {r['sidecar']}")
+            print(f"      token '{tok}'"
+                  + (f"   — that sidecar uses: {', '.join(sorted(known))}" if known else
+                     "   — that sidecar declares no instrument selectors"))
+    return len(buckets["suspect"])
+
+
 def apply_scope(sidecars, scopes, dry_run=False):
     changed = 0
     for path in sidecars:
@@ -246,6 +322,10 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true", help="report only; write nothing")
     ap.add_argument("--list-shared", action="store_true", help="also list the shared items")
+    ap.add_argument("--check-decisions", nargs="?", const="docs/divergent-decisions.csv",
+                    metavar="PATH",
+                    help="validate the instrument tokens filled into a decisions CSV against the "
+                         "selectors each sidecar actually declares; writes nothing")
     ap.add_argument("--decisions", nargs="?", const="docs/divergent-decisions.csv", metavar="PATH",
                     help="write a pre-filled decision worklist for the divergent items "
                          "(default docs/divergent-decisions.csv); does not touch the sidecars")
@@ -258,6 +338,12 @@ def main():
     sidecars = sorted(glob.glob(os.path.join(ROOT, "docs", "*.schemapaths.csv")))
     if not sidecars:
         raise SystemExit("no docs/*.schemapaths.csv found")
+    # --check-decisions validates a hand-edited file; the classification summary is just noise there
+    if args.check_decisions:
+        out = args.check_decisions
+        out = out if os.path.isabs(out) else os.path.join(ROOT, out)
+        return 1 if check_decisions(out, sidecars) else 0
+
     scopes = classify(sidecars)
 
     shared = sorted(i for i, (s, _) in scopes.items() if s == SHARED)
