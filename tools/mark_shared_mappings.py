@@ -373,6 +373,10 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true", help="report only; write nothing")
     ap.add_argument("--list-shared", action="store_true", help="also list the shared items")
+    ap.add_argument("--exclude", action="append", default=[], metavar="NAME",
+                    help="skip the sidecar for this workbook, matched on the EXACT stem, e.g. "
+                         "SEM_TAPP_v4 (repeatable) — for a TAPP that has been retired but whose "
+                         "sidecar is still in docs/")
     ap.add_argument("--decisions-overwrite", action="store_true",
                     help="with --decisions, discard hand-filled proposals instead of merging")
     ap.add_argument("--check-decisions", nargs="?", const="docs/divergent-decisions.csv",
@@ -389,6 +393,16 @@ def main():
     args = ap.parse_args()
 
     sidecars = sorted(glob.glob(os.path.join(ROOT, "docs", "*.schemapaths.csv")))
+    if args.exclude:
+        want = {x.replace(".schemapaths.csv", "").replace(".xlsx", "") for x in args.exclude}
+        dropped = [f for f in sidecars
+                   if os.path.basename(f).replace(".schemapaths.csv", "") in want]
+        missing = want - {os.path.basename(f).replace(".schemapaths.csv", "") for f in dropped}
+        for x in sorted(missing):
+            print(f"--exclude {x!r}: no such sidecar")
+        sidecars = [f for f in sidecars if f not in dropped]
+        for f in dropped:
+            print(f"excluding {os.path.basename(f)}")
     if not sidecars:
         raise SystemExit("no docs/*.schemapaths.csv found")
     # --check-decisions validates a hand-edited file; the classification summary is just noise there
