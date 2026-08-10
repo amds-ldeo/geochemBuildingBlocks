@@ -305,10 +305,24 @@ def norm(v):
 
 
 def camel(s):
+    """camelCase a workbook item name into a CURIE local name.
+
+    A CURIE local name must start with a letter ([A-Za-z][A-Za-z0-9]*), so an item whose name
+    leads with a number — "3D Image Registration" — cannot simply be lower-camelled: the naive
+    `3dImageRegistration` is rejected by the schema-path parser. Leading numeric tokens are moved
+    to the end instead, giving `imageRegistration3D`, which is the convention already hand-authored
+    in the sidecars for exactly these rows.
+    """
     s = re.sub(r"\(.*?\)", "", s)
     s = re.sub(r"[^A-Za-z0-9 ]", " ", s).strip()
     parts = s.split()
-    return (parts[0].lower() + "".join(p.capitalize() for p in parts[1:])) if parts else "x"
+    if not parts:
+        return "x"
+    trailing = []
+    while len(parts) > 1 and parts[0][0].isdigit():
+        trailing.append(parts.pop(0).upper())
+    out = parts[0].lower() + "".join(p.capitalize() for p in parts[1:]) + "".join(trailing)
+    return out if out[0].isalpha() else "n" + out   # all-numeric name: keep it legal
 
 
 def field_name(item, sp, parsed):
