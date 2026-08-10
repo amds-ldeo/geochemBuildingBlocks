@@ -76,23 +76,64 @@ DUAL_HOMED = {("Advanced", "Editable"), ("Advanced", "Advanced"), ("Advanced", "
 # Matching $Dataset counterpart for a direct ada: protocol property (the Basic tier shape).
 _MD_ADA_DEFAULT_RE = re.compile(r"^\$MethodDefinition\.ada:(.+?)Default$")
 
+# A TAPP default nested under an instrument or a workflow step, e.g.
+#   $MethodDefinition.schema:instrument[schema:additionalType='SEM']
+#       .schema:additionalProperty[schema:name='Accelerating Voltage'].schema:defaultValue
+_MD_NESTED_DEFAULT_RE = re.compile(
+    r"^\$MethodDefinition\.(schema:instrument\[[^\]]*\]|schema:actionProcess\.schema:step\[[^\]]*\])"
+    r"\.(.+)\.schema:defaultValue$")
+
+
+def _dataset_counterpart(path, item):
+    """The $Dataset partner for a TAPP-side default, MIRRORING any nesting.
+
+    A nested default keeps its context on the dataset side rather than collapsing to a flat
+    property, because the context is what says which instrument or which step the value belongs to:
+
+      $MethodDefinition.schema:instrument[X].schema:additionalProperty[P].schema:defaultValue
+        -> $Dataset.prov:wasGeneratedBy.prov:used[X].schema:additionalProperty[P].schema:value
+
+      $MethodDefinition.schema:actionProcess.schema:step[S]....schema:defaultValue
+        -> $Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[S]....schema:value
+
+    schema:instrument maps to prov:used because that is where adaProduct's provenance activity
+    carries the instrument. Un-nested defaults get the flat detail property the matrix specifies.
+    """
+    m = _MD_NESTED_DEFAULT_RE.match(path)
+    if m:
+        head, middle = m.group(1), m.group(2)
+        if head.startswith("schema:instrument["):
+            head = "prov:used[" + head[len("schema:instrument["):]
+        return f"$Dataset.prov:wasGeneratedBy.{head}.{middle}.schema:value"
+    if _MD_DEFAULT_RE.match(path):
+        return (f"$Dataset.schema:additionalProperty"
+                f"[schema:name='{_MD_DEFAULT_RE.match(path).group(1)}'].schema:value")
+    if _MD_ADA_DEFAULT_RE.match(path):
+        return f"$Dataset.schema:additionalProperty[schema:name='{item}'].schema:value"
+    return None
+
 
 def _dualize(paths, row):
     """Editable protocol parameters are DUAL-HOMED: the TAPP carries the protocol default and the
     detail carries the per-dataset value. For a dual-homed (Protocol, Analysis) row whose path is a
-    MethodDefinition default — either a `schema:additionalProperty[...].schema:defaultValue`
-    (Advanced tier) or a direct `ada:{name}Default` (Basic tier) — also emit the $Dataset value
-    counterpart. Applies to reused and content-inferred rows alike."""
+    recognised MethodDefinition DEFAULT, also emit the $Dataset counterpart (see
+    _dataset_counterpart for the nesting mirror).
+
+    Only paths that actually express a default are dualized — `…schema:defaultValue` or a direct
+    `ada:{name}Default`. A nested path ending in `.schema:value`, `.schema:description` or
+    `.schema:identifier` is the READ-ONLY shape or an identity field, so it is left alone rather
+    than guessed at; that also keeps identity rows (schema:location, bios:computationalTool,
+    schema:relatedLink) single-homed, which is correct — they are not per-analysis parameters.
+    """
     if (row["P"], row["A"]) not in DUAL_HOMED:
         return paths
     out = list(paths)
-    if any(p.startswith("$Dataset.schema:additionalProperty") for p in out):
+    if any(p.startswith("$Dataset.") for p in out):
         return out
     for p in paths:
-        m = _MD_DEFAULT_RE.match(p) or _MD_ADA_DEFAULT_RE.match(p)
-        if m:
-            name = m.group(1) if m.re is _MD_DEFAULT_RE else row["item"]
-            out.append(f"$Dataset.schema:additionalProperty[schema:name='{name}'].schema:value")
+        partner = _dataset_counterpart(p, row["item"])
+        if partner:
+            out.append(partner)
             break
     return out
 
@@ -152,7 +193,11 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     dry = "--dry-run" in sys.argv
     if not args:
-        print("usage: bootstrap_schemapaths.py <workbook.xlsx> [--dry-run]"); return 1
+        print("usage: bootstrap_schemapaths.py <workbook.xlsx> [--dry-run] [--reseed] [--reseed-all]\n"
+              "  (default)     keep every existing row; infer only NEW workbook items\n"
+              "  --reseed      re-infer everything EXCEPT Source=authored rows\n"
+              "  --reseed-all  drop ALL existing rows and re-infer (destroys hand modelling)")
+        return 1
     wb = args[0] if os.path.isabs(args[0]) else os.path.join(ROOT, args[0])
     lib = schemapath_io.load_spec(LIB_SPEC)
     lib_norm = {_norm(k): v for k, v in lib.items()}
@@ -161,10 +206,21 @@ def main():
     sidecar = json.load(open(sc_path, encoding="utf-8")) if os.path.exists(sc_path) else {}
     rows = load_rows(wb)
     out_csv = schemapath_io.csv_path(wb)
-    reseed = "--reseed" in sys.argv                     # force full re-inference (drop existing rows)
-    # By default PRESERVE every existing row verbatim (keyed by Metadata Item) so hand edits survive a
-    # re-seed regardless of their Source; only NEW workbook items are inferred. --reseed re-infers all.
-    existing = schemapath_io.read(out_csv) if (os.path.exists(out_csv) and not reseed) else []
+    reseed = "--reseed" in sys.argv     # re-infer, but still keep Source=authored rows
+    # By default PRESERVE every existing row verbatim (keyed by Metadata Item) so hand edits survive
+    # a re-seed regardless of their Source; only NEW workbook items are inferred.
+    #
+    # --reseed re-infers everything EXCEPT rows marked Source=authored. It used to drop the file
+    # wholesale, which silently destroyed hand-authored modelling: a reseed of SEM-FIBSEM flattened
+    # 21 authored paths — the whole schema:instrument[...] tree and the ionMilling /
+    # samplePreparation step nesting — into bare ada: properties. `authored` was only ever a
+    # provenance label; nothing read it back, so the protection it implies did not exist. Now it
+    # does, which is what makes --reseed usable for picking up generator improvements without
+    # discarding hand modelling. Use --reseed-all for the old drop-everything behaviour.
+    reseed_all = "--reseed-all" in sys.argv
+    existing = schemapath_io.read(out_csv) if (os.path.exists(out_csv) and not reseed_all) else []
+    if reseed:
+        existing = [r for r in existing if (r.get("Source") or "").strip() == "authored"]
     keep = {}
     for r in existing:
         keep.setdefault((r.get("Metadata Item") or "").strip(), []).append(r)
