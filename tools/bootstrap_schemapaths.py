@@ -66,21 +66,33 @@ _MD_DEFAULT_RE = re.compile(
     r"^\$MethodDefinition\.schema:additionalProperty\[schema:name='(.+?)'\]\.schema:defaultValue$")
 
 
+# (Protocol tier, Analysis tier) pairs the canonical matrix (docs/TierImplementationPatterns.xlsx)
+# says are DUAL-HOMED: a protocol-level default in the TAPP plus a per-analysis value in the detail.
+# Advanced/Basic belongs here because the matrix requires a detail property for it; it previously
+# fell through to the read-only branch and landed in the TAPP only.
+DUAL_HOMED = {("Advanced", "Editable"), ("Advanced", "Advanced"), ("Advanced", "Basic"),
+              ("Basic", "Editable")}
+
+# Matching $Dataset counterpart for a direct ada: protocol property (the Basic tier shape).
+_MD_ADA_DEFAULT_RE = re.compile(r"^\$MethodDefinition\.ada:(.+?)Default$")
+
+
 def _dualize(paths, row):
-    """Editable protocol parameters are DUAL-HOMED: the TAPP carries the schema:PropertyValueSpecification
-    (schema:defaultValue = protocol default), and the detail carries a schema:PropertyValue
-    (schema:value = the per-dataset editable value). So for a Protocol=Advanced ∧ Analysis=Editable/Advanced
-    row whose path is a MethodDefinition additionalProperty defaultValue, also emit the $Dataset value
+    """Editable protocol parameters are DUAL-HOMED: the TAPP carries the protocol default and the
+    detail carries the per-dataset value. For a dual-homed (Protocol, Analysis) row whose path is a
+    MethodDefinition default — either a `schema:additionalProperty[...].schema:defaultValue`
+    (Advanced tier) or a direct `ada:{name}Default` (Basic tier) — also emit the $Dataset value
     counterpart. Applies to reused and content-inferred rows alike."""
-    if row["P"] != "Advanced" or row["A"] not in ("Editable", "Advanced"):
+    if (row["P"], row["A"]) not in DUAL_HOMED:
         return paths
     out = list(paths)
     if any(p.startswith("$Dataset.schema:additionalProperty") for p in out):
         return out
     for p in paths:
-        m = _MD_DEFAULT_RE.match(p)
+        m = _MD_DEFAULT_RE.match(p) or _MD_ADA_DEFAULT_RE.match(p)
         if m:
-            out.append(f"$Dataset.schema:additionalProperty[schema:name='{m.group(1)}'].schema:value")
+            name = m.group(1) if m.re is _MD_DEFAULT_RE else row["item"]
+            out.append(f"$Dataset.schema:additionalProperty[schema:name='{name}'].schema:value")
             break
     return out
 
@@ -114,12 +126,18 @@ def infer(row, lib, lib_norm, sidecar):
     if not name:
         return None, "no-name"
     if P == "Advanced":
-        if A in ("Editable", "Advanced"):  # dual-home: protocol default + per-dataset editable value
+        if (P, A) in DUAL_HOMED:  # dual-home: protocol default + per-dataset value
             return ([f"$MethodDefinition.schema:additionalProperty[schema:name='{it}'].schema:defaultValue",
                      f"$Dataset.schema:additionalProperty[schema:name='{it}'].schema:value"], "infer:param-dual")
         # Read-Only / N/A analysis -> read-only protocol value in the TAPP only
         return [f"$MethodDefinition.schema:additionalProperty[schema:name='{it}'].schema:value"], "infer:param"
     if P == "Basic":
+        # Matrix: Basic/Editable -> '{propertyName}Default' required in the TAPP, plus the
+        # per-analysis value in the detail. Basic/Read-Only stays a single bare ada: property.
+        if (P, A) in DUAL_HOMED:
+            return ([f"$MethodDefinition.ada:{name}Default",
+                     f"$Dataset.schema:additionalProperty[schema:name='{it}'].schema:value"],
+                    "infer:direct-ada-dual")
         return [f"$MethodDefinition.ada:{name}"], "infer:direct-ada"
     # N/A protocol tier = analysis-instance we couldn't map -> flag
     return None, "analysis-instance (needs mapping)"
