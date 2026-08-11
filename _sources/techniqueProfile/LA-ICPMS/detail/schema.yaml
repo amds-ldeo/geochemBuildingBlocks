@@ -127,16 +127,184 @@ properties:
                 properties:
                   schema:additionalType:
                     contains:
-                      const: ICPMS
+                      const: Laser Ablation System
                 required:
                 - schema:additionalType
               then:
                 properties:
                   schema:additionalProperty:
                     type: array
+                    items: &id002
+                      title: Laser Energy
+                      description: Laser pulse energy in millijoules as set at the laser output or measured
+                        at the sample surface. Less commonly reported than fluence because it does not
+                        account for spot area. Report only when the system displays energy directly. Laser
+                        fluence (J cm⁻²) is the preferred quantity and is captured in Default Laser Fluence.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/laicpmsTAPP/laserEnergy
+                        '@type':
+                          const:
+                          - schema:PropertyValue
+                        schema:propertyID:
+                          const:
+                            '@id': ada:parameter/laicpmsTAPP/laserEnergy
+                        schema:name:
+                          const: Laser Energy
+                        schema:value:
+                          anyOf:
+                          - type: number
+                          - type: string
+                        schema:unitText:
+                          type: string
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:propertyID
+                      - schema:name
+                      - schema:value
+                      - schema:unitText
+                    allOf:
+                    - contains: *id002
+                      minContains: 0
+                      maxContains: 1
+            - if:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: ICPMS
+                required:
+                - schema:additionalType
+              then:
+                properties:
+                  schema:hasPart:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                      - if:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: ICP Source
+                          required:
+                          - schema:additionalType
+                        then:
+                          properties:
+                            schema:additionalProperty:
+                              type: array
+                              items:
+                                anyOf:
+                                - &id003
+                                  title: Coolant (Plasma) Gas Flow Rate
+                                  description: Flow rate of the outer (coolant/plasma) argon gas stream
+                                    that sustains the ICP plasma, in L/min. Determines plasma volume and
+                                    stability. Set during initial plasma optimisation and confirmed at
+                                    each session start.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/laicpmsTAPP/coolantGasFlowRate
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                        '@id': ada:parameter/laicpmsTAPP/coolantGasFlowRate
+                                    schema:name:
+                                      const: Coolant (Plasma) Gas Flow Rate
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                                - &id004
+                                  title: Auxiliary Gas Flow Rate
+                                  description: Flow rate of the intermediate (auxiliary) argon gas stream
+                                    that positions the plasma relative to the load coil, in L/min. Affects
+                                    ion extraction efficiency and oxide production rates. Distinct from
+                                    the carrier gas (which transports ablation aerosol) and the coolant
+                                    (plasma) gas.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                        '@id': ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate
+                                    schema:name:
+                                      const: Auxiliary Gas Flow Rate
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                              allOf:
+                              - contains: *id003
+                                minContains: 0
+                                maxContains: 1
+                              - contains: *id004
+                                minContains: 0
+                                maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: ICP Source
+                        required:
+                        - schema:additionalType
+                  schema:additionalProperty:
+                    type: array
                     items:
                       anyOf:
-                      - &id002
+                      - &id005
+                        title: ICP Tuning
+                        description: Description of the approach used to optimise ICP plasma conditions
+                          prior to analysis, including the reference material used for tuning and the
+                          acceptance criteria (e.g., oxide production threshold, sensitivity targets,
+                          mass calibration).
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laicpmsTAPP/icPlasmaTuning
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/laicpmsTAPP/icPlasmaTuning
+                          schema:name:
+                            const: ICP Tuning
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                      - &id006
                         title: Doubly-Charged Species Monitor
                         description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
                           during instrument tuning. Doubly-charged ions appear at half the mass of the
@@ -163,7 +331,7 @@ properties:
                         - schema:propertyID
                         - schema:name
                         - schema:value
-                      - &id003
+                      - &id007
                         title: Doubly-Charged Species Production
                         description: Measured percentage of doubly-charged ion production for the monitored
                           species at the time of instrument tuning. The protocol should specify the acceptable
@@ -189,7 +357,7 @@ properties:
                         - schema:propertyID
                         - schema:name
                         - schema:value
-                      - &id004
+                      - &id008
                         title: Memory Effect Mitigation
                         description: Protocol applied to identify and minimise memory effects from high-concentration
                           elements in the previous sample or standard that may contaminate subsequent
@@ -218,20 +386,84 @@ properties:
                         - schema:name
                         - schema:value
                     allOf:
-                    - contains: *id002
+                    - contains: *id005
                       minContains: 0
                       maxContains: 1
-                    - contains: *id003
+                    - contains: *id006
                       minContains: 0
                       maxContains: 1
-                    - contains: *id004
+                    - contains: *id007
                       minContains: 0
                       maxContains: 1
+                    - contains: *id008
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:additionalType:
+                  contains:
+                    const: ICPMS
+              required:
+              - schema:additionalType
         schema:additionalProperty:
           type: array
           items:
             anyOf:
-            - &id005
+            - &id009
+              title: Transect Rate, Mapping Rate or Step Size
+              description: 'For continuous line scan (transect) and raster mapping: the stage translation
+                speed in µm s⁻¹. This is the protocol-level parameter that, together with spot size and
+                repetition rate, determines spatial resolution along the scan direction. For mapping,
+                the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable.
+                For stepped line profiles: the distance between successive spot positions in µm.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize
+                schema:name:
+                  const: Transect Rate, Mapping Rate or Step Size
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id010
+              title: Plasma / Make-up Gas Addition
+              description: Additional gas(es) mixed into the carrier stream downstream of the ablation
+                cell, with the protocol-registered target flow rate. Ar make-up gas is standard. Small
+                N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state "None"
+                explicitly to distinguish from not reported.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition
+                schema:name:
+                  const: Plasma / Make-up Gas Addition
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id011
               title: Number of Replicates
               description: 'Number of replicate analyses performed on the same sample (or same nominal
                 location for spot analysis) in this session. For spot analysis: number of individual spot
@@ -259,7 +491,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id006
+            - &id012
               title: Transect Length
               description: Total length of the transect line analysed in micrometres. This is an analysis-level
                 parameter because it depends on the size of the feature of interest rather than being
@@ -291,7 +523,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id007
+            - &id013
               title: Mapping Area
               description: Total area covered by the 2D raster map, expressed as width × height in µm
                 or as total area in µm² or mm². This is an analysis-level parameter because it depends
@@ -317,7 +549,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id008
+            - &id014
               title: Signal Integration Time
               description: 'Actual integration time used for the ablation signal in this analysis, in
                 seconds. This is an analysis-level outcome determined during data reduction by applying
@@ -352,16 +584,22 @@ properties:
               - schema:value
               - schema:unitText
           allOf:
-          - contains: *id005
+          - contains: *id009
             minContains: 0
             maxContains: 1
-          - contains: *id006
+          - contains: *id010
             minContains: 0
             maxContains: 1
-          - contains: *id007
+          - contains: *id011
             minContains: 0
             maxContains: 1
-          - contains: *id008
+          - contains: *id012
+            minContains: 0
+            maxContains: 1
+          - contains: *id013
+            minContains: 0
+            maxContains: 1
+          - contains: *id014
             minContains: 0
             maxContains: 1
         schema:actionProcess:
@@ -384,7 +622,35 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id009
+                          - &id015
+                            title: Signal Smoothing
+                            description: 'Description of any signal smoothing device or approach installed
+                              between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal
+                              variability. Note: active signal smoothing devices (e.g., squid, SCFAST)
+                              are generally incompatible with high-resolution raster mapping because they
+                              degrade spatial resolution by mixing aerosol from successive laser shots.
+                              For mapping analyses, report "None" explicitly.'
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/laicpmsTAPP/signalSmoothing
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                  '@id': ada:parameter/laicpmsTAPP/signalSmoothing
+                              schema:name:
+                                const: Signal Smoothing
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - &id016
                             title: Uncertainty Propagation Method
                             description: 'Approach used to propagate analytical uncertainty from raw count
                               rates through the data reduction chain to final reported concentrations
@@ -413,7 +679,33 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id010
+                          - &id017
+                            title: Spike / Outlier Filtering Approach
+                            description: Method used to identify and remove anomalous signal spikes arising
+                              from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
+                              signal processing. Editable because the specific implementation may vary
+                              between sessions while remaining within the protocol framework.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/laicpmsTAPP/outlierFiltering
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                  '@id': ada:parameter/laicpmsTAPP/outlierFiltering
+                              schema:name:
+                                const: Spike / Outlier Filtering Approach
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - &id018
                             title: Pulse/Analog Detector Nonlinearity Correction
                             description: Whether a correction was applied for nonlinear response at the
                               transition between pulse-counting and analog detector modes.
@@ -438,10 +730,16 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id009
+                        - contains: *id015
                           minContains: 0
                           maxContains: 1
-                        - contains: *id010
+                        - contains: *id016
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id017
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id018
                           minContains: 0
                           maxContains: 1
   schema:measurementTechnique:
@@ -462,29 +760,6 @@ properties:
     items:
       type: object
       allOf:
-      - if:
-          properties:
-            schema:linkRelationship:
-              const: coupledTechnique
-          required:
-          - schema:linkRelationship
-        then:
-          properties:
-            schema:target:
-              type: object
-              properties:
-                schema:name:
-                  description: Analytical technique(s) applied to the same sample or aliquot in conjunction
-                    with this protocol, where the two analyses are designed to be interpreted together
-                    or where one provides input to the other. Use the same controlled vocabulary as the
-                    Technique field. Enter "None" if no coupling is intended.
-                  type: string
-                  enum:
-                  - EPMA
-                  - SIMS
-                  - ICP-MS (solution)
-                  - Noble Gas MS
-                  - None
       - if:
           properties:
             schema:linkRelationship:

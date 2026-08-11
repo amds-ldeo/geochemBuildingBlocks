@@ -376,7 +376,7 @@
             "type": "string",
             "enum": [
               "acquisition",
-              "reduction",
+              "dataReduction",
               "processing",
               "visualization"
             ],
@@ -4170,6 +4170,10 @@
                     "schema:target": {
                       "type": "object",
                       "properties": {
+                        "schema:name": {
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this protocol. Document coupling with any technique whose results are functionally linked to this dataset (e.g., providing calibration inputs, complementary spatial context, or required companion measurements).",
+                          "type": "string"
+                        },
                         "schema:description": {
                           "description": "Describes (1) the functional relationship between this dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
                           "type": "string"
@@ -4207,6 +4211,381 @@
                       "items": {
                         "type": "object",
                         "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "ICP Source"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "title": "Auxiliary Gas Flow Rate",
+                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "auxiliaryGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Auxiliary Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Coolant (Plasma) Gas Flow Rate",
+                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "coolantGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Coolant (Plasma) Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Plasma Thermal Mode",
+                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Plasma Thermal Mode"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      {
+                                        "title": "RF Power",
+                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "RF Power"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "Auxiliary Gas Flow Rate",
+                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "auxiliaryGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Auxiliary Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Coolant (Plasma) Gas Flow Rate",
+                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRateDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "coolantGasFlowRateDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Coolant (Plasma) Gas Flow Rate"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "L/min"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Plasma Thermal Mode",
+                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "Plasma Thermal Mode"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "RF Power",
+                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                            }
+                                          },
+                                          "schema:name": {
+                                            "const": "RF Power"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
                           {
                             "if": {
                               "properties": {
@@ -4841,217 +5220,24 @@
                                 }
                               }
                             }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "ICP Source"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:additionalProperty": {
-                                  "type": "array",
-                                  "items": {
-                                    "anyOf": [
-                                      {
-                                        "title": "Plasma Thermal Mode",
-                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "plasmaThermalMode"
-                                          },
-                                          "schema:name": {
-                                            "const": "Plasma Thermal Mode"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ],
-                                        "readOnly": true
-                                      },
-                                      {
-                                        "title": "RF Power",
-                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPower"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionSficpmsTAPP/rfPower"
-                                            }
-                                          },
-                                          "schema:name": {
-                                            "const": "RF Power"
-                                          },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
-                                          },
-                                          "schema:unitText": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
-                                        ]
-                                      }
-                                    ]
-                                  },
-                                  "allOf": [
-                                    {
-                                      "contains": {
-                                        "title": "Plasma Thermal Mode",
-                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "plasmaThermalMode"
-                                          },
-                                          "schema:name": {
-                                            "const": "Plasma Thermal Mode"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ],
-                                        "readOnly": true
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "RF Power",
-                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPower"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionSficpmsTAPP/rfPower"
-                                            }
-                                          },
-                                          "schema:name": {
-                                            "const": "RF Power"
-                                          },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
-                                          },
-                                          "schema:unitText": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    }
-                                  ]
-                                }
-                              }
-                            }
                           }
                         ]
                       },
                       "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "ICP Source"
+                                }
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        },
                         {
                           "contains": {
                             "properties": {
@@ -5079,22 +5265,18 @@
                               "schema:additionalType"
                             ]
                           }
-                        },
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:additionalType": {
-                                "contains": {
-                                  "const": "ICP Source"
-                                }
-                              }
-                            },
-                            "required": [
-                              "schema:additionalType"
-                            ]
-                          }
                         }
                       ]
+                    },
+                    "schema:model": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Manufacturer and model name of the sector-field ICP-MS instrument (e.g., Thermo Element 2, Thermo Element XR, Nu Instruments Attom HR). Determines available mass resolution modes and detector configuration.",
+                          "type": "string",
+                          "readOnly": true
+                        }
+                      }
                     },
                     "schema:additionalProperty": {
                       "type": "array",
@@ -6358,6 +6540,40 @@
                                   "ada:dataType",
                                   "ada:fieldScope"
                                 ]
+                              },
+                              {
+                                "title": "Isotope Dilution Data Reduction Method",
+                                "description": "Mass balance approach used to calculate sample mass fractions from spike–sample isotope ratio measurements. Spike must have been added before digestion for accurate equilibration. Record 'None' if isotope dilution is not used.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Isotope Dilution Data Reduction Method"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
                               }
                             ]
                           },
@@ -6451,6 +6667,44 @@
                               },
                               "minContains": 0,
                               "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Isotope Dilution Data Reduction Method",
+                                "description": "Mass balance approach used to calculate sample mass fractions from spike–sample isotope ratio measurements. Spike must have been added before digestion for accurate equilibration. Record 'None' if isotope dilution is not used.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Isotope Dilution Data Reduction Method"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
                             }
                           ]
                         }
@@ -6477,6 +6731,18 @@
                     "properties": {
                       "schema:name": {
                         "const": "sampleDigestion"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "dataReduction"
                       }
                     },
                     "required": [
@@ -7155,11 +7421,6 @@
           ],
           "readOnly": true
         },
-        "ada:isotopeDilutionDataReductionMethod": {
-          "description": "Mass balance approach used to calculate sample mass fractions from spike–sample isotope ratio measurements. Spike must have been added before digestion for accurate equilibration. Record 'None' if isotope dilution is not used.",
-          "type": "string",
-          "readOnly": true
-        },
         "ada:secondaryReferenceMaterial": {
           "type": "array",
           "items": {
@@ -7194,7 +7455,6 @@
         "ada:driftCorrectionMethod",
         "ada:signalIntegrationIntervalMethod",
         "ada:blankBackgroundCorrectionMethod",
-        "ada:isotopeDilutionDataReductionMethod",
         "ada:calibrationMeasurementFrequency"
       ]
     }
@@ -9779,7 +10039,7 @@
                 "type": "string",
                 "enum": [
                   "acquisition",
-                  "reduction",
+                  "dataReduction",
                   "processing",
                   "visualization"
                 ],

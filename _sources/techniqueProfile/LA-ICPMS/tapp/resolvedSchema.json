@@ -376,7 +376,7 @@
             "type": "string",
             "enum": [
               "acquisition",
-              "reduction",
+              "dataReduction",
               "processing",
               "visualization"
             ],
@@ -2903,6 +2903,17 @@
                     "schema:target": {
                       "type": "object",
                       "properties": {
+                        "schema:name": {
+                          "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                          "type": "string",
+                          "enum": [
+                            "EPMA",
+                            "SIMS",
+                            "ICP-MS (solution)",
+                            "Noble Gas MS",
+                            "None"
+                          ]
+                        },
                         "schema:description": {
                           "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined (e.g., which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive before destructive).",
                           "type": "string"
@@ -3359,47 +3370,257 @@
                         "schema:additionalProperty": {
                           "type": "array",
                           "items": {
-                            "title": "Pulse/Analog Detector Nonlinearity Correction",
-                            "description": "Whether a correction was applied for nonlinear response at the transition between pulse-counting and analog detector modes.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
+                            "anyOf": [
+                              {
+                                "title": "Signal Smoothing",
+                                "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "signalSmoothingDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Signal Smoothing"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
                                 ]
                               },
-                              "schema:valueName": {
-                                "const": "nonlinearResponseCorrectionDefault"
+                              {
+                                "title": "Spike / Outlier Filtering Approach",
+                                "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laicpmsTAPP/outlierFilteringDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "outlierFilteringDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Spike / Outlier Filtering Approach"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
-                              "schema:name": {
-                                "const": "Pulse/Analog Detector Nonlinearity Correction"
+                              {
+                                "title": "Pulse/Analog Detector Nonlinearity Correction",
+                                "description": "Whether a correction was applied for nonlinear response at the transition between pulse-counting and analog detector modes.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "nonlinearResponseCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Pulse/Analog Detector Nonlinearity Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
+                              {
+                                "title": "Isotope Dilution Data Reduction Method",
+                                "description": "Mass balance approach used to calculate sample mass fractions from spike-sample isotope ratio measurements in isotope dilution (ID) analysis. Record 'None' if isotope dilution is not used.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laicpmsTAPP/isotopeDilutionDataReductionMethod"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/laicpmsTAPP/isotopeDilutionDataReductionMethod"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Isotope Dilution Data Reduction Method"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
                               }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
                             ]
                           },
                           "allOf": [
+                            {
+                              "contains": {
+                                "title": "Signal Smoothing",
+                                "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "signalSmoothingDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Signal Smoothing"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Spike / Outlier Filtering Approach",
+                                "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laicpmsTAPP/outlierFilteringDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "outlierFilteringDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Spike / Outlier Filtering Approach"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
                             {
                               "contains": {
                                 "title": "Pulse/Analog Detector Nonlinearity Correction",
@@ -3444,6 +3665,44 @@
                               },
                               "minContains": 0,
                               "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Isotope Dilution Data Reduction Method",
+                                "description": "Mass balance approach used to calculate sample mass fractions from spike-sample isotope ratio measurements in isotope dilution (ID) analysis. Record 'None' if isotope dilution is not used.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laicpmsTAPP/isotopeDilutionDataReductionMethod"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": {
+                                      "@id": "ada:parameter/laicpmsTAPP/isotopeDilutionDataReductionMethod"
+                                    }
+                                  },
+                                  "schema:name": {
+                                    "const": "Isotope Dilution Data Reduction Method"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
                             }
                           ]
                         }
@@ -3470,6 +3729,18 @@
                     "properties": {
                       "schema:name": {
                         "const": "dataAcquisition"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "dataReduction"
                       }
                     },
                     "required": [
@@ -4789,35 +5060,27 @@
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValueSpecification"
+                                              "schema:PropertyValue"
                                             ]
                                           },
-                                          "schema:valueName": {
-                                            "const": "plasmaThermalMode"
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/laicpmsTAPP/plasmaThermalMode"
+                                            }
                                           },
                                           "schema:name": {
                                             "const": "Plasma Thermal Mode"
                                           },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
+                                          "schema:value": {
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:valueName",
+                                          "schema:propertyID",
                                           "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
+                                          "schema:value"
                                         ],
                                         "readOnly": true
                                       }
@@ -4979,35 +5242,27 @@
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValueSpecification"
+                                              "schema:PropertyValue"
                                             ]
                                           },
-                                          "schema:valueName": {
-                                            "const": "plasmaThermalMode"
+                                          "schema:propertyID": {
+                                            "const": {
+                                              "@id": "ada:parameter/laicpmsTAPP/plasmaThermalMode"
+                                            }
                                           },
                                           "schema:name": {
                                             "const": "Plasma Thermal Mode"
                                           },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
+                                          "schema:value": {
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:valueName",
+                                          "schema:propertyID",
                                           "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
+                                          "schema:value"
                                         ],
                                         "readOnly": true
                                       },
@@ -5136,6 +5391,47 @@
                               "schema:value"
                             ],
                             "readOnly": true
+                          },
+                          {
+                            "title": "ICP Tuning",
+                            "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "icPlasmaTuningDefault"
+                              },
+                              "schema:name": {
+                                "const": "ICP Tuning"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
                           },
                           {
                             "title": "Doubly-Charged Species Monitor",
@@ -5334,6 +5630,51 @@
                               "schema:value"
                             ],
                             "readOnly": true
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "ICP Tuning",
+                            "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "icPlasmaTuningDefault"
+                              },
+                              "schema:name": {
+                                "const": "ICP Tuning"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
                           },
                           "minContains": 0,
                           "maxContains": 1
@@ -5728,88 +6069,6 @@
                 ]
               },
               {
-                "title": "Signal Smoothing",
-                "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "signalSmoothingDefault"
-                  },
-                  "schema:name": {
-                    "const": "Signal Smoothing"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "ICP Tuning",
-                "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "icPlasmaTuningDefault"
-                  },
-                  "schema:name": {
-                    "const": "ICP Tuning"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
                 "title": "Instrument Warm-up / Session Duration Limit",
                 "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
                 "type": "object",
@@ -6030,88 +6289,6 @@
                   "schema:value"
                 ],
                 "readOnly": true
-              },
-              {
-                "title": "Spike / Outlier Filtering Approach",
-                "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/outlierFilteringDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "outlierFilteringDefault"
-                  },
-                  "schema:name": {
-                    "const": "Spike / Outlier Filtering Approach"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Normalization / Standards-Based Correction",
-                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "postAcquisitionNormalizationDefault"
-                  },
-                  "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
               }
             ]
           },
@@ -6208,96 +6385,6 @@
             },
             {
               "contains": {
-                "title": "Signal Smoothing",
-                "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/signalSmoothingDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "signalSmoothingDefault"
-                  },
-                  "schema:name": {
-                    "const": "Signal Smoothing"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "ICP Tuning",
-                "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "icPlasmaTuningDefault"
-                  },
-                  "schema:name": {
-                    "const": "ICP Tuning"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Instrument Warm-up / Session Duration Limit",
                 "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions. These constraints are part of the protocol and cannot be varied by the analyst.",
                 "type": "object",
@@ -6538,96 +6625,6 @@
                   "schema:value"
                 ],
                 "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Spike / Outlier Filtering Approach",
-                "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the protocol framework.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/outlierFilteringDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "outlierFilteringDefault"
-                  },
-                  "schema:name": {
-                    "const": "Spike / Outlier Filtering Approach"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Normalization / Standards-Based Correction",
-                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "postAcquisitionNormalizationDefault"
-                  },
-                  "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
               },
               "minContains": 0,
               "maxContains": 1
@@ -7121,6 +7118,43 @@
                     ]
                   },
                   {
+                    "title": "Normalization / Standards-Based Correction",
+                    "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/postAcquisitionNormalization"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "postAcquisitionNormalization"
+                      },
+                      "schema:name": {
+                        "const": "Normalization / Standards-Based Correction"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
                     "title": "Detection Limit",
                     "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
                     "type": "object",
@@ -7593,6 +7627,47 @@
                 },
                 {
                   "contains": {
+                    "title": "Normalization / Standards-Based Correction",
+                    "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/laicpmsTAPP/postAcquisitionNormalization"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "postAcquisitionNormalization"
+                      },
+                      "schema:name": {
+                        "const": "Normalization / Standards-Based Correction"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
                     "title": "Detection Limit",
                     "description": "Session detection limit for each measured isotope, expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
                     "type": "object",
@@ -7902,11 +7977,6 @@
           "type": "string",
           "readOnly": true
         },
-        "ada:isotopeDilutionDataReductionMethod": {
-          "description": "Mass balance approach used to calculate sample mass fractions from spike-sample isotope ratio measurements in isotope dilution (ID) analysis. Record 'None' if isotope dilution is not used.",
-          "type": "string",
-          "readOnly": true
-        },
         "ada:primaryStandardName": {
           "description": "Primary reference material(s) used to calibrate the instrument and convert raw signal intensities to concentrations or isotope ratios. Include material name, source institution, and citation for the accepted values used. Editable because the specific lot or certification vintage may differ between sessions while the material type remains the same.",
           "type": "string"
@@ -7942,7 +8012,6 @@
         "ada:internalStandardElement",
         "ada:signalIntegrationIntervalMethod",
         "ada:blankBackgroundCorrectionMethod",
-        "ada:isotopeDilutionDataReductionMethod",
         "ada:primaryStandardName",
         "ada:calibrationMeasurementFrequency"
       ]
@@ -10528,7 +10597,7 @@
                 "type": "string",
                 "enum": [
                   "acquisition",
-                  "reduction",
+                  "dataReduction",
                   "processing",
                   "visualization"
                 ],

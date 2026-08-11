@@ -91,6 +91,17 @@ allOf:
               schema:target:
                 type: object
                 properties:
+                  schema:name:
+                    description: Other analytical techniques applied to the same sample(s) whose results
+                      are intended to be interpreted together with, or used to independently validate,
+                      this dataset. Enter 'None' if no coupling is intended.
+                    type: string
+                    enum:
+                    - CA-ID-TIMS
+                    - SIMS
+                    - EPMA
+                    - CL/BSE Imaging
+                    - None
                   schema:description:
                     description: Describes (1) the functional relationship between this dataset and the
                       coupled technique, and (2) the analytical sequence — which technique was performed
@@ -421,66 +432,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id008
-          title: Signal Smoothing
-          description: Description of any signal smoothing device or approach installed between the ablation
-            cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/geochronTAPP/signalSmoothingDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: signalSmoothingDefault
-            schema:name:
-              const: Signal Smoothing
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id009
-          title: ICP Tuning
-          description: Description of the approach used to optimise ICP plasma conditions prior to analysis,
-            including the reference material used for tuning and the acceptance criteria.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/geochronTAPP/icpTuningDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: icpTuningDefault
-            schema:name:
-              const: ICP Tuning
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Instrument Warm-up / Session Duration Limit
           description: Minimum warm-up time required after plasma ignition before analyses begin, and
             any maximum session duration enforced to maintain stable operating conditions.
@@ -610,7 +561,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id010
+        - &id008
           title: Other Information
           description: Supplementary methodological context not captured by the structured fields above,
             as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes
@@ -667,7 +618,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id011
+        - &id009
           title: Uncertainty Level and Propagation
           description: Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method
             used to propagate component uncertainties (e.g., quadratic addition) into the final reported
@@ -723,36 +674,6 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id012
-          title: Spike / Outlier Filtering Approach
-          description: Method used to identify and remove anomalous signal spikes arising from micronuggets,
-            inclusions, cracks, or instrument artifacts during time-resolved signal processing.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/geochronTAPP/spikeOutlierFilteringApproachDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: spikeOutlierFilteringApproachDefault
-            schema:name:
-              const: Spike / Outlier Filtering Approach
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Double-Spike Isotope Pair
           description: The pair of enriched isotopes used to construct a double spike for combined mass
             bias and/or common-Pb correction. Both isotopes must be naturally rare and free from isobaric
@@ -778,7 +699,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id013
+        - &id010
           title: Double-Spike Mixing Ratio
           description: Target proportion of double-spike signal relative to total analyte signal in the
             spiked mixture. An optimal mixing ratio minimises error propagation through the double-spike
@@ -972,12 +893,6 @@ allOf:
       - contains: *id007
         minContains: 0
         maxContains: 1
-      - contains: *id008
-        minContains: 0
-        maxContains: 1
-      - contains: *id009
-        minContains: 0
-        maxContains: 1
       - contains:
           title: Instrument Warm-up / Session Duration Limit
           description: Minimum warm-up time required after plasma ignition before analyses begin, and
@@ -1122,7 +1037,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id010
+      - contains: *id008
         minContains: 0
         maxContains: 1
       - contains:
@@ -1153,7 +1068,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id011
+      - contains: *id009
         minContains: 0
         maxContains: 1
       - contains:
@@ -1184,9 +1099,6 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id012
-        minContains: 0
-        maxContains: 1
       - contains:
           title: Double-Spike Isotope Pair
           description: The pair of enriched isotopes used to construct a double spike for combined mass
@@ -1215,7 +1127,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id013
+      - contains: *id010
         minContains: 0
         maxContains: 1
       - contains:
@@ -1317,7 +1229,7 @@ allOf:
                         type: string
                   schema:additionalProperty:
                     type: array
-                    items: &id014
+                    items: &id011
                       title: Pre-Ablation Surface Treatment
                       description: Procedure applied immediately before each analysis to remove surface
                         contamination or condition the sample surface, distinct from general sample preparation.
@@ -1343,7 +1255,7 @@ allOf:
                       - schema:name
                       - schema:value
                     allOf:
-                    - contains: *id014
+                    - contains: *id011
                       minContains: 0
                       maxContains: 1
             - if:
@@ -1419,38 +1331,162 @@ allOf:
                 properties:
                   schema:additionalProperty:
                     type: array
-                    items: &id015
-                      title: Normalization/Standards-Based Correction
-                      description: Any post-acquisition normalization applied to correct for systematic
-                        biases identified from secondary reference materials.
-                      type: object
-                      properties:
-                        '@id':
-                          const: ada:parameter/geochronTAPP/normalizationStandardsBasedCorrectionDefault
-                        '@type':
-                          const:
-                          - schema:PropertyValueSpecification
-                        schema:valueName:
-                          const: normalizationStandardsBasedCorrectionDefault
-                        schema:name:
-                          const: Normalization/Standards-Based Correction
-                        ada:dataType:
-                          const: string
-                        ada:fieldScope:
-                          const: session
-                        schema:readonlyValue:
-                          const: false
-                        ada:tier:
-                          const: R
-                      required:
-                      - '@id'
-                      - '@type'
-                      - schema:valueName
-                      - schema:name
-                      - ada:dataType
-                      - ada:fieldScope
+                    items:
+                      anyOf:
+                      - &id012
+                        title: Signal Smoothing
+                        description: Description of any signal smoothing device or approach installed
+                          between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/geochronTAPP/signalSmoothingDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: signalSmoothingDefault
+                          schema:name:
+                            const: Signal Smoothing
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id013
+                        title: Spike / Outlier Filtering Approach
+                        description: Method used to identify and remove anomalous signal spikes arising
+                          from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
+                          signal processing.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/geochronTAPP/spikeOutlierFilteringApproachDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: spikeOutlierFilteringApproachDefault
+                          schema:name:
+                            const: Spike / Outlier Filtering Approach
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike-sample isotope ratio measurements, relevant when a concentration spike
+                          (e.g., ²³⁵U, as in Table 3's own worked example) is co-aspirated. Record 'None'
+                          if isotope dilution is not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/geochronTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/geochronTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      - &id014
+                        title: Normalization/Standards-Based Correction
+                        description: Any post-acquisition normalization applied to correct for systematic
+                          biases identified from secondary reference materials.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/geochronTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization/Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                     allOf:
-                    - contains: *id015
+                    - contains: *id012
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id013
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike-sample isotope ratio measurements, relevant when a concentration spike
+                          (e.g., ²³⁵U, as in Table 3's own worked example) is co-aspirated. Record 'None'
+                          if isotope dilution is not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/geochronTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/geochronTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id014
                       minContains: 0
                       maxContains: 1
     schema:instrument:
@@ -1670,7 +1706,7 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
-                  - &id016
+                  - &id015
                     title: Mass Resolution Setting
                     description: Operating mass resolution of the mass analyser. Fixed at unit resolution
                       for quadrupole instruments; selectable (low/medium/high) for sector-field instruments
@@ -1697,6 +1733,37 @@ allOf:
                     - schema:propertyID
                     - schema:name
                     - schema:value
+                  - &id016
+                    title: ICP Tuning
+                    description: Description of the approach used to optimise ICP plasma conditions prior
+                      to analysis, including the reference material used for tuning and the acceptance
+                      criteria.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/geochronTAPP/icpTuningDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: icpTuningDefault
+                      schema:name:
+                        const: ICP Tuning
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
                   - &id017
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
@@ -1813,6 +1880,9 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id015
                   minContains: 0
                   maxContains: 1
                 - contains: *id016
@@ -2351,26 +2421,20 @@ allOf:
                                   const: ada:parameter/geochronTAPP/plasmaThermalMode
                                 '@type':
                                   const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: plasmaThermalMode
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                    '@id': ada:parameter/geochronTAPP/plasmaThermalMode
                                 schema:name:
                                   const: Plasma Thermal Mode
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              - schema:value
                               readOnly: true
                           allOf:
                           - contains: *id024
@@ -2391,26 +2455,20 @@ allOf:
                                   const: ada:parameter/geochronTAPP/plasmaThermalMode
                                 '@type':
                                   const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: plasmaThermalMode
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                    '@id': ada:parameter/geochronTAPP/plasmaThermalMode
                                 schema:name:
                                   const: Plasma Thermal Mode
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              - schema:value
                               readOnly: true
                             minContains: 0
                             maxContains: 1
@@ -2920,12 +2978,6 @@ allOf:
       description: Approach used to select the stable signal interval for integration during data reduction,
         and to exclude anomalous signals from inclusions, cracks, or mixed domains. Central to interpreting
         excess scatter/MSWD in the resulting age population.
-      type: string
-      readOnly: true
-    ada:isotopeDilutionDataReductionMethod:
-      description: Mass balance approach used to calculate sample mass fractions from spike-sample isotope
-        ratio measurements, relevant when a concentration spike (e.g., ²³⁵U, as in Table 3's own worked
-        example) is co-aspirated. Record 'None' if isotope dilution is not used.
       type: string
       readOnly: true
     ada:primaryStandardName:

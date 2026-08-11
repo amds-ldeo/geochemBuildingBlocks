@@ -89,6 +89,12 @@ allOf:
               schema:target:
                 type: object
                 properties:
+                  schema:name:
+                    description: Other analytical techniques applied to the same sample(s) whose results
+                      are intended to be interpreted together with this dataset. For SEM/FIB-SEM, common
+                      couplings include TEM/STEM (FIB-prepared sections), EPMA (quantitative major-element
+                      context), NanoSIMS, SIMS, Raman, and XCT.
+                    type: string
                   schema:description:
                     description: Describes (1) the functional relationship between this SEM/FIB-SEM dataset
                       and the coupled technique — what data or context flows between them — and (2) the
@@ -193,81 +199,230 @@ allOf:
                   const: samplePreparation
               required:
               - schema:name
-    ada:instrumentManufacturer:
-      description: Make of the SEM or FIB-SEM instrument.
-      type: string
-      enum:
-      - JEOL
-      - Zeiss
-      - FEI / Thermo Fisher Scientific
-      - Hitachi
-      - Tescan
-      - Phenom
-      - Unknown
-      - N/A
-      - None
-      readOnly: true
-    ada:instrumentModel:
-      description: Model designation of the SEM or FIB-SEM instrument, including generation suffix if
-        applicable.
-      type: string
-      readOnly: true
-    ada:electronSource:
-      description: Type of electron gun used in the SEM instrument.
-      type: string
-      enum:
-      - Cold-FEG
-      - Schottky FEG
-      - LaB6 / CeB6
-      - Tungsten (W)
-      - Unknown
-      - N/A
-      - None
-      readOnly: true
-    ada:instrumentVariant:
-      description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only SEM
-        column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables TEM specimen
-        preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM / ESEM'': variable-pressure or
-        environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine
-        categories (e.g., FIB-SEM with VP capability).'
-      type: string
-      enum:
-      - Standard SEM
-      - FIB-SEM dual-beam
-      - VP-SEM / ESEM
-      - FIB-SEM dual-beam + VP
-      - N/A
-      - None
-      readOnly: true
-    ada:seDetectorType:
-      description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard
-        off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution
-        SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the
-        chamber gas as the signal amplification medium.
-      type: string
-      enum:
-      - Everhart-Thornley (ET)
-      - In-lens / TLD (through-the-lens)
-      - GSED (VP/ESEM)
-      - ESED (VP/ESEM)
-      - N/A
-      - None
-      readOnly: true
-    ada:bseDetectorType:
-      description: Type of backscattered electron detector. Solid-state diode detectors (single or segmented)
-        are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors
-        can operate in composition mode (segments summed) or topography mode (differential signal between
-        segments). In-lens BSE detectors provide improved BSE collection at short working distances.
-      type: string
-      enum:
-      - Solid-state diode (single)
-      - Solid-state diode (segmented, composition mode)
-      - Solid-state diode (segmented, topography mode)
-      - In-lens BSE
-      - YAG scintillator
-      - N/A
-      - None
-      readOnly: true
+    schema:instrument:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  const: SEM
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Make of the SEM or FIB-SEM instrument.
+                    type: string
+                    enum:
+                    - JEOL
+                    - Zeiss
+                    - FEI / Thermo Fisher Scientific
+                    - Hitachi
+                    - Tescan
+                    - Phenom
+                    - Unknown
+                    - N/A
+                    - None
+                    readOnly: true
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Model designation of the SEM or FIB-SEM instrument, including generation
+                      suffix if applicable.
+                    type: string
+                    readOnly: true
+              schema:hasPart:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: Electron source
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:description:
+                          description: Type of electron gun used in the SEM instrument.
+                          anyOf:
+                          - type: string
+                            enum:
+                            - Cold-FEG
+                            - Schottky FEG
+                            - LaB6 / CeB6
+                            - Tungsten (W)
+                            - Unknown
+                            - N/A
+                            - None
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              enum:
+                              - Cold-FEG
+                              - Schottky FEG
+                              - LaB6 / CeB6
+                              - Tungsten (W)
+                              - Unknown
+                              - N/A
+                              - None
+                              readOnly: true
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: SEDetector
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:name:
+                          description: Type of secondary electron detector used. Everhart-Thornley (ET)
+                            detector is the standard off-axis collector sensitive to SE2 and some BSE;
+                            in-lens (TLD) detectors collect high-resolution SE1 signal at short working
+                            distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber
+                            gas as the signal amplification medium.
+                          anyOf:
+                          - type: string
+                            enum:
+                            - Everhart-Thornley (ET)
+                            - In-lens / TLD (through-the-lens)
+                            - GSED (VP/ESEM)
+                            - ESED (VP/ESEM)
+                            - N/A
+                            - None
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              enum:
+                              - Everhart-Thornley (ET)
+                              - In-lens / TLD (through-the-lens)
+                              - GSED (VP/ESEM)
+                              - ESED (VP/ESEM)
+                              - N/A
+                              - None
+                              readOnly: true
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: BSEDetector
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:name:
+                          description: Type of backscattered electron detector. Solid-state diode detectors
+                            (single or segmented) are standard; YAG scintillator detectors offer high
+                            sensitivity at low voltage. Segmented detectors can operate in composition
+                            mode (segments summed) or topography mode (differential signal between segments).
+                            In-lens BSE detectors provide improved BSE collection at short working distances.
+                          anyOf:
+                          - type: string
+                            enum:
+                            - Solid-state diode (single)
+                            - Solid-state diode (segmented, composition mode)
+                            - Solid-state diode (segmented, topography mode)
+                            - In-lens BSE
+                            - YAG scintillator
+                            - N/A
+                            - None
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              enum:
+                              - Solid-state diode (single)
+                              - Solid-state diode (segmented, composition mode)
+                              - Solid-state diode (segmented, topography mode)
+                              - In-lens BSE
+                              - YAG scintillator
+                              - N/A
+                              - None
+                              readOnly: true
+                allOf:
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: Electron source
+                    required:
+                    - schema:additionalType
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: SEDetector
+                    required:
+                    - schema:additionalType
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: BSEDetector
+                    required:
+                    - schema:additionalType
+              schema:description:
+                description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only
+                  SEM column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables
+                  TEM specimen preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM / ESEM'':
+                  variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens.
+                  An instrument may combine categories (e.g., FIB-SEM with VP capability).'
+                anyOf:
+                - type: string
+                  enum:
+                  - Standard SEM
+                  - FIB-SEM dual-beam
+                  - VP-SEM / ESEM
+                  - FIB-SEM dual-beam + VP
+                  - N/A
+                  - None
+                  readOnly: true
+                - type: array
+                  items:
+                    type: string
+                    enum:
+                    - Standard SEM
+                    - FIB-SEM dual-beam
+                    - VP-SEM / ESEM
+                    - FIB-SEM dual-beam + VP
+                    - N/A
+                    - None
+                    readOnly: true
+              ada:acceleratingVoltageDefault:
+                description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
+                  depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low
+                  voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages
+                  (15-20 kV) improve X-ray generation for quantitative analysis.
+                anyOf:
+                - type: number
+                - type: string
+              ada:workingDistanceDefault:
+                description: Distance between the objective lens pole piece and the specimen surface in
+                  millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and
+                  EBSD geometry.
+                anyOf:
+                - type: number
+                - type: string
+      allOf:
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: SEM
+          required:
+          - schema:additionalType
     schema:additionalProperty:
       type: array
       items:
@@ -496,28 +651,47 @@ allOf:
         - N/A
         - None
         readOnly: true
-    ada:acceleratingVoltage:
-      description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS),
-        EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve
-        surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation
-        for quantitative analysis.
-      anyOf:
-      - type: number
-      - type: string
-    ada:beamCurrent:
-      description: Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis
-        (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in
-        nA; for sub-nA values use decimal notation (e.g., 0.4 nA).
-      anyOf:
-      - type: number
-      - type: string
-    ada:workingDistance:
-      description: Distance between the objective lens pole piece and the specimen surface in millimetres.
-        Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.
-      anyOf:
-      - type: number
-      - type: string
-    ada:dwellTimePerPixel:
+    ada:analyteTemplate:
+      type: object
+      properties:
+        ada:analyteColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - &id004
+              title: Beam Current
+              description: Electron beam probe current. Higher current improves signal-to-noise for X-ray
+                analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution.
+                Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semImagingTAPP/beamCurrent
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: beamCurrent
+                schema:name:
+                  const: Beam Current
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id004
+            minContains: 0
+            maxContains: 1
+    ada:dwellTimePerPixelDefault:
       description: Time the electron beam dwells on each pixel during raster scanning (imaging modes)
         or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds
         or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases
@@ -570,17 +744,8 @@ allOf:
   required:
   - schema:name
   - schema:datePublished
-  - ada:instrumentManufacturer
-  - ada:instrumentModel
-  - ada:electronSource
-  - ada:instrumentVariant
-  - ada:seDetectorType
-  - ada:bseDetectorType
   - ada:ebsdDetectorConfiguration
-  - ada:acceleratingVoltage
-  - ada:beamCurrent
-  - ada:workingDistance
-  - ada:dwellTimePerPixel
+  - ada:dwellTimePerPixelDefault
   - ada:clAcquisitionMode
   - ada:clWavelengthRange
   - ada:clIntegrationTime

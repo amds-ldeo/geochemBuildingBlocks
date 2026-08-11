@@ -30,33 +30,62 @@
     {
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
-      "schema:object": [
-        {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-          ],
-          "schema:identifier": "example sampleIgsn",
-          "schema:description": "example sampleDescription",
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
-              },
-              "schema:name": "Sample Aliquot Mass or Volume",
-              "schema:value": 1,
-              "schema:unitText": "example value"
-            }
-          ]
-        }
-      ],
       "prov:used": [
         {
           "schema:additionalType": [
             "ICPMS"
+          ],
+          "schema:hasPart": [
+            {
+              "schema:additionalType": [
+                "ICP Source"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                  },
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                  },
+                  "schema:name": "Coolant (Plasma) Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
+            },
+            {
+              "schema:additionalType": [
+                "Sample Introduction System"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                  },
+                  "schema:name": "Make-up Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -92,26 +121,28 @@
               "schema:name": "Memory Effect Mitigation",
               "schema:value": "example value"
             }
+          ]
+        }
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:hasPart": [
+          "schema:identifier": "example sampleIgsn",
+          "schema:description": "example sampleDescription",
+          "schema:additionalProperty": [
             {
-              "schema:additionalType": [
-                "Sample Introduction System"
+              "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
               ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                  },
-                  "schema:name": "Make-up Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
+              },
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 1,
+              "schema:unitText": "example value"
             }
           ]
         }
@@ -196,12 +227,6 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "example coupledTechnique"
-      }
     }
   ],
   "dqv:hasQualityMeasurement": [

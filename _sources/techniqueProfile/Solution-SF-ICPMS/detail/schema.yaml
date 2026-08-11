@@ -51,6 +51,260 @@ properties:
         schema:endDate:
           description: Date on which the analysis session ended (if spanning multiple days).
           type: string
+        prov:used:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: ICPMS
+                required:
+                - schema:additionalType
+              then:
+                properties:
+                  schema:hasPart:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                      - if:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: ICP Source
+                          required:
+                          - schema:additionalType
+                        then:
+                          properties:
+                            schema:additionalProperty:
+                              type: array
+                              items:
+                                anyOf:
+                                - &id001
+                                  title: Auxiliary Gas Flow Rate
+                                  description: Flow rate of the intermediate (auxiliary) argon gas stream
+                                    between torch body and injector tube (L/min).
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                        '@id': ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
+                                    schema:name:
+                                      const: Auxiliary Gas Flow Rate
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                                - &id002
+                                  title: Coolant (Plasma) Gas Flow Rate
+                                  description: Flow rate of the outer (coolant) argon gas stream (L/min).
+                                    Influences plasma temperature and oxide ion formation.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                        '@id': ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
+                                    schema:name:
+                                      const: Coolant (Plasma) Gas Flow Rate
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                              allOf:
+                              - contains: *id001
+                                minContains: 0
+                                maxContains: 1
+                              - contains: *id002
+                                minContains: 0
+                                maxContains: 1
+                      - if:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: Sample Introduction System
+                          required:
+                          - schema:additionalType
+                        then:
+                          properties:
+                            schema:additionalProperty:
+                              type: array
+                              items: &id003
+                                title: Make-up Gas Flow Rate
+                                description: Supplementary argon flow added downstream of a desolvation
+                                  system to maintain total gas delivery to the plasma (L/min). Record
+                                  'N/A' if no desolvation system is used.
+                                type: object
+                                properties:
+                                  '@id':
+                                    const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
+                                  '@type':
+                                    const:
+                                    - schema:PropertyValue
+                                  schema:propertyID:
+                                    const:
+                                      '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
+                                  schema:name:
+                                    const: Make-up Gas Flow Rate
+                                  schema:value:
+                                    anyOf:
+                                    - type: number
+                                    - type: string
+                                  schema:unitText:
+                                    type: string
+                                required:
+                                - '@id'
+                                - '@type'
+                                - schema:propertyID
+                                - schema:name
+                                - schema:value
+                                - schema:unitText
+                              allOf:
+                              - contains: *id003
+                                minContains: 0
+                                maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: ICP Source
+                        required:
+                        - schema:additionalType
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - &id004
+                        title: Doubly-Charged Species Monitor
+                        description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
+                          during instrument tuning. Doubly-charged ions appear at half the nominal mass
+                          of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS,
+                          doubly-charged species are not suppressed by collision cells and require monitoring
+                          through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
+                          schema:name:
+                            const: Doubly-Charged Species Monitor
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                      - &id005
+                        title: Doubly-Charged Species Production
+                        description: Measured percentage of doubly-charged ion production for the monitored
+                          species at the time of instrument tuning. Record both the acceptance threshold
+                          and the measured value. Elevated doubly-charged production indicates incomplete
+                          ionization and potential interference on elements at approximately half the
+                          mass of abundant matrix components.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
+                          schema:name:
+                            const: Doubly-Charged Species Production
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                      - &id006
+                        title: Memory Effect Mitigation
+                        description: Protocol applied to identify and minimize carry-over of high-concentration
+                          elements between successive sample introductions. For solution ICP-MS, mitigation
+                          is implemented primarily at measurement time through extended rinse periods
+                          (see Wash Time Between Samples, Group 4). At data processing level, documents
+                          any flagging or exclusion of measurements preceded by high-concentration samples
+                          or standards where the required washout time may not have been achieved.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
+                          schema:name:
+                            const: Memory Effect Mitigation
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                    allOf:
+                    - contains: *id004
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id005
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id006
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:additionalType:
+                  contains:
+                    const: ICPMS
+              required:
+              - schema:additionalType
         schema:object:
           type: array
           items:
@@ -83,7 +337,7 @@ properties:
                         type: string
                   schema:additionalProperty:
                     type: array
-                    items: &id001
+                    items: &id007
                       title: Sample Aliquot Mass or Volume
                       description: Mass (mg) of solid material digested or volume (mL) of liquid taken
                         for dissolution. Used for yield calculations and concentration back-calculation.
@@ -113,7 +367,7 @@ properties:
                       - schema:value
                       - schema:unitText
                     allOf:
-                    - contains: *id001
+                    - contains: *id007
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -124,166 +378,6 @@ properties:
                     const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
-        prov:used:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:additionalType:
-                    contains:
-                      const: ICPMS
-                required:
-                - schema:additionalType
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - &id002
-                        title: Doubly-Charged Species Monitor
-                        description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-                          during instrument tuning. Doubly-charged ions appear at half the nominal mass
-                          of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS,
-                          doubly-charged species are not suppressed by collision cells and require monitoring
-                          through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
-                          schema:name:
-                            const: Doubly-Charged Species Monitor
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      - &id003
-                        title: Doubly-Charged Species Production
-                        description: Measured percentage of doubly-charged ion production for the monitored
-                          species at the time of instrument tuning. Record both the acceptance threshold
-                          and the measured value. Elevated doubly-charged production indicates incomplete
-                          ionization and potential interference on elements at approximately half the
-                          mass of abundant matrix components.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
-                          schema:name:
-                            const: Doubly-Charged Species Production
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      - &id004
-                        title: Memory Effect Mitigation
-                        description: Protocol applied to identify and minimize carry-over of high-concentration
-                          elements between successive sample introductions. For solution ICP-MS, mitigation
-                          is implemented primarily at measurement time through extended rinse periods
-                          (see Wash Time Between Samples, Group 4). At data processing level, documents
-                          any flagging or exclusion of measurements preceded by high-concentration samples
-                          or standards where the required washout time may not have been achieved.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-                          schema:name:
-                            const: Memory Effect Mitigation
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                    allOf:
-                    - contains: *id002
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id003
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id004
-                      minContains: 0
-                      maxContains: 1
-                  schema:hasPart:
-                    type: array
-                    items:
-                      type: object
-                      allOf:
-                      - if:
-                          properties:
-                            schema:additionalType:
-                              contains:
-                                const: Sample Introduction System
-                          required:
-                          - schema:additionalType
-                        then:
-                          properties:
-                            schema:additionalProperty:
-                              type: array
-                              items: &id005
-                                title: Make-up Gas Flow Rate
-                                description: Supplementary argon flow added downstream of a desolvation
-                                  system to maintain total gas delivery to the plasma (L/min). Record
-                                  'N/A' if no desolvation system is used.
-                                type: object
-                                properties:
-                                  '@id':
-                                    const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
-                                  '@type':
-                                    const:
-                                    - schema:PropertyValue
-                                  schema:propertyID:
-                                    const:
-                                      '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
-                                  schema:name:
-                                    const: Make-up Gas Flow Rate
-                                  schema:value:
-                                    anyOf:
-                                    - type: number
-                                    - type: string
-                                  schema:unitText:
-                                    type: string
-                                required:
-                                - '@id'
-                                - '@type'
-                                - schema:propertyID
-                                - schema:name
-                                - schema:value
-                                - schema:unitText
-                              allOf:
-                              - contains: *id005
-                                minContains: 0
-                                maxContains: 1
         schema:actionProcess:
           type: object
           properties:
@@ -304,7 +398,7 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id006
+                          - &id008
                             title: Normalization/Standards-Based Correction
                             description: Post-acquisition normalization applied to output concentrations
                               relative to a reference value (e.g., correction to a BHVO-2 working value).
@@ -328,7 +422,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id007
+                          - &id009
                             title: Pulse/Analog Detector Nonlinearity Correction
                             description: Whether a correction was applied for nonlinear detector response
                               at the transition between pulse-counting and analog (and Faraday, for triple-mode
@@ -358,7 +452,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id008
+                          - &id010
                             title: Spike/Outlier Filtering Approach
                             description: Criteria used to identify and exclude anomalous replicate measurements
                               or data points from the calculated mean.
@@ -382,7 +476,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id009
+                          - &id011
                             title: Uncertainty Propagation Method
                             description: Method used to propagate analytical uncertainties from raw signals
                               through to final concentration values.
@@ -407,21 +501,21 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id006
-                          minContains: 0
-                          maxContains: 1
-                        - contains: *id007
-                          minContains: 0
-                          maxContains: 1
                         - contains: *id008
                           minContains: 0
                           maxContains: 1
                         - contains: *id009
                           minContains: 0
                           maxContains: 1
+                        - contains: *id010
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id011
+                          minContains: 0
+                          maxContains: 1
         schema:additionalProperty:
           type: array
-          items: &id010
+          items: &id012
             title: Signal Integration Time
             description: Total integration time per analyte per replicate (s). Determined at analysis
               time from the actual acquisition.
@@ -451,7 +545,7 @@ properties:
             - schema:value
             - schema:unitText
           allOf:
-          - contains: *id010
+          - contains: *id012
             minContains: 0
             maxContains: 1
   schema:funding:
@@ -491,23 +585,6 @@ properties:
               - type: string
               - type: array
                 items:
-                  type: string
-      - if:
-          properties:
-            schema:linkRelationship:
-              const: coupledTechnique
-          required:
-          - schema:linkRelationship
-        then:
-          properties:
-            schema:target:
-              type: object
-              properties:
-                schema:name:
-                  description: Other analytical techniques applied to the same sample(s) whose results
-                    are intended to be interpreted together with data from this protocol. Document coupling
-                    with any technique whose results are functionally linked to this dataset (e.g., providing
-                    calibration inputs, complementary spatial context, or required companion measurements).
                   type: string
   dqv:hasQualityMeasurement:
     type: array

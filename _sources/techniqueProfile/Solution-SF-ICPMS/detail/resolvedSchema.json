@@ -81,173 +81,6 @@
             "description": "Date on which the analysis session ended (if spanning multiple days).",
             "type": "string"
           },
-          "schema:object": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "allOf": [
-                {
-                  "if": {
-                    "properties": {
-                      "@type": {
-                        "contains": {
-                          "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                        }
-                      }
-                    },
-                    "required": [
-                      "@type"
-                    ]
-                  },
-                  "then": {
-                    "properties": {
-                      "schema:identifier": {
-                        "description": "International Geo Sample Number (IGSN) or other persistent identifier for the sample.",
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      },
-                      "schema:description": {
-                        "description": "Brief description of sample provenance, form, or preparation state relevant to this analysis.",
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      },
-                      "schema:additionalProperty": {
-                        "type": "array",
-                        "items": {
-                          "title": "Sample Aliquot Mass or Volume",
-                          "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                          "type": "object",
-                          "properties": {
-                            "@id": {
-                              "const": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
-                            },
-                            "@type": {
-                              "const": [
-                                "schema:PropertyValue"
-                              ]
-                            },
-                            "schema:propertyID": {
-                              "const": {
-                                "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
-                              }
-                            },
-                            "schema:name": {
-                              "const": "Sample Aliquot Mass or Volume"
-                            },
-                            "schema:value": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            },
-                            "schema:unitText": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "@id",
-                            "@type",
-                            "schema:propertyID",
-                            "schema:name",
-                            "schema:value",
-                            "schema:unitText"
-                          ]
-                        },
-                        "allOf": [
-                          {
-                            "contains": {
-                              "title": "Sample Aliquot Mass or Volume",
-                              "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                              "type": "object",
-                              "properties": {
-                                "@id": {
-                                  "const": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
-                                },
-                                "@type": {
-                                  "const": [
-                                    "schema:PropertyValue"
-                                  ]
-                                },
-                                "schema:propertyID": {
-                                  "const": {
-                                    "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
-                                  }
-                                },
-                                "schema:name": {
-                                  "const": "Sample Aliquot Mass or Volume"
-                                },
-                                "schema:value": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number"
-                                    },
-                                    {
-                                      "type": "string"
-                                    }
-                                  ]
-                                },
-                                "schema:unitText": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "@id",
-                                "@type",
-                                "schema:propertyID",
-                                "schema:name",
-                                "schema:value",
-                                "schema:unitText"
-                              ]
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                          }
-                        ]
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            "allOf": [
-              {
-                "contains": {
-                  "properties": {
-                    "@type": {
-                      "contains": {
-                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                      }
-                    }
-                  },
-                  "required": [
-                    "@type"
-                  ]
-                }
-              }
-            ]
-          },
           "prov:used": {
             "type": "array",
             "items": {
@@ -268,6 +101,356 @@
                   },
                   "then": {
                     "properties": {
+                      "schema:hasPart": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "allOf": [
+                            {
+                              "if": {
+                                "properties": {
+                                  "schema:additionalType": {
+                                    "contains": {
+                                      "const": "ICP Source"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "schema:additionalType"
+                                ]
+                              },
+                              "then": {
+                                "properties": {
+                                  "schema:additionalProperty": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "title": "Auxiliary Gas Flow Rate",
+                                          "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Auxiliary Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Coolant (Plasma) Gas Flow Rate",
+                                          "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Coolant (Plasma) Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    "allOf": [
+                                      {
+                                        "contains": {
+                                          "title": "Auxiliary Gas Flow Rate",
+                                          "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Auxiliary Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Coolant (Plasma) Gas Flow Rate",
+                                          "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Coolant (Plasma) Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "if": {
+                                "properties": {
+                                  "schema:additionalType": {
+                                    "contains": {
+                                      "const": "Sample Introduction System"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "schema:additionalType"
+                                ]
+                              },
+                              "then": {
+                                "properties": {
+                                  "schema:additionalProperty": {
+                                    "type": "array",
+                                    "items": {
+                                      "title": "Make-up Gas Flow Rate",
+                                      "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": {
+                                            "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                          }
+                                        },
+                                        "schema:name": {
+                                          "const": "Make-up Gas Flow Rate"
+                                        },
+                                        "schema:value": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number"
+                                            },
+                                            {
+                                              "type": "string"
+                                            }
+                                          ]
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                      ]
+                                    },
+                                    "allOf": [
+                                      {
+                                        "contains": {
+                                          "title": "Make-up Gas Flow Rate",
+                                          "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Make-up Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "allOf": [
+                          {
+                            "contains": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "ICP Source"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            }
+                          }
+                        ]
+                      },
                       "schema:additionalProperty": {
                         "type": "array",
                         "items": {
@@ -486,135 +669,195 @@
                             "maxContains": 1
                           }
                         ]
-                      },
-                      "schema:hasPart": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "allOf": [
-                            {
-                              "if": {
-                                "properties": {
-                                  "schema:additionalType": {
-                                    "contains": {
-                                      "const": "Sample Introduction System"
-                                    }
-                                  }
-                                },
-                                "required": [
-                                  "schema:additionalType"
-                                ]
-                              },
-                              "then": {
-                                "properties": {
-                                  "schema:additionalProperty": {
-                                    "type": "array",
-                                    "items": {
-                                      "title": "Make-up Gas Flow Rate",
-                                      "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": {
-                                            "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                          }
-                                        },
-                                        "schema:name": {
-                                          "const": "Make-up Gas Flow Rate"
-                                        },
-                                        "schema:value": {
-                                          "anyOf": [
-                                            {
-                                              "type": "number"
-                                            },
-                                            {
-                                              "type": "string"
-                                            }
-                                          ]
-                                        },
-                                        "schema:unitText": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value",
-                                        "schema:unitText"
-                                      ]
-                                    },
-                                    "allOf": [
-                                      {
-                                        "contains": {
-                                          "title": "Make-up Gas Flow Rate",
-                                          "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValue"
-                                              ]
-                                            },
-                                            "schema:propertyID": {
-                                              "const": {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                              }
-                                            },
-                                            "schema:name": {
-                                              "const": "Make-up Gas Flow Rate"
-                                            },
-                                            "schema:value": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "number"
-                                                },
-                                                {
-                                                  "type": "string"
-                                                }
-                                              ]
-                                            },
-                                            "schema:unitText": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:propertyID",
-                                            "schema:name",
-                                            "schema:value",
-                                            "schema:unitText"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      }
-                                    ]
-                                  }
-                                }
-                              }
-                            }
-                          ]
-                        }
                       }
                     }
                   }
                 }
               ]
-            }
+            },
+            "allOf": [
+              {
+                "contains": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "ICPMS"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                }
+              }
+            ]
+          },
+          "schema:object": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "@type": {
+                        "contains": {
+                          "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        }
+                      }
+                    },
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:identifier": {
+                        "description": "International Geo Sample Number (IGSN) or other persistent identifier for the sample.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "schema:description": {
+                        "description": "Brief description of sample provenance, form, or preparation state relevant to this analysis.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "schema:additionalProperty": {
+                        "type": "array",
+                        "items": {
+                          "title": "Sample Aliquot Mass or Volume",
+                          "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "const": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
+                            },
+                            "@type": {
+                              "const": [
+                                "schema:PropertyValue"
+                              ]
+                            },
+                            "schema:propertyID": {
+                              "const": {
+                                "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
+                              }
+                            },
+                            "schema:name": {
+                              "const": "Sample Aliquot Mass or Volume"
+                            },
+                            "schema:value": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "schema:unitText": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
+                          ]
+                        },
+                        "allOf": [
+                          {
+                            "contains": {
+                              "title": "Sample Aliquot Mass or Volume",
+                              "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Sample Aliquot Mass or Volume"
+                                },
+                                "schema:value": {
+                                  "anyOf": [
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "schema:unitText": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value",
+                                "schema:unitText"
+                              ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "allOf": [
+              {
+                "contains": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                }
+              }
+            ]
           },
           "schema:actionProcess": {
             "type": "object",
@@ -1093,31 +1336,6 @@
                       }
                     }
                   ]
-                }
-              }
-            }
-          },
-          {
-            "if": {
-              "properties": {
-                "schema:linkRelationship": {
-                  "const": "coupledTechnique"
-                }
-              },
-              "required": [
-                "schema:linkRelationship"
-              ]
-            },
-            "then": {
-              "properties": {
-                "schema:target": {
-                  "type": "object",
-                  "properties": {
-                    "schema:name": {
-                      "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this protocol. Document coupling with any technique whose results are functionally linked to this dataset (e.g., providing calibration inputs, complementary spatial context, or required companion measurements).",
-                      "type": "string"
-                    }
-                  }
                 }
               }
             }

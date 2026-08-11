@@ -89,6 +89,137 @@ properties:
                     const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
+        prov:used:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: SEM
+                required:
+                - schema:additionalType
+              then:
+                properties:
+                  ada:acceleratingVoltage:
+                    description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
+                      depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration.
+                      Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages
+                      (15-20 kV) improve X-ray generation for quantitative analysis.
+                    anyOf:
+                    - type: number
+                    - type: string
+                  ada:workingDistance:
+                    description: Distance between the objective lens pole piece and the specimen surface
+                      in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle,
+                      and EBSD geometry.
+                    anyOf:
+                    - type: number
+                    - type: string
+          allOf:
+          - contains:
+              properties:
+                schema:additionalType:
+                  contains:
+                    const: SEM
+              required:
+              - schema:additionalType
+        schema:additionalProperty:
+          type: array
+          items:
+            anyOf:
+            - &id001
+              title: Chamber Pressure
+              description: Chamber pressure and gas type during analysis. Required for variable pressure
+                (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas
+                composition. Use 'None' for standard high-vacuum operation.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/chamberPressure
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/semImagingTAPP/chamberPressure
+                schema:name:
+                  const: Chamber Pressure
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id002
+              title: Dwell Time per Pixel
+              description: Time the electron beam dwells on each pixel during raster scanning (imaging
+                modes) or on each step position during compositional mapping (EDS and WDS mapping modes),
+                in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting
+                statistics but increases total dose and can cause beam damage or contamination on sensitive
+                materials. For WDS mapping, the dwell time is per spectrometer per pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/dwellTimePerPixel
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/semImagingTAPP/dwellTimePerPixel
+                schema:name:
+                  const: Dwell Time per Pixel
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id003
+              title: CL Wavelength Calibration Reference
+              description: Reference light source or standard material used to calibrate the wavelength
+                axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
+                schema:name:
+                  const: CL Wavelength Calibration Reference
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+          allOf:
+          - contains: *id001
+            minContains: 0
+            maxContains: 1
+          - contains: *id002
+            minContains: 0
+            maxContains: 1
+          - contains: *id003
+            minContains: 0
+            maxContains: 1
   schema:funding:
     type: array
   schema:relatedLink:
@@ -96,23 +227,6 @@ properties:
     items:
       type: object
       allOf:
-      - if:
-          properties:
-            schema:linkRelationship:
-              const: coupledTechnique
-          required:
-          - schema:linkRelationship
-        then:
-          properties:
-            schema:target:
-              type: object
-              properties:
-                schema:name:
-                  description: Other analytical techniques applied to the same sample(s) whose results
-                    are intended to be interpreted together with this dataset. For SEM/FIB-SEM, common
-                    couplings include TEM/STEM (FIB-prepared sections), EPMA (quantitative major-element
-                    context), NanoSIMS, SIMS, Raman, and XCT.
-                  type: string
       - if:
           properties:
             schema:linkRelationship:
@@ -143,68 +257,6 @@ properties:
               - type: array
                 items:
                   type: string
-  schema:additionalProperty:
-    type: array
-    items:
-      anyOf:
-      - &id001
-        title: Chamber Pressure
-        description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
-          and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
-          Use 'None' for standard high-vacuum operation.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/semImagingTAPP/chamberPressure
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-              '@id': ada:parameter/semImagingTAPP/chamberPressure
-          schema:name:
-            const: Chamber Pressure
-          schema:value:
-            anyOf:
-            - type: number
-            - type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      - &id002
-        title: CL Wavelength Calibration Reference
-        description: Reference light source or standard material used to calibrate the wavelength axis
-          of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-              '@id': ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
-          schema:name:
-            const: CL Wavelength Calibration Reference
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-    allOf:
-    - contains: *id001
-      minContains: 0
-      maxContains: 1
-    - contains: *id002
-      minContains: 0
-      maxContains: 1
   ada:clWavelengthRange:
     description: Diffraction grating specification for spectral or hyperspectral CL acquisition, including
       groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.

@@ -47,9 +47,72 @@
       "prov:used": [
         {
           "schema:additionalType": [
-            "ICPMS"
+            "Laser Ablation System"
           ],
           "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/laserEnergy",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/laicpmsTAPP/laserEnergy"
+              },
+              "schema:name": "Laser Energy",
+              "schema:value": 1,
+              "schema:unitText": "example value"
+            }
+          ]
+        },
+        {
+          "schema:additionalType": [
+            "ICPMS"
+          ],
+          "schema:hasPart": [
+            {
+              "schema:additionalType": [
+                "ICP Source"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/coolantGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/laicpmsTAPP/coolantGasFlowRate"
+                  },
+                  "schema:name": "Coolant (Plasma) Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate"
+                  },
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuning"
+              },
+              "schema:name": "ICP Tuning",
+              "schema:value": "example value"
+            },
             {
               "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor",
               "@type": [
@@ -87,6 +150,28 @@
         }
       ],
       "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize"
+          },
+          "schema:name": "Transect Rate, Mapping Rate or Step Size",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition"
+          },
+          "schema:name": "Plasma / Make-up Gas Addition",
+          "schema:value": "example value"
+        },
         {
           "@id": "ada:parameter/laicpmsTAPP/numberOfReplicates",
           "@type": [
@@ -140,6 +225,17 @@
             "schema:name": "dataReduction",
             "schema:additionalProperty": [
               {
+                "@id": "ada:parameter/laicpmsTAPP/signalSmoothing",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/signalSmoothing"
+                },
+                "schema:name": "Signal Smoothing",
+                "schema:value": "example value"
+              },
+              {
                 "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
                 "@type": [
                   "schema:PropertyValue"
@@ -148,6 +244,17 @@
                   "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
                 },
                 "schema:name": "Uncertainty Propagation Method",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/laicpmsTAPP/outlierFiltering",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/outlierFiltering"
+                },
+                "schema:name": "Spike / Outlier Filtering Approach",
                 "schema:value": "example value"
               },
               {
@@ -177,12 +284,6 @@
   ],
   "schema:funding": [],
   "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA"
-      }
-    },
     {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {

@@ -38,17 +38,55 @@
           "schema:name": "example sampleName",
           "schema:identifier": "example samplePersistentIdentifier"
         }
+      ],
+      "prov:used": [
+        {
+          "schema:additionalType": [
+            "SEM"
+          ],
+          "ada:acceleratingVoltage": 1.0,
+          "ada:workingDistance": 1.0
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/chamberPressure",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+          },
+          "schema:name": "Chamber Pressure",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
+          },
+          "schema:name": "Dwell Time per Pixel",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+          },
+          "schema:name": "CL Wavelength Calibration Reference",
+          "schema:value": "example value"
+        }
       ]
     }
   ],
   "schema:funding": [],
   "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "example coupledTechnique"
-      }
-    },
     {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {
@@ -58,30 +96,6 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semImagingTAPP/chamberPressure",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semImagingTAPP/chamberPressure"
-      },
-      "schema:name": "Chamber Pressure",
-      "schema:value": 1
-    },
-    {
-      "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
-      },
-      "schema:name": "CL Wavelength Calibration Reference",
-      "schema:value": "example value"
     }
   ],
   "ada:clWavelengthRange": "example clGrating",

@@ -84,6 +84,13 @@ allOf:
               schema:target:
                 type: object
                 properties:
+                  schema:name:
+                    description: Other analytical techniques applied to the same sample(s) whose results
+                      are intended to be interpreted together with data from this protocol. Document coupling
+                      with any technique whose results are functionally linked to this dataset (e.g.,
+                      providing calibration inputs, complementary spatial context, or required companion
+                      measurements).
+                    type: string
                   schema:description:
                     description: Describes (1) the functional relationship between this dataset and the
                       coupled technique — what data or context flows between them — and (2) the analytical
@@ -502,6 +509,31 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
+                      - title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike–sample isotope ratio measurements. Record 'None' if isotope dilution is
+                          not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
                       - &id004
                         title: Normalization/Standards-Based Correction
                         description: Post-acquisition normalization applied to output concentrations relative
@@ -537,6 +569,34 @@ allOf:
                     - contains: *id003
                       minContains: 0
                       maxContains: 1
+                    - contains:
+                        title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike–sample isotope ratio measurements. Record 'None' if isotope dilution is
+                          not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      minContains: 0
+                      maxContains: 1
                     - contains: *id004
                       minContains: 0
                       maxContains: 1
@@ -551,6 +611,12 @@ allOf:
               properties:
                 schema:name:
                   const: sampleDigestion
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
               required:
               - schema:name
     ada:finalSolutionMatrix:
@@ -591,6 +657,15 @@ allOf:
             - schema:additionalType
           then:
             properties:
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer and model name of the quadrupole ICP-MS instrument (e.g.,
+                      Thermo iCAP RQ, Agilent 7900, PerkinElmer NexION 350D). Determines instrument-specific
+                      tuning parameters and available cell configurations.
+                    type: string
+                    readOnly: true
               schema:identifier:
                 description: Serial number or laboratory-internal identifier for the specific instrument
                   unit. Supports traceability to instrument service records.
@@ -1320,26 +1395,20 @@ allOf:
                                   const: ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
                                 '@type':
                                   const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: plasmaThermalMode
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                    '@id': ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
                                 schema:name:
                                   const: Plasma Thermal Mode
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              - schema:value
                               readOnly: true
                           allOf:
                           - contains: *id011
@@ -1364,26 +1433,20 @@ allOf:
                                   const: ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
                                 '@type':
                                   const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: plasmaThermalMode
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                    '@id': ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
                                 schema:name:
                                   const: Plasma Thermal Mode
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              - schema:value
                               readOnly: true
                             minContains: 0
                             maxContains: 1
@@ -2376,11 +2439,6 @@ allOf:
       - N/A
       - None
       readOnly: true
-    ada:isotopeDilutionDataReductionMethod:
-      description: Mass balance approach used to calculate sample mass fractions from spike–sample isotope
-        ratio measurements. Record 'None' if isotope dilution is not used.
-      type: string
-      readOnly: true
     ada:primaryStandardName:
       description: Name and reference material identifier of the external calibration standard used to
         convert signal intensities to elemental concentrations.
@@ -2417,6 +2475,5 @@ allOf:
   - ada:driftCorrectionMethod
   - ada:signalIntegrationIntervalMethod
   - ada:blankBackgroundCorrectionMethod
-  - ada:isotopeDilutionDataReductionMethod
   - ada:primaryStandardName
   - ada:calibrationMeasurementFrequency

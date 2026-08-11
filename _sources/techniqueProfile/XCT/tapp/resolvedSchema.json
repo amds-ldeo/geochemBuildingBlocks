@@ -376,7 +376,7 @@
             "type": "string",
             "enum": [
               "acquisition",
-              "reduction",
+              "dataReduction",
               "processing",
               "visualization"
             ],
@@ -2899,6 +2899,17 @@
                     "schema:target": {
                       "type": "object",
                       "properties": {
+                        "schema:name": {
+                          "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                          "type": "string",
+                          "enum": [
+                            "NCT",
+                            "EPMA",
+                            "LA-ICP-MS",
+                            "SIMS",
+                            "None"
+                          ]
+                        },
                         "schema:description": {
                           "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
                           "type": "string"
@@ -5080,14 +5091,56 @@
             "readOnly": true
           }
         },
-        "ada:acceleratingVoltage": {
-          "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same protocol or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as stated in the source and add a parenthetical note if the unit used is keV.",
-          "anyOf": [
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "XCT"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "ada:acceleratingVoltageDefault": {
+                      "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same protocol or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as stated in the source and add a parenthetical note if the unit used is keV.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
             {
-              "type": "number"
-            },
-            {
-              "type": "string"
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "XCT"
+                    }
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
             }
           ]
         },
@@ -5232,7 +5285,6 @@
         "ada:detectorType",
         "ada:reconstructionSoftware",
         "ada:segmentationAndAnalysisSoftware",
-        "ada:acceleratingVoltage",
         "ada:tubeCurrent",
         "ada:xRayPreFilter",
         "ada:voxelSize",
@@ -7830,7 +7882,7 @@
                 "type": "string",
                 "enum": [
                   "acquisition",
-                  "reduction",
+                  "dataReduction",
                   "processing",
                   "visualization"
                 ],

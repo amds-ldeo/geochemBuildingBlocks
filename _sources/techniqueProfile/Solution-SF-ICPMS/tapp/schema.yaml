@@ -507,6 +507,13 @@ allOf:
               schema:target:
                 type: object
                 properties:
+                  schema:name:
+                    description: Other analytical techniques applied to the same sample(s) whose results
+                      are intended to be interpreted together with data from this protocol. Document coupling
+                      with any technique whose results are functionally linked to this dataset (e.g.,
+                      providing calibration inputs, complementary spatial context, or required companion
+                      measurements).
+                    type: string
                   schema:description:
                     description: Describes (1) the functional relationship between this dataset and the
                       coupled technique — what data or context flows between them — and (2) the analytical
@@ -536,6 +543,179 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
+                            const: ICP Source
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - &id013
+                              title: Auxiliary Gas Flow Rate
+                              description: Flow rate of the intermediate (auxiliary) argon gas stream
+                                between torch body and injector tube (L/min).
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRateDefault
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: auxiliaryGasFlowRateDefault
+                                schema:name:
+                                  const: Auxiliary Gas Flow Rate
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
+                                schema:unitText:
+                                  const: L/min
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - ada:fieldScope
+                            - &id014
+                              title: Coolant (Plasma) Gas Flow Rate
+                              description: Flow rate of the outer (coolant) argon gas stream (L/min).
+                                Influences plasma temperature and oxide ion formation.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRateDefault
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: coolantGasFlowRateDefault
+                                schema:name:
+                                  const: Coolant (Plasma) Gas Flow Rate
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
+                                schema:unitText:
+                                  const: L/min
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - ada:fieldScope
+                            - title: Plasma Thermal Mode
+                              description: Whether the ICP plasma is operated under cool plasma or normal
+                                (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most
+                                solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based
+                                interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity
+                                and ionization efficiency for most elements.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionSficpmsTAPP/plasmaThermalMode
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                    '@id': ada:parameter/solutionSficpmsTAPP/plasmaThermalMode
+                                schema:name:
+                                  const: Plasma Thermal Mode
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                              readOnly: true
+                            - &id015
+                              title: RF Power
+                              description: Radiofrequency forward power applied to the plasma (W). Controls
+                                ionization efficiency and oxide production rates.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionSficpmsTAPP/rfPower
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                    '@id': ada:parameter/solutionSficpmsTAPP/rfPower
+                                schema:name:
+                                  const: RF Power
+                                schema:value:
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                                schema:unitText:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                              - schema:unitText
+                          allOf:
+                          - contains: *id013
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id014
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              title: Plasma Thermal Mode
+                              description: Whether the ICP plasma is operated under cool plasma or normal
+                                (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most
+                                solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based
+                                interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity
+                                and ionization efficiency for most elements.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionSficpmsTAPP/plasmaThermalMode
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                    '@id': ada:parameter/solutionSficpmsTAPP/plasmaThermalMode
+                                schema:name:
+                                  const: Plasma Thermal Mode
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                              readOnly: true
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id015
+                            minContains: 0
+                            maxContains: 1
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
                             const: Torch
                       required:
                       - schema:additionalType
@@ -553,7 +733,7 @@ allOf:
                               readOnly: true
                         schema:additionalProperty:
                           type: array
-                          items: &id013
+                          items: &id016
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position. Affects ion transmission efficiency
@@ -580,7 +760,7 @@ allOf:
                             - schema:name
                             - schema:value
                           allOf:
-                          - contains: *id013
+                          - contains: *id016
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -769,7 +949,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id014
+                            - &id017
                               title: Nebulizer Gas Flow Rate
                               description: Flow rate of the carrier argon gas delivered through the nebulizer
                                 (L/min). Controls aerosol transport and strongly influences signal sensitivity.
@@ -798,7 +978,7 @@ allOf:
                               - schema:name
                               - schema:value
                               - schema:unitText
-                            - &id015
+                            - &id018
                               title: Sample Uptake Rate
                               description: Peristaltic pump speed or self-aspiration flow rate for sample
                                 introduction (µL/min or mL/min).
@@ -883,128 +1063,20 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id014
+                          - contains: *id017
                             minContains: 0
                             maxContains: 1
-                          - contains: *id015
-                            minContains: 0
-                            maxContains: 1
-                  - if:
-                      properties:
-                        schema:additionalType:
-                          contains:
-                            const: ICP Source
-                      required:
-                      - schema:additionalType
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            anyOf:
-                            - title: Plasma Thermal Mode
-                              description: Whether the ICP plasma is operated under cool plasma or normal
-                                (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most
-                                solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based
-                                interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity
-                                and ionization efficiency for most elements.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/plasmaThermalMode
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: plasmaThermalMode
-                                schema:name:
-                                  const: Plasma Thermal Mode
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                            - &id016
-                              title: RF Power
-                              description: Radiofrequency forward power applied to the plasma (W). Controls
-                                ionization efficiency and oxide production rates.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/rfPower
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionSficpmsTAPP/rfPower
-                                schema:name:
-                                  const: RF Power
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
-                                schema:unitText:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              - schema:unitText
-                          allOf:
-                          - contains:
-                              title: Plasma Thermal Mode
-                              description: Whether the ICP plasma is operated under cool plasma or normal
-                                (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most
-                                solution SF-ICP-MS analyses. Cool plasma (≤900 W RF) reduces argide-based
-                                interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity
-                                and ionization efficiency for most elements.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/plasmaThermalMode
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: plasmaThermalMode
-                                schema:name:
-                                  const: Plasma Thermal Mode
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
-                          - contains: *id016
+                          - contains: *id018
                             minContains: 0
                             maxContains: 1
                 allOf:
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: ICP Source
+                    required:
+                    - schema:additionalType
                 - contains:
                     properties:
                       schema:additionalType:
@@ -1019,18 +1091,20 @@ allOf:
                           const: Sample Introduction System
                     required:
                     - schema:additionalType
-                - contains:
-                    properties:
-                      schema:additionalType:
-                        contains:
-                          const: ICP Source
-                    required:
-                    - schema:additionalType
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer and model name of the sector-field ICP-MS instrument (e.g.,
+                      Thermo Element 2, Thermo Element XR, Nu Instruments Attom HR). Determines available
+                      mass resolution modes and detector configuration.
+                    type: string
+                    readOnly: true
               schema:additionalProperty:
                 type: array
                 items:
                   anyOf:
-                  - &id017
+                  - &id019
                     title: Doubly-Charged Species Monitor
                     description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during
                       instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent
@@ -1090,7 +1164,7 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
-                  - &id018
+                  - &id020
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning. Record both the acceptance threshold and
@@ -1123,7 +1197,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id019
+                  - &id021
                     title: Make-up Gas Flow Rate
                     description: Supplementary argon flow added downstream of a desolvation system to
                       maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation
@@ -1156,7 +1230,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id020
+                  - &id022
                     title: Mass Resolution Setting
                     description: Mass resolution mode(s) used in this protocol. Sector-field instruments
                       allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm
@@ -1184,7 +1258,7 @@ allOf:
                     - schema:propertyID
                     - schema:name
                     - schema:value
-                  - &id021
+                  - &id023
                     title: Memory Effect Mitigation
                     description: Protocol applied to identify and minimize carry-over of high-concentration
                       elements between successive sample introductions. For solution ICP-MS, mitigation
@@ -1219,7 +1293,7 @@ allOf:
                     - ada:dataType
                     - ada:fieldScope
                 allOf:
-                - contains: *id017
+                - contains: *id019
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -1252,16 +1326,16 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
-                - contains: *id018
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id019
-                  minContains: 0
-                  maxContains: 1
                 - contains: *id020
                   minContains: 0
                   maxContains: 1
                 - contains: *id021
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id022
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id023
                   minContains: 0
                   maxContains: 1
               schema:identifier:
@@ -1467,7 +1541,7 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
-                      - &id022
+                      - &id024
                         title: Digestion Duration
                         description: Duration of the primary acid digestion step (hours or days).
                         type: object
@@ -1490,7 +1564,7 @@ allOf:
                         - schema:propertyID
                         - schema:name
                         - schema:value
-                      - &id023
+                      - &id025
                         title: Digestion Temperature
                         description: Temperature at which acid digestion was carried out (°C). Protocol
                           specifies the target temperature.
@@ -1579,10 +1653,10 @@ allOf:
                         readOnly: true
                       minContains: 0
                       maxContains: 1
-                    - contains: *id022
+                    - contains: *id024
                       minContains: 0
                       maxContains: 1
-                    - contains: *id023
+                    - contains: *id025
                       minContains: 0
                       maxContains: 1
             - if:
@@ -1664,7 +1738,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id024
+                      - &id026
                         title: Normalization/Standards-Based Correction
                         description: Post-acquisition normalization applied to output concentrations relative
                           to a reference value (e.g., correction to a BHVO-2 working value).
@@ -1694,7 +1768,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id025
+                      - &id027
                         title: Pulse/Analog Detector Nonlinearity Correction
                         description: Whether a correction was applied for nonlinear detector response
                           at the transition between pulse-counting and analog (and Faraday, for triple-mode
@@ -1729,11 +1803,64 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
+                      - title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike–sample isotope ratio measurements. Spike must have been added before digestion
+                          for accurate equilibration. Record 'None' if isotope dilution is not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
                     allOf:
-                    - contains: *id024
+                    - contains: *id026
                       minContains: 0
                       maxContains: 1
-                    - contains: *id025
+                    - contains: *id027
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike–sample isotope ratio measurements. Spike must have been added before digestion
+                          for accurate equilibration. Record 'None' if isotope dilution is not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                              '@id': ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -1747,6 +1874,12 @@ allOf:
               properties:
                 schema:name:
                   const: sampleDigestion
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
               required:
               - schema:name
     ada:finalSolutionMatrix:
@@ -1890,7 +2023,7 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
-        - &id026
+        - &id028
           title: Spike/Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous replicate measurements or data
             points from the calculated mean.
@@ -1920,7 +2053,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id027
+        - &id029
           title: Uncertainty Propagation Method
           description: Method used to propagate analytical uncertainties from raw signals through to final
             concentration values.
@@ -2073,10 +2206,10 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id026
+      - contains: *id028
         minContains: 0
         maxContains: 1
-      - contains: *id027
+      - contains: *id029
         minContains: 0
         maxContains: 1
     schema:location:
@@ -2187,12 +2320,6 @@ allOf:
       - N/A
       - None
       readOnly: true
-    ada:isotopeDilutionDataReductionMethod:
-      description: Mass balance approach used to calculate sample mass fractions from spike–sample isotope
-        ratio measurements. Spike must have been added before digestion for accurate equilibration. Record
-        'None' if isotope dilution is not used.
-      type: string
-      readOnly: true
     ada:secondaryReferenceMaterial:
       type: array
       items:
@@ -2225,5 +2352,4 @@ allOf:
   - ada:driftCorrectionMethod
   - ada:signalIntegrationIntervalMethod
   - ada:blankBackgroundCorrectionMethod
-  - ada:isotopeDilutionDataReductionMethod
   - ada:calibrationMeasurementFrequency

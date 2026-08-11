@@ -12,24 +12,90 @@
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:identifier": "example protocolDoi"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
   "prov:wasGeneratedBy": [
     {
-      "schema:startDate": "example analysisStartDate",
+      "prov:used": [
+        {
+          "schema:additionalType": [
+            "EPMA"
+          ],
+          "ada:acceleratingVoltage": 1.0,
+          "ada:beamDiameter": 1.0
+        }
+      ],
       "schema:endDate": "example analysisEndDate",
+      "schema:startDate": "example analysisStartDate",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/empaTAPP/beamDamageMinimization",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
+          },
+          "schema:name": "Beam Damage Minimization",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/empaTAPP/beamRasterDimensions",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
+          },
+          "schema:name": "Beam Raster Dimensions",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/empaTAPP/driftCorrection",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/empaTAPP/driftCorrection"
+          },
+          "schema:name": "Drift Correction",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/empaTAPP/dwellTimePerPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
+          },
+          "schema:name": "Dwell Time per Pixel",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+          },
+          "schema:name": "Halogen Correction on Oxygen",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/empaTAPP/stepSizePixelSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
+          },
+          "schema:name": "Step Size / Pixel Size",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        }
+      ],
       "schema:object": [
         {
           "@type": [
@@ -41,114 +107,31 @@
       ]
     }
   ],
-  "schema:funding": [],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
   "schema:relatedLink": [
     {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "example coupledTechnique"
-      }
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
     },
     {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {
         "schema:url": "example coupledProtocolDoi"
       }
-    },
-    {
-      "schema:linkRelationship": "coupledDataset",
-      "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
-  "schema:additionalProperty": [
+  "schema:funding": [],
+  "schema:measurementTechnique": [
     {
-      "@id": "ada:parameter/empaTAPP/beamRasterDimensions",
       "@type": [
-        "schema:PropertyValue"
+        "schema:DefinedTerm"
       ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
-      },
-      "schema:name": "Beam Raster Dimensions",
-      "schema:value": 1,
-      "schema:unitText": "example value"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/beamDamageMinimization",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
-      },
-      "schema:name": "Beam Damage Minimization",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/driftCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/driftCorrection"
-      },
-      "schema:name": "Drift Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/backgroundPosition",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/backgroundPosition"
-      },
-      "schema:name": "Background Position(s)",
-      "schema:value": 1
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/timeDependentIntensityCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/timeDependentIntensityCorrection"
-      },
-      "schema:name": "Time-Dependent Intensity Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
-      },
-      "schema:name": "Halogen Correction on Oxygen",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/blankCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/blankCorrection"
-      },
-      "schema:name": "Blank Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
-      },
-      "schema:name": "Normalization / Standards-Based Correction",
-      "schema:value": "example value"
+      "schema:identifier": "example protocolDoi"
     }
   ]
 }

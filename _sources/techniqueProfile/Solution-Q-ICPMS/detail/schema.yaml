@@ -147,6 +147,84 @@ properties:
                           properties:
                             schema:additionalType:
                               contains:
+                                const: ICP Source
+                          required:
+                          - schema:additionalType
+                        then:
+                          properties:
+                            schema:additionalProperty:
+                              type: array
+                              items:
+                                anyOf:
+                                - &id002
+                                  title: Coolant (Plasma) Gas Flow Rate
+                                  description: Flow rate of the outer (coolant) argon gas stream (L/min).
+                                    Influences plasma temperature and oxide ion formation.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                        '@id': ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
+                                    schema:name:
+                                      const: Coolant (Plasma) Gas Flow Rate
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                                - &id003
+                                  title: Auxiliary Gas Flow Rate
+                                  description: Flow rate of the intermediate (auxiliary) argon gas stream
+                                    between torch body and injector tube (L/min).
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                        '@id': ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
+                                    schema:name:
+                                      const: Auxiliary Gas Flow Rate
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                              allOf:
+                              - contains: *id002
+                                minContains: 0
+                                maxContains: 1
+                              - contains: *id003
+                                minContains: 0
+                                maxContains: 1
+                      - if:
+                          properties:
+                            schema:additionalType:
+                              contains:
                                 const: Sample Introduction System
                           required:
                           - schema:additionalType
@@ -154,7 +232,7 @@ properties:
                           properties:
                             schema:additionalProperty:
                               type: array
-                              items: &id002
+                              items: &id004
                                 title: Make-up Gas Flow Rate
                                 description: Supplementary argon flow added downstream of a desolvation
                                   system to maintain total gas delivery to the plasma (L/min). Record
@@ -185,14 +263,22 @@ properties:
                                 - schema:value
                                 - schema:unitText
                               allOf:
-                              - contains: *id002
+                              - contains: *id004
                                 minContains: 0
                                 maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: ICP Source
+                        required:
+                        - schema:additionalType
                   schema:additionalProperty:
                     type: array
                     items:
                       anyOf:
-                      - &id003
+                      - &id005
                         title: Doubly-Charged Species Monitor
                         description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
                           during instrument tuning. Doubly-charged ions appear at half the nominal mass
@@ -218,7 +304,7 @@ properties:
                         - schema:propertyID
                         - schema:name
                         - schema:value
-                      - &id004
+                      - &id006
                         title: Doubly-Charged Species Production
                         description: Measured percentage of doubly-charged ion production for the monitored
                           species at the time of instrument tuning. Record both the acceptance threshold
@@ -245,7 +331,7 @@ properties:
                         - schema:propertyID
                         - schema:name
                         - schema:value
-                      - &id005
+                      - &id007
                         title: Memory Effect Mitigation
                         description: Protocol applied to identify and minimize carry-over of high-concentration
                           elements between successive sample introductions. For solution ICP-MS, mitigation
@@ -274,18 +360,26 @@ properties:
                         - schema:name
                         - schema:value
                     allOf:
-                    - contains: *id003
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id004
-                      minContains: 0
-                      maxContains: 1
                     - contains: *id005
                       minContains: 0
                       maxContains: 1
+                    - contains: *id006
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id007
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:additionalType:
+                  contains:
+                    const: ICPMS
+              required:
+              - schema:additionalType
         schema:additionalProperty:
           type: array
-          items: &id006
+          items: &id008
             title: Signal Integration Time
             description: Total integration time per analyte per replicate (s). Determined at analysis
               time from the actual acquisition.
@@ -315,7 +409,7 @@ properties:
             - schema:value
             - schema:unitText
           allOf:
-          - contains: *id006
+          - contains: *id008
             minContains: 0
             maxContains: 1
         schema:actionProcess:
@@ -338,7 +432,7 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id007
+                          - &id009
                             title: Spike/Outlier Filtering Approach
                             description: Criteria used to identify and exclude anomalous replicate measurements
                               or data points from the calculated mean.
@@ -362,7 +456,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id008
+                          - &id010
                             title: Pulse/Analog Detector Nonlinearity Correction
                             description: Whether a correction was applied for nonlinear detector response
                               at the transition between pulse-counting and analog detection modes. For
@@ -390,7 +484,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id009
+                          - &id011
                             title: Uncertainty Propagation Method
                             description: Method used to propagate analytical uncertainties from raw signals
                               through to final concentration values.
@@ -414,7 +508,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id010
+                          - &id012
                             title: Normalization/Standards-Based Correction
                             description: Post-acquisition normalization applied to output concentrations
                               relative to a reference value (e.g., correction to a monitor element's certified
@@ -440,16 +534,16 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id007
-                          minContains: 0
-                          maxContains: 1
-                        - contains: *id008
-                          minContains: 0
-                          maxContains: 1
                         - contains: *id009
                           minContains: 0
                           maxContains: 1
                         - contains: *id010
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id011
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id012
                           minContains: 0
                           maxContains: 1
   schema:funding:
@@ -459,23 +553,6 @@ properties:
     items:
       type: object
       allOf:
-      - if:
-          properties:
-            schema:linkRelationship:
-              const: coupledTechnique
-          required:
-          - schema:linkRelationship
-        then:
-          properties:
-            schema:target:
-              type: object
-              properties:
-                schema:name:
-                  description: Other analytical techniques applied to the same sample(s) whose results
-                    are intended to be interpreted together with data from this protocol. Document coupling
-                    with any technique whose results are functionally linked to this dataset (e.g., providing
-                    calibration inputs, complementary spatial context, or required companion measurements).
-                  type: string
       - if:
           properties:
             schema:linkRelationship:
