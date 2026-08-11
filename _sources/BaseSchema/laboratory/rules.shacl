@@ -3,7 +3,7 @@
 @prefix sh:          <http://www.w3.org/ns/shacl#> .
 @prefix xsd:         <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema:      <http://schema.org/> .
-@prefix nxs:         <http://purl.org/nexusformat/definitions/> .
+@prefix nxs:         <https://manual.nexusformat.org/classes/> .
 @prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .
 @base <https://www.ogc.org/rules/template/> .
 
@@ -15,10 +15,10 @@ cdifd:laboratoryShape
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
-            PREFIX nxs: <http://purl.org/nexusformat/definitions/>
+            PREFIX nxs: <https://manual.nexusformat.org/classes/>
             SELECT ?this
             WHERE {
-                ?this a <http://purl.org/nexusformat/definitions/BaseClass/NXsource> .
+                ?this a <https://manual.nexusformat.org/classes/BaseClass/NXsource> .
             }
         """ ;
     ] ;

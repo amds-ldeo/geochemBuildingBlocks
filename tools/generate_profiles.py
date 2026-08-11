@@ -747,7 +747,7 @@ def _generate_context_jsonld() -> str:
             "csvw": "http://www.w3.org/ns/csvw#",
             "prov": "http://www.w3.org/ns/prov#",
             "spdx": "http://spdx.org/rdf/terms#",
-            "nxs": "http://purl.org/nexusformat/definitions/",
+            "nxs": "https://manual.nexusformat.org/classes/",
             "dcterms": "http://purl.org/dc/terms/",
             "geosparql": "http://www.opengis.net/ont/geosparql#",
         }
