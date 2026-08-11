@@ -125,9 +125,14 @@ def recognize(s):
         (r"^\$MethodDefinition\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "direct-ada"),
         (r"^\$Dataset\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "dataset-scalar"),
         (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:analyteColumns\[\]$", "analyte-template"),
+        # the analyte-identifier column; special_resolve() already emits this for the `Analyte` row
+        (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:defaultAnalytes\[\]$", "analyte-identifier"),
         (r"^\$MethodDefinition\.schema:description$", "protocol-description"),
         (r"^\$MethodDefinition\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "method-parameter"),
-        (r"^\$MethodDefinition\.bios:computationalTool\[schema:name='[^']*'\](\.schema:description)?$", "computational-tool"),
+        # selected either by name or by ada:toolRole ('acquisition' / 'dataReduction'); the role
+        # selector is what every sidecar actually uses, since the tool's NAME is the value being
+        # recorded and so cannot also be the selector.
+        (r"^\$MethodDefinition\.bios:computationalTool\[(schema:name|ada:toolRole)='[^']*'\](\.schema:(name|description))?$", "computational-tool"),
         (r"^\$MethodDefinition\.bios:computationalTool\[\]$", "computational-tool-list"),
         (r"^\$MethodDefinition\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|description|url))?$", "related-link"),
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "workflow-step"),
@@ -135,6 +140,8 @@ def recognize(s):
         # TAPP side, `value` per analysis. This previously allowed `value` only, so a dual-homed
         # step parameter had no legal TAPP-side path at all.
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "workflow-step-parameter"),
+        # a step's reagent list (sample digestion acids); the reagent is named, not parameterised
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.bios:reagent\[\](\.schema:(name|identifier))?$", "workflow-step-reagent"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
         (r"^\$MethodDefinition\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
         # instrument: a typed instrument array (selector=additionalType), optional component hasPart
@@ -163,7 +170,7 @@ def recognize(s):
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "dataset-instrument-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier)$", "dataset-sample"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
         (r"^\$Dataset\.schema:funding$", "dataset-funding"),
         (r"^\$Dataset\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|url|description))?$", "dataset-related-link"),

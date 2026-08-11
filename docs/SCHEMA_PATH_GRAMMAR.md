@@ -38,13 +38,15 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
 
 | family | canonical path |
 |---|---|
+| analyte identifier column | `$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]` |
 | direct protocol property | `$MethodDefinition.ada:<name>` (append `[]` if list-valued) |
 | protocol method parameter | `$MethodDefinition.schema:additionalProperty[schema:name='<Item>'].schema:value` (or `.schema:defaultValue`) |
 | inherited identity field | `$MethodDefinition.schema:<name\|creator\|instrument\|location\|object\|funding\|datePublished\|identifier\|measurementTechnique>[…]` |
-| computational tool (whole) | `$MethodDefinition.bios:computationalTool[schema:name='<tool>']` |
-| computational tool field | `$MethodDefinition.bios:computationalTool[schema:name='<tool>'].schema:description` |
+| computational tool (whole) | `$MethodDefinition.bios:computationalTool[<schema:name\|ada:toolRole>='<sel>']` — selected by role (`acquisition`, `dataReduction`) where the tool's NAME is the recorded value |
+| computational tool field | `$MethodDefinition.bios:computationalTool[<schema:name\|ada:toolRole>='<sel>'].schema:<name\|description>` |
 | related link target | `$MethodDefinition.schema:relatedLink[schema:linkRelationship='<rel>'].schema:target.<field>` |
 | workflow step (whole/field) | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'](.<field>)?` |
+| workflow-step reagent | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].bios:reagent[](.schema:<name\|identifier>)?` |
 | workflow-step parameter | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
 | instrument identity | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:<model\|manufacturer>.schema:name` (or `.schema:<name\|identifier\|additionalType\|description>`) |
 | instrument direct property | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].ada:<name>` |
@@ -55,7 +57,7 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
 | dataset provenance | `$Dataset.prov:wasGeneratedBy.<schema:startDate\|schema:endDate>` |
 | dataset prov parameter | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<param>'].schema:value` |
 | dataset step parameter | `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:value` — analysis-tier half of a dual-homed step parameter. `value` only: a dataset records what was used, never a default |
-| dataset sample | `$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:<name\|identifier>` |
+| dataset sample | `$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:<name\|identifier\|description>` |
 | dataset contributor | `$Dataset.schema:contributor[schema:roleName='<role>'](.schema:<name\|identifier>)?` |
 | dataset funding | `$Dataset.schema:funding` |
 | dataset measurement technique | `$Dataset.schema:measurementTechnique(.schema:DefinedTerm)?.schema:identifier` |
