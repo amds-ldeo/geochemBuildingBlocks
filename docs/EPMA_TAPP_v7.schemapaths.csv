@@ -8,15 +8,15 @@ Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate
 Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,inferred,shared,
 Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],authored,shared,
 Analyte Estimation Method,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Analyte Estimation Method'].schema:value,inferred,shared,
-Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Analytical Accuracy'].schema:value,inferred,shared,
+Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
 Analytical Mode,Basic,Read-Only,Controlled vocabulary,$MethodDefinition.ada:analyticalMode[],inferred,shared,
-Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Analytical Precision'].schema:value,inferred,shared,
+Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
 Background Correction Method,Basic,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
 Background Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
 Background Position(s),Advanced,Editable,Numeric + label,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
 Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
 Beam Damage Minimization,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue,inferred,shared,
-Beam Damage Minimization,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value,inferred,shared,
+Beam Damage Minimization,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Beam Diameter,Basic,Editable,Numeric (um),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:beamDiameterDefault,authored,divergent,divergence decision applied
 Beam Diameter,Basic,Editable,Numeric (um),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='EPMA'].ada:beamDiameter,inferred,divergent,dual-home counterpart (tier matrix)
 Beam Mode,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:beamMode,authored,divergent,
@@ -24,7 +24,7 @@ Beam Raster Dimensions,Advanced,Editable,Numeric pair (um x um),$MethodDefinitio
 Beam Raster Dimensions,Advanced,Editable,Numeric pair (um x um),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
 Beam Raster Dimensions,Advanced,Editable,Numeric pair (um x um),$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue,authored,shared,divergence decision applied
 Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
-Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Counting Statistics Error'].schema:value,inferred,shared,
+Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,inferred,shared,
 Coupled Protocol DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url,inferred,shared,
 Coupled Technique(s),Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,inferred,shared,
@@ -34,7 +34,7 @@ Detection Limit,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate
 Detection Limit Method,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
 Diffracting Crystal,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
 Drift Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Drift Correction'].schema:defaultValue,inferred,shared,
-Drift Correction,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Drift Correction'].schema:value,inferred,shared,
+Drift Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Drift Correction'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Dwell Time per Pixel,Basic,Editable,Numeric (ms),$MethodDefinition.ada:dwellTimePerPixelDefault,authored,shared,WDS per-analyte dwell is carried by Peak/Background Counting Time
 Dwell Time per Pixel,Basic,Editable,Numeric (ms),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
 EDS Acquisition Mode,Basic,Read-Only,Controlled vocabulary,$MethodDefinition.ada:edsAcquisitionMode,inferred,shared,
@@ -47,7 +47,7 @@ EPMA Technique per Analyte,Basic,Read-Only,Controlled list,$MethodDefinition.ada
 Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,inferred,shared,
 Funding Source for Protocol Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,shared,
 Halogen Correction on Oxygen,Advanced,Editable,Boolean,$MethodDefinition.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:defaultValue,inferred,shared,
-Halogen Correction on Oxygen,Advanced,Editable,Boolean,$Dataset.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value,inferred,shared,
+Halogen Correction on Oxygen,Advanced,Editable,Boolean,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:manufacturer.schema:name,authored,divergent,divergence decision applied
 Instrument Model,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:model.schema:name,authored,shared,divergence decision applied
 Interference Correction Standard,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Interference Correction Standard'].schema:value,inferred,shared,
@@ -61,7 +61,7 @@ Mass Absorption Coefficients (MACs),Basic,Read-Only,Controlled list,$MethodDefin
 Matrix Correction Method,Basic,Read-Only,Controlled list,$MethodDefinition.ada:matrixCorrectionMethod,inferred,shared,
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
 Peak Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
-Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardName,inferred,shared,
+Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
 Proportional Counter / Detector,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
 Protocol Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,shared,
 Protocol DOI,N/A,Basic,URI / DOI,$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier,inferred,shared,
@@ -71,7 +71,7 @@ Protocol Start Date,Basic,Read-Only,Date,$MethodDefinition.schema:datePublished,
 Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,inferred,shared,
 Sample Persistent Identifier,N/A,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,inferred,shared,
 Sample Preparation Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description,inferred,shared,
-Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterial[],inferred,shared,
+Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
 Sequence,Advanced,Read-Only,Integer,$MethodDefinition.schema:additionalProperty[schema:name='Sequence'].schema:value,authored,shared,divergence decision applied
 Stage Scan vs. Beam Scan,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs Beam Scan'].schema:value,inferred,shared,
 Step Size / Pixel Size,Basic,Editable,Numeric (um),$MethodDefinition.ada:stepSizePixelSizeDefault,authored,shared,divergence decision applied

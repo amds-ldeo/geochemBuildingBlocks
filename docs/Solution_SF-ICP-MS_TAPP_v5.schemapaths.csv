@@ -32,7 +32,7 @@ Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:comput
 Digestion Duration,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='sampleDigestion'].schema:additionalProperty[schema:name='Digestion Duration'].schema:value,authored,shared,
 Chromatographic Separation Applied,Basic,Read-Only,Controlled list,$MethodDefinition.ada:chromatographicSeparationApplied,inferred,shared,
 Isotope Dilution Spike,Basic,Read-Only,Text (free),$MethodDefinition.ada:isotopeDilutionSpike,inferred,shared,
-Instrument Make and Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument.schema:model,inferred,shared,
+Instrument Make and Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:model.schema:name,authored,shared,instrument selector added; ICPMS is the only instrument this sidecar declares
 ICP-MS Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalType,inferred,shared,
 Digestion Temperature,Basic,Editable,Numeric (°C),$MethodDefinition.schema:actionProcess.schema:step[schema:name='sampleDigestion'].schema:additionalProperty[schema:name='Digestion Temperature'].schema:value,authored,shared,
 Torch Type,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Torch'].schema:name,inferred,shared,
@@ -72,7 +72,7 @@ Oxide Production,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:is
 Nebulizer Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Nebulizer Gas Flow Rate'].schema:value,inferred,shared,
 Normalization/Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Normalization Standards Based Correction'].schema:value,authored,shared,
 Normalization/Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Normalization Standards Based Correction'].schema:defaultValue,authored,shared,
-Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardName,inferred,shared,
+Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardName,inferred,divergent,
 Internal Standard Approach,Basic,Read-Only,Controlled list,$MethodDefinition.ada:internalStandardApproach,inferred,shared,
 Drift Correction Method,Basic,Read-Only,Controlled list,$MethodDefinition.ada:driftCorrectionMethod,inferred,shared,
 Per-Analyte Calibration Strategy,Basic,Read-Only,Controlled list,$MethodDefinition.ada:perAnalyteCalibrationStrategy[],inferred,shared,
@@ -89,7 +89,7 @@ Interference Correction Method,Basic,Read-Only,Text (free),$.ada:analyteTemplate
 Isotope Dilution Data Reduction Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied
 Sample Aliquot Mass or Volume,Advanced,Editable,Numeric (mg or mL),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Aliquot Mass or Volume'].schema:defaultValue,authored,shared,
 Sample Uptake Rate,Basic,Editable,Numeric (ÂµL/min or mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Sample Uptake Rate'].schema:value,authored,shared,
-Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterial[],inferred,shared,
+Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterial[],inferred,divergent,
 Spike/Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Spike Outlier Filtering Approach'].schema:value,authored,shared,
 Spike/Outlier Filtering Approach,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Spike Outlier Filtering Approach'].schema:defaultValue,inferred,shared,
 Torch Depth,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Torch'].schema:additionalProperty[schema:name='Torch Depth'].schema:value,inferred,shared,

@@ -37,7 +37,7 @@ Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:analyteTemplate.a
 Working Distance,Basic,Editable,Numeric (mm),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:workingDistanceDefault,authored,shared,divergence decision applied
 Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:workingDistance,inferred,shared,dual-home counterpart (tier matrix)
 Chamber Pressure,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue,inferred,shared,
-Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,inferred,shared,
+Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Image Pixel Size,Advanced,Basic,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:value,inferred,,
 Dwell Time per Pixel,Basic,Editable,Numeric + unit,$MethodDefinition.ada:dwellTimePerPixelDefault,authored,shared,divergence decision applied
 Dwell Time per Pixel,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
@@ -55,5 +55,5 @@ EBSD Pattern Quality Threshold,Advanced,Editable,Text (free),$Dataset.ada:patter
 EBSD Mean Angular Deviation,N/A,Basic,Numeric (degrees),$Dataset.ada:meanAngularDeviation,authored,,
 EBSD Indexing Rate,N/A,Basic,Numeric (%),$Dataset.ada:indexingRate,authored,,
 CL Wavelength Calibration Reference,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:defaultValue,inferred,,
-CL Wavelength Calibration Reference,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:value,inferred,,
+CL Wavelength Calibration Reference,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,inferred,shared,

@@ -22,11 +22,11 @@ Applicable Sample Dimension Range,Basic,Read-Only,Text (free),$MethodDefinition.
 Sample Dimensions (L × W × H),Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Sample Dimensions L W H'].schema:value,inferred,,
 Sample Mass,N/A,Advanced,Numeric (g),,flagged,,analysis-instance (needs mapping)
 Sample Mounting Method,Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:additionalProperty[schema:name='Sample Mounting Method'].schema:defaultValue,inferred,,
-Sample Mounting Method,Advanced,Editable,Controlled list / Text,$Dataset.schema:additionalProperty[schema:name='Sample Mounting Method'].schema:value,inferred,,
+Sample Mounting Method,Advanced,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sample Mounting Method'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,inferred,shared,
 Sample Persistent Identifier,N/A,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,inferred,shared,
 Sample Preparation Notes,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Sample Preparation Notes'].schema:defaultValue,inferred,,
-Sample Preparation Notes,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Sample Preparation Notes'].schema:value,inferred,,
+Sample Preparation Notes,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sample Preparation Notes'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 CT System Manufacturer and Model,Basic,Read-Only,Text (free),$MethodDefinition.ada:ctSystemManufacturerAndModel,inferred,,
 X-ray Source Configuration,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:xRaySourceConfiguration,inferred,,
 X-ray Tube Anode Material,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:additionalProperty[schema:name='X ray Tube Anode Material'].schema:value,inferred,,
@@ -42,22 +42,22 @@ Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instru
 Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='XCT'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
 Tube Current,Basic,Editable,Numeric (µA),$MethodDefinition.ada:tubeCurrent,inferred,,
 X-ray Power,Advanced,Editable,Numeric (W),$MethodDefinition.schema:additionalProperty[schema:name='X ray Power'].schema:defaultValue,inferred,,
-X-ray Power,Advanced,Editable,Numeric (W),$Dataset.schema:additionalProperty[schema:name='X ray Power'].schema:value,inferred,,
+X-ray Power,Advanced,Editable,Numeric (W),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='X ray Power'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 X-ray Pre-filter,Basic,Editable,Text (free),$MethodDefinition.ada:xRayPreFilter,inferred,,
 Source-to-Object Distance (SOD),Advanced,Editable,Numeric (mm),$MethodDefinition.schema:additionalProperty[schema:name='Source to Object Distance SOD'].schema:defaultValue,inferred,,
-Source-to-Object Distance (SOD),Advanced,Editable,Numeric (mm),$Dataset.schema:additionalProperty[schema:name='Source to Object Distance SOD'].schema:value,inferred,,
+Source-to-Object Distance (SOD),Advanced,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Source to Object Distance SOD'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Source-to-Detector Distance (SDD),Advanced,Editable,Numeric (mm),$MethodDefinition.schema:additionalProperty[schema:name='Source to Detector Distance SDD'].schema:defaultValue,inferred,,
-Source-to-Detector Distance (SDD),Advanced,Editable,Numeric (mm),$Dataset.schema:additionalProperty[schema:name='Source to Detector Distance SDD'].schema:value,inferred,,
+Source-to-Detector Distance (SDD),Advanced,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Source to Detector Distance SDD'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Voxel Size,Basic,Editable,Numeric (µm),$MethodDefinition.ada:voxelSize,inferred,,
 Rotation Range,Basic,Editable,Numeric (°),$MethodDefinition.ada:rotationRange,inferred,,
 Number of Projections,Basic,Editable,Integer,$MethodDefinition.ada:numberOfProjections,inferred,,
 Rotation Step Size,Advanced,Editable,Numeric (°),$MethodDefinition.schema:additionalProperty[schema:name='Rotation Step Size'].schema:defaultValue,inferred,,
-Rotation Step Size,Advanced,Editable,Numeric (°),$Dataset.schema:additionalProperty[schema:name='Rotation Step Size'].schema:value,inferred,,
+Rotation Step Size,Advanced,Editable,Numeric (°),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Rotation Step Size'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Exposure Time per Projection,Basic,Editable,Numeric (s),$MethodDefinition.ada:exposureTimePerProjection,inferred,,
 Frames Averaged per Projection,Advanced,Editable,Integer,$MethodDefinition.schema:additionalProperty[schema:name='Frames Averaged per Projection'].schema:defaultValue,inferred,,
-Frames Averaged per Projection,Advanced,Editable,Integer,$Dataset.schema:additionalProperty[schema:name='Frames Averaged per Projection'].schema:value,inferred,,
+Frames Averaged per Projection,Advanced,Editable,Integer,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Frames Averaged per Projection'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Detector Binning,Advanced,Editable,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Detector Binning'].schema:defaultValue,inferred,,
-Detector Binning,Advanced,Editable,Controlled list,$Dataset.schema:additionalProperty[schema:name='Detector Binning'].schema:value,inferred,,
+Detector Binning,Advanced,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Detector Binning'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Flat Field Correction,Basic,Editable,Boolean,$MethodDefinition.ada:flatFieldCorrection,inferred,,
 Rotation Mode,Basic,Editable,Controlled list,$MethodDefinition.ada:rotationMode,inferred,,
 Number of Sub-volumes,N/A,Basic,Integer,,flagged,,analysis-instance (needs mapping)
@@ -65,36 +65,36 @@ Minimum Sub-volume Overlap,Basic,Read-Only,Integer,$MethodDefinition.ada:minimum
 Total Scan Duration,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)
 Reconstruction Algorithm,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:reconstructionAlgorithm,inferred,,
 Reconstruction Convolution Filter,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Reconstruction Convolution Filter'].schema:defaultValue,inferred,,
-Reconstruction Convolution Filter,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Reconstruction Convolution Filter'].schema:value,inferred,,
+Reconstruction Convolution Filter,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Reconstruction Convolution Filter'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Beam Hardening Correction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:beamHardeningCorrectionMethod,inferred,,
 Beam Hardening Correction Parameter,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Beam Hardening Correction Parameter'].schema:defaultValue,inferred,,
-Beam Hardening Correction Parameter,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Beam Hardening Correction Parameter'].schema:value,inferred,,
+Beam Hardening Correction Parameter,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Hardening Correction Parameter'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Ring Artifact Correction Method,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Ring Artifact Correction Method'].schema:defaultValue,inferred,,
-Ring Artifact Correction Method,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Ring Artifact Correction Method'].schema:value,inferred,,
+Ring Artifact Correction Method,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ring Artifact Correction Method'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Output Data Format,Basic,Editable,Controlled list / Text,$MethodDefinition.ada:outputDataFormat,inferred,,
 CT Number Calibration,Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:additionalProperty[schema:name='CT Number Calibration'].schema:defaultValue,inferred,,
-CT Number Calibration,Advanced,Editable,Controlled list / Text,$Dataset.schema:additionalProperty[schema:name='CT Number Calibration'].schema:value,inferred,,
+CT Number Calibration,Advanced,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='CT Number Calibration'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Segmentation Method,Basic,Editable,Controlled list / Text,$MethodDefinition.ada:segmentationMethod,inferred,,
 Segmentation Threshold Values or Criteria,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Segmentation Threshold Values or Criteria'].schema:defaultValue,inferred,,
-Segmentation Threshold Values or Criteria,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Segmentation Threshold Values or Criteria'].schema:value,inferred,,
+Segmentation Threshold Values or Criteria,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Segmentation Threshold Values or Criteria'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Phase Identification Method,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Phase Identification Method'].schema:defaultValue,inferred,,
-Phase Identification Method,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Phase Identification Method'].schema:value,inferred,,
+Phase Identification Method,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Phase Identification Method'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 VOI Selection Criteria,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='VOI Selection Criteria'].schema:defaultValue,inferred,,
-VOI Selection Criteria,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='VOI Selection Criteria'].schema:value,inferred,,
+VOI Selection Criteria,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='VOI Selection Criteria'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 VOI Applied,N/A,Basic,Text (free),,flagged,,analysis-instance (needs mapping)
 Sub-volume Stitching and Registration Method,Basic,Editable,Text (free),$MethodDefinition.ada:subVolumeStitchingAndRegistrationMethod,inferred,,
 Sub-volume Overlap,N/A,Basic,Integer,,flagged,,analysis-instance (needs mapping)
 Output Bit Depth,Advanced,Editable,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Output Bit Depth'].schema:defaultValue,inferred,,
-Output Bit Depth,Advanced,Editable,Controlled list,$Dataset.schema:additionalProperty[schema:name='Output Bit Depth'].schema:value,inferred,,
+Output Bit Depth,Advanced,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Output Bit Depth'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Spatial Resolution,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)
 Beam Hardening Artifact Assessment,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)
 Ring Artifact Severity and Correction Outcome,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)
 Metal Streak Artifact Assessment,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)
 Partial Volume Effect Criteria,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Partial Volume Effect Criteria'].schema:defaultValue,inferred,,
-Partial Volume Effect Criteria,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Partial Volume Effect Criteria'].schema:value,inferred,,
+Partial Volume Effect Criteria,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Partial Volume Effect Criteria'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Partial Volume Effect Assessment,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)
 Minimum Resolvable Feature Size,N/A,Advanced,Numeric (µm),,flagged,,analysis-instance (needs mapping)
 Signal-to-Noise Ratio,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)
 Cross-Validation Protocol Requirement,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Cross Validation Protocol Requirement'].schema:defaultValue,inferred,,
-Cross-Validation Protocol Requirement,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Cross Validation Protocol Requirement'].schema:value,inferred,,
+Cross-Validation Protocol Requirement,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Cross Validation Protocol Requirement'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Cross-Validation Outcome,N/A,Advanced,Text (free),,flagged,,analysis-instance (needs mapping)

@@ -39,14 +39,14 @@ Beam Raster Dimensions,Advanced,Editable,Numeric + unit,$MethodDefinition.schema
 Beam Raster Dimensions,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
 Beam Raster Dimensions,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue,authored,shared,divergence decision applied
 Beam Damage Minimization,Advanced,Editable,Free text,$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue,inferred,shared,
-Beam Damage Minimization,Advanced,Editable,Free text,$Dataset.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value,inferred,shared,
+Beam Damage Minimization,Advanced,Editable,Free text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Drift Correction,Advanced,Editable,Free text,$MethodDefinition.schema:additionalProperty[schema:name='Drift Correction'].schema:defaultValue,inferred,shared,
-Drift Correction,Advanced,Editable,Free text,$Dataset.schema:additionalProperty[schema:name='Drift Correction'].schema:value,inferred,shared,
+Drift Correction,Advanced,Editable,Free text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Drift Correction'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Stage Scan vs. Beam Scan,Advanced,Read-Only,Controlled vocabulary,$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs Beam Scan'].schema:value,inferred,shared,
 Working Distance,Basic,Editable,Numeric (mm),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:workingDistanceDefault,authored,shared,divergence decision applied
 Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:workingDistance,inferred,shared,dual-home counterpart (tier matrix)
 Chamber Pressure,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue,inferred,shared,
-Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,inferred,shared,
+Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Dwell Time per Pixel,Basic,Editable,Numeric + unit,$MethodDefinition.ada:dwellTimePerPixelDefault,authored,shared,divergence decision applied
 Dwell Time per Pixel,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
 EDS Acquisition Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:edsAcquisitionMode,inferred,shared,
@@ -72,20 +72,20 @@ Background Correction Method,Basic,Editable,Controlled list,$MethodDefinition.ad
 Time-Dependent Intensity Correction,Advanced,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
 Analyte Estimation Method,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Analyte Estimation Method'].schema:value,inferred,shared,
 Halogen Correction on Oxygen,Advanced,Editable,Boolean,$MethodDefinition.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:defaultValue,inferred,shared,
-Halogen Correction on Oxygen,Advanced,Editable,Boolean,$Dataset.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value,inferred,shared,
+Halogen Correction on Oxygen,Advanced,Editable,Boolean,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 EDS Spectral Processing Type,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value,inferred,shared,
 Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
 WDS Dead Time Correction,Basic,Read-Only,Controlled list,$MethodDefinition.ada:wdsDeadTimeCorrection,inferred,shared,
-Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardName,inferred,shared,
-Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterial[],inferred,shared,
+Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
 Interference Corrections Applied,Basic,Read-Only,Boolean,$MethodDefinition.ada:interferenceCorrectionsApplied,inferred,shared,
 Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Interfering Elements'].schema:value,inferred,shared,
 Interference Correction Standard,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Interference Correction Standard'].schema:value,inferred,shared,
 Detection Limit,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
 Detection Limit Method,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
-Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Analytical Precision'].schema:value,inferred,shared,
-Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Analytical Accuracy'].schema:value,inferred,shared,
-Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Counting Statistics Error'].schema:value,inferred,shared,
+Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
 EDS Dead Time,N/A,Basic,Numeric (%),,flagged,,analysis-instance (needs mapping)
 Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,inferred,shared,

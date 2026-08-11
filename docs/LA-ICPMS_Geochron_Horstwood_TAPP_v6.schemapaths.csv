@@ -17,7 +17,7 @@ Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:rela
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url,inferred,,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,inferred,shared,
 Imaging,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Imaging'].schema:defaultValue,inferred,,
-Imaging,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Imaging'].schema:value,inferred,,
+Imaging,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Imaging'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,
 Sample Preparation Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description,inferred,shared,
 Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,inferred,shared,
@@ -52,12 +52,12 @@ Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),$MethodDefinit
 Laser Repetition Rate,Basic,Editable,Numeric (Hz),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserRepetitionRate,inferred,shared,
 Ablation Duration per Spot,Basic,Editable,Numeric (s),$MethodDefinition.ada:ablationSpotDuration,inferred,shared,
 Ablation Pit Depth/Ablation Rate,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Ablation Pit Depth Ablation Rate'].schema:defaultValue,inferred,,
-Ablation Pit Depth/Ablation Rate,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Ablation Pit Depth Ablation Rate'].schema:value,inferred,,
+Ablation Pit Depth/Ablation Rate,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Pit Depth Ablation Rate'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Laser Beam Energy Profile,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Beam Energy Profile'].schema:value,inferred,shared,
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$MethodDefinition.ada:carrierGasFlowRate,inferred,shared,
 RF Power (W),Basic,Editable,Numeric (W),$MethodDefinition.ada:rfPower,inferred,,
 Make-up Gas Flow (L min⁻¹),Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Make up Gas Flow L min'].schema:defaultValue,inferred,,
-Make-up Gas Flow (L min⁻¹),Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Make up Gas Flow L min'].schema:value,inferred,,
+Make-up Gas Flow (L min⁻¹),Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Make up Gas Flow L min'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Coolant (Plasma) Gas Flow Rate,Advanced,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:defaultValue,authored,shared,
 Coolant (Plasma) Gas Flow Rate,Advanced,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
 Auxiliary Gas Flow Rate,Advanced,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Auxiliary Gas Flow Rate'].schema:defaultValue,authored,shared,
@@ -69,14 +69,14 @@ Integration Time per Peak/Dwell Times; Quadrupole Settling Time Between Mass Jum
 Total Integration Time per Output Data Point (s),Basic,Editable,Numeric (s),$MethodDefinition.ada:totalIntegrationTimePerOutputDataPoint,inferred,,
 Collector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Collector Configuration'].schema:value,inferred,,
 Number of Blocks per Measurement,Advanced,Editable,Integer,$MethodDefinition.schema:additionalProperty[schema:name='Number of Blocks per Measurement'].schema:defaultValue,inferred,,
-Number of Blocks per Measurement,Advanced,Editable,Integer,$Dataset.schema:additionalProperty[schema:name='Number of Blocks per Measurement'].schema:value,inferred,,
+Number of Blocks per Measurement,Advanced,Editable,Integer,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number of Blocks per Measurement'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Number of Cycles per Block,Advanced,Editable,Integer,$MethodDefinition.schema:additionalProperty[schema:name='Number of Cycles per Block'].schema:defaultValue,inferred,,
-Number of Cycles per Block,Advanced,Editable,Integer,$Dataset.schema:additionalProperty[schema:name='Number of Cycles per Block'].schema:value,inferred,,
+Number of Cycles per Block,Advanced,Editable,Integer,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number of Cycles per Block'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Integration Time per Cycle,Advanced,Editable,Numeric (s),$MethodDefinition.schema:additionalProperty[schema:name='Integration Time per Cycle'].schema:defaultValue,inferred,,
-Integration Time per Cycle,Advanced,Editable,Numeric (s),$Dataset.schema:additionalProperty[schema:name='Integration Time per Cycle'].schema:value,inferred,,
+Integration Time per Cycle,Advanced,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Integration Time per Cycle'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 "'Sensitivity' as Useful Yield (%, element)",N/A,Advanced,Text (free),$Dataset.ada:sensitivityYield,authored,,
 IC Dead Time (ns),Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='IC Dead Time ns'].schema:defaultValue,inferred,,
-IC Dead Time (ns),Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='IC Dead Time ns'].schema:value,inferred,,
+IC Dead Time (ns),Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='IC Dead Time ns'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Signal Smoothing,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:defaultValue,authored,shared,divergence decision applied
 Signal Smoothing,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:value,authored,shared,analysis-tier half; mirrors the TAPP step nesting
 ICP Tuning,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='ICP Tuning'].schema:defaultValue,authored,shared,divergence decision applied
@@ -104,7 +104,7 @@ Mass Resolution per Analyte,Advanced,Read-Only,Text (free),$.ada:analyteTemplate
 E-scan Range,Advanced,Read-Only,Numeric (%),$MethodDefinition.schema:additionalProperty[schema:name='E scan Range'].schema:value,inferred,shared,
 Triple Scanning Mode,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Triple Scanning Mode'].schema:value,inferred,shared,
 Other Information,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Other Information'].schema:defaultValue,inferred,,
-Other Information,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Other Information'].schema:value,inferred,,
+Other Information,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Other Information'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Gas Blank,Basic,Read-Only,Text (free),$MethodDefinition.ada:gasBlank,inferred,,
 Elemental Fractionation Correction,Basic,Read-Only,Text (free),$MethodDefinition.ada:elementalFractionationCorrection[],inferred,shared,
 Mass Bias Correction Strategy,Basic,Read-Only,Controlled list,$MethodDefinition.ada:massBiasCorrectionStrategy,inferred,,
@@ -113,7 +113,7 @@ Mass Fractionation Law,Advanced,Read-Only,Controlled list,$MethodDefinition.sche
 "Common-Pb Correction, Composition and Uncertainty",Basic,Read-Only,Text (free),$MethodDefinition.ada:commonPbCorrectionCompositionAndUncertainty,inferred,,
 Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.ada:constantsAndReferenceValuesUsed,inferred,,
 Uncertainty Level and Propagation,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Uncertainty Level and Propagation'].schema:defaultValue,inferred,,
-Uncertainty Level and Propagation,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Uncertainty Level and Propagation'].schema:value,inferred,,
+Uncertainty Level and Propagation,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Uncertainty Level and Propagation'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Per-Analyte Calibration Strategy,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:perAnalyteCalibrationStrategy[],inferred,shared,
 Matrix Offset Correction (LIEF),Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Matrix Offset Correction LIEF'].schema:value,inferred,shared,
 Signal Integration Interval Method,Advanced,Read-Only,Text (free),$MethodDefinition.ada:signalIntegrationIntervalMethod,inferred,shared,
@@ -126,14 +126,14 @@ Interference Correction Method,Advanced,Read-Only,Text (free),$.ada:analyteTempl
 Isotope Dilution Data Reduction Method,Advanced,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied
 Double-Spike Isotope Pair,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Isotope Pair'].schema:value,inferred,,
 Double-Spike Mixing Ratio,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Mixing Ratio'].schema:defaultValue,inferred,,
-Double-Spike Mixing Ratio,Advanced,Editable,Text (free),$Dataset.schema:additionalProperty[schema:name='Double Spike Mixing Ratio'].schema:value,inferred,,
+Double-Spike Mixing Ratio,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Double Spike Mixing Ratio'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Double-Spike Inversion Algorithm,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Inversion Algorithm'].schema:value,inferred,,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:value,authored,shared,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,
 Normalization/Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Normalization Standards Based Correction'].schema:value,authored,shared,
 Normalization/Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Normalization Standards Based Correction'].schema:defaultValue,authored,shared,
-Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardName,inferred,shared,
-Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterial[],inferred,shared,
+Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardName,inferred,divergent,
+Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterial[],inferred,divergent,
 Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
 Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
 Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
