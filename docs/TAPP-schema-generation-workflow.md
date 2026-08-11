@@ -99,6 +99,26 @@ that can be overridden per dataset*. It appears in **both** places:
 > `PropertyValue` (what a given analyst actually used). This is how "editable" is expressed: the form shows
 > the default from the protocol and lets the analyst change it on the dataset.
 
+**Not every dual‑homed field is a parameter.** The pairing above assumes the field becomes a
+`schema:additionalProperty`, so the two halves differ by their tail (`schema:defaultValue` vs
+`schema:value`). When an `Advanced`/`Editable` field instead maps to a **first‑class property that
+already exists under both roots**, the pair is the *same path shape* under `$MethodDefinition` and
+`$Dataset` — no `Default` suffix, no `additionalProperty` synthesis.
+
+> **Worked example — `Coupled Technique(s)`** (Protocol=`Advanced`, Analysis=`Editable`). Both halves
+> use the `related link target` family from the grammar:
+> - `$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name`
+>   — the coupling the protocol specifies
+> - `$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name`
+>   — the coupling actually used for this dataset
+>
+> All nine sidecars carry this item and every one is marked `divergent`, because two picked the
+> `$MethodDefinition` root and seven picked `$Dataset`. The resolution is **both rows, not one**.
+
+This is why `tools/add_dual_home_rows.py` **reports** such items rather than generating them: it
+recognises a counterpart only from a `…Default` / `…defaultValue` tail, so a first‑class‑property pair
+comes out as `TAPP path is not a default`. Those lines are a worklist, not errors.
+
 ### 2.3 Data Type → JSON type and controlled vocabularies
 
 - Text like `numeric`/`number` → JSON `number`; `integer` → `integer`; `boolean` → `boolean`; a date → `string`

@@ -45,15 +45,16 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
 | computational tool field | `$MethodDefinition.bios:computationalTool[schema:name='<tool>'].schema:description` |
 | related link target | `$MethodDefinition.schema:relatedLink[schema:linkRelationship='<rel>'].schema:target.<field>` |
 | workflow step (whole/field) | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'](.<field>)?` |
-| workflow-step parameter | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:value` |
-| instrument identity | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:<model\|manufacturer>.schema:name` (or `.schema:<name\|identifier\|additionalType>`) |
+| workflow-step parameter | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
+| instrument identity | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:<model\|manufacturer>.schema:name` (or `.schema:<name\|identifier\|additionalType\|description>`) |
 | instrument direct property | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].ada:<name>` |
 | instrument parameter | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
-| instrument component | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:hasPart[schema:additionalType='<component>'].schema:<name\|identifier>` |
+| instrument component | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:hasPart[schema:additionalType='<component>'].schema:<name\|identifier\|description>` |
 | instrument component parameter | `…schema:hasPart[schema:additionalType='<component>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
 | dataset scalar | `$Dataset.ada:<name>` |
 | dataset provenance | `$Dataset.prov:wasGeneratedBy.<schema:startDate\|schema:endDate>` |
 | dataset prov parameter | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<param>'].schema:value` |
+| dataset step parameter | `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:value` — analysis-tier half of a dual-homed step parameter. `value` only: a dataset records what was used, never a default |
 | dataset sample | `$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:<name\|identifier>` |
 | dataset contributor | `$Dataset.schema:contributor[schema:roleName='<role>'](.schema:<name\|identifier>)?` |
 | dataset funding | `$Dataset.schema:funding` |
@@ -76,6 +77,8 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
    - whitespace inside brackets collapsed.
 4. `relatedLink[].schema:linkRelationship[name='X'].schema:target…` restructured to
    `relatedLink[schema:linkRelationship='X'].schema:target…`.
+5. Doubled separators collapsed: `$MethodDefinition..schema:actionProcess` → `…​.schema:actionProcess`
+   (outside quoted literals, where `..` may be part of a name).
 
 ## What the normalizer FLAGS for human review (does not guess)
 

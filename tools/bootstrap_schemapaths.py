@@ -129,7 +129,10 @@ def _dataset_counterpart(path, item):
 
     schema:instrument maps to prov:used because that is where adaProduct's provenance activity
     carries the instrument. The Default marker is dropped on the dataset side — that value is the
-    actual one, not a default. Un-nested defaults get the flat detail property the matrix specifies.
+    actual one, not a default. Un-nested defaults hang off prov:wasGeneratedBy too:
+
+      $MethodDefinition.schema:additionalProperty[P].schema:defaultValue
+        -> $Dataset.prov:wasGeneratedBy.schema:additionalProperty[P].schema:value
     """
     m = _MD_NESTED_RE.match(path)
     if m:
@@ -144,11 +147,16 @@ def _dataset_counterpart(path, item):
         if head.startswith("schema:instrument["):
             head = "prov:used[" + head[len("schema:instrument["):]
         return f"$Dataset.prov:wasGeneratedBy.{head}.{tail}"
+    # Un-nested defaults land on the provenance ACTIVITY, not the dataset itself: the value records
+    # what this analysis session used, which is what prov:wasGeneratedBy denotes. A bare
+    # `$Dataset.schema:additionalProperty[…]` is not a grammar family (SCHEMA_PATH_GRAMMAR.md lists
+    # only `dataset-prov-parameter`), so emitting it produced rows no emitter could consume.
     if _MD_DEFAULT_RE.match(path):
-        return (f"$Dataset.schema:additionalProperty"
+        return (f"$Dataset.prov:wasGeneratedBy.schema:additionalProperty"
                 f"[schema:name='{_MD_DEFAULT_RE.match(path).group(1)}'].schema:value")
     if _MD_ADA_DEFAULT_RE.match(path):
-        return f"$Dataset.schema:additionalProperty[schema:name='{item}'].schema:value"
+        return (f"$Dataset.prov:wasGeneratedBy.schema:additionalProperty"
+                f"[schema:name='{item}'].schema:value")
     return None
 
 

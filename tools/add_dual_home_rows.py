@@ -20,6 +20,16 @@ An item is skipped when it already has a $Dataset row, and reported (not guessed
 TAPP path is not a recognised default — e.g. one ending .schema:name or .schema:identifier, which
 is identity rather than a parameter.
 
+Two different things land in that unresolved report, so read it rather than automating it:
+
+  identity          not dual-homed at all; there is no per-analysis counterpart to add
+  first-class pair  dual-homed, but through a property that exists under BOTH roots, so the
+                    counterpart is the SAME path shape with the root swapped — no Default tail
+                    for the mirror to key on. Coupled Technique(s) is the type case:
+                      $MethodDefinition.schema:relatedLink[…='coupledTechnique'].schema:target.schema:name
+                      $Dataset.schema:relatedLink[…='coupledTechnique'].schema:target.schema:name
+                    Both rows are wanted. See docs/TAPP-schema-generation-workflow.md §2.2.
+
 Writing is opt-in. Default is a report.
 
 Usage:

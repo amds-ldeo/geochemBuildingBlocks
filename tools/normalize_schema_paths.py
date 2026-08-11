@@ -41,6 +41,10 @@ def preclean(s):
     # document root -> alias to $Dataset so the dataset-side family recognizers apply (confirmed
     # with the author: cdifCore/cdifDiscovery/Dataset are the same technique-product-document root).
     s = re.sub(r"^\$cdif[A-Za-z]+\b", "$Dataset", s)
+    # a doubled separator is always a typo (`$MethodDefinition..schema:actionProcess`); collapse it
+    # OUTSIDE quoted selector values, where a literal `..` could be part of a name
+    s = "'".join(re.sub(r"\.{2,}", ".", part) if i % 2 == 0 else part
+                 for i, part in enumerate(s.split("'")))
     for bad, good in NAME_TYPOS.items():
         s = re.sub(bad, good, s, flags=re.I)
     return s
@@ -127,16 +131,21 @@ def recognize(s):
         (r"^\$MethodDefinition\.bios:computationalTool\[\]$", "computational-tool-list"),
         (r"^\$MethodDefinition\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|description|url))?$", "related-link"),
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "workflow-step"),
-        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "workflow-step-parameter"),
+        # A step parameter dual-homes exactly like an instrument parameter: `defaultValue` on the
+        # TAPP side, `value` per analysis. This previously allowed `value` only, so a dual-homed
+        # step parameter had no legal TAPP-side path at all.
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "workflow-step-parameter"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
         (r"^\$MethodDefinition\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
         # instrument: a typed instrument array (selector=additionalType), optional component hasPart
         # (also selector=additionalType), carrying identity fields, direct ada: props, or parameters.
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(model|manufacturer)(\.schema:[A-Z][A-Za-z]*)?\.schema:name$", "instrument-identity"),
-        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(name|identifier|additionalType)$", "instrument-identity"),
+        # `description` carries the free-text instrument variant ('FIB-SEM dual-beam + VP'), which
+        # is neither an identifier nor a parameter; likewise on a component.
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(name|identifier|additionalType|description)$", "instrument-identity"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "instrument-direct-ada"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-parameter"),
-        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:(name|identifier)$", "instrument-component"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:(name|identifier|description)$", "instrument-component"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-component-parameter"),
         (r"^\$MethodDefinition\.schema:(creator|location|measurementTechnique|object|funding)\b.*", "inherited-identity"),
         # dataset side (belongs on the analysis session / detail, not the reusable protocol)
@@ -144,6 +153,16 @@ def recognize(s):
         (r"^\$Dataset\.schema:measurementTechnique(\.schema:DefinedTerm)?\.schema:identifier$", "dataset-measurement-technique"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate)$", "dataset-provenance"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-prov-parameter"),
+        # analysis-tier half of a dual-homed STEP parameter. `value` only, deliberately: a dataset
+        # records what was used, never a default — that lives on the TAPP side.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-step-parameter"),
+        # dataset-side instrument mirrors. On the protocol the instrument is schema:instrument; on
+        # the dataset the provenance activity carries it as prov:used, so these are the analysis-tier
+        # partners of instrument-direct-ada / instrument-parameter / instrument-component-parameter.
+        # `value` only — the default lives on the TAPP side.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "dataset-instrument-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier)$", "dataset-sample"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
         (r"^\$Dataset\.schema:funding$", "dataset-funding"),

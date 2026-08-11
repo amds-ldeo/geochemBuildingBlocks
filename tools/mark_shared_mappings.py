@@ -210,6 +210,25 @@ _INSTRUMENT_SEL = re.compile(r"(schema:instrument|prov:used)\[schema:additionalT
 
 _STEP_SEL = re.compile(r"schema:actionProcess\.schema:step\[[^\]]*\]")
 
+# hasPart carries a per-technique token too (['EPMA'] vs ['SEM'] on the same component)
+_ANY_TYPE_SEL = re.compile(r"(schema:instrument|prov:used|schema:hasPart)\[schema:additionalType="
+                           r"'[^']+'\]")
+
+
+def _token_equivalent(variants):
+    """True when every sidecar maps the item the same way once instrument/component tokens are blanked.
+
+    Compared per sidecar as a SET, matching classify(): a dual-homed item has TWO paths in every
+    sidecar (the TAPP default plus its $Dataset counterpart), and that is agreement, not two
+    competing shapes. Flattening the variants would see two shapes and wrongly report divergence.
+    """
+    per_file = collections.defaultdict(set)
+    for path, files in variants.items():
+        blanked = _ANY_TYPE_SEL.sub(r"\1[T]", path)
+        for f in files:
+            per_file[f].add(blanked)
+    return len({frozenset(s) for s in per_file.values()}) == 1
+
 
 def _propose(item, variants, tiers_seen):
     """Pick a target path for a divergent item, or (None, why).
@@ -294,6 +313,12 @@ def write_decision_csv(sidecars, scopes, out_path, merge=True):
     tiers = tiers_by_item(sidecars)
     analyte_specific = analyte_specific_by_item(sidecars)
     divergent = sorted(i for i, (s, _) in scopes.items() if s == DIVERGENT)
+    # An item whose variants agree once the instrument token is blanked is RESOLVED: the same
+    # mapping instantiated per technique ([…='EPMA'] vs […='SEM']) is the intended outcome, not a
+    # disagreement. classify() compares literal paths so it still calls these divergent; the
+    # worklist should not, or the decided rows never leave it.
+    resolved = sorted(i for i in divergent if _token_equivalent(scopes[i][1]))
+    divergent = [i for i in divergent if i not in set(resolved)]
     rows = []
     for item in divergent:
         variants = scopes[item][1]
@@ -343,7 +368,8 @@ def write_decision_csv(sidecars, scopes, out_path, merge=True):
         (yes if r["Analyte-Specific"] else no).add(r["sidecar"])
     disagree = sorted((i, sorted(y), sorted(n)) for i, (y, n) in per_item.items() if y and n)
     n_spec = sum(1 for r in rows if r["Analyte-Specific"])
-    return len(divergent), len(rows), blank, len(carried_keys), orphaned, n_spec, disagree
+    return (len(divergent), len(rows), blank, len(carried_keys), orphaned, n_spec, disagree,
+            resolved)
 
 
 def declared_instrument_tokens(sidecars):
@@ -498,9 +524,15 @@ def main():
     if args.decisions:
         out = args.decisions
         out = out if os.path.isabs(out) else os.path.join(ROOT, out)
-        n_items, n_rows, n_blank, n_kept, orphaned, n_spec, disagree = write_decision_csv(
-            sidecars, scopes, out, merge=not args.decisions_overwrite)
+        (n_items, n_rows, n_blank, n_kept, orphaned, n_spec, disagree,
+         resolved) = write_decision_csv(sidecars, scopes, out,
+                                        merge=not args.decisions_overwrite)
         print(f"\nwrote {n_items} items / {n_rows} rows -> {os.path.relpath(out, ROOT)}")
+        if resolved:
+            print(f"  {len(resolved)} item(s) DROPPED as resolved — variants differ only by "
+                  f"instrument token:")
+            for item in resolved:
+                print(f"      {item}")
         print(f"  {n_kept} hand-filled proposal(s) carried over")
         print(f"  {n_blank} row(s) have no proposal and need the shape decided")
         print(f"  {n_spec} row(s) marked Analyte-Specific in the workbook Comments")
