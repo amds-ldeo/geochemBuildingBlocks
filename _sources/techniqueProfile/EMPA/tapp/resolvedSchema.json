@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-  "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from docs/EPMA_TAPP_v7.xlsx via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+  "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from TAPPS20260811/EPMA/EPMA_TAPP_v13.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "properties": {
     "@context": {
       "type": "object",
@@ -2623,7 +2623,7 @@
                 "then": {
                   "properties": {
                     "ada:acceleratingVoltageDefault": {
-                      "description": "Electron beam accelerating voltage in kilovolts (kV). The protocol specifies the standard operating voltage; analysts record and justify any deviations.",
+                      "description": "Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard operating voltage; analysts record and justify any deviations.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -3075,7 +3075,7 @@
           ]
         },
         "schema:description": {
-          "description": "Any additional context about this protocol or analysis session not captured by structured fields above.",
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
         },
         "ada:analyteTemplate": {
@@ -3084,7 +3084,7 @@
             "ada:defaultAnalytes": {
               "type": "array",
               "items": {
-                "description": "The element(s) measured by this protocol. The protocol registers the full analyte suite the protocol is designed to measure; analysts record the specific subset actually measured in a given session, which may be narrower. Fields below flagged as Analyte-Specific in the Comments column apply individually to each element in this list.",
+                "description": "The element(s) measured by this procedure. The procedure registers the full analyte suite the procedure is designed to measure; analysts record the specific subset actually measured in a given session, which may be narrower. Fields below flagged as Analyte-Specific in the Comments column apply individually to each element in this list.",
                 "type": "string"
               }
             },
@@ -3325,7 +3325,7 @@
                         "const": "Background Position(s)"
                       },
                       "ada:dataType": {
-                        "const": "number"
+                        "const": "string"
                       },
                       "schema:readonlyValue": {
                         "const": false
@@ -3334,14 +3334,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -3354,7 +3347,7 @@
                   },
                   {
                     "title": "Beam Current",
-                    "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the protocol-standard value(s).",
+                    "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3522,7 +3515,7 @@
                   },
                   {
                     "title": "Detection Limit Method",
-                    "description": "Formula or procedure used to calculate detection limits. Reference method publication if applicable. When the protocol does not specify a method, the analyst should complete this field.",
+                    "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3543,10 +3536,10 @@
                         "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
                       },
                       "ada:tier": {
-                        "const": "R"
+                        "const": "M"
                       },
                       "schema:defaultValue": {
                         "type": "string"
@@ -3557,7 +3550,8 @@
                       "@type",
                       "schema:valueName",
                       "schema:name",
-                      "ada:dataType"
+                      "ada:dataType",
+                      "schema:defaultValue"
                     ]
                   },
                   {
@@ -3603,7 +3597,7 @@
                   },
                   {
                     "title": "EPMA Technique per Analyte",
-                    "description": "Whether each analyte was measured by WDS or EDS. In a WDS+EDS protocol, some elements may be assigned to WDS and others to EDS.",
+                    "description": "Whether each analyte was measured by WDS or EDS. In a WDS+EDS procedure, some elements may be assigned to WDS and others to EDS.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3684,7 +3678,7 @@
                   },
                   {
                     "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position in seconds. Protocol specifies standard values per analyte; analysts may adjust within protocol-defined bounds.",
+                    "description": "Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies standard values per analyte; analysts may adjust within procedure-defined bounds.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3732,7 +3726,7 @@
                   },
                   {
                     "title": "Primary Calibration Standard Name",
-                    "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration).",
+                    "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration). Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4188,7 +4182,7 @@
                         "const": "Background Position(s)"
                       },
                       "ada:dataType": {
-                        "const": "number"
+                        "const": "string"
                       },
                       "schema:readonlyValue": {
                         "const": false
@@ -4197,14 +4191,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -4221,7 +4208,7 @@
                 {
                   "contains": {
                     "title": "Beam Current",
-                    "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the protocol-standard value(s).",
+                    "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4405,7 +4392,7 @@
                 {
                   "contains": {
                     "title": "Detection Limit Method",
-                    "description": "Formula or procedure used to calculate detection limits. Reference method publication if applicable. When the protocol does not specify a method, the analyst should complete this field.",
+                    "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4426,10 +4413,10 @@
                         "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
                       },
                       "ada:tier": {
-                        "const": "R"
+                        "const": "M"
                       },
                       "schema:defaultValue": {
                         "type": "string"
@@ -4440,7 +4427,8 @@
                       "@type",
                       "schema:valueName",
                       "schema:name",
-                      "ada:dataType"
+                      "ada:dataType",
+                      "schema:defaultValue"
                     ]
                   },
                   "minContains": 0,
@@ -4494,7 +4482,7 @@
                 {
                   "contains": {
                     "title": "EPMA Technique per Analyte",
-                    "description": "Whether each analyte was measured by WDS or EDS. In a WDS+EDS protocol, some elements may be assigned to WDS and others to EDS.",
+                    "description": "Whether each analyte was measured by WDS or EDS. In a WDS+EDS procedure, some elements may be assigned to WDS and others to EDS.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4583,7 +4571,7 @@
                 {
                   "contains": {
                     "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position in seconds. Protocol specifies standard values per analyte; analysts may adjust within protocol-defined bounds.",
+                    "description": "Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies standard values per analyte; analysts may adjust within procedure-defined bounds.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4635,7 +4623,7 @@
                 {
                   "contains": {
                     "title": "Primary Calibration Standard Name",
-                    "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration).",
+                    "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration). Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5717,7 +5705,7 @@
         "ada:analyticalMode": {
           "type": "array",
           "items": {
-            "description": "Primary analytical mode(s) executed under this protocol. For single-mode protocols, records one value (e.g., WDS Point Analysis). For multi-mode protocols (e.g., simultaneous WDS point analysis and EDS mapping), list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
+            "description": "Primary analytical mode(s) executed under this procedure. For single-mode procedures, records one value (e.g., WDS Point Analysis). For multi-mode procedures (e.g., simultaneous WDS point analysis and EDS mapping), list all applicable modes. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
             "type": "string",
             "enum": [
               "WDS Point Analysis",
@@ -5751,11 +5739,18 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with this dataset. For EPMA, common couplings include LA-ICP-MS (EPMA provides major element concentrations used as internal standard), EBSD (same polished section, sequential), SEM-EDS (prior phase identification), or NanoSIMS.",
-                          "type": "string"
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                          "type": "string",
+                          "enum": [
+                            "EBSD",
+                            "SEM-EDS",
+                            "NanoSIMS",
+                            "None",
+                            "N/A"
+                          ]
                         },
                         "schema:description": {
-                          "description": "Describes (1) the functional relationship between this EPMA dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
+                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
                           "type": "string"
                         }
                       }
@@ -5780,7 +5775,7 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "DOI or URL for publications or reports describing or evaluating this protocol.",
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
                           "type": "string",
                           "readOnly": true
                         }
@@ -5804,12 +5799,14 @@
           ]
         },
         "ada:edsAcquisitionMode": {
-          "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared Analytical Mode. Particularly important when a protocol includes linescans as a distinct acquisition approach not fully captured by the mode flag columns.",
+          "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared Analytical Mode. Particularly important when a procedure includes linescans as a distinct acquisition approach not fully captured by the mode flag columns.",
           "type": "string",
           "enum": [
             "Point",
             "Linescan",
-            "Map"
+            "Map",
+            "N/A",
+            "None"
           ],
           "readOnly": true
         },
@@ -5830,7 +5827,7 @@
             "type": "object",
             "properties": {
               "schema:name": {
-                "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
+                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
                 "type": "string",
                 "readOnly": true
               }
@@ -5894,19 +5891,19 @@
           "type": "object",
           "properties": {
             "schema:name": {
-              "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
+              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
               "type": "string",
               "readOnly": true
             }
           }
         },
         "schema:name": {
-          "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, and analyte scope.",
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
           "type": "string",
           "readOnly": true
         },
         "schema:datePublished": {
-          "description": "First date this protocol configuration was used in production.",
+          "description": "First date this procedure configuration was used in production.",
           "type": "string",
           "readOnly": true
         },
@@ -5932,7 +5929,7 @@
                     "then": {
                       "properties": {
                         "schema:description": {
-                          "description": "Description of how samples were prepared for analysis under this protocol (mounting, polishing, coating). Analysts may document session-specific variations from the protocol standard.",
+                          "description": "Description of how samples were prepared for analysis under this procedure (mounting, polishing, coating). Analysts may document session-specific variations from the procedure standard.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -6019,7 +6016,7 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "General description of the material type(s) this protocol is designed to analyze.",
+                                    "description": "General description of the material type(s) this procedure is designed to analyze.",
                                     "type": "string",
                                     "enum": [
                                       "Silicate mineral",

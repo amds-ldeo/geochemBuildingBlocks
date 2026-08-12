@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)",
-  "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from docs/Lab-XCT_TAPP_v8.xlsx by tools/build_tapp.py.",
+  "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from TAPPS20260811/XCT/Lab-XCT_TAPP_v13.csv by tools/build_tapp.py.",
   "properties": {
     "@context": {
       "type": "object",
@@ -2603,7 +2603,7 @@
       "type": "object",
       "properties": {
         "schema:name": {
-          "description": "A short descriptive name for this analytical protocol, with version number. Should include instrument make/model, technique, and target application.",
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
           "type": "string",
           "readOnly": true
         },
@@ -2613,7 +2613,7 @@
             "type": "object",
             "properties": {
               "schema:termCode": {
-                "description": "Top-level analytical technique identifier for this TAPP.",
+                "description": "Top-level analytical technique identifier.",
                 "type": "string",
                 "enum": [
                   "XCT (laboratory, polychromatic cone-beam)"
@@ -2627,7 +2627,7 @@
           "type": "object",
           "properties": {
             "schema:name": {
-              "description": "Author(s) of the protocol. Can be individual names or lab names. ORCID is recommended for individuals.",
+              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
               "type": "string",
               "readOnly": true
             }
@@ -2637,17 +2637,17 @@
           "type": "object",
           "properties": {
             "schema:name": {
-              "description": "Name of the laboratory or institution hosting the CT instrument.",
+              "description": "Name of the laboratory or institution hosting the instrument.",
               "type": "string"
             },
             "schema:identifier": {
-              "description": "Persistent identifier for the laboratory, e.g., ROR ID.",
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
               "type": "string"
             }
           }
         },
         "schema:datePublished": {
-          "description": "First date this protocol configuration was used in production.",
+          "description": "First date this procedure configuration was used in production.",
           "type": "string",
           "readOnly": true
         },
@@ -2657,7 +2657,7 @@
             "type": "object",
             "properties": {
               "schema:name": {
-                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, protocol development, and associated personnel time. Include grant numbers and funding agencies.",
+                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
                 "type": "string",
                 "readOnly": true
               }
@@ -2686,7 +2686,7 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this protocol.",
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
                           "type": "string",
                           "readOnly": true
                         }
@@ -2712,18 +2712,19 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Analytical technique(s) applied to the same sample or aliquot in conjunction with this protocol, where the two analyses are designed to be interpreted together or where one provides input to the other. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
                           "type": "string",
                           "enum": [
                             "NCT",
                             "EPMA",
                             "LA-ICP-MS",
                             "SIMS",
-                            "None"
+                            "None",
+                            "N/A"
                           ]
                         },
                         "schema:description": {
-                          "description": "Description of how this protocol is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques or how results are combined; and (2) the analytical sequence — which technique is performed first and why (e.g., non-destructive XCT before destructive sectioning or polishing).",
+                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
                           "type": "string"
                         }
                       }
@@ -2775,7 +2776,7 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "General description of the material type(s) this protocol is designed to scan. Used for discoverability and protocol matching.",
+                                    "description": "General description of the material type(s) this procedure is designed to scan. Used for discoverability and procedure matching.",
                                     "type": "string",
                                     "enum": [
                                       "Chondrite meteorite",
@@ -2880,12 +2881,12 @@
           ]
         },
         "ada:targetFeature": {
-          "description": "The 3D internal features or properties the protocol is designed to characterize. Defines the scientific purpose of the scan and informs resolution and contrast requirements. Used for protocol discoverability: a researcher can identify whether this protocol is suitable for their scientific question. Note for Phase 3 literature assessment: evaluate whether protocols in the literature are feature-specific (acquisition parameters tuned to a specific feature type, e.g., opaque-phase contrast) or general-purpose (designed to capture all structural features in a given sample type). This will inform whether the field warrants a controlled list or remains free text.",
+          "description": "The 3D internal features or properties the procedure is designed to characterize. Defines the scientific purpose of the scan and informs resolution and contrast requirements. Used for procedure discoverability: a researcher can identify whether this procedure is suitable for their scientific question. Note for Phase 3 literature assessment: evaluate whether procedures in the literature are feature-specific (acquisition parameters tuned to a specific feature type, e.g., opaque-phase contrast) or general-purpose (designed to capture all structural features in a given sample type). This will inform whether the field warrants a controlled list or remains free text.",
           "type": "string",
           "readOnly": true
         },
         "ada:applicableSampleDimensionRange": {
-          "description": "The range of sample sizes compatible with this protocol at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the protocol's target magnification: FOV ≈ detector array width × pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: samples spanning fewer than ~10 voxels in their smallest dimension are difficult to characterize reliably.",
+          "description": "The range of sample sizes compatible with this procedure at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the procedure's target magnification: FOV ≈ detector array width × pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: samples spanning fewer than ~10 voxels in their smallest dimension are difficult to characterize reliably.",
           "type": "string",
           "readOnly": true
         },
@@ -3124,7 +3125,7 @@
               },
               {
                 "title": "X-ray Power",
-                "description": "X-ray tube power in watts (W) registered by the protocol. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
+                "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3168,7 +3169,7 @@
               },
               {
                 "title": "Source-to-Object Distance (SOD)",
-                "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the protocol. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
+                "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3212,7 +3213,7 @@
               },
               {
                 "title": "Source-to-Detector Distance (SDD)",
-                "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the protocol. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈ detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
+                "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈ detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3300,7 +3301,7 @@
               },
               {
                 "title": "Frames Averaged per Projection",
-                "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the protocol. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame × frames averaged.",
+                "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame × frames averaged.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3382,7 +3383,7 @@
               },
               {
                 "title": "Reconstruction Convolution Filter",
-                "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate protocol-level tradeoff.",
+                "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level tradeoff.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3464,7 +3465,7 @@
               },
               {
                 "title": "Ring Artifact Correction Method",
-                "description": "Protocol specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the protocol-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
+                "description": "Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the procedure-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3628,7 +3629,7 @@
               },
               {
                 "title": "VOI Selection Criteria",
-                "description": "Protocol-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
+                "description": "Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3669,7 +3670,7 @@
               },
               {
                 "title": "Output Bit Depth",
-                "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The protocol may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
+                "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3710,7 +3711,7 @@
               },
               {
                 "title": "Partial Volume Effect Criteria",
-                "description": "Protocol-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the protocol (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
+                "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3750,12 +3751,12 @@
                 ]
               },
               {
-                "title": "Cross-Validation Protocol Requirement",
-                "description": "Protocol-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
+                "title": "Cross-Validation Procedure Requirement",
+                "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/labxctTAPP/crossValidationProtocolRequirementDefault"
+                    "const": "ada:parameter/labxctTAPP/crossValidationProcedureRequirementDefault"
                   },
                   "@type": {
                     "const": [
@@ -3763,10 +3764,10 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "crossValidationProtocolRequirementDefault"
+                    "const": "crossValidationProcedureRequirementDefault"
                   },
                   "schema:name": {
-                    "const": "Cross-Validation Protocol Requirement"
+                    "const": "Cross-Validation Procedure Requirement"
                   },
                   "ada:dataType": {
                     "const": "string"
@@ -4049,7 +4050,7 @@
             {
               "contains": {
                 "title": "X-ray Power",
-                "description": "X-ray tube power in watts (W) registered by the protocol. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
+                "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4097,7 +4098,7 @@
             {
               "contains": {
                 "title": "Source-to-Object Distance (SOD)",
-                "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the protocol. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
+                "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4145,7 +4146,7 @@
             {
               "contains": {
                 "title": "Source-to-Detector Distance (SDD)",
-                "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the protocol. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈ detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
+                "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈ detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4241,7 +4242,7 @@
             {
               "contains": {
                 "title": "Frames Averaged per Projection",
-                "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the protocol. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame × frames averaged.",
+                "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame × frames averaged.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4331,7 +4332,7 @@
             {
               "contains": {
                 "title": "Reconstruction Convolution Filter",
-                "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate protocol-level tradeoff.",
+                "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level tradeoff.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4421,7 +4422,7 @@
             {
               "contains": {
                 "title": "Ring Artifact Correction Method",
-                "description": "Protocol specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the protocol-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
+                "description": "Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the procedure-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4601,7 +4602,7 @@
             {
               "contains": {
                 "title": "VOI Selection Criteria",
-                "description": "Protocol-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
+                "description": "Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4646,7 +4647,7 @@
             {
               "contains": {
                 "title": "Output Bit Depth",
-                "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The protocol may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
+                "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4691,7 +4692,7 @@
             {
               "contains": {
                 "title": "Partial Volume Effect Criteria",
-                "description": "Protocol-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the protocol (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
+                "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -4735,12 +4736,12 @@
             },
             {
               "contains": {
-                "title": "Cross-Validation Protocol Requirement",
-                "description": "Protocol-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
+                "title": "Cross-Validation Procedure Requirement",
+                "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/labxctTAPP/crossValidationProtocolRequirementDefault"
+                    "const": "ada:parameter/labxctTAPP/crossValidationProcedureRequirementDefault"
                   },
                   "@type": {
                     "const": [
@@ -4748,10 +4749,10 @@
                     ]
                   },
                   "schema:valueName": {
-                    "const": "crossValidationProtocolRequirementDefault"
+                    "const": "crossValidationProcedureRequirementDefault"
                   },
                   "schema:name": {
-                    "const": "Cross-Validation Protocol Requirement"
+                    "const": "Cross-Validation Procedure Requirement"
                   },
                   "ada:dataType": {
                     "const": "string"
@@ -4791,7 +4792,9 @@
           "enum": [
             "Reflection target, microfocal",
             "Reflection target, rotating (high-power)",
-            "Transmission target, nanofocal"
+            "Transmission target, nanofocal",
+            "N/A",
+            "None"
           ],
           "readOnly": true
         },
@@ -4801,7 +4804,9 @@
           "enum": [
             "Flat-panel (amorphous silicon, a-Si)",
             "CCD + scintillator (with optical objective)",
-            "CMOS + scintillator"
+            "CMOS + scintillator",
+            "N/A",
+            "None"
           ],
           "readOnly": true
         },
@@ -4902,7 +4907,7 @@
         "ada:analyticalMode": {
           "type": "array",
           "items": {
-            "description": "Primary analytical mode(s) executed under this protocol. For single-mode protocols, records one value (e.g., Single-volume). For protocols covering both single-volume and multi-volume stitched acquisitions, list all applicable modes. Serves as the protocol-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
+            "description": "Primary analytical mode(s) executed under this procedure. For single-mode procedures, records one value (e.g., Single-volume). For procedures covering both single-volume and multi-volume stitched acquisitions, list all applicable modes. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
             "type": "string",
             "enum": [
               "Single-volume",
@@ -4933,7 +4938,7 @@
                 "then": {
                   "properties": {
                     "ada:acceleratingVoltageDefault": {
-                      "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same protocol or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as stated in the source and add a parenthetical note if the unit used is keV.",
+                      "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -4944,7 +4949,7 @@
                       ]
                     },
                     "ada:tubeCurrentDefault": {
-                      "description": "X-ray tube current in microamperes (µA) registered by the protocol. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same protocol or session, report the full range applied (e.g., 65–115 µA).",
+                      "description": "X-ray tube current in microamperes (µA) registered by the procedure. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65–115 µA).",
                       "anyOf": [
                         {
                           "type": "number"
@@ -4969,7 +4974,7 @@
                       ]
                     },
                     "ada:voxelSizeDefault": {
-                      "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The protocol registers the target voxel size, set based on the minimum feature size to be resolved (target voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                      "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the minimum feature size to be resolved (target voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -5024,7 +5029,7 @@
           ]
         },
         "ada:exposureTimePerProjectionDefault": {
-          "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the protocol. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within protocol-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same protocol or session, report the full range applied (e.g., 0.5–2 s).",
+          "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the procedure. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5–2 s).",
           "anyOf": [
             {
               "type": "number"
@@ -5269,7 +5274,7 @@
           ]
         },
         "ada:minimumSubVolumeOverlap": {
-          "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset. This is a protocol-level quality specification. Eckley et al. (2025) report that 500 slices of overlap were used in the Apollo 73001 stitching workflow, while 180 slices proved insufficient for their cone-beam geometry.",
+          "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset. This is a procedure-level quality specification. Eckley et al. (2025) report that 500 slices of overlap were used in the Apollo 73001 stitching workflow, while 180 slices proved insufficient for their cone-beam geometry.",
           "anyOf": [
             {
               "type": "integer"
@@ -5287,17 +5292,20 @@
             "FDK (Feldkamp-Davis-Kress, cone-beam)",
             "FBP (filtered back-projection, parallel-beam)",
             "Iterative reconstruction",
-            "SART"
+            "SART",
+            "N/A",
+            "None"
           ],
           "readOnly": true
         },
         "ada:beamHardeningCorrectionMethod": {
-          "description": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filtering (Group 4: X-ray Pre-filter) and software correction are complementary approaches. The method is a protocol-level design choice; the specific correction parameter value is session-specific and recorded separately at analysis level.",
+          "description": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filtering (Group 4: X-ray Pre-filter) and software correction are complementary approaches. The method is a procedure-level design choice; the specific correction parameter value is session-specific and recorded separately at analysis level.",
           "type": "string",
           "enum": [
             "Software polynomial correction (instrument-specific algorithm)",
             "Ketcham & Hanna (2014) iterative BH correction",
-            "None applied"
+            "None applied",
+            "N/A"
           ],
           "readOnly": true
         },
@@ -5308,7 +5316,9 @@
             "TIFF image stack",
             "VGI/VOL (VGStudio)",
             "RAW volume",
-            "DICOM"
+            "DICOM",
+            "N/A",
+            "None"
           ]
         },
         "ada:segmentationMethodDefault": {
@@ -5318,7 +5328,9 @@
             "Global threshold (single CT number boundary)",
             "Multi-threshold (separate CT number range per phase)",
             "Manual threshold per phase",
-            "Semi-automated: threshold + morphological filtering"
+            "Semi-automated: threshold + morphological filtering",
+            "N/A",
+            "None"
           ]
         }
       },

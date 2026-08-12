@@ -1454,7 +1454,33 @@
                       }
                     }
                   ]
-                }
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "samplePreparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    }
+                  },
+                  {
+                    "contains": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "dataReduction"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    }
+                  }
+                ]
               }
             }
           },
@@ -2342,7 +2368,23 @@
                               }
                             }
                           ]
-                        }
+                        },
+                        "allOf": [
+                          {
+                            "contains": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "ICP Source"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            }
+                          }
+                        ]
                       },
                       "schema:additionalProperty": {
                         "type": "array",
@@ -2867,7 +2909,85 @@
                   }
                 }
               ]
-            }
+            },
+            "allOf": [
+              {
+                "contains": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "ICPMS"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "Laser Ablation System"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "ada:reagentRole": {
+                      "const": "primaryStandard"
+                    }
+                  },
+                  "required": [
+                    "ada:reagentRole"
+                  ]
+                }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "ada:reagentRole": {
+                      "const": "secondaryReferenceMaterial"
+                    }
+                  },
+                  "required": [
+                    "ada:reagentRole"
+                  ]
+                }
+              }
+            ]
           },
           "ada:spotDiameter": {
             "description": "Diameter of the laser spot as set in the acquisition method (nominal/target value).",

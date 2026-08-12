@@ -1,15 +1,16 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
 description: Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base
-  TAPP definition, generated from docs/SEM_Composition_TAPP_v4.xlsx via the path-driven pipeline (bootstrap_schemapaths.py
-  + build_pathdriven.py).
+  TAPP definition, generated from TAPPS20260811/SEM/SEM_Composition_TAPP_v10.csv via the path-driven pipeline
+  (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: ../../../BaseSchema/tappDefinition/schema.yaml
 - type: object
   properties:
     schema:name:
-      description: A short descriptive name for this analytical protocol. Should include instrument, technique,
-        analytical mode(s), and target material scope.
+      description: A short descriptive name for this analytical procedure, including a version number.
+        Should identify the instrument, the technique, and the scope of what is measured — analyte, material,
+        or feature.
       type: string
       readOnly: true
     schema:measurementTechnique:
@@ -30,7 +31,8 @@ allOf:
       type: object
       properties:
         schema:name:
-          description: Person(s) or laboratory responsible for developing and registering this protocol.
+          description: Person(s) or laboratory responsible for developing and registering this procedure.
+            ORCID recommended for individuals.
           type: string
           readOnly: true
     schema:location:
@@ -43,7 +45,7 @@ allOf:
           description: Persistent identifier for the laboratory (e.g., ROR ID).
           type: string
     schema:datePublished:
-      description: First date this protocol configuration was used in production.
+      description: First date this procedure configuration was used in production.
       type: string
       readOnly: true
     schema:funding:
@@ -52,8 +54,9 @@ allOf:
         type: object
         properties:
           schema:name:
-            description: Grants and funding that supported development of this protocol. Include grant
-              IDs.
+            description: Grants and other funding sources that supported instrument acquisition, major
+              upgrades, procedure development, and associated personnel time. Include grant numbers and
+              funding agencies where applicable.
             type: string
             readOnly: true
     schema:relatedLink:
@@ -73,8 +76,8 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: DOI or URL for publications or reports describing or evaluating this
-                      protocol.
+                    description: DOI or URL for peer-reviewed publications or technical reports describing,
+                      validating, or benchmarking this procedure.
                     type: string
                     readOnly: true
         - if:
@@ -90,15 +93,24 @@ allOf:
                 properties:
                   schema:name:
                     description: Other analytical techniques applied to the same sample(s) whose results
-                      are intended to be interpreted together with this dataset. For SEM/FIB-SEM, common
-                      couplings include TEM/STEM (FIB-prepared sections), EPMA (quantitative major-element
-                      context), NanoSIMS, SIMS, Raman, and XCT.
+                      are intended to be interpreted together with data from this procedure. Document
+                      coupling with any technique whose results are functionally linked to this dataset
+                      — providing calibration inputs, complementary spatial context, or required companion
+                      measurements. Use the same controlled vocabulary as the Technique field. Enter "None"
+                      if no coupling is intended.
                     type: string
+                    enum:
+                    - EPMA; NanoSIMS
+                    - XCT (pre-SEM overview)
+                    - None
+                    - N/A
                   schema:description:
-                    description: Describes (1) the functional relationship between this SEM/FIB-SEM dataset
-                      and the coupled technique — what data or context flows between them — and (2) the
-                      analytical sequence — which technique was performed first and why. Required when
-                      Coupled Technique(s) is not 'None'.
+                    description: 'Description of how this procedure is coupled with the technique(s) listed
+                      above. Include: (1) the functional relationship — what data or context flows between
+                      techniques, or how results are combined (e.g. which output from the coupled technique
+                      serves as input to data reduction for this technique); and (2) the analytical sequence
+                      — which technique is performed first and why (e.g. non-destructive before destructive).
+                      Required when Coupled Technique(s) is not "None".'
                     type: string
     schema:object:
       type: array
@@ -130,7 +142,7 @@ allOf:
                         schema:value:
                           type: array
                           items:
-                            description: General description of the material type(s) this protocol is
+                            description: General description of the material type(s) this procedure is
                               designed to analyze.
                             type: string
                             enum:
@@ -409,6 +421,8 @@ allOf:
                   - Focused
                   - Defocused
                   - Rastered
+                  - N/A
+                  - None
                   readOnly: true
                 - type: array
                   items:
@@ -417,6 +431,8 @@ allOf:
                     - Focused
                     - Defocused
                     - Rastered
+                    - N/A
+                    - None
                     readOnly: true
               ada:acceleratingVoltageDefault:
                 description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
@@ -502,7 +518,7 @@ allOf:
     ada:analyticalMode:
       type: array
       items:
-        description: Primary analytical mode(s) executed under this protocol. For multi-mode protocols
+        description: Primary analytical mode(s) executed under this procedure. For multi-mode procedures
           (e.g., simultaneous BSE + EDS mapping), list all active modes.
         type: string
         enum:
@@ -681,7 +697,7 @@ allOf:
             - &id006
               title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position in seconds per analyte.
-                Protocol specifies standard values; analysts may adjust within protocol-defined bounds.
+                Procedure specifies standard values; analysts may adjust within procedure-defined bounds.
               type: object
               properties:
                 '@id':
@@ -758,15 +774,13 @@ allOf:
                 schema:name:
                   const: Background Position(s)
                 ada:dataType:
-                  const: number
+                  const: string
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -897,7 +911,9 @@ allOf:
             - &id013
               title: Primary Calibration Standard Name
               description: Name(s) of the primary reference material(s) used for intensity calibration
-                in EDS or WDS quantification.
+                in EDS or WDS quantification. Include the material name, its source or supplier, and a
+                citation for the accepted values used, since results calibrated against different published
+                values for the same material are not directly comparable.
               type: object
               properties:
                 '@id':
@@ -986,7 +1002,7 @@ allOf:
               - ada:dataType
             - &id016
               title: Detection Limit Method
-              description: Formula or procedure used to calculate detection limits.
+              description: Formula or approach used to calculate detection limits.
               type: object
               properties:
                 '@id':
@@ -1001,9 +1017,9 @@ allOf:
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
-                  const: false
+                  const: true
                 ada:tier:
-                  const: R
+                  const: M
                 schema:defaultValue:
                   type: string
               required:
@@ -1012,6 +1028,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id017
               title: Analytical Precision
               description: Reproducibility of repeated measurements on the same or equivalent reference
@@ -1161,7 +1178,7 @@ allOf:
         ada:defaultAnalytes:
           type: array
           items:
-            description: Element(s) measured by this protocol. The protocol registers the full intended
+            description: Element(s) measured by this procedure. The procedure registers the full intended
               analyte suite; analysts record the specific subset measured in a given session, which may
               be narrower. Fields below flagged as Analyte-Specific in the Comments column apply individually
               to each element in this list.
@@ -1677,7 +1694,7 @@ allOf:
       description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition,
         linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over
         a pixel grid). Specifies how the beam is positioned during data collection within the declared
-        Analytical Mode. Particularly important when a protocol includes linescans as a distinct acquisition
+        Analytical Mode. Particularly important when a procedure includes linescans as a distinct acquisition
         approach not fully captured by the mode flag columns.'
       type: string
       enum:
@@ -1690,12 +1707,15 @@ allOf:
       readOnly: true
     ada:techniquePerAnalyte:
       description: For each analyte, records which X-ray detection technique (EDS or WDS) was used to
-        collect the measurement. Required when a protocol employs both EDS and WDS simultaneously, assigning
+        collect the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning
         each element to the detector appropriate to its concentration range, line overlap situation, or
         required precision. List in the same order as the Analyte field.
       type: string
       enum:
-      - 'Si: WDS; Al: WDS; Fe: WDS; Na: EDS; C: EDS'
+      - WDS
+      - EDS
+      - N/A
+      - None
       readOnly: true
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer
@@ -1759,8 +1779,11 @@ allOf:
       type: boolean
       readOnly: true
     schema:description:
-      description: Any additional context about this protocol or analysis session not captured by structured
-        fields above.
+      description: 'Any procedure- or analysis-specific information not captured by a structured field
+        anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
+        modifications, and supplementary context. Scope is the whole document, not Group 6: this is the
+        last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
+        for anything that can be formally categorised.'
       type: string
   required:
   - schema:name

@@ -388,7 +388,7 @@
                                       "anyOf": [
                                         {
                                           "title": "Make-up Gas Flow Rate",
-                                          "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
+                                          "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -432,7 +432,7 @@
                                         },
                                         {
                                           "title": "Nebulizer Gas Flow Rate",
-                                          "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity.",
+                                          "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -524,7 +524,7 @@
                                       {
                                         "contains": {
                                           "title": "Make-up Gas Flow Rate",
-                                          "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
+                                          "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -572,7 +572,7 @@
                                       {
                                         "contains": {
                                           "title": "Nebulizer Gas Flow Rate",
-                                          "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity.",
+                                          "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -689,7 +689,7 @@
                                     "type": "array",
                                     "items": {
                                       "title": "Torch Depth",
-                                      "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                      "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
@@ -724,7 +724,7 @@
                                       {
                                         "contains": {
                                           "title": "Torch Depth",
-                                          "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                          "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -868,7 +868,7 @@
                             },
                             {
                               "title": "Mass Resolution Setting",
-                              "description": "Mass resolution mode(s) used in this protocol. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution protocols assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Protocol registers the mode(s) in use; analyst confirms at session start.",
+                              "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms at session start.",
                               "type": "object",
                               "properties": {
                                 "@id": {
@@ -901,7 +901,7 @@
                             },
                             {
                               "title": "Memory Effect Mitigation",
-                              "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
+                              "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
                               "type": "object",
                               "properties": {
                                 "@id": {
@@ -1012,7 +1012,7 @@
                           {
                             "contains": {
                               "title": "Mass Resolution Setting",
-                              "description": "Mass resolution mode(s) used in this protocol. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution protocols assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Protocol registers the mode(s) in use; analyst confirms at session start.",
+                              "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms at session start.",
                               "type": "object",
                               "properties": {
                                 "@id": {
@@ -1049,7 +1049,7 @@
                           {
                             "contains": {
                               "title": "Memory Effect Mitigation",
-                              "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
+                              "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
                               "type": "object",
                               "properties": {
                                 "@id": {
@@ -1146,7 +1146,7 @@
                   "then": {
                     "properties": {
                       "schema:name": {
-                        "description": "Name and reference material identifier of the external calibration standard used to convert signal intensities to elemental concentrations.",
+                        "description": "Name and reference material identifier of the external calibration standard used to convert signal intensities to elemental concentrations. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
                         "anyOf": [
                           {
                             "type": "string"
@@ -1260,11 +1260,11 @@
             ]
           },
           "schema:startDate": {
-            "description": "Date on which the analysis session began.",
+            "description": "Date on which the analytical session began. For sessions spanning multiple days, use the date of the first session. Format: YYYY-MM-DD.",
             "type": "string"
           },
           "schema:endDate": {
-            "description": "Date on which the analysis session ended (if spanning multiple days).",
+            "description": "Date on which the analytical session ended. May equal Analysis Start Date for single-day sessions. Format: YYYY-MM-DD.",
             "type": "string"
           },
           "schema:object": {
@@ -1494,7 +1494,7 @@
                                 },
                                 {
                                   "title": "Digestion Temperature",
-                                  "description": "Temperature at which acid digestion was carried out (°C). Protocol specifies the target temperature.",
+                                  "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
                                   "type": "object",
                                   "properties": {
                                     "@id": {
@@ -1579,7 +1579,7 @@
                               {
                                 "contains": {
                                   "title": "Digestion Temperature",
-                                  "description": "Temperature at which acid digestion was carried out (°C). Protocol specifies the target temperature.",
+                                  "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
                                   "type": "object",
                                   "properties": {
                                     "@id": {
@@ -1647,7 +1647,7 @@
                             "items": {
                               "anyOf": [
                                 {
-                                  "title": "Normalization/Standards-Based Correction",
+                                  "title": "Normalization / Standards-Based Correction",
                                   "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
                                   "type": "object",
                                   "properties": {
@@ -1665,7 +1665,7 @@
                                       }
                                     },
                                     "schema:name": {
-                                      "const": "Normalization/Standards-Based Correction"
+                                      "const": "Normalization / Standards-Based Correction"
                                     },
                                     "schema:value": {
                                       "type": "string"
@@ -1713,7 +1713,7 @@
                                   ]
                                 },
                                 {
-                                  "title": "Spike/Outlier Filtering Approach",
+                                  "title": "Spike / Outlier Filtering Approach",
                                   "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
                                   "type": "object",
                                   "properties": {
@@ -1731,7 +1731,7 @@
                                       }
                                     },
                                     "schema:name": {
-                                      "const": "Spike/Outlier Filtering Approach"
+                                      "const": "Spike / Outlier Filtering Approach"
                                     },
                                     "schema:value": {
                                       "type": "string"
@@ -1747,7 +1747,7 @@
                                 },
                                 {
                                   "title": "Uncertainty Propagation Method",
-                                  "description": "Method used to propagate analytical uncertainties from raw signals through to final concentration values.",
+                                  "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
                                   "type": "object",
                                   "properties": {
                                     "@id": {
@@ -1783,7 +1783,7 @@
                             "allOf": [
                               {
                                 "contains": {
-                                  "title": "Normalization/Standards-Based Correction",
+                                  "title": "Normalization / Standards-Based Correction",
                                   "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
                                   "type": "object",
                                   "properties": {
@@ -1801,7 +1801,7 @@
                                       }
                                     },
                                     "schema:name": {
-                                      "const": "Normalization/Standards-Based Correction"
+                                      "const": "Normalization / Standards-Based Correction"
                                     },
                                     "schema:value": {
                                       "type": "string"
@@ -1857,7 +1857,7 @@
                               },
                               {
                                 "contains": {
-                                  "title": "Spike/Outlier Filtering Approach",
+                                  "title": "Spike / Outlier Filtering Approach",
                                   "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
                                   "type": "object",
                                   "properties": {
@@ -1875,7 +1875,7 @@
                                       }
                                     },
                                     "schema:name": {
-                                      "const": "Spike/Outlier Filtering Approach"
+                                      "const": "Spike / Outlier Filtering Approach"
                                     },
                                     "schema:value": {
                                       "type": "string"
@@ -1895,7 +1895,7 @@
                               {
                                 "contains": {
                                   "title": "Uncertainty Propagation Method",
-                                  "description": "Method used to propagate analytical uncertainties from raw signals through to final concentration values.",
+                                  "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
                                   "type": "object",
                                   "properties": {
                                     "@id": {
@@ -2064,7 +2064,7 @@
             ]
           },
           "schema:description": {
-            "description": "Any protocol- or analysis-specific information not captured by other fields, including anomalies, deviations from protocol, or supplementary context.",
+            "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
             "type": "string"
           }
         }
@@ -2076,7 +2076,7 @@
         "type": "object",
         "properties": {
           "schema:identifier": {
-            "description": "Persistent identifier (DOI) assigned to this registered protocol. Enter 'pending' if a DOI has been applied for but not yet minted.",
+            "description": "DOI or unique persistent identifier for the registered procedure used in this analysis, generated upon procedure submission to a data repository. This field is mandatory when submitting analytical data, to encourage formal procedure registration and ensure traceability. If a DOI has been applied for but not yet minted, enter \"pending\".",
             "type": "string"
           }
         }
@@ -2101,7 +2101,7 @@
             "then": {
               "properties": {
                 "schema:name": {
-                  "description": "Name of the analyst who conducted the analysis session.",
+                  "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
                   "anyOf": [
                     {
                       "type": "string"
@@ -2159,7 +2159,7 @@
                   "type": "object",
                   "properties": {
                     "schema:url": {
-                      "description": "DOI of the registered protocol for the coupled technique.",
+                      "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
                       "type": "string"
                     }
                   }
@@ -2181,7 +2181,7 @@
             "then": {
               "properties": {
                 "schema:target": {
-                  "description": "DOI of the dataset or publication containing the coupled technique data. If coupling is documented only through a shared sample IGSN (Group 2), this field may be 'None'.",
+                  "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
                   "anyOf": [
                     {
                       "type": "string"
@@ -2214,11 +2214,21 @@
                   "type": "object",
                   "properties": {
                     "schema:name": {
-                      "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this protocol. Document coupling with any technique whose results are functionally linked to this dataset (e.g., providing calibration inputs, complementary spatial context, or required companion measurements).",
-                      "type": "string"
+                      "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                      "type": "string",
+                      "enum": [
+                        "Solution MC-ICP-MS",
+                        "TIMS",
+                        "LA-ICP-MS",
+                        "EPMA",
+                        "Noble Gas MS",
+                        "INAA",
+                        "None",
+                        "N/A"
+                      ]
                     },
                     "schema:description": {
-                      "description": "Describes (1) the functional relationship between this dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
+                      "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
                       "type": "string"
                     }
                   }
@@ -2248,7 +2258,7 @@
             "then": {
               "properties": {
                 "dqv:value": {
-                  "description": "Measured oxide production ratio obtained during session-start tuning, for the proxy specified in Oxide Production Method and Threshold. Record the measured value and confirm whether the protocol threshold was met.",
+                  "description": "Measured oxide production ratio obtained during session-start tuning, for the proxy specified in Oxide Production Method and Threshold. Record the measured value and confirm whether the procedure threshold was met.",
                   "anyOf": [
                     {
                       "type": "string"

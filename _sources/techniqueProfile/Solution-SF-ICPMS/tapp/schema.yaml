@@ -1,14 +1,15 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
 description: Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated
-  from docs/Solution_SF-ICP-MS_TAPP_v5.xlsx via the path-driven pipeline.
+  from TAPPS20260811/Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v13.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../BaseSchema/tappDefinition/schema.yaml
 - type: object
   properties:
     schema:name:
-      description: A short descriptive name for this analytical protocol. Should include instrument, technique,
-        and analyte scope.
+      description: A short descriptive name for this analytical procedure, including a version number.
+        Should identify the instrument, the technique, and the scope of what is measured — analyte, material,
+        or feature.
       type: string
       readOnly: true
     schema:measurementTechnique:
@@ -26,7 +27,8 @@ allOf:
       type: object
       properties:
         schema:name:
-          description: Person(s) or laboratory responsible for developing and registering this protocol.
+          description: Person(s) or laboratory responsible for developing and registering this procedure.
+            ORCID recommended for individuals.
           type: string
           readOnly: true
     bios:computationalTool:
@@ -86,7 +88,7 @@ allOf:
         ada:defaultAnalytes:
           type: array
           items:
-            description: Elements or isotopes this protocol is designed to measure. The protocol registers
+            description: Elements or isotopes this procedure is designed to measure. The procedure registers
               the full analyte suite; at analysis level, the analyst records the specific subset actually
               measured in the session, which may be narrower if certain masses were excluded due to interferences
               or scope reduction. Fields flagged as Analyte-Specific in the Comments column apply individually
@@ -99,7 +101,7 @@ allOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - &id001
               title: Monitored Isotopes
-              description: Specific isotope(s) monitored per analyte element in this protocol, including
+              description: Specific isotope(s) monitored per analyte element in this procedure, including
                 any interference-monitor masses. Analyte-specific field.
               type: object
               properties:
@@ -129,9 +131,9 @@ allOf:
               - schema:defaultValue
             - &id002
               title: Mass Resolution per Analyte
-              description: Mass resolution mode assigned to each analyte in this protocol. The selected
+              description: Mass resolution mode assigned to each analyte in this procedure. The selected
                 resolution determines which polyatomic interferences are physically resolved by the magnet
-                sector. Per-analyte assignments are documented here; the overall mode(s) used in the protocol
+                sector. Per-analyte assignments are documented here; the overall mode(s) used in the procedure
                 are recorded in Mass Resolution Setting (Group 3). Analyte-specific field.
               type: object
               properties:
@@ -177,7 +179,7 @@ allOf:
                 ada:dataType:
                   const: number
                 schema:readonlyValue:
-                  const: true
+                  const: false
                 ada:tier:
                   const: M
                 schema:defaultValue:
@@ -287,7 +289,7 @@ allOf:
             - &id007
               title: Detection Limit
               description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and
-                whether values are protocol-typical estimates or session-specific measured values.
+                whether values are procedure-typical estimates or session-specific measured values.
               type: object
               properties:
                 '@id':
@@ -332,9 +334,9 @@ allOf:
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
-                  const: false
+                  const: true
                 ada:tier:
-                  const: R
+                  const: M
                 schema:defaultValue:
                   type: string
               required:
@@ -343,6 +345,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id009
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.
@@ -391,7 +394,7 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: R
+                  const: M
                 schema:defaultValue:
                   type: string
               required:
@@ -400,6 +403,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id011
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
@@ -449,7 +453,7 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: R
+                  const: M
                 schema:defaultValue:
                   type: string
               required:
@@ -458,6 +462,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
           allOf:
           - contains: *id001
             minContains: 0
@@ -496,7 +501,7 @@ allOf:
             minContains: 0
             maxContains: 1
     schema:datePublished:
-      description: First date this protocol configuration was used in production.
+      description: First date this procedure configuration was used in production.
       type: string
       readOnly: true
     schema:funding:
@@ -505,8 +510,9 @@ allOf:
         type: object
         properties:
           schema:name:
-            description: Grants and funding that supported development of this protocol. Include grant
-              IDs.
+            description: Grants and other funding sources that supported instrument acquisition, major
+              upgrades, procedure development, and associated personnel time. Include grant numbers and
+              funding agencies where applicable.
             type: string
             readOnly: true
     schema:relatedLink:
@@ -526,8 +532,8 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: DOI or URL for publications or reports describing or evaluating this
-                      protocol.
+                    description: DOI or URL for peer-reviewed publications or technical reports describing,
+                      validating, or benchmarking this procedure.
                     type: string
                     readOnly: true
         - if:
@@ -543,16 +549,28 @@ allOf:
                 properties:
                   schema:name:
                     description: Other analytical techniques applied to the same sample(s) whose results
-                      are intended to be interpreted together with data from this protocol. Document coupling
-                      with any technique whose results are functionally linked to this dataset (e.g.,
-                      providing calibration inputs, complementary spatial context, or required companion
-                      measurements).
+                      are intended to be interpreted together with data from this procedure. Document
+                      coupling with any technique whose results are functionally linked to this dataset
+                      — providing calibration inputs, complementary spatial context, or required companion
+                      measurements. Use the same controlled vocabulary as the Technique field. Enter "None"
+                      if no coupling is intended.
                     type: string
+                    enum:
+                    - Solution MC-ICP-MS
+                    - TIMS
+                    - LA-ICP-MS
+                    - EPMA
+                    - Noble Gas MS
+                    - INAA
+                    - None
+                    - N/A
                   schema:description:
-                    description: Describes (1) the functional relationship between this dataset and the
-                      coupled technique — what data or context flows between them — and (2) the analytical
-                      sequence — which technique was performed first and why. Required when Coupled Technique(s)
-                      is not 'None'.
+                    description: 'Description of how this procedure is coupled with the technique(s) listed
+                      above. Include: (1) the functional relationship — what data or context flows between
+                      techniques, or how results are combined (e.g. which output from the coupled technique
+                      serves as input to data reduction for this technique); and (2) the analytical sequence
+                      — which technique is performed first and why (e.g. non-destructive before destructive).
+                      Required when Coupled Technique(s) is not "None".'
                     type: string
     schema:instrument:
       type: array
@@ -774,7 +792,7 @@ allOf:
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position. Affects ion transmission efficiency
-                              and oxide formation rates. Protocol registers the target torch position;
+                              and oxide formation rates. Procedure registers the target torch position;
                               analyst confirms or adjusts during session tuning.
                             type: object
                             properties:
@@ -945,7 +963,8 @@ allOf:
                             anyOf:
                             - title: Nebulizer Type
                               description: Type and material of the pneumatic nebulizer used for sample
-                                introduction. Affects droplet size distribution and uptake rate.
+                                introduction. Affects droplet size distribution and sample introduction
+                                efficiency.
                               type: object
                               properties:
                                 '@id':
@@ -970,7 +989,8 @@ allOf:
                             - title: Spray Chamber Type and Cooling Temperature
                               description: Type of spray chamber and cooling temperature if thermostatted
                                 (°C). Chamber type and temperature control aerosol droplet size and the
-                                solvent vapor load reaching the plasma.
+                                solvent vapor load reaching the plasma. In some procedures a spray chamber
+                                is placed downstream of a desolvating nebulizer to improve signal stability.
                               type: object
                               properties:
                                 '@id':
@@ -995,7 +1015,8 @@ allOf:
                             - &id017
                               title: Nebulizer Gas Flow Rate
                               description: Flow rate of the carrier argon gas delivered through the nebulizer
-                                (L/min). Controls aerosol transport and strongly influences signal sensitivity.
+                                (L/min). Controls aerosol transport and strongly influences signal sensitivity
+                                and stability. Adjusted daily to optimize signal.
                               type: object
                               properties:
                                 '@id':
@@ -1060,7 +1081,8 @@ allOf:
                           - contains:
                               title: Nebulizer Type
                               description: Type and material of the pneumatic nebulizer used for sample
-                                introduction. Affects droplet size distribution and uptake rate.
+                                introduction. Affects droplet size distribution and sample introduction
+                                efficiency.
                               type: object
                               properties:
                                 '@id':
@@ -1088,7 +1110,8 @@ allOf:
                               title: Spray Chamber Type and Cooling Temperature
                               description: Type of spray chamber and cooling temperature if thermostatted
                                 (°C). Chamber type and temperature control aerosol droplet size and the
-                                solvent vapor load reaching the plasma.
+                                solvent vapor load reaching the plasma. In some procedures a spray chamber
+                                is placed downstream of a desolvating nebulizer to improve signal stability.
                               type: object
                               properties:
                                 '@id':
@@ -1280,7 +1303,7 @@ allOf:
                     title: Make-up Gas Flow Rate
                     description: Supplementary argon flow added downstream of a desolvation system to
                       maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation
-                      system is used.
+                      system is used. Record 'N/A' where Desolvation System is 'None'.
                     type: object
                     properties:
                       '@id':
@@ -1311,11 +1334,11 @@ allOf:
                     - ada:fieldScope
                   - &id023
                     title: Mass Resolution Setting
-                    description: Mass resolution mode(s) used in this protocol. Sector-field instruments
+                    description: Mass resolution mode(s) used in this procedure. Sector-field instruments
                       allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm
-                      ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution protocols
+                      ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures
                       assign individual analytes to specific modes (documented in Group 4 under Mass Resolution
-                      per Analyte). Protocol registers the mode(s) in use; analyst confirms at session
+                      per Analyte). Procedure registers the mode(s) in use; analyst confirms at session
                       start.
                     type: object
                     properties:
@@ -1345,7 +1368,7 @@ allOf:
                     - ada:fieldScope
                   - &id024
                     title: Memory Effect Mitigation
-                    description: Protocol applied to identify and minimize carry-over of high-concentration
+                    description: Procedure applied to identify and minimize carry-over of high-concentration
                       elements between successive sample introductions. For solution ICP-MS, mitigation
                       is implemented primarily at measurement time through extended rinse periods (see
                       Wash Time Between Samples, Group 4). At data processing level, documents any flagging
@@ -1561,7 +1584,8 @@ allOf:
                         schema:name:
                           description: Acid mixture used for sample dissolution. Record acid type(s) and
                             concentration(s) where known (e.g., concentrated HF–HNO3 in Parr bombs is
-                            standard for silicate dissolution).
+                            standard for silicate dissolution). For isotope-ratio work, complete matrix
+                            dissolution is required to avoid isotopic fractionation during partial dissolution.
                           type: string
                           readOnly: true
                   schema:additionalProperty:
@@ -1595,9 +1619,10 @@ allOf:
                         readOnly: true
                       - title: Number of Digestion Steps
                         description: Total number of distinct acid digestion steps required to dissolve
-                          the sample. Some protocols require multiple sequential steps (e.g., an initial
-                          open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for
-                          residues retaining refractory minerals).
+                          the sample. Some procedures require multiple sequential steps — for example,
+                          an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel
+                          step for residues retaining refractory minerals, or by an aqua regia reflux
+                          to destroy fluoride complexes.
                         type: object
                         properties:
                           '@id':
@@ -1652,7 +1677,7 @@ allOf:
                         - ada:fieldScope
                       - &id026
                         title: Digestion Temperature
-                        description: Temperature at which acid digestion was carried out (°C). Protocol
+                        description: Temperature at which acid digestion was carried out (°C). Procedure
                           specifies the target temperature.
                         type: object
                         properties:
@@ -1714,9 +1739,10 @@ allOf:
                     - contains:
                         title: Number of Digestion Steps
                         description: Total number of distinct acid digestion steps required to dissolve
-                          the sample. Some protocols require multiple sequential steps (e.g., an initial
-                          open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for
-                          residues retaining refractory minerals).
+                          the sample. Some procedures require multiple sequential steps — for example,
+                          an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel
+                          step for residues retaining refractory minerals, or by an aqua regia reflux
+                          to destroy fluoride complexes.
                         type: object
                         properties:
                           '@id':
@@ -1828,7 +1854,7 @@ allOf:
                     items:
                       anyOf:
                       - &id027
-                        title: Normalization/Standards-Based Correction
+                        title: Normalization / Standards-Based Correction
                         description: Post-acquisition normalization applied to output concentrations relative
                           to a reference value (e.g., correction to a BHVO-2 working value).
                         type: object
@@ -1841,7 +1867,7 @@ allOf:
                           schema:valueName:
                             const: normalizationStandardsBasedCorrectionDefault
                           schema:name:
-                            const: Normalization/Standards-Based Correction
+                            const: Normalization / Standards-Based Correction
                           ada:dataType:
                             const: string
                           ada:fieldScope:
@@ -1968,21 +1994,31 @@ allOf:
           - contains:
               properties:
                 schema:name:
+                  const: dataAcquisition
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
                   const: dataReduction
               required:
               - schema:name
     ada:finalSolutionMatrix:
-      description: 'Acid type and concentration of the final dissolved sample solution introduced to the
-        instrument. Directly affects instrument response and ion transmission. Note: some SF-ICP-MS protocols
-        add trace HF to final solution to stabilize HFSE.'
+      description: Acid type and concentration of the final dissolved sample solution introduced to the
+        instrument. Directly affects instrument response and ion transmission. For isotope-ratio procedures,
+        acid molarity must be precisely matched between samples and bracketing standards to avoid matrix-induced
+        mass bias offsets. Procedures targeting HFSE may add trace HF to the final solution to keep those
+        elements in solution.
       type: string
       readOnly: true
     ada:chromatographicSeparationApplied:
       description: Whether chromatographic separation of element groups (e.g., using ion exchange resin)
-        was performed prior to ICP-MS analysis. Common for protocols requiring matrix removal or interference
-        elimination before measurement (e.g., Fe and Cu–Zn for isotope dilution, Hf separation from REE).
-        Record resin type and matrix conditions if applied. Record 'None' if direct digestion solution
-        is analyzed.
+        was performed prior to analysis. Separation may be required to remove matrix elements that cause
+        variable mass bias, to eliminate isobaric interferences, or to isolate an element group before
+        measurement (e.g., Fe and Cu–Zn for isotope dilution, Hf separation from REE, removal of Cr and
+        Ni from Fe fractions). It is usually mandatory for isotope-ratio procedures and optional for concentration
+        measurement. Record resin type and elution matrix conditions if applied. Record 'None' if the
+        direct digestion solution is analyzed.
       type: string
       enum:
       - Anion exchange resin (HCl)
@@ -1993,8 +2029,11 @@ allOf:
       readOnly: true
     ada:isotopeDilutionSpike:
       description: Isotopic spike material added to the sample before or during digestion for isotope
-        dilution (ID) analysis. Spike must be added before digestion for complete equilibration. Record
-        spike name or certificate reference and spike isotope(s). Record 'None' if ID technique is not
+        dilution (ID) analysis or double-spike mass bias correction. For double-spike procedures, the
+        spike must be added and equilibrated before digestion to correct for any isotopic fractionation
+        during dissolution and column chemistry. For concentration ID, the spike must be added before
+        digestion for complete equilibration. Record spike name or certificate reference, spike isotopes,
+        and whether added pre- or post-digestion. Record 'None' if ID or double-spike technique is not
         used.
       type: string
       readOnly: true
@@ -2003,10 +2042,11 @@ allOf:
       items:
         anyOf:
         - title: Desolvation System
-          description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
-            solvent load. Reduces oxide production rates and increases sensitivity for selected element
-            groups. Specific systems (e.g., Aridus-I) are often assigned to particular element fractions
-            in multi-fraction protocols. Record 'None' if not used.
+          description: 'Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
+            solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used
+            for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce
+            additional instrumental mass bias instability relative to wet plasma introduction. Record
+            ''None'' if not used.'
           type: object
           properties:
             '@id':
@@ -2031,7 +2071,8 @@ allOf:
         - title: E-scan Range
           description: Electric scan range used for peak acquisition, expressed as percentage of the center
             mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic
-            mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used.
+            mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used. Record
+            'N/A' where E-scan acquisition mode is not used.
           type: object
           properties:
             '@id':
@@ -2085,7 +2126,7 @@ allOf:
           readOnly: true
         - title: Internal Standard Concentration
           description: Target concentration of internal standard element(s) in all measured solutions
-            (µg/L or ppb).
+            (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.
           type: object
           properties:
             '@id':
@@ -2113,7 +2154,7 @@ allOf:
           - schema:unitText
           readOnly: true
         - &id029
-          title: Spike/Outlier Filtering Approach
+          title: Spike / Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous replicate measurements or data
             points from the calculated mean.
           type: object
@@ -2126,7 +2167,7 @@ allOf:
             schema:valueName:
               const: spikeOutlierFilteringApproachDefault
             schema:name:
-              const: Spike/Outlier Filtering Approach
+              const: Spike / Outlier Filtering Approach
             ada:dataType:
               const: string
             ada:fieldScope:
@@ -2144,8 +2185,11 @@ allOf:
           - ada:fieldScope
         - &id030
           title: Uncertainty Propagation Method
-          description: Method used to propagate analytical uncertainties from raw signals through to final
-            concentration values.
+          description: 'The approach used to propagate analytical uncertainty through the data reduction
+            chain to the final reported value. State which sources are included in the propagation: counting
+            statistics, calibration standard uncertainty, internal standard uncertainty, drift correction,
+            and any systematic contributions. Distinct from Uncertainty Level, which states the convention
+            at which the resulting uncertainty is quoted.'
           type: object
           properties:
             '@id':
@@ -2175,10 +2219,11 @@ allOf:
       allOf:
       - contains:
           title: Desolvation System
-          description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
-            solvent load. Reduces oxide production rates and increases sensitivity for selected element
-            groups. Specific systems (e.g., Aridus-I) are often assigned to particular element fractions
-            in multi-fraction protocols. Record 'None' if not used.
+          description: 'Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
+            solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used
+            for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce
+            additional instrumental mass bias instability relative to wet plasma introduction. Record
+            ''None'' if not used.'
           type: object
           properties:
             '@id':
@@ -2206,7 +2251,8 @@ allOf:
           title: E-scan Range
           description: Electric scan range used for peak acquisition, expressed as percentage of the center
             mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic
-            mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used.
+            mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used. Record
+            'N/A' where E-scan acquisition mode is not used.
           type: object
           properties:
             '@id':
@@ -2266,7 +2312,7 @@ allOf:
       - contains:
           title: Internal Standard Concentration
           description: Target concentration of internal standard element(s) in all measured solutions
-            (µg/L or ppb).
+            (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.
           type: object
           properties:
             '@id':
@@ -2329,7 +2375,8 @@ allOf:
       readOnly: true
     ada:washTimeBetweenSamples:
       description: Duration of instrument rinse between successive sample solutions (seconds). Controls
-        carryover and memory effects.
+        carryover and memory effects. For isotope-ratio work, complete washout is critical to prevent
+        cross-contamination between samples with differing isotopic compositions.
       anyOf:
       - type: number
       - type: string
@@ -2350,7 +2397,9 @@ allOf:
       readOnly: true
     ada:primaryStandardNameDefault:
       description: Name and reference material identifier of the external calibration standard used to
-        convert signal intensities to elemental concentrations.
+        convert signal intensities to elemental concentrations. Include the material name, its source
+        or supplier, and a citation for the accepted values used, since results calibrated against different
+        published values for the same material are not directly comparable.
       type: string
     ada:internalStandardApproach:
       description: 'Role(s) assigned to the internal standard(s) in data reduction: drift correction only,
@@ -2378,7 +2427,7 @@ allOf:
       items:
         description: Approach used to convert measured ion signals to elemental concentrations. Documents
           cases where different analytes or analyte groups are calibrated using different strategies within
-          the same protocol. If a single strategy is applied uniformly to all analytes, record that strategy.
+          the same procedure. If a single strategy is applied uniformly to all analytes, record that strategy.
         type: string
         enum:
         - External calibration (all analytes)
@@ -2421,8 +2470,11 @@ allOf:
       type: string
       readOnly: true
     schema:description:
-      description: Any protocol- or analysis-specific information not captured by other fields, including
-        anomalies, deviations from protocol, or supplementary context.
+      description: 'Any procedure- or analysis-specific information not captured by a structured field
+        anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
+        modifications, and supplementary context. Scope is the whole document, not Group 6: this is the
+        last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
+        for anything that can be formally categorised.'
       type: string
   required:
   - schema:name

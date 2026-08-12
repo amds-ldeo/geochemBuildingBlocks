@@ -1236,6 +1236,21 @@ allOf:
                             - Perovskite
                             - Allanite
                             readOnly: true
+                allOf:
+                - contains:
+                    properties:
+                      schema:name:
+                        const: Target Material
+                    required:
+                    - schema:name
+      allOf:
+      - contains:
+          properties:
+            '@type':
+              contains:
+                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+          required:
+          - '@type'
     schema:actionProcess:
       type: object
       properties:
@@ -1569,6 +1584,19 @@ allOf:
                     - contains: *id016
                       minContains: 0
                       maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: samplePreparation
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
+              required:
+              - schema:name
     schema:instrument:
       type: array
       items:
@@ -2635,6 +2663,29 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
+                allOf:
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: ICP Source
+                    required:
+                    - schema:additionalType
+      allOf:
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: Laser Ablation System
+          required:
+          - schema:additionalType
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: ICPMS
+          required:
+          - schema:additionalType
     ada:sampleIntroduction:
       description: Configuration by which the ablated aerosol is delivered to the plasma, including any
         co-aspirated tracer or spike solution (e.g., a Tl solution used for instrumental mass bias correction,
@@ -2678,6 +2729,19 @@ allOf:
                 - type: array
                   items:
                     type: string
+      allOf:
+      - contains:
+          properties:
+            ada:toolRole:
+              const: acquisition
+          required:
+          - ada:toolRole
+      - contains:
+          properties:
+            ada:toolRole:
+              const: dataReduction
+          required:
+          - ada:toolRole
     ada:analyticalMode:
       type: array
       items:
@@ -2754,7 +2818,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2781,7 +2847,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2859,7 +2927,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2887,7 +2957,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2915,7 +2987,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2942,7 +3016,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2970,13 +3046,16 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: O
+                  const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id037
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Reproducibility of measurements across multiple analytical sessions over weeks
@@ -2998,7 +3077,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -3027,13 +3108,16 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: O
+                  const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id039
               title: Detection Limit
               description: Session detection limit for U, Th, and/or Pb, demonstrating the reliability
@@ -3055,7 +3139,11 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: O
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -3150,3 +3238,19 @@ allOf:
         n counts.
       type: string
       readOnly: true
+  required:
+  - schema:name
+  - schema:datePublished
+  - ada:sampleIntroduction
+  - ada:ablationSamplingMode
+  - ada:spotDiameterDefault
+  - ada:ablationSpotDurationDefault
+  - ada:carrierGasFlowRateDefault
+  - ada:massesMeasuredDefault
+  - ada:dwellTimesDefault
+  - ada:totalIntegrationTimePerOutputDataPointDefault
+  - ada:gasBlank
+  - ada:massBiasCorrectionStrategy
+  - ada:internalNormalizationElementAndIsotopeRatio
+  - ada:commonPbCorrectionCompositionAndUncertainty
+  - ada:primaryStandardNameDefault

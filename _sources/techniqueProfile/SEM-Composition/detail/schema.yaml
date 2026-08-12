@@ -19,10 +19,12 @@ properties:
               description: Persistent identifier for the laboratory (e.g., ROR ID).
               type: string
         schema:startDate:
-          description: Date on which the analysis session began.
+          description: 'Date on which the analytical session began. For sessions spanning multiple days,
+            use the date of the first session. Format: YYYY-MM-DD.'
           type: string
         schema:endDate:
-          description: Date on which the analysis session ended (if spanning multiple days).
+          description: 'Date on which the analytical session ended. May equal Analysis Start Date for
+            single-day sessions. Format: YYYY-MM-DD.'
           type: string
         schema:actionProcess:
           type: object
@@ -412,8 +414,11 @@ properties:
           - type: number
           - type: string
         schema:description:
-          description: Any additional context about this protocol or analysis session not captured by
-            structured fields above.
+          description: 'Any procedure- or analysis-specific information not captured by a structured field
+            anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
+            modifications, and supplementary context. Scope is the whole document, not Group 6: this is
+            the last field of the TAPP and covers all six groups. Use sparingly; a structured field is
+            preferred for anything that can be formally categorised.'
           type: string
   schema:measurementTechnique:
     type: array
@@ -421,8 +426,10 @@ properties:
       type: object
       properties:
         schema:identifier:
-          description: Persistent identifier (DOI) assigned to this registered protocol. Enter 'pending'
-            if a DOI has been applied for but not yet minted.
+          description: DOI or unique persistent identifier for the registered procedure used in this analysis,
+            generated upon procedure submission to a data repository. This field is mandatory when submitting
+            analytical data, to encourage formal procedure registration and ensure traceability. If a
+            DOI has been applied for but not yet minted, enter "pending".
           type: string
   schema:contributor:
     type: array
@@ -438,7 +445,8 @@ properties:
         then:
           properties:
             schema:name:
-              description: Name of the analyst who conducted the analysis session.
+              description: Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended
+                for persistent identification.
               anyOf:
               - type: string
               - type: array
@@ -471,15 +479,24 @@ properties:
               properties:
                 schema:name:
                   description: Other analytical techniques applied to the same sample(s) whose results
-                    are intended to be interpreted together with this dataset. For SEM/FIB-SEM, common
-                    couplings include TEM/STEM (FIB-prepared sections), EPMA (quantitative major-element
-                    context), NanoSIMS, SIMS, Raman, and XCT.
+                    are intended to be interpreted together with data from this procedure. Document coupling
+                    with any technique whose results are functionally linked to this dataset — providing
+                    calibration inputs, complementary spatial context, or required companion measurements.
+                    Use the same controlled vocabulary as the Technique field. Enter "None" if no coupling
+                    is intended.
                   type: string
+                  enum:
+                  - EPMA; NanoSIMS
+                  - XCT (pre-SEM overview)
+                  - None
+                  - N/A
                 schema:description:
-                  description: Describes (1) the functional relationship between this SEM/FIB-SEM dataset
-                    and the coupled technique — what data or context flows between them — and (2) the
-                    analytical sequence — which technique was performed first and why. Required when Coupled
-                    Technique(s) is not 'None'.
+                  description: 'Description of how this procedure is coupled with the technique(s) listed
+                    above. Include: (1) the functional relationship — what data or context flows between
+                    techniques, or how results are combined (e.g. which output from the coupled technique
+                    serves as input to data reduction for this technique); and (2) the analytical sequence
+                    — which technique is performed first and why (e.g. non-destructive before destructive).
+                    Required when Coupled Technique(s) is not "None".'
                   type: string
       - if:
           properties:
@@ -493,7 +510,11 @@ properties:
               type: object
               properties:
                 schema:url:
-                  description: DOI of the registered protocol for the coupled technique.
+                  description: Registered procedure DOI for the coupled technique named above. Provides
+                    a stable, citable link to the companion method independent of whether a dataset has
+                    been deposited. If the coupled procedure has not yet been registered, enter the DOI
+                    of a publication describing the coupled method, or "pending". Enter "None" if no coupling
+                    is planned.
                   type: string
       - if:
           properties:
@@ -504,8 +525,12 @@ properties:
         then:
           properties:
             schema:target:
-              description: DOI of the dataset or publication containing the coupled technique data. If
-                coupling is documented only through a shared sample IGSN, this field may be 'None'.
+              description: 'DOI or other persistent identifier for the co-registered dataset or publication
+                where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately
+                deposited), a shared dataset DOI (if co-submitted in the same package), or a publication
+                DOI. Use "same submission" if the coupled dataset is included in this data package, or
+                "pending" if not yet assigned. If coupling is documented through a shared sample identifier
+                only, that information is already captured in Sample Persistent Identifier (Group 2).'
               anyOf:
               - type: string
               - type: array

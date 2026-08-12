@@ -2334,21 +2334,24 @@ $defs:
     - schema:name
     - schema:value
 
-  empa_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
+  empa_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
+      link to the companion method independent of whether a dataset has been deposited. If the coupled procedure
+      has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending".
+      Enter "None" if no coupling is planned.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/coupledProtocolDoi
+        const: ada:parameter/empaTAPP/coupledProcedureDoi
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/empaTAPP/coupledProtocolDoi
+          '@id': ada:parameter/empaTAPP/coupledProcedureDoi
       schema:name:
-        const: Coupled Protocol DOI
+        const: Coupled Procedure DOI
       schema:value:
         type: string
     required:
@@ -2359,8 +2362,12 @@ $defs:
     - schema:value
   empa_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN (Group 2), this field may be 'None'.
+    description: 'DOI or other persistent identifier for the co-registered dataset or publication where
+      both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a
+      shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use "same submission"
+      if the coupled dataset is included in this data package, or "pending" if not yet assigned. If coupling
+      is documented through a shared sample identifier only, that information is already captured in Sample
+      Persistent Identifier (Group 2).'
     type: object
     properties:
       '@id':
@@ -2383,8 +2390,8 @@ $defs:
     - schema:value
   empa_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis under this protocol (mounting, polishing,
-      coating). Analysts may document session-specific variations from the protocol standard.
+    description: Description of how samples were prepared for analysis under this procedure (mounting, polishing,
+      coating). Analysts may document session-specific variations from the procedure standard.
     type: object
     properties:
       '@id':
@@ -2428,9 +2435,64 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  empa_targetSelectionCriteria:
+    title: Target Selection Criteria
+    description: 'The rules governing which part of the sample is analysed, and why. Covers the criteria
+      applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
+      freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
+      which states the material type the procedure is designed for: this field states how, within such a
+      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
+      which implements this concept for a single technique.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/targetSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/targetSelectionCriteria
+      schema:name:
+        const: Target Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  empa_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   empa_acceleratingVoltage:
     title: Accelerating Voltage
-    description: Electron beam accelerating voltage in kilovolts (kV). The protocol specifies the standard
+    description: Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard
       operating voltage; analysts record and justify any deviations.
     type: object
     properties:
@@ -2457,22 +2519,22 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds, summed across
-      all background positions.
+  empa_beamCurrent:
+    title: Beam Current
+    description: Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard
+      value(s).
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/backgroundCountingTime
+        const: ada:parameter/empaTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/empaTAPP/backgroundCountingTime
+          '@id': ada:parameter/empaTAPP/beamCurrent
       schema:name:
-        const: Background Counting Time
+        const: Beam Current
       schema:value:
         anyOf:
         - type: number
@@ -2594,6 +2656,64 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  empa_peakCountingTime:
+    title: Peak Counting Time
+    description: Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies
+      standard values per analyte; analysts may adjust within procedure-defined bounds.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/peakCountingTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/peakCountingTime
+      schema:name:
+        const: Peak Counting Time
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  empa_backgroundCountingTime:
+    title: Background Counting Time
+    description: Total time spent counting at off-peak background position(s) in seconds, summed across
+      all background positions.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/backgroundCountingTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/backgroundCountingTime
+      schema:name:
+        const: Background Counting Time
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   empa_backgroundPosition:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
@@ -2611,31 +2731,31 @@ $defs:
       schema:name:
         const: Background Position(s)
       schema:value:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_beamCurrent:
-    title: Beam Current
-    description: Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the protocol-standard
-      value(s).
+  empa_edsLiveTimePerPointOrPixel:
+    title: EDS Live Time per Point or Pixel
+    description: EDS spectral acquisition live time per analysis point in seconds. Previously referred to
+      as "EDS Acquisition Time" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts.
+      Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode
+      vs. spectrum image) is explicit. In EPMA, acquisition is always per point.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/beamCurrent
+        const: ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/empaTAPP/beamCurrent
+          '@id': ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
       schema:name:
-        const: Beam Current
+        const: EDS Live Time per Point or Pixel
       schema:value:
         anyOf:
         - type: number
@@ -2666,66 +2786,6 @@ $defs:
           '@id': ada:parameter/empaTAPP/dwellTimePerPixel
       schema:name:
         const: Dwell Time per Pixel
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  empa_peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds. Protocol specifies
-      standard values per analyte; analysts may adjust within protocol-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/empaTAPP/peakCountingTime
-      schema:name:
-        const: Peak Counting Time
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  empa_edsLiveTimePerPointOrPixel:
-    title: EDS Live Time per Point or Pixel
-    description: EDS spectral acquisition live time per analysis point in seconds. Previously referred to
-      as "EDS Acquisition Time" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts.
-      Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode
-      vs. spectrum image) is explicit. In EPMA, acquisition is always per point.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
-      schema:name:
-        const: EDS Live Time per Point or Pixel
       schema:value:
         anyOf:
         - type: number
@@ -2891,10 +2951,68 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  empa_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity into the reported
+      quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
+      calibrated against a reference of independently known value, rather than on the instrument response
+      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
+      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
+      records the resulting factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  empa_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to calculate the final reported
+      quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
+      values used in a correction or calculation), together with their source. Distinct from Reference Material
+      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
+      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
+      revisable physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   empa_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Name(s) of the primary reference material(s) used for element standardization (intensity
-      calibration).
+      calibration). Include the material name, its source or supplier, and a citation for the accepted values
+      used, since results calibrated against different published values for the same material are not directly
+      comparable.
     type: object
     properties:
       '@id':
@@ -2940,22 +3058,47 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_detectionLimitMethod:
-    title: Detection Limit Method
-    description: Formula or procedure used to calculate detection limits. Reference method publication if
-      applicable. When the protocol does not specify a method, the analyst should complete this field.
+  empa_fundingSourceForProcedureDevelopment:
+    title: Funding Source for Procedure Development
+    description: Grants and other funding sources that supported instrument acquisition, major upgrades,
+      procedure development, and associated personnel time. Include grant numbers and funding agencies where
+      applicable.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/detectionLimitMethod
+        const: ada:parameter/empaTAPP/fundingSourceForProcedureDevelopment
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/empaTAPP/detectionLimitMethod
+          '@id': ada:parameter/empaTAPP/fundingSourceForProcedureDevelopment
       schema:name:
-        const: Detection Limit Method
+        const: Funding Source for Procedure Development
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  empa_procedureReference:
+    title: Procedure Reference(s)
+    description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
+      or benchmarking this procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/procedureReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/procedureReference
+      schema:name:
+        const: Procedure Reference(s)
       schema:value:
         type: string
     required:
@@ -3012,24 +3155,26 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_proportionalCounterDetector:
-    title: Proportional Counter / Detector
-    description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
-      count rate linearity.
+  empa_wdsSpectrometerChannel:
+    title: WDS Spectrometer Channel
+    description: WDS spectrometer number assigned to each analyte. Different spectrometers may have different
+      crystal configurations.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/proportionalCounterDetector
+        const: ada:parameter/empaTAPP/wdsSpectrometerChannel
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/empaTAPP/proportionalCounterDetector
+          '@id': ada:parameter/empaTAPP/wdsSpectrometerChannel
       schema:name:
-        const: Proportional Counter / Detector
+        const: WDS Spectrometer Channel
       schema:value:
-        type: string
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -3064,6 +3209,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  empa_proportionalCounterDetector:
+    title: Proportional Counter / Detector
+    description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
+      count rate linearity.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/proportionalCounterDetector
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/empaTAPP/proportionalCounterDetector
+      schema:name:
+        const: Proportional Counter / Detector
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   empa_wdsPhaSetting:
     title: WDS PHA Setting
     description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses
@@ -3083,32 +3252,6 @@ $defs:
         const: WDS PHA Setting
       schema:value:
         type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  empa_wdsSpectrometerChannel:
-    title: WDS Spectrometer Channel
-    description: WDS spectrometer number assigned to each analyte. Different spectrometers may have different
-      crystal configurations.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/wdsSpectrometerChannel
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/empaTAPP/wdsSpectrometerChannel
-      schema:name:
-        const: WDS Spectrometer Channel
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
     required:
     - '@id'
     - '@type'
@@ -5281,24 +5424,24 @@ $defs:
     - schema:name
     - schema:value
 
-  labxct_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: Registered protocol DOI for the coupled technique named above. Provides a stable, citable
-      link to the companion method independent of whether a dataset has been deposited. If the coupled protocol
+  labxct_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
+      link to the companion method independent of whether a dataset has been deposited. If the coupled procedure
       has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending".
       Enter "None" if no coupling is planned.
     type: object
     properties:
       '@id':
-        const: ada:parameter/labxctTAPP/coupledProtocolDoi
+        const: ada:parameter/labxctTAPP/coupledProcedureDoi
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/labxctTAPP/coupledProtocolDoi
+          '@id': ada:parameter/labxctTAPP/coupledProcedureDoi
       schema:name:
-        const: Coupled Protocol DOI
+        const: Coupled Procedure DOI
       schema:value:
         type: string
     required:
@@ -5339,7 +5482,7 @@ $defs:
     title: Sample Mass
     description: 'Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials.
       Particularly important for meteorite, mission-returned, and other restricted samples. This is an analysis-level
-      field: the actual sample mass depends on the specific sample being scanned, not on the protocol design.'
+      field: the actual sample mass depends on the specific sample being scanned, not on the procedure design.'
     type: object
     properties:
       '@id':
@@ -5439,6 +5582,61 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  labxct_targetSelectionCriteria:
+    title: Target Selection Criteria
+    description: 'The rules governing which part of the sample is analysed, and why. Covers the criteria
+      applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
+      freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
+      which states the material type the procedure is designed for: this field states how, within such a
+      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
+      which implements this concept for a single technique.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/targetSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/labxctTAPP/targetSelectionCriteria
+      schema:name:
+        const: Target Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  labxct_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   labxct_reconstructionSoftware:
     title: Reconstruction Software
     description: Software used to reconstruct 2D projection images into a 3D CT volume, including version
@@ -5489,14 +5687,14 @@ $defs:
     - schema:value
   labxct_acceleratingVoltage:
     title: Accelerating Voltage
-    description: 'X-ray tube accelerating voltage in kilovolts (kV) registered by the protocol. Determines
+    description: 'X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines
       the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages
       provide greater penetration for dense or large samples; lower voltages improve contrast between low-density
-      phases. If the voltage was varied across samples within the same protocol or session, report the full
-      range applied (e.g., 90–115 kV). Note: some sources report this parameter as ''X keV'' (maximum Bremsstrahlung
-      photon energy) rather than ''X kV'' (tube voltage). For polychromatic lab XCT, these are numerically
-      equivalent: E_max [keV] = V [kV]. Record the value as stated in the source and add a parenthetical
-      note if the unit used is keV.'
+      phases. If the voltage was varied across samples within the same procedure or session, report the
+      full range applied (e.g., 90–115 kV). Note: some sources report this parameter as ''X keV'' (maximum
+      Bremsstrahlung photon energy) rather than ''X kV'' (tube voltage). For polychromatic lab XCT, these
+      are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add
+      a parenthetical note if the unit used is keV.'
     type: object
     properties:
       '@id':
@@ -5524,10 +5722,10 @@ $defs:
     - schema:unitText
   labxct_tubeCurrent:
     title: Tube Current
-    description: X-ray tube current in microamperes (µA) registered by the protocol. Controls photon flux
+    description: X-ray tube current in microamperes (µA) registered by the procedure. Controls photon flux
       and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the
       source and may increase focal spot size. If the current was varied across samples within the same
-      protocol or session, report the full range applied (e.g., 65–115 µA).
+      procedure or session, report the full range applied (e.g., 65–115 µA).
     type: object
     properties:
       '@id':
@@ -5555,7 +5753,7 @@ $defs:
     - schema:unitText
   labxct_xRayPower:
     title: X-ray Power
-    description: 'X-ray tube power in watts (W) registered by the protocol. Derivable as voltage (kV) ×
+    description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) ×
       current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes:
       higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone
       field because it is routinely reported in the literature and directly constrains instrument operating
@@ -5615,7 +5813,7 @@ $defs:
   labxct_sourceToObjectDistance:
     title: Source-to-Object Distance (SOD)
     description: Distance from the X-ray source focal spot to the centre of the sample rotation axis, in
-      mm, as registered by the protocol. Together with SDD, determines geometric magnification (M = SDD/SOD).
+      mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD).
       Shorter SOD increases magnification and reduces voxel size.
     type: object
     properties:
@@ -5645,8 +5843,9 @@ $defs:
   labxct_sourceToDetectorDistance:
     title: Source-to-Detector Distance (SDD)
     description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
-      by the protocol. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈ detector
-      pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).
+      by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈
+      detector pixel size / M (before binning; divide additionally by optical objective for Versa-class
+      systems).
     type: object
     properties:
       '@id':
@@ -5674,7 +5873,7 @@ $defs:
     - schema:unitText
   labxct_voxelSize:
     title: Voxel Size
-    description: Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The protocol
+    description: Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure
       registers the target voxel size, set based on the minimum feature size to be resolved (target voxel
       size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel
       size as reported by the reconstruction software, which may differ slightly from the target due to
@@ -5795,10 +5994,10 @@ $defs:
   labxct_exposureTimePerProjection:
     title: Exposure Time per Projection
     description: 'Duration of X-ray exposure for each individual projection image frame, in seconds, as
-      registered by the protocol. Set as a deliberate choice for the target sample type and voxel size:
-      longer exposures increase SNR at the cost of total scan time. May be adjusted within protocol-allowed
+      registered by the procedure. Set as a deliberate choice for the target sample type and voxel size:
+      longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed
       bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied
-      across samples within the same protocol or session, report the full range applied (e.g., 0.5–2 s).'
+      across samples within the same procedure or session, report the full range applied (e.g., 0.5–2 s).'
     type: object
     properties:
       '@id':
@@ -5827,7 +6026,7 @@ $defs:
   labxct_framesAveragedPerProjection:
     title: Frames Averaged per Projection
     description: Number of individual detector frames acquired and averaged to produce each saved projection
-      image, as registered by the protocol. Frame averaging reduces random electronic noise. The effective
+      image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective
       exposure per projection = exposure time per frame × frames averaged.
     type: object
     properties:
@@ -5957,7 +6156,7 @@ $defs:
     title: Reconstruction Convolution Filter
     description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
       Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters
-      (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate protocol-level
+      (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level
       tradeoff.
     type: object
     properties:
@@ -6006,9 +6205,9 @@ $defs:
     - schema:value
   labxct_ringArtifactCorrectionMethod:
     title: Ring Artifact Correction Method
-    description: Protocol specification for how ring artifacts are handled. Ring artifacts appear as concentric
+    description: Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric
       circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels.
-      Method is the protocol-level specification; whether correction was applied and its outcome are recorded
+      Method is the procedure-level specification; whether correction was applied and its outcome are recorded
       at analysis level in Group 6.
     type: object
     properties:
@@ -6157,10 +6356,10 @@ $defs:
     - schema:value
   labxct_voiSelectionCriteria:
     title: VOI Selection Criteria
-    description: Protocol-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative
-      analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near
-      dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded
-      separately at analysis level.
+    description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for
+      quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening
+      halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis
+      is recorded separately at analysis level.
     type: object
     properties:
       '@id':
@@ -6213,7 +6412,7 @@ $defs:
     description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale
       value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating
       point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation
-      analysis. The protocol may specify a required output bit depth if downstream analysis workflows depend
+      analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend
       on a consistent grayscale range; the analyst confirms or adjusts at analysis time.
     type: object
     properties:
@@ -6227,6 +6426,62 @@ $defs:
           '@id': ada:parameter/labxctTAPP/outputBitDepth
       schema:name:
         const: Output Bit Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  labxct_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity into the reported
+      quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
+      calibrated against a reference of independently known value, rather than on the instrument response
+      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
+      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
+      records the resulting factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  labxct_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to calculate the final reported
+      quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
+      values used in a correction or calculation), together with their source. Distinct from Reference Material
+      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
+      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
+      revisable physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/labxctTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
       schema:value:
         type: string
     required:
@@ -6351,11 +6606,11 @@ $defs:
     - schema:value
   labxct_partialVolumeEffectCriteria:
     title: Partial Volume Effect Criteria
-    description: Protocol-level specification of how partial volume effects (PVE) are managed in quantitative
+    description: Procedure-level specification of how partial volume effects (PVE) are managed in quantitative
       analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features,
       because each voxel integrates the attenuation of all material within its volume. PVE correction can
       be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion
-      adopted for the protocol (in voxels or µm), the treatment of boundary voxels in modal abundance or
+      adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or
       size distribution calculations, and whether PVE correction is required or optional.
     type: object
     properties:
@@ -6462,26 +6717,26 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  labxct_crossValidationProtocolRequirement:
-    title: Cross-Validation Protocol Requirement
-    description: Protocol-level specification of what independent analytical validation is required to confirm
-      CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant
-      where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients.
-      Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity,
-      and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction
-      (e.g., every sample, one per session, or a representative subset).
+  labxct_crossValidationProcedureRequirement:
+    title: Cross-Validation Procedure Requirement
+    description: Procedure-level specification of what independent analytical validation is required to
+      confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
+      is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation
+      coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
+      for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the
+      sampling fraction (e.g., every sample, one per session, or a representative subset).
     type: object
     properties:
       '@id':
-        const: ada:parameter/labxctTAPP/crossValidationProtocolRequirement
+        const: ada:parameter/labxctTAPP/crossValidationProcedureRequirement
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/labxctTAPP/crossValidationProtocolRequirement
+          '@id': ada:parameter/labxctTAPP/crossValidationProcedureRequirement
       schema:name:
-        const: Cross-Validation Protocol Requirement
+        const: Cross-Validation Procedure Requirement
       schema:value:
         type: string
     required:
@@ -6508,6 +6763,55 @@ $defs:
           '@id': ada:parameter/labxctTAPP/crossValidationOutcome
       schema:name:
         const: Cross-Validation Outcome
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  labxct_fundingSourceForProcedureDevelopment:
+    title: Funding Source for Procedure Development
+    description: Grants and other funding sources that supported instrument acquisition, major upgrades,
+      procedure development, and associated personnel time. Include grant numbers and funding agencies where
+      applicable.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/fundingSourceForProcedureDevelopment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/labxctTAPP/fundingSourceForProcedureDevelopment
+      schema:name:
+        const: Funding Source for Procedure Development
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  labxct_procedureReference:
+    title: Procedure Reference(s)
+    description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
+      or benchmarking this procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/procedureReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/labxctTAPP/procedureReference
+      schema:name:
+        const: Procedure Reference(s)
       schema:value:
         type: string
     required:
@@ -7831,21 +8135,24 @@ $defs:
     - schema:name
     - schema:value
 
-  semComposition_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
+  semComposition_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
+      link to the companion method independent of whether a dataset has been deposited. If the coupled procedure
+      has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending".
+      Enter "None" if no coupling is planned.
     type: object
     properties:
       '@id':
-        const: ada:parameter/semCompositionTAPP/coupledProtocolDoi
+        const: ada:parameter/semCompositionTAPP/coupledProcedureDoi
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/semCompositionTAPP/coupledProtocolDoi
+          '@id': ada:parameter/semCompositionTAPP/coupledProcedureDoi
       schema:name:
-        const: Coupled Protocol DOI
+        const: Coupled Procedure DOI
       schema:value:
         type: string
     required:
@@ -7856,8 +8163,12 @@ $defs:
     - schema:value
   semComposition_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN, this field may be 'None'.
+    description: 'DOI or other persistent identifier for the co-registered dataset or publication where
+      both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a
+      shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use "same submission"
+      if the coupled dataset is included in this data package, or "pending" if not yet assigned. If coupling
+      is documented through a shared sample identifier only, that information is already captured in Sample
+      Persistent Identifier (Group 2).'
     type: object
     properties:
       '@id':
@@ -7920,6 +8231,61 @@ $defs:
           '@id': ada:parameter/semCompositionTAPP/samplePersistentIdentifier
       schema:name:
         const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_targetSelectionCriteria:
+    title: Target Selection Criteria
+    description: 'The rules governing which part of the sample is analysed, and why. Covers the criteria
+      applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
+      freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
+      which states the material type the procedure is designed for: this field states how, within such a
+      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
+      which implements this concept for a single technique.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/targetSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semCompositionTAPP/targetSelectionCriteria
+      schema:name:
+        const: Target Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
       schema:value:
         type: string
     required:
@@ -8211,10 +8577,38 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  semComposition_stepSizePixelSize:
+    title: Step Size / Pixel Size
+    description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS
+      mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions,
+      determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition
+      time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/stepSizePixelSize
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semCompositionTAPP/stepSizePixelSize
+      schema:name:
+        const: Step Size / Pixel Size
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds per analyte. Protocol
-      specifies standard values; analysts may adjust within protocol-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure
+      specifies standard values; analysts may adjust within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -8286,9 +8680,7 @@ $defs:
       schema:name:
         const: Background Position(s)
       schema:value:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8418,10 +8810,68 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  semComposition_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity into the reported
+      quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
+      calibrated against a reference of independently known value, rather than on the instrument response
+      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
+      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
+      records the resulting factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to calculate the final reported
+      quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
+      values used in a correction or calculation), together with their source. Distinct from Reference Material
+      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
+      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
+      revisable physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS
-      quantification.
+      quantification. Include the material name, its source or supplier, and a citation for the accepted
+      values used, since results calibrated against different published values for the same material are
+      not directly comparable.
     type: object
     properties:
       '@id':
@@ -8467,21 +8917,47 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  semComposition_detectionLimitMethod:
-    title: Detection Limit Method
-    description: Formula or procedure used to calculate detection limits.
+  semComposition_fundingSourceForProcedureDevelopment:
+    title: Funding Source for Procedure Development
+    description: Grants and other funding sources that supported instrument acquisition, major upgrades,
+      procedure development, and associated personnel time. Include grant numbers and funding agencies where
+      applicable.
     type: object
     properties:
       '@id':
-        const: ada:parameter/semCompositionTAPP/detectionLimitMethod
+        const: ada:parameter/semCompositionTAPP/fundingSourceForProcedureDevelopment
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/semCompositionTAPP/detectionLimitMethod
+          '@id': ada:parameter/semCompositionTAPP/fundingSourceForProcedureDevelopment
       schema:name:
-        const: Detection Limit Method
+        const: Funding Source for Procedure Development
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_procedureReference:
+    title: Procedure Reference(s)
+    description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
+      or benchmarking this procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/procedureReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semCompositionTAPP/procedureReference
+      schema:name:
+        const: Procedure Reference(s)
       schema:value:
         type: string
     required:
@@ -8764,21 +9240,24 @@ $defs:
     - schema:name
     - schema:value
 
-  semFibsem_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
+  semFibsem_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
+      link to the companion method independent of whether a dataset has been deposited. If the coupled procedure
+      has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending".
+      Enter "None" if no coupling is planned.
     type: object
     properties:
       '@id':
-        const: ada:parameter/semFibsemTAPP/coupledProtocolDoi
+        const: ada:parameter/semFibsemTAPP/coupledProcedureDoi
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/semFibsemTAPP/coupledProtocolDoi
+          '@id': ada:parameter/semFibsemTAPP/coupledProcedureDoi
       schema:name:
-        const: Coupled Protocol DOI
+        const: Coupled Procedure DOI
       schema:value:
         type: string
     required:
@@ -8789,8 +9268,12 @@ $defs:
     - schema:value
   semFibsem_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN, this field may be 'None'.
+    description: 'DOI or other persistent identifier for the co-registered dataset or publication where
+      both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a
+      shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use "same submission"
+      if the coupled dataset is included in this data package, or "pending" if not yet assigned. If coupling
+      is documented through a shared sample identifier only, that information is already captured in Sample
+      Persistent Identifier (Group 2).'
     type: object
     properties:
       '@id':
@@ -8853,6 +9336,61 @@ $defs:
           '@id': ada:parameter/semFibsemTAPP/samplePersistentIdentifier
       schema:name:
         const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semFibsem_targetSelectionCriteria:
+    title: Target Selection Criteria
+    description: 'The rules governing which part of the sample is analysed, and why. Covers the criteria
+      applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
+      freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
+      which states the material type the procedure is designed for: this field states how, within such a
+      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
+      which implements this concept for a single technique.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/targetSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semFibsemTAPP/targetSelectionCriteria
+      schema:name:
+        const: Target Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semFibsem_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
       schema:value:
         type: string
     required:
@@ -9056,23 +9594,23 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  semFibsem_targetFoilThickness:
-    title: Target Foil Thickness
+  semFibsem_foilThickness:
+    title: Foil Thickness
     description: 'Target thickness of the electron-transparent TEM lamella after final FIB polishing, in
       nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM;
       200-600 nm for XANES or tomography sections.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/semFibsemTAPP/targetFoilThickness
+        const: ada:parameter/semFibsemTAPP/foilThickness
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/semFibsemTAPP/targetFoilThickness
+          '@id': ada:parameter/semFibsemTAPP/foilThickness
       schema:name:
-        const: Target Foil Thickness
+        const: Foil Thickness
       schema:value:
         anyOf:
         - type: number
@@ -9185,22 +9723,102 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-
-  semImaging_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
+  semFibsem_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to calculate the final reported
+      quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
+      values used in a correction or calculation), together with their source. Distinct from Reference Material
+      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
+      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
+      revisable physical constants feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
-        const: ada:parameter/semImagingTAPP/coupledProtocolDoi
+        const: ada:parameter/semFibsemTAPP/constantsAndReferenceValuesUsed
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/semImagingTAPP/coupledProtocolDoi
+          '@id': ada:parameter/semFibsemTAPP/constantsAndReferenceValuesUsed
       schema:name:
-        const: Coupled Protocol DOI
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semFibsem_fundingSourceForProcedureDevelopment:
+    title: Funding Source for Procedure Development
+    description: Grants and other funding sources that supported instrument acquisition, major upgrades,
+      procedure development, and associated personnel time. Include grant numbers and funding agencies where
+      applicable.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/fundingSourceForProcedureDevelopment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semFibsemTAPP/fundingSourceForProcedureDevelopment
+      schema:name:
+        const: Funding Source for Procedure Development
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semFibsem_procedureReference:
+    title: Procedure Reference(s)
+    description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
+      or benchmarking this procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/procedureReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semFibsemTAPP/procedureReference
+      schema:name:
+        const: Procedure Reference(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+
+  semImaging_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
+      link to the companion method independent of whether a dataset has been deposited. If the coupled procedure
+      has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending".
+      Enter "None" if no coupling is planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semImagingTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
       schema:value:
         type: string
     required:
@@ -9211,8 +9829,12 @@ $defs:
     - schema:value
   semImaging_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN, this field may be 'None'.
+    description: 'DOI or other persistent identifier for the co-registered dataset or publication where
+      both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a
+      shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use "same submission"
+      if the coupled dataset is included in this data package, or "pending" if not yet assigned. If coupling
+      is documented through a shared sample identifier only, that information is already captured in Sample
+      Persistent Identifier (Group 2).'
     type: object
     properties:
       '@id':
@@ -9275,6 +9897,61 @@ $defs:
           '@id': ada:parameter/semImagingTAPP/samplePersistentIdentifier
       schema:name:
         const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semImaging_targetSelectionCriteria:
+    title: Target Selection Criteria
+    description: 'The rules governing which part of the sample is analysed, and why. Covers the criteria
+      applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
+      freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
+      which states the material type the procedure is designed for: this field states how, within such a
+      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
+      which implements this concept for a single technique.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/targetSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semImagingTAPP/targetSelectionCriteria
+      schema:name:
+        const: Target Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semImaging_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
       schema:value:
         type: string
     required:
@@ -9513,7 +10190,7 @@ $defs:
     - schema:unitText
   semImaging_ebsdPhaseList:
     title: EBSD Phase List
-    description: Mineral phases included in the EBSD reference pattern library for this protocol. The protocol
+    description: Mineral phases included in the EBSD reference pattern library for this procedure. The procedure
       specifies the expected phase suite for the target material; analysts may add phases for specific sample
       compositions.
     type: object
@@ -9583,6 +10260,34 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  semImaging_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to calculate the final reported
+      quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
+      values used in a correction or calculation), together with their source. Distinct from Reference Material
+      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
+      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
+      revisable physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semImaging_clWavelengthCalibrationReference:
     title: CL Wavelength Calibration Reference
     description: Reference light source or standard material used to calibrate the wavelength axis of the
@@ -9599,6 +10304,55 @@ $defs:
           '@id': ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
       schema:name:
         const: CL Wavelength Calibration Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semImaging_fundingSourceForProcedureDevelopment:
+    title: Funding Source for Procedure Development
+    description: Grants and other funding sources that supported instrument acquisition, major upgrades,
+      procedure development, and associated personnel time. Include grant numbers and funding agencies where
+      applicable.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/fundingSourceForProcedureDevelopment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semImagingTAPP/fundingSourceForProcedureDevelopment
+      schema:name:
+        const: Funding Source for Procedure Development
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semImaging_procedureReference:
+    title: Procedure Reference(s)
+    description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
+      or benchmarking this procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/procedureReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/semImagingTAPP/procedureReference
+      schema:name:
+        const: Procedure Reference(s)
       schema:value:
         type: string
     required:
@@ -9657,21 +10411,24 @@ $defs:
     - schema:name
     - schema:value
 
-  solutionQicpms_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
+  solutionQicpms_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
+      link to the companion method independent of whether a dataset has been deposited. If the coupled procedure
+      has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending".
+      Enter "None" if no coupling is planned.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionQicpmsTAPP/coupledProtocolDoi
+        const: ada:parameter/solutionQicpmsTAPP/coupledProcedureDoi
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/solutionQicpmsTAPP/coupledProtocolDoi
+          '@id': ada:parameter/solutionQicpmsTAPP/coupledProcedureDoi
       schema:name:
-        const: Coupled Protocol DOI
+        const: Coupled Procedure DOI
       schema:value:
         type: string
     required:
@@ -9682,8 +10439,12 @@ $defs:
     - schema:value
   solutionQicpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN (Group 2), this field may be 'None'.
+    description: 'DOI or other persistent identifier for the co-registered dataset or publication where
+      both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a
+      shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use "same submission"
+      if the coupled dataset is included in this data package, or "pending" if not yet assigned. If coupling
+      is documented through a shared sample identifier only, that information is already captured in Sample
+      Persistent Identifier (Group 2).'
     type: object
     properties:
       '@id':
@@ -9706,7 +10467,7 @@ $defs:
     - schema:value
   solutionQicpms_digestionTemperature:
     title: Digestion Temperature
-    description: Temperature at which acid digestion was carried out (°C). Protocol specifies the target
+    description: Temperature at which acid digestion was carried out (°C). Procedure specifies the target
       temperature.
     type: object
     properties:
@@ -9812,7 +10573,7 @@ $defs:
   solutionQicpms_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
+      or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers
       the target torch position; analyst confirms or adjusts during session tuning.
     type: object
     properties:
@@ -9953,7 +10714,7 @@ $defs:
   solutionQicpms_nebulizerGasFlowRate:
     title: Nebulizer Gas Flow Rate
     description: Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol
-      transport and strongly influences signal sensitivity.
+      transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.
     type: object
     properties:
       '@id':
@@ -9982,7 +10743,8 @@ $defs:
   solutionQicpms_makeUpGasFlowRate:
     title: Make-up Gas Flow Rate
     description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
-      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
+      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where
+      Desolvation System is 'None'.
     type: object
     properties:
       '@id':
@@ -10008,10 +10770,40 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  solutionQicpms_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
+      dwell times are programmed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   solutionQicpms_collisionGasFlowRate:
     title: Collision Gas Flow Rate
     description: Flow rate of the collision gas in KED mode (mL/min). Higher flow rates provide greater
       interference suppression at the cost of analyte sensitivity. Record 'N/A' if KED mode is not used.
+      Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.
     type: object
     properties:
       '@id':
@@ -10040,7 +10832,8 @@ $defs:
   solutionQicpms_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Kinetic energy discrimination offset voltage applied at the exit of the collision cell
-      (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used.
+      (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used. Record
+      'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.
     type: object
     properties:
       '@id':
@@ -10069,6 +10862,7 @@ $defs:
   solutionQicpms_reactionGasFlowRate:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used.
+      Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.
     type: object
     properties:
       '@id':
@@ -10147,7 +10941,7 @@ $defs:
     - schema:name
     - schema:value
   solutionQicpms_spikeOutlierFilteringApproach:
-    title: Spike/Outlier Filtering Approach
+    title: Spike / Outlier Filtering Approach
     description: Criteria used to identify and exclude anomalous replicate measurements or data points from
       the calculated mean.
     type: object
@@ -10161,7 +10955,7 @@ $defs:
         const:
           '@id': ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
       schema:name:
-        const: Spike/Outlier Filtering Approach
+        const: Spike / Outlier Filtering Approach
       schema:value:
         type: string
     required:
@@ -10198,7 +10992,7 @@ $defs:
     - schema:value
   solutionQicpms_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
+    description: Procedure applied to identify and minimize carry-over of high-concentration elements between
       successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
       time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
       documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
@@ -10225,8 +11019,11 @@ $defs:
     - schema:value
   solutionQicpms_uncertaintyPropagationMethod:
     title: Uncertainty Propagation Method
-    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
-      values.
+    description: 'The approach used to propagate analytical uncertainty through the data reduction chain
+      to the final reported value. State which sources are included in the propagation: counting statistics,
+      calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic
+      contributions. Distinct from Uncertainty Level, which states the convention at which the resulting
+      uncertainty is quoted.'
     type: object
     properties:
       '@id':
@@ -10248,7 +11045,7 @@ $defs:
     - schema:name
     - schema:value
   solutionQicpms_normalizationStandardsBasedCorrection:
-    title: Normalization/Standards-Based Correction
+    title: Normalization / Standards-Based Correction
     description: Post-acquisition normalization applied to output concentrations relative to a reference
       value (e.g., correction to a monitor element's certified value in the calibration standard).
     type: object
@@ -10262,7 +11059,63 @@ $defs:
         const:
           '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
       schema:name:
-        const: Normalization/Standards-Based Correction
+        const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity into the reported
+      quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
+      calibrated against a reference of independently known value, rather than on the instrument response
+      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
+      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
+      records the resulting factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to calculate the final reported
+      quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
+      values used in a correction or calculation), together with their source. Distinct from Reference Material
+      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
+      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
+      revisable physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
       schema:value:
         type: string
     required:
@@ -10274,7 +11127,9 @@ $defs:
   solutionQicpms_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Name and reference material identifier of the external calibration standard used to convert
-      signal intensities to elemental concentrations.
+      signal intensities to elemental concentrations. Include the material name, its source or supplier,
+      and a citation for the accepted values used, since results calibrated against different published
+      values for the same material are not directly comparable.
     type: object
     properties:
       '@id':
@@ -10311,6 +11166,55 @@ $defs:
           '@id': ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
       schema:name:
         const: Secondary Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_fundingSourceForProcedureDevelopment:
+    title: Funding Source for Procedure Development
+    description: Grants and other funding sources that supported instrument acquisition, major upgrades,
+      procedure development, and associated personnel time. Include grant numbers and funding agencies where
+      applicable.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/fundingSourceForProcedureDevelopment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/fundingSourceForProcedureDevelopment
+      schema:name:
+        const: Funding Source for Procedure Development
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_procedureReference:
+    title: Procedure Reference(s)
+    description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
+      or benchmarking this procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/procedureReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionQicpmsTAPP/procedureReference
+      schema:name:
+        const: Procedure Reference(s)
       schema:value:
         type: string
     required:
@@ -10367,36 +11271,12 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  solutionQicpms_guardElectrode:
-    title: Guard Electrode
-    description: Whether a guard electrode (grounded shield electrode) is installed and active on the torch
-      assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving
-      ion extraction efficiency.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/guardElectrode
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionQicpmsTAPP/guardElectrode
-      schema:name:
-        const: Guard Electrode
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   solutionQicpms_desolvationSystem:
     title: Desolvation System
-    description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
-      load. Lowers oxide production rates and increases sensitivity for selected element groups (e.g., ApexQ
-      for chalcophile elements). Record 'None' if not used.
+    description: 'Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
+      load. Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance
+      analytes or small sample sizes. Note the trade-off: desolvation can introduce additional instrumental
+      mass bias instability relative to wet plasma introduction. Record ''None'' if not used.'
     type: object
     properties:
       '@id':
@@ -10420,7 +11300,8 @@ $defs:
   solutionQicpms_reactionGasType:
     title: Reaction Gas Type
     description: Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4). Record
-      'N/A' if DRC mode is not used.
+      'N/A' if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does
+      not include DRC.
     type: object
     properties:
       '@id':
@@ -10444,7 +11325,7 @@ $defs:
   solutionQicpms_internalStandardConcentration:
     title: Internal Standard Concentration
     description: Target concentration of internal standard element(s) in all measured solutions (µg/L or
-      ppb).
+      ppb). Record 'N/A' where Internal Standard Element is 'None'.
     type: object
     properties:
       '@id':
@@ -10471,21 +11352,24 @@ $defs:
     - schema:value
     - schema:unitText
 
-  solutionSficpms_coupledProtocolDoi:
-    title: Coupled Protocol DOI
-    description: DOI of the registered protocol for the coupled technique.
+  solutionSficpms_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
+      link to the companion method independent of whether a dataset has been deposited. If the coupled procedure
+      has not yet been registered, enter the DOI of a publication describing the coupled method, or "pending".
+      Enter "None" if no coupling is planned.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/coupledProtocolDoi
+        const: ada:parameter/solutionSficpmsTAPP/coupledProcedureDoi
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/solutionSficpmsTAPP/coupledProtocolDoi
+          '@id': ada:parameter/solutionSficpmsTAPP/coupledProcedureDoi
       schema:name:
-        const: Coupled Protocol DOI
+        const: Coupled Procedure DOI
       schema:value:
         type: string
     required:
@@ -10496,8 +11380,12 @@ $defs:
     - schema:value
   solutionSficpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
-    description: DOI of the dataset or publication containing the coupled technique data. If coupling is
-      documented only through a shared sample IGSN (Group 2), this field may be 'None'.
+    description: 'DOI or other persistent identifier for the co-registered dataset or publication where
+      both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a
+      shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use "same submission"
+      if the coupled dataset is included in this data package, or "pending" if not yet assigned. If coupling
+      is documented through a shared sample identifier only, that information is already captured in Sample
+      Persistent Identifier (Group 2).'
     type: object
     properties:
       '@id':
@@ -10520,7 +11408,7 @@ $defs:
     - schema:value
   solutionSficpms_digestionTemperature:
     title: Digestion Temperature
-    description: Temperature at which acid digestion was carried out (°C). Protocol specifies the target
+    description: Temperature at which acid digestion was carried out (°C). Procedure specifies the target
       temperature.
     type: object
     properties:
@@ -10626,7 +11514,7 @@ $defs:
   solutionSficpms_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Protocol registers
+      or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers
       the target torch position; analyst confirms or adjusts during session tuning.
     type: object
     properties:
@@ -10650,10 +11538,10 @@ $defs:
     - schema:value
   solutionSficpms_massResolutionSetting:
     title: Mass Resolution Setting
-    description: Mass resolution mode(s) used in this protocol. Sector-field instruments allow selection
+    description: Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection
       of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution
-      (HR; m/Δm ≈ 10,000). Multi-resolution protocols assign individual analytes to specific modes (documented
-      in Group 4 under Mass Resolution per Analyte). Protocol registers the mode(s) in use; analyst confirms
+      (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented
+      in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms
       at session start.
     type: object
     properties:
@@ -10794,7 +11682,7 @@ $defs:
   solutionSficpms_nebulizerGasFlowRate:
     title: Nebulizer Gas Flow Rate
     description: Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol
-      transport and strongly influences signal sensitivity.
+      transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.
     type: object
     properties:
       '@id':
@@ -10823,7 +11711,8 @@ $defs:
   solutionSficpms_makeUpGasFlowRate:
     title: Make-up Gas Flow Rate
     description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
-      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.
+      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where
+      Desolvation System is 'None'.
     type: object
     properties:
       '@id':
@@ -10836,6 +11725,35 @@ $defs:
           '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
       schema:name:
         const: Make-up Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
+      dwell times are programmed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
       schema:value:
         anyOf:
         - type: number
@@ -10902,7 +11820,7 @@ $defs:
     - schema:name
     - schema:value
   solutionSficpms_spikeOutlierFilteringApproach:
-    title: Spike/Outlier Filtering Approach
+    title: Spike / Outlier Filtering Approach
     description: Criteria used to identify and exclude anomalous replicate measurements or data points from
       the calculated mean.
     type: object
@@ -10916,7 +11834,7 @@ $defs:
         const:
           '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
       schema:name:
-        const: Spike/Outlier Filtering Approach
+        const: Spike / Outlier Filtering Approach
       schema:value:
         type: string
     required:
@@ -10955,7 +11873,7 @@ $defs:
     - schema:value
   solutionSficpms_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Protocol applied to identify and minimize carry-over of high-concentration elements between
+    description: Procedure applied to identify and minimize carry-over of high-concentration elements between
       successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
       time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
       documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
@@ -10982,8 +11900,11 @@ $defs:
     - schema:value
   solutionSficpms_uncertaintyPropagationMethod:
     title: Uncertainty Propagation Method
-    description: Method used to propagate analytical uncertainties from raw signals through to final concentration
-      values.
+    description: 'The approach used to propagate analytical uncertainty through the data reduction chain
+      to the final reported value. State which sources are included in the propagation: counting statistics,
+      calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic
+      contributions. Distinct from Uncertainty Level, which states the convention at which the resulting
+      uncertainty is quoted.'
     type: object
     properties:
       '@id':
@@ -11005,7 +11926,7 @@ $defs:
     - schema:name
     - schema:value
   solutionSficpms_normalizationStandardsBasedCorrection:
-    title: Normalization/Standards-Based Correction
+    title: Normalization / Standards-Based Correction
     description: Post-acquisition normalization applied to output concentrations relative to a reference
       value (e.g., correction to a BHVO-2 working value).
     type: object
@@ -11019,7 +11940,63 @@ $defs:
         const:
           '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
       schema:name:
-        const: Normalization/Standards-Based Correction
+        const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity into the reported
+      quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
+      calibrated against a reference of independently known value, rather than on the instrument response
+      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
+      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
+      records the resulting factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to calculate the final reported
+      quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
+      values used in a correction or calculation), together with their source. Distinct from Reference Material
+      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
+      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
+      revisable physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
       schema:value:
         type: string
     required:
@@ -11031,7 +12008,9 @@ $defs:
   solutionSficpms_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Name and reference material identifier of the external calibration standard used to convert
-      signal intensities to elemental concentrations.
+      signal intensities to elemental concentrations. Include the material name, its source or supplier,
+      and a citation for the accepted values used, since results calibrated against different published
+      values for the same material are not directly comparable.
     type: object
     properties:
       '@id':
@@ -11068,6 +12047,55 @@ $defs:
           '@id': ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
       schema:name:
         const: Secondary Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_fundingSourceForProcedureDevelopment:
+    title: Funding Source for Procedure Development
+    description: Grants and other funding sources that supported instrument acquisition, major upgrades,
+      procedure development, and associated personnel time. Include grant numbers and funding agencies where
+      applicable.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/fundingSourceForProcedureDevelopment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/fundingSourceForProcedureDevelopment
+      schema:name:
+        const: Funding Source for Procedure Development
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_procedureReference:
+    title: Procedure Reference(s)
+    description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
+      or benchmarking this procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/procedureReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+          '@id': ada:parameter/solutionSficpmsTAPP/procedureReference
+      schema:name:
+        const: Procedure Reference(s)
       schema:value:
         type: string
     required:
@@ -11124,37 +12152,12 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  solutionSficpms_guardElectrode:
-    title: Guard Electrode
-    description: Whether a guard electrode (grounded shield electrode) is installed and active on the torch
-      assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving
-      ion extraction efficiency. Actively used as a design feature on Thermo Element 2 and Element XR instruments.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/guardElectrode
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/solutionSficpmsTAPP/guardElectrode
-      schema:name:
-        const: Guard Electrode
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   solutionSficpms_desolvationSystem:
     title: Desolvation System
-    description: Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
-      load. Reduces oxide production rates and increases sensitivity for selected element groups. Specific
-      systems (e.g., Aridus-I) are often assigned to particular element fractions in multi-fraction protocols.
-      Record 'None' if not used.
+    description: 'Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent
+      load. Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance
+      analytes or small sample sizes. Note the trade-off: desolvation can introduce additional instrumental
+      mass bias instability relative to wet plasma introduction. Record ''None'' if not used.'
     type: object
     properties:
       '@id':
@@ -11179,7 +12182,8 @@ $defs:
     title: E-scan Range
     description: Electric scan range used for peak acquisition, expressed as percentage of the center mass
       (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without
-      re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used.
+      re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used. Record 'N/A' where E-scan
+      acquisition mode is not used.
     type: object
     properties:
       '@id':
@@ -11233,7 +12237,7 @@ $defs:
   solutionSficpms_internalStandardConcentration:
     title: Internal Standard Concentration
     description: Target concentration of internal standard element(s) in all measured solutions (µg/L or
-      ppb).
+      ppb). Record 'N/A' where Internal Standard Element is 'None'.
     type: object
     properties:
       '@id':

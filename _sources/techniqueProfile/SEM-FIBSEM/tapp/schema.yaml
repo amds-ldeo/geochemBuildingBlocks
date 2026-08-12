@@ -2,15 +2,16 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
 description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition.
   Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are
-  schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx
+  schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from TAPPS20260811/SEM/SEM_FIBSEM_TAPP_v9.csv
   by tools/build_tapp.py.'
 allOf:
 - $ref: ../../../BaseSchema/tappDefinition/schema.yaml
 - type: object
   properties:
     schema:name:
-      description: A short descriptive name for this analytical protocol. Should include instrument, technique,
-        analytical mode(s), and target material scope.
+      description: A short descriptive name for this analytical procedure, including a version number.
+        Should identify the instrument, the technique, and the scope of what is measured — analyte, material,
+        or feature.
       type: string
       readOnly: true
     schema:measurementTechnique:
@@ -31,7 +32,8 @@ allOf:
       type: object
       properties:
         schema:name:
-          description: Person(s) or laboratory responsible for developing and registering this protocol.
+          description: Person(s) or laboratory responsible for developing and registering this procedure.
+            ORCID recommended for individuals.
           type: string
           readOnly: true
     schema:location:
@@ -44,7 +46,7 @@ allOf:
           description: Persistent identifier for the laboratory (e.g., ROR ID).
           type: string
     schema:datePublished:
-      description: First date this protocol configuration was used in production.
+      description: First date this procedure configuration was used in production.
       type: string
       readOnly: true
     schema:funding:
@@ -53,8 +55,9 @@ allOf:
         type: object
         properties:
           schema:name:
-            description: Grants and funding that supported development of this protocol. Include grant
-              IDs.
+            description: Grants and other funding sources that supported instrument acquisition, major
+              upgrades, procedure development, and associated personnel time. Include grant numbers and
+              funding agencies where applicable.
             type: string
             readOnly: true
     schema:relatedLink:
@@ -74,8 +77,8 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: DOI or URL for publications or reports describing or evaluating this
-                      protocol.
+                    description: DOI or URL for peer-reviewed publications or technical reports describing,
+                      validating, or benchmarking this procedure.
                     type: string
                     readOnly: true
         - if:
@@ -91,15 +94,24 @@ allOf:
                 properties:
                   schema:name:
                     description: Other analytical techniques applied to the same sample(s) whose results
-                      are intended to be interpreted together with this dataset. For SEM/FIB-SEM, common
-                      couplings include TEM/STEM (FIB-prepared sections), EPMA (quantitative major-element
-                      context), NanoSIMS, SIMS, Raman, and XCT.
+                      are intended to be interpreted together with data from this procedure. Document
+                      coupling with any technique whose results are functionally linked to this dataset
+                      — providing calibration inputs, complementary spatial context, or required companion
+                      measurements. Use the same controlled vocabulary as the Technique field. Enter "None"
+                      if no coupling is intended.
                     type: string
+                    enum:
+                    - EPMA; NanoSIMS
+                    - XCT (pre-SEM overview)
+                    - None
+                    - N/A
                   schema:description:
-                    description: Describes (1) the functional relationship between this SEM/FIB-SEM dataset
-                      and the coupled technique — what data or context flows between them — and (2) the
-                      analytical sequence — which technique was performed first and why. Required when
-                      Coupled Technique(s) is not 'None'.
+                    description: 'Description of how this procedure is coupled with the technique(s) listed
+                      above. Include: (1) the functional relationship — what data or context flows between
+                      techniques, or how results are combined (e.g. which output from the coupled technique
+                      serves as input to data reduction for this technique); and (2) the analytical sequence
+                      — which technique is performed first and why (e.g. non-destructive before destructive).
+                      Required when Coupled Technique(s) is not "None".'
                     type: string
     schema:object:
       type: array
@@ -131,7 +143,7 @@ allOf:
                         schema:value:
                           type: array
                           items:
-                            description: General description of the material type(s) this protocol is
+                            description: General description of the material type(s) this procedure is
                               designed to analyze.
                             type: string
                             enum:
@@ -307,21 +319,21 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                       - &id004
-                        title: Target Foil Thickness
+                        title: Foil Thickness
                         description: 'Target thickness of the electron-transparent TEM lamella after final
                           FIB polishing, in nanometres. Actual thickness may differ from target. Typical
                           range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.'
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/semFibsemTAPP/targetFoilThicknessDefault
+                            const: ada:parameter/semFibsemTAPP/foilThicknessDefault
                           '@type':
                             const:
                             - schema:PropertyValueSpecification
                           schema:valueName:
-                            const: targetFoilThicknessDefault
+                            const: foilThicknessDefault
                           schema:name:
-                            const: Target Foil Thickness
+                            const: Foil Thickness
                           ada:dataType:
                             const: number
                           ada:fieldScope:
@@ -798,7 +810,7 @@ allOf:
     ada:analyticalMode:
       type: array
       items:
-        description: Primary analytical mode(s) executed under this protocol. For multi-mode protocols
+        description: Primary analytical mode(s) executed under this procedure. For multi-mode procedures
           (e.g., simultaneous BSE + EDS mapping), list all active modes.
         type: string
         enum:
@@ -877,8 +889,11 @@ allOf:
         organic matter).
       type: string
     schema:description:
-      description: Any additional context about this protocol or analysis session not captured by structured
-        fields above.
+      description: 'Any procedure- or analysis-specific information not captured by a structured field
+        anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
+        modifications, and supplementary context. Scope is the whole document, not Group 6: this is the
+        last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
+        for anything that can be formally categorised.'
       type: string
   required:
   - schema:name

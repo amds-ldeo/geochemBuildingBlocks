@@ -305,8 +305,8 @@ $defs:
     - ada:dataType
   detectionLimitMethod:
     title: Detection Limit Method
-    description: Formula or procedure used to calculate detection limits. Reference method publication
-      if applicable. When the protocol does not specify a method, the analyst should complete this field.
+    description: Formula or approach used to calculate detection limits. Reference method publication
+      if applicable. When the procedure does not specify a method, the analyst should complete this field.
     type: object
     properties:
       '@id':
@@ -321,9 +321,9 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: false
+        const: true
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -332,6 +332,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   edsDeadTime:
     title: EDS Dead Time
     description: Percent dead time reported by the EDS spectrometer
@@ -463,15 +464,13 @@ $defs:
       schema:name:
         const: Background Position(s)
       ada:dataType:
-        const: number
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
@@ -481,7 +480,7 @@ $defs:
   empa_beamCurrent:
     title: Beam Current
     description: Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the
-      protocol-standard value(s).
+      procedure-standard value(s).
     type: object
     properties:
       '@id':
@@ -600,7 +599,7 @@ $defs:
     - schema:defaultValue
   empa_epmaTechniquePerAnalyte:
     title: EPMA Technique per Analyte
-    description: Whether each analyte was measured by WDS or EDS. In a WDS+EDS protocol, some elements
+    description: Whether each analyte was measured by WDS or EDS. In a WDS+EDS procedure, some elements
       may be assigned to WDS and others to EDS.
     type: object
     properties:
@@ -660,7 +659,9 @@ $defs:
   empa_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Name(s) of the primary reference material(s) used for element standardization (intensity
-      calibration).
+      calibration). Include the material name, its source or supplier, and a citation for the accepted
+      values used, since results calibrated against different published values for the same material are
+      not directly comparable.
     type: object
     properties:
       '@id':
@@ -859,13 +860,16 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: O
+        const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   geochron_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: Reproducibility of measurements across multiple analytical sessions over weeks to months.
@@ -887,7 +891,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: O
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -915,7 +921,11 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: O
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -969,7 +979,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: O
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -996,7 +1008,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: O
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1024,7 +1038,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: O
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1079,7 +1095,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: O
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1106,13 +1124,16 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: O
+        const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   interferenceCorrection:
     title: Interference Corrections Applied
     description: Flag indicating whether a spectral interference correction was applied for this element.
@@ -1648,8 +1669,8 @@ $defs:
     - ada:dataType
   peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds. Protocol specifies
-      standard values per analyte; analysts may adjust within protocol-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies
+      standard values per analyte; analysts may adjust within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -1895,15 +1916,13 @@ $defs:
       schema:name:
         const: Background Position(s)
       ada:dataType:
-        const: number
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2032,7 +2051,7 @@ $defs:
     - ada:dataType
   semComposition_detectionLimitMethod:
     title: Detection Limit Method
-    description: Formula or procedure used to calculate detection limits.
+    description: Formula or approach used to calculate detection limits.
     type: object
     properties:
       '@id':
@@ -2047,9 +2066,9 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: false
+        const: true
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -2058,6 +2077,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_diffractingCrystal:
     title: Diffracting Crystal
     description: Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal
@@ -2119,8 +2139,8 @@ $defs:
     - ada:dataType
   semComposition_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds per analyte. Protocol
-      specifies standard values; analysts may adjust within protocol-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure
+      specifies standard values; analysts may adjust within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -2152,7 +2172,9 @@ $defs:
   semComposition_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Name(s) of the primary reference material(s) used for intensity calibration in EDS or
-      WDS quantification.
+      WDS quantification. Include the material name, its source or supplier, and a citation for the accepted
+      values used, since results calibrated against different published values for the same material are
+      not directly comparable.
     type: object
     properties:
       '@id':
@@ -2469,7 +2491,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -2478,6 +2500,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
@@ -2510,7 +2533,7 @@ $defs:
   solutionQicpms_detectionLimit:
     title: Detection Limit
     description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether
-      values are protocol-typical estimates or session-specific measured values.
+      values are procedure-typical estimates or session-specific measured values.
     type: object
     properties:
       '@id':
@@ -2555,9 +2578,9 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: false
+        const: true
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -2566,6 +2589,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
     description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
@@ -2768,7 +2792,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -2777,6 +2801,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
     description: Accuracy of final concentration measurements relative to certified or consensus values
@@ -2797,7 +2822,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -2806,6 +2831,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
@@ -2838,7 +2864,7 @@ $defs:
   solutionSficpms_detectionLimit:
     title: Detection Limit
     description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether
-      values are protocol-typical estimates or session-specific measured values.
+      values are procedure-typical estimates or session-specific measured values.
     type: object
     properties:
       '@id':
@@ -2883,9 +2909,9 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: false
+        const: true
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -2894,6 +2920,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_dwellTimePerMass:
     title: Dwell Time per Mass
     description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
@@ -2912,7 +2939,7 @@ $defs:
       ada:dataType:
         const: number
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
         const: M
       schema:defaultValue:
@@ -3049,10 +3076,10 @@ $defs:
     - ada:dataType
   solutionSficpms_massResolutionPerAnalyte:
     title: Mass Resolution per Analyte
-    description: Mass resolution mode assigned to each analyte in this protocol. The selected resolution
+    description: Mass resolution mode assigned to each analyte in this procedure. The selected resolution
       determines which polyatomic interferences are physically resolved by the magnet sector. Per-analyte
-      assignments are documented here; the overall mode(s) used in the protocol are recorded in Mass Resolution
-      Setting (Group 3). Analyte-specific field.
+      assignments are documented here; the overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3). Analyte-specific field.
     type: object
     properties:
       '@id':
@@ -3081,7 +3108,7 @@ $defs:
     - schema:defaultValue
   solutionSficpms_monitoredIsotopes:
     title: Monitored Isotopes
-    description: Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor
+    description: Specific isotope(s) monitored per analyte element in this procedure, including any interference-monitor
       masses. Analyte-specific field.
     type: object
     properties:
@@ -3129,7 +3156,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: R
+        const: M
       schema:defaultValue:
         type: string
     required:
@@ -3138,6 +3165,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   spectrometerNumber:
     title: WDS Spectrometer Channel
     description: WDS spectrometer number used for this element.
