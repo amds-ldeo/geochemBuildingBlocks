@@ -14,10 +14,10 @@ technique-specific instrument tree). Output feeds the existing path-driven gener
     python tools/bootstrap_schemapaths.py <workbook.xlsx> --dry-run
 """
 import json, os, re, sys
-import openpyxl
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
+import tapp_source
 import normalize_schema_paths as norm
 import schema_path_parser as spp
 import schemapath_io
@@ -45,8 +45,7 @@ def _aslist(p):
 
 
 def load_rows(path):
-    ws = openpyxl.load_workbook(path, data_only=True, read_only=True)["TAPP"]
-    rs = list(ws.iter_rows(values_only=True))
+    rs = tapp_source.rows(path)            # .csv or .xlsx
     hdr = [(str(c).strip() if c is not None else "") for c in rs[0]]
     def col(*pfx):
         return next((i for i, h in enumerate(hdr) for p in pfx if h.lower().startswith(p)), None)

@@ -24,6 +24,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
+import tapp_source
 import schema_path_parser as spp
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -340,10 +341,8 @@ def leaf_for(desc, dtype, enum=None, default=None):
 # ---------- drive from a workbook + its schemapaths.json ----------
 def _load_rows(tapp):
     """{item -> {desc, P, A, dtype}} from the workbook (mirrors build_tapp column detection)."""
-    import openpyxl
     b.configure(tapp)
-    ws = openpyxl.load_workbook(b.XLSX, data_only=True, read_only=True)["TAPP"]
-    rows = list(ws.iter_rows(values_only=True))
+    rows = tapp_source.rows(b.XLSX)        # .csv or .xlsx
     H = [b.norm(v).lower() for v in rows[0]]
     ci = {"P": next((i for i, v in enumerate(H) if v.startswith("protocol")), None),
           "A": next((i for i, v in enumerate(H) if v.startswith("analysis")), None),
