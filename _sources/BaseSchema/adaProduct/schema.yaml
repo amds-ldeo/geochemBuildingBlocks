@@ -277,15 +277,85 @@ allOf:
             "prov:used":
               type: array
               description: >-
-                Instruments and/or Technique-Aligned Protocol Profile (TAPP)
-                definitions used in the analysis. Each item is an instrument BB
-                instance, a tappDefinition BB instance (inlined), or an @id
-                reference to a TAPP definition node defined elsewhere. Technique
+                Resources used in the analysis. Each item is one of: an instrument
+                BB instance; a computational tool actually used (schema:SoftwareApplication);
+                a reagent / reference material actually used; a tappDefinition BB
+                instance (inlined); or an @id reference to a TAPP definition node
+                defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol)
+                prescribes the generic instrument / computationalTool / reagent
+                list; these prov:used entries record the ACTUALS used in this
+                specific run (tool versions, reagent lots, and their run roles),
+                mirroring how the instrument is already recorded here. Technique
                 profiles narrow the tappDefinition branch to their specific TAPP.
               items:
                 anyOf:
                   - $ref: ../instrument/schema.yaml
+                  # ComputationalTool actually used — mirrors tappDefinition
+                  # $defs/ComputationalTool (kept inline; no cross-file $def refs
+                  # in this repo). The plan prescribes tools; this records the
+                  # actual tool + version + run role used.
                   - type: object
+                    description: Computational tool actually used (acquisition, data reduction, or processing).
+                    properties:
+                      '@type':
+                        type: array
+                        items:
+                          type: string
+                        contains:
+                          const: schema:SoftwareApplication
+                      '@id':
+                        type: string
+                      'schema:name':
+                        type: string
+                      'schema:version':
+                        type: string
+                      'schema:url':
+                        type: string
+                        format: uri
+                      'schema:description':
+                        type: string
+                      'ada:toolRole':
+                        type: string
+                        enum:
+                          - acquisition
+                          - dataReduction
+                          - processing
+                          - visualization
+                    required:
+                      - schema:name
+                  # Reagent / reference material actually used — mirrors
+                  # tappDefinition $defs/Reagent.
+                  - type: object
+                    description: Reference material, calibration standard, or chemical reagent actually used.
+                    properties:
+                      '@type':
+                        type: array
+                        items:
+                          type: string
+                        minItems: 1
+                      '@id':
+                        type: string
+                      'schema:name':
+                        type: string
+                      'schema:description':
+                        type: string
+                      'schema:identifier':
+                        anyOf:
+                          - type: string
+                          - type: object
+                      'ada:reagentRole':
+                        type: string
+                        enum:
+                          - primaryStandard
+                          - secondaryStandard
+                          - interferenceStandard
+                          - blankMaterial
+                          - coatingMaterial
+                          - reagent
+                    required:
+                      - schema:name
+                  - type: object
+                    additionalProperties: false
                     description: Reference by node @id to a TAPP definition object defined elsewhere.
                     properties:
                       '@id':
@@ -361,6 +431,8 @@ allOf:
                 anyOf:
                   - type: string
                   - type: object
+                    required: ['@id']
+                    additionalProperties: false
                     properties:
                       "@id":
                         type: string
@@ -384,6 +456,8 @@ allOf:
               anyOf:
                 - type: string
                 - type: object
+                  required: ['@id']
+                  additionalProperties: false
                   properties:
                     "@id":
                       type: string
@@ -497,6 +571,8 @@ allOf:
           "dcterms:conformsTo":
             contains:
               type: object
+              required: ['@id']
+              additionalProperties: false
               properties:
                 "@id":
                   const: "https://w3id.org/geochem/metadata/profiles/adaProduct"
