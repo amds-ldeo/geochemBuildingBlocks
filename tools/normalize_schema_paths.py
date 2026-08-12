@@ -134,6 +134,12 @@ def recognize(s):
         (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:analyteColumns\[\]$", "analyte-template"),
         # the analyte-identifier column; special_resolve() already emits this for the `Analyte` row
         (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:defaultAnalytes\[\]$", "analyte-identifier"),
+        # the reported-property table: what the procedure REPORTS, as against what it acquires.
+        # Same shape as the analyte template — one row per member, one column per keyed field.
+        (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:reportedPropertyColumns\[\]$", "reported-property-template"),
+        (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:defaultReportedProperties\[\]$", "reported-property-identifier"),
+        # the shared logical variable registry every table part references
+        (r"^\$Dataset\.schema:variableMeasured\[\](\.schema:(name|description|unitText|propertyID))?$", "dataset-variable-measured"),
         (r"^\$MethodDefinition\.schema:description$", "protocol-description"),
         (r"^\$MethodDefinition\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "method-parameter"),
         # selected either by name or by ada:toolRole ('acquisition' / 'dataReduction'); the role

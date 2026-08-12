@@ -82,7 +82,7 @@ Auxiliary Gas Flow Rate,Advanced,Editable,Numeric (L/min),$Dataset.prov:wasGener
 Plasma Thermal Mode,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Plasma Thermal Mode'].schema:value,authored,shared,"read-only: fixed protocol value, not a default"
 Masses Measured,Basic,Editable,Text (free),$MethodDefinition.ada:massesMeasuredDefault,authored,,dual-home decision: protocol default
 Masses Measured,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.ada:massesMeasured,authored,,dual-home decision: analysis-tier value
-Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedVariablesAndUnits,inferred,,
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,,Keyed By: reported property (pilot)
 Integration Time per Peak/Dwell Times; Quadrupole Settling Time Between Mass Jumps,Basic,Editable,Text (free),$MethodDefinition.ada:dwellTimesDefault,authored,,dual-home decision: protocol default
 Integration Time per Peak/Dwell Times; Quadrupole Settling Time Between Mass Jumps,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.ada:dwellTimes,authored,,dual-home decision: analysis-tier value
 Total Integration Time per Output Data Point (s),Basic,Editable,Numeric (s),$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault,authored,,dual-home decision: protocol default
@@ -167,5 +167,5 @@ Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinit
 Calibration Standard Measurement Frequency,Advanced,Read-Only,Text (free),$MethodDefinition.ada:calibrationMeasurementFrequency,inferred,shared,
 Detection Limit,Advanced,Basic,Numeric (unit),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
 Detection Limit,Advanced,Basic,Numeric (unit),$.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
-Detection Limit Method,Advanced,Basic,Text / URI,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
-Limit of Quantification (LOQ) Method,Advanced,Basic,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
+Detection Limit Method,Advanced,Basic,Text / URI,$MethodDefinition.ada:reportedPropertyTemplate.ada:reportedPropertyColumns[],authored,,Keyed By: reported property (pilot)
+Limit of Quantification (LOQ) Method,Advanced,Basic,Controlled list,$MethodDefinition.ada:reportedPropertyTemplate.ada:reportedPropertyColumns[],authored,,Keyed By: reported property (pilot)

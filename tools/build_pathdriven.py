@@ -33,7 +33,7 @@ import build_tapp as b
 import schema_path_emitter as e
 import schema_path_example_emitter as ex
 
-_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|analyteColumns)/schema\.yaml#/\$defs/(.+)$")
+_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|analyteColumns|reportedPropertyColumns)/schema\.yaml#/\$defs/(.+)$")
 
 
 def _inline_registry_refs(node, registries, cache):
@@ -57,6 +57,7 @@ def _inline_registry_refs(node, registries, cache):
 
 _REGISTRY_ID_PREFIX = {
     "analyteColumns": "ada:analyteColumn/",
+    "reportedPropertyColumns": "ada:reportedPropertyColumn/",
     "parameterTemplates": "ada:parameter/",
     "parameterValues": "ada:parameter/",
 }
@@ -162,7 +163,8 @@ def registry_diff(tapp):
 
     print(f"registry diff for {tapp} — what replace-by-ownership would do\n")
     total_del = 0
-    for reg_name in ("analyteColumns", "parameterTemplates", "parameterValues"):
+    for reg_name in ("analyteColumns", "reportedPropertyColumns",
+                     "parameterTemplates", "parameterValues"):
         path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
         if not os.path.exists(path):
             continue
@@ -205,11 +207,13 @@ def build_pathdriven(tapp, write_registries=True):
     # every technique, not just the two the legacy route happened to write. The schemas below still
     # INLINE the defs (see the note on the TAPP schema); publishing and inlining are independent.
     #
-    # Only analyteColumns for now. The parameter registries hold ~180 legacy-route defs the
+    # Only the keyed-table registries. The parameter registries hold ~180 legacy-route defs the
     # path-driven route does not regenerate, so publishing there would add a second, namespaced
     # copy of everything alongside them — churn without a decision on converging the two routes.
-    if write_registries and registries.get("analyteColumns"):
-        _write_registry("analyteColumns", registries["analyteColumns"], tapp)
+    if write_registries:
+        for _reg in ("analyteColumns", "reportedPropertyColumns"):
+            if registries.get(_reg):
+                _write_registry(_reg, registries[_reg], tapp)
 
     # ---- TAPP schema: MethodDefinition overlay over the base tappDefinition.
     # Inline the parameter defs (like the detail) rather than $ref the shared registry: the shared

@@ -91,6 +91,27 @@ ANALYTE_IDENTIFIER_REF = {
     "$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
 }
 
+# Keyed tables: one row per member of a domain, one column per field whose value repeats over it
+# (the TAPP workbook's `Keyed By` column). Every domain has the same three parts — a template
+# object, a columns array, and a base-owned identifier column that must stay permissible once the
+# overlay narrows `items` to the technique's own columns. Only the names differ, so they are
+# table-driven rather than special-cased per domain.
+KEYED_TABLES = {
+    "ada:analyteColumns": {
+        "template": "ada:analyteTemplate",
+        "registry": "analyteColumns",
+        "identifier_ref": ANALYTE_IDENTIFIER_REF,
+    },
+    "ada:reportedPropertyColumns": {
+        "template": "ada:reportedPropertyTemplate",
+        "registry": "reportedPropertyColumns",
+        "identifier_ref": {
+            "$ref": "../../../BaseSchema/tappDefinition/schema.yaml"
+                    "#/$defs/ReportedPropertyIdentifierColumn"
+        },
+    },
+}
+
 
 class AddlType:
     """An array-valued key (schema:additionalType): required selector token(s) + an optional finer
@@ -388,7 +409,7 @@ def _is_analyte_column(p: spp.ParsedPath) -> bool:
     technique's element table. The row's Data Type describes the COLUMN'S VALUE, not the array
     item, so the leaf is used to type the generated column def rather than the array's items."""
     s = p.segments
-    return bool(s) and s[-1].prop == ANALYTE_COLUMN_ARRAY and s[-1].is_array and s[-1].selector is None
+    return bool(s) and s[-1].prop in KEYED_TABLES and s[-1].is_array and s[-1].selector is None
 
 
 def build(tapp):
@@ -437,6 +458,7 @@ def build(tapp):
                 insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
                 continue
             if _is_analyte_column(parsed):
+                cfg = KEYED_TABLES[parsed.segments[-1].prop]
                 # One generated AnalyteColumn def per row, referenced as a permitted item of the
                 # array. The defs are INLINED downstream (build_pathdriven) rather than $ref'd to
                 # the shared registry: that registry keys defs by bare name, so a column name used
@@ -444,16 +466,17 @@ def build(tapp):
                 # @id const — the same reason parameter defs are inlined.
                 bare = sidecar.get(item, {}).get("name") or b.camel(item)
                 name = b.def_key(bare)   # TAPP-namespaced: the registry is shared across TAPPs
-                registries["analyteColumns"][name] = analyte_column_def(
+                registries.setdefault(cfg["registry"], {})[name] = analyte_column_def(
                     bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only,
                     ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip())
-                ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/analyteColumns/schema.yaml#/$defs/{name}"}
+                ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/{cfg['registry']}/schema.yaml"
+                                f"#/$defs/{name}"}
                 insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require)
                 # keep the base's identifier column permissible under the narrowed `items`
-                arr = roots[parsed.root].props.get("ada:analyteTemplate")
-                arr = arr.props.get(ANALYTE_COLUMN_ARRAY) if isinstance(arr, Obj) else None
-                if isinstance(arr, Arr) and ANALYTE_IDENTIFIER_REF not in arr.extra_items:
-                    arr.extra_items.append(ANALYTE_IDENTIFIER_REF)
+                arr = roots[parsed.root].props.get(cfg["template"])
+                arr = arr.props.get(parsed.segments[-1].prop) if isinstance(arr, Obj) else None
+                if isinstance(arr, Arr) and cfg["identifier_ref"] not in arr.extra_items:
+                    arr.extra_items.append(cfg["identifier_ref"])
                 continue
             enum = None
             dl = (m.get("dt") or "").lower()

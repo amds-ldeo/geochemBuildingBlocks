@@ -79,8 +79,8 @@ def build_example(tapp):
     # placeholder can't synthesise and are all OPTIONAL in tappDefinition — so omit them from the
     # minimal valid TAPP-side example (the schema still constrains them). Dataset-side (detail)
     # sample/relatedLink are kept: the detail is validated standalone, not against the strict base.
-    SKIP_MD = ("ada:analyteTemplate", "bios:computationalTool", "schema:actionProcess",
-               "schema:instrument", "schema:object", "schema:relatedLink")
+    SKIP_MD = ("ada:analyteTemplate", "ada:reportedPropertyTemplate", "bios:computationalTool",
+               "schema:actionProcess", "schema:instrument", "schema:object", "schema:relatedLink")
     for item, rec in spec.items():
         m = meta.get(item, {})
         paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
