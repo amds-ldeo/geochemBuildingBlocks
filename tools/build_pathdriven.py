@@ -33,7 +33,7 @@ import build_tapp as b
 import schema_path_emitter as e
 import schema_path_example_emitter as ex
 
-_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|analyteColumns|reportedPropertyColumns)/schema\.yaml#/\$defs/(.+)$")
+_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|analyteColumns|reportedPropertyColumns|channelColumns)/schema\.yaml#/\$defs/(.+)$")
 
 
 def _inline_registry_refs(node, registries, cache):
@@ -58,6 +58,7 @@ def _inline_registry_refs(node, registries, cache):
 _REGISTRY_ID_PREFIX = {
     "analyteColumns": "ada:analyteColumn/",
     "reportedPropertyColumns": "ada:reportedPropertyColumn/",
+    "channelColumns": "ada:channelColumn/",
     "parameterTemplates": "ada:parameter/",
     "parameterValues": "ada:parameter/",
 }
@@ -163,7 +164,7 @@ def registry_diff(tapp):
 
     print(f"registry diff for {tapp} — what replace-by-ownership would do\n")
     total_del = 0
-    for reg_name in ("analyteColumns", "reportedPropertyColumns",
+    for reg_name in ("analyteColumns", "reportedPropertyColumns", "channelColumns",
                      "parameterTemplates", "parameterValues"):
         path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
         if not os.path.exists(path):
@@ -211,7 +212,7 @@ def build_pathdriven(tapp, write_registries=True):
     # path-driven route does not regenerate, so publishing there would add a second, namespaced
     # copy of everything alongside them — churn without a decision on converging the two routes.
     if write_registries:
-        for _reg in ("analyteColumns", "reportedPropertyColumns"):
+        for _reg in ("analyteColumns", "reportedPropertyColumns", "channelColumns"):
             if registries.get(_reg):
                 _write_registry(_reg, registries[_reg], tapp)
 

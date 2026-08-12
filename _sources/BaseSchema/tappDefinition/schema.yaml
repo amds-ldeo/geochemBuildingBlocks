@@ -233,6 +233,37 @@ properties:
     - ada:analyteColumns
     
     
+  'ada:channelTemplate':
+    description: >-
+      Template for per-channel parameters, a channel being an instrument selection position (a mass,
+      a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns
+      that repeat over it. The domain is declared by different fields per technique -- Monitored
+      Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.
+    type: object
+    properties:
+      'ada:channelColumns':
+        type: array
+        description: >-
+          Columns of the per-channel parameter table. Must include exactly one column with
+          schema:valueName "channel" identifying the selection position named in each row.
+        minItems: 1
+        items:
+          $ref: '#/$defs/ChannelColumn'
+        contains:
+          $ref: '#/$defs/ChannelIdentifierColumn'
+        maxContains: 1
+      'ada:defaultChannels':
+        type: array
+        description: >-
+          Pre-populated channel rows for this procedure. Each entry is an object keyed by
+          channelColumn names.
+        items:
+          type: object
+          additionalProperties: true
+    required:
+    - ada:channelColumns
+
+
   'ada:reportedPropertyTemplate':
     description: >-
       Template for the variables this procedure REPORTS and their units, as distinct from ada:analyteTemplate
@@ -825,6 +856,48 @@ $defs:
       it ACQUIRES. Structurally a KeyedTableColumn.
     allOf:
     - $ref: '#/$defs/KeyedTableColumn'
+
+
+  ChannelColumn:
+    description: >-
+      One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a
+      Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is
+      what is measured, the channel is the position it is measured on, and the two are independent.
+      One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences
+      that are not analytes at all. Structurally a KeyedTableColumn.
+    allOf:
+    - $ref: '#/$defs/KeyedTableColumn'
+
+
+  ChannelIdentifierColumn:
+    description: >-
+      The mandatory channel-identifier column, naming the selection position in each row. Mirrors
+      AnalyteIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into
+      schema:variableMeasured/schema:name, because the variable list is shared across a procedure's
+      table parts rather than owned by any one of them.
+    allOf:
+    - $ref: '#/$defs/KeyedTableColumn'
+    - type: object
+      properties:
+        'schema:valueName':
+          const: channel
+        'ada:dataType':
+          const: string
+        'schema:readonlyValue':
+          const: true
+        'schema:valueRequired':
+          const: true
+        'ada:tier':
+          const: M
+        'ada:cdifPropertyPath':
+          const: '#/schema:variableMeasured/schema:name'
+      required:
+      - schema:valueName
+      - ada:dataType
+      - schema:readonlyValue
+      - schema:valueRequired
+      - ada:tier
+      - ada:cdifPropertyPath
 
 
   ReportedPropertyIdentifierColumn:

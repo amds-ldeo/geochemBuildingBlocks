@@ -70,8 +70,8 @@ Make-up Gas Flow Rate,Advanced,Editable,Numeric (L/min),$Dataset.prov:wasGenerat
 Make-up Gas Flow Rate,Advanced,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Make up Gas Flow Rate'].schema:defaultValue,authored,shared,
 Plasma Thermal Mode,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Plasma Thermal Mode'].schema:value,authored,shared,"read-only: fixed protocol value, not a default"
 Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],inferred,shared,
-Monitored Isotopes,Basic,Read-Only,Text (free),$.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
-Dwell Time per Mass,Basic,Read-Only,Numeric (ms) or Text,$.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Monitored Isotopes,Basic,Read-Only,Text (free),$MethodDefinition.ada:channelTemplate.ada:defaultChannels[],authored,,Keyed By: channel (pilot)
+Dwell Time per Mass,Basic,Read-Only,Numeric (ms) or Text,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot)
 Mass Cycles per Replicate,Basic,Read-Only,Integer,$MethodDefinition.ada:massCyclesPerReplicate,inferred,,
 Number of Replicates per Sample,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfReplicatesPerSample,inferred,shared,
 Sample Sequence Design,Basic,Read-Only,Text (free),$MethodDefinition.ada:sampleSequenceDesign,inferred,shared,
@@ -103,9 +103,9 @@ Spike/Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:was
 Spike/Outlier Filtering Approach,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Spike Outlier Filtering Approach'].schema:defaultValue,authored,shared,
 Pulse/Analog Detector Nonlinearity Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Pulse Analog Detector Nonlinearity Correction'].schema:value,authored,shared,
 Pulse/Analog Detector Nonlinearity Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Pulse Analog Detector Nonlinearity Correction'].schema:defaultValue,authored,shared,
-Isobaric Interference Corrections Applied,Basic,Read-Only,Controlled list,$.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
-Interfering Species,Basic,Read-Only,Text (free),$.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
-Interference Correction Method,Basic,Read-Only,Text (free),$.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Isobaric Interference Corrections Applied,Basic,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot)
+Interfering Species,Basic,Read-Only,Text (free),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot)
+Interference Correction Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot)
 Isotope Dilution Data Reduction Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied
 Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:value,authored,shared,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,

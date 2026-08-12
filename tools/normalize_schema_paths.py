@@ -138,6 +138,9 @@ def recognize(s):
         # Same shape as the analyte template — one row per member, one column per keyed field.
         (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:reportedPropertyColumns\[\]$", "reported-property-template"),
         (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:defaultReportedProperties\[\]$", "reported-property-identifier"),
+        # the channel table: instrument selection positions (a mass, a cup, an energy-loss edge)
+        (r"^\$MethodDefinition\.ada:channelTemplate\.ada:channelColumns\[\]$", "channel-template"),
+        (r"^\$MethodDefinition\.ada:channelTemplate\.ada:defaultChannels\[\]$", "channel-identifier"),
         # the shared logical variable registry every table part references
         (r"^\$Dataset\.schema:variableMeasured\[\](\.schema:(name|description|unitText|propertyID))?$", "dataset-variable-measured"),
         (r"^\$MethodDefinition\.schema:description$", "protocol-description"),

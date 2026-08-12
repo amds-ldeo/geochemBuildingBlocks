@@ -102,6 +102,14 @@ KEYED_TABLES = {
         "registry": "analyteColumns",
         "identifier_ref": ANALYTE_IDENTIFIER_REF,
     },
+    "ada:channelColumns": {
+        "template": "ada:channelTemplate",
+        "registry": "channelColumns",
+        "identifier_ref": {
+            "$ref": "../../../BaseSchema/tappDefinition/schema.yaml"
+                    "#/$defs/ChannelIdentifierColumn"
+        },
+    },
     "ada:reportedPropertyColumns": {
         "template": "ada:reportedPropertyTemplate",
         "registry": "reportedPropertyColumns",
