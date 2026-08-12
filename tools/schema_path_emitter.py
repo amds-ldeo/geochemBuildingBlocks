@@ -344,7 +344,11 @@ def _load_rows(tapp):
     b.configure(tapp)
     rows = tapp_source.rows(b.XLSX)        # .csv or .xlsx
     H = [b.norm(v).lower() for v in rows[0]]
-    ci = {"P": next((i for i, v in enumerate(H) if v.startswith("protocol")), None),
+    # "Procedure-Level Tier" since the 2026-08 delivery; "Protocol-Level Tier" before it. Both are
+    # accepted because a missed tier column is SILENT — g() yields "", every row reads as neither
+    # Basic nor Advanced, and the schema quietly loses its required-branch constraints instead of
+    # failing. (bootstrap_schemapaths.load_rows already accepted both spellings.)
+    ci = {"P": next((i for i, v in enumerate(H) if v.startswith(("procedure", "protocol"))), None),
           "A": next((i for i, v in enumerate(H) if v.startswith("analysis")), None),
           "dt": next((i for i, v in enumerate(H) if v == "data type"), None),
           "ex": next((i for i, v in enumerate(H) if v.startswith("example")), None)}

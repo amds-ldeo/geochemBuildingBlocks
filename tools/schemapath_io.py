@@ -24,9 +24,21 @@ FIELDS = ["Metadata Item", "Protocol Tier", "Analysis Tier", "Data Type", "Schem
 # workbook and will drop it — re-run mark_shared_mappings.py after a re-seed.
 
 
-def csv_path(xlsx_path):
-    """docs/<wb>.xlsx -> docs/<wb>.schemapaths.csv (works for absolute or repo-relative paths)."""
-    return os.path.splitext(xlsx_path)[0] + ".schemapaths.csv"
+DOCS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs")
+
+
+def csv_path(source_path):
+    """<any dir>/<wb>.{xlsx,csv} -> docs/<wb>.schemapaths.csv.
+
+    Sidecars always live in docs/, whatever directory the source table sits in. That used to be the
+    same statement — every source was docs/<wb>.xlsx, so appending to the source path worked — but
+    the 2026-08 delivery lands its CSVs under TAPPS20260811/<technique>/, and a sidecar written
+    beside them would put our hand-authored mapping inside a vendor drop, where the next delivery
+    would orphan it. Resolving on the BASENAME keeps sources wherever they are shipped and sidecars
+    where they are curated. Repo-relative docs/ sources resolve exactly as before.
+    """
+    stem = os.path.splitext(os.path.basename(source_path))[0]
+    return os.path.join(DOCS, stem + ".schemapaths.csv")
 
 
 def read(csv_file):
