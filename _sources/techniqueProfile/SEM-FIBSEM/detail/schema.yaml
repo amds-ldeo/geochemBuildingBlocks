@@ -231,6 +231,50 @@ properties:
                         - type: array
                           items:
                             type: string
+                - if:
+                    properties:
+                      schema:name:
+                        const: dataReduction
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items: &id006
+                          title: Constants and Reference Values Used
+                          description: Physical constants and reference values used in data reduction
+                            to calculate the final reported quantity (e.g., decay constants for age calculation,
+                            standard isotope ratios, or other citable reference values used in a correction
+                            or calculation), together with their source. Distinct from Reference Material
+                            Information / Secondary Reference Materials (Group 6), which document accepted
+                            values for specific calibration/validation materials rather than universal
+                            physical constants. Record "None" if no citable, revisable physical constants
+                            feed into this procedure's data reduction.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semFibsemTAPP/constantsAndReferenceValuesUsed
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                                '@id': ada:parameter/semFibsemTAPP/constantsAndReferenceValuesUsed
+                            schema:name:
+                              const: Constants and Reference Values Used
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains: *id006
+                          minContains: 0
+                          maxContains: 1
               allOf:
               - contains:
                   properties:
@@ -242,6 +286,12 @@ properties:
                   properties:
                     schema:name:
                       const: ionMilling
+                  required:
+                  - schema:name
+              - contains:
+                  properties:
+                    schema:name:
+                      const: dataReduction
                   required:
                   - schema:name
         schema:object:
@@ -364,7 +414,7 @@ properties:
               - schema:additionalType
         schema:additionalProperty:
           type: array
-          items: &id006
+          items: &id007
             title: Dwell Time per Pixel
             description: Time the electron beam dwells on each pixel during raster scanning (imaging modes)
               or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds
@@ -394,7 +444,7 @@ properties:
             - schema:name
             - schema:value
           allOf:
-          - contains: *id006
+          - contains: *id007
             minContains: 0
             maxContains: 1
         ada:imageRegistration3D:

@@ -67,32 +67,67 @@ properties:
                     properties:
                       schema:additionalProperty:
                         type: array
-                        items: &id001
-                          title: Crystal Structure Database
-                          description: Crystal structure database used for EBSD phase identification and
-                            Kikuchi pattern simulation.
-                          type: object
-                          properties:
-                            '@id':
-                              const: ada:parameter/semImagingTAPP/crystalStructureDatabase
-                            '@type':
-                              const:
-                              - schema:PropertyValue
-                            schema:propertyID:
-                              const:
-                                '@id': ada:parameter/semImagingTAPP/crystalStructureDatabase
-                            schema:name:
-                              const: Crystal Structure Database
-                            schema:value:
-                              type: string
-                          required:
-                          - '@id'
-                          - '@type'
-                          - schema:propertyID
-                          - schema:name
-                          - schema:value
+                        items:
+                          anyOf:
+                          - &id001
+                            title: Crystal Structure Database
+                            description: Crystal structure database used for EBSD phase identification
+                              and Kikuchi pattern simulation.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/semImagingTAPP/crystalStructureDatabase
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                  '@id': ada:parameter/semImagingTAPP/crystalStructureDatabase
+                              schema:name:
+                                const: Crystal Structure Database
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - &id002
+                            title: Constants and Reference Values Used
+                            description: Physical constants and reference values used in data reduction
+                              to calculate the final reported quantity (e.g., decay constants for age
+                              calculation, standard isotope ratios, or other citable reference values
+                              used in a correction or calculation), together with their source. Distinct
+                              from Reference Material Information / Secondary Reference Materials (Group
+                              6), which document accepted values for specific calibration/validation materials
+                              rather than universal physical constants. Record "None" if no citable, revisable
+                              physical constants feed into this procedure's data reduction.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                  '@id': ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed
+                              schema:name:
+                                const: Constants and Reference Values Used
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
                         allOf:
                         - contains: *id001
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id002
                           minContains: 0
                           maxContains: 1
               allOf:
@@ -230,7 +265,7 @@ properties:
           type: array
           items:
             anyOf:
-            - &id002
+            - &id003
               title: Chamber Pressure
               description: Chamber pressure and gas type during analysis. Required for variable pressure
                 (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas
@@ -257,7 +292,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id003
+            - &id004
               title: Image Pixel Size
               description: Physical size of each image pixel at the sample surface, in nm or µm. Defines
                 spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel
@@ -284,7 +319,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id004
+            - &id005
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster scanning (imaging
                 modes) or on each step position during compositional mapping (EDS and WDS mapping modes),
@@ -313,7 +348,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id005
+            - &id006
               title: CL Wavelength Calibration Reference
               description: Reference light source or standard material used to calibrate the wavelength
                 axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
@@ -338,9 +373,6 @@ properties:
               - schema:name
               - schema:value
           allOf:
-          - contains: *id002
-            minContains: 0
-            maxContains: 1
           - contains: *id003
             minContains: 0
             maxContains: 1
@@ -348,6 +380,9 @@ properties:
             minContains: 0
             maxContains: 1
           - contains: *id005
+            minContains: 0
+            maxContains: 1
+          - contains: *id006
             minContains: 0
             maxContains: 1
         ada:clIntegrationTime:

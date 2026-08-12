@@ -3512,6 +3512,47 @@
                                   "ada:dataType",
                                   "ada:fieldScope"
                                 ]
+                              },
+                              {
+                                "title": "Constants and Reference Values Used",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsedDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Constants and Reference Values Used"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               }
                             ]
                           },
@@ -3618,6 +3659,51 @@
                                   },
                                   "schema:name": {
                                     "const": "Normalization / Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Constants and Reference Values Used",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsedDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Constants and Reference Values Used"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -7532,6 +7618,31 @@
         "schema:description": {
           "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Top-level declaration of the kind of measurement this procedure covers. Solution ICP-MS has a single routine mode — continuous nebulisation of a digested solution — so this TAPP defines no mode flag columns; the field is still required (Rule 3) so that a procedure record is self-describing and comparable with multi-mode TAPPs across the library.",
+            "type": "string",
+            "enum": [
+              "Solution nebulisation (continuous)",
+              "Flow injection"
+            ],
+            "readOnly": true
+          }
+        },
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "description": "The final variable(s) this procedure reports and their units — distinct from Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire many masses and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+                "type": "string",
+                "readOnly": true
+              }
+            }
+          }
         }
       },
       "required": [

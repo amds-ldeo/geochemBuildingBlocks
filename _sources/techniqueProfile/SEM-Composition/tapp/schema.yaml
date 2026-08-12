@@ -203,11 +203,66 @@ allOf:
                     - type: array
                       items:
                         type: string
+            - if:
+                properties:
+                  schema:name:
+                    const: dataReduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items: &id001
+                      title: Constants and Reference Values Used
+                      description: Physical constants and reference values used in data reduction to calculate
+                        the final reported quantity (e.g., decay constants for age calculation, standard
+                        isotope ratios, or other citable reference values used in a correction or calculation),
+                        together with their source. Distinct from Reference Material Information / Secondary
+                        Reference Materials (Group 6), which document accepted values for specific calibration/validation
+                        materials rather than universal physical constants. Record "None" if no citable,
+                        revisable physical constants feed into this procedure's data reduction.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsedDefault
+                        '@type':
+                          const:
+                          - schema:PropertyValueSpecification
+                        schema:valueName:
+                          const: constantsAndReferenceValuesUsedDefault
+                        schema:name:
+                          const: Constants and Reference Values Used
+                        ada:dataType:
+                          const: string
+                        ada:fieldScope:
+                          const: session
+                        schema:readonlyValue:
+                          const: false
+                        ada:tier:
+                          const: R
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:valueName
+                      - schema:name
+                      - ada:dataType
+                      - ada:fieldScope
+                    allOf:
+                    - contains: *id001
+                      minContains: 0
+                      maxContains: 1
           allOf:
           - contains:
               properties:
                 schema:name:
                   const: samplePreparation
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
               required:
               - schema:name
     schema:instrument:
@@ -541,7 +596,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id001
+            - &id002
               title: Beam Current
               description: Electron beam probe current. Higher current improves signal-to-noise for X-ray
                 analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution.
@@ -574,7 +629,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id002
+            - &id003
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte.
                 Crystal choice determines the detectable wavelength range and dispersion.
@@ -604,7 +659,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id003
+            - &id004
               title: WDS Spectrometer Channel
               description: WDS spectrometer number assigned to each analyte. Different spectrometers may
                 have different crystal configurations.
@@ -635,7 +690,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id004
+            - &id005
               title: Proportional Counter / Detector
               description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity
                 and count rate linearity.
@@ -664,7 +719,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id005
+            - &id006
               title: WDS PHA Setting
               description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts
                 all pulses above a threshold; Differential mode selects a narrow energy window to reject
@@ -694,7 +749,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id006
+            - &id007
               title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position in seconds per analyte.
                 Procedure specifies standard values; analysts may adjust within procedure-defined bounds.
@@ -726,7 +781,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id007
+            - &id008
               title: Background Counting Time
               description: Total time spent counting at off-peak background position(s) in seconds, summed
                 across all background positions.
@@ -758,7 +813,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id009
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in
                 mm or sin-theta, and whether on the high- or low-energy side.
@@ -787,7 +842,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id009
+            - &id010
               title: Background Correction Method
               description: 'Method used to estimate and subtract background X-ray intensity beneath the
                 peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN)
@@ -818,7 +873,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id011
               title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied to compensate for
                 beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses,
@@ -849,7 +904,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id011
+            - &id012
               title: Blank Correction
               description: Method and reference material(s) used to determine and subtract blank signal
                 contributions (e.g., carbon coat contribution to C signal, or background contamination
@@ -879,7 +934,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id012
+            - &id013
               title: Normalization / Standards-Based Correction
               description: Post-acquisition normalization applied using secondary reference materials
                 to correct for session-to-session calibration drift.
@@ -908,7 +963,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id013
+            - &id014
               title: Primary Calibration Standard Name
               description: Name(s) of the primary reference material(s) used for intensity calibration
                 in EDS or WDS quantification. Include the material name, its source or supplier, and a
@@ -940,7 +995,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id014
+            - &id015
               title: Secondary Reference Materials
               description: Quality-control reference material(s) analyzed alongside unknowns to verify
                 calibration accuracy. Include material name, assessed elements, number of analyses (n),
@@ -971,7 +1026,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id015
+            - &id016
               title: Detection Limit
               description: Method detection limit at 99% confidence for each analyte. Include the method
                 used and the resulting value per analyte.
@@ -1000,7 +1055,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id016
+            - &id017
               title: Detection Limit Method
               description: Formula or approach used to calculate detection limits.
               type: object
@@ -1029,7 +1084,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id017
+            - &id018
               title: Analytical Precision
               description: Reproducibility of repeated measurements on the same or equivalent reference
                 material, expressed as 1-sigma relative standard deviation (%). Include reference material
@@ -1059,7 +1114,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id018
+            - &id019
               title: Analytical Accuracy
               description: Offset between measured and accepted reference values for secondary standards,
                 expressed as percent relative bias.
@@ -1088,7 +1143,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id019
+            - &id020
               title: Counting Statistics Error
               description: 1-sigma uncertainty propagated from counting statistics on peak and background
                 intensities for each analyte per analysis.
@@ -1118,9 +1173,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id001
-            minContains: 0
-            maxContains: 1
           - contains: *id002
             minContains: 0
             maxContains: 1
@@ -1175,6 +1227,9 @@ allOf:
           - contains: *id019
             minContains: 0
             maxContains: 1
+          - contains: *id020
+            minContains: 0
+            maxContains: 1
         ada:defaultAnalytes:
           type: array
           items:
@@ -1187,7 +1242,7 @@ allOf:
       type: array
       items:
         anyOf:
-        - &id020
+        - &id021
           title: Beam Raster Dimensions
           description: Dimensions of the small area over which the beam is rastered during a single analysis
             point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the
@@ -1219,7 +1274,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id021
+        - &id022
           title: Beam Damage Minimization
           description: 'Describes any measures taken to reduce electron beam damage to the sample during
             analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered
@@ -1252,7 +1307,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id022
+        - &id023
           title: Drift Correction
           description: 'Describes whether and how stage or beam drift was monitored and corrected during
             the measurement session. Examples: periodic stage realignment to a fiducial marker, automated
@@ -1312,7 +1367,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id023
+        - &id024
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
             and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
@@ -1394,7 +1449,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id024
+        - &id025
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
             Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
@@ -1498,13 +1553,13 @@ allOf:
           - schema:value
           readOnly: true
       allOf:
-      - contains: *id020
-        minContains: 0
-        maxContains: 1
       - contains: *id021
         minContains: 0
         maxContains: 1
       - contains: *id022
+        minContains: 0
+        maxContains: 1
+      - contains: *id023
         minContains: 0
         maxContains: 1
       - contains:
@@ -1537,7 +1592,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id023
+      - contains: *id024
         minContains: 0
         maxContains: 1
       - contains:
@@ -1597,7 +1652,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id024
+      - contains: *id025
         minContains: 0
         maxContains: 1
       - contains:
@@ -1785,6 +1840,21 @@ allOf:
         last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
         for anything that can be formally categorised.'
       type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            description: The final variable(s) this procedure reports and their units — distinct from
+              Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire
+              many masses and report a small number of derived quantities; without this field a data consumer
+              cannot tell which. Record every reported variable, including intermediate quantities reported
+              alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported
+              variable is a nominal property with no magnitude (e.g. a mineral identification), record
+              the variable and give the unit as 'N/A — nominal property'.
+            type: string
+            readOnly: true
   required:
   - schema:name
   - schema:datePublished

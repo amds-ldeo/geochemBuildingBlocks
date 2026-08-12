@@ -595,6 +595,42 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
+                      - &id005
+                        title: Constants and Reference Values Used
+                        description: Physical constants and reference values used in data reduction to
+                          calculate the final reported quantity (e.g., decay constants for age calculation,
+                          standard isotope ratios, or other citable reference values used in a correction
+                          or calculation), together with their source. Distinct from Reference Material
+                          Information / Secondary Reference Materials (Group 6), which document accepted
+                          values for specific calibration/validation materials rather than universal physical
+                          constants. Record "None" if no citable, revisable physical constants feed into
+                          this procedure's data reduction.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsedDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: constantsAndReferenceValuesUsedDefault
+                          schema:name:
+                            const: Constants and Reference Values Used
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                     allOf:
                     - contains: *id003
                       minContains: 0
@@ -628,6 +664,9 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains: *id004
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id005
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -716,7 +755,7 @@ allOf:
                 type: array
                 items:
                   anyOf:
-                  - &id005
+                  - &id006
                     title: Instrument Serial Number or Lab Identifier
                     description: Serial number or laboratory-internal identifier for the specific instrument
                       unit. Supports traceability to instrument service records.
@@ -799,7 +838,7 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
-                  - &id006
+                  - &id007
                     title: Make-up Gas Flow Rate
                     description: Supplementary argon flow added downstream of a desolvation system to
                       maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation
@@ -832,7 +871,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id007
+                  - &id008
                     title: Doubly-Charged Species Monitor
                     description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during
                       instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent
@@ -864,7 +903,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id008
+                  - &id009
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning. Record both the acceptance threshold and
@@ -897,7 +936,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id009
+                  - &id010
                     title: Memory Effect Mitigation
                     description: Procedure applied to identify and minimize carry-over of high-concentration
                       elements between successive sample introductions. For solution ICP-MS, mitigation
@@ -932,7 +971,7 @@ allOf:
                     - ada:dataType
                     - ada:fieldScope
                 allOf:
-                - contains: *id005
+                - contains: *id006
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -994,9 +1033,6 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
-                - contains: *id006
-                  minContains: 0
-                  maxContains: 1
                 - contains: *id007
                   minContains: 0
                   maxContains: 1
@@ -1004,6 +1040,9 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains: *id009
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id010
                   minContains: 0
                   maxContains: 1
               schema:hasPart:
@@ -1032,7 +1071,7 @@ allOf:
                               readOnly: true
                         schema:additionalProperty:
                           type: array
-                          items: &id010
+                          items: &id011
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position. Affects ion transmission efficiency
@@ -1065,7 +1104,7 @@ allOf:
                             - ada:dataType
                             - ada:fieldScope
                           allOf:
-                          - contains: *id010
+                          - contains: *id011
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1255,7 +1294,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id011
+                            - &id012
                               title: Collision Gas Flow Rate
                               description: Flow rate of the collision gas in KED mode (mL/min). Higher
                                 flow rates provide greater interference suppression at the cost of analyte
@@ -1289,7 +1328,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id012
+                            - &id013
                               title: Cell Exit Discrimination Voltage
                               description: Kinetic energy discrimination offset voltage applied at the
                                 exit of the collision cell (V). Controls the degree of polyatomic ion
@@ -1348,7 +1387,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id013
+                            - &id014
                               title: Reaction Gas Flow Rate
                               description: Flow rate of the reaction gas in DRC mode (mL/min). Record
                                 'N/A' if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell
@@ -1410,10 +1449,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id011
+                          - contains: *id012
                             minContains: 0
                             maxContains: 1
-                          - contains: *id012
+                          - contains: *id013
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1444,7 +1483,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id013
+                          - contains: *id014
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1511,7 +1550,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id014
+                            - &id015
                               title: Sample Uptake Rate
                               description: Peristaltic pump speed or self-aspiration flow rate for sample
                                 introduction (µL/min or mL/min).
@@ -1543,7 +1582,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id015
+                            - &id016
                               title: Nebulizer Gas Flow Rate
                               description: Flow rate of the carrier argon gas delivered through the nebulizer
                                 (L/min). Controls aerosol transport and strongly influences signal sensitivity
@@ -1634,10 +1673,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id014
+                          - contains: *id015
                             minContains: 0
                             maxContains: 1
-                          - contains: *id015
+                          - contains: *id016
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1653,7 +1692,7 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id016
+                            - &id017
                               title: RF Power
                               description: Radiofrequency forward power applied to the plasma (W). Controls
                                 ionization efficiency and oxide production rates.
@@ -1685,7 +1724,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id017
+                            - &id018
                               title: Coolant (Plasma) Gas Flow Rate
                               description: Flow rate of the outer (coolant) argon gas stream (L/min).
                                 Influences plasma temperature and oxide ion formation.
@@ -1717,7 +1756,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id018
+                            - &id019
                               title: Auxiliary Gas Flow Rate
                               description: Flow rate of the intermediate (auxiliary) argon gas stream
                                 between torch body and injector tube (L/min).
@@ -1777,13 +1816,13 @@ allOf:
                               - schema:value
                               readOnly: true
                           allOf:
-                          - contains: *id016
-                            minContains: 0
-                            maxContains: 1
                           - contains: *id017
                             minContains: 0
                             maxContains: 1
                           - contains: *id018
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id019
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1913,7 +1952,7 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
-        - &id019
+        - &id020
           title: Spike / Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous replicate measurements or data
             points from the calculated mean.
@@ -1943,7 +1982,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id020
+        - &id021
           title: Uncertainty Propagation Method
           description: 'The approach used to propagate analytical uncertainty through the data reduction
             chain to the final reported value. State which sources are included in the propagation: counting
@@ -2039,10 +2078,10 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id019
+      - contains: *id020
         minContains: 0
         maxContains: 1
-      - contains: *id020
+      - contains: *id021
         minContains: 0
         maxContains: 1
     bios:computationalTool:
@@ -2113,7 +2152,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id021
+            - &id022
               title: Detection Limit
               description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and
                 whether values are procedure-typical estimates or session-specific measured values.
@@ -2144,7 +2183,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id022
+            - &id023
               title: Detection Limit Method
               description: Method used to calculate detection limits for each analyte.
               type: object
@@ -2173,7 +2212,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id023
+            - &id024
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.
               type: object
@@ -2201,7 +2240,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id024
+            - &id025
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analysis session and the
                 method used to assess it (e.g., %RSD of replicate standard or reference material measurements).
@@ -2231,7 +2270,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id025
+            - &id026
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
                 and the assessment method.
@@ -2260,7 +2299,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id026
+            - &id027
               title: Analytical Accuracy and Assessment Method
               description: Accuracy of final concentration measurements relative to certified or consensus
                 values and the method used to assess it.
@@ -2291,9 +2330,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id021
-            minContains: 0
-            maxContains: 1
           - contains: *id022
             minContains: 0
             maxContains: 1
@@ -2307,6 +2343,9 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id026
+            minContains: 0
+            maxContains: 1
+          - contains: *id027
             minContains: 0
             maxContains: 1
     ada:channelTemplate:
@@ -2324,7 +2363,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
-            - &id027
+            - &id028
               title: Dwell Time per Mass
               description: Integration time spent on each mass peak per sweep (ms). May differ per analyte
                 if analyte-specific dwell times are programmed.
@@ -2356,7 +2395,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id028
+            - &id029
               title: Isobaric Interference Corrections Applied
               description: Whether mathematical corrections for isobaric or polyatomic interferences are
                 applied during data reduction (in addition to any KED or DRC mitigation in the instrument).
@@ -2386,7 +2425,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id029
+            - &id030
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
                 Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species
@@ -2418,7 +2457,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id030
+            - &id031
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove interference contributions
                 from measured signals (e.g., interference standard solutions isolating specific polyatomics,
@@ -2450,9 +2489,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id027
-            minContains: 0
-            maxContains: 1
           - contains: *id028
             minContains: 0
             maxContains: 1
@@ -2460,6 +2496,9 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id030
+            minContains: 0
+            maxContains: 1
+          - contains: *id031
             minContains: 0
             maxContains: 1
     ada:massCyclesPerReplicate:
@@ -2593,6 +2632,33 @@ allOf:
         last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
         for anything that can be formally categorised.'
       type: string
+    ada:analyticalMode:
+      type: array
+      items:
+        description: Top-level declaration of the kind of measurement this procedure covers. Solution
+          ICP-MS has a single routine mode — continuous nebulisation of a digested solution — so this
+          TAPP defines no mode flag columns; the field is still required (Rule 3) so that a procedure
+          record is self-describing and comparable with multi-mode TAPPs across the library.
+        type: string
+        enum:
+        - Solution nebulisation (continuous)
+        - Flow injection
+        readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            description: The final variable(s) this procedure reports and their units — distinct from
+              Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire
+              many masses and report a small number of derived quantities; without this field a data consumer
+              cannot tell which. Record every reported variable, including intermediate quantities reported
+              alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported
+              variable is a nominal property with no magnitude (e.g. a mineral identification), record
+              the variable and give the unit as 'N/A — nominal property'.
+            type: string
+            readOnly: true
   required:
   - schema:name
   - schema:datePublished

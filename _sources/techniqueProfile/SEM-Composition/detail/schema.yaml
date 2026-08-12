@@ -55,11 +55,61 @@ properties:
                         - type: array
                           items:
                             type: string
+                - if:
+                    properties:
+                      schema:name:
+                        const: dataReduction
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items: &id001
+                          title: Constants and Reference Values Used
+                          description: Physical constants and reference values used in data reduction
+                            to calculate the final reported quantity (e.g., decay constants for age calculation,
+                            standard isotope ratios, or other citable reference values used in a correction
+                            or calculation), together with their source. Distinct from Reference Material
+                            Information / Secondary Reference Materials (Group 6), which document accepted
+                            values for specific calibration/validation materials rather than universal
+                            physical constants. Record "None" if no citable, revisable physical constants
+                            feed into this procedure's data reduction.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsed
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                                '@id': ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsed
+                            schema:name:
+                              const: Constants and Reference Values Used
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains: *id001
+                          minContains: 0
+                          maxContains: 1
               allOf:
               - contains:
                   properties:
                     schema:name:
                       const: samplePreparation
+                  required:
+                  - schema:name
+              - contains:
+                  properties:
+                    schema:name:
+                      const: dataReduction
                   required:
                   - schema:name
         schema:object:
@@ -193,7 +243,7 @@ properties:
           type: array
           items:
             anyOf:
-            - &id001
+            - &id002
               title: Beam Raster Dimensions
               description: Dimensions of the small area over which the beam is rastered during a single
                 analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered;
@@ -221,7 +271,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id002
+            - &id003
               title: Beam Damage Minimization
               description: 'Describes any measures taken to reduce electron beam damage to the sample
                 during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused
@@ -248,7 +298,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id003
+            - &id004
               title: Drift Correction
               description: 'Describes whether and how stage or beam drift was monitored and corrected
                 during the measurement session. Examples: periodic stage realignment to a fiducial marker,
@@ -275,7 +325,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id004
+            - &id005
               title: Chamber Pressure
               description: Chamber pressure and gas type during analysis. Required for variable pressure
                 (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas
@@ -302,7 +352,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id005
+            - &id006
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster scanning (imaging
                 modes) or on each step position during compositional mapping (EDS and WDS mapping modes),
@@ -331,7 +381,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id006
+            - &id007
               title: Step Size / Pixel Size
               description: Centre-to-centre distance between adjacent measurement points (WDS mapping)
                 or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together
@@ -359,7 +409,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id007
+            - &id008
               title: Halogen Correction on Oxygen
               description: Whether oxygen content was adjusted to account for halogen substitution (F
                 and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
@@ -385,9 +435,6 @@ properties:
               - schema:name
               - schema:value
           allOf:
-          - contains: *id001
-            minContains: 0
-            maxContains: 1
           - contains: *id002
             minContains: 0
             maxContains: 1
@@ -404,6 +451,9 @@ properties:
             minContains: 0
             maxContains: 1
           - contains: *id007
+            minContains: 0
+            maxContains: 1
+          - contains: *id008
             minContains: 0
             maxContains: 1
         ada:edsLiveTimePerPointOrPixel:

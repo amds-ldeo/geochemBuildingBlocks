@@ -456,6 +456,55 @@ allOf:
                     - type: array
                       items:
                         type: string
+            - if:
+                properties:
+                  schema:name:
+                    const: dataReduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items: &id006
+                      title: Constants and Reference Values Used
+                      description: Physical constants and reference values used in data reduction to calculate
+                        the final reported quantity (e.g., decay constants for age calculation, standard
+                        isotope ratios, or other citable reference values used in a correction or calculation),
+                        together with their source. Distinct from Reference Material Information / Secondary
+                        Reference Materials (Group 6), which document accepted values for specific calibration/validation
+                        materials rather than universal physical constants. Record "None" if no citable,
+                        revisable physical constants feed into this procedure's data reduction.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/semFibsemTAPP/constantsAndReferenceValuesUsedDefault
+                        '@type':
+                          const:
+                          - schema:PropertyValueSpecification
+                        schema:valueName:
+                          const: constantsAndReferenceValuesUsedDefault
+                        schema:name:
+                          const: Constants and Reference Values Used
+                        ada:dataType:
+                          const: string
+                        ada:fieldScope:
+                          const: session
+                        schema:readonlyValue:
+                          const: false
+                        ada:tier:
+                          const: R
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:valueName
+                      - schema:name
+                      - ada:dataType
+                      - ada:fieldScope
+                    allOf:
+                    - contains: *id006
+                      minContains: 0
+                      maxContains: 1
           allOf:
           - contains:
               properties:
@@ -467,6 +516,12 @@ allOf:
               properties:
                 schema:name:
                   const: ionMilling
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
               required:
               - schema:name
     schema:instrument:
@@ -833,7 +888,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id006
+            - &id007
               title: Beam Current
               description: Electron beam probe current. Higher current improves signal-to-noise for X-ray
                 analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution.
@@ -867,7 +922,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id006
+          - contains: *id007
             minContains: 0
             maxContains: 1
     ada:dwellTimePerPixelDefault:
@@ -895,6 +950,21 @@ allOf:
         last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
         for anything that can be formally categorised.'
       type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            description: The final variable(s) this procedure reports and their units — distinct from
+              Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire
+              many masses and report a small number of derived quantities; without this field a data consumer
+              cannot tell which. Record every reported variable, including intermediate quantities reported
+              alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported
+              variable is a nominal property with no magnitude (e.g. a mineral identification), record
+              the variable and give the unit as 'N/A — nominal property'.
+            type: string
+            readOnly: true
   required:
   - schema:name
   - schema:datePublished

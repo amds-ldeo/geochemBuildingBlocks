@@ -795,6 +795,97 @@
                           }
                         }
                       }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "schema:name": {
+                            "const": "dataReduction"
+                          }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:additionalProperty": {
+                            "type": "array",
+                            "items": {
+                              "title": "Constants and Reference Values Used",
+                              "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Constants and Reference Values Used"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "allOf": [
+                              {
+                                "contains": {
+                                  "title": "Constants and Reference Values Used",
+                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Constants and Reference Values Used"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              }
+                            ]
+                          }
+                        }
+                      }
                     }
                   ]
                 },
@@ -804,6 +895,18 @@
                       "properties": {
                         "schema:name": {
                           "const": "samplePreparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    }
+                  },
+                  {
+                    "contains": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "dataReduction"
                         }
                       },
                       "required": [

@@ -1894,6 +1894,39 @@
                                     "schema:name",
                                     "schema:value"
                                   ]
+                                },
+                                {
+                                  "title": "Constants and Reference Values Used",
+                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/labxctTAPP/constantsAndReferenceValuesUsed"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/labxctTAPP/constantsAndReferenceValuesUsed"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Constants and Reference Values Used"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
                                 }
                               ]
                             },
@@ -1971,6 +2004,43 @@
                                 },
                                 "minContains": 0,
                                 "maxContains": 1
+                              },
+                              {
+                                "contains": {
+                                  "title": "Constants and Reference Values Used",
+                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/labxctTAPP/constantsAndReferenceValuesUsed"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/labxctTAPP/constantsAndReferenceValuesUsed"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Constants and Reference Values Used"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
                               }
                             ]
                           }
@@ -2017,6 +2087,10 @@
               "N/A",
               "None"
             ]
+          },
+          "schema:description": {
+            "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+            "type": "string"
           }
         }
       }
