@@ -456,6 +456,36 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
+        - &id008
+          title: Analysis Sequence
+          description: Repeating order of primary calibration standard(s), quality control standard(s),
+            and unknown analyses within a measurement session.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/geochronTAPP/analysisSequenceDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: analysisSequenceDefault
+            schema:name:
+              const: Analysis Sequence
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Baseline Measurement Approach
           description: Method and timing for measuring the ion beam baseline (background) during acquisition,
             distinct from the data-processing-level blank subtraction method (see Gas Blank, Group 5).
@@ -561,7 +591,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id008
+        - &id009
           title: Other Information
           description: Supplementary methodological context not captured by the structured fields above,
             as reported in Table 3 of Horstwood et al. (2016) — in the source paper's own example, notes
@@ -618,7 +648,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id009
+        - &id010
           title: Uncertainty Level and Propagation
           description: Uncertainty level at which ages/ratios are quoted (e.g., 1σ, 2σ) and the method
             used to propagate component uncertainties (e.g., quadratic addition) into the final reported
@@ -699,7 +729,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id010
+        - &id011
           title: Double-Spike Mixing Ratio
           description: Target proportion of double-spike signal relative to total analyte signal in the
             spiked mixture. An optimal mixing ratio minimises error propagation through the double-spike
@@ -920,6 +950,9 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
+      - contains: *id008
+        minContains: 0
+        maxContains: 1
       - contains:
           title: Baseline Measurement Approach
           description: Method and timing for measuring the ion beam baseline (background) during acquisition,
@@ -1037,7 +1070,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id008
+      - contains: *id009
         minContains: 0
         maxContains: 1
       - contains:
@@ -1068,7 +1101,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id009
+      - contains: *id010
         minContains: 0
         maxContains: 1
       - contains:
@@ -1127,7 +1160,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id010
+      - contains: *id011
         minContains: 0
         maxContains: 1
       - contains:
@@ -1229,7 +1262,7 @@ allOf:
                         type: string
                   schema:additionalProperty:
                     type: array
-                    items: &id011
+                    items: &id012
                       title: Pre-Ablation Surface Treatment
                       description: Procedure applied immediately before each analysis to remove surface
                         contamination or condition the sample surface, distinct from general sample preparation.
@@ -1237,25 +1270,31 @@ allOf:
                       type: object
                       properties:
                         '@id':
-                          const: ada:parameter/geochronTAPP/preAblationSurfaceTreatment
+                          const: ada:parameter/geochronTAPP/preAblationSurfaceTreatmentDefault
                         '@type':
                           const:
-                          - schema:PropertyValue
-                        schema:propertyID:
-                          const:
-                            '@id': ada:parameter/geochronTAPP/preAblationSurfaceTreatment
+                          - schema:PropertyValueSpecification
+                        schema:valueName:
+                          const: preAblationSurfaceTreatmentDefault
                         schema:name:
                           const: Pre-Ablation Surface Treatment
-                        schema:value:
-                          type: string
+                        ada:dataType:
+                          const: string
+                        ada:fieldScope:
+                          const: session
+                        schema:readonlyValue:
+                          const: false
+                        ada:tier:
+                          const: R
                       required:
                       - '@id'
                       - '@type'
-                      - schema:propertyID
+                      - schema:valueName
                       - schema:name
-                      - schema:value
+                      - ada:dataType
+                      - ada:fieldScope
                     allOf:
-                    - contains: *id011
+                    - contains: *id012
                       minContains: 0
                       maxContains: 1
             - if:
@@ -1333,7 +1372,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id012
+                      - &id013
                         title: Signal Smoothing
                         description: Description of any signal smoothing device or approach installed
                           between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
@@ -1363,7 +1402,45 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id013
+                      - &id014
+                        title: Constants and Reference Values Used
+                        description: 'Physical constants and reference values used in data reduction to
+                          calculate the final reported quantity (e.g., decay constants for age calculation,
+                          the 238U/235U ratio used to convert measured 235U-based data to 207Pb/235U,
+                          or other citable reference values), together with their source. Distinct from
+                          Reference Material Information (Group 6), which documents accepted values for
+                          specific calibration/validation materials rather than universal physical constants.
+                          Critical for traceability: community-recommended values for decay constants
+                          and isotope ratios are periodically revised (e.g., the 238U/235U ratio revision
+                          by Hiess et al. 2012), and a reported age or ratio can only be correctly reinterpreted
+                          against a future revision if the constants originally used are known.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/geochronTAPP/constantsAndReferenceValuesUsedDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: constantsAndReferenceValuesUsedDefault
+                          schema:name:
+                            const: Constants and Reference Values Used
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id015
                         title: Spike / Outlier Filtering Approach
                         description: Method used to identify and remove anomalous signal spikes arising
                           from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
@@ -1420,7 +1497,7 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
-                      - &id014
+                      - &id016
                         title: Normalization/Standards-Based Correction
                         description: Any post-acquisition normalization applied to correct for systematic
                           biases identified from secondary reference materials.
@@ -1451,10 +1528,13 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                     allOf:
-                    - contains: *id012
+                    - contains: *id013
                       minContains: 0
                       maxContains: 1
-                    - contains: *id013
+                    - contains: *id014
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id015
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -1486,7 +1566,7 @@ allOf:
                         readOnly: true
                       minContains: 0
                       maxContains: 1
-                    - contains: *id014
+                    - contains: *id016
                       minContains: 0
                       maxContains: 1
     schema:instrument:
@@ -1651,13 +1731,13 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
-              ada:laserFluence:
+              ada:laserFluenceDefault:
                 description: Laser pulse energy per unit area at the sample surface, the primary control
                   on ablation rate and crater morphology.
                 anyOf:
                 - type: number
                 - type: string
-              ada:laserRepetitionRate:
+              ada:laserRepetitionRateDefault:
                 description: Laser pulse repetition rate.
                 anyOf:
                 - type: number
@@ -1706,7 +1786,37 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
-                  - &id015
+                  - &id017
+                    title: Instrument Serial Number or Lab Identifier
+                    description: Serial number or laboratory-internal identifier for the specific instrument
+                      unit. Supports traceability to instrument service records.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/geochronTAPP/instrumentSerialNumberOrLabIdentifierDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: instrumentSerialNumberOrLabIdentifierDefault
+                      schema:name:
+                        const: Instrument Serial Number or Lab Identifier
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id018
                     title: Mass Resolution Setting
                     description: Operating mass resolution of the mass analyser. Fixed at unit resolution
                       for quadrupole instruments; selectable (low/medium/high) for sector-field instruments
@@ -1716,24 +1826,30 @@ allOf:
                     type: object
                     properties:
                       '@id':
-                        const: ada:parameter/geochronTAPP/massResolutionSetting
+                        const: ada:parameter/geochronTAPP/massResolutionSettingDefault
                       '@type':
                         const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/geochronTAPP/massResolutionSetting
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: massResolutionSettingDefault
                       schema:name:
                         const: Mass Resolution Setting
-                      schema:value:
-                        type: string
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
                     required:
                     - '@id'
                     - '@type'
-                    - schema:propertyID
+                    - schema:valueName
                     - schema:name
-                    - schema:value
-                  - &id016
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id019
                     title: ICP Tuning
                     description: Description of the approach used to optimise ICP plasma conditions prior
                       to analysis, including the reference material used for tuning and the acceptance
@@ -1764,7 +1880,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id017
+                  - &id020
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
                       during instrument tuning.
@@ -1794,7 +1910,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id018
+                  - &id021
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning.
@@ -1824,7 +1940,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id019
+                  - &id022
                     title: Memory Effect Mitigation
                     description: Procedure applied to identify and minimise memory effects from high-concentration
                       elements in the previous sample or standard that may contaminate subsequent analyses.
@@ -1882,12 +1998,6 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
-                - contains: *id015
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id016
-                  minContains: 0
-                  maxContains: 1
                 - contains: *id017
                   minContains: 0
                   maxContains: 1
@@ -1897,14 +2007,15 @@ allOf:
                 - contains: *id019
                   minContains: 0
                   maxContains: 1
-              schema:identifier:
-                description: Serial number or laboratory-internal identifier for the specific instrument
-                  unit. Supports traceability to instrument service records.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+                - contains: *id020
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id021
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id022
+                  minContains: 0
+                  maxContains: 1
               schema:hasPart:
                 type: array
                 items:
@@ -2039,7 +2150,7 @@ allOf:
                       properties:
                         schema:additionalProperty:
                           type: array
-                          items: &id020
+                          items: &id023
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position. Affects ion transmission efficiency,
@@ -2047,25 +2158,31 @@ allOf:
                             type: object
                             properties:
                               '@id':
-                                const: ada:parameter/geochronTAPP/torchDepth
+                                const: ada:parameter/geochronTAPP/torchDepthDefault
                               '@type':
                                 const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                  '@id': ada:parameter/geochronTAPP/torchDepth
+                                - schema:PropertyValueSpecification
+                              schema:valueName:
+                                const: torchDepthDefault
                               schema:name:
                                 const: Torch Depth
-                              schema:value:
-                                type: string
+                              ada:dataType:
+                                const: string
+                              ada:fieldScope:
+                                const: session
+                              schema:readonlyValue:
+                                const: false
+                              ada:tier:
+                                const: R
                             required:
                             - '@id'
                             - '@type'
-                            - schema:propertyID
+                            - schema:valueName
                             - schema:name
-                            - schema:value
+                            - ada:dataType
+                            - ada:fieldScope
                           allOf:
-                          - contains: *id020
+                          - contains: *id023
                             minContains: 0
                             maxContains: 1
                         schema:name:
@@ -2144,7 +2261,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id021
+                            - &id024
                               title: Collision Gas Flow Rate
                               description: Flow rate of the collision gas in KED mode. Higher flow rates
                                 provide greater interference suppression at the cost of analyte sensitivity.
@@ -2154,29 +2271,32 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/geochronTAPP/collisionGasFlowRate
+                                  const: ada:parameter/geochronTAPP/collisionGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/geochronTAPP/collisionGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: collisionGasFlowRateDefault
                                 schema:name:
                                   const: Collision Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
-                            - &id022
+                              - ada:dataType
+                              - ada:fieldScope
+                            - &id025
                               title: Cell Exit Discrimination Voltage
                               description: Kinetic energy discrimination offset voltage applied at the
                                 exit of the collision cell in KED mode. Applies to quadrupole-based instruments
@@ -2185,28 +2305,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/geochronTAPP/cellExitDiscriminationVoltage
+                                  const: ada:parameter/geochronTAPP/cellExitDiscriminationVoltageDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/geochronTAPP/cellExitDiscriminationVoltage
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: cellExitDiscriminationVoltageDefault
                                 schema:name:
                                   const: Cell Exit Discrimination Voltage
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: V
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                             - title: Reaction Gas Type
                               description: Type of reactive gas introduced into the dynamic reaction cell
                                 (DRC) for interference removal through ion-molecule reactions. Applies
@@ -2233,7 +2356,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id023
+                            - &id026
                               title: Reaction Gas Flow Rate
                               description: Flow rate of the reactive gas introduced into the dynamic reaction
                                 cell (DRC). Applies to quadrupole-based instruments and to collision-cell-equipped
@@ -2242,28 +2365,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/geochronTAPP/reactionGasFlowRate
+                                  const: ada:parameter/geochronTAPP/reactionGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/geochronTAPP/reactionGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: reactionGasFlowRateDefault
                                 schema:name:
                                   const: Reaction Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                           allOf:
                           - contains:
                               title: Collision Gas Type
@@ -2294,10 +2420,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id021
+                          - contains: *id024
                             minContains: 0
                             maxContains: 1
-                          - contains: *id022
+                          - contains: *id025
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -2329,7 +2455,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id023
+                          - contains: *id026
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -2345,7 +2471,41 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id024
+                            - &id027
+                              title: RF Power (W)
+                              description: ICP radiofrequency forward power. Session-tunable within procedure-defined
+                                bounds during plasma optimisation; consistent with the analogous, tunable
+                                treatment of RF Power across LA-Q/SF-ICP-MS and all three solution ICP-MS
+                                TAPPs.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/geochronTAPP/rfPowerDefault
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: rfPowerDefault
+                                schema:name:
+                                  const: RF Power (W)
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
+                                schema:unitText:
+                                  const: W
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - ada:fieldScope
+                            - &id028
                               title: Coolant (Plasma) Gas Flow Rate
                               description: Flow rate of the outer (coolant/plasma) argon gas stream that
                                 sustains the ICP plasma. Determines plasma volume and stability.
@@ -2377,7 +2537,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id025
+                            - &id029
                               title: Auxiliary Gas Flow Rate
                               description: Flow rate of the intermediate (auxiliary) argon gas stream
                                 that positions the plasma relative to the load coil. Affects ion extraction
@@ -2437,10 +2597,13 @@ allOf:
                               - schema:value
                               readOnly: true
                           allOf:
-                          - contains: *id024
+                          - contains: *id027
                             minContains: 0
                             maxContains: 1
-                          - contains: *id025
+                          - contains: *id028
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id029
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -2535,26 +2698,19 @@ allOf:
       - Raster area (2D elemental mapping)
       - Stepped line profile
       readOnly: true
-    ada:spotDiameter:
+    ada:spotDiameterDefault:
       description: Diameter of the laser spot as set in the acquisition method (nominal/target value).
       type: string
-    ada:ablationSpotDuration:
+    ada:ablationSpotDurationDefault:
       description: Total on-sample ablation time per spot, as set in the acquisition method.
       anyOf:
       - type: number
       - type: string
-    ada:carrierGasFlowRate:
+    ada:carrierGasFlowRateDefault:
       description: Identity and plumbing configuration of the gas used to transport the ablated aerosol
         from the cell to the torch, including the procedure-registered flow rate(s).
       type: string
-    ada:rfPower:
-      description: ICP radiofrequency forward power. Session-tunable within procedure-defined bounds during
-        plasma optimisation; consistent with the analogous, tunable treatment of RF Power across LA-Q/SF-ICP-MS
-        and all three solution ICP-MS TAPPs.
-      anyOf:
-      - type: number
-      - type: string
-    ada:massesMeasured:
+    ada:massesMeasuredDefault:
       description: Mass-to-charge positions (isotope masses) this procedure is designed to measure. Defines
         the scope of the procedure; the analyst may record the specific subset actually measured in a
         given session.
@@ -2567,13 +2723,13 @@ allOf:
         techniques, this field is generalised to any reported physical or chemical property and its units.
       type: string
       readOnly: true
-    ada:integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps:
+    ada:dwellTimesDefault:
       description: Count time (dwell time) per mass position for each measured isotope, and the settling
         time allowed between mass jumps, as reported in Table 3 of Horstwood et al. (2016). Applies to
         sequential (Q/SF) mass-hopping acquisition; for simultaneous multi-collector acquisition see Number
         of Blocks per Measurement, Number of Cycles per Block, and Integration Time per Cycle.
       type: string
-    ada:totalIntegrationTimePerOutputDataPoint:
+    ada:totalIntegrationTimePerOutputDataPointDefault:
       description: Total duty-cycle time for one complete mass-scan sweep (sum of all per-isotope dwell
         times and settling times), which sets the time resolution of the down-hole signal. Applies to
         sequential (Q/SF) acquisition.
@@ -2586,10 +2742,6 @@ allOf:
         directly relevant to Th/U ratio accuracy.
       type: string
       readOnly: true
-    ada:analysisSequence:
-      description: Repeating order of primary calibration standard(s), quality control standard(s), and
-        unknown analyses within a measurement session.
-      type: string
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In peak hopping mode,
         the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak. Applicable
@@ -2613,7 +2765,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id026
+            - &id030
               title: Mass Resolution per Analyte
               description: Mass resolution mode assigned to each analyte in this procedure. The selected
                 resolution determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant
@@ -2642,7 +2794,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id027
+            - &id031
               title: Isobaric Interference Corrections Applied
               description: Whether isobaric interference corrections were applied for any measured isotope
                 in this procedure. A procedure-level Boolean; element-specific detail is in Interfering
@@ -2670,7 +2822,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id028
+            - &id032
               title: Interfering Species
               description: Elemental or molecular species overlapping with the measured isotope, relevant
                 to U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field
@@ -2698,7 +2850,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id029
+            - &id033
               title: Interference Correction Method
               description: Equation or procedure used to correct for isobaric interferences, including
                 the reference material or monitor isotope used to characterise it.
@@ -2725,7 +2877,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id030
+            - &id034
               title: Within-Session Analytical Precision and Assessment Method
               description: Reproducibility of repeated measurements within a single analytical session.
                 Assessment method specifies the reference material used, number of replicates n, and the
@@ -2753,7 +2905,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id031
+            - &id035
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Reproducibility of measurements across multiple analytical sessions over weeks
                 to months. Not addressed in Table 3 of Horstwood et al. (2016), which reports only within-session
@@ -2781,7 +2933,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id032
+            - &id036
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted reference values for secondary reference
                 materials. Table 3's validation weighted-average ages, compared against each material's
@@ -2810,7 +2962,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id033
+            - &id037
               title: Detection Limit
               description: Session detection limit for U, Th, and/or Pb, demonstrating the reliability
                 of reported concentrations near the detection limit. Not requested by Table 3 of Horstwood
@@ -2838,7 +2990,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id034
+            - &id038
               title: Detection Limit Method
               description: Reference or description of the method used to calculate the session detection
                 limit reported above.
@@ -2865,7 +3017,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id035
+            - &id039
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate the limit of quantification:
                 the lowest concentration reliably measurable with acceptable precision and accuracy.'
@@ -2893,18 +3045,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id026
-            minContains: 0
-            maxContains: 1
-          - contains: *id027
-            minContains: 0
-            maxContains: 1
-          - contains: *id028
-            minContains: 0
-            maxContains: 1
-          - contains: *id029
-            minContains: 0
-            maxContains: 1
           - contains: *id030
             minContains: 0
             maxContains: 1
@@ -2921,6 +3061,18 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id035
+            minContains: 0
+            maxContains: 1
+          - contains: *id036
+            minContains: 0
+            maxContains: 1
+          - contains: *id037
+            minContains: 0
+            maxContains: 1
+          - contains: *id038
+            minContains: 0
+            maxContains: 1
+          - contains: *id039
             minContains: 0
             maxContains: 1
     ada:gasBlank:
@@ -2953,17 +3105,6 @@ allOf:
         Stacey and Kramers 1975) and its uncertainty used in the correction.
       type: string
       readOnly: true
-    ada:constantsAndReferenceValuesUsed:
-      description: 'Physical constants and reference values used in data reduction to calculate the final
-        reported quantity (e.g., decay constants for age calculation, the 238U/235U ratio used to convert
-        measured 235U-based data to 207Pb/235U, or other citable reference values), together with their
-        source. Distinct from Reference Material Information (Group 6), which documents accepted values
-        for specific calibration/validation materials rather than universal physical constants. Critical
-        for traceability: community-recommended values for decay constants and isotope ratios are periodically
-        revised (e.g., the 238U/235U ratio revision by Hiess et al. 2012), and a reported age or ratio
-        can only be correctly reinterpreted against a future revision if the constants originally used
-        are known.'
-      type: string
     ada:perAnalyteCalibrationStrategy:
       type: array
       items:
@@ -2980,11 +3121,11 @@ allOf:
         excess scatter/MSWD in the resulting age population.
       type: string
       readOnly: true
-    ada:primaryStandardName:
+    ada:primaryStandardNameDefault:
       description: Primary reference material used to calibrate the instrument and convert raw signal
         intensities to ages/isotope ratios. Include citation for the accepted values used.
       type: string
-    ada:secondaryReferenceMaterial:
+    ada:secondaryReferenceMaterialDefault:
       type: array
       items:
         description: Quality-control reference material(s) analysed as unknowns alongside samples in the

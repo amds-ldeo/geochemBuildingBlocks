@@ -12,25 +12,13 @@
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:identifier": "example protocolDoi"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
   "prov:wasGeneratedBy": [
     {
-      "schema:startDate": "example analysisStartDate",
-      "schema:endDate": "example analysisEndDate",
       "prov:used": [
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "example acquisitionSoftware"
+        },
         {
           "schema:additionalType": [
             "ICPMS"
@@ -64,6 +52,18 @@
                   "schema:name": "Coolant (Plasma) Gas Flow Rate",
                   "schema:value": 1,
                   "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                  },
+                  "schema:name": "RF Power",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
                 }
               ]
             },
@@ -83,6 +83,48 @@
                   "schema:name": "Make-up Gas Flow Rate",
                   "schema:value": 1,
                   "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate"
+                  },
+                  "schema:name": "Nebulizer Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate"
+                  },
+                  "schema:name": "Sample Uptake Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
+            },
+            {
+              "schema:additionalType": [
+                "Torch"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/torchDepth",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/solutionSficpmsTAPP/torchDepth"
+                  },
+                  "schema:name": "Torch Depth",
+                  "schema:value": "example value"
                 }
               ]
             }
@@ -111,6 +153,17 @@
               "schema:value": "example value"
             },
             {
+              "@id": "ada:parameter/solutionSficpmsTAPP/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/solutionSficpmsTAPP/massResolutionSetting"
+              },
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "example value"
+            },
+            {
               "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation",
               "@type": [
                 "schema:PropertyValue"
@@ -121,9 +174,24 @@
               "schema:name": "Memory Effect Mitigation",
               "schema:value": "example value"
             }
-          ]
+          ],
+          "schema:identifier": "example instrumentSerialNumberOrLabIdentifier"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "example dataReductionSoftware"
+        },
+        {
+          "ada:reagentRole": "primaryStandard",
+          "schema:name": "example primaryCalibrationStandardName"
+        },
+        {
+          "ada:reagentRole": "secondaryReferenceMaterial",
+          "schema:name": "example secondaryReferenceMaterials"
         }
       ],
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
       "schema:object": [
         {
           "@type": [
@@ -149,6 +217,34 @@
       ],
       "schema:actionProcess": {
         "schema:step": [
+          {
+            "schema:name": "sampleDigestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/solutionSficpmsTAPP/digestionDuration",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/digestionDuration"
+                },
+                "schema:name": "Digestion Duration",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/solutionSficpmsTAPP/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/solutionSficpmsTAPP/digestionTemperature"
+                },
+                "schema:name": "Digestion Temperature",
+                "schema:value": 1,
+                "schema:unitText": "example value"
+              }
+            ]
+          },
           {
             "schema:name": "dataReduction",
             "schema:additionalProperty": [
@@ -200,6 +296,13 @@
           }
         ]
       },
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
       "schema:additionalProperty": [
         {
           "@id": "ada:parameter/solutionSficpmsTAPP/signalIntegrationTime",
@@ -213,7 +316,22 @@
           "schema:value": 1,
           "schema:unitText": "example value"
         }
-      ]
+      ],
+      "schema:description": "example additionalNotes"
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example protocolDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
     }
   ],
   "schema:funding": [],
@@ -227,6 +345,13 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique",
+        "schema:description": "example couplingDescription"
+      }
     }
   ],
   "dqv:hasQualityMeasurement": [

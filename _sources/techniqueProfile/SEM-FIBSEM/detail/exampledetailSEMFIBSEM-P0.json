@@ -12,24 +12,89 @@
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:identifier": "example protocolDoi"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
   "prov:wasGeneratedBy": [
     {
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "samplePreparation",
+            "schema:description": "example samplePreparationMethod",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDeposition",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDeposition"
+                },
+                "schema:name": "Protective Coating Deposition",
+                "schema:value": "example value"
+              }
+            ]
+          },
+          {
+            "schema:name": "ionMilling",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/coarseMillingConditions",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/semFibsemTAPP/coarseMillingConditions"
+                },
+                "schema:name": "Coarse Milling Conditions",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/semFibsemTAPP/finePolishingConditions",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/semFibsemTAPP/finePolishingConditions"
+                },
+                "schema:name": "Fine Polishing Conditions",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/semFibsemTAPP/targetFoilThickness",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/semFibsemTAPP/targetFoilThickness"
+                },
+                "schema:name": "Target Foil Thickness",
+                "schema:value": 1
+              },
+              {
+                "@id": "ada:parameter/semFibsemTAPP/sliceThickness",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/semFibsemTAPP/sliceThickness"
+                },
+                "schema:name": "Slice Thickness",
+                "schema:value": 1,
+                "schema:unitText": "example value"
+              }
+            ],
+            "schema:description": "example ionMillingConditions"
+          }
+        ]
+      },
       "schema:object": [
         {
           "@type": [
@@ -40,6 +105,14 @@
         }
       ],
       "prov:used": [
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "example acquisitionSoftware"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "example dataReductionSoftware"
+        },
         {
           "schema:additionalType": [
             "SEM"
@@ -60,11 +133,35 @@
           "schema:name": "Dwell Time per Pixel",
           "schema:value": 1
         }
-      ]
+      ],
+      "ada:imageRegistration3D": "example imageRegistration3D",
+      "ada:segmentationMethod3D": "example segmentationMethod3D",
+      "schema:description": "example additionalNotes"
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example protocolDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
     }
   ],
   "schema:funding": [],
   "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique",
+        "schema:description": "example couplingDescription"
+      }
+    },
     {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {

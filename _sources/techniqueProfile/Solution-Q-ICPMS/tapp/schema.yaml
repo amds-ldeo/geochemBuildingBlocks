@@ -289,51 +289,60 @@ allOf:
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/digestionTemperature
+                            const: ada:parameter/solutionQicpmsTAPP/digestionTemperatureDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/solutionQicpmsTAPP/digestionTemperature
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: digestionTemperatureDefault
                           schema:name:
                             const: Digestion Temperature
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                           schema:unitText:
-                            type: string
+                            const: °C
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
-                        - schema:unitText
+                        - ada:dataType
+                        - ada:fieldScope
                       - &id002
                         title: Digestion Duration
                         description: Duration of the primary acid digestion step (hours or days).
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/digestionDuration
+                            const: ada:parameter/solutionQicpmsTAPP/digestionDurationDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/solutionQicpmsTAPP/digestionDuration
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: digestionDurationDefault
                           schema:name:
                             const: Digestion Duration
-                          schema:value:
-                            type: string
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
+                        - ada:dataType
+                        - ada:fieldScope
                     allOf:
                     - contains:
                         title: Digestion Vessel Type
@@ -666,14 +675,300 @@ allOf:
                       tuning parameters and available cell configurations.
                     type: string
                     readOnly: true
-              schema:identifier:
-                description: Serial number or laboratory-internal identifier for the specific instrument
-                  unit. Supports traceability to instrument service records.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+              schema:additionalProperty:
+                type: array
+                items:
+                  anyOf:
+                  - &id005
+                    title: Instrument Serial Number or Lab Identifier
+                    description: Serial number or laboratory-internal identifier for the specific instrument
+                      unit. Supports traceability to instrument service records.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: instrumentSerialNumberOrLabIdentifierDefault
+                      schema:name:
+                        const: Instrument Serial Number or Lab Identifier
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - title: Mass Resolution Setting
+                    description: Mass resolution of the quadrupole analyser. For quadrupole instruments,
+                      mass resolution is fixed at unit resolution by instrument design (m/Δm ≈ 300); no
+                      operator selection is possible. This field documents the instrument class constraint
+                      at protocol level.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/massResolutionSetting
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                          '@id': ada:parameter/solutionQicpmsTAPP/massResolutionSetting
+                      schema:name:
+                        const: Mass Resolution Setting
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  - title: Detector Configuration
+                    description: Type(s) of detector(s) installed in the mass spectrometer and whether
+                      dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single
+                      SEM in dual mode (pulse counting at low signals, analog at high signals), with an
+                      instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction
+                      is documented in Group 5.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/detectorConfiguration
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                          '@id': ada:parameter/solutionQicpmsTAPP/detectorConfiguration
+                      schema:name:
+                        const: Detector Configuration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  - &id006
+                    title: Make-up Gas Flow Rate
+                    description: Supplementary argon flow added downstream of a desolvation system to
+                      maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation
+                      system is used.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: makeUpGasFlowRateDefault
+                      schema:name:
+                        const: Make-up Gas Flow Rate
+                      ada:dataType:
+                        const: number
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                      schema:unitText:
+                        const: L/min
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id007
+                    title: Doubly-Charged Species Monitor
+                    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during
+                      instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent
+                      ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+
+                      (m/z 70/140) are the most common proxies for solution ICP-MS.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: doublyChargedSpeciesMonitorDefault
+                      schema:name:
+                        const: Doubly-Charged Species Monitor
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id008
+                    title: Doubly-Charged Species Production
+                    description: Measured percentage of doubly-charged ion production for the monitored
+                      species at the time of instrument tuning. Record both the acceptance threshold and
+                      the measured value. Elevated doubly-charged production indicates incomplete ionization
+                      and potential interference on elements at approximately half the mass of abundant
+                      matrix components.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: doublyChargedSpeciesProductionDefault
+                      schema:name:
+                        const: Doubly-Charged Species Production
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id009
+                    title: Memory Effect Mitigation
+                    description: Protocol applied to identify and minimize carry-over of high-concentration
+                      elements between successive sample introductions. For solution ICP-MS, mitigation
+                      is implemented primarily at measurement time through extended rinse periods (see
+                      Wash Time Between Samples, Group 4). At data processing level, documents any flagging
+                      or exclusion of measurements preceded by high-concentration samples or standards
+                      where the required washout time may not have been achieved.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: memoryEffectMitigationDefault
+                      schema:name:
+                        const: Memory Effect Mitigation
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                allOf:
+                - contains: *id005
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: Mass Resolution Setting
+                    description: Mass resolution of the quadrupole analyser. For quadrupole instruments,
+                      mass resolution is fixed at unit resolution by instrument design (m/Δm ≈ 300); no
+                      operator selection is possible. This field documents the instrument class constraint
+                      at protocol level.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/massResolutionSetting
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                          '@id': ada:parameter/solutionQicpmsTAPP/massResolutionSetting
+                      schema:name:
+                        const: Mass Resolution Setting
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: Detector Configuration
+                    description: Type(s) of detector(s) installed in the mass spectrometer and whether
+                      dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single
+                      SEM in dual mode (pulse counting at low signals, analog at high signals), with an
+                      instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction
+                      is documented in Group 5.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionQicpmsTAPP/detectorConfiguration
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                          '@id': ada:parameter/solutionQicpmsTAPP/detectorConfiguration
+                      schema:name:
+                        const: Detector Configuration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id006
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id007
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id008
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id009
+                  minContains: 0
+                  maxContains: 1
               schema:hasPart:
                 type: array
                 items:
@@ -700,7 +995,7 @@ allOf:
                               readOnly: true
                         schema:additionalProperty:
                           type: array
-                          items: &id005
+                          items: &id010
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position. Affects ion transmission efficiency
@@ -709,25 +1004,31 @@ allOf:
                             type: object
                             properties:
                               '@id':
-                                const: ada:parameter/solutionQicpmsTAPP/torchDepth
+                                const: ada:parameter/solutionQicpmsTAPP/torchDepthDefault
                               '@type':
                                 const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                  '@id': ada:parameter/solutionQicpmsTAPP/torchDepth
+                                - schema:PropertyValueSpecification
+                              schema:valueName:
+                                const: torchDepthDefault
                               schema:name:
                                 const: Torch Depth
-                              schema:value:
-                                type: string
+                              ada:dataType:
+                                const: string
+                              ada:fieldScope:
+                                const: session
+                              schema:readonlyValue:
+                                const: false
+                              ada:tier:
+                                const: R
                             required:
                             - '@id'
                             - '@type'
-                            - schema:propertyID
+                            - schema:valueName
                             - schema:name
-                            - schema:value
+                            - ada:dataType
+                            - ada:fieldScope
                           allOf:
-                          - contains: *id005
+                          - contains: *id010
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -916,7 +1217,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id006
+                            - &id011
                               title: Collision Gas Flow Rate
                               description: Flow rate of the collision gas in KED mode (mL/min). Higher
                                 flow rates provide greater interference suppression at the cost of analyte
@@ -924,29 +1225,32 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
+                                  const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: collisionGasFlowRateDefault
                                 schema:name:
                                   const: Collision Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
-                            - &id007
+                              - ada:dataType
+                              - ada:fieldScope
+                            - &id012
                               title: Cell Exit Discrimination Voltage
                               description: Kinetic energy discrimination offset voltage applied at the
                                 exit of the collision cell (V). Controls the degree of polyatomic ion
@@ -954,28 +1258,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
+                                  const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltageDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: cellExitDiscriminationVoltageDefault
                                 schema:name:
                                   const: Cell Exit Discrimination Voltage
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: V
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                             - title: Reaction Gas Type
                               description: Type of reactive gas introduced into the dynamic reaction cell
                                 (e.g., NH3, O2, CH4). Record 'N/A' if DRC mode is not used.
@@ -1000,35 +1307,38 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id008
+                            - &id013
                               title: Reaction Gas Flow Rate
                               description: Flow rate of the reaction gas in DRC mode (mL/min). Record
                                 'N/A' if DRC mode is not used.
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
+                                  const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: reactionGasFlowRateDefault
                                 schema:name:
                                   const: Reaction Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                           allOf:
                           - contains:
                               title: Collision Gas Type
@@ -1057,10 +1367,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id006
+                          - contains: *id011
                             minContains: 0
                             maxContains: 1
-                          - contains: *id007
+                          - contains: *id012
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1090,7 +1400,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id008
+                          - contains: *id013
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1156,64 +1466,70 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id009
+                            - &id014
                               title: Sample Uptake Rate
                               description: Peristaltic pump speed or self-aspiration flow rate for sample
                                 introduction (µL/min or mL/min).
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+                                  const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: sampleUptakeRateDefault
                                 schema:name:
                                   const: Sample Uptake Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: µL/min or mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
-                            - &id010
+                              - ada:dataType
+                              - ada:fieldScope
+                            - &id015
                               title: Nebulizer Gas Flow Rate
                               description: Flow rate of the carrier argon gas delivered through the nebulizer
                                 (L/min). Controls aerosol transport and strongly influences signal sensitivity.
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
+                                  const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: nebulizerGasFlowRateDefault
                                 schema:name:
                                   const: Nebulizer Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: L/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                           allOf:
                           - contains:
                               title: Nebulizer Type
@@ -1271,10 +1587,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id009
+                          - contains: *id014
                             minContains: 0
                             maxContains: 1
-                          - contains: *id010
+                          - contains: *id015
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1290,36 +1606,39 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id011
+                            - &id016
                               title: RF Power
                               description: Radiofrequency forward power applied to the plasma (W). Controls
                                 ionization efficiency and oxide production rates.
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/rfPower
+                                  const: ada:parameter/solutionQicpmsTAPP/rfPowerDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionQicpmsTAPP/rfPower
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: rfPowerDefault
                                 schema:name:
                                   const: RF Power
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: W
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
-                            - &id012
+                              - ada:dataType
+                              - ada:fieldScope
+                            - &id017
                               title: Coolant (Plasma) Gas Flow Rate
                               description: Flow rate of the outer (coolant) argon gas stream (L/min).
                                 Influences plasma temperature and oxide ion formation.
@@ -1351,7 +1670,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id013
+                            - &id018
                               title: Auxiliary Gas Flow Rate
                               description: Flow rate of the intermediate (auxiliary) argon gas stream
                                 between torch body and injector tube (L/min).
@@ -1411,13 +1730,13 @@ allOf:
                               - schema:value
                               readOnly: true
                           allOf:
-                          - contains: *id011
+                          - contains: *id016
                             minContains: 0
                             maxContains: 1
-                          - contains: *id012
+                          - contains: *id017
                             minContains: 0
                             maxContains: 1
-                          - contains: *id013
+                          - contains: *id018
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1479,267 +1798,6 @@ allOf:
                           const: ICP Source
                     required:
                     - schema:additionalType
-              schema:additionalProperty:
-                type: array
-                items:
-                  anyOf:
-                  - title: Mass Resolution Setting
-                    description: Mass resolution of the quadrupole analyser. For quadrupole instruments,
-                      mass resolution is fixed at unit resolution by instrument design (m/Δm ≈ 300); no
-                      operator selection is possible. This field documents the instrument class constraint
-                      at protocol level.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      schema:name:
-                        const: Mass Resolution Setting
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer and whether
-                      dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single
-                      SEM in dual mode (pulse counting at low signals, analog at high signals), with an
-                      instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction
-                      is documented in Group 5.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/solutionQicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  - &id014
-                    title: Make-up Gas Flow Rate
-                    description: Supplementary argon flow added downstream of a desolvation system to
-                      maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation
-                      system is used.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: makeUpGasFlowRateDefault
-                      schema:name:
-                        const: Make-up Gas Flow Rate
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: L/min
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - &id015
-                    title: Doubly-Charged Species Monitor
-                    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during
-                      instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent
-                      ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+
-                      (m/z 70/140) are the most common proxies for solution ICP-MS.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: doublyChargedSpeciesMonitorDefault
-                      schema:name:
-                        const: Doubly-Charged Species Monitor
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - &id016
-                    title: Doubly-Charged Species Production
-                    description: Measured percentage of doubly-charged ion production for the monitored
-                      species at the time of instrument tuning. Record both the acceptance threshold and
-                      the measured value. Elevated doubly-charged production indicates incomplete ionization
-                      and potential interference on elements at approximately half the mass of abundant
-                      matrix components.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: doublyChargedSpeciesProductionDefault
-                      schema:name:
-                        const: Doubly-Charged Species Production
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - &id017
-                    title: Memory Effect Mitigation
-                    description: Protocol applied to identify and minimize carry-over of high-concentration
-                      elements between successive sample introductions. For solution ICP-MS, mitigation
-                      is implemented primarily at measurement time through extended rinse periods (see
-                      Wash Time Between Samples, Group 4). At data processing level, documents any flagging
-                      or exclusion of measurements preceded by high-concentration samples or standards
-                      where the required washout time may not have been achieved.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: memoryEffectMitigationDefault
-                      schema:name:
-                        const: Memory Effect Mitigation
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                allOf:
-                - contains:
-                    title: Mass Resolution Setting
-                    description: Mass resolution of the quadrupole analyser. For quadrupole instruments,
-                      mass resolution is fixed at unit resolution by instrument design (m/Δm ≈ 300); no
-                      operator selection is possible. This field documents the instrument class constraint
-                      at protocol level.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      schema:name:
-                        const: Mass Resolution Setting
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer and whether
-                      dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single
-                      SEM in dual mode (pulse counting at low signals, analog at high signals), with an
-                      instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction
-                      is documented in Group 5.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/solutionQicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id014
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id015
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id016
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id017
-                  minContains: 0
-                  maxContains: 1
       allOf:
       - contains:
           properties:
@@ -1806,7 +1864,7 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
-        - &id018
+        - &id019
           title: Spike/Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous replicate measurements or data
             points from the calculated mean.
@@ -1836,7 +1894,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id019
+        - &id020
           title: Uncertainty Propagation Method
           description: Method used to propagate analytical uncertainties from raw signals through to final
             concentration values.
@@ -1927,10 +1985,10 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id018
+      - contains: *id019
         minContains: 0
         maxContains: 1
-      - contains: *id019
+      - contains: *id020
         minContains: 0
         maxContains: 1
     bios:computationalTool:
@@ -2001,7 +2059,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id020
+            - &id021
               title: Monitored Isotopes
               description: Specific isotope(s) monitored per analyte element in this protocol, including
                 any interference-monitor masses. Analyte-specific field.
@@ -2031,7 +2089,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id021
+            - &id022
               title: Dwell Time per Mass
               description: Integration time spent on each mass peak per sweep (ms). May differ per analyte
                 if analyte-specific dwell times are programmed.
@@ -2063,7 +2121,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id022
+            - &id023
               title: Isobaric Interference Corrections Applied
               description: Whether mathematical corrections for isobaric or polyatomic interferences are
                 applied during data reduction (in addition to any KED or DRC mitigation in the instrument).
@@ -2093,7 +2151,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id023
+            - &id024
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
                 Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species
@@ -2125,7 +2183,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id024
+            - &id025
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove interference contributions
                 from measured signals (e.g., interference standard solutions isolating specific polyatomics,
@@ -2156,7 +2214,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id025
+            - &id026
               title: Detection Limit
               description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and
                 whether values are protocol-typical estimates or session-specific measured values.
@@ -2187,7 +2245,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id026
+            - &id027
               title: Detection Limit Method
               description: Method used to calculate detection limits for each analyte.
               type: object
@@ -2215,7 +2273,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id027
+            - &id028
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.
               type: object
@@ -2243,7 +2301,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id028
+            - &id029
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analysis session and the
                 method used to assess it (e.g., %RSD of replicate standard or reference material measurements).
@@ -2272,7 +2330,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id029
+            - &id030
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
                 and the assessment method.
@@ -2301,7 +2359,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id030
+            - &id031
               title: Analytical Accuracy and Assessment Method
               description: Accuracy of final concentration measurements relative to certified or consensus
                 values and the method used to assess it.
@@ -2331,9 +2389,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id020
-            minContains: 0
-            maxContains: 1
           - contains: *id021
             minContains: 0
             maxContains: 1
@@ -2362,6 +2417,9 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id030
+            minContains: 0
+            maxContains: 1
+          - contains: *id031
             minContains: 0
             maxContains: 1
     ada:massCyclesPerReplicate:
@@ -2470,7 +2528,7 @@ allOf:
       - N/A
       - None
       readOnly: true
-    ada:primaryStandardName:
+    ada:primaryStandardNameDefault:
       description: Name and reference material identifier of the external calibration standard used to
         convert signal intensities to elemental concentrations.
       type: string
@@ -2479,7 +2537,7 @@ allOf:
         within a session.
       type: string
       readOnly: true
-    ada:secondaryReferenceMaterial:
+    ada:secondaryReferenceMaterialDefault:
       type: array
       items:
         description: Reference material(s) measured as unknowns to independently assess analytical accuracy.
@@ -2506,5 +2564,5 @@ allOf:
   - ada:driftCorrectionMethod
   - ada:signalIntegrationIntervalMethod
   - ada:blankBackgroundCorrectionMethod
-  - ada:primaryStandardName
+  - ada:primaryStandardNameDefault
   - ada:calibrationMeasurementFrequency

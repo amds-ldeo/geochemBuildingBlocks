@@ -204,23 +204,29 @@ allOf:
                       type: object
                       properties:
                         '@id':
-                          const: ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
+                          const: ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
                         '@type':
                           const:
-                          - schema:PropertyValue
-                        schema:propertyID:
-                          const:
-                            '@id': ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
+                          - schema:PropertyValueSpecification
+                        schema:valueName:
+                          const: protectiveCoatingDepositionDefault
                         schema:name:
                           const: Protective Coating Deposition
-                        schema:value:
-                          type: string
+                        ada:dataType:
+                          const: string
+                        ada:fieldScope:
+                          const: session
+                        schema:readonlyValue:
+                          const: false
+                        ada:tier:
+                          const: R
                       required:
                       - '@id'
                       - '@type'
-                      - schema:propertyID
+                      - schema:valueName
                       - schema:name
-                      - schema:value
+                      - ada:dataType
+                      - ada:fieldScope
                     allOf:
                     - contains: *id001
                       minContains: 0
@@ -246,23 +252,29 @@ allOf:
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/semFibsemTAPP/coarseMillingConditions
+                            const: ada:parameter/semFibsemTAPP/coarseMillingConditionsDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/semFibsemTAPP/coarseMillingConditions
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: coarseMillingConditionsDefault
                           schema:name:
                             const: Coarse Milling Conditions
-                          schema:value:
-                            type: string
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
+                        - ada:dataType
+                        - ada:fieldScope
                       - &id003
                         title: Fine Polishing Conditions
                         description: Ion beam voltage and current for final thinning and surface polishing
@@ -271,23 +283,29 @@ allOf:
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/semFibsemTAPP/finePolishingConditions
+                            const: ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/semFibsemTAPP/finePolishingConditions
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: finePolishingConditionsDefault
                           schema:name:
                             const: Fine Polishing Conditions
-                          schema:value:
-                            type: string
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
+                        - ada:dataType
+                        - ada:fieldScope
                       - &id004
                         title: Target Foil Thickness
                         description: 'Target thickness of the electron-transparent TEM lamella after final
@@ -296,25 +314,29 @@ allOf:
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/semFibsemTAPP/targetFoilThickness
+                            const: ada:parameter/semFibsemTAPP/targetFoilThicknessDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/semFibsemTAPP/targetFoilThickness
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: targetFoilThicknessDefault
                           schema:name:
                             const: Target Foil Thickness
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
+                        - ada:dataType
+                        - ada:fieldScope
                       - title: Lift-out Method
                         description: Method used to transfer the FIB-prepared lamella to the TEM support
                           grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and
@@ -347,28 +369,31 @@ allOf:
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/semFibsemTAPP/sliceThickness
+                            const: ada:parameter/semFibsemTAPP/sliceThicknessDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/semFibsemTAPP/sliceThickness
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: sliceThicknessDefault
                           schema:name:
                             const: Slice Thickness
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                           schema:unitText:
-                            type: string
+                            const: nm
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
-                        - schema:unitText
+                        - ada:dataType
+                        - ada:fieldScope
                     allOf:
                     - contains: *id002
                       minContains: 0
@@ -842,11 +867,11 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:imageRegistration3D:
+    ada:imageRegistration3DDefault:
       description: Method used to align consecutive SEM image slices in the 3D stack to correct for drift,
         vibration, and curtaining artifacts. Include software used.
       type: string
-    ada:segmentationMethod3D:
+    ada:segmentationMethod3DDefault:
       description: Method and software used to segment phases and features in the aligned 3D image stack,
         transforming the grayscale stack into labelled 3D regions (pores, mineral phases, grain boundaries,
         organic matter).
@@ -859,5 +884,5 @@ allOf:
   - schema:name
   - schema:datePublished
   - ada:dwellTimePerPixelDefault
-  - ada:imageRegistration3D
-  - ada:segmentationMethod3D
+  - ada:imageRegistration3DDefault
+  - ada:segmentationMethod3DDefault

@@ -234,23 +234,29 @@ allOf:
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio
+                            const: ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: fusionFluxAndDilutionRatioDefault
                           schema:name:
                             const: Fusion Flux and Dilution Ratio
-                          schema:value:
-                            type: string
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
+                        - ada:dataType
+                        - ada:fieldScope
                       - &id002
                         title: Pre-Ablation Surface Treatment
                         description: Protocol applied immediately before each analysis to remove surface
@@ -261,23 +267,29 @@ allOf:
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment
+                            const: ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: preAblationSurfaceTreatmentDefault
                           schema:name:
                             const: Pre-Ablation Surface Treatment
-                          schema:value:
-                            type: string
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
+                        - ada:dataType
+                        - ada:fieldScope
                     allOf:
                     - contains: *id001
                       minContains: 0
@@ -585,7 +597,7 @@ allOf:
                   items:
                     type: string
                     readOnly: true
-              ada:laserSpotGeometry:
+              ada:laserSpotGeometryDefault:
                 description: Shape and dimensions of the laser ablation spot in micrometres registered
                   by the protocol. For circular spots, report diameter; for square or rectangular spots,
                   report width × length. The protocol registers the typical geometry; analysts may adjust
@@ -749,7 +761,7 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
-              ada:laserFluence:
+              ada:laserFluenceDefault:
                 description: Laser pulse energy per unit area at the sample surface in J cm⁻², as registered
                   by the protocol. Fluence is the physically meaningful quantity controlling ablation
                   rate, crater morphology, elemental fractionation, and particle size distribution. If
@@ -758,7 +770,7 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
-              ada:laserRepetitionRate:
+              ada:laserRepetitionRateDefault:
                 description: Laser pulse repetition rate in hertz registered by the protocol. For mapping
                   methods, repetition rate together with scan speed and spot size determines pixel size
                   and spatial resolution. Analysts may adjust within protocol-allowed bounds.
@@ -781,14 +793,274 @@ allOf:
                     description: Manufacturer and model of the ICP-MS instrument.
                     type: string
                     readOnly: true
-              schema:identifier:
-                description: Serial number or laboratory-internal identifier for the specific instrument
-                  unit. Supports traceability to instrument service records.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+              schema:additionalProperty:
+                type: array
+                items:
+                  anyOf:
+                  - &id007
+                    title: Instrument Serial Number or Lab Identifier
+                    description: Serial number or laboratory-internal identifier for the specific instrument
+                      unit. Supports traceability to instrument service records.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/instrumentIdentifierDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: instrumentIdentifierDefault
+                      schema:name:
+                        const: Instrument Serial Number or Lab Identifier
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id008
+                    title: Mass Resolution Setting
+                    description: Operating mass resolution of the mass analyser. For quadrupole instruments
+                      this is fixed at unit resolution by instrument design. For sector-field instruments
+                      the analyst selects low, medium, or high resolution to balance sensitivity against
+                      spectral interference suppression.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/massResolutionSettingDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: massResolutionSettingDefault
+                      schema:name:
+                        const: Mass Resolution Setting
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - title: Detector Configuration
+                    description: Type(s) of detector(s) installed in the mass spectrometer. For single-collector
+                      instruments, note whether dual pulse-counting/analog mode is used. For multi-collector
+                      instruments, describe the Faraday/multiplier cup layout.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/detectorConfiguration
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                          '@id': ada:parameter/laicpmsTAPP/detectorConfiguration
+                      schema:name:
+                        const: Detector Configuration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  - &id009
+                    title: ICP Tuning
+                    description: Description of the approach used to optimise ICP plasma conditions prior
+                      to analysis, including the reference material used for tuning and the acceptance
+                      criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/icPlasmaTuningDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: icPlasmaTuningDefault
+                      schema:name:
+                        const: ICP Tuning
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id010
+                    title: Doubly-Charged Species Monitor
+                    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
+                      during instrument tuning. Doubly-charged ions appear at half the mass of the parent
+                      ion and can cause isobaric interferences on analytes in that mass region. The monitor
+                      species and the mass positions monitored should be stated explicitly. Analogous
+                      to Oxide Production Method and Threshold for oxide monitoring.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: doublyChargedSpeciesMonitorDefault
+                      schema:name:
+                        const: Doubly-Charged Species Monitor
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id011
+                    title: Doubly-Charged Species Production
+                    description: Measured percentage of doubly-charged ion production for the monitored
+                      species at the time of instrument tuning. The protocol should specify the acceptable
+                      threshold (e.g., <1%, <3%); the measured value for each session is recorded here.
+                      Report both the threshold and the measured value where possible.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: doublyChargedSpeciesProductionDefault
+                      schema:name:
+                        const: Doubly-Charged Species Production
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id012
+                    title: Memory Effect Mitigation
+                    description: Protocol applied to identify and minimise memory effects from high-concentration
+                      elements in the previous sample or standard that may contaminate subsequent analyses,
+                      or from incomplete aerosol washout between adjacent pixels in raster mapping mode.
+                      For mapping, the mitigation strategy involves controlling scan speed relative to
+                      washout time to ensure each pixel signal is sufficiently free of the preceding pixel's
+                      contribution.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: memoryEffectMitigationDefault
+                      schema:name:
+                        const: Memory Effect Mitigation
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                allOf:
+                - contains: *id007
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id008
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: Detector Configuration
+                    description: Type(s) of detector(s) installed in the mass spectrometer. For single-collector
+                      instruments, note whether dual pulse-counting/analog mode is used. For multi-collector
+                      instruments, describe the Faraday/multiplier cup layout.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/laicpmsTAPP/detectorConfiguration
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                          '@id': ada:parameter/laicpmsTAPP/detectorConfiguration
+                      schema:name:
+                        const: Detector Configuration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id009
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id010
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id011
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id012
+                  minContains: 0
+                  maxContains: 1
               schema:hasPart:
                 type: array
                 items:
@@ -927,7 +1199,7 @@ allOf:
                       properties:
                         schema:additionalProperty:
                           type: array
-                          items: &id007
+                          items: &id013
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position depending on the instrument
@@ -938,25 +1210,31 @@ allOf:
                             type: object
                             properties:
                               '@id':
-                                const: ada:parameter/laicpmsTAPP/torchDepth
+                                const: ada:parameter/laicpmsTAPP/torchDepthDefault
                               '@type':
                                 const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                  '@id': ada:parameter/laicpmsTAPP/torchDepth
+                                - schema:PropertyValueSpecification
+                              schema:valueName:
+                                const: torchDepthDefault
                               schema:name:
                                 const: Torch Depth
-                              schema:value:
-                                type: string
+                              ada:dataType:
+                                const: string
+                              ada:fieldScope:
+                                const: session
+                              schema:readonlyValue:
+                                const: false
+                              ada:tier:
+                                const: R
                             required:
                             - '@id'
                             - '@type'
-                            - schema:propertyID
+                            - schema:valueName
                             - schema:name
-                            - schema:value
+                            - ada:dataType
+                            - ada:fieldScope
                           allOf:
-                          - contains: *id007
+                          - contains: *id013
                             minContains: 0
                             maxContains: 1
                         schema:name:
@@ -1040,7 +1318,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id008
+                            - &id014
                               title: Collision Gas Flow Rate
                               description: Flow rate of the collision gas (typically He) introduced into
                                 the collision/reaction cell, in mL/min. Controls the degree of ion thermalization
@@ -1048,29 +1326,32 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/laicpmsTAPP/collisionGasFlowRate
+                                  const: ada:parameter/laicpmsTAPP/collisionGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/laicpmsTAPP/collisionGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: collisionGasFlowRateDefault
                                 schema:name:
                                   const: Collision Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
-                            - &id009
+                              - ada:dataType
+                              - ada:fieldScope
+                            - &id015
                               title: Cell Exit Discrimination Voltage
                               description: Bias voltage applied at the collision/reaction cell exit to
                                 discriminate between analyte ions and low-energy polyatomic interferences
@@ -1080,28 +1361,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage
+                                  const: ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltageDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: cellExitDiscriminationVoltageDefault
                                 schema:name:
                                   const: Cell Exit Discrimination Voltage
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: V
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                             - title: Reaction Gas Type
                               description: Type of reactive gas introduced into the dynamic reaction cell
                                 (DRC) for interference removal through ion-molecule reactions. Common
@@ -1128,35 +1412,38 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id010
+                            - &id016
                               title: Reaction Gas Flow Rate
                               description: Flow rate of the reactive gas introduced into the dynamic reaction
                                 cell (DRC), in mL/min.
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/laicpmsTAPP/reactionGasFlowRate
+                                  const: ada:parameter/laicpmsTAPP/reactionGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/laicpmsTAPP/reactionGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: reactionGasFlowRateDefault
                                 schema:name:
                                   const: Reaction Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                           allOf:
                           - contains:
                               title: Collision Gas Type
@@ -1187,10 +1474,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id008
+                          - contains: *id014
                             minContains: 0
                             maxContains: 1
-                          - contains: *id009
+                          - contains: *id015
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1222,7 +1509,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id010
+                          - contains: *id016
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1238,7 +1525,7 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id011
+                            - &id017
                               title: Coolant (Plasma) Gas Flow Rate
                               description: Flow rate of the outer (coolant/plasma) argon gas stream that
                                 sustains the ICP plasma, in L/min. Determines plasma volume and stability.
@@ -1271,7 +1558,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id012
+                            - &id018
                               title: Auxiliary Gas Flow Rate
                               description: Flow rate of the intermediate (auxiliary) argon gas stream
                                 that positions the plasma relative to the load coil, in L/min. Affects
@@ -1306,7 +1593,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id013
+                            - &id019
                               title: RF Power
                               description: ICP radiofrequency forward power in watts. Fixed in the protocol;
                                 cannot be changed by analysts without defining a new protocol, because
@@ -1315,28 +1602,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/laicpmsTAPP/rfPower
+                                  const: ada:parameter/laicpmsTAPP/rfPowerDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/laicpmsTAPP/rfPower
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: rfPowerDefault
                                 schema:name:
                                   const: RF Power
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: W
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                             - title: Plasma Thermal Mode
                               description: Whether the ICP plasma is operated under cool plasma (≤900
                                 W RF) or normal (hot) plasma (>1000 W RF) conditions. Cool plasma substantially
@@ -1366,13 +1656,13 @@ allOf:
                               - schema:value
                               readOnly: true
                           allOf:
-                          - contains: *id011
+                          - contains: *id017
                             minContains: 0
                             maxContains: 1
-                          - contains: *id012
+                          - contains: *id018
                             minContains: 0
                             maxContains: 1
-                          - contains: *id013
+                          - contains: *id019
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1428,235 +1718,6 @@ allOf:
                           const: ICP Source
                     required:
                     - schema:additionalType
-              schema:additionalProperty:
-                type: array
-                items:
-                  anyOf:
-                  - &id014
-                    title: Mass Resolution Setting
-                    description: Operating mass resolution of the mass analyser. For quadrupole instruments
-                      this is fixed at unit resolution by instrument design. For sector-field instruments
-                      the analyst selects low, medium, or high resolution to balance sensitivity against
-                      spectral interference suppression.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laicpmsTAPP/massResolutionSetting
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/laicpmsTAPP/massResolutionSetting
-                      schema:name:
-                        const: Mass Resolution Setting
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer. For single-collector
-                      instruments, note whether dual pulse-counting/analog mode is used. For multi-collector
-                      instruments, describe the Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/laicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  - &id015
-                    title: ICP Tuning
-                    description: Description of the approach used to optimise ICP plasma conditions prior
-                      to analysis, including the reference material used for tuning and the acceptance
-                      criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laicpmsTAPP/icPlasmaTuningDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: icPlasmaTuningDefault
-                      schema:name:
-                        const: ICP Tuning
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - &id016
-                    title: Doubly-Charged Species Monitor
-                    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
-                      during instrument tuning. Doubly-charged ions appear at half the mass of the parent
-                      ion and can cause isobaric interferences on analytes in that mass region. The monitor
-                      species and the mass positions monitored should be stated explicitly. Analogous
-                      to Oxide Production Method and Threshold for oxide monitoring.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: doublyChargedSpeciesMonitorDefault
-                      schema:name:
-                        const: Doubly-Charged Species Monitor
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - &id017
-                    title: Doubly-Charged Species Production
-                    description: Measured percentage of doubly-charged ion production for the monitored
-                      species at the time of instrument tuning. The protocol should specify the acceptable
-                      threshold (e.g., <1%, <3%); the measured value for each session is recorded here.
-                      Report both the threshold and the measured value where possible.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: doublyChargedSpeciesProductionDefault
-                      schema:name:
-                        const: Doubly-Charged Species Production
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - &id018
-                    title: Memory Effect Mitigation
-                    description: Protocol applied to identify and minimise memory effects from high-concentration
-                      elements in the previous sample or standard that may contaminate subsequent analyses,
-                      or from incomplete aerosol washout between adjacent pixels in raster mapping mode.
-                      For mapping, the mitigation strategy involves controlling scan speed relative to
-                      washout time to ensure each pixel signal is sufficiently free of the preceding pixel's
-                      contribution.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: memoryEffectMitigationDefault
-                      schema:name:
-                        const: Memory Effect Mitigation
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                allOf:
-                - contains: *id014
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer. For single-collector
-                      instruments, note whether dual pulse-counting/analog mode is used. For multi-collector
-                      instruments, describe the Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/laicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id015
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id016
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id017
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id018
-                  minContains: 0
-                  maxContains: 1
       allOf:
       - contains:
           properties:
@@ -1745,7 +1806,7 @@ allOf:
       - Raster area (2D elemental mapping)
       - Stepped line profile
       readOnly: true
-    ada:ablationSpotDuration:
+    ada:ablationSpotDurationDefault:
       description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds,
         as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects
         the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption,
@@ -1759,7 +1820,7 @@ allOf:
       type: array
       items:
         anyOf:
-        - &id019
+        - &id020
           title: Transect Rate, Mapping Rate or Step Size
           description: 'For continuous line scan (transect) and raster mapping: the stage translation
             speed in µm s⁻¹. This is the protocol-level parameter that, together with spot size and repetition
@@ -1792,7 +1853,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id020
+        - &id021
           title: Plasma / Make-up Gas Addition
           description: Additional gas(es) mixed into the carrier stream downstream of the ablation cell,
             with the protocol-registered target flow rate. Ar make-up gas is standard. Small N₂ additions
@@ -1932,7 +1993,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id021
+        - &id022
           title: Uncertainty Propagation Method
           description: 'Approach used to propagate analytical uncertainty from raw count rates through
             the data reduction chain to final reported concentrations or isotope ratios. Specifies which
@@ -1992,10 +2053,10 @@ allOf:
           - schema:value
           readOnly: true
       allOf:
-      - contains: *id019
+      - contains: *id020
         minContains: 0
         maxContains: 1
-      - contains: *id020
+      - contains: *id021
         minContains: 0
         maxContains: 1
       - contains:
@@ -2118,7 +2179,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id021
+      - contains: *id022
         minContains: 0
         maxContains: 1
       - contains:
@@ -2149,13 +2210,13 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:rasterLineSpacing:
+    ada:rasterLineSpacingDefault:
       description: Distance between adjacent raster lines in a 2D elemental map, measured perpendicular
         to the scan direction, in micrometres. Together with spot size, this determines whether adjacent
         lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have
         gaps (line spacing > spot size). Applies to raster mapping only.
       type: string
-    ada:carrierGasFlowRate:
+    ada:carrierGasFlowRateDefault:
       description: Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with
         the protocol-registered target flow rate(s). Helium is standard for most UV laser systems due
         to superior aerosol transport. Flow rates are protocol targets; actual session values may be adjusted
@@ -2168,7 +2229,7 @@ allOf:
         (which oxide proxy) and the threshold value.
       type: string
       readOnly: true
-    ada:analysisSequence:
+    ada:analysisSequenceDefault:
       description: Repeating order of primary calibration standard(s), quality control standard(s), and
         unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining
         the bracketing strategy defined in the protocol.
@@ -2190,7 +2251,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id022
+            - &id023
               title: Monitored Isotopes
               description: Specific isotope(s) monitored per analyte element in this protocol, including
                 any interference-monitor masses. Analyte-specific field.
@@ -2220,7 +2281,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id023
+            - &id024
               title: Mass Resolution per Analyte
               description: Mass resolution mode assigned to each analyte in this protocol. The selected
                 resolution determines which polyatomic interferences are physically resolved by the magnetic
@@ -2252,7 +2313,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id024
+            - &id025
               title: Dwell Time per Mass
               description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
                 Longer dwell times improve counting statistics and lower detection limits but reduce the
@@ -2285,7 +2346,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id025
+            - &id026
               title: Isobaric Interference Corrections Applied
               description: 'Whether isobaric interference corrections were applied for any measured isotope
                 in this protocol. A protocol-level Boolean: if the protocol includes interference corrections,
@@ -2317,7 +2378,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id026
+            - &id027
               title: Interfering Species
               description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping
                 with the measured isotope.
@@ -2347,7 +2408,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id027
+            - &id028
               title: Interference Correction Method
               description: Equation or procedure used to correct for isobaric interferences, including
                 the production rate factor and the reference material used to measure it.
@@ -2377,7 +2438,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id028
+            - &id029
               title: Normalization / Standards-Based Correction
               description: Any post-acquisition normalization applied to correct for systematic biases
                 identified from secondary reference materials, or stoichiometric normalization applied
@@ -2408,7 +2469,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id029
+            - &id030
               title: Detection Limit
               description: Session detection limit for each measured isotope, expressed in µg g⁻¹, ng
                 g⁻¹, or wt% as appropriate. Report the value(s) and units per isotope or element group.
@@ -2441,7 +2502,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id030
+            - &id031
               title: Detection Limit Method
               description: Reference or description of the method used to calculate session detection
                 limits. Mandatory at analysis level. Must be consistent with the method applied to generate
@@ -2471,7 +2532,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id031
+            - &id032
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate the limit of quantification
                 (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
@@ -2502,7 +2563,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id032
+            - &id033
               title: Within-Session Analytical Precision and Assessment Method
               description: 'Reproducibility of repeated measurements within a single analytical session.
                 Report both the assessment method and the precision values. Assessment method must specify:
@@ -2535,7 +2596,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id033
+            - &id034
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: 'Reproducibility of measurements across multiple analytical sessions over weeks
                 to months (long-term or intermediate precision). Report both the assessment method and
@@ -2567,7 +2628,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id034
+            - &id035
               title: Analytical Accuracy and Assessment Method
               description: 'Offset between measured and accepted reference values for secondary reference
                 materials, expressed as % relative bias. Report both the assessment method and the accuracy
@@ -2599,9 +2660,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id022
-            minContains: 0
-            maxContains: 1
           - contains: *id023
             minContains: 0
             maxContains: 1
@@ -2638,6 +2696,9 @@ allOf:
           - contains: *id034
             minContains: 0
             maxContains: 1
+          - contains: *id035
+            minContains: 0
+            maxContains: 1
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In peak hopping mode,
         the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning
@@ -2650,17 +2711,15 @@ allOf:
       - N/A
       - None
       readOnly: true
-    ada:backgroundCountTime:
-      type: array
-      items:
-        description: Total time spent measuring gas blank (background signal with laser off or shutter
-          closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background
-          interval is measured before each ablation. For mapping, background is typically measured once
-          per raster line or at the start of a map session rather than before each individual pixel. Editable
-          to allow session-specific adjustment.
-        anyOf:
-        - type: number
-        - type: string
+    ada:backgroundCountTimeDefault:
+      description: Total time spent measuring gas blank (background signal with laser off or shutter closed)
+        before each ablation event, in seconds. For spot and transect analysis, a discrete background
+        interval is measured before each ablation. For mapping, background is typically measured once
+        per raster line or at the start of a map session rather than before each individual pixel. Editable
+        to allow session-specific adjustment.
+      anyOf:
+      - type: number
+      - type: string
     ada:internalStandardApproach:
       description: Method used to determine the internal standard (IS) concentration for each unknown
         sample, used to correct for variable ablation yield between analyses. The approach is a fundamental
@@ -2709,7 +2768,7 @@ allOf:
         raster line, per map session, or using a separate gas blank map acquired under identical conditions.'
       type: string
       readOnly: true
-    ada:primaryStandardName:
+    ada:primaryStandardNameDefault:
       description: Primary reference material(s) used to calibrate the instrument and convert raw signal
         intensities to concentrations or isotope ratios. Include material name, source institution, and
         citation for the accepted values used. Editable because the specific lot or certification vintage
@@ -2721,7 +2780,7 @@ allOf:
         ablations used to monitor and correct for instrumental drift.
       type: string
       readOnly: true
-    ada:secondaryReferenceMaterial:
+    ada:secondaryReferenceMaterialDefault:
       type: array
       items:
         description: Quality-control reference materials analysed as unknowns alongside samples in the
@@ -2738,15 +2797,16 @@ allOf:
   - schema:name
   - schema:datePublished
   - ada:ablationSamplingMode
-  - ada:ablationSpotDuration
-  - ada:rasterLineSpacing
-  - ada:carrierGasFlowRate
+  - ada:ablationSpotDurationDefault
+  - ada:rasterLineSpacingDefault
+  - ada:carrierGasFlowRateDefault
   - ada:oxideProductionMethodAndThreshold
-  - ada:analysisSequence
+  - ada:analysisSequenceDefault
   - ada:signalCollectionMode
+  - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
   - ada:internalStandardElement
   - ada:signalIntegrationIntervalMethod
   - ada:blankBackgroundCorrectionMethod
-  - ada:primaryStandardName
+  - ada:primaryStandardNameDefault
   - ada:calibrationMeasurementFrequency

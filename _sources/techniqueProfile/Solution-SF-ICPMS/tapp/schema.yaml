@@ -684,28 +684,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/rfPower
+                                  const: ada:parameter/solutionSficpmsTAPP/rfPowerDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionSficpmsTAPP/rfPower
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: rfPowerDefault
                                 schema:name:
                                   const: RF Power
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: W
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                           allOf:
                           - contains: *id013
                             minContains: 0
@@ -776,23 +779,29 @@ allOf:
                             type: object
                             properties:
                               '@id':
-                                const: ada:parameter/solutionSficpmsTAPP/torchDepth
+                                const: ada:parameter/solutionSficpmsTAPP/torchDepthDefault
                               '@type':
                                 const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                  '@id': ada:parameter/solutionSficpmsTAPP/torchDepth
+                                - schema:PropertyValueSpecification
+                              schema:valueName:
+                                const: torchDepthDefault
                               schema:name:
                                 const: Torch Depth
-                              schema:value:
-                                type: string
+                              ada:dataType:
+                                const: string
+                              ada:fieldScope:
+                                const: session
+                              schema:readonlyValue:
+                                const: false
+                              ada:tier:
+                                const: R
                             required:
                             - '@id'
                             - '@type'
-                            - schema:propertyID
+                            - schema:valueName
                             - schema:name
-                            - schema:value
+                            - ada:dataType
+                            - ada:fieldScope
                           allOf:
                           - contains: *id016
                             minContains: 0
@@ -990,28 +999,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
+                                  const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: nebulizerGasFlowRateDefault
                                 schema:name:
                                   const: Nebulizer Gas Flow Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: L/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                             - &id018
                               title: Sample Uptake Rate
                               description: Peristaltic pump speed or self-aspiration flow rate for sample
@@ -1019,28 +1031,31 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
+                                  const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRateDefault
                                 '@type':
                                   const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                    '@id': ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: sampleUptakeRateDefault
                                 schema:name:
                                   const: Sample Uptake Rate
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
+                                ada:dataType:
+                                  const: number
+                                ada:fieldScope:
+                                  const: session
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: R
                                 schema:unitText:
-                                  type: string
+                                  const: µL/min or mL/min
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
-                              - schema:value
-                              - schema:unitText
+                              - ada:dataType
+                              - ada:fieldScope
                           allOf:
                           - contains:
                               title: Nebulizer Type
@@ -1232,6 +1247,36 @@ allOf:
                     - ada:dataType
                     - ada:fieldScope
                   - &id021
+                    title: Instrument Serial Number or Lab Identifier
+                    description: Serial number or laboratory-internal identifier for the specific instrument
+                      unit. Supports traceability to instrument service records.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: instrumentSerialNumberOrLabIdentifierDefault
+                      schema:name:
+                        const: Instrument Serial Number or Lab Identifier
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id022
                     title: Make-up Gas Flow Rate
                     description: Supplementary argon flow added downstream of a desolvation system to
                       maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation
@@ -1264,7 +1309,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id022
+                  - &id023
                     title: Mass Resolution Setting
                     description: Mass resolution mode(s) used in this protocol. Sector-field instruments
                       allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm
@@ -1275,24 +1320,30 @@ allOf:
                     type: object
                     properties:
                       '@id':
-                        const: ada:parameter/solutionSficpmsTAPP/massResolutionSetting
+                        const: ada:parameter/solutionSficpmsTAPP/massResolutionSettingDefault
                       '@type':
                         const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                          '@id': ada:parameter/solutionSficpmsTAPP/massResolutionSetting
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: massResolutionSettingDefault
                       schema:name:
                         const: Mass Resolution Setting
-                      schema:value:
-                        type: string
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
                     required:
                     - '@id'
                     - '@type'
-                    - schema:propertyID
+                    - schema:valueName
                     - schema:name
-                    - schema:value
-                  - &id023
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id024
                     title: Memory Effect Mitigation
                     description: Protocol applied to identify and minimize carry-over of high-concentration
                       elements between successive sample introductions. For solution ICP-MS, mitigation
@@ -1372,14 +1423,9 @@ allOf:
                 - contains: *id023
                   minContains: 0
                   maxContains: 1
-              schema:identifier:
-                description: Serial number or laboratory-internal identifier for the specific instrument
-                  unit. Supports traceability to instrument service records.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+                - contains: *id024
+                  minContains: 0
+                  maxContains: 1
       allOf:
       - contains:
           properties:
@@ -1575,58 +1621,67 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
-                      - &id024
+                      - &id025
                         title: Digestion Duration
                         description: Duration of the primary acid digestion step (hours or days).
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/digestionDuration
+                            const: ada:parameter/solutionSficpmsTAPP/digestionDurationDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/solutionSficpmsTAPP/digestionDuration
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: digestionDurationDefault
                           schema:name:
                             const: Digestion Duration
-                          schema:value:
-                            type: string
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
-                      - &id025
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id026
                         title: Digestion Temperature
                         description: Temperature at which acid digestion was carried out (°C). Protocol
                           specifies the target temperature.
                         type: object
                         properties:
                           '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/digestionTemperature
+                            const: ada:parameter/solutionSficpmsTAPP/digestionTemperatureDefault
                           '@type':
                             const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                              '@id': ada:parameter/solutionSficpmsTAPP/digestionTemperature
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: digestionTemperatureDefault
                           schema:name:
                             const: Digestion Temperature
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
                           schema:unitText:
-                            type: string
+                            const: °C
                         required:
                         - '@id'
                         - '@type'
-                        - schema:propertyID
+                        - schema:valueName
                         - schema:name
-                        - schema:value
-                        - schema:unitText
+                        - ada:dataType
+                        - ada:fieldScope
                     allOf:
                     - contains:
                         title: Digestion Vessel Type
@@ -1687,10 +1742,10 @@ allOf:
                         readOnly: true
                       minContains: 0
                       maxContains: 1
-                    - contains: *id024
+                    - contains: *id025
                       minContains: 0
                       maxContains: 1
-                    - contains: *id025
+                    - contains: *id026
                       minContains: 0
                       maxContains: 1
             - if:
@@ -1772,7 +1827,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id026
+                      - &id027
                         title: Normalization/Standards-Based Correction
                         description: Post-acquisition normalization applied to output concentrations relative
                           to a reference value (e.g., correction to a BHVO-2 working value).
@@ -1802,7 +1857,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id027
+                      - &id028
                         title: Pulse/Analog Detector Nonlinearity Correction
                         description: Whether a correction was applied for nonlinear detector response
                           at the transition between pulse-counting and analog (and Faraday, for triple-mode
@@ -1863,10 +1918,10 @@ allOf:
                         - schema:value
                         readOnly: true
                     allOf:
-                    - contains: *id026
+                    - contains: *id027
                       minContains: 0
                       maxContains: 1
-                    - contains: *id027
+                    - contains: *id028
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -2057,7 +2112,7 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
-        - &id028
+        - &id029
           title: Spike/Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous replicate measurements or data
             points from the calculated mean.
@@ -2087,7 +2142,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id029
+        - &id030
           title: Uncertainty Propagation Method
           description: Method used to propagate analytical uncertainties from raw signals through to final
             concentration values.
@@ -2240,10 +2295,10 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id028
+      - contains: *id029
         minContains: 0
         maxContains: 1
-      - contains: *id029
+      - contains: *id030
         minContains: 0
         maxContains: 1
     schema:location:
@@ -2293,7 +2348,7 @@ allOf:
         are recorded in Oxide Production.
       type: string
       readOnly: true
-    ada:primaryStandardName:
+    ada:primaryStandardNameDefault:
       description: Name and reference material identifier of the external calibration standard used to
         convert signal intensities to elemental concentrations.
       type: string
@@ -2354,7 +2409,7 @@ allOf:
       - N/A
       - None
       readOnly: true
-    ada:secondaryReferenceMaterial:
+    ada:secondaryReferenceMaterialDefault:
       type: array
       items:
         description: Reference material(s) measured as unknowns to independently assess analytical accuracy.
@@ -2381,7 +2436,7 @@ allOf:
   - ada:washTimeBetweenSamples
   - ada:internalStandardElement
   - ada:oxideProductionMethodAndThreshold
-  - ada:primaryStandardName
+  - ada:primaryStandardNameDefault
   - ada:internalStandardApproach
   - ada:driftCorrectionMethod
   - ada:signalIntegrationIntervalMethod

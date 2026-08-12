@@ -53,6 +53,66 @@
                       }
                     }
                   }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "ada:toolRole": {
+                        "const": "acquisition"
+                      }
+                    },
+                    "required": [
+                      "ada:toolRole"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Data acquisition and automation software, including version number.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "ada:toolRole": {
+                        "const": "dataReduction"
+                      }
+                    },
+                    "required": [
+                      "ada:toolRole"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Software used for matrix correction and quantitative data reduction, if separate from the acquisition software. For mapping workflows, include software used to process count maps into concentration maps.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               ]
             },
@@ -70,8 +130,36 @@
                     "schema:additionalType"
                   ]
                 }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                }
               }
             ]
+          },
+          "schema:description": {
+            "description": "Any additional context about this protocol or analysis session not captured by structured fields above.",
+            "type": "string"
           },
           "schema:endDate": {
             "description": "Date on which the analysis session ended (if spanning multiple days).",
@@ -576,6 +664,30 @@
               }
             ]
           },
+          "ada:edsLiveTimePerPointOrPixel": {
+            "description": "EDS spectral acquisition live time per analysis point in seconds. Previously referred to as \"EDS Acquisition Time\" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts. Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode vs. spectrum image) is explicit. In EPMA, acquisition is always per point.",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "schema:location": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Name of the laboratory or institution hosting the instrument.",
+                "type": "string"
+              },
+              "schema:identifier": {
+                "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+                "type": "string"
+              }
+            }
+          },
           "schema:object": {
             "type": "array",
             "items": {
@@ -645,6 +757,63 @@
                 }
               }
             ]
+          },
+          "schema:actionProcess": {
+            "type": "object",
+            "properties": {
+              "schema:step": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "schema:name": {
+                            "const": "samplePreparation"
+                          }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:description": {
+                            "description": "Description of how samples were prepared for analysis under this protocol (mounting, polishing, coating). Analysts may document session-specific variations from the protocol standard.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "samplePreparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
           }
         }
       }
@@ -754,6 +923,35 @@
                   "properties": {
                     "schema:url": {
                       "description": "DOI of the registered protocol for the coupled technique.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledTechnique"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:name": {
+                      "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with this dataset. For EPMA, common couplings include LA-ICP-MS (EPMA provides major element concentrations used as internal standard), EBSD (same polished section, sequential), SEM-EDS (prior phase identification), or NanoSIMS.",
+                      "type": "string"
+                    },
+                    "schema:description": {
+                      "description": "Describes (1) the functional relationship between this EPMA dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
                       "type": "string"
                     }
                   }

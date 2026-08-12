@@ -192,11 +192,61 @@ allOf:
                     - type: array
                       items:
                         type: string
+            - if:
+                properties:
+                  schema:name:
+                    const: dataReduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items: &id001
+                      title: Crystal Structure Database
+                      description: Crystal structure database used for EBSD phase identification and Kikuchi
+                        pattern simulation.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault
+                        '@type':
+                          const:
+                          - schema:PropertyValueSpecification
+                        schema:valueName:
+                          const: crystalStructureDatabaseDefault
+                        schema:name:
+                          const: Crystal Structure Database
+                        ada:dataType:
+                          const: string
+                        ada:fieldScope:
+                          const: session
+                        schema:readonlyValue:
+                          const: false
+                        ada:tier:
+                          const: R
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:valueName
+                      - schema:name
+                      - ada:dataType
+                      - ada:fieldScope
+                    allOf:
+                    - contains: *id001
+                      minContains: 0
+                      maxContains: 1
           allOf:
           - contains:
               properties:
                 schema:name:
                   const: samplePreparation
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
               required:
               - schema:name
     schema:instrument:
@@ -452,7 +502,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id001
+        - &id002
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
             and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
@@ -483,7 +533,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id002
+        - &id003
           title: Image Pixel Size
           description: Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial
             sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual
@@ -491,26 +541,30 @@ allOf:
           type: object
           properties:
             '@id':
-              const: ada:parameter/semImagingTAPP/imagePixelSize
+              const: ada:parameter/semImagingTAPP/imagePixelSizeDefault
             '@type':
               const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-                '@id': ada:parameter/semImagingTAPP/imagePixelSize
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: imagePixelSizeDefault
             schema:name:
               const: Image Pixel Size
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
           required:
           - '@id'
           - '@type'
-          - schema:propertyID
+          - schema:valueName
           - schema:name
-          - schema:value
-        - &id003
+          - ada:dataType
+          - ada:fieldScope
+        - &id004
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate the wavelength axis
             of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
@@ -569,13 +623,13 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id001
-        minContains: 0
-        maxContains: 1
       - contains: *id002
         minContains: 0
         maxContains: 1
       - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains: *id004
         minContains: 0
         maxContains: 1
     ada:ebsdDetectorConfiguration:
@@ -659,7 +713,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id004
+            - &id005
               title: Beam Current
               description: Electron beam probe current. Higher current improves signal-to-noise for X-ray
                 analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution.
@@ -693,7 +747,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id004
+          - contains: *id005
             minContains: 0
             maxContains: 1
     ada:dwellTimePerPixelDefault:
@@ -725,7 +779,7 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:clIntegrationTime:
+    ada:clIntegrationTimeDefault:
       description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point
         mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition
         time.
@@ -739,9 +793,6 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:crystalStructureDatabase:
-      description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
-      type: string
     schema:description:
       description: Any additional context about this protocol or analysis session not captured by structured
         fields above.
@@ -753,6 +804,5 @@ allOf:
   - ada:dwellTimePerPixelDefault
   - ada:clAcquisitionMode
   - ada:clWavelengthRange
-  - ada:clIntegrationTime
+  - ada:clIntegrationTimeDefault
   - ada:sampleTiltAngle
-  - ada:crystalStructureDatabase

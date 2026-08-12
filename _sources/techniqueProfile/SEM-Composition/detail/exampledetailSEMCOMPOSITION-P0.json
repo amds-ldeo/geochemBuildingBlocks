@@ -12,24 +12,25 @@
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:identifier": "example protocolDoi"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
   "prov:wasGeneratedBy": [
     {
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "samplePreparation",
+            "schema:description": "example samplePreparationMethod"
+          }
+        ]
+      },
       "schema:object": [
         {
           "@type": [
@@ -40,6 +41,14 @@
         }
       ],
       "prov:used": [
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "example acquisitionSoftware"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "example dataReductionSoftware"
+        },
         {
           "schema:additionalType": [
             "SEM"
@@ -127,11 +136,34 @@
           "schema:name": "Halogen Correction on Oxygen",
           "schema:value": "example value"
         }
-      ]
+      ],
+      "ada:edsLiveTimePerPointOrPixel": 1.0,
+      "schema:description": "example additionalNotes"
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example protocolDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
     }
   ],
   "schema:funding": [],
   "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique",
+        "schema:description": "example couplingDescription"
+      }
+    },
     {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {

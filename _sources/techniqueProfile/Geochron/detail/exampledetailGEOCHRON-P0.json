@@ -12,14 +12,15 @@
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
   "prov:wasGeneratedBy": [
     {
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
       "schema:additionalProperty": [
@@ -102,6 +103,17 @@
           "schema:value": "example value"
         },
         {
+          "@id": "ada:parameter/geochronTAPP/analysisSequence",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/geochronTAPP/analysisSequence"
+          },
+          "schema:name": "Analysis Sequence",
+          "schema:value": "example value"
+        },
+        {
           "@id": "ada:parameter/geochronTAPP/numberOfReplicates",
           "@type": [
             "schema:PropertyValue"
@@ -158,6 +170,76 @@
           "schema:value": "example value"
         }
       ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "samplePreparation",
+            "schema:description": "example samplePreparationMethod",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/geochronTAPP/preAblationSurfaceTreatment",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/geochronTAPP/preAblationSurfaceTreatment"
+                },
+                "schema:name": "Pre-Ablation Surface Treatment",
+                "schema:value": "example value"
+              }
+            ]
+          },
+          {
+            "schema:name": "dataReduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/geochronTAPP/signalSmoothing",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/geochronTAPP/signalSmoothing"
+                },
+                "schema:name": "Signal Smoothing",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/geochronTAPP/constantsAndReferenceValuesUsed",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/geochronTAPP/constantsAndReferenceValuesUsed"
+                },
+                "schema:name": "Constants and Reference Values Used",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                },
+                "schema:name": "Spike / Outlier Filtering Approach",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                },
+                "schema:name": "Normalization/Standards-Based Correction",
+                "schema:value": "example value"
+              }
+            ]
+          }
+        ]
+      },
       "schema:object": [
         {
           "@type": [
@@ -185,12 +267,43 @@
           "schema:additionalType": [
             "ICPMS"
           ],
+          "schema:identifier": "example instrumentSerialNumberOrLabIdentifier",
           "schema:hasPart": [
+            {
+              "schema:additionalType": [
+                "Torch"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/geochronTAPP/torchDepth",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/geochronTAPP/torchDepth"
+                  },
+                  "schema:name": "Torch Depth",
+                  "schema:value": "example value"
+                }
+              ]
+            },
             {
               "schema:additionalType": [
                 "ICP Source"
               ],
               "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/geochronTAPP/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/geochronTAPP/rfPower"
+                  },
+                  "schema:name": "RF Power (W)",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
                 {
                   "@id": "ada:parameter/geochronTAPP/coolantGasFlowRate",
                   "@type": [
@@ -216,9 +329,63 @@
                   "schema:unitText": "example value"
                 }
               ]
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/geochronTAPP/collisionGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/geochronTAPP/collisionGasFlowRate"
+                  },
+                  "schema:name": "Collision Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/geochronTAPP/cellExitDiscriminationVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/geochronTAPP/cellExitDiscriminationVoltage"
+                  },
+                  "schema:name": "Cell Exit Discrimination Voltage",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/geochronTAPP/reactionGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/geochronTAPP/reactionGasFlowRate"
+                  },
+                  "schema:name": "Reaction Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
             }
           ],
           "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/geochronTAPP/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/geochronTAPP/massResolutionSetting"
+              },
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "example value"
+            },
             {
               "@id": "ada:parameter/geochronTAPP/icpTuning",
               "@type": [
@@ -264,50 +431,43 @@
               "schema:value": "example value"
             }
           ]
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "example acquisitionSoftware"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "example dataReductionSoftware"
+        },
+        {
+          "schema:additionalType": [
+            "Laser Ablation System"
+          ],
+          "ada:laserFluence": 1.0,
+          "ada:laserRepetitionRate": 1.0
+        },
+        {
+          "ada:reagentRole": "primaryStandard",
+          "schema:name": "example primaryCalibrationStandardName"
+        },
+        {
+          "ada:reagentRole": "secondaryReferenceMaterial",
+          "schema:name": "example secondaryReferenceMaterials"
         }
       ],
-      "schema:actionProcess": {
-        "schema:step": [
-          {
-            "schema:name": "dataReduction",
-            "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/geochronTAPP/signalSmoothing",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/geochronTAPP/signalSmoothing"
-                },
-                "schema:name": "Signal Smoothing",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
-                },
-                "schema:name": "Spike / Outlier Filtering Approach",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-                },
-                "schema:name": "Normalization/Standards-Based Correction",
-                "schema:value": "example value"
-              }
-            ]
-          }
-        ]
-      }
+      "ada:spotDiameter": "example spotDiameter",
+      "ada:ablationSpotDuration": 1.0,
+      "ada:carrierGasFlowRate": "example carrierGasAndFlowRate",
+      "ada:massesMeasured": "example massesMeasured",
+      "ada:dwellTimes": "example integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps",
+      "ada:totalIntegrationTimePerOutputDataPoint": 1.0
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
     }
   ],
   "schema:measurementTechnique": [
@@ -320,6 +480,13 @@
   ],
   "schema:funding": [],
   "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "CA-ID-TIMS",
+        "schema:description": "example couplingDescription"
+      }
+    },
     {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {

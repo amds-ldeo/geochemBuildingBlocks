@@ -107,6 +107,7 @@
                 },
                 {
                   "type": "object",
+                  "additionalProperties": false,
                   "required": [
                     "@id"
                   ],
@@ -225,6 +226,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -554,6 +556,7 @@
                         },
                         {
                           "type": "object",
+                          "additionalProperties": false,
                           "required": [
                             "@id"
                           ],
@@ -734,6 +737,10 @@
                 },
                 "geosparql:crs": {
                   "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
                   "properties": {
                     "@id": {
                       "type": "string",
@@ -836,6 +843,7 @@
                         },
                         {
                           "type": "object",
+                          "additionalProperties": false,
                           "required": [
                             "@id"
                           ],
@@ -963,6 +971,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -1022,6 +1031,10 @@
                       },
                       {
                         "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string"
@@ -1089,6 +1102,10 @@
                   },
                   {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string"
@@ -1195,6 +1212,7 @@
                         },
                         {
                           "type": "object",
+                          "additionalProperties": false,
                           "required": [
                             "@id"
                           ],
@@ -1254,6 +1272,10 @@
                   },
                   {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string"
@@ -1288,6 +1310,10 @@
         },
         {
           "type": "object",
+          "required": [
+            "@id"
+          ],
+          "additionalProperties": false,
           "properties": {
             "@id": {
               "type": "string"
@@ -1340,6 +1366,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -1363,6 +1390,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "description": "Object reference to a vocabulary defined elsewhere.",
                     "properties": {
                       "@id": {
@@ -1574,6 +1602,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -1647,6 +1676,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -1670,6 +1700,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "description": "Object reference to a vocabulary defined elsewhere.",
                     "properties": {
                       "@id": {
@@ -1847,6 +1878,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -1870,6 +1902,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "description": "Object reference to a vocabulary defined elsewhere.",
                         "properties": {
                           "@id": {
@@ -2082,6 +2115,10 @@
               },
               {
                 "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -2191,6 +2228,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -2247,6 +2285,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -2305,6 +2344,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "required": [
                                   "@id"
                                 ],
@@ -2432,6 +2472,7 @@
                                   },
                                   {
                                     "type": "object",
+                                    "additionalProperties": false,
                                     "required": [
                                       "@id"
                                     ],
@@ -2491,6 +2532,10 @@
                             },
                             {
                               "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false,
                               "properties": {
                                 "@id": {
                                   "type": "string"
@@ -2558,6 +2603,10 @@
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
                           "properties": {
                             "@id": {
                               "type": "string"
@@ -2664,6 +2713,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "required": [
                                   "@id"
                                 ],
@@ -2723,6 +2773,10 @@
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
                           "properties": {
                             "@id": {
                               "type": "string"
@@ -3105,31 +3159,39 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
+                                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
-                                    }
+                                  "schema:valueName": {
+                                    "const": "fusionFluxAndDilutionRatioDefault"
                                   },
                                   "schema:name": {
                                     "const": "Fusion Flux and Dilution Ratio"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
+                                  "ada:dataType",
+                                  "ada:fieldScope"
                                 ]
                               },
                               {
@@ -3138,31 +3200,39 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
+                                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
-                                    }
+                                  "schema:valueName": {
+                                    "const": "preAblationSurfaceTreatmentDefault"
                                   },
                                   "schema:name": {
                                     "const": "Pre-Ablation Surface Treatment"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
+                                  "ada:dataType",
+                                  "ada:fieldScope"
                                 ]
                               }
                             ]
@@ -3175,31 +3245,39 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
+                                    "const": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatioDefault"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
-                                    }
+                                  "schema:valueName": {
+                                    "const": "fusionFluxAndDilutionRatioDefault"
                                   },
                                   "schema:name": {
                                     "const": "Fusion Flux and Dilution Ratio"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
+                                  "ada:dataType",
+                                  "ada:fieldScope"
                                 ]
                               },
                               "minContains": 0,
@@ -3212,31 +3290,39 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
+                                    "const": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
-                                    }
+                                  "schema:valueName": {
+                                    "const": "preAblationSurfaceTreatmentDefault"
                                   },
                                   "schema:name": {
                                     "const": "Pre-Ablation Surface Treatment"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
+                                  "ada:dataType",
+                                  "ada:fieldScope"
                                 ]
                               },
                               "minContains": 0,
@@ -3814,7 +3900,7 @@
                         }
                       ]
                     },
-                    "ada:laserSpotGeometry": {
+                    "ada:laserSpotGeometryDefault": {
                       "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the protocol. For circular spots, report diameter; for square or rectangular spots, report width × length. The protocol registers the typical geometry; analysts may adjust within protocol-allowed range.",
                       "anyOf": [
                         {
@@ -4073,7 +4159,7 @@
                         }
                       ]
                     },
-                    "ada:laserFluence": {
+                    "ada:laserFluenceDefault": {
                       "description": "Laser pulse energy per unit area at the sample surface in J cm⁻², as registered by the protocol. Fluence is the physically meaningful quantity controlling ablation rate, crater morphology, elemental fractionation, and particle size distribution. If the system reports only as % of maximum output, include that value and note the system maximum where known.",
                       "anyOf": [
                         {
@@ -4084,7 +4170,7 @@
                         }
                       ]
                     },
-                    "ada:laserRepetitionRate": {
+                    "ada:laserRepetitionRateDefault": {
                       "description": "Laser pulse repetition rate in hertz registered by the protocol. For mapping methods, repetition rate together with scan speed and spot size determines pixel size and spatial resolution. Analysts may adjust within protocol-allowed bounds.",
                       "anyOf": [
                         {
@@ -4123,17 +4209,600 @@
                         }
                       }
                     },
-                    "schema:identifier": {
-                      "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
-                      "anyOf": [
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "title": "Instrument Serial Number or Lab Identifier",
+                            "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/instrumentIdentifierDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "instrumentIdentifierDefault"
+                              },
+                              "schema:name": {
+                                "const": "Instrument Serial Number or Lab Identifier"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Mass Resolution Setting",
+                            "description": "Operating mass resolution of the mass analyser. For quadrupole instruments this is fixed at unit resolution by instrument design. For sector-field instruments the analyst selects low, medium, or high resolution to balance sensitivity against spectral interference suppression.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/massResolutionSettingDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "massResolutionSettingDefault"
+                              },
+                              "schema:name": {
+                                "const": "Mass Resolution Setting"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Detector Configuration",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer. For single-collector instruments, note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe the Faraday/multiplier cup layout.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/detectorConfiguration"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": {
+                                  "@id": "ada:parameter/laicpmsTAPP/detectorConfiguration"
+                                }
+                              },
+                              "schema:name": {
+                                "const": "Detector Configuration"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          {
+                            "title": "ICP Tuning",
+                            "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "icPlasmaTuningDefault"
+                              },
+                              "schema:name": {
+                                "const": "ICP Tuning"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Doubly-Charged Species Monitor",
+                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. Doubly-charged ions appear at half the mass of the parent ion and can cause isobaric interferences on analytes in that mass region. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesMonitorDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Monitor"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Doubly-Charged Species Production",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The protocol should specify the acceptable threshold (e.g., <1%, <3%); the measured value for each session is recorded here. Report both the threshold and the measured value where possible.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesProductionDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Production"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          {
+                            "title": "Memory Effect Mitigation",
+                            "description": "Protocol applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses, or from incomplete aerosol washout between adjacent pixels in raster mapping mode. For mapping, the mitigation strategy involves controlling scan speed relative to washout time to ensure each pixel signal is sufficiently free of the preceding pixel's contribution.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "memoryEffectMitigationDefault"
+                              },
+                              "schema:name": {
+                                "const": "Memory Effect Mitigation"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          }
+                        ]
+                      },
+                      "allOf": [
                         {
-                          "type": "string"
+                          "contains": {
+                            "title": "Instrument Serial Number or Lab Identifier",
+                            "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/instrumentIdentifierDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "instrumentIdentifierDefault"
+                              },
+                              "schema:name": {
+                                "const": "Instrument Serial Number or Lab Identifier"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
                         },
                         {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
+                          "contains": {
+                            "title": "Mass Resolution Setting",
+                            "description": "Operating mass resolution of the mass analyser. For quadrupole instruments this is fixed at unit resolution by instrument design. For sector-field instruments the analyst selects low, medium, or high resolution to balance sensitivity against spectral interference suppression.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/massResolutionSettingDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "massResolutionSettingDefault"
+                              },
+                              "schema:name": {
+                                "const": "Mass Resolution Setting"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Detector Configuration",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer. For single-collector instruments, note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe the Faraday/multiplier cup layout.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/detectorConfiguration"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": {
+                                  "@id": "ada:parameter/laicpmsTAPP/detectorConfiguration"
+                                }
+                              },
+                              "schema:name": {
+                                "const": "Detector Configuration"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "ICP Tuning",
+                            "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "icPlasmaTuningDefault"
+                              },
+                              "schema:name": {
+                                "const": "ICP Tuning"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Doubly-Charged Species Monitor",
+                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. Doubly-charged ions appear at half the mass of the parent ion and can cause isobaric interferences on analytes in that mass region. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesMonitorDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Monitor"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Doubly-Charged Species Production",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The protocol should specify the acceptable threshold (e.g., <1%, <3%); the measured value for each session is recorded here. Report both the threshold and the measured value where possible.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "doublyChargedSpeciesProductionDefault"
+                              },
+                              "schema:name": {
+                                "const": "Doubly-Charged Species Production"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Memory Effect Mitigation",
+                            "description": "Protocol applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses, or from incomplete aerosol washout between adjacent pixels in raster mapping mode. For mapping, the mitigation strategy involves controlling scan speed relative to washout time to ensure each pixel signal is sufficiently free of the preceding pixel's contribution.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "memoryEffectMitigationDefault"
+                              },
+                              "schema:name": {
+                                "const": "Memory Effect Mitigation"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
                         }
                       ]
                     },
@@ -4336,31 +5005,39 @@
                                     "type": "object",
                                     "properties": {
                                       "@id": {
-                                        "const": "ada:parameter/laicpmsTAPP/torchDepth"
+                                        "const": "ada:parameter/laicpmsTAPP/torchDepthDefault"
                                       },
                                       "@type": {
                                         "const": [
-                                          "schema:PropertyValue"
+                                          "schema:PropertyValueSpecification"
                                         ]
                                       },
-                                      "schema:propertyID": {
-                                        "const": {
-                                          "@id": "ada:parameter/laicpmsTAPP/torchDepth"
-                                        }
+                                      "schema:valueName": {
+                                        "const": "torchDepthDefault"
                                       },
                                       "schema:name": {
                                         "const": "Torch Depth"
                                       },
-                                      "schema:value": {
-                                        "type": "string"
+                                      "ada:dataType": {
+                                        "const": "string"
+                                      },
+                                      "ada:fieldScope": {
+                                        "const": "session"
+                                      },
+                                      "schema:readonlyValue": {
+                                        "const": false
+                                      },
+                                      "ada:tier": {
+                                        "const": "R"
                                       }
                                     },
                                     "required": [
                                       "@id",
                                       "@type",
-                                      "schema:propertyID",
+                                      "schema:valueName",
                                       "schema:name",
-                                      "schema:value"
+                                      "ada:dataType",
+                                      "ada:fieldScope"
                                     ]
                                   },
                                   "allOf": [
@@ -4371,31 +5048,39 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/torchDepth"
+                                            "const": "ada:parameter/laicpmsTAPP/torchDepthDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/torchDepth"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "torchDepthDefault"
                                           },
                                           "schema:name": {
                                             "const": "Torch Depth"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       "minContains": 0,
@@ -4511,42 +5196,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/collisionGasFlowRate"
+                                            "const": "ada:parameter/laicpmsTAPP/collisionGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "collisionGasFlowRateDefault"
                                           },
                                           "schema:name": {
                                             "const": "Collision Gas Flow Rate"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "mL/min"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       {
@@ -4555,42 +5240,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage"
+                                            "const": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltageDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "cellExitDiscriminationVoltageDefault"
                                           },
                                           "schema:name": {
                                             "const": "Cell Exit Discrimination Voltage"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "V"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       {
@@ -4633,42 +5318,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/reactionGasFlowRate"
+                                            "const": "ada:parameter/laicpmsTAPP/reactionGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "reactionGasFlowRateDefault"
                                           },
                                           "schema:name": {
                                             "const": "Reaction Gas Flow Rate"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "mL/min"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       }
                                     ]
@@ -4719,42 +5404,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/collisionGasFlowRate"
+                                            "const": "ada:parameter/laicpmsTAPP/collisionGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "collisionGasFlowRateDefault"
                                           },
                                           "schema:name": {
                                             "const": "Collision Gas Flow Rate"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "mL/min"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       "minContains": 0,
@@ -4767,42 +5452,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage"
+                                            "const": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltageDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "cellExitDiscriminationVoltageDefault"
                                           },
                                           "schema:name": {
                                             "const": "Cell Exit Discrimination Voltage"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "V"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       "minContains": 0,
@@ -4853,42 +5538,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/reactionGasFlowRate"
+                                            "const": "ada:parameter/laicpmsTAPP/reactionGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "reactionGasFlowRateDefault"
                                           },
                                           "schema:name": {
                                             "const": "Reaction Gas Flow Rate"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "mL/min"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       "minContains": 0,
@@ -5012,42 +5697,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/rfPower"
+                                            "const": "ada:parameter/laicpmsTAPP/rfPowerDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/rfPower"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "rfPowerDefault"
                                           },
                                           "schema:name": {
                                             "const": "RF Power"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "W"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       {
@@ -5190,42 +5875,42 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/laicpmsTAPP/rfPower"
+                                            "const": "ada:parameter/laicpmsTAPP/rfPowerDefault"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/laicpmsTAPP/rfPower"
-                                            }
+                                          "schema:valueName": {
+                                            "const": "rfPowerDefault"
                                           },
                                           "schema:name": {
                                             "const": "RF Power"
                                           },
-                                          "schema:value": {
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           },
                                           "schema:unitText": {
-                                            "type": "string"
+                                            "const": "W"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value",
-                                          "schema:unitText"
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
                                       "minContains": 0,
@@ -5318,501 +6003,6 @@
                               "schema:additionalType"
                             ]
                           }
-                        }
-                      ]
-                    },
-                    "schema:additionalProperty": {
-                      "type": "array",
-                      "items": {
-                        "anyOf": [
-                          {
-                            "title": "Mass Resolution Setting",
-                            "description": "Operating mass resolution of the mass analyser. For quadrupole instruments this is fixed at unit resolution by instrument design. For sector-field instruments the analyst selects low, medium, or high resolution to balance sensitivity against spectral interference suppression.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/massResolutionSetting"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting"
-                                }
-                              },
-                              "schema:name": {
-                                "const": "Mass Resolution Setting"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ]
-                          },
-                          {
-                            "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer. For single-collector instruments, note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe the Faraday/multiplier cup layout.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/detectorConfiguration"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/laicpmsTAPP/detectorConfiguration"
-                                }
-                              },
-                              "schema:name": {
-                                "const": "Detector Configuration"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
-                          },
-                          {
-                            "title": "ICP Tuning",
-                            "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "icPlasmaTuningDefault"
-                              },
-                              "schema:name": {
-                                "const": "ICP Tuning"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          {
-                            "title": "Doubly-Charged Species Monitor",
-                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. Doubly-charged ions appear at half the mass of the parent ion and can cause isobaric interferences on analytes in that mass region. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "doublyChargedSpeciesMonitorDefault"
-                              },
-                              "schema:name": {
-                                "const": "Doubly-Charged Species Monitor"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          {
-                            "title": "Doubly-Charged Species Production",
-                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The protocol should specify the acceptable threshold (e.g., <1%, <3%); the measured value for each session is recorded here. Report both the threshold and the measured value where possible.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "doublyChargedSpeciesProductionDefault"
-                              },
-                              "schema:name": {
-                                "const": "Doubly-Charged Species Production"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          {
-                            "title": "Memory Effect Mitigation",
-                            "description": "Protocol applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses, or from incomplete aerosol washout between adjacent pixels in raster mapping mode. For mapping, the mitigation strategy involves controlling scan speed relative to washout time to ensure each pixel signal is sufficiently free of the preceding pixel's contribution.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "memoryEffectMitigationDefault"
-                              },
-                              "schema:name": {
-                                "const": "Memory Effect Mitigation"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          }
-                        ]
-                      },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "title": "Mass Resolution Setting",
-                            "description": "Operating mass resolution of the mass analyser. For quadrupole instruments this is fixed at unit resolution by instrument design. For sector-field instruments the analyst selects low, medium, or high resolution to balance sensitivity against spectral interference suppression.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/massResolutionSetting"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting"
-                                }
-                              },
-                              "schema:name": {
-                                "const": "Mass Resolution Setting"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ]
-                          },
-                          "minContains": 0,
-                          "maxContains": 1
-                        },
-                        {
-                          "contains": {
-                            "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer. For single-collector instruments, note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe the Faraday/multiplier cup layout.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/detectorConfiguration"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/laicpmsTAPP/detectorConfiguration"
-                                }
-                              },
-                              "schema:name": {
-                                "const": "Detector Configuration"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
-                          },
-                          "minContains": 0,
-                          "maxContains": 1
-                        },
-                        {
-                          "contains": {
-                            "title": "ICP Tuning",
-                            "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "icPlasmaTuningDefault"
-                              },
-                              "schema:name": {
-                                "const": "ICP Tuning"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          "minContains": 0,
-                          "maxContains": 1
-                        },
-                        {
-                          "contains": {
-                            "title": "Doubly-Charged Species Monitor",
-                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. Doubly-charged ions appear at half the mass of the parent ion and can cause isobaric interferences on analytes in that mass region. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitorDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "doublyChargedSpeciesMonitorDefault"
-                              },
-                              "schema:name": {
-                                "const": "Doubly-Charged Species Monitor"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          "minContains": 0,
-                          "maxContains": 1
-                        },
-                        {
-                          "contains": {
-                            "title": "Doubly-Charged Species Production",
-                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The protocol should specify the acceptable threshold (e.g., <1%, <3%); the measured value for each session is recorded here. Report both the threshold and the measured value where possible.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProductionDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "doublyChargedSpeciesProductionDefault"
-                              },
-                              "schema:name": {
-                                "const": "Doubly-Charged Species Production"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          "minContains": 0,
-                          "maxContains": 1
-                        },
-                        {
-                          "contains": {
-                            "title": "Memory Effect Mitigation",
-                            "description": "Protocol applied to identify and minimise memory effects from high-concentration elements in the previous sample or standard that may contaminate subsequent analyses, or from incomplete aerosol washout between adjacent pixels in raster mapping mode. For mapping, the mitigation strategy involves controlling scan speed relative to washout time to ensure each pixel signal is sufficiently free of the preceding pixel's contribution.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "memoryEffectMitigationDefault"
-                              },
-                              "schema:name": {
-                                "const": "Memory Effect Mitigation"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          "minContains": 0,
-                          "maxContains": 1
                         }
                       ]
                     }
@@ -5971,7 +6161,7 @@
           ],
           "readOnly": true
         },
-        "ada:ablationSpotDuration": {
+        "ada:ablationSpotDurationDefault": {
           "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent protocol-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
           "anyOf": [
             {
@@ -6631,11 +6821,11 @@
             }
           ]
         },
-        "ada:rasterLineSpacing": {
+        "ada:rasterLineSpacingDefault": {
           "description": "Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres. Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.",
           "type": "string"
         },
-        "ada:carrierGasFlowRate": {
+        "ada:carrierGasFlowRateDefault": {
           "description": "Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with the protocol-registered target flow rate(s). Helium is standard for most UV laser systems due to superior aerosol transport. Flow rates are protocol targets; actual session values may be adjusted within ±10% during tuning.",
           "type": "string"
         },
@@ -6644,7 +6834,7 @@
           "type": "string",
           "readOnly": true
         },
-        "ada:analysisSequence": {
+        "ada:analysisSequenceDefault": {
           "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining the bracketing strategy defined in the protocol.",
           "type": "string"
         },
@@ -6700,6 +6890,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "required": [
                                   "@id"
                                 ],
@@ -6723,6 +6914,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "description": "Object reference to a vocabulary defined elsewhere.",
                                 "properties": {
                                   "@id": {
@@ -8031,19 +8223,16 @@
           ],
           "readOnly": true
         },
-        "ada:backgroundCountTime": {
-          "type": "array",
-          "items": {
-            "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+        "ada:backgroundCountTimeDefault": {
+          "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:internalStandardApproach": {
           "description": "Method used to determine the internal standard (IS) concentration for each unknown sample, used to correct for variable ablation yield between analyses. The approach is a fundamental protocol design choice that cannot be changed by analysts.",
@@ -8081,7 +8270,7 @@
           "type": "string",
           "readOnly": true
         },
-        "ada:primaryStandardName": {
+        "ada:primaryStandardNameDefault": {
           "description": "Primary reference material(s) used to calibrate the instrument and convert raw signal intensities to concentrations or isotope ratios. Include material name, source institution, and citation for the accepted values used. Editable because the specific lot or certification vintage may differ between sessions while the material type remains the same.",
           "type": "string"
         },
@@ -8090,7 +8279,7 @@
           "type": "string",
           "readOnly": true
         },
-        "ada:secondaryReferenceMaterial": {
+        "ada:secondaryReferenceMaterialDefault": {
           "type": "array",
           "items": {
             "description": "Quality-control reference materials analysed as unknowns alongside samples in the same session to assess accuracy and monitor drift. Include material name, source, and citation for accepted values used for comparison. Editable because selection of secondary RMs may vary across sessions.",
@@ -8106,17 +8295,18 @@
         "schema:name",
         "schema:datePublished",
         "ada:ablationSamplingMode",
-        "ada:ablationSpotDuration",
-        "ada:rasterLineSpacing",
-        "ada:carrierGasFlowRate",
+        "ada:ablationSpotDurationDefault",
+        "ada:rasterLineSpacingDefault",
+        "ada:carrierGasFlowRateDefault",
         "ada:oxideProductionMethodAndThreshold",
-        "ada:analysisSequence",
+        "ada:analysisSequenceDefault",
         "ada:signalCollectionMode",
+        "ada:backgroundCountTimeDefault",
         "ada:internalStandardApproach",
         "ada:internalStandardElement",
         "ada:signalIntegrationIntervalMethod",
         "ada:blankBackgroundCorrectionMethod",
-        "ada:primaryStandardName",
+        "ada:primaryStandardNameDefault",
         "ada:calibrationMeasurementFrequency"
       ]
     }
@@ -8180,6 +8370,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -8212,6 +8403,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -8329,6 +8521,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "required": [
                                   "@id"
                                 ],
@@ -8446,6 +8639,10 @@
                         "anyOf": [
                           {
                             "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
                             "properties": {
                               "@id": {
                                 "type": "string",
@@ -8497,6 +8694,7 @@
                                           },
                                           {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "required": [
                                               "@id"
                                             ],
@@ -8590,6 +8788,7 @@
                     "anyOf": [
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string",
@@ -8648,6 +8847,7 @@
                                       },
                                       {
                                         "type": "object",
+                                        "additionalProperties": false,
                                         "required": [
                                           "@id"
                                         ],
@@ -8775,6 +8975,7 @@
                                           },
                                           {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "required": [
                                               "@id"
                                             ],
@@ -8834,6 +9035,10 @@
                                     },
                                     {
                                       "type": "object",
+                                      "required": [
+                                        "@id"
+                                      ],
+                                      "additionalProperties": false,
                                       "properties": {
                                         "@id": {
                                           "type": "string"
@@ -8901,6 +9106,10 @@
                                 },
                                 {
                                   "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false,
                                   "properties": {
                                     "@id": {
                                       "type": "string"
@@ -9007,6 +9216,7 @@
                                       },
                                       {
                                         "type": "object",
+                                        "additionalProperties": false,
                                         "required": [
                                           "@id"
                                         ],
@@ -9066,6 +9276,10 @@
                                 },
                                 {
                                   "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false,
                                   "properties": {
                                     "@id": {
                                       "type": "string"
@@ -9135,6 +9349,10 @@
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
                           "properties": {
                             "@id": {
                               "type": "string"
@@ -9251,6 +9469,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -9289,6 +9508,10 @@
                                   },
                                   {
                                     "type": "object",
+                                    "required": [
+                                      "@id"
+                                    ],
+                                    "additionalProperties": false,
                                     "properties": {
                                       "@id": {
                                         "type": "string"
@@ -9357,6 +9580,7 @@
                                 },
                                 {
                                   "type": "object",
+                                  "additionalProperties": false,
                                   "required": [
                                     "@id"
                                   ],
@@ -9399,6 +9623,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
@@ -9476,6 +9701,10 @@
                             "anyOf": [
                               {
                                 "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
                                 "properties": {
                                   "@id": {
                                     "type": "string",
@@ -9527,6 +9756,7 @@
                                               },
                                               {
                                                 "type": "object",
+                                                "additionalProperties": false,
                                                 "required": [
                                                   "@id"
                                                 ],
@@ -9645,6 +9875,10 @@
                 },
                 "schema:about": {
                   "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
                   "properties": {
                     "@id": {
                       "type": "string",
@@ -9662,6 +9896,10 @@
                       },
                       {
                         "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string"
@@ -9695,6 +9933,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -9759,6 +9998,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -9853,6 +10093,10 @@
           "anyOf": [
             {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
@@ -9904,6 +10148,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -10077,6 +10322,7 @@
             },
             {
               "type": "object",
+              "additionalProperties": false,
               "required": [
                 "@id"
               ],
@@ -10195,6 +10441,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -10254,6 +10501,10 @@
               },
               {
                 "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -10330,6 +10581,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -10518,6 +10770,7 @@
           "anyOf": [
             {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -10531,6 +10784,7 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -10550,6 +10804,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
@@ -10574,6 +10829,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
@@ -10650,6 +10906,7 @@
             },
             {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -10818,6 +11075,10 @@
               },
               {
                 "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -10835,6 +11096,10 @@
             },
             {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -10851,6 +11116,10 @@
             },
             {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -10899,6 +11168,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -10922,6 +11192,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "description": "Object reference to a vocabulary defined elsewhere.",
                         "properties": {
                           "@id": {
@@ -11133,6 +11404,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -11192,6 +11464,10 @@
                   },
                   {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
@@ -11273,6 +11549,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -11399,6 +11676,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],

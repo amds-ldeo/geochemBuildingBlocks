@@ -20,6 +20,13 @@
   ],
   "prov:wasGeneratedBy": [
     {
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
       "schema:object": [
@@ -27,9 +34,18 @@
           "@type": [
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier",
           "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate"
+              },
+              "schema:name": "Sample Form / Analytical Substrate",
+              "schema:value": "example value"
+            },
             {
               "@id": "ada:parameter/laicpmsTAPP/analysisLocationSpotCoordinates",
               "@type": [
@@ -41,34 +57,117 @@
               "schema:name": "Analysis Location/Spot Coordinates",
               "schema:value": "example value"
             }
-          ]
+          ],
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
         }
       ],
-      "prov:used": [
-        {
-          "schema:additionalType": [
-            "Laser Ablation System"
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/laicpmsTAPP/laserEnergy",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/laserEnergy"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "samplePreparation",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
+                },
+                "schema:name": "Fusion Flux and Dilution Ratio",
+                "schema:value": "example value"
               },
-              "schema:name": "Laser Energy",
-              "schema:value": 1,
-              "schema:unitText": "example value"
-            }
-          ]
-        },
+              {
+                "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
+                },
+                "schema:name": "Pre-Ablation Surface Treatment",
+                "schema:value": "example value"
+              }
+            ],
+            "schema:description": "example samplePreparationMethod"
+          },
+          {
+            "schema:name": "dataReduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/laicpmsTAPP/signalSmoothing",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/signalSmoothing"
+                },
+                "schema:name": "Signal Smoothing",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
+                },
+                "schema:name": "Uncertainty Propagation Method",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/laicpmsTAPP/outlierFiltering",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/outlierFiltering"
+                },
+                "schema:name": "Spike / Outlier Filtering Approach",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection"
+                },
+                "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+                "schema:value": "example value"
+              }
+            ]
+          }
+        ]
+      },
+      "prov:used": [
         {
           "schema:additionalType": [
             "ICPMS"
           ],
+          "schema:identifier": "example instrumentIdentifier",
           "schema:hasPart": [
+            {
+              "schema:additionalType": [
+                "Torch"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/torchDepth",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/laicpmsTAPP/torchDepth"
+                  },
+                  "schema:name": "Torch Depth",
+                  "schema:value": "example value"
+                }
+              ]
+            },
             {
               "schema:additionalType": [
                 "ICP Source"
@@ -97,11 +196,77 @@
                   "schema:name": "Auxiliary Gas Flow Rate",
                   "schema:value": 1,
                   "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/laicpmsTAPP/rfPower"
+                  },
+                  "schema:name": "RF Power",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ]
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate"
+                  },
+                  "schema:name": "Collision Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage"
+                  },
+                  "schema:name": "Cell Exit Discrimination Voltage",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": {
+                    "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate"
+                  },
+                  "schema:name": "Reaction Gas Flow Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
                 }
               ]
             }
           ],
           "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting"
+              },
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "example value"
+            },
             {
               "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuning",
               "@type": [
@@ -147,8 +312,47 @@
               "schema:value": "example value"
             }
           ]
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "example acquisitionSoftware"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "example dataReductionSoftware"
+        },
+        {
+          "schema:additionalType": [
+            "Laser Ablation System"
+          ],
+          "ada:laserSpotGeometry": "example spotGeometry",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/laserEnergy",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/laicpmsTAPP/laserEnergy"
+              },
+              "schema:name": "Laser Energy",
+              "schema:value": 1,
+              "schema:unitText": "example value"
+            }
+          ],
+          "ada:laserFluence": 1.0,
+          "ada:laserRepetitionRate": 1.0
+        },
+        {
+          "ada:reagentRole": "primaryStandard",
+          "schema:name": "example primaryCalibrationStandardName"
+        },
+        {
+          "ada:reagentRole": "secondaryReferenceMaterial",
+          "schema:name": "example secondaryReferenceMaterial"
         }
       ],
+      "ada:ablationSpotDuration": 1.0,
       "schema:additionalProperty": [
         {
           "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize",
@@ -219,59 +423,11 @@
           "schema:unitText": "example value"
         }
       ],
-      "schema:actionProcess": {
-        "schema:step": [
-          {
-            "schema:name": "dataReduction",
-            "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/laicpmsTAPP/signalSmoothing",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/signalSmoothing"
-                },
-                "schema:name": "Signal Smoothing",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
-                },
-                "schema:name": "Uncertainty Propagation Method",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/laicpmsTAPP/outlierFiltering",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/outlierFiltering"
-                },
-                "schema:name": "Spike / Outlier Filtering Approach",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection"
-                },
-                "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-                "schema:value": "example value"
-              }
-            ]
-          }
-        ]
-      }
+      "ada:rasterLineSpacing": "example rasterLineSpacing",
+      "ada:carrierGasFlowRate": "example carrierGasFlowRate",
+      "ada:analysisSequence": "example analysisSequence",
+      "ada:backgroundCountTime": 1.0,
+      "schema:description": "example additionalNotes"
     }
   ],
   "schema:measurementTechnique": [
@@ -284,6 +440,13 @@
   ],
   "schema:funding": [],
   "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA",
+        "schema:description": "example couplingDescription"
+      }
+    },
     {
       "schema:linkRelationship": "coupledProtocol",
       "schema:target": {

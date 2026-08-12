@@ -107,6 +107,7 @@
                 },
                 {
                   "type": "object",
+                  "additionalProperties": false,
                   "required": [
                     "@id"
                   ],
@@ -225,6 +226,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -554,6 +556,7 @@
                         },
                         {
                           "type": "object",
+                          "additionalProperties": false,
                           "required": [
                             "@id"
                           ],
@@ -734,6 +737,10 @@
                 },
                 "geosparql:crs": {
                   "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
                   "properties": {
                     "@id": {
                       "type": "string",
@@ -836,6 +843,7 @@
                         },
                         {
                           "type": "object",
+                          "additionalProperties": false,
                           "required": [
                             "@id"
                           ],
@@ -963,6 +971,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -1022,6 +1031,10 @@
                       },
                       {
                         "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string"
@@ -1089,6 +1102,10 @@
                   },
                   {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string"
@@ -1195,6 +1212,7 @@
                         },
                         {
                           "type": "object",
+                          "additionalProperties": false,
                           "required": [
                             "@id"
                           ],
@@ -1254,6 +1272,10 @@
                   },
                   {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string"
@@ -1288,6 +1310,10 @@
         },
         {
           "type": "object",
+          "required": [
+            "@id"
+          ],
+          "additionalProperties": false,
           "properties": {
             "@id": {
               "type": "string"
@@ -1340,6 +1366,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -1363,6 +1390,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "description": "Object reference to a vocabulary defined elsewhere.",
                     "properties": {
                       "@id": {
@@ -1574,6 +1602,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -1647,6 +1676,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -1670,6 +1700,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "description": "Object reference to a vocabulary defined elsewhere.",
                     "properties": {
                       "@id": {
@@ -1847,6 +1878,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -1870,6 +1902,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "description": "Object reference to a vocabulary defined elsewhere.",
                         "properties": {
                           "@id": {
@@ -2082,6 +2115,10 @@
               },
               {
                 "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -2191,6 +2228,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -2247,6 +2285,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -2305,6 +2344,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "required": [
                                   "@id"
                                 ],
@@ -2432,6 +2472,7 @@
                                   },
                                   {
                                     "type": "object",
+                                    "additionalProperties": false,
                                     "required": [
                                       "@id"
                                     ],
@@ -2491,6 +2532,10 @@
                             },
                             {
                               "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false,
                               "properties": {
                                 "@id": {
                                   "type": "string"
@@ -2558,6 +2603,10 @@
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
                           "properties": {
                             "@id": {
                               "type": "string"
@@ -2664,6 +2713,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "required": [
                                   "@id"
                                 ],
@@ -2723,6 +2773,10 @@
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
                           "properties": {
                             "@id": {
                               "type": "string"
@@ -2997,6 +3051,51 @@
                               "schema:name"
                             ]
                           }
+                        },
+                        {
+                          "contains": {
+                            "title": "Sample Dimensions (L × W × H)",
+                            "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/labxctTAPP/sampleDimensionsDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "sampleDimensionsDefault"
+                              },
+                              "schema:name": {
+                                "const": "Sample Dimensions (L × W × H)"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
                         }
                       ]
                     }
@@ -3036,39 +3135,6 @@
           "type": "array",
           "items": {
             "anyOf": [
-              {
-                "title": "Sample Dimensions (L × W × H)",
-                "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/sampleDimensions"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/labxctTAPP/sampleDimensions"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Sample Dimensions (L × W × H)"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
               {
                 "title": "Sample Mounting Method",
                 "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
@@ -3969,43 +4035,6 @@
             ]
           },
           "allOf": [
-            {
-              "contains": {
-                "title": "Sample Dimensions (L × W × H)",
-                "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/labxctTAPP/sampleDimensions"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/labxctTAPP/sampleDimensions"
-                    }
-                  },
-                  "schema:name": {
-                    "const": "Sample Dimensions (L × W × H)"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
             {
               "contains": {
                 "title": "Sample Mounting Method",
@@ -5052,6 +5081,36 @@
                     }
                   }
                 }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Software used for image segmentation, phase identification, and quantitative 3D analysis after reconstruction. Report all packages used, with version numbers.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             ]
           },
@@ -5067,16 +5126,20 @@
                   "ada:toolRole"
                 ]
               }
+            },
+            {
+              "contains": {
+                "properties": {
+                  "ada:toolRole": {
+                    "const": "dataReduction"
+                  }
+                },
+                "required": [
+                  "ada:toolRole"
+                ]
+              }
             }
           ]
-        },
-        "ada:reconstructionSoftware": {
-          "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number. Often bundled with the instrument and proprietary to the manufacturer.",
-          "type": "string"
-        },
-        "ada:segmentationAndAnalysisSoftware": {
-          "description": "Software used for image segmentation, phase identification, and quantitative 3D analysis after reconstruction. Report all packages used, with version numbers.",
-          "type": "string"
         },
         "ada:analyticalMode": {
           "type": "array",
@@ -5121,6 +5184,42 @@
                           "type": "string"
                         }
                       ]
+                    },
+                    "ada:tubeCurrentDefault": {
+                      "description": "X-ray tube current in microamperes (µA) registered by the protocol. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same protocol or session, report the full range applied (e.g., 65–115 µA).",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "ada:xRayPreFilterDefault": {
+                      "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    },
+                    "ada:voxelSizeDefault": {
+                      "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The protocol registers the target voxel size, set based on the minimum feature size to be resolved (target voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
                     }
                   }
                 }
@@ -5144,33 +5243,7 @@
             }
           ]
         },
-        "ada:tubeCurrent": {
-          "description": "X-ray tube current in microamperes (µA) registered by the protocol. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same protocol or session, report the full range applied (e.g., 65–115 µA).",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:xRayPreFilter": {
-          "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
-          "type": "string"
-        },
-        "ada:voxelSize": {
-          "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The protocol registers the target voxel size, set based on the minimum feature size to be resolved (target voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:rotationRange": {
+        "ada:rotationRangeDefault": {
           "description": "Total angular range over which projection images are acquired, in degrees. Full 360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.",
           "anyOf": [
             {
@@ -5181,7 +5254,7 @@
             }
           ]
         },
-        "ada:numberOfProjections": {
+        "ada:numberOfProjectionsDefault": {
           "description": "Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.",
           "anyOf": [
             {
@@ -5192,7 +5265,7 @@
             }
           ]
         },
-        "ada:exposureTimePerProjection": {
+        "ada:exposureTimePerProjectionDefault": {
           "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the protocol. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within protocol-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same protocol or session, report the full range applied (e.g., 0.5–2 s).",
           "anyOf": [
             {
@@ -5203,11 +5276,231 @@
             }
           ]
         },
-        "ada:flatFieldCorrection": {
-          "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
-          "type": "boolean"
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "dataReduction"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "title": "Flat Field Correction",
+                                "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "flatFieldCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Flat Field Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "boolean"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Sub-volume Stitching and Registration Method",
+                                "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "subVolumeStitchingAndRegistrationMethodDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Sub-volume Stitching and Registration Method"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              }
+                            ]
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "title": "Flat Field Correction",
+                                "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "flatFieldCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Flat Field Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "boolean"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Sub-volume Stitching and Registration Method",
+                                "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "subVolumeStitchingAndRegistrationMethodDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Sub-volume Stitching and Registration Method"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "dataReduction"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         },
-        "ada:rotationMode": {
+        "ada:rotationModeDefault": {
           "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).",
           "type": "string",
           "enum": [
@@ -5250,7 +5543,7 @@
           ],
           "readOnly": true
         },
-        "ada:outputDataFormat": {
+        "ada:outputDataFormatDefault": {
           "description": "File format of the reconstructed CT volume as output by the reconstruction software. Bit depth is recorded separately in Output Bit Depth.",
           "type": "string",
           "enum": [
@@ -5260,7 +5553,7 @@
             "DICOM"
           ]
         },
-        "ada:segmentationMethod": {
+        "ada:segmentationMethodDefault": {
           "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
           "type": "string",
           "enum": [
@@ -5269,10 +5562,6 @@
             "Manual threshold per phase",
             "Semi-automated: threshold + morphological filtering"
           ]
-        },
-        "ada:subVolumeStitchingAndRegistrationMethod": {
-          "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
-          "type": "string"
         }
       },
       "required": [
@@ -5283,22 +5572,15 @@
         "ada:ctSystemManufacturerAndModel",
         "ada:xRaySourceConfiguration",
         "ada:detectorType",
-        "ada:reconstructionSoftware",
-        "ada:segmentationAndAnalysisSoftware",
-        "ada:tubeCurrent",
-        "ada:xRayPreFilter",
-        "ada:voxelSize",
-        "ada:rotationRange",
-        "ada:numberOfProjections",
-        "ada:exposureTimePerProjection",
-        "ada:flatFieldCorrection",
-        "ada:rotationMode",
+        "ada:rotationRangeDefault",
+        "ada:numberOfProjectionsDefault",
+        "ada:exposureTimePerProjectionDefault",
+        "ada:rotationModeDefault",
         "ada:minimumSubVolumeOverlap",
         "ada:reconstructionAlgorithm",
         "ada:beamHardeningCorrectionMethod",
-        "ada:outputDataFormat",
-        "ada:segmentationMethod",
-        "ada:subVolumeStitchingAndRegistrationMethod"
+        "ada:outputDataFormatDefault",
+        "ada:segmentationMethodDefault"
       ]
     }
   ],
@@ -5361,6 +5643,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -5393,6 +5676,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -5510,6 +5794,7 @@
                               },
                               {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "required": [
                                   "@id"
                                 ],
@@ -5627,6 +5912,10 @@
                         "anyOf": [
                           {
                             "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
                             "properties": {
                               "@id": {
                                 "type": "string",
@@ -5678,6 +5967,7 @@
                                           },
                                           {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "required": [
                                               "@id"
                                             ],
@@ -5771,6 +6061,7 @@
                     "anyOf": [
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string",
@@ -5829,6 +6120,7 @@
                                       },
                                       {
                                         "type": "object",
+                                        "additionalProperties": false,
                                         "required": [
                                           "@id"
                                         ],
@@ -5956,6 +6248,7 @@
                                           },
                                           {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "required": [
                                               "@id"
                                             ],
@@ -6015,6 +6308,10 @@
                                     },
                                     {
                                       "type": "object",
+                                      "required": [
+                                        "@id"
+                                      ],
+                                      "additionalProperties": false,
                                       "properties": {
                                         "@id": {
                                           "type": "string"
@@ -6082,6 +6379,10 @@
                                 },
                                 {
                                   "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false,
                                   "properties": {
                                     "@id": {
                                       "type": "string"
@@ -6188,6 +6489,7 @@
                                       },
                                       {
                                         "type": "object",
+                                        "additionalProperties": false,
                                         "required": [
                                           "@id"
                                         ],
@@ -6247,6 +6549,10 @@
                                 },
                                 {
                                   "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false,
                                   "properties": {
                                     "@id": {
                                       "type": "string"
@@ -6316,6 +6622,10 @@
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
                           "properties": {
                             "@id": {
                               "type": "string"
@@ -6432,6 +6742,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -6470,6 +6781,10 @@
                                   },
                                   {
                                     "type": "object",
+                                    "required": [
+                                      "@id"
+                                    ],
+                                    "additionalProperties": false,
                                     "properties": {
                                       "@id": {
                                         "type": "string"
@@ -6538,6 +6853,7 @@
                                 },
                                 {
                                   "type": "object",
+                                  "additionalProperties": false,
                                   "required": [
                                     "@id"
                                   ],
@@ -6580,6 +6896,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
@@ -6657,6 +6974,10 @@
                             "anyOf": [
                               {
                                 "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
                                 "properties": {
                                   "@id": {
                                     "type": "string",
@@ -6708,6 +7029,7 @@
                                               },
                                               {
                                                 "type": "object",
+                                                "additionalProperties": false,
                                                 "required": [
                                                   "@id"
                                                 ],
@@ -6826,6 +7148,10 @@
                 },
                 "schema:about": {
                   "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
                   "properties": {
                     "@id": {
                       "type": "string",
@@ -6843,6 +7169,10 @@
                       },
                       {
                         "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string"
@@ -6876,6 +7206,7 @@
                   },
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "required": [
                       "@id"
                     ],
@@ -6940,6 +7271,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -7034,6 +7366,10 @@
           "anyOf": [
             {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
@@ -7085,6 +7421,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -7258,6 +7595,7 @@
             },
             {
               "type": "object",
+              "additionalProperties": false,
               "required": [
                 "@id"
               ],
@@ -7376,6 +7714,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -7435,6 +7774,10 @@
               },
               {
                 "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -7511,6 +7854,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -7699,6 +8043,7 @@
           "anyOf": [
             {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -7712,6 +8057,7 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -7731,6 +8077,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
@@ -7755,6 +8102,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
@@ -7831,6 +8179,7 @@
             },
             {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -7999,6 +8348,10 @@
               },
               {
                 "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -8016,6 +8369,10 @@
             },
             {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -8032,6 +8389,10 @@
             },
             {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -8080,6 +8441,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -8103,6 +8465,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "description": "Object reference to a vocabulary defined elsewhere.",
                         "properties": {
                           "@id": {
@@ -8314,6 +8677,7 @@
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "required": [
                           "@id"
                         ],
@@ -8373,6 +8737,10 @@
                   },
                   {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
@@ -8454,6 +8822,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -8580,6 +8949,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],

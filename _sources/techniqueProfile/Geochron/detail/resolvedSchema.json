@@ -4,63 +4,24 @@
   "description": "Dataset-level analysis-instance detail for LA-ICP-MS geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.",
   "type": "object",
   "properties": {
-    "schema:contributor": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "allOf": [
-          {
-            "if": {
-              "properties": {
-                "schema:roleName": {
-                  "const": "analyst"
-                }
-              },
-              "required": [
-                "schema:roleName"
-              ]
-            },
-            "then": {
-              "properties": {
-                "schema:name": {
-                  "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID recommended for persistent identification.",
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        ]
-      },
-      "allOf": [
-        {
-          "contains": {
-            "properties": {
-              "schema:roleName": {
-                "const": "analyst"
-              }
-            },
-            "required": [
-              "schema:roleName"
-            ]
-          }
-        }
-      ]
-    },
     "prov:wasGeneratedBy": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
+          "schema:location": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Name of the laboratory or institution hosting the instrument. Standard cross-TAPP identity field, distinct from the paper-sourced 'Laboratory name' field above.",
+                "type": "string"
+              },
+              "schema:identifier": {
+                "description": "Persistent identifier for the laboratory, e.g., ROR ID.",
+                "type": "string"
+              }
+            }
+          },
           "schema:startDate": {
             "description": "Date on which the analytical session began. For sessions spanning multiple days, use the date of the first session.",
             "type": "string"
@@ -330,6 +291,39 @@
                   ]
                 },
                 {
+                  "title": "Analysis Sequence",
+                  "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/geochronTAPP/analysisSequence"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/geochronTAPP/analysisSequence"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Analysis Sequence"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
                   "title": "Number of Replicates",
                   "description": "Number of replicate spot analyses performed on the same grain or nominal location in this session.",
                   "type": "object",
@@ -801,6 +795,43 @@
               },
               {
                 "contains": {
+                  "title": "Analysis Sequence",
+                  "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/geochronTAPP/analysisSequence"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/geochronTAPP/analysisSequence"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Analysis Sequence"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
                   "title": "Number of Replicates",
                   "description": "Number of replicate spot analyses performed on the same grain or nominal location in this session.",
                   "type": "object",
@@ -1004,6 +1035,429 @@
               }
             ]
           },
+          "schema:actionProcess": {
+            "type": "object",
+            "properties": {
+              "schema:step": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "schema:name": {
+                            "const": "samplePreparation"
+                          }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:description": {
+                            "description": "Standard cross-TAPP description of how samples were prepared for analysis (mounting, polishing, coating, etc.).",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          },
+                          "schema:additionalProperty": {
+                            "type": "array",
+                            "items": {
+                              "title": "Pre-Ablation Surface Treatment",
+                              "description": "Procedure applied immediately before each analysis to remove surface contamination or condition the sample surface, distinct from general sample preparation. Pre-ablation pulses are typically discarded before signal acquisition begins.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/preAblationSurfaceTreatment"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/preAblationSurfaceTreatment"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Pre-Ablation Surface Treatment"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "allOf": [
+                              {
+                                "contains": {
+                                  "title": "Pre-Ablation Surface Treatment",
+                                  "description": "Procedure applied immediately before each analysis to remove surface contamination or condition the sample surface, distinct from general sample preparation. Pre-ablation pulses are typically discarded before signal acquisition begins.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/preAblationSurfaceTreatment"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/preAblationSurfaceTreatment"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Pre-Ablation Surface Treatment"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "schema:name": {
+                            "const": "dataReduction"
+                          }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:additionalProperty": {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "title": "Signal Smoothing",
+                                  "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/signalSmoothing"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/signalSmoothing"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Signal Smoothing"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                {
+                                  "title": "Constants and Reference Values Used",
+                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, the 238U/235U ratio used to convert measured 235U-based data to 207Pb/235U, or other citable reference values), together with their source. Distinct from Reference Material Information (Group 6), which documents accepted values for specific calibration/validation materials rather than universal physical constants. Critical for traceability: community-recommended values for decay constants and isotope ratios are periodically revised (e.g., the 238U/235U ratio revision by Hiess et al. 2012), and a reported age or ratio can only be correctly reinterpreted against a future revision if the constants originally used are known.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/constantsAndReferenceValuesUsed"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/constantsAndReferenceValuesUsed"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Constants and Reference Values Used"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                {
+                                  "title": "Spike / Outlier Filtering Approach",
+                                  "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Spike / Outlier Filtering Approach"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                {
+                                  "title": "Normalization/Standards-Based Correction",
+                                  "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Normalization/Standards-Based Correction"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                }
+                              ]
+                            },
+                            "allOf": [
+                              {
+                                "contains": {
+                                  "title": "Signal Smoothing",
+                                  "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/signalSmoothing"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/signalSmoothing"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Signal Smoothing"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              },
+                              {
+                                "contains": {
+                                  "title": "Constants and Reference Values Used",
+                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, the 238U/235U ratio used to convert measured 235U-based data to 207Pb/235U, or other citable reference values), together with their source. Distinct from Reference Material Information (Group 6), which documents accepted values for specific calibration/validation materials rather than universal physical constants. Critical for traceability: community-recommended values for decay constants and isotope ratios are periodically revised (e.g., the 238U/235U ratio revision by Hiess et al. 2012), and a reported age or ratio can only be correctly reinterpreted against a future revision if the constants originally used are known.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/constantsAndReferenceValuesUsed"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/constantsAndReferenceValuesUsed"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Constants and Reference Values Used"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              },
+                              {
+                                "contains": {
+                                  "title": "Spike / Outlier Filtering Approach",
+                                  "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Spike / Outlier Filtering Approach"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              },
+                              {
+                                "contains": {
+                                  "title": "Normalization/Standards-Based Correction",
+                                  "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                    },
+                                    "@type": {
+                                      "const": [
+                                        "schema:PropertyValue"
+                                      ]
+                                    },
+                                    "schema:propertyID": {
+                                      "const": {
+                                        "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
+                                      }
+                                    },
+                                    "schema:name": {
+                                      "const": "Normalization/Standards-Based Correction"
+                                    },
+                                    "schema:value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                  ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
           "schema:object": {
             "type": "array",
             "items": {
@@ -1169,11 +1623,118 @@
                   },
                   "then": {
                     "properties": {
+                      "schema:identifier": {
+                        "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
                       "schema:hasPart": {
                         "type": "array",
                         "items": {
                           "type": "object",
                           "allOf": [
+                            {
+                              "if": {
+                                "properties": {
+                                  "schema:additionalType": {
+                                    "contains": {
+                                      "const": "Torch"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "schema:additionalType"
+                                ]
+                              },
+                              "then": {
+                                "properties": {
+                                  "schema:additionalProperty": {
+                                    "type": "array",
+                                    "items": {
+                                      "title": "Torch Depth",
+                                      "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency, oxide formation, and doubly-charged species production.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/geochronTAPP/torchDepth"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": {
+                                            "@id": "ada:parameter/geochronTAPP/torchDepth"
+                                          }
+                                        },
+                                        "schema:name": {
+                                          "const": "Torch Depth"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    "allOf": [
+                                      {
+                                        "contains": {
+                                          "title": "Torch Depth",
+                                          "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency, oxide formation, and doubly-charged species production.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/torchDepth"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/torchDepth"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Torch Depth"
+                                            },
+                                            "schema:value": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            },
                             {
                               "if": {
                                 "properties": {
@@ -1193,6 +1754,50 @@
                                     "type": "array",
                                     "items": {
                                       "anyOf": [
+                                        {
+                                          "title": "RF Power (W)",
+                                          "description": "ICP radiofrequency forward power. Session-tunable within procedure-defined bounds during plasma optimisation; consistent with the analogous, tunable treatment of RF Power across LA-Q/SF-ICP-MS and all three solution ICP-MS TAPPs.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/rfPower"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/rfPower"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "RF Power (W)"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
                                         {
                                           "title": "Coolant (Plasma) Gas Flow Rate",
                                           "description": "Flow rate of the outer (coolant/plasma) argon gas stream that sustains the ICP plasma. Determines plasma volume and stability.",
@@ -1284,6 +1889,54 @@
                                       ]
                                     },
                                     "allOf": [
+                                      {
+                                        "contains": {
+                                          "title": "RF Power (W)",
+                                          "description": "ICP radiofrequency forward power. Session-tunable within procedure-defined bounds during plasma optimisation; consistent with the analogous, tunable treatment of RF Power across LA-Q/SF-ICP-MS and all three solution ICP-MS TAPPs.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/rfPower"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/rfPower"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "RF Power (W)"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
                                       {
                                         "contains": {
                                           "title": "Coolant (Plasma) Gas Flow Rate",
@@ -1384,6 +2037,309 @@
                                   }
                                 }
                               }
+                            },
+                            {
+                              "if": {
+                                "properties": {
+                                  "schema:additionalType": {
+                                    "contains": {
+                                      "const": "Collision Reaction Cell"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "schema:additionalType"
+                                ]
+                              },
+                              "then": {
+                                "properties": {
+                                  "schema:additionalProperty": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "title": "Collision Gas Flow Rate",
+                                          "description": "Flow rate of the collision gas in KED mode. Higher flow rates provide greater interference suppression at the cost of analyte sensitivity. Applies to quadrupole-based instruments and to collision-cell-equipped multi-collector instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in KED mode.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/collisionGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/collisionGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Collision Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Cell Exit Discrimination Voltage",
+                                          "description": "Kinetic energy discrimination offset voltage applied at the exit of the collision cell in KED mode. Applies to quadrupole-based instruments and to collision-cell-equipped multi-collector instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in KED mode.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/cellExitDiscriminationVoltage"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/cellExitDiscriminationVoltage"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Cell Exit Discrimination Voltage"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Reaction Gas Flow Rate",
+                                          "description": "Flow rate of the reactive gas introduced into the dynamic reaction cell (DRC). Applies to quadrupole-based instruments and to collision-cell-equipped multi-collector instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in DRC mode.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/reactionGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/reactionGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Reaction Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    "allOf": [
+                                      {
+                                        "contains": {
+                                          "title": "Collision Gas Flow Rate",
+                                          "description": "Flow rate of the collision gas in KED mode. Higher flow rates provide greater interference suppression at the cost of analyte sensitivity. Applies to quadrupole-based instruments and to collision-cell-equipped multi-collector instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in KED mode.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/collisionGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/collisionGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Collision Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Cell Exit Discrimination Voltage",
+                                          "description": "Kinetic energy discrimination offset voltage applied at the exit of the collision cell in KED mode. Applies to quadrupole-based instruments and to collision-cell-equipped multi-collector instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in KED mode.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/cellExitDiscriminationVoltage"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/cellExitDiscriminationVoltage"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Cell Exit Discrimination Voltage"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Reaction Gas Flow Rate",
+                                          "description": "Flow rate of the reactive gas introduced into the dynamic reaction cell (DRC). Applies to quadrupole-based instruments and to collision-cell-equipped multi-collector instruments (e.g., Nu Sapphire, Thermo Neoma MS/MS) operating in DRC mode.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:parameter/geochronTAPP/reactionGasFlowRate"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValue"
+                                              ]
+                                            },
+                                            "schema:propertyID": {
+                                              "const": {
+                                                "@id": "ada:parameter/geochronTAPP/reactionGasFlowRate"
+                                              }
+                                            },
+                                            "schema:name": {
+                                              "const": "Reaction Gas Flow Rate"
+                                            },
+                                            "schema:value": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "number"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            "schema:unitText": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:propertyID",
+                                            "schema:name",
+                                            "schema:value",
+                                            "schema:unitText"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
                             }
                           ]
                         }
@@ -1392,6 +2348,39 @@
                         "type": "array",
                         "items": {
                           "anyOf": [
+                            {
+                              "title": "Mass Resolution Setting",
+                              "description": "Operating mass resolution of the mass analyser. Fixed at unit resolution for quadrupole instruments; selectable (low/medium/high) for sector-field instruments to balance sensitivity against interference suppression; not applicable in the same sense for multi-collector instruments running static low-resolution collection (see Faraday Cup Array Configuration and Collector Configuration for MC-specific detail).",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/massResolutionSetting"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/massResolutionSetting"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Mass Resolution Setting"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
                             {
                               "title": "ICP Tuning",
                               "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria.",
@@ -1527,6 +2516,43 @@
                           ]
                         },
                         "allOf": [
+                          {
+                            "contains": {
+                              "title": "Mass Resolution Setting",
+                              "description": "Operating mass resolution of the mass analyser. Fixed at unit resolution for quadrupole instruments; selectable (low/medium/high) for sector-field instruments to balance sensitivity against interference suppression; not applicable in the same sense for multi-collector instruments running static low-resolution collection (see Faraday Cup Array Configuration and Collector Configuration for MC-specific detail).",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/geochronTAPP/massResolutionSetting"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/geochronTAPP/massResolutionSetting"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Mass Resolution Setting"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
+                              ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                          },
                           {
                             "contains": {
                               "title": "ICP Tuning",
@@ -1679,251 +2705,239 @@
                       }
                     }
                   }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "ada:toolRole": {
+                        "const": "acquisition"
+                      }
+                    },
+                    "required": [
+                      "ada:toolRole"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Instrument control and data acquisition software used to collect raw signal data, including version number.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "ada:toolRole": {
+                        "const": "dataReduction"
+                      }
+                    },
+                    "required": [
+                      "ada:toolRole"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Software used for signal processing, background subtraction, downhole fractionation correction, and age calculation, including version number.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "schema:additionalType": {
+                        "contains": {
+                          "const": "Laser Ablation System"
+                        }
+                      }
+                    },
+                    "required": [
+                      "schema:additionalType"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "ada:laserFluence": {
+                        "description": "Laser pulse energy per unit area at the sample surface, the primary control on ablation rate and crater morphology.",
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "ada:laserRepetitionRate": {
+                        "description": "Laser pulse repetition rate.",
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "ada:reagentRole": {
+                        "const": "primaryStandard"
+                      }
+                    },
+                    "required": [
+                      "ada:reagentRole"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Primary reference material used to calibrate the instrument and convert raw signal intensities to ages/isotope ratios. Include citation for the accepted values used.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "ada:reagentRole": {
+                        "const": "secondaryReferenceMaterial"
+                      }
+                    },
+                    "required": [
+                      "ada:reagentRole"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "schema:name": {
+                        "description": "Quality-control reference material(s) analysed as unknowns alongside samples in the same session to assess accuracy and monitor drift. Include citation/accepted values for each.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               ]
             }
           },
-          "schema:actionProcess": {
-            "type": "object",
-            "properties": {
-              "schema:step": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
+          "ada:spotDiameter": {
+            "description": "Diameter of the laser spot as set in the acquisition method (nominal/target value).",
+            "type": "string"
+          },
+          "ada:ablationSpotDuration": {
+            "description": "Total on-sample ablation time per spot, as set in the acquisition method.",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "ada:carrierGasFlowRate": {
+            "description": "Identity and plumbing configuration of the gas used to transport the ablated aerosol from the cell to the torch, including the procedure-registered flow rate(s).",
+            "type": "string"
+          },
+          "ada:massesMeasured": {
+            "description": "Mass-to-charge positions (isotope masses) this procedure is designed to measure. Defines the scope of the procedure; the analyst may record the specific subset actually measured in a given session.",
+            "type": "string"
+          },
+          "ada:dwellTimes": {
+            "description": "Count time (dwell time) per mass position for each measured isotope, and the settling time allowed between mass jumps, as reported in Table 3 of Horstwood et al. (2016). Applies to sequential (Q/SF) mass-hopping acquisition; for simultaneous multi-collector acquisition see Number of Blocks per Measurement, Number of Cycles per Block, and Integration Time per Cycle.",
+            "type": "string"
+          },
+          "ada:totalIntegrationTimePerOutputDataPoint": {
+            "description": "Total duty-cycle time for one complete mass-scan sweep (sum of all per-isotope dwell times and settling times), which sets the time resolution of the down-hole signal. Applies to sequential (Q/SF) acquisition.",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "schema:contributor": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:roleName": {
+                  "const": "analyst"
+                }
+              },
+              "required": [
+                "schema:roleName"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:name": {
+                  "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID recommended for persistent identification.",
+                  "anyOf": [
                     {
-                      "if": {
-                        "properties": {
-                          "schema:name": {
-                            "const": "dataReduction"
-                          }
-                        },
-                        "required": [
-                          "schema:name"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:additionalProperty": {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "title": "Signal Smoothing",
-                                  "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/geochronTAPP/signalSmoothing"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": {
-                                        "@id": "ada:parameter/geochronTAPP/signalSmoothing"
-                                      }
-                                    },
-                                    "schema:name": {
-                                      "const": "Signal Smoothing"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                  ]
-                                },
-                                {
-                                  "title": "Spike / Outlier Filtering Approach",
-                                  "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": {
-                                        "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
-                                      }
-                                    },
-                                    "schema:name": {
-                                      "const": "Spike / Outlier Filtering Approach"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                  ]
-                                },
-                                {
-                                  "title": "Normalization/Standards-Based Correction",
-                                  "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": {
-                                        "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-                                      }
-                                    },
-                                    "schema:name": {
-                                      "const": "Normalization/Standards-Based Correction"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                  ]
-                                }
-                              ]
-                            },
-                            "allOf": [
-                              {
-                                "contains": {
-                                  "title": "Signal Smoothing",
-                                  "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/geochronTAPP/signalSmoothing"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": {
-                                        "@id": "ada:parameter/geochronTAPP/signalSmoothing"
-                                      }
-                                    },
-                                    "schema:name": {
-                                      "const": "Signal Smoothing"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                  ]
-                                },
-                                "minContains": 0,
-                                "maxContains": 1
-                              },
-                              {
-                                "contains": {
-                                  "title": "Spike / Outlier Filtering Approach",
-                                  "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": {
-                                        "@id": "ada:parameter/geochronTAPP/spikeOutlierFilteringApproach"
-                                      }
-                                    },
-                                    "schema:name": {
-                                      "const": "Spike / Outlier Filtering Approach"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                  ]
-                                },
-                                "minContains": 0,
-                                "maxContains": 1
-                              },
-                              {
-                                "contains": {
-                                  "title": "Normalization/Standards-Based Correction",
-                                  "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": {
-                                        "@id": "ada:parameter/geochronTAPP/normalizationStandardsBasedCorrection"
-                                      }
-                                    },
-                                    "schema:name": {
-                                      "const": "Normalization/Standards-Based Correction"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                  ]
-                                },
-                                "minContains": 0,
-                                "maxContains": 1
-                              }
-                            ]
-                          }
-                        }
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
                       }
                     }
                   ]
@@ -1931,8 +2945,22 @@
               }
             }
           }
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "schema:roleName": {
+                "const": "analyst"
+              }
+            },
+            "required": [
+              "schema:roleName"
+            ]
+          }
         }
-      }
+      ]
     },
     "schema:measurementTechnique": {
       "type": "array",
@@ -1954,6 +2982,42 @@
       "items": {
         "type": "object",
         "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema:linkRelationship": {
+                  "const": "coupledTechnique"
+                }
+              },
+              "required": [
+                "schema:linkRelationship"
+              ]
+            },
+            "then": {
+              "properties": {
+                "schema:target": {
+                  "type": "object",
+                  "properties": {
+                    "schema:name": {
+                      "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with, or used to independently validate, this dataset. Enter 'None' if no coupling is intended.",
+                      "type": "string",
+                      "enum": [
+                        "CA-ID-TIMS",
+                        "SIMS",
+                        "EPMA",
+                        "CL/BSE Imaging",
+                        "None"
+                      ]
+                    },
+                    "schema:description": {
+                      "description": "Describes (1) the functional relationship between this dataset and the coupled technique, and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
           {
             "if": {
               "properties": {
