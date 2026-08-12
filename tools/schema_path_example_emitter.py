@@ -153,6 +153,104 @@ def _self_test(tapp="laicpmsTAPP", out_dir=None):
     return rc
 
 
+# ---------- @type discriminators ----------
+def _type_const(subschema):
+    """The @type value a subschema demands, or None.
+
+    Four shapes are in use across the base schemas: `const: [...]`; an array with
+    `contains: {const: X}` (the CDIF person profile, and instrument additionalType); a `default`
+    (the organization profile); and an `enum` of permitted tokens.
+    """
+    t = (subschema.get("properties") or {}).get("@type")
+    if not isinstance(t, dict):
+        return None
+    if isinstance(t.get("const"), list):
+        return list(t["const"])
+    c = t.get("contains")
+    if isinstance(c, dict) and isinstance(c.get("const"), str):
+        return [c["const"]]
+    if isinstance(t.get("default"), str):
+        return [t["default"]]
+    if isinstance(t.get("default"), list):
+        return list(t["default"])
+    items = t.get("items")
+    if isinstance(items, dict):
+        for cand in ([items] + list(items.get("anyOf") or [])):
+            if isinstance(cand, dict) and isinstance(cand.get("enum"), list) and cand["enum"]:
+                return [cand["enum"][0]]
+    return None
+
+
+def _declaring_branch(err, cand):
+    """The subschema that both demanded @type and declares what it should be.
+
+    A `required` error's own .schema is just {"required": [...]} — the keyword, not the branch. The
+    branch is an ancestor. For an anyOf/oneOf/allOf the context error's schema_path is relative to
+    that KEYWORD'S LIST, so the walk starts there, not at err.schema itself.
+    """
+    node = err.schema
+    if isinstance(node, dict) and isinstance(node.get(err.validator), list):
+        node = node[err.validator]
+    best = None
+    for step in list(cand.schema_path):
+        if isinstance(node, dict) and "@type" in (node.get("properties") or {}):
+            best = node
+        try:
+            node = node[step]
+        except (KeyError, IndexError, TypeError):
+            return best
+    if isinstance(node, dict) and "@type" in (node.get("properties") or {}):
+        best = node
+    return best
+
+
+def _at(inst, path):
+    for step in path:
+        try:
+            inst = inst[step]
+        except (KeyError, IndexError, TypeError):
+            return None
+    return inst
+
+
+def fill_required_types(inst, resolved_schema, max_passes=6):
+    """Supply @type where the schema requires one and the path-driven builder could not know it.
+
+    A schema path names metadata fields, never @type — @type is structural. So any node whose base
+    schema discriminates on it comes out incomplete: schema:creator emitted {schema:name} against a
+    CDIF person/organization anyOf that requires @type, and every prov:used entry has the same
+    shape. Rather than hard-code a table of node -> type, this is driven by the validator: each
+    "'@type' is a required property" error names both the offending node and the branch that wanted
+    it, so the fix is read off the schema itself and keeps working as the base schemas change.
+
+    Mutates `inst` in place; returns how many nodes were filled. Iterates because filling one node
+    can expose the next.
+    """
+    import jsonschema
+    validator = jsonschema.Draft202012Validator(resolved_schema)
+    filled = 0
+    for _ in range(max_passes):
+        added = 0
+        for err in validator.iter_errors(inst):
+            # an anyOf reports the real reason in .context, one entry per rejected branch
+            for cand in ([err] + list(err.context or [])):
+                if cand.validator != "required" or "'@type'" not in cand.message:
+                    continue
+                node = _at(inst, list(err.absolute_path) + list(cand.path))
+                if not isinstance(node, dict) or "@type" in node:
+                    continue
+                branch = _declaring_branch(err, cand)
+                t = _type_const(branch) if branch else None
+                if t:
+                    node["@type"] = t
+                    added += 1
+                    break
+        filled += added
+        if not added:
+            break
+    return filled
+
+
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     od = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--out=")), None)

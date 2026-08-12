@@ -238,16 +238,23 @@ def build_pathdriven(tapp, write_registries=True):
                  "schema:name": f"Example {tapp}", **examples["MethodDefinition"]}
     detail_inst = {"@context": ex._CTX, "@id": f"ex:detail{short}-P0",
                    "@type": ["schema:Dataset", "schema:Product"], **examples["Dataset"]}
-    _write_json(os.path.join(b.TAPP_DIR, f"example{tapp}-P0.json"), tapp_inst)
-    _write_json(os.path.join(b.DETAIL_DIR, f"exampledetail{short}-P0.json"), detail_inst)
-
     # ---- resolvedSchema.json: the flattened form, and the ONLY thing --validate reads.
     # Nothing used to regenerate it, so every schema.yaml written above silently drifted from its
     # resolution: --validate then compared a freshly-built example against a stale schema and
     # reported failures that were neither the example's nor the schema's fault. Rebuild both here,
     # so the build leaves the pair consistent and validation tests what was actually just built.
-    _resolve(os.path.join(b.TAPP_DIR, "schema.yaml"))
-    _resolve(os.path.join(b.DETAIL_DIR, "schema.yaml"))
+    #
+    # Resolved BEFORE the examples are written, because filling their @type discriminators needs
+    # the resolved schema — see ex.fill_required_types.
+    tapp_res = _resolve(os.path.join(b.TAPP_DIR, "schema.yaml"))
+    detail_res = _resolve(os.path.join(b.DETAIL_DIR, "schema.yaml"))
+    n1 = ex.fill_required_types(tapp_inst, json.load(open(tapp_res, encoding="utf-8")))
+    n2 = ex.fill_required_types(detail_inst, json.load(open(detail_res, encoding="utf-8")))
+    if n1 or n2:
+        print(f"  filled {n1 + n2} required @type discriminator(s) in the examples")
+
+    _write_json(os.path.join(b.TAPP_DIR, f"example{tapp}-P0.json"), tapp_inst)
+    _write_json(os.path.join(b.DETAIL_DIR, f"exampledetail{short}-P0.json"), detail_inst)
 
     print(f"DONE {tapp}: TAPP overlay {len(overlays['MethodDefinition'].get('properties', {}))} props; "
           f"detail {len(ds.get('properties', {}))} props; required MD={required['MethodDefinition']} "
@@ -255,11 +262,12 @@ def build_pathdriven(tapp, write_registries=True):
 
 
 def _resolve(schema_yaml):
-    """Rewrite resolvedSchema.json beside a schema.yaml we just emitted."""
+    """Rewrite resolvedSchema.json beside a schema.yaml we just emitted; return its path."""
     import pathlib
     import resolve_schema
     out = resolve_schema.resolve_and_write_structured(pathlib.Path(schema_yaml).resolve())
     print(f"  resolved {os.path.relpath(schema_yaml, b.ROOT)} -> {os.path.basename(out)}")
+    return out
 
 
 def _write_json(path, obj):
