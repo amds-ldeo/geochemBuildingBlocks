@@ -1,0 +1,75 @@
+Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes
+Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,shared,
+Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,inferred,shared,
+Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,shared,
+Laboratory,Basic,Editable,Text (free),$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:name,authored,shared,dual-home decision: protocol default
+Laboratory,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Laboratory ID,Advanced,Editable,URI / DOI,$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:identifier,authored,shared,dual-home decision: protocol default
+Laboratory ID,Advanced,Editable,URI / DOI,$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:identifier,authored,shared,dual-home decision: analysis-tier value
+Procedure Start Date,Basic,Read-Only,Date,$MethodDefinition.schema:datePublished,inferred,shared,
+Funding Source for Procedure Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,shared,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name,inferred,shared,
+Procedure DOI,N/A,Basic,URI / DOI,$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier,inferred,shared,
+Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,inferred,shared,
+Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,inferred,shared,
+Analysis End Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:endDate,inferred,shared,
+Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,inferred,shared,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: protocol default
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: analysis-tier value
+Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default
+Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: analysis-tier value
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url,inferred,shared,
+Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,inferred,shared,
+Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,
+Sample Preparation Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description,authored,divergent,dual-home decision: protocol default
+Sample Preparation Method,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description,authored,divergent,dual-home decision: analysis-tier value
+Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,inferred,shared,
+Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,inferred,shared,
+Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:manufacturer.schema:name,authored,divergent,divergence decision applied
+Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:model.schema:name,authored,shared,divergence decision applied
+Electron Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='Electron source'].schema:description,authored,divergent,divergence decision applied
+Instrument Variant,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:description,authored,shared,divergence decision applied
+SE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='SEDetector'].schema:name,authored,shared,divergence decision applied
+BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSEDetector'].schema:name,authored,shared,divergence decision applied
+CL Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='CL Detector Configuration'].schema:value,inferred,,
+EBSD Detector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.ada:ebsdDetectorConfiguration,inferred,,
+Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default
+Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default
+Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],inferred,shared,
+Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltageDefault,authored,divergent,divergence decision applied
+Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
+Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
+Working Distance,Basic,Editable,Numeric (mm),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:workingDistanceDefault,authored,shared,divergence decision applied
+Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:workingDistance,inferred,shared,dual-home counterpart (tier matrix)
+Chamber Pressure,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue,inferred,shared,
+Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
+Image Pixel Size,Advanced,Basic,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:defaultValue,authored,,dual-home decision: protocol default
+Image Pixel Size,Advanced,Basic,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Image Pixel Size'].schema:value,authored,,dual-home decision: analysis-tier value
+Dwell Time per Pixel,Basic,Editable,Numeric + unit,$MethodDefinition.ada:dwellTimePerPixelDefault,authored,shared,divergence decision applied
+Dwell Time per Pixel,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
+CL Acquisition Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:clAcquisitionMode,inferred,,
+CL Wavelength Range,Basic,Read-Only,Numeric pair (nm),$MethodDefinition.ada:clWavelengthRange,inferred,,
+CL Grating,Advanced,Read-Only,Text (free),$Dataset.ada:clWavelengthRange,authored,,
+CL Integration Time,Basic,Editable,Numeric + unit,$MethodDefinition.ada:clIntegrationTimeDefault,authored,,dual-home decision: protocol default
+CL Integration Time,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.ada:clIntegrationTime,authored,,dual-home decision: analysis-tier value
+Sample Tilt Angle,Basic,Read-Only,Numeric (degrees),$MethodDefinition.ada:sampleTiltAngle,inferred,,
+EBSD Step Size,Basic,Editable,Numeric + unit,$Dataset.ada:stepSize,authored,,
+EBSD Frame Time,Advanced,Editable,Numeric (ms),$Dataset.ada:frameTime,authored,,
+EBSD Phase List,Basic,Editable,Text (free),$Dataset.ada:phaseList,authored,,
+EBSD Indexing Method,Basic,Read-Only,Controlled list,$Dataset.ada:indexingMethod,authored,,
+Crystal Structure Database,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:defaultValue,authored,,dual-home decision: protocol default
+Crystal Structure Database,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:value,authored,,dual-home decision: analysis-tier value
+EBSD Pattern Quality Threshold,Advanced,Editable,Text (free),$Dataset.ada:patternQualityThreshold,authored,,
+EBSD Mean Angular Deviation,N/A,Basic,Numeric (degrees),$Dataset.ada:meanAngularDeviation,authored,,
+EBSD Indexing Rate,N/A,Basic,Numeric (%),$Dataset.ada:indexingRate,authored,,
+CL Wavelength Calibration Reference,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:defaultValue,inferred,,
+CL Wavelength Calibration Reference,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
+Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,authored,shared,dual-home decision: protocol default
+Additional Notes,Advanced,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.schema:description,authored,shared,dual-home decision: analysis-tier value
+Sampling Unit,Basic,Basic,Controlled list / Text,,flagged,,new in this revision (needs mapping)
+Target Selection Criteria,Basic,Editable,Text (free),,flagged,,new in this revision (needs mapping)
+Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping)
+Reported Variables and Units,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping)
+Constants and Reference Values Used,Basic,Editable,Text (free),,flagged,,new in this revision (needs mapping)
