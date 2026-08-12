@@ -43,7 +43,8 @@ class Arr:
 
     def __init__(self):
         self.selkey = None      # selector key curie, e.g. "schema:name"
-        self.branches = {}      # selector value -> Obj (the item shape for that value)
+        self.branches = {}      # (selector key, value) -> Obj — keyed by BOTH so one array can
+                                # hold items discriminated by different keys (see insert())
         self.append = None      # Obj | Leaf for a bare "[]" append (no selector)
         self.required = set()   # selector values that must be present (=> contains)
         self.extra_items = []   # item schemas permitted alongside the branches, but not `contains`ed
@@ -129,25 +130,31 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 arr = Arr(); node.props[curie] = arr
             if seg.selector:
                 key, val = seg.selector
-                arr.selkey = key
+                # Branches are keyed by (selector key, value), not value alone: ONE array can hold
+                # elements discriminated by DIFFERENT keys. prov:used is the case that forced this —
+                # its items are instruments (schema:additionalType), computational tools
+                # (ada:toolRole) or reagents (ada:reagentRole). A single Arr.selkey made the last
+                # path win, so every branch was emitted against the wrong key.
+                arr.selkey = key                        # last key seen; kept for bare-append callers
                 if require:
-                    arr.required.add(val)
+                    arr.required.add((key, val))
                 if is_last:
                     if element is not None:
-                        arr.branches[val] = element     # provided element (e.g. a $ref Leaf)
-                    elif val not in arr.branches:
-                        o = Obj(); o.props[key] = _sel_key_node(key, val); arr.branches[val] = o
+                        arr.branches[(key, val)] = element   # provided element (e.g. a $ref Leaf)
+                    elif (key, val) not in arr.branches:
+                        o = Obj(); o.props[key] = _sel_key_node(key, val)
+                        arr.branches[(key, val)] = o
                     return                     # value IS the selected element
-                item = arr.branches.get(val)
+                item = arr.branches.get((key, val))
                 if item is None:
                     item = Obj(); item.props[key] = _sel_key_node(key, val)
-                    arr.branches[val] = item
+                    arr.branches[(key, val)] = item
                 node = item
             else:                              # bare "[]"
                 if is_last:
                     if branch_key is not None and element is not None:
                         # one named permitted item (analyte column) rather than an item-shape leaf
-                        arr.branches[branch_key] = element
+                        arr.branches[(None, branch_key)] = element
                     elif curie in BASE_OWNED_OBJECT_ARRAY:
                         arr.append = Obj()     # base-owned object array -> items:{object}, defer shape to base
                     else:
@@ -223,27 +230,28 @@ def to_schema(node):
                 # instance that omits the tree still validates — while an instance that DOES carry an
                 # ICPMS instrument has its hasPart/additionalProperty shape enforced (recursively).
                 cond = []
-                for val, br in node.branches.items():
+                for (skey, val), br in node.branches.items():
                     if not isinstance(br, Obj):
                         continue
-                    nested = {k: _jsonld_card(to_schema(v)) for k, v in br.props.items() if k != node.selkey}
+                    skey = skey or node.selkey
+                    nested = {k: _jsonld_card(to_schema(v)) for k, v in br.props.items() if k != skey}
                     if nested:
-                        sel = {"contains": {"const": val}} if node.selkey in ARRAY_VALUED else {"const": val}
-                        cond.append({"if": {"properties": {node.selkey: sel}, "required": [node.selkey]},
+                        sel = {"contains": {"const": val}} if skey in ARRAY_VALUED else {"const": val}
+                        cond.append({"if": {"properties": {skey: sel}, "required": [skey]},
                                      "then": {"properties": nested}})
                 items = {"type": "object", "allOf": cond} if cond else {"type": "object"}
             out = {"type": "array", "items": items}
             # per-branch presence: a $ref branch is optional-and-at-most-one; a required object
             # branch must be CONTAINED (selector key = the token/name).
             allof = []
-            arr_key = node.selkey in ARRAY_VALUED
-            for val, br in node.branches.items():
+            for (skey, val), br in node.branches.items():
+                skey = skey or node.selkey
                 if isinstance(br, Leaf):
                     allof.append({"contains": br.schema, "minContains": 0, "maxContains": 1})
-                elif val in node.required:
-                    key_c = {"contains": {"const": val}} if arr_key else {"const": val}
-                    allof.append({"contains": {"properties": {node.selkey: key_c},
-                                               "required": [node.selkey]}})
+                elif (skey, val) in node.required:
+                    key_c = ({"contains": {"const": val}} if skey in ARRAY_VALUED else {"const": val})
+                    allof.append({"contains": {"properties": {skey: key_c},
+                                               "required": [skey]}})
             if allof:
                 out["allOf"] = allof
             return out
