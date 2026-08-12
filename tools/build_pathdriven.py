@@ -67,18 +67,27 @@ def _def_id(body):
 
 
 def _write_registry(reg_name, defs, tapp):
-    """Publish this TAPP's generated $defs into the shared registry file, ADDITIVELY.
+    """Publish this TAPP's generated $defs into the shared registry file by UPSERT.
 
-    Deliberately additive, deduplicated on the def's @id const (its true identity) rather than on
-    the $def key. Replace-by-ownership was tried and is wrong here: the legacy matrix route
-    (build_tapp/_tapp_lib, reading the richer annotated workbooks) and the path-driven route read
-    DIFFERENT sources and have different coverage — EPMA has 26 analyte columns in the registry but
-    only 2 rows in its schema-path sidecar — so replacing a TAPP's entries would have destroyed 24
-    real EPMA columns, ~46 parameterTemplates and ~136 parameterValues that no path-driven run
-    reproduces.
+    Keyed on the def's @id const (its true identity), not the $def key:
+      - an @id already present has its BODY REPLACED, under its EXISTING key so `$ref`s survive
+      - an @id not present is inserted
+      - nothing is ever deleted
 
-    Consequence: entries the path-driven route no longer generates are NOT pruned. Converging the
-    two routes is a separate decision; until then the registry is a union and never loses content.
+    Upsert, not replace-by-ownership. Replacement was tried and is wrong here: the legacy matrix
+    route (build_tapp/_tapp_lib, reading the richer annotated workbooks) and the path-driven route
+    read DIFFERENT sources with different coverage — EPMA has 26 analyte columns in the registry but
+    only 2 rows in its schema-path sidecar — so replacing a TAPP's entries destroys 24 real EPMA
+    columns, ~46 parameterTemplates and ~136 parameterValues no path-driven run reproduces.
+
+    Pure-additive was tried too, and is what this replaces: it SKIPPED any @id already present, so a
+    corrected generator could never update a def that already existed. That silently blocked two
+    separate fixes — the tier/defaultValue rules on parameter templates and on analyte columns —
+    each of which reached only the handful of defs whose @id happened to be new. Upsert keeps the
+    non-destructive property while letting a regenerated body actually land.
+
+    Consequence: entries the path-driven route no longer generates are still NOT pruned. Converging
+    the two routes remains a separate decision; the registry stays a union.
     """
     path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
     if not os.path.exists(path):
@@ -88,17 +97,26 @@ def _write_registry(reg_name, defs, tapp):
         doc = yaml.safe_load(f)
 
     existing = doc.get("$defs") or {}
-    have_ids = {_def_id(v) for v in existing.values()}
-    new = {k: v for k, v in defs.items() if _def_id(v) not in have_ids}
-    if not new:
-        print(f"  registry {reg_name}: {tapp} already represented, no change")
-        return
+    key_by_id = {_def_id(v): k for k, v in existing.items()}
     merged = dict(existing)
-    merged.update(new)
+    updated = added = same = 0
+    for k, v in defs.items():
+        prior = key_by_id.get(_def_id(v))
+        if prior is None:
+            merged[k] = v
+            added += 1
+        elif merged[prior] == v:
+            same += 1
+        else:
+            merged[prior] = v      # keep the established key; $refs point at it
+            updated += 1
+    if not (added or updated):
+        print(f"  registry {reg_name}: {tapp} already current ({same} unchanged), no change")
+        return
     doc["$defs"] = dict(sorted(merged.items()))
     b.write(path, b.dump_yaml(doc))
-    print(f"  registry {reg_name}: +{len(new)} from {tapp} "
-          f"({len(defs) - len(new)} already present), {len(doc['$defs'])} total")
+    print(f"  registry {reg_name}: {tapp} +{added} new, ~{updated} updated, {same} unchanged; "
+          f"{len(doc['$defs'])} total")
 
 
 def registry_diff(tapp):

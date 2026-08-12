@@ -335,7 +335,7 @@ def _is_addl_param(p: spp.ParsedPath) -> bool:
             and s[-2].prop == "schema:additionalProperty" and s[-2].selector is not None)
 
 
-def analyte_column_def(name, item, desc, jtype, read_only):
+def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier=""):
     """One generated AnalyteColumn $def, mirroring build_tapp.param_template_def.
 
     Built here rather than via _tapp_lib.analyte_column_obj: that helper keys its @id off a
@@ -345,6 +345,11 @@ def analyte_column_def(name, item, desc, jtype, read_only):
     """
     base = (b.PARAM_BASE or "ada:parameter/unknownTAPP").replace("ada:parameter/", "ada:analyteColumn/")
     col_id = f"{base}/{name}"
+    # ada:tier is M/R/O (Mandatory/Recommended/Optional) and follows the PROCEDURE-level tier: a
+    # Basic column is one the procedure must state, Advanced is recommended. It was hardcoded "M",
+    # which marked every column mandatory regardless of what the workbook said. Only the base's
+    # analyte-identifier column is unconditionally M, and that one lives in tappDefinition.
+    tier = {"Basic": "M", "Advanced": "R"}.get(ptier, "O")
     props = {
         "@id": {"const": col_id},
         "@type": {"const": ["schema:PropertyValueSpecification"]},
@@ -352,13 +357,22 @@ def analyte_column_def(name, item, desc, jtype, read_only):
         "schema:name": {"const": item},
         "ada:dataType": {"const": jtype},
         "schema:readonlyValue": {"const": bool(read_only)},
-        "ada:tier": {"const": "M"},
+        "ada:tier": {"const": tier},
     }
+    required = ["@id", "@type", "schema:valueName", "schema:name", "ada:dataType"]
+    # The column's protocol-level default, mirroring param_template_def: a column the analysis can
+    # vary per analyte still has one value the procedure registers. Declared only where the
+    # procedure specifies the column at all (C != N/A), and REQUIRED at Basic — the procedure must
+    # state it. Without this the default had nowhere to live and no type.
+    if ptier in ("Basic", "Advanced"):
+        props["schema:defaultValue"] = ({"anyOf": [{"type": "number"}, {"type": "string"}]}
+                                        if jtype in ("number", "integer") else {"type": "string"})
+        if ptier == "Basic":
+            required.append("schema:defaultValue")
     # No `$id`: these defs are INLINED into the overlay, and an inlined $id would re-base $ref
     # resolution for that subschema. Identity lives in the @id const, matching param_template_def.
     return {"title": item, "description": desc, "type": "object",
-            "properties": props,
-            "required": ["@id", "@type", "schema:valueName", "schema:name", "ada:dataType"]}
+            "properties": props, "required": required}
 
 
 def _is_analyte_column(p: spp.ParsedPath) -> bool:
@@ -423,7 +437,8 @@ def build(tapp):
                 bare = sidecar.get(item, {}).get("name") or b.camel(item)
                 name = b.def_key(bare)   # TAPP-namespaced: the registry is shared across TAPPs
                 registries["analyteColumns"][name] = analyte_column_def(
-                    bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only)
+                    bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only,
+                    ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip())
                 ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/analyteColumns/schema.yaml#/$defs/{name}"}
                 insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require)
                 # keep the base's identifier column permissible under the narrowed `items`
