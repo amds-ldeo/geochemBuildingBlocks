@@ -1642,404 +1642,22 @@
           "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
           "minItems": 1,
           "items": {
-            "type": "object",
-            "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "schema:PropertyValueSpecification"
-                },
-                "minItems": 1
-              },
-              "schema:name": {
-                "type": "string",
-                "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
-              },
-              "schema:valueName": {
-                "type": "string",
-                "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
-              },
-              "schema:description": {
-                "type": "string",
-                "description": "Guidance text for this column."
-              },
-              "schema:propertyID": {
-                "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
-              },
-              "schema:inDefinedTermSet": {
-                "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "description": "Object reference to a vocabulary defined elsewhere.",
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "@id"
-                    ]
-                  },
-                  {
-                    "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "default": "schema:CreativeWork",
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:CreativeWork"
-                        },
-                        "minItems": 1
-                      },
-                      "schema:name": {
-                        "type": "string"
-                      },
-                      "schema:description": {
-                        "type": "string"
-                      },
-                      "schema:url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:url"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                    "properties": {
-                      "@type": {
-                        "const": "schema:DefinedTermSet"
-                      },
-                      "schema:hasDefinedTerm": {
-                        "type": "array",
-                        "minItems": 1,
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "@type": {
-                              "const": "schema:DefinedTerm"
-                            },
-                            "schema:termCode": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "@type",
-                            "schema:termCode"
-                          ]
-                        }
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:hasDefinedTerm"
-                    ]
-                  }
-                ]
-              },
-              "schema:defaultValue": {
-                "description": "Default value for this column (pre-filled per row).",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "type": "boolean"
-                  }
-                ]
-              },
-              "schema:readonlyValue": {
-                "type": "boolean",
-                "description": "true = constant across all analytes (read-only column)."
-              },
-              "schema:valueRequired": {
-                "type": "boolean",
-                "description": "true = must be provided for every analyte row."
-              },
-              "schema:minValue": {
-                "type": "number"
-              },
-              "schema:maxValue": {
-                "type": "number"
-              },
-              "schema:valuePattern": {
-                "type": "string"
-              },
-              "ada:dataType": {
-                "type": "string",
-                "enum": [
-                  "string",
-                  "number",
-                  "integer",
-                  "boolean",
-                  "date",
-                  "uri"
-                ]
-              },
-              "schema:unitText": {
-                "type": "string"
-              },
-              "ada:tier": {
-                "type": "string",
-                "enum": [
-                  "M",
-                  "R",
-                  "O"
-                ]
-              },
-              "ada:cdifPropertyPath": {
-                "type": "string",
-                "description": "How this column maps into the variableMeasured JSON-LD structure."
+            "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+            "allOf": [
+              {
+                "$ref": "#/$defs/KeyedTableColumn"
               }
-            },
-            "required": [
-              "schema:name",
-              "ada:dataType"
             ]
           },
           "contains": {
             "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
             "allOf": [
               {
-                "type": "object",
-                "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:PropertyValueSpecification"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
-                  },
-                  "schema:valueName": {
-                    "type": "string",
-                    "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
-                  },
-                  "schema:description": {
-                    "type": "string",
-                    "description": "Guidance text for this column."
-                  },
-                  "schema:propertyID": {
-                    "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "anyOf": [
-                      {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                          "@id"
-                        ],
-                        "properties": {
-                          "@id": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      {
-                        "$ref": "#/$defs/DefinedTerm"
-                      }
-                    ]
-                  },
-                  "schema:inDefinedTermSet": {
-                    "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-                    "anyOf": [
-                      {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "description": "Object reference to a vocabulary defined elsewhere.",
-                        "properties": {
-                          "@id": {
-                            "type": "string",
-                            "format": "uri"
-                          }
-                        },
-                        "required": [
-                          "@id"
-                        ]
-                      },
-                      {
-                        "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-                        "type": "object",
-                        "properties": {
-                          "@type": {
-                            "default": "schema:CreativeWork",
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "contains": {
-                              "const": "schema:CreativeWork"
-                            },
-                            "minItems": 1
-                          },
-                          "schema:name": {
-                            "type": "string"
-                          },
-                          "schema:description": {
-                            "type": "string"
-                          },
-                          "schema:url": {
-                            "type": "string",
-                            "format": "uri"
-                          }
-                        },
-                        "required": [
-                          "@type",
-                          "schema:url"
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                        "properties": {
-                          "@type": {
-                            "const": "schema:DefinedTermSet"
-                          },
-                          "schema:hasDefinedTerm": {
-                            "type": "array",
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "@type": {
-                                  "const": "schema:DefinedTerm"
-                                },
-                                "schema:termCode": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "@type",
-                                "schema:termCode"
-                              ]
-                            }
-                          }
-                        },
-                        "required": [
-                          "@type",
-                          "schema:hasDefinedTerm"
-                        ]
-                      }
-                    ]
-                  },
-                  "schema:defaultValue": {
-                    "description": "Default value for this column (pre-filled per row).",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "boolean"
-                      }
-                    ]
-                  },
-                  "schema:readonlyValue": {
-                    "type": "boolean",
-                    "description": "true = constant across all analytes (read-only column)."
-                  },
-                  "schema:valueRequired": {
-                    "type": "boolean",
-                    "description": "true = must be provided for every analyte row."
-                  },
-                  "schema:minValue": {
-                    "type": "number"
-                  },
-                  "schema:maxValue": {
-                    "type": "number"
-                  },
-                  "schema:valuePattern": {
-                    "type": "string"
-                  },
-                  "ada:dataType": {
-                    "type": "string",
-                    "enum": [
-                      "string",
-                      "number",
-                      "integer",
-                      "boolean",
-                      "date",
-                      "uri"
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  },
-                  "ada:tier": {
-                    "type": "string",
-                    "enum": [
-                      "M",
-                      "R",
-                      "O"
-                    ]
-                  },
-                  "ada:cdifPropertyPath": {
-                    "type": "string",
-                    "description": "How this column maps into the variableMeasured JSON-LD structure."
+                "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/KeyedTableColumn"
                   }
-                },
-                "required": [
-                  "schema:name",
-                  "ada:dataType"
                 ]
               },
               {
@@ -2088,6 +1706,76 @@
       },
       "required": [
         "ada:analyteColumns"
+      ]
+    },
+    "ada:reportedPropertyTemplate": {
+      "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:analyteTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
+      "type": "object",
+      "properties": {
+        "ada:reportedPropertyColumns": {
+          "type": "array",
+          "description": "Columns of the reported-property table. Must include exactly one column with schema:valueName \"reportedProperty\" identifying the reported variable named in each row.",
+          "minItems": 1,
+          "items": {
+            "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the analytes and channels it ACQUIRES. Structurally a KeyedTableColumn.",
+            "allOf": [
+              {
+                "$ref": "#/$defs/KeyedTableColumn"
+              }
+            ]
+          },
+          "contains": {
+            "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors AnalyteIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
+            "allOf": [
+              {
+                "$ref": "#/$defs/KeyedTableColumn"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema:valueName": {
+                    "const": "reportedProperty"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "schema:valueRequired": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "M"
+                  },
+                  "ada:cdifPropertyPath": {
+                    "const": "#/schema:variableMeasured/schema:name"
+                  }
+                },
+                "required": [
+                  "schema:valueName",
+                  "ada:dataType",
+                  "schema:readonlyValue",
+                  "schema:valueRequired",
+                  "ada:tier",
+                  "ada:cdifPropertyPath"
+                ]
+              }
+            ]
+          },
+          "maxContains": 1
+        },
+        "ada:defaultReportedProperties": {
+          "type": "array",
+          "description": "Pre-populated reported-property rows for this procedure. Each entry is an object keyed by reportedPropertyColumn names.",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "required": [
+        "ada:reportedPropertyColumns"
       ]
     },
     "dqv:hasQualityMeasurement": {
@@ -6856,202 +6544,11 @@
                     "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
                     "allOf": [
                       {
-                        "type": "object",
-                        "description": "Definition of one column in the per-analyte parameter table, typed as schema:PropertyValueSpecification. Each column defines what values are expected per element/oxide row. Analyte rows become schema:variableMeasured entries; columns become schema:additionalProperty within each.",
-                        "properties": {
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "contains": {
-                              "const": "schema:PropertyValueSpecification"
-                            },
-                            "minItems": 1
-                          },
-                          "schema:name": {
-                            "type": "string",
-                            "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
-                          },
-                          "schema:valueName": {
-                            "type": "string",
-                            "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
-                          },
-                          "schema:description": {
-                            "type": "string",
-                            "description": "Guidance text for this column."
-                          },
-                          "schema:propertyID": {
-                            "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                            "anyOf": [
-                              {
-                                "type": "string",
-                                "format": "uri"
-                              },
-                              {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                  "@id"
-                                ],
-                                "properties": {
-                                  "@id": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              {
-                                "$ref": "#/$defs/DefinedTerm"
-                              }
-                            ]
-                          },
-                          "schema:inDefinedTermSet": {
-                            "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-                            "anyOf": [
-                              {
-                                "type": "string",
-                                "format": "uri"
-                              },
-                              {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "description": "Object reference to a vocabulary defined elsewhere.",
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "format": "uri"
-                                  }
-                                },
-                                "required": [
-                                  "@id"
-                                ]
-                              },
-                              {
-                                "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-                                "type": "object",
-                                "properties": {
-                                  "@type": {
-                                    "default": "schema:CreativeWork",
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    },
-                                    "contains": {
-                                      "const": "schema:CreativeWork"
-                                    },
-                                    "minItems": 1
-                                  },
-                                  "schema:name": {
-                                    "type": "string"
-                                  },
-                                  "schema:description": {
-                                    "type": "string"
-                                  },
-                                  "schema:url": {
-                                    "type": "string",
-                                    "format": "uri"
-                                  }
-                                },
-                                "required": [
-                                  "@type",
-                                  "schema:url"
-                                ]
-                              },
-                              {
-                                "type": "object",
-                                "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                                "properties": {
-                                  "@type": {
-                                    "const": "schema:DefinedTermSet"
-                                  },
-                                  "schema:hasDefinedTerm": {
-                                    "type": "array",
-                                    "minItems": 1,
-                                    "items": {
-                                      "type": "object",
-                                      "properties": {
-                                        "@type": {
-                                          "const": "schema:DefinedTerm"
-                                        },
-                                        "schema:termCode": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@type",
-                                        "schema:termCode"
-                                      ]
-                                    }
-                                  }
-                                },
-                                "required": [
-                                  "@type",
-                                  "schema:hasDefinedTerm"
-                                ]
-                              }
-                            ]
-                          },
-                          "schema:defaultValue": {
-                            "description": "Default value for this column (pre-filled per row).",
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "boolean"
-                              }
-                            ]
-                          },
-                          "schema:readonlyValue": {
-                            "type": "boolean",
-                            "description": "true = constant across all analytes (read-only column)."
-                          },
-                          "schema:valueRequired": {
-                            "type": "boolean",
-                            "description": "true = must be provided for every analyte row."
-                          },
-                          "schema:minValue": {
-                            "type": "number"
-                          },
-                          "schema:maxValue": {
-                            "type": "number"
-                          },
-                          "schema:valuePattern": {
-                            "type": "string"
-                          },
-                          "ada:dataType": {
-                            "type": "string",
-                            "enum": [
-                              "string",
-                              "number",
-                              "integer",
-                              "boolean",
-                              "date",
-                              "uri"
-                            ]
-                          },
-                          "schema:unitText": {
-                            "type": "string"
-                          },
-                          "ada:tier": {
-                            "type": "string",
-                            "enum": [
-                              "M",
-                              "R",
-                              "O"
-                            ]
-                          },
-                          "ada:cdifPropertyPath": {
-                            "type": "string",
-                            "description": "How this column maps into the variableMeasured JSON-LD structure."
+                        "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/KeyedTableColumn"
                           }
-                        },
-                        "required": [
-                          "schema:name",
-                          "ada:dataType"
                         ]
                       },
                       {
@@ -11503,6 +11000,205 @@
         "@type",
         "schema:name",
         "schema:position"
+      ]
+    },
+    "KeyedTableColumn": {
+      "type": "object",
+      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. AnalyteColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValueSpecification"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+        },
+        "schema:valueName": {
+          "type": "string",
+          "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Guidance text for this column."
+        },
+        "schema:propertyID": {
+          "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "@id"
+              ],
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "$ref": "#/$defs/DefinedTerm"
+            }
+          ]
+        },
+        "schema:inDefinedTermSet": {
+          "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "Object reference to a vocabulary defined elsewhere.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            {
+              "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "default": "schema:CreativeWork",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:CreativeWork"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string"
+                },
+                "schema:description": {
+                  "type": "string"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@type",
+                "schema:url"
+              ]
+            },
+            {
+              "type": "object",
+              "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+              "properties": {
+                "@type": {
+                  "const": "schema:DefinedTermSet"
+                },
+                "schema:hasDefinedTerm": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "const": "schema:DefinedTerm"
+                      },
+                      "schema:termCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:termCode"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "@type",
+                "schema:hasDefinedTerm"
+              ]
+            }
+          ]
+        },
+        "schema:defaultValue": {
+          "description": "Default value for this column (pre-filled per row).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        },
+        "schema:readonlyValue": {
+          "type": "boolean",
+          "description": "true = constant across all analytes (read-only column)."
+        },
+        "schema:valueRequired": {
+          "type": "boolean",
+          "description": "true = must be provided for every analyte row."
+        },
+        "schema:minValue": {
+          "type": "number"
+        },
+        "schema:maxValue": {
+          "type": "number"
+        },
+        "schema:valuePattern": {
+          "type": "string"
+        },
+        "ada:dataType": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "date",
+            "uri"
+          ]
+        },
+        "schema:unitText": {
+          "type": "string"
+        },
+        "ada:tier": {
+          "type": "string",
+          "enum": [
+            "M",
+            "R",
+            "O"
+          ]
+        },
+        "ada:cdifPropertyPath": {
+          "type": "string",
+          "description": "How this column maps into the variableMeasured JSON-LD structure."
+        }
+      },
+      "required": [
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "QualityMeasure_DefinedTerm": {

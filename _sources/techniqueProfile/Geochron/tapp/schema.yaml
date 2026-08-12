@@ -2715,14 +2715,86 @@ allOf:
         the scope of the procedure; the analyst may record the specific subset actually measured in a
         given session.
       type: string
-    ada:reportedVariablesAndUnits:
-      description: The final reported chemical/isotopic variable(s) and their units — distinct from Masses
-        Measured, which records raw acquisition scope. Covers isotope ratios (both common-Pb corrected
-        and uncorrected, where applicable), elemental/isotopic concentrations, and any derived quantities
-        (age, δ or ε notation) with their reference standard where relevant. For non-mass-spectrometry
-        techniques, this field is generalised to any reported physical or chemical property and its units.
-      type: string
-      readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            description: The final reported chemical/isotopic variable(s) and their units — distinct from
+              Masses Measured, which records raw acquisition scope. Covers isotope ratios (both common-Pb
+              corrected and uncorrected, where applicable), elemental/isotopic concentrations, and any
+              derived quantities (age, δ or ε notation) with their reference standard where relevant.
+              For non-mass-spectrometry techniques, this field is generalised to any reported physical
+              or chemical property and its units.
+            type: string
+            readOnly: true
+        ada:reportedPropertyColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ReportedPropertyIdentifierColumn
+            - &id030
+              title: Detection Limit Method
+              description: Reference or description of the method used to calculate the session detection
+                limit reported above.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/detectionLimitMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimitMethod
+                schema:name:
+                  const: Detection Limit Method
+                ada:dataType:
+                  const: uri
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: O
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id031
+              title: Limit of Quantification (LOQ) Method
+              description: 'Reference or description of the method used to calculate the limit of quantification:
+                the lowest concentration reliably measurable with acceptable precision and accuracy.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/geochronTAPP/limitOfQuantificationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: limitOfQuantificationMethod
+                schema:name:
+                  const: Limit of Quantification (LOQ) Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: O
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id030
+            minContains: 0
+            maxContains: 1
+          - contains: *id031
+            minContains: 0
+            maxContains: 1
     ada:dwellTimesDefault:
       description: Count time (dwell time) per mass position for each measured isotope, and the settling
         time allowed between mass jumps, as reported in Table 3 of Horstwood et al. (2016). Applies to
@@ -2765,7 +2837,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id030
+            - &id032
               title: Mass Resolution per Analyte
               description: Mass resolution mode assigned to each analyte in this procedure. The selected
                 resolution determines which polyatomic interferences (e.g., ¹⁸⁶W¹⁶O⁺ on ²⁰²Hg, relevant
@@ -2794,7 +2866,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id031
+            - &id033
               title: Isobaric Interference Corrections Applied
               description: Whether isobaric interference corrections were applied for any measured isotope
                 in this procedure. A procedure-level Boolean; element-specific detail is in Interfering
@@ -2822,7 +2894,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id032
+            - &id034
               title: Interfering Species
               description: Elemental or molecular species overlapping with the measured isotope, relevant
                 to U-Th-Pb geochronology (e.g., ²⁰⁴Hg on ²⁰⁴Pb, relevant to the Common-Pb Correction field
@@ -2850,7 +2922,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id033
+            - &id035
               title: Interference Correction Method
               description: Equation or procedure used to correct for isobaric interferences, including
                 the reference material or monitor isotope used to characterise it.
@@ -2877,7 +2949,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id034
+            - &id036
               title: Within-Session Analytical Precision and Assessment Method
               description: Reproducibility of repeated measurements within a single analytical session.
                 Assessment method specifies the reference material used, number of replicates n, and the
@@ -2905,7 +2977,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id035
+            - &id037
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Reproducibility of measurements across multiple analytical sessions over weeks
                 to months. Not addressed in Table 3 of Horstwood et al. (2016), which reports only within-session
@@ -2933,7 +3005,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id036
+            - &id038
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted reference values for secondary reference
                 materials. Table 3's validation weighted-average ages, compared against each material's
@@ -2962,7 +3034,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id037
+            - &id039
               title: Detection Limit
               description: Session detection limit for U, Th, and/or Pb, demonstrating the reliability
                 of reported concentrations near the detection limit. Not requested by Table 3 of Horstwood
@@ -2990,67 +3062,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id038
-              title: Detection Limit Method
-              description: Reference or description of the method used to calculate the session detection
-                limit reported above.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/geochronTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: uri
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id039
-              title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate the limit of quantification:
-                the lowest concentration reliably measurable with acceptable precision and accuracy.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/geochronTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
           allOf:
-          - contains: *id030
-            minContains: 0
-            maxContains: 1
-          - contains: *id031
-            minContains: 0
-            maxContains: 1
           - contains: *id032
             minContains: 0
             maxContains: 1
