@@ -45,6 +45,13 @@ def preclean(s):
     # OUTSIDE quoted selector values, where a literal `..` could be part of a name
     s = "'".join(re.sub(r"\.{2,}", ".", part) if i % 2 == 0 else part
                  for i, part in enumerate(s.split("'")))
+    # `prov:used.<kind>[sel]` -> `prov:used[sel]`. adaProduct defines prov:used as an ARRAY whose
+    # items ARE the instrument / computational tool / reagent / plan, discriminated by their own
+    # selector key, so there is no `schema:instrument` property to navigate into. Authors write the
+    # kind because it reads better and mirrors the $MethodDefinition path; it is shorthand for
+    # "the prov:used item of that kind", and the selector already identifies it.
+    s = re.sub(r"(prov:used)\.(?:schema:instrument|bios:computationalTool|bios:reagent)(\[)",
+               r"\1\2", s)
     for bad, good in NAME_TYPOS.items():
         s = re.sub(bad, good, s, flags=re.I)
     return s
@@ -163,11 +170,25 @@ def recognize(s):
         # analysis-tier half of a dual-homed STEP parameter. `value` only, deliberately: a dataset
         # records what was used, never a default — that lives on the TAPP side.
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-step-parameter"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "dataset-step"),
+        # the provenance ACTIVITY's own fields: a direct ada: property, or its description. The
+        # analysis-tier partners of $MethodDefinition.ada:<name>Default and .schema:description.
+        # `(?<!Default)` deliberately: the Default suffix marks the PROCEDURE's default, so a
+        # dataset property can never carry it — the dataset records what was actually used.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.ada:[A-Za-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-activity-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:description$", "dataset-activity-description"),
+        # where the analysis actually happened — partner of $MethodDefinition.schema:location.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:location\.schema:Place\[schema:additionalType='[^']*'\]\.schema:(name|identifier)$", "dataset-location"),
+        # prov:used items are entities, selected by whichever key discriminates them:
+        # schema:additionalType for an instrument, ada:toolRole for a computational tool,
+        # ada:reagentRole for a reagent. Identity fields only; parameters have their own families.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[(schema:additionalType|ada:[A-Za-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
+        (r"^\$Dataset\.schema:distribution\.schema:encodingFormat$", "dataset-distribution"),
         # dataset-side instrument mirrors. On the protocol the instrument is schema:instrument; on
         # the dataset the provenance activity carries it as prov:used, so these are the analysis-tier
         # partners of instrument-direct-ada / instrument-parameter / instrument-component-parameter.
         # `value` only — the default lives on the TAPP side.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "dataset-instrument-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
