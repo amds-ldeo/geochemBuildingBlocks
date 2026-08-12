@@ -43,7 +43,7 @@
         },
         "backgroundCorrectionMethod": {
             "title": "Background Correction Method",
-            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak.",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -64,15 +64,13 @@
                     "const": "string"
                 },
                 "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                 },
                 "ada:tier": {
                     "const": "M"
                 },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/backgroundCorrectionMethod"
-                    }
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -80,7 +78,8 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "backgroundCountingPosition": {
@@ -121,8 +120,8 @@
             ]
         },
         "backgroundCountingTime": {
-            "title": "Default Background Counting Time",
-            "description": "Total time spent counting at background position(s) in seconds.",
+            "title": "Background Counting Time",
+            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -137,16 +136,26 @@
                     "const": "backgroundCountingTime"
                 },
                 "schema:name": {
-                    "const": "Default Background Counting Time"
+                    "const": "Background Counting Time"
                 },
                 "ada:dataType": {
                     "const": "number"
                 },
                 "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -154,12 +163,13 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "blankCorrection": {
             "title": "Blank Correction",
-            "description": "Method and reference materials used to determine and apply blank corrections.",
+            "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
             "type": "object",
             "properties": {
                 "@id": {
@@ -180,10 +190,13 @@
                     "const": "string"
                 },
                 "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -196,7 +209,7 @@
         },
         "detectionLimitMethod": {
             "title": "Detection Limit Method",
-            "description": "Method used to compute detection limits.",
+            "description": "Formula or procedure used to calculate detection limits. Reference method publication if applicable. When the protocol does not specify a method, the analyst should complete this field.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -217,10 +230,13 @@
                     "const": "string"
                 },
                 "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -336,7 +352,10 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -373,7 +392,10 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -410,7 +432,17 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -448,6 +480,16 @@
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -455,7 +497,8 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "empa_countingStatisticsError": {
@@ -484,7 +527,10 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -521,7 +567,10 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -559,6 +608,9 @@
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -566,7 +618,8 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "empa_epmaTechniquePerAnalyte": {
@@ -596,6 +649,9 @@
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -603,7 +659,8 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "empa_normalizationStandardsBasedCorrection": {
@@ -632,7 +689,10 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -670,6 +730,9 @@
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -677,7 +740,8 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "empa_proportionalCounterDetector": {
@@ -706,7 +770,10 @@
                     "const": true
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -744,6 +811,9 @@
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -751,7 +821,8 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "empa_wdsPhaSetting": {
@@ -780,7 +851,10 @@
                     "const": true
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -817,7 +891,17 @@
                     "const": true
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -896,7 +980,7 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -933,7 +1017,7 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -970,7 +1054,7 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1007,7 +1091,7 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1044,7 +1128,7 @@
                     "const": true
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1081,7 +1165,7 @@
                     "const": true
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1118,7 +1202,7 @@
                     "const": true
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1155,7 +1239,7 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1192,7 +1276,7 @@
                     "const": true
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1229,7 +1313,7 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "O"
                 }
             },
             "required": [
@@ -1431,8 +1515,8 @@
             ]
         },
         "peakCountingTime": {
-            "title": "Default Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds.",
+            "title": "Peak Counting Time",
+            "description": "Time spent counting X-ray intensity at the peak position in seconds. Protocol specifies standard values per analyte; analysts may adjust within protocol-defined bounds.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1447,16 +1531,26 @@
                     "const": "peakCountingTime"
                 },
                 "schema:name": {
-                    "const": "Default Peak Counting Time"
+                    "const": "Peak Counting Time"
                 },
                 "ada:dataType": {
                     "const": "number"
                 },
                 "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -1464,7 +1558,8 @@
                 "@type",
                 "schema:valueName",
                 "schema:name",
-                "ada:dataType"
+                "ada:dataType",
+                "schema:defaultValue"
             ]
         },
         "primaryCalibrationStandard": {
@@ -1578,6 +1673,302 @@
                 "ada:dataType"
             ]
         },
+        "semComposition_analyticalAccuracy": {
+            "title": "Analytical Accuracy",
+            "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/analyticalAccuracy"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "analyticalAccuracy"
+                },
+                "schema:name": {
+                    "const": "Analytical Accuracy"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_analyticalPrecision": {
+            "title": "Analytical Precision",
+            "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name and number of analyses.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/analyticalPrecision"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "analyticalPrecision"
+                },
+                "schema:name": {
+                    "const": "Analytical Precision"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_backgroundCorrectionMethod": {
+            "title": "Background Correction Method",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundCorrectionMethod"
+                },
+                "schema:name": {
+                    "const": "Background Correction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_backgroundCountingTime": {
+            "title": "Background Counting Time",
+            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/backgroundCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundCountingTime"
+                },
+                "schema:name": {
+                    "const": "Background Counting Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_backgroundPosition": {
+            "title": "Background Position(s)",
+            "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/backgroundPosition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundPosition"
+                },
+                "schema:name": {
+                    "const": "Background Position(s)"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_beamCurrent": {
+            "title": "Beam Current",
+            "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/beamCurrent"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "beamCurrent"
+                },
+                "schema:name": {
+                    "const": "Beam Current"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_blankCorrection": {
+            "title": "Blank Correction",
+            "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/blankCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "blankCorrection"
+                },
+                "schema:name": {
+                    "const": "Blank Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_countingStatisticsError": {
+            "title": "Counting Statistics Error",
+            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/countingStatisticsError"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "countingStatisticsError"
+                },
+                "schema:name": {
+                    "const": "Counting Statistics Error"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
         "semComposition_detectionLimit": {
             "title": "Detection Limit",
             "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
@@ -1636,6 +2027,413 @@
                 },
                 "ada:dataType": {
                     "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_diffractingCrystal": {
+            "title": "Diffracting Crystal",
+            "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/diffractingCrystal"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "diffractingCrystal"
+                },
+                "schema:name": {
+                    "const": "Diffracting Crystal"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_normalizationStandardsBasedCorrection": {
+            "title": "Normalization / Standards-Based Correction",
+            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrection"
+                },
+                "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_peakCountingTime": {
+            "title": "Peak Counting Time",
+            "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Protocol specifies standard values; analysts may adjust within protocol-defined bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/peakCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "peakCountingTime"
+                },
+                "schema:name": {
+                    "const": "Peak Counting Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_primaryCalibrationStandardName": {
+            "title": "Primary Calibration Standard Name",
+            "description": "Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS quantification.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "primaryCalibrationStandardName"
+                },
+                "schema:name": {
+                    "const": "Primary Calibration Standard Name"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_proportionalCounterDetector": {
+            "title": "Proportional Counter / Detector",
+            "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "proportionalCounterDetector"
+                },
+                "schema:name": {
+                    "const": "Proportional Counter / Detector"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_secondaryReferenceMaterials": {
+            "title": "Secondary Reference Materials",
+            "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values where available.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "secondaryReferenceMaterials"
+                },
+                "schema:name": {
+                    "const": "Secondary Reference Materials"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_timeDependentIntensityCorrection": {
+            "title": "Time-Dependent Intensity Correction",
+            "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "timeDependentIntensityCorrection"
+                },
+                "schema:name": {
+                    "const": "Time-Dependent Intensity Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_wdsPhaSetting": {
+            "title": "WDS PHA Setting",
+            "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/wdsPhaSetting"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "wdsPhaSetting"
+                },
+                "schema:name": {
+                    "const": "WDS PHA Setting"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semComposition_wdsSpectrometerChannel": {
+            "title": "WDS Spectrometer Channel",
+            "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "wdsSpectrometerChannel"
+                },
+                "schema:name": {
+                    "const": "WDS Spectrometer Channel"
+                },
+                "ada:dataType": {
+                    "const": "integer"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semFibsem_beamCurrent": {
+            "title": "Beam Current",
+            "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semFibsemTAPP/beamCurrent"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "beamCurrent"
+                },
+                "schema:name": {
+                    "const": "Beam Current"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "semImaging_beamCurrent": {
+            "title": "Beam Current",
+            "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semImagingTAPP/beamCurrent"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "beamCurrent"
+                },
+                "schema:name": {
+                    "const": "Beam Current"
+                },
+                "ada:dataType": {
+                    "const": "number"
                 },
                 "schema:readonlyValue": {
                     "const": false
@@ -2616,7 +3414,7 @@
         },
         "timeDependentIntensityCorrection": {
             "title": "Time-Dependent Intensity Correction",
-            "description": "Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.",
+            "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis; uncommon for X-ray mapping.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2637,15 +3435,13 @@
                     "const": "string"
                 },
                 "schema:readonlyValue": {
-                    "const": true
+                    "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
                 },
-                "schema:inDefinedTermSet": {
-                    "const": {
-                        "@id": "ada:vocab/empaTAPP/timeDependentIntensityCorrection"
-                    }
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [

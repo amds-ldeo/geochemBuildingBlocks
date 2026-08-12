@@ -93,7 +93,9 @@ $defs:
     - ada:dataType
   backgroundCorrectionMethod:
     title: Background Correction Method
-    description: Method used to estimate and subtract background X-ray intensity beneath the peak.
+    description: 'Method used to estimate and subtract background X-ray intensity beneath the peak. For
+      WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model.
+      For EDS: spectral background fitting or top-hat filter applied during spectral processing.'
     type: object
     properties:
       '@id':
@@ -108,18 +110,18 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
         const: M
-      schema:inDefinedTermSet:
-        const:
-          '@id': ada:vocab/empaTAPP/backgroundCorrectionMethod
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   backgroundCountingPosition:
     title: Typical Background Position(s)
     description: Positions of background measurements relative to the peak, in mm and/or sinθ, and whether
@@ -148,8 +150,9 @@ $defs:
     - schema:name
     - ada:dataType
   backgroundCountingTime:
-    title: Default Background Counting Time
-    description: Total time spent counting at background position(s) in seconds.
+    title: Background Counting Time
+    description: Total time spent counting at off-peak background position(s) in seconds, summed across
+      all background positions.
     type: object
     properties:
       '@id':
@@ -160,19 +163,24 @@ $defs:
       schema:valueName:
         const: backgroundCountingTime
       schema:name:
-        const: Default Background Counting Time
+        const: Background Counting Time
       ada:dataType:
         const: number
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   betweenSessionReproducibility:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
@@ -235,7 +243,8 @@ $defs:
     - ada:dataType
   blankCorrection:
     title: Blank Correction
-    description: Method and reference materials used to determine and apply blank corrections.
+    description: Method and reference material(s) used to determine and subtract blank signal contributions
+      (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
     type: object
     properties:
       '@id':
@@ -250,9 +259,11 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -277,11 +288,15 @@ $defs:
       schema:name:
         const: Detection Limit
       ada:dataType:
-        const: string
+        const: number
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -290,7 +305,8 @@ $defs:
     - ada:dataType
   detectionLimitMethod:
     title: Detection Limit Method
-    description: Method used to compute detection limits.
+    description: Formula or procedure used to calculate detection limits. Reference method publication
+      if applicable. When the protocol does not specify a method, the analyst should complete this field.
     type: object
     properties:
       '@id':
@@ -305,9 +321,11 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -390,7 +408,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -418,7 +438,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -445,7 +467,11 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -473,12 +499,17 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   empa_countingStatisticsError:
     title: Counting Statistics Error
     description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities
@@ -499,7 +530,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -526,7 +559,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -554,12 +589,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   empa_epmaTechniquePerAnalyte:
     title: EPMA Technique per Analyte
     description: Whether each analyte was measured by WDS or EDS. In a WDS+EDS protocol, some elements
@@ -581,12 +619,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   empa_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Post-acquisition normalization applied using secondary reference materials to correct
@@ -607,7 +648,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -635,12 +678,15 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   empa_proportionalCounterDetector:
     title: Proportional Counter / Detector
     description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
@@ -661,7 +707,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -690,12 +738,15 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   empa_wdsPhaSetting:
     title: WDS PHA Setting
     description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses
@@ -717,7 +768,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -744,7 +797,11 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -802,7 +859,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -830,7 +887,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -858,7 +915,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -885,7 +942,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -912,7 +969,7 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -939,7 +996,7 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -967,7 +1024,7 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -994,7 +1051,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -1022,7 +1079,7 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -1049,7 +1106,7 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: O
     required:
     - '@id'
     - '@type'
@@ -1156,7 +1213,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1186,7 +1245,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1214,7 +1275,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1244,12 +1307,15 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   laicpms_interferingSpecies:
     title: Interfering Species
     description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
@@ -1271,12 +1337,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   laicpms_isobaricInterferenceCorrection:
     title: Isobaric Interference Corrections Applied
     description: 'Whether isobaric interference corrections were applied for any measured isotope in this
@@ -1299,12 +1368,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   laicpms_isobaricInterferenceCorrectionMethod:
     title: Interference Correction Method
     description: Equation or procedure used to correct for isobaric interferences, including the production
@@ -1326,12 +1398,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   laicpms_limitOfQuantificationMethod:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit of quantification
@@ -1354,7 +1429,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1384,12 +1461,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   laicpms_monitoredIsotopes:
     title: Monitored Isotopes
     description: Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor
@@ -1411,12 +1491,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   laicpms_postAcquisitionNormalization:
     title: Normalization / Standards-Based Correction
     description: Any post-acquisition normalization applied to correct for systematic biases identified
@@ -1438,7 +1521,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1468,7 +1553,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1560,8 +1647,9 @@ $defs:
     - schema:name
     - ada:dataType
   peakCountingTime:
-    title: Default Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds.
+    title: Peak Counting Time
+    description: Time spent counting X-ray intensity at the peak position in seconds. Protocol specifies
+      standard values per analyte; analysts may adjust within protocol-defined bounds.
     type: object
     properties:
       '@id':
@@ -1572,19 +1660,24 @@ $defs:
       schema:valueName:
         const: peakCountingTime
       schema:name:
-        const: Default Peak Counting Time
+        const: Peak Counting Time
       ada:dataType:
         const: number
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   primaryCalibrationStandard:
     title: Primary Calibration Standard Name
     description: Primary reference material used for element standardization (calibration).
@@ -1684,7 +1777,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1712,7 +1807,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1741,12 +1838,15 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds, summed across
@@ -1768,12 +1868,17 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_backgroundPosition:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
@@ -1794,7 +1899,11 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1823,12 +1932,17 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_blankCorrection:
     title: Blank Correction
     description: Method and reference material(s) used to determine and subtract blank signal contributions
@@ -1849,7 +1963,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1876,7 +1992,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1903,7 +2021,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1929,7 +2049,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1957,12 +2079,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Post-acquisition normalization applied using secondary reference materials to correct
@@ -1983,7 +2108,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2011,12 +2138,17 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: Name(s) of the primary reference material(s) used for intensity calibration in EDS or
@@ -2038,12 +2170,15 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_proportionalCounterDetector:
     title: Proportional Counter / Detector
     description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
@@ -2064,7 +2199,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2093,12 +2230,15 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semComposition_timeDependentIntensityCorrection:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced
@@ -2120,7 +2260,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2148,7 +2290,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2175,7 +2319,11 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -2204,12 +2352,17 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   semImaging_beamCurrent:
     title: Beam Current
     description: Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis
@@ -2232,12 +2385,17 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   sem_detectionLimit:
     title: Detection Limit
     description: Method detection limit at 99% confidence for each analyte. Include the method used and
@@ -2311,7 +2469,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2338,7 +2498,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2365,7 +2527,11 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -2391,7 +2557,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2419,12 +2587,17 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionQicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
     description: Mathematical approach used to calculate and remove interference contributions from measured
@@ -2447,12 +2620,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionQicpms_interferingSpecies:
     title: Interfering Species
     description: List of isobaric or polyatomic species mathematically corrected in data reduction. Analyte-specific.
@@ -2475,12 +2651,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionQicpms_isobaricInterferenceCorrectionsApplied:
     title: Isobaric Interference Corrections Applied
     description: Whether mathematical corrections for isobaric or polyatomic interferences are applied
@@ -2502,12 +2681,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionQicpms_limitOfQuantificationMethod:
     title: Limit of Quantification (LOQ) Method
     description: Method used to determine the limit of quantification.
@@ -2527,7 +2709,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2555,12 +2739,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionQicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analysis session and the method used
@@ -2581,7 +2768,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2608,7 +2797,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2635,7 +2826,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2662,7 +2855,11 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -2688,7 +2885,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2716,12 +2915,17 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_interferenceCorrectionMethod:
     title: Interference Correction Method
     description: Mathematical approach used to calculate and remove residual interference contributions
@@ -2744,12 +2948,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_interferingSpecies:
     title: Interfering Species
     description: List of isobaric or polyatomic species mathematically corrected in data reduction. In
@@ -2772,12 +2979,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_isobaricInterferenceCorrectionsApplied:
     title: Isobaric Interference Corrections Applied
     description: Whether mathematical corrections for residual isobaric or polyatomic interferences are
@@ -2800,12 +3010,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_limitOfQuantificationMethod:
     title: Limit of Quantification (LOQ) Method
     description: Method used to determine the limit of quantification.
@@ -2825,7 +3038,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2855,12 +3070,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_monitoredIsotopes:
     title: Monitored Isotopes
     description: Specific isotope(s) monitored per analyte element in this protocol, including any interference-monitor
@@ -2882,12 +3100,15 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+    - schema:defaultValue
   solutionSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analysis session and the method used
@@ -2908,7 +3129,9 @@ $defs:
       schema:readonlyValue:
         const: false
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2943,7 +3166,9 @@ $defs:
     - ada:dataType
   timeDependentIntensityCorrection:
     title: Time-Dependent Intensity Correction
-    description: Type of time-dependent intensity correction applied for volatile or beam-sensitive elements.
+    description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced
+      volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
+      Most commonly applied in point analysis; uncommon for X-ray mapping.
     type: object
     properties:
       '@id':
@@ -2958,12 +3183,11 @@ $defs:
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
-        const: M
-      schema:inDefinedTermSet:
-        const:
-          '@id': ada:vocab/empaTAPP/timeDependentIntensityCorrection
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'

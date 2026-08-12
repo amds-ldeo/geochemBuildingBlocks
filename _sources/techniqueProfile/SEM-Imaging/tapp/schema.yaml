@@ -681,12 +681,17 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
           allOf:
           - contains: *id004
             minContains: 0

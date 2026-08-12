@@ -333,7 +333,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -361,7 +363,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -391,12 +395,15 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id004
               title: Background Counting Time
               description: Total time spent counting at off-peak background position(s) in seconds, summed
@@ -418,12 +425,17 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id005
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in
@@ -444,7 +456,11 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -472,12 +488,17 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id007
               title: Blank Correction
               description: Method and reference material(s) used to determine and subtract blank signal
@@ -499,7 +520,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -526,7 +549,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -554,7 +579,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -582,7 +609,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -610,12 +639,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id012
               title: EPMA Technique per Analyte
               description: Whether each analyte was measured by WDS or EDS. In a WDS+EDS protocol, some
@@ -637,12 +669,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id013
               title: Normalization / Standards-Based Correction
               description: Post-acquisition normalization applied using secondary reference materials
@@ -663,7 +698,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -691,12 +728,17 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id015
               title: Primary Calibration Standard Name
               description: Name(s) of the primary reference material(s) used for element standardization
@@ -718,12 +760,15 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id016
               title: Proportional Counter / Detector
               description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity
@@ -744,7 +789,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -773,12 +820,15 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id018
               title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied to compensate for
@@ -800,7 +850,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -828,7 +880,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -855,7 +909,11 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'

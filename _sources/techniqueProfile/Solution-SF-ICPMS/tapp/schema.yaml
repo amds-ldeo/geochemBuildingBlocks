@@ -118,12 +118,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id002
               title: Mass Resolution per Analyte
               description: Mass resolution mode assigned to each analyte in this protocol. The selected
@@ -147,12 +150,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id003
               title: Dwell Time per Mass
               description: Integration time spent on each mass peak per sweep (ms). May differ per analyte
@@ -174,12 +180,17 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id004
               title: Isobaric Interference Corrections Applied
               description: Whether mathematical corrections for residual isobaric or polyatomic interferences
@@ -202,12 +213,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id005
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
@@ -230,12 +244,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id006
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove residual interference contributions
@@ -258,12 +275,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id007
               title: Detection Limit
               description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and
@@ -284,7 +304,11 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -310,7 +334,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -336,7 +362,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -363,7 +391,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -390,7 +420,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -417,7 +449,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'

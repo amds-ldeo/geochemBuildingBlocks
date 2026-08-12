@@ -547,12 +547,17 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id002
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte.
@@ -574,12 +579,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id003
               title: WDS Spectrometer Channel
               description: WDS spectrometer number assigned to each analyte. Different spectrometers may
@@ -600,7 +608,11 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -627,7 +639,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -655,7 +669,9 @@ allOf:
                 schema:readonlyValue:
                   const: true
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -683,12 +699,17 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id007
               title: Background Counting Time
               description: Total time spent counting at off-peak background position(s) in seconds, summed
@@ -710,12 +731,17 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id008
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in
@@ -736,7 +762,11 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -765,12 +795,15 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id010
               title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied to compensate for
@@ -793,7 +826,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -821,7 +856,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -848,7 +885,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -876,12 +915,15 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id014
               title: Secondary Reference Materials
               description: Quality-control reference material(s) analyzed alongside unknowns to verify
@@ -904,12 +946,15 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id015
               title: Detection Limit
               description: Method detection limit at 99% confidence for each analyte. Include the method
@@ -930,7 +975,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -956,7 +1003,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -984,7 +1033,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1011,7 +1062,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1038,7 +1091,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'

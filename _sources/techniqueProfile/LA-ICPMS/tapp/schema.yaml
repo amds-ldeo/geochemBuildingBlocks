@@ -2211,12 +2211,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id023
               title: Mass Resolution per Analyte
               description: Mass resolution mode assigned to each analyte in this protocol. The selected
@@ -2240,12 +2243,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id024
               title: Dwell Time per Mass
               description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
@@ -2270,12 +2276,15 @@ allOf:
                   const: false
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id025
               title: Isobaric Interference Corrections Applied
               description: 'Whether isobaric interference corrections were applied for any measured isotope
@@ -2299,12 +2308,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id026
               title: Interfering Species
               description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping
@@ -2326,12 +2338,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id027
               title: Interference Correction Method
               description: Equation or procedure used to correct for isobaric interferences, including
@@ -2353,12 +2368,15 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             - &id028
               title: Normalization / Standards-Based Correction
               description: Any post-acquisition normalization applied to correct for systematic biases
@@ -2381,7 +2399,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2410,7 +2430,11 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2438,7 +2462,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2467,7 +2493,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2498,7 +2526,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2528,7 +2558,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2557,7 +2589,9 @@ allOf:
                 schema:readonlyValue:
                   const: false
                 ada:tier:
-                  const: M
+                  const: R
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
