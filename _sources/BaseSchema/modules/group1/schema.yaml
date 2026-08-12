@@ -1,0 +1,76 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Module Group1 — Procedure Identification
+description: >-
+  The shared Procedure Identification block, composed into all 16 TAPPs in the 2026-08-11 library
+  (Claude Skills for TAPP/modules/Module_Group1.csv, v3). Seventeen fields, all Keyed By "(none)",
+  every one of which maps to a property that already exists on tappDefinition or adaProduct rather
+  than to a new ada: property. So this module is a PROFILE, not a set of definitions: it asserts
+  which base properties a conforming procedure or analysis carries, and which are required.
+
+  Requiredness is derived from the module's two tier columns, per the TAPP tier matrix:
+
+    Procedure-Level Basic    -> required in ProcedureIdentification
+    Procedure-Level Advanced -> permitted, not required
+    Procedure-Level N/A      -> absent from the procedure entirely; analysis-level only
+    Analysis-Level Basic     -> required in AnalysisIdentification (supplied fresh per analysis)
+    Analysis-Level Advanced  -> permitted, not required
+    Analysis-Level Read-Only / Editable -> inherited from the procedure, so not required again
+
+  The two $defs exist because the procedure and the analysis are separate documents in this repo:
+  a TAPP schema composes ProcedureIdentification, a technique detail schema composes
+  AnalysisIdentification. Splitting here keeps the module the single source for both.
+
+  Field-to-path mappings were taken from the nine schema-path sidecars, where all seventeen agree
+  unanimously -- which is the evidence that this block really is shared rather than coincidentally
+  similar. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no
+  enum is pinned here; a consuming TAPP may narrow a value space, never widen it.
+
+$defs:
+
+  ProcedureIdentification:
+    title: Group1 fields that live on the procedure
+    description: >-
+      Composed into a TAPP (prov:Plan) schema. The five required properties are the module's
+      Procedure-Level Basic fields: Procedure Name, Technique, Procedure Author, Laboratory and
+      Procedure Start Date.
+    type: object
+    required:
+    - schema:name              # Procedure Name
+    - schema:measurementTechnique   # Technique
+    - schema:creator           # Procedure Author
+    - schema:location          # Laboratory (+ Laboratory ID, Advanced, on the same node)
+    - schema:datePublished     # Procedure Start Date
+    properties:
+      # Procedure-Level Advanced -- permitted, not required:
+      #   Laboratory ID                            schema:location.schema:Place.schema:identifier
+      #   Funding Source for Procedure Development schema:funding[].schema:MonetaryGrant.schema:name
+      #   Procedure Reference(s)                   schema:relatedLink[techniquePublication]
+      #   Coupled Technique(s) / Coupling Description
+      #                                            schema:relatedLink[coupledTechnique]
+      schema:funding:
+        type: array
+      schema:relatedLink:
+        type: array
+
+  AnalysisIdentification:
+    title: Group1 fields that live on the analysis
+    description: >-
+      Composed into a technique detail (schema:Dataset) schema. The required properties are the
+      module's Analysis-Level Basic fields -- values that cannot be known until the analysis runs:
+      Procedure DOI, Analyst, Analysis Start Date, Analysis End Date and Funding Source for
+      Analysis. Coupled Procedure DOI and Coupled Dataset or Publication Reference are
+      Analysis-Level Advanced and therefore optional.
+    type: object
+    required:
+    - schema:measurementTechnique   # Procedure DOI -- identifies the procedure this analysis ran
+    - schema:contributor            # Analyst, via schema:roleName 'analyst'
+    - prov:wasGeneratedBy           # carries Analysis Start Date / End Date
+    - schema:funding                # Funding Source for Analysis
+    properties:
+      prov:wasGeneratedBy:
+        type: array
+        items:
+          type: object
+          required:
+          - schema:startDate
+          - schema:endDate
