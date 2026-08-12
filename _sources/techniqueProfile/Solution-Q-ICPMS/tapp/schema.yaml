@@ -2060,161 +2060,6 @@ allOf:
             anyOf:
             - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - &id021
-              title: Monitored Isotopes
-              description: Specific isotope(s) monitored per analyte element in this protocol, including
-                any interference-monitor masses. Analyte-specific field.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/monitoredIsotopes
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: monitoredIsotopes
-                schema:name:
-                  const: Monitored Isotopes
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id022
-              title: Dwell Time per Mass
-              description: Integration time spent on each mass peak per sweep (ms). May differ per analyte
-                if analyte-specific dwell times are programmed.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/dwellTimePerMass
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: dwellTimePerMass
-                schema:name:
-                  const: Dwell Time per Mass
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id023
-              title: Isobaric Interference Corrections Applied
-              description: Whether mathematical corrections for isobaric or polyatomic interferences are
-                applied during data reduction (in addition to any KED or DRC mitigation in the instrument).
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: isobaricInterferenceCorrectionsApplied
-                schema:name:
-                  const: Isobaric Interference Corrections Applied
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id024
-              title: Interfering Species
-              description: List of isobaric or polyatomic species mathematically corrected in data reduction.
-                Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species
-                on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented
-                in Group 3 and Group 4.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/interferingSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferingSpecies
-                schema:name:
-                  const: Interfering Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id025
-              title: Interference Correction Method
-              description: Mathematical approach used to calculate and remove interference contributions
-                from measured signals (e.g., interference standard solutions isolating specific polyatomics,
-                mass-balance equations using empirical correction factors).
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferenceCorrectionMethod
-                schema:name:
-                  const: Interference Correction Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id026
               title: Detection Limit
               description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and
                 whether values are protocol-typical estimates or session-specific measured values.
@@ -2245,7 +2090,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id027
+            - &id022
               title: Detection Limit Method
               description: Method used to calculate detection limits for each analyte.
               type: object
@@ -2273,7 +2118,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id028
+            - &id023
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.
               type: object
@@ -2301,7 +2146,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id029
+            - &id024
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analysis session and the
                 method used to assess it (e.g., %RSD of replicate standard or reference material measurements).
@@ -2330,7 +2175,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id030
+            - &id025
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
                 and the assessment method.
@@ -2359,7 +2204,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id031
+            - &id026
               title: Analytical Accuracy and Assessment Method
               description: Accuracy of final concentration measurements relative to certified or consensus
                 values and the method used to assess it.
@@ -2407,6 +2252,147 @@ allOf:
           - contains: *id026
             minContains: 0
             maxContains: 1
+    ada:channelTemplate:
+      type: object
+      properties:
+        ada:defaultChannels:
+          type: array
+          items:
+            description: Specific isotope(s) monitored per analyte element in this protocol, including
+              any interference-monitor masses. Analyte-specific field.
+            type: string
+            readOnly: true
+        ada:channelColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - &id027
+              title: Dwell Time per Mass
+              description: Integration time spent on each mass peak per sweep (ms). May differ per analyte
+                if analyte-specific dwell times are programmed.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionQicpmsTAPP/dwellTimePerMass
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTimePerMass
+                schema:name:
+                  const: Dwell Time per Mass
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id028
+              title: Isobaric Interference Corrections Applied
+              description: Whether mathematical corrections for isobaric or polyatomic interferences are
+                applied during data reduction (in addition to any KED or DRC mitigation in the instrument).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: isobaricInterferenceCorrectionsApplied
+                schema:name:
+                  const: Isobaric Interference Corrections Applied
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id029
+              title: Interfering Species
+              description: List of isobaric or polyatomic species mathematically corrected in data reduction.
+                Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species
+                on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented
+                in Group 3 and Group 4.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionQicpmsTAPP/interferingSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferingSpecies
+                schema:name:
+                  const: Interfering Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id030
+              title: Interference Correction Method
+              description: Mathematical approach used to calculate and remove interference contributions
+                from measured signals (e.g., interference standard solutions isolating specific polyatomics,
+                mass-balance equations using empirical correction factors).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferenceCorrectionMethod
+                schema:name:
+                  const: Interference Correction Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
           - contains: *id027
             minContains: 0
             maxContains: 1
@@ -2417,9 +2403,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id030
-            minContains: 0
-            maxContains: 1
-          - contains: *id031
             minContains: 0
             maxContains: 1
     ada:massCyclesPerReplicate:
