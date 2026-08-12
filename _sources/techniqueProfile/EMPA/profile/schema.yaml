@@ -24,6 +24,7 @@ allOf:
                 anyOf:
                   - $ref: ../../../BaseSchema/instrument/schema.yaml
                   - type: object
+                    additionalProperties: false
                     description: Reference by node @id to an empaTAPP definition object defined elsewhere.
                     properties:
                       '@id':
@@ -69,6 +70,8 @@ allOf:
           dcterms:conformsTo:
             contains:
               type: object
+              required: ['@id']
+              additionalProperties: false
               properties:
                 '@id':
                   const: 'https://w3id.org/geochem/metadata/profiles/adaEMPA'
