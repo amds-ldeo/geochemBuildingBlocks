@@ -214,18 +214,23 @@ def infer(row, lib, lib_norm, sidecar):
     name = b.camel(it)
     if not name:
         return None, "no-name"
+    # The analysis-tier half hangs off prov:wasGeneratedBy, matching _dataset_counterpart: the value
+    # records what THIS session used, which is what the provenance activity denotes. A bare
+    # `$Dataset.schema:additionalProperty[…]` is not a grammar family — normalization does not
+    # rescue it either — so inferring one produced rows no emitter could consume, silently dropping
+    # the analysis-tier half of every dual-homed parameter.
+    _ds_param = lambda i: f"$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='{i}'].schema:value"
     if P == "Advanced":
         if (P, A) in DUAL_HOMED:  # dual-home: protocol default + per-dataset value
             return ([f"$MethodDefinition.schema:additionalProperty[schema:name='{it}'].schema:defaultValue",
-                     f"$Dataset.schema:additionalProperty[schema:name='{it}'].schema:value"], "infer:param-dual")
+                     _ds_param(it)], "infer:param-dual")
         # Read-Only / N/A analysis -> read-only protocol value in the TAPP only
         return [f"$MethodDefinition.schema:additionalProperty[schema:name='{it}'].schema:value"], "infer:param"
     if P == "Basic":
         # Matrix: Basic/Editable -> '{propertyName}Default' required in the TAPP, plus the
         # per-analysis value in the detail. Basic/Read-Only stays a single bare ada: property.
         if (P, A) in DUAL_HOMED:
-            return ([f"$MethodDefinition.ada:{name}Default",
-                     f"$Dataset.schema:additionalProperty[schema:name='{it}'].schema:value"],
+            return ([f"$MethodDefinition.ada:{name}Default", _ds_param(it)],
                     "infer:direct-ada-dual")
         return [f"$MethodDefinition.ada:{name}"], "infer:direct-ada"
     # N/A protocol tier = analysis-instance we couldn't map -> flag
