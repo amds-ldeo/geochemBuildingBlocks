@@ -1,4 +1,4 @@
-Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes
+﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes
 Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,shared,
 Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,inferred,shared,
 Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,shared,
@@ -29,9 +29,9 @@ Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema
 Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:model.schema:name,authored,shared,divergence decision applied
 Electron Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='Electron source'].schema:description,authored,divergent,divergence decision applied
 Instrument Variant,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:description,authored,shared,
-Ion Beam Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='FIBSEM'].schema:hasPart[schema:additionalType = 'Ion Beam Source'].schema:name,authored,,
-SE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType = 'SEDetector'].schema:name,authored,shared,
-BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType = 'BSEDetector'].schema:name,authored,shared,
+Ion Beam Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='FIBSEM'].schema:hasPart[schema:additionalType='Ion Beam Source'].schema:name,authored,,
+SE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='SEDetector'].schema:name,authored,shared,
+BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSEDetector'].schema:name,authored,shared,
 Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default
 Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
 Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default
