@@ -71,6 +71,23 @@ def main():
     for n in names:
         src = os.path.join(MODDIR, f"Module_{n}.csv")
         rows, report = [], []
+        # Everything this sidecar already says, by item. The keep rule compares CONTENT, never the
+        # Source or Notes labels: those go stale the moment a path is edited by hand and the metadata
+        # is not, which is exactly what happens in practice. Two rounds of label-based rules failed
+        # here — trusting Source=flagged would have dropped the UPb placements, and trusting the
+        # "unanimous" note would have reverted hand-authored instrument-tree paths in MCICPMS back to
+        # the generic parameter form.
+        #
+        # So: a re-seed never silently changes an existing path. If what is here differs from what
+        # the seed would write, the file wins and the difference is REPORTED. Seeding is for filling
+        # blanks, not for overruling a decision someone already made.
+        kept_authored = {}
+        prior = schemapath_io.csv_path(src)
+        if os.path.exists(prior):
+            for r in schemapath_io.read(prior):
+                it = (r.get("Metadata Item") or "").strip()
+                if it and (r.get("Schema Path") or "").strip():
+                    kept_authored.setdefault(it, []).append(dict(r))
         for item, P, A, dt in ms.source_items(src):
             # A module row with NEITHER tier is not a field this module owns — it is an overlay on
             # the Example / Allowed Content of a field owned elsewhere (Module_UPb carries twelve of
@@ -84,7 +101,15 @@ def main():
             variants = placed.get(ms._norm(ms.rename(item)))
             base = {"Metadata Item": item, "Protocol Tier": P, "Analysis Tier": A,
                     "Data Type": dt, "Scope": "module"}
+            have = kept_authored.get(item)
             if not variants:
+                # No technique places this, so the seed can only flag it — and a flag must never
+                # replace a path. This is how UPb's three hand-authored placements survive.
+                if have:
+                    rows.extend(have)
+                    report.append(("kept", item, "no technique places this; kept as authored here"))
+                    tally["kept"] += 1
+                    continue
                 rows.append({**base, "Schema Path": "", "Source": "flagged",
                              "Notes": "no technique places this field yet"})
                 report.append(("unplaced", item, ""))
@@ -101,27 +126,37 @@ def main():
             if len(ranked) == 1:
                 note = f"unanimous across {len(who)} technique(s)"
                 source = "authored"
-                tally["unanimous"] += 1
                 kind = "unanimous"
             else:
                 rivals = "; ".join(f"{len(w)}x {sorted(v)[0]}" for v, w in ranked[1:])
                 note = (f"majority {len(who)}/{sum(len(w) for _, w in ranked)} "
                         f"({', '.join(sorted(who))}); rivals: {rivals}")
                 source = "inferred"
-                tally["majority"] += 1
                 kind = "majority"
+            if have and {(r.get("Schema Path") or "").strip() for r in have} != set(best):
+                # The file disagrees with the vote. Someone placed this deliberately — MCICPMS's
+                # Faraday-cup fields sit in the instrument tree where the technique consensus says
+                # additionalProperty — so the file wins and the alternative is reported, not applied.
+                rows.extend(have)
+                alt = "; ".join(sorted(best))
+                report.append(("diverged", item, f"kept as authored; seed would write: {alt}"))
+                tally["diverged"] += 1
+                continue
             for sp in sorted(best):
                 rows.append({**base, "Schema Path": sp, "Source": source, "Notes": note})
             report.append((kind, item, note))
+            tally[kind] += 1      # counted only where the seed actually wrote
 
         out_csv = schemapath_io.csv_path(src)
         u = sum(1 for k, _, _ in report if k == "unanimous")
         m = sum(1 for k, _, _ in report if k == "majority")
         f = sum(1 for k, _, _ in report if k == "unplaced")
         print(f"Module_{n:<20s} {len(report):3d} fields -> {len(rows):3d} rows   "
-              f"unanimous {u:2d}   majority {m:2d}   unplaced {f:2d}")
+              f"unanimous {u:2d}   majority {m:2d}   unplaced {f:2d}   "
+              f"kept {sum(1 for x, _, _ in report if x == 'kept'):2d}   "
+              f"diverged {sum(1 for x, _, _ in report if x == 'diverged'):2d}")
         for kind, item, note in report:
-            if kind != "unanimous":
+            if kind not in ("unanimous", "kept"):
                 print(f"      [{kind}] {item}")
                 if note:
                     print(f"               {note[:150]}")
@@ -129,7 +164,8 @@ def main():
             schemapath_io.write(out_csv, rows)
 
     print(f"\nunanimous {tally['unanimous']}   majority {tally['majority']}   "
-          f"unplaced {tally['unplaced']}")
+          f"unplaced {tally['unplaced']}   kept {tally['kept']}   "
+          f"diverged {tally['diverged']} (file wins; seed's alternative reported above)")
     print("written" if a.write else "(dry run — pass --write)")
     return 0
 

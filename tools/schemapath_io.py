@@ -48,7 +48,11 @@ def read(csv_file):
 
 
 def write(csv_file, rows):
-    with open(csv_file, "w", newline="", encoding="utf-8") as f:
+    # utf-8-SIG: these are opened and edited in Excel, which needs the BOM to read the file as UTF-8
+    # — without it the superscripts and Greek in this content (²⁰⁶Pb/²³⁸U, δ⁵⁶Fe) come back as
+    # cp1252 mojibake. Excel also writes the BOM on save, so matching it stops every tool write and
+    # every hand edit from flipping the first three bytes back and forth in the diff.
+    with open(csv_file, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
         for r in rows:
