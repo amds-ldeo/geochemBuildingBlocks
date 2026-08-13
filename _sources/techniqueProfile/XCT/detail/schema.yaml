@@ -631,37 +631,6 @@ properties:
               - schema:name
               - schema:value
             - &id020
-              title: Spatial Resolution
-              description: Effective spatial resolution of the reconstructed CT volume, which typically
-                differs from (and is coarser than) the voxel size due to the detector point spread function
-                (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a
-                theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described
-                in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution
-                can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate
-                based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of
-                the voxel size may be recorded. Report the value in µm along with the method used to determine
-                or estimate it.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/spatialResolution
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                    '@id': ada:parameter/labxctTAPP/spatialResolution
-                schema:name:
-                  const: Spatial Resolution
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - &id021
               title: Partial Volume Effect Criteria
               description: Procedure-level specification of how partial volume effects (PVE) are managed
                 in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and
@@ -690,41 +659,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id022
-              title: Minimum Resolvable Feature Size
-              description: Smallest feature reliably detected and quantified in this analysis at the achieved
-                voxel size and SNR. The practical detection limit is determined jointly by voxel size,
-                effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature
-                must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable
-                shape and volume characterisation. Report the minimum feature size threshold applied in
-                quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or
-                analyst-defined).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/minimumResolvableFeatureSize
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                    '@id': ada:parameter/labxctTAPP/minimumResolvableFeatureSize
-                schema:name:
-                  const: Minimum Resolvable Feature Size
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            - &id023
+            - &id021
               title: Cross-Validation Procedure Requirement
               description: Procedure-level specification of what independent analytical validation is
                 required to confirm CT segmentation results, phase identification, or quantitative measurements.
@@ -747,86 +682,6 @@ properties:
                   const: Cross-Validation Procedure Requirement
                 schema:value:
                   type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - &id024
-              title: Number of Sub-volumes
-              description: 'Total number of overlapping sub-volume scans acquired to cover the full sample
-                length. This is an analysis-level parameter: the number of sub-volumes depends on the
-                length of the specific sample being scanned and cannot be fixed in the procedure in advance.
-                Applies only to Mode B (multi-volume stitching).'
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/numberOfSubVolumes
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                    '@id': ada:parameter/labxctTAPP/numberOfSubVolumes
-                schema:name:
-                  const: Number of Sub-volumes
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - &id025
-              title: VOI Applied
-              description: Actual Volume of Interest used in this specific analysis, including dimensions
-                or defining criteria. Analysis-level companion to VOI Selection Criteria.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/voiApplied
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                    '@id': ada:parameter/labxctTAPP/voiApplied
-                schema:name:
-                  const: VOI Applied
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - &id026
-              title: Sub-volume Overlap
-              description: Actual number of reconstructed slices overlapping between adjacent sub-volumes
-                as used in this analysis. May differ from the minimum sub-volume overlap required specified
-                in the procedure (Group 4) if sample geometry or operator decisions resulted in greater
-                or lesser overlap.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/subVolumeOverlap
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                    '@id': ada:parameter/labxctTAPP/subVolumeOverlap
-                schema:name:
-                  const: Sub-volume Overlap
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
               required:
               - '@id'
               - '@type'
@@ -889,21 +744,6 @@ properties:
             minContains: 0
             maxContains: 1
           - contains: *id021
-            minContains: 0
-            maxContains: 1
-          - contains: *id022
-            minContains: 0
-            maxContains: 1
-          - contains: *id023
-            minContains: 0
-            maxContains: 1
-          - contains: *id024
-            minContains: 0
-            maxContains: 1
-          - contains: *id025
-            minContains: 0
-            maxContains: 1
-          - contains: *id026
             minContains: 0
             maxContains: 1
         prov:used:
@@ -1060,7 +900,7 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id027
+                          - &id022
                             title: Flat Field Correction
                             description: Whether dark-field (detector read with X-ray source off; electronic
                               noise baseline) and bright-field (source on, no sample; gain calibration)
@@ -1086,7 +926,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id028
+                          - &id023
                             title: Sub-volume Stitching and Registration Method
                             description: 'Method used to register adjacent sub-volume datasets to each
                               other and stitch them into a single continuous 3D volume. Report the alignment
@@ -1115,7 +955,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id029
+                          - &id024
                             title: Constants and Reference Values Used
                             description: Physical constants and reference values used in data reduction
                               to calculate the final reported quantity (e.g., decay constants for age
@@ -1146,13 +986,13 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id027
+                        - contains: *id022
                           minContains: 0
                           maxContains: 1
-                        - contains: *id028
+                        - contains: *id023
                           minContains: 0
                           maxContains: 1
-                        - contains: *id029
+                        - contains: *id024
                           minContains: 0
                           maxContains: 1
               allOf:
@@ -1296,6 +1136,169 @@ properties:
         - DICOM
         - N/A
         - None
+  schema:additionalProperty:
+    type: array
+    items:
+      anyOf:
+      - &id025
+        title: Spatial Resolution
+        description: Effective spatial resolution of the reconstructed CT volume, which typically differs
+          from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric
+          unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2×
+          the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014)
+          or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11.
+          When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the
+          Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value
+          in µm along with the method used to determine or estimate it.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/labxctTAPP/spatialResolution
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/labxctTAPP/spatialResolution
+          schema:name:
+            const: Spatial Resolution
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id026
+        title: Minimum Resolvable Feature Size
+        description: Smallest feature reliably detected and quantified in this analysis at the achieved
+          voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective
+          spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span
+          at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and
+          volume characterisation. Report the minimum feature size threshold applied in quantitative analysis
+          and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/labxctTAPP/minimumResolvableFeatureSize
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/labxctTAPP/minimumResolvableFeatureSize
+          schema:name:
+            const: Minimum Resolvable Feature Size
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+          schema:unitText:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+        - schema:unitText
+      - &id027
+        title: Number of Sub-volumes
+        description: 'Total number of overlapping sub-volume scans acquired to cover the full sample length.
+          This is an analysis-level parameter: the number of sub-volumes depends on the length of the
+          specific sample being scanned and cannot be fixed in the procedure in advance. Applies only
+          to Mode B (multi-volume stitching).'
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/labxctTAPP/numberOfSubVolumes
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/labxctTAPP/numberOfSubVolumes
+          schema:name:
+            const: Number of Sub-volumes
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id028
+        title: VOI Applied
+        description: Actual Volume of Interest used in this specific analysis, including dimensions or
+          defining criteria. Analysis-level companion to VOI Selection Criteria.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/labxctTAPP/voiApplied
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/labxctTAPP/voiApplied
+          schema:name:
+            const: VOI Applied
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      - &id029
+        title: Sub-volume Overlap
+        description: Actual number of reconstructed slices overlapping between adjacent sub-volumes as
+          used in this analysis. May differ from the minimum sub-volume overlap required specified in
+          the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser
+          overlap.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/labxctTAPP/subVolumeOverlap
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/labxctTAPP/subVolumeOverlap
+          schema:name:
+            const: Sub-volume Overlap
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+    allOf:
+    - contains: *id025
+      minContains: 0
+      maxContains: 1
+    - contains: *id026
+      minContains: 0
+      maxContains: 1
+    - contains: *id027
+      minContains: 0
+      maxContains: 1
+    - contains: *id028
+      minContains: 0
+      maxContains: 1
+    - contains: *id029
+      minContains: 0
+      maxContains: 1
   dqv:hasQualityMeasurement:
     type: array
     items:

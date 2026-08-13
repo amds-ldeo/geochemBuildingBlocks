@@ -940,39 +940,6 @@
                   ]
                 },
                 {
-                  "title": "Spatial Resolution",
-                  "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/spatialResolution"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/spatialResolution"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Spatial Resolution"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
                   "title": "Partial Volume Effect Criteria",
                   "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
                   "type": "object",
@@ -1006,50 +973,6 @@
                   ]
                 },
                 {
-                  "title": "Minimum Resolvable Feature Size",
-                  "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Minimum Resolvable Feature Size"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "schema:unitText": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
-                  ]
-                },
-                {
                   "title": "Cross-Validation Procedure Requirement",
                   "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                   "type": "object",
@@ -1072,119 +995,6 @@
                     },
                     "schema:value": {
                       "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Number of Sub-volumes",
-                  "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/numberOfSubVolumes"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Number of Sub-volumes"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "VOI Applied",
-                  "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/voiApplied"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/voiApplied"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "VOI Applied"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Sub-volume Overlap",
-                  "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/subVolumeOverlap"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/subVolumeOverlap"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Sub-volume Overlap"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
                     }
                   },
                   "required": [
@@ -1880,43 +1690,6 @@
               },
               {
                 "contains": {
-                  "title": "Spatial Resolution",
-                  "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/spatialResolution"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/spatialResolution"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Spatial Resolution"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
                   "title": "Partial Volume Effect Criteria",
                   "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
                   "type": "object",
@@ -1954,54 +1727,6 @@
               },
               {
                 "contains": {
-                  "title": "Minimum Resolvable Feature Size",
-                  "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Minimum Resolvable Feature Size"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "schema:unitText": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
                   "title": "Cross-Validation Procedure Requirement",
                   "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                   "type": "object",
@@ -2024,131 +1749,6 @@
                     },
                     "schema:value": {
                       "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Number of Sub-volumes",
-                  "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/numberOfSubVolumes"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Number of Sub-volumes"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "VOI Applied",
-                  "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/voiApplied"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/voiApplied"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "VOI Applied"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Sub-volume Overlap",
-                  "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/labxctTAPP/subVolumeOverlap"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": {
-                        "@id": "ada:parameter/labxctTAPP/subVolumeOverlap"
-                      }
-                    },
-                    "schema:name": {
-                      "const": "Sub-volume Overlap"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
                     }
                   },
                   "required": [
@@ -2792,6 +2392,415 @@
           ]
         }
       }
+    },
+    "schema:additionalProperty": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "title": "Spatial Resolution",
+            "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/spatialResolution"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/spatialResolution"
+                }
+              },
+              "schema:name": {
+                "const": "Spatial Resolution"
+              },
+              "schema:value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          {
+            "title": "Minimum Resolvable Feature Size",
+            "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+                }
+              },
+              "schema:name": {
+                "const": "Minimum Resolvable Feature Size"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "schema:unitText": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value",
+              "schema:unitText"
+            ]
+          },
+          {
+            "title": "Number of Sub-volumes",
+            "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+                }
+              },
+              "schema:name": {
+                "const": "Number of Sub-volumes"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          {
+            "title": "VOI Applied",
+            "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/voiApplied"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/voiApplied"
+                }
+              },
+              "schema:name": {
+                "const": "VOI Applied"
+              },
+              "schema:value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          {
+            "title": "Sub-volume Overlap",
+            "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/subVolumeOverlap"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/subVolumeOverlap"
+                }
+              },
+              "schema:name": {
+                "const": "Sub-volume Overlap"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          }
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "title": "Spatial Resolution",
+            "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/spatialResolution"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/spatialResolution"
+                }
+              },
+              "schema:name": {
+                "const": "Spatial Resolution"
+              },
+              "schema:value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "title": "Minimum Resolvable Feature Size",
+            "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+                }
+              },
+              "schema:name": {
+                "const": "Minimum Resolvable Feature Size"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "schema:unitText": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value",
+              "schema:unitText"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "title": "Number of Sub-volumes",
+            "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+                }
+              },
+              "schema:name": {
+                "const": "Number of Sub-volumes"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "title": "VOI Applied",
+            "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/voiApplied"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/voiApplied"
+                }
+              },
+              "schema:name": {
+                "const": "VOI Applied"
+              },
+              "schema:value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "title": "Sub-volume Overlap",
+            "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "ada:parameter/labxctTAPP/subVolumeOverlap"
+              },
+              "@type": {
+                "const": [
+                  "schema:PropertyValue"
+                ]
+              },
+              "schema:propertyID": {
+                "const": {
+                  "@id": "ada:parameter/labxctTAPP/subVolumeOverlap"
+                }
+              },
+              "schema:name": {
+                "const": "Sub-volume Overlap"
+              },
+              "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@id",
+              "@type",
+              "schema:propertyID",
+              "schema:name",
+              "schema:value"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        }
+      ]
     },
     "dqv:hasQualityMeasurement": {
       "type": "array",

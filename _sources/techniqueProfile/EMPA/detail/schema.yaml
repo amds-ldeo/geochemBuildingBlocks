@@ -330,64 +330,6 @@ properties:
               - schema:value
               - schema:unitText
             - &id009
-              title: Map Area
-              description: Physical dimensions of the mapped region in micrometers (X x Y). Determined
-                at analysis time based on the sample feature or region of interest.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/mapArea
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                    '@id': ada:parameter/empaTAPP/mapArea
-                schema:name:
-                  const: Map Area
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            - &id010
-              title: Map Dimensions
-              description: Number of pixels in the X-ray map in the X and Y directions. Determined at
-                analysis time based on the area of interest and selected step size.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/mapDimensions
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                    '@id': ada:parameter/empaTAPP/mapDimensions
-                schema:name:
-                  const: Map Dimensions
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            - &id011
               title: Procedural Blank Level
               description: 'The measured level of the analytical blank in the session, and — where the
                 reported quantity is a ratio — its composition, since a blank subtracted from a ratio
@@ -440,12 +382,6 @@ properties:
             minContains: 0
             maxContains: 1
           - contains: *id009
-            minContains: 0
-            maxContains: 1
-          - contains: *id010
-            minContains: 0
-            maxContains: 1
-          - contains: *id011
             minContains: 0
             maxContains: 1
         ada:edsLiveTimePerPointOrPixel:
@@ -536,7 +472,7 @@ properties:
                     properties:
                       schema:additionalProperty:
                         type: array
-                        items: &id012
+                        items: &id010
                           title: Constants and Reference Values Used
                           description: Physical constants and reference values used in data reduction
                             to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -567,7 +503,7 @@ properties:
                           - schema:name
                           - schema:value
                         allOf:
-                        - contains: *id012
+                        - contains: *id010
                           minContains: 0
                           maxContains: 1
               allOf:
@@ -700,6 +636,75 @@ properties:
             analytical data, to encourage formal procedure registration and ensure traceability. If a
             DOI has been applied for but not yet minted, enter "pending".
           type: string
+  schema:additionalProperty:
+    type: array
+    items:
+      anyOf:
+      - &id011
+        title: Map Area
+        description: Physical dimensions of the mapped region in micrometers (X x Y). Determined at analysis
+          time based on the sample feature or region of interest.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/mapArea
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/mapArea
+          schema:name:
+            const: Map Area
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+          schema:unitText:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+        - schema:unitText
+      - &id012
+        title: Map Dimensions
+        description: Number of pixels in the X-ray map in the X and Y directions. Determined at analysis
+          time based on the area of interest and selected step size.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/empaTAPP/mapDimensions
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+              '@id': ada:parameter/empaTAPP/mapDimensions
+          schema:name:
+            const: Map Dimensions
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+          schema:unitText:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+        - schema:unitText
+    allOf:
+    - contains: *id011
+      minContains: 0
+      maxContains: 1
+    - contains: *id012
+      minContains: 0
+      maxContains: 1
   dqv:hasQualityMeasurement:
     type: array
     items:
