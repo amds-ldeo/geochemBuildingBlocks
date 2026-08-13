@@ -1,0 +1,127 @@
+- title: LaserAblation composed into a procedure (ProcedureIdentification)
+  content: The procedure half of the LaserAblation module, with every property populated. Generated from
+    the schema, so it tracks the sidecar.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "schema:actionProcess": {
+          "schema:step": [
+            {
+              "schema:name": "samplePreparation",
+              "schema:additionalProperty": [
+                {
+                  "schema:name": "Pre Ablation Surface Treatment",
+                  "schema:defaultValue": "example value"
+                }
+              ]
+            }
+          ]
+        },
+        "schema:instrument": [
+          {
+            "schema:additionalType": "example value",
+            "schema:model": {
+              "schema:name": "example value"
+            },
+            "ada:laserType": "example value",
+            "schema:name": "example value",
+            "ada:laserSpotGeometryDefault": "example value",
+            "schema:additionalProperty": [
+              {
+                "schema:name": "Laser Energy",
+                "schema:defaultValue": 1
+              },
+              {
+                "schema:name": "Laser Beam Energy Profile",
+                "schema:value": "example value"
+              },
+              {
+                "schema:name": "Laser Pulse Duration",
+                "schema:value": "example value"
+              }
+            ],
+            "ada:laserFluenceDefault": 1,
+            "ada:laserRepetitionRateDefault": 1
+          }
+        ],
+        "ada:ablationSamplingMode": "example value",
+        "ada:ablationSpotDurationDefault": 1,
+        "schema:additionalProperty": [
+          {
+            "schema:name": "Transect Rate Mapping Rate or Step Size",
+            "schema:defaultValue": "example value"
+          }
+        ],
+        "ada:rasterLineSpacingDefault": "example value"
+      }
+- title: LaserAblation composed into an analysis (AnalysisIdentification)
+  content: The analysis half of the LaserAblation module, with every property populated. Generated from
+    the schema, so it tracks the sidecar.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    prov: http://www.w3.org/ns/prov#
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "prov:wasGeneratedBy": [
+          {
+            "schema:actionProcess": {
+              "schema:step": [
+                {
+                  "schema:name": "samplePreparation",
+                  "schema:additionalProperty": [
+                    {
+                      "schema:name": "Pre Ablation Surface Treatment",
+                      "schema:value": "example value"
+                    }
+                  ]
+                }
+              ]
+            },
+            "prov:used": [
+              {
+                "schema:additionalType": "example value",
+                "ada:laserSpotGeometry": "example value",
+                "schema:additionalProperty": [
+                  {
+                    "schema:name": "Laser Energy",
+                    "schema:value": 1
+                  }
+                ],
+                "ada:laserFluence": 1,
+                "ada:laserRepetitionRate": 1
+              }
+            ],
+            "ada:ablationSpotDuration": 1,
+            "schema:additionalProperty": [
+              {
+                "schema:name": "Transect Rate Mapping Rate or Step Size",
+                "schema:value": "example value"
+              },
+              {
+                "schema:name": "Transect Length",
+                "schema:value": 1
+              }
+            ],
+            "ada:rasterLineSpacing": "example value",
+            "schema:object": [
+              {
+                "@type": "example value",
+                "schema:additionalProperty": [
+                  {
+                    "schema:name": "Mapped area description",
+                    "schema:value": "example value"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "ada:spotDiameterMeasured": 1
+      }
