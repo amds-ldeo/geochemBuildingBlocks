@@ -1109,6 +1109,39 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - &id024
+          title: Pre-Analysis Imaging and Screening
+          description: Imaging or other characterisation performed before the measurement in order to
+            select or locate the analysed target, including the technique, instrument and settings used,
+            and how individual analyses are linked back to the images. Distinct from any imaging the procedure
+            performs as its own measurement. Where the imaging is performed on a separate instrument,
+            it should also be recorded in the Group 1 coupling fields.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: preAnalysisImagingAndScreeningDefault
+            schema:name:
+              const: Pre-Analysis Imaging and Screening
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: EDS Spectral Processing Type
           description: Method used to process EDS spectra and extract net peak intensities from raw spectral
             data.
@@ -1133,7 +1166,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id024
+        - &id025
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
             Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
@@ -1304,6 +1337,9 @@ allOf:
       - contains: *id023
         minContains: 0
         maxContains: 1
+      - contains: *id024
+        minContains: 0
+        maxContains: 1
       - contains:
           title: EDS Spectral Processing Type
           description: Method used to process EDS spectra and extract net peak intensities from raw spectral
@@ -1331,7 +1367,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id024
+      - contains: *id025
         minContains: 0
         maxContains: 1
       - contains:
@@ -1572,6 +1608,151 @@ allOf:
         schema:identifier:
           description: Persistent identifier for the laboratory (e.g., ROR ID).
           type: string
+    ada:samplingUnit:
+      description: The physical subdivision of the sample to which one row of reported values corresponds
+        — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit
+        type at procedure level and the units actually analysed at analysis level. Where units nest (e.g.
+        confined tracks within grains), state both levels.
+      type: string
+      enum:
+      - Whole sample
+      - Aliquot
+      - Grain
+      - Spot
+      - Analysis point
+      - Phase
+      - Sub-volume
+      - Region of interest
+      - N/A
+      - None
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: dataReduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - &id026
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual analyses contribute to a
+                          reported aggregate result, together with the outcome of applying them: how many
+                          analyses were acquired, how many were included, and on what grounds any were
+                          excluded. Distinct from Spike / Outlier Filtering Approach, which removes anomalous
+                          points within a single analysis: this field decides which whole analyses enter
+                          the reported value. Criteria and outcome are combined in one field because neither
+                          is interpretable without the other, following the precision/accuracy precedent.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id027
+                        title: Constants and Reference Values Used
+                        description: Physical constants and reference values used in data reduction to
+                          calculate the final reported quantity (e.g., decay constants for age calculation,
+                          standard isotope ratios, or other citable reference values used in a correction
+                          or calculation), together with their source. Distinct from Reference Material
+                          Information / Secondary Reference Materials (Group 6), which document accepted
+                          values for specific calibration/validation materials rather than universal physical
+                          constants. Record "None" if no citable, revisable physical constants feed into
+                          this procedure's data reduction.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: constantsAndReferenceValuesUsedDefault
+                          schema:name:
+                            const: Constants and Reference Values Used
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                    allOf:
+                    - contains: *id026
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id027
+                      minContains: 0
+                      maxContains: 1
+            - if:
+                properties:
+                  schema:name:
+                    const: samplePreparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:description:
+                    description: Description of how samples were prepared for analysis under this procedure
+                      (mounting, polishing, coating). Analysts may document session-specific variations
+                      from the procedure standard.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: samplePreparation
+              required:
+              - schema:name
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction. MAC database
         choice affects accuracy particularly for light elements (B, C, N, O, F, Na).
@@ -1623,93 +1804,6 @@ allOf:
       description: First date this procedure configuration was used in production.
       type: string
       readOnly: true
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: samplePreparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:description:
-                    description: Description of how samples were prepared for analysis under this procedure
-                      (mounting, polishing, coating). Analysts may document session-specific variations
-                      from the procedure standard.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-            - if:
-                properties:
-                  schema:name:
-                    const: dataReduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items: &id025
-                      title: Constants and Reference Values Used
-                      description: Physical constants and reference values used in data reduction to calculate
-                        the final reported quantity (e.g., decay constants for age calculation, standard
-                        isotope ratios, or other citable reference values used in a correction or calculation),
-                        together with their source. Distinct from Reference Material Information / Secondary
-                        Reference Materials (Group 6), which document accepted values for specific calibration/validation
-                        materials rather than universal physical constants. Record "None" if no citable,
-                        revisable physical constants feed into this procedure's data reduction.
-                      type: object
-                      properties:
-                        '@id':
-                          const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault
-                        '@type':
-                          const:
-                          - schema:PropertyValueSpecification
-                        schema:valueName:
-                          const: constantsAndReferenceValuesUsedDefault
-                        schema:name:
-                          const: Constants and Reference Values Used
-                        ada:dataType:
-                          const: string
-                        ada:fieldScope:
-                          const: session
-                        schema:readonlyValue:
-                          const: false
-                        ada:tier:
-                          const: R
-                      required:
-                      - '@id'
-                      - '@type'
-                      - schema:valueName
-                      - schema:name
-                      - ada:dataType
-                      - ada:fieldScope
-                    allOf:
-                    - contains: *id025
-                      minContains: 0
-                      maxContains: 1
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: samplePreparation
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: dataReduction
-              required:
-              - schema:name
     ada:stepSizePixelSizeDefault:
       description: Distance between adjacent measurement points in the X-ray map in micrometers, defining
         the spatial resolution. Report both X and Y step if they differ.
@@ -1830,6 +1924,7 @@ allOf:
   - ada:edsAcquisitionMode
   - ada:edsLiveTimePerPointOrPixelDefault
   - ada:interferenceCorrectionsApplied
+  - ada:samplingUnit
   - ada:massAbsorptionCoefficients
   - ada:matrixCorrectionMethod
   - schema:name

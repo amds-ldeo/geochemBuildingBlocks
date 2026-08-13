@@ -217,6 +217,33 @@ properties:
               - schema:value
               - schema:unitText
             - &id005
+              title: Pre-Analysis Imaging and Screening
+              description: Imaging or other characterisation performed before the measurement in order
+                to select or locate the analysed target, including the technique, instrument and settings
+                used, and how individual analyses are linked back to the images. Distinct from any imaging
+                the procedure performs as its own measurement. Where the imaging is performed on a separate
+                instrument, it should also be recorded in the Group 1 coupling fields.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/empaTAPP/preAnalysisImagingAndScreening
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                    '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
+                schema:name:
+                  const: Pre-Analysis Imaging and Screening
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id006
               title: Halogen Correction on Oxygen
               description: Whether oxygen content was adjusted to account for halogen substitution (F
                 and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
@@ -241,7 +268,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id006
+            - &id007
               title: Step Size / Pixel Size
               description: Distance between adjacent measurement points in the X-ray map in micrometers,
                 defining the spatial resolution. Report both X and Y step if they differ.
@@ -287,6 +314,9 @@ properties:
             minContains: 0
             maxContains: 1
           - contains: *id006
+            minContains: 0
+            maxContains: 1
+          - contains: *id007
             minContains: 0
             maxContains: 1
         ada:edsLiveTimePerPointOrPixel:
@@ -377,7 +407,7 @@ properties:
                     properties:
                       schema:additionalProperty:
                         type: array
-                        items: &id007
+                        items: &id008
                           title: Constants and Reference Values Used
                           description: Physical constants and reference values used in data reduction
                             to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -408,7 +438,7 @@ properties:
                           - schema:name
                           - schema:value
                         allOf:
-                        - contains: *id007
+                        - contains: *id008
                           minContains: 0
                           maxContains: 1
               allOf:
