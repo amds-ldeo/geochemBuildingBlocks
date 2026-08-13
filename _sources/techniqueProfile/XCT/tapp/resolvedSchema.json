@@ -2895,6 +2895,47 @@
           "items": {
             "anyOf": [
               {
+                "title": "Pre-Analysis Imaging and Screening",
+                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                  },
+                  "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "Sample Mounting Method",
                 "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
                 "type": "object",
@@ -3794,6 +3835,51 @@
             ]
           },
           "allOf": [
+            {
+              "contains": {
+                "title": "Pre-Analysis Imaging and Screening",
+                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                  },
+                  "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
             {
               "contains": {
                 "title": "Sample Mounting Method",
@@ -5106,6 +5192,47 @@
                                 ]
                               },
                               {
+                                "title": "Calibration Factor and Determination Method",
+                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Calibration Factor and Determination Method"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
                                 "title": "Sub-volume Stitching and Registration Method",
                                 "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
                                 "type": "object",
@@ -5212,6 +5339,51 @@
                                   },
                                   "ada:dataType": {
                                     "const": "boolean"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Calibration Factor and Determination Method",
+                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Calibration Factor and Determination Method"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
                                   },
                                   "ada:fieldScope": {
                                     "const": "session"
@@ -5359,6 +5531,22 @@
             "None"
           ]
         },
+        "ada:samplingUnit": {
+          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+          "type": "string",
+          "enum": [
+            "Whole sample",
+            "Aliquot",
+            "Grain",
+            "Spot",
+            "Analysis point",
+            "Phase",
+            "Sub-volume",
+            "Region of interest",
+            "N/A",
+            "None"
+          ]
+        },
         "ada:minimumSubVolumeOverlap": {
           "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset. This is a procedure-level quality specification. Eckley et al. (2025) report that 500 slices of overlap were used in the Apollo 73001 stitching workflow, while 180 slices proved insufficient for their cone-beam geometry.",
           "anyOf": [
@@ -5370,6 +5558,10 @@
             }
           ],
           "readOnly": true
+        },
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+          "type": "string"
         },
         "ada:reconstructionAlgorithm": {
           "description": "Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images. The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative methods offer better artifact suppression at the cost of computation time.",
@@ -5449,7 +5641,9 @@
         "ada:numberOfProjectionsDefault",
         "ada:exposureTimePerProjectionDefault",
         "ada:rotationModeDefault",
+        "ada:samplingUnit",
         "ada:minimumSubVolumeOverlap",
+        "ada:targetSelectionCriteriaDefault",
         "ada:reconstructionAlgorithm",
         "ada:beamHardeningCorrectionMethod",
         "ada:outputDataFormatDefault",

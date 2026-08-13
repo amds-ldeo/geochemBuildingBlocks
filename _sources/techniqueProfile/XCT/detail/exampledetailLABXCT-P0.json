@@ -45,6 +45,18 @@
               },
               "schema:name": "Sample Dimensions (L × W × H)",
               "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleMass",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": {
+                "@id": "ada:parameter/labxctTAPP/sampleMass"
+              },
+              "schema:name": "Sample Mass",
+              "schema:value": 1,
+              "schema:unitText": "example value"
             }
           ],
           "schema:name": "example sampleName",
@@ -233,6 +245,28 @@
           "schema:value": "example value"
         },
         {
+          "@id": "ada:parameter/labxctTAPP/totalScanDuration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/labxctTAPP/totalScanDuration"
+          },
+          "schema:name": "Total Scan Duration",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/spatialResolution",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/labxctTAPP/spatialResolution"
+          },
+          "schema:name": "Spatial Resolution",
+          "schema:value": "example value"
+        },
+        {
           "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteria",
           "@type": [
             "schema:PropertyValue"
@@ -244,6 +278,18 @@
           "schema:value": "example value"
         },
         {
+          "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+          },
+          "schema:name": "Minimum Resolvable Feature Size",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
           "@id": "ada:parameter/labxctTAPP/crossValidationProcedureRequirement",
           "@type": [
             "schema:PropertyValue"
@@ -253,6 +299,39 @@
           },
           "schema:name": "Cross-Validation Procedure Requirement",
           "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+          },
+          "schema:name": "Number of Sub-volumes",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/voiApplied",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/labxctTAPP/voiApplied"
+          },
+          "schema:name": "VOI Applied",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/subVolumeOverlap",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/labxctTAPP/subVolumeOverlap"
+          },
+          "schema:name": "Sub-volume Overlap",
+          "schema:value": 1
         }
       ],
       "prov:used": [
@@ -354,5 +433,31 @@
   ],
   "schema:distribution": {
     "schema:encodingFormat": "TIFF image stack"
-  }
+  },
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Beam Hardening Artifact Assessment",
+      "dqv:value": "example beamHardeningArtifactAssessment"
+    },
+    {
+      "dqv:isMeasurementOf": "Ring Artifact Severity and Correction Outcome",
+      "dqv:value": "example ringArtifactSeverityAndCorrectionOutcome"
+    },
+    {
+      "dqv:isMeasurementOf": "Metal Streak Artifact Assessment",
+      "dqv:value": "example metalStreakArtifactAssessment"
+    },
+    {
+      "dqv:isMeasurementOf": "Partial Volume Effect Assessment",
+      "dqv:value": "example partialVolumeEffectAssessment"
+    },
+    {
+      "dqv:isMeasurementOf": "Signal-to-Noise Ratio",
+      "dqv:value": "example signalToNoiseRatio"
+    },
+    {
+      "dqv:isMeasurementOf": "Cross-Validation Outcome",
+      "dqv:value": "example crossValidationOutcome"
+    }
+  ]
 }

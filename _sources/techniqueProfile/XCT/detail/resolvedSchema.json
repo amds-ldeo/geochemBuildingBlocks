@@ -105,36 +105,84 @@
                       "schema:additionalProperty": {
                         "type": "array",
                         "items": {
-                          "title": "Sample Dimensions (L × W × H)",
-                          "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
-                          "type": "object",
-                          "properties": {
-                            "@id": {
-                              "const": "ada:parameter/labxctTAPP/sampleDimensions"
-                            },
-                            "@type": {
-                              "const": [
-                                "schema:PropertyValue"
+                          "anyOf": [
+                            {
+                              "title": "Sample Dimensions (L × W × H)",
+                              "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/labxctTAPP/sampleDimensions"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/labxctTAPP/sampleDimensions"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Sample Dimensions (L × W × H)"
+                                },
+                                "schema:value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value"
                               ]
                             },
-                            "schema:propertyID": {
-                              "const": {
-                                "@id": "ada:parameter/labxctTAPP/sampleDimensions"
-                              }
-                            },
-                            "schema:name": {
-                              "const": "Sample Dimensions (L × W × H)"
-                            },
-                            "schema:value": {
-                              "type": "string"
+                            {
+                              "title": "Sample Mass",
+                              "description": "Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials. Particularly important for meteorite, mission-returned, and other restricted samples. This is an analysis-level field: the actual sample mass depends on the specific sample being scanned, not on the procedure design.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/labxctTAPP/sampleMass"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/labxctTAPP/sampleMass"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Sample Mass"
+                                },
+                                "schema:value": {
+                                  "anyOf": [
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "schema:unitText": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value",
+                                "schema:unitText"
+                              ]
                             }
-                          },
-                          "required": [
-                            "@id",
-                            "@type",
-                            "schema:propertyID",
-                            "schema:name",
-                            "schema:value"
                           ]
                         },
                         "allOf": [
@@ -170,6 +218,54 @@
                                 "schema:propertyID",
                                 "schema:name",
                                 "schema:value"
+                              ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                          },
+                          {
+                            "contains": {
+                              "title": "Sample Mass",
+                              "description": "Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials. Particularly important for meteorite, mission-returned, and other restricted samples. This is an analysis-level field: the actual sample mass depends on the specific sample being scanned, not on the procedure design.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "const": "ada:parameter/labxctTAPP/sampleMass"
+                                },
+                                "@type": {
+                                  "const": [
+                                    "schema:PropertyValue"
+                                  ]
+                                },
+                                "schema:propertyID": {
+                                  "const": {
+                                    "@id": "ada:parameter/labxctTAPP/sampleMass"
+                                  }
+                                },
+                                "schema:name": {
+                                  "const": "Sample Mass"
+                                },
+                                "schema:value": {
+                                  "anyOf": [
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "schema:unitText": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@id",
+                                "@type",
+                                "schema:propertyID",
+                                "schema:name",
+                                "schema:value",
+                                "schema:unitText"
                               ]
                             },
                             "minContains": 0,
@@ -811,6 +907,72 @@
                   ]
                 },
                 {
+                  "title": "Total Scan Duration",
+                  "description": "Total elapsed time for the complete XCT acquisition, from the start of the first projection to the end of the last. For multi-volume acquisitions, this is the combined scan time across all sub-volumes (not including setup or reconstruction time). Useful for assessing beam stability and sample integrity concerns over long scans.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/totalScanDuration"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/totalScanDuration"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Total Scan Duration"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Spatial Resolution",
+                  "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/spatialResolution"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/spatialResolution"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Spatial Resolution"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
                   "title": "Partial Volume Effect Criteria",
                   "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
                   "type": "object",
@@ -844,6 +1006,50 @@
                   ]
                 },
                 {
+                  "title": "Minimum Resolvable Feature Size",
+                  "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Minimum Resolvable Feature Size"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                {
                   "title": "Cross-Validation Procedure Requirement",
                   "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                   "type": "object",
@@ -866,6 +1072,119 @@
                     },
                     "schema:value": {
                       "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Number of Sub-volumes",
+                  "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Number of Sub-volumes"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "VOI Applied",
+                  "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/voiApplied"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/voiApplied"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "VOI Applied"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Sub-volume Overlap",
+                  "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/subVolumeOverlap"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/subVolumeOverlap"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Sub-volume Overlap"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -1524,6 +1843,80 @@
               },
               {
                 "contains": {
+                  "title": "Total Scan Duration",
+                  "description": "Total elapsed time for the complete XCT acquisition, from the start of the first projection to the end of the last. For multi-volume acquisitions, this is the combined scan time across all sub-volumes (not including setup or reconstruction time). Useful for assessing beam stability and sample integrity concerns over long scans.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/totalScanDuration"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/totalScanDuration"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Total Scan Duration"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Spatial Resolution",
+                  "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/spatialResolution"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/spatialResolution"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Spatial Resolution"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
                   "title": "Partial Volume Effect Criteria",
                   "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
                   "type": "object",
@@ -1561,6 +1954,54 @@
               },
               {
                 "contains": {
+                  "title": "Minimum Resolvable Feature Size",
+                  "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Minimum Resolvable Feature Size"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
                   "title": "Cross-Validation Procedure Requirement",
                   "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                   "type": "object",
@@ -1583,6 +2024,131 @@
                     },
                     "schema:value": {
                       "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Number of Sub-volumes",
+                  "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Number of Sub-volumes"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "VOI Applied",
+                  "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/voiApplied"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/voiApplied"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "VOI Applied"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Sub-volume Overlap",
+                  "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/labxctTAPP/subVolumeOverlap"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": {
+                        "@id": "ada:parameter/labxctTAPP/subVolumeOverlap"
+                      }
+                    },
+                    "schema:name": {
+                      "const": "Sub-volume Overlap"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -2225,6 +2791,194 @@
             "None"
           ]
         }
+      }
+    },
+    "dqv:hasQualityMeasurement": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Beam Hardening Artifact Assessment"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Assessment of whether residual beam hardening (cupping artifact) is present in the reconstructed volume after any corrections applied during reconstruction. Beam hardening in polychromatic lab XCT produces a characteristic darker interior and brighter edges in the reconstructed CT number profile, even in compositionally uniform material. Record whether this artifact is detectable in the final dataset, what correction or mitigation was applied (e.g., linearisation, pre-filtering, iterative correction), and whether any residual effect influences the analysis region.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Ring Artifact Severity and Correction Outcome"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Assessment of whether ring artifacts — concentric rings centred on the rotation axis arising from differential sensitivity or gain drift among detector elements — were present and whether correction was effective. Note that ring correction algorithms modify image intensity in narrow annular bands; in samples containing linear geological features oriented tangentially to the rotation axis, ring correction can alter or introduce spurious linear features in those orientations. Record whether rings were present, whether correction was applied, and whether any residual rings or correction artifacts fall within the analysis volume of interest.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Metal Streak Artifact Assessment"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Assessment of whether high-density inclusions (FeNi metal, platinum-group minerals, dense oxides, or other high-Z phases) produce streak or starburst artifacts in the reconstructed volume. Common forms include radial starburst streaks from high-Z inclusions and shadowing (anomalously low CT number) in beam-shadow regions behind dense phases. Record which artifact type(s) are present, their spatial extent, and any exclusion zones or correction steps applied.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Partial Volume Effect Assessment"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Analysis-level record of PVE severity and how it was handled in this specific analysis. Documents the minimum feature size relative to the voxel size, the fraction of the feature population affected, and any PVE correction method applied (e.g., PSF-based deconvolution via Blob3D).",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Signal-to-Noise Ratio"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Quantitative measure of image quality in the reconstructed CT volume. Typically calculated as the mean CT number divided by the standard deviation of CT number in a homogeneous reference region (e.g., an inclusion-free zone of the matrix). SNR is controlled by photon flux (source power, exposure time, number of projections) and sample attenuation. Record the measured value and the region used for measurement, or note if SNR was not formally measured.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Cross-Validation Outcome"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Analysis-level record of what independent validation was performed and its result. Report the validation method(s) used, the quantitative agreement achieved (e.g., relative difference in modal abundance, porosity), and any discrepancies and their likely causes. Where BSE imaging is the validation method, note that BSE provides a 2D section while CT provides a 3D volume.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       }
     }
   },
