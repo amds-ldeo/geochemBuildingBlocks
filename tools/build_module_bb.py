@@ -42,9 +42,10 @@ import migrate_sidecar as ms
 import schema_path_emitter as e
 import schema_path_parser as spp
 import schemapath_io
+import tapp_source
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODDIR = os.path.join(ROOT, "TAPPS20260811", "Claude Skills for TAPP", "modules")
+MODDIR = tapp_source.modules_dir()
 BBDIR = os.path.join(ROOT, "_sources", "BaseSchema", "modules")
 
 DEF_NAME = {"MethodDefinition": "ProcedureIdentification", "Dataset": "AnalysisIdentification"}
@@ -368,7 +369,7 @@ def main():
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
 
-    man = json.load(open(os.path.join(ROOT, "TAPPS20260811", "composed_tapps.json"), encoding="utf-8"))
+    man = json.load(open(tapp_source.manifest_path(), encoding="utf-8"))
     usage = collections.Counter()
     for entry in man.get("composed") or []:
         for m in entry.get("modules") or []:

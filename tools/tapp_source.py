@@ -44,3 +44,44 @@ def rows(path):
 
 def exists(path):
     return bool(path) and os.path.exists(path)
+
+
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def current_delivery():
+    """The newest TAPPS<date>/ folder — deliveries are dated, so the latest name is the latest drop.
+
+    Derived rather than hard-coded because three separate tools pinned TAPPS20260811 in their own
+    constants, and after the 2026-08-13 drop each of them was silently reading a superseded
+    delivery: the module sidecars in both folders were being counted together, inflating the path
+    total by the whole of the older set.
+    """
+    ds = sorted(d for d in os.listdir(_ROOT)
+                if d.startswith("TAPPS") and os.path.isdir(os.path.join(_ROOT, d)))
+    return os.path.join(_ROOT, ds[-1]) if ds else _ROOT
+
+
+def manifest_path():
+    """The newest composed_tapps.json across deliveries, or None.
+
+    Not simply `current_delivery()/composed_tapps.json`: the 2026-08-13 drop shipped without the
+    manifest, so anything that assumed the current delivery has one crashed outright. The
+    composition declaration changes far less often than the tables, and the most recent one still
+    describes them, so falling back to it is better than failing — as long as the caller says which
+    delivery it came from, since a stale manifest is a real hazard once modules move.
+    """
+    for d in sorted((x for x in os.listdir(_ROOT) if x.startswith("TAPPS")), reverse=True):
+        p = os.path.join(_ROOT, d, "composed_tapps.json")
+        if os.path.exists(p):
+            return p
+    return None
+
+
+def modules_dir():
+    """The authoritative modules folder: <newest delivery>/Claude Skills for TAPP/modules.
+
+    Confirmed by Stephen as the source of truth for both the module CSVs and their sidecars — the
+    2026-08-13 drop also ships copies under references/modules/, which are NOT authoritative.
+    """
+    return os.path.join(current_delivery(), "Claude Skills for TAPP", "modules")

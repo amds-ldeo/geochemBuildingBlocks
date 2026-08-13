@@ -32,10 +32,34 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import migrate_sidecar as ms
+import tapp_source
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DELIV = os.path.join(ROOT, "TAPPS20260811")
+DELIV = tapp_source.current_delivery()
 MODDIR = os.path.join(DELIV, "Claude Skills for TAPP", "modules")
+
+
+_INDEX = {}
+
+
+def _table(root, rel):
+    """Resolve a manifest `tapp` entry to a real file, by BASENAME within the delivery.
+
+    The manifest records per-technique paths (EPMA/EPMA_TAPP_v20.csv) but a delivery may lay the
+    tables out differently — 2026-08-13 puts them all in a flat `Current TAPPs/`. Joining the
+    literal relative path then resolves NOTHING: all sixteen tables are skipped, no field is
+    compared, and the run reports a clean zero for work it never did. That is precisely the
+    silent-skip this tool exists to catch, so resolution is by filename and anything still unfound
+    is reported rather than passed over.
+    """
+    if root not in _INDEX:
+        idx = {}
+        for base, _, files in os.walk(root):
+            for f in files:
+                if f.endswith(".csv") and not f.endswith(".schemapaths.csv"):
+                    idx.setdefault(f, os.path.join(base, f))
+        _INDEX[root] = idx
+    return _INDEX[root].get(os.path.basename(rel))
 
 
 def tiers(path):
@@ -50,7 +74,17 @@ def main():
     ap.add_argument("--verbose", action="store_true")
     a = ap.parse_args()
 
-    man = json.load(open(os.path.join(DELIV, "composed_tapps.json"), encoding="utf-8"))
+    # The manifest's `tapp` entries are paths INSIDE the delivery that shipped it, so they resolve
+    # against that delivery — not the current one, whose layout may differ (2026-08-13 moved every
+    # table into a flat `Current TAPPs/` folder). Modules still come from the current drop.
+    manifest = tapp_source.manifest_path()
+    if not manifest:
+        raise SystemExit("no composed_tapps.json in any delivery — nothing declares what composes what")
+    man_root = os.path.dirname(manifest)
+    if os.path.basename(man_root) != os.path.basename(DELIV):
+        print(f"note: {os.path.basename(DELIV)} ships no composed_tapps.json; using the one from "
+              f"{os.path.basename(man_root)}, and resolving its table paths there.\n")
+    man = json.load(open(manifest, encoding="utf-8"))
     consumers = collections.defaultdict(list)
     for entry in man.get("composed") or []:
         for m in entry.get("modules") or []:
@@ -59,6 +93,7 @@ def main():
 
     names = a.module or sorted(consumers)
     grand = collections.Counter()
+    missing = set()      # manifest tables absent from the delivery — reported, never passed over
     for name in names:
         src = os.path.join(MODDIR, f"Module_{name}.csv")
         if not os.path.exists(src):
@@ -67,8 +102,9 @@ def main():
         label = {k: i for i, _, _, _ in ms.source_items(src) for k in [ms._norm(ms.rename(i))]}
         findings = []
         for rel in consumers[name]:
-            p = os.path.join(DELIV, rel.replace("/", os.sep))
-            if not os.path.exists(p):
+            p = _table(man_root, rel)
+            if not p:
+                missing.add(rel)
                 continue
             tab = tiers(p)
             for k, (mP, mA) in mod.items():
@@ -113,6 +149,11 @@ def main():
                     for t in tabs:
                         print(f"                {t}")
 
+    if missing:
+        print(f"\n{len(missing)} table(s) the manifest names were NOT found in the delivery, so "
+              f"their fields\nwent unchecked — the totals below do not cover them:")
+        for x in sorted(missing):
+            print(f"    {x}")
     print(f"\nTOTAL   TIGHTENS {grand['TIGHTENS']}   LOOSENS {grand['LOOSENS']}   "
           f"ABSENT {grand['ABSENT']}   ADDS {grand['ADDS']}")
     print("\nTIGHTENS breaks instances the table calls valid; LOOSENS silently drops enforcement;")

@@ -30,10 +30,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 import migrate_sidecar as ms
 import schemapath_io
+import tapp_source
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # default delivery; --modules-dir points this at a newer drop without editing the file
-MODDIR = os.path.join(ROOT, "TAPPS20260811", "Claude Skills for TAPP", "modules")
+MODDIR = tapp_source.modules_dir()
 
 
 def technique_placements():

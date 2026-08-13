@@ -32,6 +32,7 @@ import build_tapp as b
 import migrate_sidecar as ms
 import normalize_schema_paths as norm
 import schemapath_io
+import tapp_source
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOOLS = os.path.join(ROOT, "tools")
@@ -137,12 +138,15 @@ def _all_sidecars():
         p = schemapath_io.csv_path(b.XLSX)
         if os.path.exists(p):
             out.append((t, p))
-    for base, _, files in os.walk(ROOT):
-        if ".git" in base:
-            continue
-        for f in files:
+    # Only the CURRENT delivery's modules. Walking the tree instead picked up every superseded
+    # delivery's module sidecars as well and counted them all, which inflated the reported path
+    # total by the whole of the older set — a number that looks like coverage and is really a
+    # duplicate.
+    md = tapp_source.modules_dir()
+    if os.path.isdir(md):
+        for f in sorted(os.listdir(md)):
             if f.startswith("Module_") and f.endswith(".schemapaths.csv"):
-                out.append(("mod:" + f[7:-16], os.path.join(base, f)))
+                out.append(("mod:" + f[7:-16], os.path.join(md, f)))
     return out
 
 
