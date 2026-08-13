@@ -1,0 +1,107 @@
+﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes
+Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:acceleratingVoltageDefault,authored,divergent,divergence decision applied
+Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='EPMA'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
+Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default
+Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,authored,shared,dual-home decision: protocol default
+Additional Notes,Advanced,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.schema:description,authored,shared,dual-home decision: analysis-tier value
+Analysis End Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:endDate,inferred,shared,
+Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,inferred,shared,
+Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,inferred,shared,
+Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],authored,shared,
+Analyte Estimation Method,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Analyte Estimation Method'].schema:value,inferred,shared,
+Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],inferred,shared,
+Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Background Correction Method,Basic,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
+Background Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Background Position(s),Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
+Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Beam Damage Minimization,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue,inferred,shared,
+Beam Damage Minimization,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
+Beam Diameter,Basic,Editable,Numeric (um),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:beamDiameterDefault,authored,divergent,divergence decision applied
+Beam Diameter,Basic,Editable,Numeric (um),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='EPMA'].ada:beamDiameter,authored,divergent,dual-home counterpart (tier matrix)
+Beam Mode,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:beamMode,authored,divergent,
+Beam Raster Dimensions,Advanced,Editable,Numeric pair (um x um),$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue,authored,shared,divergence decision applied
+Beam Raster Dimensions,Advanced,Editable,Numeric pair (um x um),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
+Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
+Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,inferred,shared,
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProcedure'].schema:target.schema:url,inferred,shared,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: protocol default
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: analysis-tier value
+Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default
+Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: analysis-tier value
+Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default
+Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Detection Limit,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
+Detection Limit Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Diffracting Crystal,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Drift Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Drift Correction'].schema:defaultValue,inferred,shared,
+Drift Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Drift Correction'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
+Dwell Time per Pixel,Basic,Editable,Numeric (ms),$MethodDefinition.ada:dwellTimePerPixelDefault,authored,shared,WDS per-analyte dwell is carried by Peak/Background Counting Time
+Dwell Time per Pixel,Basic,Editable,Numeric (ms),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value,authored,shared,dual-home counterpart (tier matrix)
+EDS Acquisition Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:edsAcquisitionMode,authored,shared,
+Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,authored,,
+Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,authored,,new in this revision (needs mapping)
+EDS Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='EDSDetector'].schema:description,authored,divergent,divergence decision applied
+EDS Live Time per Point or Pixel,Basic,Editable,Numeric (s),$MethodDefinition.ada:edsLiveTimePerPointOrPixelDefault,authored,shared,dual-home decision: protocol default
+EDS Live Time per Point or Pixel,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.ada:edsLiveTimePerPointOrPixel,authored,shared,dual-home decision: analysis-tier value
+EDS Spectral Processing Type,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value,inferred,shared,
+Electron Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='Electron source'].schema:description,authored,divergent,divergence decision applied
+EPMA Technique per Analyte,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,,
+Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,inferred,shared,
+Funding Source for Procedure Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,shared,
+Halogen Correction on Oxygen,Advanced,Editable,Boolean,$MethodDefinition.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:defaultValue,inferred,shared,
+Halogen Correction on Oxygen,Advanced,Editable,Boolean,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
+Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:manufacturer.schema:name,authored,divergent,divergence decision applied
+Instrument Model,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:model.schema:name,authored,shared,divergence decision applied
+Interference Correction Standard,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Interference Correction Standard'].schema:value,inferred,shared,
+Interference Corrections Applied,Basic,Read-Only,Boolean,$MethodDefinition.ada:interferenceCorrectionsApplied,authored,shared,
+Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Interfering Elements'].schema:value,inferred,shared,
+Laboratory,Basic,Editable,Text (free),$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:name,authored,shared,dual-home decision: protocol default
+Laboratory,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Laboratory ID,Advanced,Editable,URI / DOI,$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:identifier,authored,shared,dual-home decision: protocol default
+Laboratory ID,Advanced,Editable,URI / DOI,$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:identifier,authored,shared,dual-home decision: analysis-tier value
+Sampling Unit,Basic,Basic,Controlled list / Text,$MethodDefinition.ada:samplingUnit,authored,,new in this revision (needs mapping)
+Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,new in this revision (needs mapping)
+Mass Absorption Coefficients (MACs),Basic,Read-Only,Controlled list,$MethodDefinition.ada:massAbsorptionCoefficients,inferred,shared,
+Matrix Correction Method,Basic,Read-Only,Controlled list,$MethodDefinition.ada:matrixCorrectionMethod,inferred,shared,
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
+Peak Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Proportional Counter / Detector,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,shared,
+Procedure DOI,N/A,Basic,URI / DOI,$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier,inferred,shared,
+Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,shared,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name,inferred,shared,
+Procedure Start Date,Basic,Read-Only,Date,$MethodDefinition.schema:datePublished,inferred,shared,
+Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,inferred,shared,
+Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,inferred,shared,
+Sample Preparation Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description,authored,divergent,dual-home decision: protocol default
+Sample Preparation Method,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:description,authored,divergent,dual-home decision: analysis-tier value
+Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar
+Sequence,Advanced,Read-Only,Integer,$MethodDefinition.schema:additionalProperty[schema:name='Sequence'].schema:value,authored,shared,divergence decision applied
+Stage Scan vs. Beam Scan,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs Beam Scan'].schema:value,inferred,shared,
+Step Size / Pixel Size,Basic,Editable,Numeric (um),$MethodDefinition.ada:stepSizePixelSizeDefault,authored,shared,divergence decision applied
+Step Size / Pixel Size,Basic,Editable,Numeric (um),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Step Size / Pixel Size'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
+Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,
+Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,inferred,shared,
+Time-Dependent Intensity Correction,Advanced,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
+WDS Dead Time Correction,Basic,Read-Only,Controlled list,$MethodDefinition.ada:wdsDeadTimeCorrection,inferred,shared,
+WDS PHA Setting,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+WDS Spectrometer Channel,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
+WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='WDSSpectrometer'].schema:name,authored,divergent,divergence decision applied
+X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='xrayLine'].schema:name,authored,divergent,divergence decision applied
+Target Selection Criteria,Basic,Editable,Text (free),$MethodDefinition.ada:targetSelectionCriteriaDefault,authored,,new in this revision (needs mapping)
+Calibration Factor and Determination Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Calibration Factor and Determination Method'].schema:defaultValue,authored,,new in this revision (needs mapping)
+EDS Dead Time,N/A,Basic,Numeric (%),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Dead Time'].schema:value,authored,,analysis-instance (needs mapping)
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,,follows the geochronTAPP reported-property pilot — revisit with that workstream
+Map Area,N/A,Basic,Numeric pair (um x um),$Dataset.schema:additionalProperty[schema:name='Map Area'].schema:value,authored,,analysis-instance (needs mapping)
+Map Dimensions,N/A,Basic,Numeric pair (pixels x pixels),$Dataset.schema:additionalProperty[schema:name='Map Dimensions'].schema:value,authored,,analysis-instance (needs mapping)
+Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Procedural Blank Level'].schema:value,authored,,new in this revision (needs mapping)
+Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,"data-reduction step parameter, following geochronTAPP"
+Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP"
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Goodness-of-Fit'].dqv:value,authored,,new in this revision (needs mapping)
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Dispersion Statistic'].dqv:value,authored,,new in this revision (needs mapping)
+Session Identifier,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping)

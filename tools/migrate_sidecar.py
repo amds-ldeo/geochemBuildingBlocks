@@ -48,6 +48,26 @@ ALIASES = {
     "Sample Sequence Design": "Analysis Sequence",
     # "Target thickness of the electron-transparent TEM lamella after final FIB polishing"
     "Target Foil Thickness": "Foil Thickness",
+    # 2026-08-13 delivery MERGES two Lab-XCT resolution fields into one, confirmed by Stephen. Both
+    # carried the same tiers (N/A/Advanced) and the same dataset-parameter shape, so the merge is
+    # clean — but two olds mapping to one new is why migrate() de-duplicates: each old path names
+    # its own item in a selector literal, and rewriting both produces the identical row twice.
+    "Spatial Resolution": "Effective Spatial Resolution (PSF/MTF)",
+    "Minimum Resolvable Feature Size": "Effective Spatial Resolution (PSF/MTF)",
+    # Solution SF-ICP-MS: "Mass resolution mode assigned to each acquired mass" — same Basic/Read-Only
+    # tiers and the same analyte-column placement as the old per-analyte field. Not to be confused
+    # with `Mass Resolution Setting`, which is Basic/Editable and states the procedure's mode.
+    "Mass Resolution per Analyte": "Mass Resolution Assignment",
+}
+
+
+# What a merged field is CALLED in the schema, where that should differ from the table's label. The
+# Metadata Item must stay whatever the source table says or the row matches nothing, but the
+# selector literal is the parameter's own name and need not carry a table's parenthetical. Both
+# Lab-XCT resolution fields merge onto one parameter named `Spatial Resolution`; forcing the same
+# literal for both is also what lets the two rewritten rows collapse into one.
+SELECTOR_NAME = {
+    "Effective Spatial Resolution (PSF/MTF)": "Spatial Resolution",
 }
 
 
@@ -157,7 +177,8 @@ def migrate(tapp, new_source, write=False):
     mapping, dropped = build_rename_map(old_items, new_order)
 
     # selector rewriting keys on the OLD name, normalized, so drifted punctuation still matches
-    by_norm = {_norm(o): mapping[o] for o in mapping if mapping[o] != o}
+    by_norm = {_norm(o): SELECTOR_NAME.get(mapping[o], mapping[o])
+               for o in mapping if mapping[o] != o}
 
     renamed = {o: v for o, v in mapping.items() if v != o}
     sel_hits = 0
@@ -177,6 +198,19 @@ def migrate(tapp, new_source, write=False):
             row["Protocol Tier"], row["Analysis Tier"], row["Data Type"] = tp, ta, tdt
         out.append(row)
 
+    # Two items merging onto one produce the same row twice, once their selectors are rewritten to
+    # the same literal. Collapse on (item, path); the first row keeps its Notes, which record why
+    # the placement is what it is.
+    seen, deduped = set(), []
+    for r in out:
+        key = (r["Metadata Item"], (r.get("Schema Path") or "").strip())
+        if key[1] and key in seen:
+            continue
+        seen.add(key)
+        deduped.append(r)
+    merged = len(out) - len(deduped)
+    out = deduped
+
     carried = {r["Metadata Item"] for r in out}
     added = [i for i in new_order if i not in carried]
     for i in added:
@@ -190,6 +224,8 @@ def migrate(tapp, new_source, write=False):
     print(f"  items       {len(old_items)} carried, {len(renamed)} renamed, "
           f"{len(dropped)} dropped, {len(added)} new (flagged)")
     print(f"  selectors   {sel_hits} literal(s) rewritten")
+    if merged:
+        print(f"  merged      {merged} duplicate row(s) collapsed by an alias merge")
     for o in sorted(renamed):
         print(f"      rename  {o!r} -> {renamed[o]!r}")
     for d in dropped:

@@ -32,6 +32,7 @@ import migrate_sidecar as ms
 import schemapath_io
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# default delivery; --modules-dir points this at a newer drop without editing the file
 MODDIR = os.path.join(ROOT, "TAPPS20260811", "Claude Skills for TAPP", "modules")
 
 
@@ -59,11 +60,17 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--module", action="append", help="limit to one module (repeatable)")
+    ap.add_argument("--modules-dir",
+                    help="modules folder of the delivery to work in (default: TAPPS20260811)")
     a = ap.parse_args()
 
+    global MODDIR
+    if a.modules_dir:
+        MODDIR = os.path.abspath(a.modules_dir)
     placed = technique_placements()
     names = sorted(f[len("Module_"):-4] for f in os.listdir(MODDIR)
-                   if f.startswith("Module_") and f.endswith(".csv"))
+                   if f.startswith("Module_") and f.endswith(".csv")
+                   and not f.endswith(".schemapaths.csv"))   # our sidecars sit alongside
     if a.module:
         names = [n for n in names if n in a.module]
 
