@@ -24,6 +24,12 @@ cdifd:laserAblationProcedureIdentificationShape
         """ ;
     ] ;
     sh:property [
+        sh:path ada:ablationPitDepthRateDefault ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "LaserAblation requires ada:ablationPitDepthRateDefault on the procedure." ;
+    ] ;
+    sh:property [
         sh:path ada:ablationSamplingMode ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
@@ -40,6 +46,12 @@ cdifd:laserAblationProcedureIdentificationShape
         sh:minCount 1 ;
         sh:severity sh:Warning ;
         sh:message "LaserAblation requires ada:rasterLineSpacingDefault on the procedure." ;
+    ] ;
+    sh:property [
+        sh:path schema:instrument ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "LaserAblation requires schema:instrument on the procedure." ;
     ] ;
     sh:message "LaserAblation ProcedureIdentification required properties." ;
     .
@@ -60,6 +72,12 @@ cdifd:laserAblationAnalysisIdentificationShape
         sh:minCount 1 ;
         sh:severity sh:Warning ;
         sh:message "LaserAblation requires ada:spotDiameterMeasured on the analysis." ;
+    ] ;
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "LaserAblation requires prov:wasGeneratedBy on the analysis." ;
     ] ;
     sh:message "LaserAblation AnalysisIdentification required properties." ;
     .

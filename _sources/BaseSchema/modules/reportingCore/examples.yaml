@@ -15,15 +15,18 @@
             "schema:defaultValue": "example value"
           }
         ],
-        "ada:calibrationFactorAndDeterminationMethodDefault": "example value",
         "schema:actionProcess": {
           "schema:step": [
             {
               "schema:name": "dataReduction",
               "schema:additionalProperty": [
                 {
-                  "schema:name": "Analysis Inclusion and Rejection Criteria",
+                  "schema:name": "Calibration Factor and Determination Method",
                   "schema:defaultValue": "example value"
+                },
+                {
+                  "schema:name": "Analysis Inclusion and Rejection Criteria",
+                  "schema:value": "example value"
                 }
               ]
             }
@@ -53,14 +56,23 @@
                 "schema:value": "example value"
               },
               {
-                "schema:name": "Calibration Factor and Determination Method",
-                "schema:value": "example value"
-              },
-              {
                 "schema:name": "Procedural Blank Level",
                 "schema:value": "example value"
               }
-            ]
+            ],
+            "schema:actionProcess": {
+              "schema:step": [
+                {
+                  "schema:name": "dataReduction",
+                  "schema:additionalProperty": [
+                    {
+                      "schema:name": "Calibration Factor and Determination Method",
+                      "schema:value": "example value"
+                    }
+                  ]
+                }
+              ]
+            }
           }
         ],
         "dqv:hasQualityMeasurement": [

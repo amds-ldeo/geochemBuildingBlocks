@@ -51,14 +51,6 @@ $defs:
                     type: string
                   - type: array
                     items: *id001
-      ada:calibrationFactorAndDeterminationMethodDefault:
-        description: 'An externally-calibrated factor that converts the measured quantity into the reported
-          quantity, how it was determined, and its uncertainty. Applies where the conversion depends on
-          a factor calibrated against a reference of independently known value, rather than on the instrument
-          response alone. Distinct from Primary Calibration Standard Name, which identifies the material
-          used, and from Per-Analyte Calibration Strategy, which states which approach applies to which
-          analyte: this field records the resulting factor itself.'
-        type: string
       schema:actionProcess:
         type: object
         properties:
@@ -83,12 +75,34 @@ $defs:
                         - if:
                             properties:
                               schema:name:
-                                const: Analysis Inclusion and Rejection Criteria
+                                const: Calibration Factor and Determination Method
                             required:
                             - schema:name
                           then:
                             properties:
                               schema:defaultValue:
+                                description: 'An externally-calibrated factor that converts the measured
+                                  quantity into the reported quantity, how it was determined, and its
+                                  uncertainty. Applies where the conversion depends on a factor calibrated
+                                  against a reference of independently known value, rather than on the
+                                  instrument response alone. Distinct from Primary Calibration Standard
+                                  Name, which identifies the material used, and from Per-Analyte Calibration
+                                  Strategy, which states which approach applies to which analyte: this
+                                  field records the resulting factor itself.'
+                                anyOf:
+                                - &id002
+                                  type: string
+                                - type: array
+                                  items: *id002
+                        - if:
+                            properties:
+                              schema:name:
+                                const: Analysis Inclusion and Rejection Criteria
+                            required:
+                            - schema:name
+                          then:
+                            properties:
+                              schema:value:
                                 description: 'The rules determining which individual analyses contribute
                                   to a reported aggregate result, together with the outcome of applying
                                   them: how many analyses were acquired, how many were included, and on
@@ -98,11 +112,17 @@ $defs:
                                   and outcome are combined in one field because neither is interpretable
                                   without the other, following the precision/accuracy precedent.'
                                 anyOf:
-                                - &id002
+                                - &id003
                                   type: string
                                 - type: array
-                                  items: *id002
+                                  items: *id003
                       allOf:
+                      - contains:
+                          properties:
+                            schema:name:
+                              const: Calibration Factor and Determination Method
+                          required:
+                          - schema:name
                       - contains:
                           properties:
                             schema:name:
@@ -117,7 +137,6 @@ $defs:
                 required:
                 - schema:name
     required:
-    - ada:calibrationFactorAndDeterminationMethodDefault
     - ada:targetSelectionCriteriaDefault
   AnalysisIdentification:
     title: ReportingCore fields on the analysis
@@ -152,10 +171,10 @@ $defs:
                           such a sample, the analysed portion is picked out. Generalised from Lab-XCT''s
                           ''VOI Selection Criteria'', which implements this concept for a single technique.'
                         anyOf:
-                        - &id003
+                        - &id004
                           type: string
                         - type: array
-                          items: *id003
+                          items: *id004
                 - if:
                     properties:
                       schema:name:
@@ -171,27 +190,6 @@ $defs:
                           Distinct from any imaging the procedure performs as its own measurement. Where
                           the imaging is performed on a separate instrument, it should also be recorded
                           in the Group 1 coupling fields.
-                        anyOf:
-                        - &id004
-                          type: string
-                        - type: array
-                          items: *id004
-                - if:
-                    properties:
-                      schema:name:
-                        const: Calibration Factor and Determination Method
-                    required:
-                    - schema:name
-                  then:
-                    properties:
-                      schema:value:
-                        description: 'An externally-calibrated factor that converts the measured quantity
-                          into the reported quantity, how it was determined, and its uncertainty. Applies
-                          where the conversion depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone. Distinct from Primary
-                          Calibration Standard Name, which identifies the material used, and from Per-Analyte
-                          Calibration Strategy, which states which approach applies to which analyte:
-                          this field records the resulting factor itself.'
                         anyOf:
                         - &id005
                           type: string
@@ -224,6 +222,50 @@ $defs:
                       const: Procedural Blank Level
                   required:
                   - schema:name
+            schema:actionProcess:
+              type: object
+              properties:
+                schema:step:
+                  type: array
+                  items:
+                    type: object
+                    allOf:
+                    - if:
+                        properties:
+                          schema:name:
+                            const: dataReduction
+                        required:
+                        - schema:name
+                      then:
+                        properties:
+                          schema:additionalProperty:
+                            type: array
+                            items:
+                              type: object
+                              allOf:
+                              - if:
+                                  properties:
+                                    schema:name:
+                                      const: Calibration Factor and Determination Method
+                                  required:
+                                  - schema:name
+                                then:
+                                  properties:
+                                    schema:value:
+                                      description: 'An externally-calibrated factor that converts the
+                                        measured quantity into the reported quantity, how it was determined,
+                                        and its uncertainty. Applies where the conversion depends on a
+                                        factor calibrated against a reference of independently known value,
+                                        rather than on the instrument response alone. Distinct from Primary
+                                        Calibration Standard Name, which identifies the material used,
+                                        and from Per-Analyte Calibration Strategy, which states which
+                                        approach applies to which analyte: this field records the resulting
+                                        factor itself.'
+                                      anyOf:
+                                      - &id007
+                                        type: string
+                                      - type: array
+                                        items: *id007
       dqv:hasQualityMeasurement:
         type: array
         items:
@@ -244,10 +286,10 @@ $defs:
                     tier is N/A because the value cannot be known before the analysis; the procedure may
                     still state an acceptance threshold, which belongs with the inclusion criteria.
                   anyOf:
-                  - &id007
+                  - &id008
                     type: string
                   - type: array
-                    items: *id007
+                    items: *id008
           - if:
               properties:
                 dqv:isMeasurementOf:
@@ -263,10 +305,10 @@ $defs:
                     tier is N/A because the value cannot be known before the analysis; the procedure may
                     still state an acceptance threshold, which belongs with the inclusion criteria.
                   anyOf:
-                  - &id008
+                  - &id009
                     type: string
                   - type: array
-                    items: *id008
+                    items: *id009
         allOf:
         - contains:
             properties:

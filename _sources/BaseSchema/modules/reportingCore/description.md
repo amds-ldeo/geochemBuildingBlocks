@@ -10,7 +10,7 @@ This is a **profile, not a vocabulary**: it asserts which properties a conformin
 
 | `$def` | composed into | properties | required |
 |---|---|---|---|
-| `ProcedureIdentification` | a TAPP schema (`prov:Plan`) | 4 | 2 |
+| `ProcedureIdentification` | a TAPP schema (`prov:Plan`) | 3 | 1 |
 | `AnalysisIdentification` | a technique detail (`schema:Dataset`) | 2 | 0 |
 
 Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.

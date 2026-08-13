@@ -1,0 +1,34 @@
+- title: UPb composed into a procedure (ProcedureIdentification)
+  content: The procedure half of the UPb module, with every property populated. Generated from the schema,
+    so it tracks the sidecar.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "schema:actionProcess": {
+          "schema:step": [
+            {
+              "schema:name": "samplePreparation",
+              "ada:chemicalAbrasionConditions": "example value"
+            },
+            {
+              "schema:name": "dataReduction",
+              "schema:additionalProperty": [
+                {
+                  "schema:name": "Intermediate Daughter Disequilibrium Correction",
+                  "schema:value": "example value"
+                }
+              ]
+            }
+          ]
+        },
+        "schema:additionalProperty": [
+          {
+            "schema:name": "Discordance Definition and Values",
+            "schema:value": "example value"
+          }
+        ]
+      }
