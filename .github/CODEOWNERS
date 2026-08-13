@@ -1,0 +1,34 @@
+# Who owns what, so the two sides of this work stop colliding.
+#
+# Ruolin authors the TAPP source tables and the composition modules; Stephen authors the schema-path
+# placement and everything generated from it. In practice the two have never touched the same file:
+# we only ADD *.schemapaths.csv beside his tables, and every one of his files has exactly one commit,
+# the import. This makes that split explicit rather than habitual.
+#
+# CODEOWNERS routes REVIEW; it does not lock files. It only bites with branch protection requiring
+# owner approval on pull requests, and it does nothing at all to a direct push. Its real job here is
+# to stop our side quietly editing upstream, and to say out loud who answers for what.
+#
+# ORDER MATTERS: last match wins, and `*` spans dots, so `Module_*.csv` also matches
+# `Module_Group1.schemapaths.csv`. The sidecar rules must come AFTER the upstream rules or every
+# module sidecar would be owned by the wrong person.
+
+# ---- upstream: authored by Ruolin, imported and never edited on our side --------------------------
+/TAPPS*/**/*_TAPP_v*.csv          @ruolin-deng
+/TAPPS*/**/Module_*.csv           @ruolin-deng
+/TAPPS*/composed_tapps.json       @ruolin-deng
+/TAPPS*/README*                   @ruolin-deng
+
+# ---- ours: the placement decisions, and everything generated from them ----------------------------
+# These live alongside the upstream tables by design — a sidecar is only meaningful against one
+# revision of one table, so it sits next to the table it describes.
+/TAPPS*/**/*.schemapaths.csv      @smrTucson
+/TAPPS*/**/*.overrides.json       @smrTucson
+/_sources/                        @smrTucson
+/tools/                           @smrTucson
+/docs/                            @smrTucson
+/.github/                         @smrTucson
+
+# ---- shared: worth both pairs of eyes ------------------------------------------------------------
+/README.md                        @smrTucson @ruolin-deng
+/bblocks-config.yaml              @smrTucson @ruolin-deng
