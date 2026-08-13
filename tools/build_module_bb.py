@@ -91,6 +91,7 @@ def build_schema(name):
     # generator produced four modules asserting nothing required at all. Same condition as build():
     # a Basic tier, on a path that is a single top-level direct property.
     required = {"MethodDefinition": [], "Dataset": []}
+    shacl_top = {"MethodDefinition": set(), "Dataset": set()}
     used, placed, unplaced = set(), 0, []
     for item, (P, A, dt, desc) in meta.items():
         paths = spec.get(item, {}).get("path")
@@ -108,6 +109,14 @@ def build_schema(name):
                     and not non_type[0].is_array
                     and non_type[0].prop not in required[parsed.root]):
                 required[parsed.root].append(non_type[0].prop)
+            # The CONTAINER a required field sits in is itself implied, however deep the field is.
+            # JSON Schema `required` deliberately covers only top-level direct properties (matching
+            # build()), but a Basic field under actionProcess.step still means the procedure has an
+            # actionProcess — and that is a true, checkable statement. Without it a module whose
+            # only required field is nested produces no shapes at all: UPb's sole Basic field lives
+            # under a step, so its rules.shacl came out empty and the BB audit rejected it.
+            if require and non_type:
+                shacl_top[parsed.root].add(non_type[0].prop)
             placed += 1
             used.update(re.findall(r"\b([a-z]+):", path))
     out = {}
@@ -118,7 +127,8 @@ def build_schema(name):
                 sch = {**sch, "required": sorted(required[r])}
             out[r] = sch
     return out, {"fields": len(meta), "placed": placed, "unplaced": unplaced,
-                 "prefixes": sorted(used & set(PREFIX_IRI))}
+                 "prefixes": sorted(used & set(PREFIX_IRI)),
+                 "shacl_top": {r: sorted(v) for r, v in shacl_top.items()}}
 
 
 def render(name, defs, stats, composed_by):
@@ -291,10 +301,13 @@ _TARGET = {"ProcedureIdentification": "https://ada.astromat.org/metadata/TAPPDef
            "AnalysisIdentification": "http://schema.org/Dataset"}
 
 
-def write_shacl(d, name, doc):
+def write_shacl(d, name, doc, stats):
     body = [_SHACL_HEAD]
     for defname, sub in doc["$defs"].items():
-        req = sub.get("required") or []
+        # top-level containers implied by this side's Basic fields, so a module whose required
+        # field is nested still yields a real shape rather than none
+        root = "MethodDefinition" if defname.startswith("Procedure") else "Dataset"
+        req = sorted(set(sub.get("required") or []) | set(stats["shacl_top"].get(root) or []))
         if not req:
             continue
         shape = f"cdifd:{name[0].lower()}{name[1:]}{defname}Shape"
@@ -383,7 +396,7 @@ def main():
         if a.write:
             d = write_bb(name, doc, stats, usage[name])
             problems = write_examples(d, name, doc)
-            write_shacl(d, name, doc)
+            write_shacl(d, name, doc, stats)
             write_description(d, name, doc, stats, usage[name])
             print(f"{'':22s} wrote {os.path.relpath(d, ROOT)}")
             for defname, msg in problems:
