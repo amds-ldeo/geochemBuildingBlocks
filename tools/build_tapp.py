@@ -544,10 +544,8 @@ def load_central_roles():
 
 
 def load_sidecar():
-    # docs/<wb>.overrides.json, resolved on the BASENAME for the same reason schemapath_io.csv_path
-    # is: the source table may now live in a delivery tree, but everything hand-authored about it
-    # stays in docs/.
-    p = os.path.join(ROOT, "docs", os.path.splitext(os.path.basename(XLSX))[0] + ".overrides.json")
+    # <wb>.overrides.json beside its source, same rule as schemapath_io.csv_path
+    p = os.path.splitext(XLSX)[0] + ".overrides.json"
     if os.path.exists(p):
         with open(p, encoding="utf-8") as f:
             return json.load(f)

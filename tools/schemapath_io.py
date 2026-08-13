@@ -24,21 +24,15 @@ FIELDS = ["Metadata Item", "Protocol Tier", "Analysis Tier", "Data Type", "Schem
 # workbook and will drop it — re-run mark_shared_mappings.py after a re-seed.
 
 
-DOCS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs")
-
-
 def csv_path(source_path):
-    """<any dir>/<wb>.{xlsx,csv} -> docs/<wb>.schemapaths.csv.
+    """<dir>/<wb>.{xlsx,csv} -> <dir>/<wb>.schemapaths.csv — the sidecar sits BESIDE its source.
 
-    Sidecars always live in docs/, whatever directory the source table sits in. That used to be the
-    same statement — every source was docs/<wb>.xlsx, so appending to the source path worked — but
-    the 2026-08 delivery lands its CSVs under TAPPS20260811/<technique>/, and a sidecar written
-    beside them would put our hand-authored mapping inside a vendor drop, where the next delivery
-    would orphan it. Resolving on the BASENAME keeps sources wherever they are shipped and sidecars
-    where they are curated. Repo-relative docs/ sources resolve exactly as before.
+    A sidecar is only meaningful against one revision of one table: its rows are keyed by that
+    table's Metadata Item values. Keeping the two together means a technique folder holds the whole
+    story, and there is never a question of which sidecar goes with which source. Carrying the
+    curation onto the next delivery is migrate_sidecar.py's job, not the filesystem's.
     """
-    stem = os.path.splitext(os.path.basename(source_path))[0]
-    return os.path.join(DOCS, stem + ".schemapaths.csv")
+    return os.path.splitext(source_path)[0] + ".schemapaths.csv"
 
 
 def read(csv_file):
