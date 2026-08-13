@@ -1,0 +1,85 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix ada:    <https://ada.astromat.org/metadata/> .
+@prefix cdifd:  <https://cdif.org/validation/0.1/shacl#> .
+@base <https://www.ogc.org/rules/template/> .
+
+# Group1 is a PROFILE: it introduces no ada: terms, and asserts instead which base properties a
+# conforming procedure or analysis carries. These shapes restate the module's two required sets so
+# they are checkable in RDF as well as in JSON Schema.
+#
+# Severity is Warning, not Violation. The JSON Schema $defs are the enforcing artifact for anything
+# that composes the module; a graph may legitimately be a partial view (one harvested from a
+# register, say) and should not be called invalid for lacking a field the source document had.
+
+# --- procedure side: the five Procedure-Level Basic fields --------------------------------------
+cdifd:group1ProcedureIdentificationShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX ada: <https://ada.astromat.org/metadata/>
+            SELECT ?this
+            WHERE {
+                ?this a <https://ada.astromat.org/metadata/TAPPDefinition> .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A procedure should carry its name (schema:name; Group1 'Procedure Name')." ;
+    ] ;
+    sh:property [
+        sh:path schema:measurementTechnique ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A procedure should state the technique it implements (schema:measurementTechnique; Group1 'Technique')." ;
+    ] ;
+    sh:property [
+        sh:path schema:creator ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A procedure should name its author (schema:creator; Group1 'Procedure Author')." ;
+    ] ;
+    sh:property [
+        sh:path schema:location ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A procedure should name the laboratory that runs it (schema:location; Group1 'Laboratory')." ;
+    ] ;
+    sh:property [
+        sh:path schema:datePublished ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A procedure should carry its start date (schema:datePublished; Group1 'Procedure Start Date')." ;
+    ] ;
+    sh:message "TAPP definitions should carry the Group1 procedure-identification fields." ;
+    .
+
+# --- analysis side: start and end date on the provenance activity -------------------------------
+# Targeted on the activity rather than the dataset: Analyst, Procedure DOI and Funding hang off the
+# dataset itself and are checked by adaProduct, whereas the analysis window is the part Group1
+# contributes and it lives here.
+cdifd:group1AnalysisWindowShape
+    a sh:NodeShape ;
+    sh:targetObjectsOf prov:wasGeneratedBy ;
+    sh:property [
+        sh:path schema:startDate ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "An analysis activity should record when it started (schema:startDate; Group1 'Analysis Start Date')." ;
+    ] ;
+    sh:property [
+        sh:path schema:endDate ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "An analysis activity should record when it ended (schema:endDate; Group1 'Analysis End Date')." ;
+    ] ;
+    sh:message "Analysis activities should carry the Group1 analysis window." ;
+    .
