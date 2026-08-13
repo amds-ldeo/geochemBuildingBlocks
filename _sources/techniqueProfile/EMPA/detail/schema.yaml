@@ -189,8 +189,8 @@ properties:
             - &id004
               title: Dwell Time per Pixel
               description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds.
-                For WDS: per spectrometer per pixel; may differ by analyte if spectrometers are assigned
-                differently. For EDS: total live-time per spectrum per pixel.'
+                For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per
+                spectrum per pixel, a single value.'
               type: object
               properties:
                 '@id':
@@ -299,7 +299,8 @@ properties:
               - schema:unitText
             - &id008
               title: EDS Dead Time
-              description: Percent dead time reported by the EDS detector during the session. EDS dead
+              description: Percent dead time reported by the EDS detector during the session — the fraction
+                of total acquisition time the detector spent processing rather than counting. EDS dead
                 time correction is managed automatically by the detector electronics; this field documents
                 the resulting percentage as a session QC metric. Values above ~40% indicate excessive
                 count rate and may degrade spectral quality and quantitative accuracy. Unlike WDS dead
@@ -335,7 +336,8 @@ properties:
                 reported quantity is a ratio — its composition, since a blank subtracted from a ratio
                 biases the result unless its own composition is known. Companion to the blank correction
                 method, which is procedure-level: this field records what was actually measured. Follows
-                the criterion-versus-measurement split used for Oxide Production.'
+                the criterion-versus-measurement split the library applies wherever a procedure sets a
+                threshold and an analysis reports a value against it.'
               type: object
               properties:
                 '@id':
@@ -416,14 +418,23 @@ properties:
               then:
                 properties:
                   schema:name:
-                    description: Name or identifier of the sample or sample mount analyzed in this session.
+                    description: Name or identifier of each sample analysed in this session, as used in
+                      the laboratory — a sample mount, section or aliquot counts as one entry where that
+                      is what the laboratory tracks. The analysis record corresponds to one session and
+                      may cover several samples; fields whose Keyed By column declares 'sample' take one
+                      value per entry. Should match the identifier used in associated publications or
+                      data tables.
                     anyOf:
                     - type: string
                     - type: array
                       items:
                         type: string
                   schema:identifier:
-                    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+                    description: Globally unique, persistent identifier for each sample listed in Sample
+                      Name. IGSN (International Geo Sample Number) is the recommended standard for geological
+                      and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample
+                      and its sub-samples are separately registered, record the identifier at the level
+                      actually analysed.
                     anyOf:
                     - type: string
                     - type: array
@@ -477,11 +488,10 @@ properties:
                           description: Physical constants and reference values used in data reduction
                             to calculate the final reported quantity (e.g., decay constants for age calculation,
                             standard isotope ratios, or other citable reference values used in a correction
-                            or calculation), together with their source. Distinct from Reference Material
-                            Information / Secondary Reference Materials (Group 6), which document accepted
-                            values for specific calibration/validation materials rather than universal
-                            physical constants. Record "None" if no citable, revisable physical constants
-                            feed into this procedure's data reduction.
+                            or calculation), together with their source. Distinct from the Group 6 reference-material
+                            fields, which document accepted values for specific calibration/validation
+                            materials rather than universal physical constants. Record "None" if no citable,
+                            revisable physical constants feed into this procedure's data reduction.
                           type: object
                           properties:
                             '@id':

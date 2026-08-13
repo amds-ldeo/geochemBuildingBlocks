@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)",
-  "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from TAPPS20260811/SEM/SEM_Composition_TAPP_v10.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+  "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "properties": {
     "@context": {
       "type": "object",
@@ -2894,7 +2894,7 @@
                           "type": "array",
                           "items": {
                             "title": "Constants and Reference Values Used",
-                            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -2937,7 +2937,7 @@
                             {
                               "contains": {
                                 "title": "Constants and Reference Values Used",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -3039,7 +3039,7 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Make of the SEM or FIB-SEM instrument.",
+                          "description": "Make of the instrument used for this procedure.",
                           "type": "string",
                           "enum": [
                             "JEOL",
@@ -3087,7 +3087,7 @@
                             "then": {
                               "properties": {
                                 "schema:description": {
-                                  "description": "Type of electron gun used in the SEM instrument.",
+                                  "description": "Type of electron gun used in the instrument.",
                                   "anyOf": [
                                     {
                                       "type": "string",
@@ -3173,7 +3173,7 @@
                             "then": {
                               "properties": {
                                 "schema:name": {
-                                  "description": "Number, type, and crystal range of WDS spectrometers attached to the SEM. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+                                  "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
                                   "anyOf": [
                                     {
                                       "type": "string",
@@ -3207,7 +3207,7 @@
                             "then": {
                               "properties": {
                                 "schema:name": {
-                                  "description": "X-ray emission line measured for each analyte. Line choice affects sensitivity, matrix correction accuracy, and peak overlap susceptibility.",
+                                  "description": "X-ray emission line measured on each spectrometer assignment. Line choice affects sensitivity, matrix correction accuracy, and susceptibility to peak overlap and spectral interference.",
                                   "anyOf": [
                                     {
                                       "type": "string",
@@ -3612,7 +3612,7 @@
                   },
                   {
                     "title": "Diffracting Crystal",
-                    "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+                    "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3653,7 +3653,7 @@
                   },
                   {
                     "title": "WDS Spectrometer Channel",
-                    "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+                    "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3671,7 +3671,7 @@
                         "const": "WDS Spectrometer Channel"
                       },
                       "ada:dataType": {
-                        "const": "integer"
+                        "const": "string"
                       },
                       "schema:readonlyValue": {
                         "const": true
@@ -3680,14 +3680,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -3700,7 +3693,7 @@
                   },
                   {
                     "title": "Proportional Counter / Detector",
-                    "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+                    "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3780,7 +3773,7 @@
                   },
                   {
                     "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+                    "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3916,7 +3909,7 @@
                   },
                   {
                     "title": "Background Correction Method",
-                    "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
+                    "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4159,7 +4152,7 @@
                   },
                   {
                     "title": "Detection Limit",
-                    "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+                    "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4240,7 +4233,7 @@
                   },
                   {
                     "title": "Analytical Precision",
-                    "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name and number of analyses.",
+                    "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and value per analyte or element group.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4280,7 +4273,7 @@
                   },
                   {
                     "title": "Analytical Accuracy",
-                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias.",
+                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and per-analyte value.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4320,7 +4313,7 @@
                   },
                   {
                     "title": "Counting Statistics Error",
-                    "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+                    "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4416,7 +4409,7 @@
                 {
                   "contains": {
                     "title": "Diffracting Crystal",
-                    "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+                    "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4461,7 +4454,7 @@
                 {
                   "contains": {
                     "title": "WDS Spectrometer Channel",
-                    "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+                    "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4479,7 +4472,7 @@
                         "const": "WDS Spectrometer Channel"
                       },
                       "ada:dataType": {
-                        "const": "integer"
+                        "const": "string"
                       },
                       "schema:readonlyValue": {
                         "const": true
@@ -4488,14 +4481,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -4512,7 +4498,7 @@
                 {
                   "contains": {
                     "title": "Proportional Counter / Detector",
-                    "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+                    "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4600,7 +4586,7 @@
                 {
                   "contains": {
                     "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+                    "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4748,7 +4734,7 @@
                 {
                   "contains": {
                     "title": "Background Correction Method",
-                    "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
+                    "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5015,7 +5001,7 @@
                 {
                   "contains": {
                     "title": "Detection Limit",
-                    "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+                    "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5104,7 +5090,7 @@
                 {
                   "contains": {
                     "title": "Analytical Precision",
-                    "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name and number of analyses.",
+                    "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and value per analyte or element group.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5148,7 +5134,7 @@
                 {
                   "contains": {
                     "title": "Analytical Accuracy",
-                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias.",
+                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and per-analyte value.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5192,7 +5178,7 @@
                 {
                   "contains": {
                     "title": "Counting Statistics Error",
-                    "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+                    "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5238,7 +5224,7 @@
             "ada:defaultAnalytes": {
               "type": "array",
               "items": {
-                "description": "Element(s) measured by this procedure. The procedure registers the full intended analyte suite; analysts record the specific subset measured in a given session, which may be narrower. Fields below flagged as Analyte-Specific in the Comments column apply individually to each element in this list.",
+                "description": "The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules. The procedure registers the full analyte suite; analysts record the specific subset actually measured in a given session, which may be narrower. Fields whose Keyed By column declares 'analyte' apply individually to each element in this list.",
                 "type": "string"
               }
             }
@@ -5448,7 +5434,7 @@
               },
               {
                 "title": "Sequence",
-                "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first).",
+                "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -5564,7 +5550,7 @@
               },
               {
                 "title": "EDS Spectral Processing Type",
-                "description": "Method used to process raw EDS spectra and extract net peak intensities from raw spectral data.",
+                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -5888,7 +5874,7 @@
             {
               "contains": {
                 "title": "Sequence",
-                "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first).",
+                "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6016,7 +6002,7 @@
             {
               "contains": {
                 "title": "EDS Spectral Processing Type",
-                "description": "Method used to process raw EDS spectra and extract net peak intensities from raw spectral data.",
+                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -6176,7 +6162,7 @@
           ]
         },
         "ada:stepSizePixelSizeDefault": {
-          "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+          "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
           "anyOf": [
             {
               "type": "number"
@@ -6187,7 +6173,7 @@
           ]
         },
         "ada:matrixCorrectionMethod": {
-          "description": "X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction.",
+          "description": "X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps.",
           "type": "string",
           "enum": [
             "XPP (Simplified PAP)",
@@ -6218,7 +6204,7 @@
           "readOnly": true
         },
         "ada:wdsDeadTimeCorrection": {
-          "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates. Unlike EDS dead time (hardware-managed, reported as QC percentage), WDS dead time correction is a user-selectable algorithm.",
+          "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion.",
           "type": "string",
           "enum": [
             "Default constant (manufacturer)",
@@ -6232,7 +6218,7 @@
           "readOnly": true
         },
         "ada:interferenceCorrectionsApplied": {
-          "description": "Whether a spectral interference correction was applied for each analyte.",
+          "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
           "type": "boolean",
           "readOnly": true
         },
@@ -6246,7 +6232,7 @@
             "ada:defaultReportedProperties": {
               "type": "array",
               "items": {
-                "description": "The final variable(s) this procedure reports and their units — distinct from Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire many masses and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
                 "type": "string",
                 "readOnly": true
               }

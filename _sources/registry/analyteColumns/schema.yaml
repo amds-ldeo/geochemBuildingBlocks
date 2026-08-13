@@ -511,8 +511,8 @@ $defs:
     - schema:defaultValue
   empa_countingStatisticsError:
     title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities
-      for each analyte per analysis.
+    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
+      for each reported concentration variable per analysis.
     type: object
     properties:
       '@id':
@@ -540,8 +540,9 @@ $defs:
     - ada:dataType
   empa_detectionLimit:
     title: Detection Limit
-    description: Method detection limit at 99% confidence (3-sigma) for each analyte, derived from counting
-      statistics on peak and background. Include the method and resulting value per analyte.
+    description: Method detection limit at 99% confidence (3-sigma), one per reported concentration variable
+      (one per analyte, these being the same set), derived from counting statistics on peak and background.
+      Include the method and the resulting value for each.
     type: object
     properties:
       '@id':
@@ -569,8 +570,8 @@ $defs:
     - ada:dataType
   empa_diffractingCrystal:
     title: Diffracting Crystal
-    description: Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal
-      choice determines the detectable wavelength range and dispersion.
+    description: Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice
+      determines the detectable wavelength range and dispersion.
     type: object
     properties:
       '@id':
@@ -690,8 +691,8 @@ $defs:
     - schema:defaultValue
   empa_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
-      count rate linearity.
+    description: Type of detector used on each spectrometer assignment. Affects sensitivity and count
+      rate linearity.
     type: object
     properties:
       '@id':
@@ -780,8 +781,11 @@ $defs:
     - ada:dataType
   empa_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: WDS spectrometer number assigned to each analyte. Different spectrometers may have different
-      crystal configurations.
+    description: WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte
+      may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting),
+      and one spectrometer serves several analytes across a run, so the assignment — not the analyte —
+      is the unit carrying the spectrometer setup. Different spectrometers may have different crystal
+      configurations.
     type: object
     properties:
       '@id':
@@ -794,15 +798,13 @@ $defs:
       schema:name:
         const: WDS Spectrometer Channel
       ada:dataType:
-        const: integer
+        const: string
       schema:readonlyValue:
         const: true
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1669,8 +1671,8 @@ $defs:
     - ada:dataType
   peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies
-      standard values per analyte; analysts may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer
+      assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -1781,7 +1783,7 @@ $defs:
   semComposition_analyticalAccuracy:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary standards, expressed
-      as percent relative bias.
+      as percent relative bias. Include reference material, reference value source, and per-analyte value.
     type: object
     properties:
       '@id':
@@ -1810,8 +1812,8 @@ $defs:
   semComposition_analyticalPrecision:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent reference material,
-      expressed as 1-sigma relative standard deviation (%). Include reference material name and number
-      of analyses.
+      expressed as 1-sigma relative standard deviation (%). Include reference material name, number of
+      analyses (n), and value per analyte or element group.
     type: object
     properties:
       '@id':
@@ -1840,8 +1842,8 @@ $defs:
   semComposition_backgroundCorrectionMethod:
     title: Background Correction Method
     description: 'Method used to estimate and subtract background X-ray intensity beneath the peak. For
-      WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS:
-      spectral background modelling within EDS software.'
+      WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model.
+      For EDS: spectral background fitting or top-hat filter applied during spectral processing.'
     type: object
     properties:
       '@id':
@@ -1993,8 +1995,8 @@ $defs:
     - ada:dataType
   semComposition_countingStatisticsError:
     title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities
-      for each analyte per analysis.
+    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
+      for each reported concentration variable per analysis.
     type: object
     properties:
       '@id':
@@ -2022,8 +2024,8 @@ $defs:
     - ada:dataType
   semComposition_detectionLimit:
     title: Detection Limit
-    description: Method detection limit at 99% confidence for each analyte. Include the method used and
-      the resulting value per analyte.
+    description: Method detection limit at 99% confidence, one per reported concentration variable (one
+      per analyte, these being the same set). Include the method used and the resulting value for each.
     type: object
     properties:
       '@id':
@@ -2080,8 +2082,8 @@ $defs:
     - schema:defaultValue
   semComposition_diffractingCrystal:
     title: Diffracting Crystal
-    description: Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal
-      choice determines the detectable wavelength range and dispersion.
+    description: Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice
+      determines the detectable wavelength range and dispersion.
     type: object
     properties:
       '@id':
@@ -2139,8 +2141,8 @@ $defs:
     - ada:dataType
   semComposition_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure
-      specifies standard values; analysts may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer
+      assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -2203,8 +2205,8 @@ $defs:
     - schema:defaultValue
   semComposition_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
-      count rate linearity.
+    description: Type of detector used on each spectrometer assignment. Affects sensitivity and count
+      rate linearity.
     type: object
     properties:
       '@id':
@@ -2323,8 +2325,11 @@ $defs:
     - ada:dataType
   semComposition_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: WDS spectrometer number assigned to each analyte. Different spectrometers may have different
-      crystal configurations.
+    description: WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte
+      may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting),
+      and one spectrometer serves several analytes across a run, so the assignment — not the analyte —
+      is the unit carrying the spectrometer setup. Different spectrometers may have different crystal
+      configurations.
     type: object
     properties:
       '@id':
@@ -2337,15 +2342,13 @@ $defs:
       schema:name:
         const: WDS Spectrometer Channel
       ada:dataType:
-        const: integer
+        const: string
       schema:readonlyValue:
         const: true
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2503,8 +2506,11 @@ $defs:
     - schema:defaultValue
   solutionQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
-      and the assessment method.
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
     type: object
     properties:
       '@id':
@@ -2532,8 +2538,9 @@ $defs:
     - ada:dataType
   solutionQicpms_detectionLimit:
     title: Detection Limit
-    description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether
-      values are procedure-typical estimates or session-specific measured values.
+    description: Elemental detection limits, one per reported concentration variable (one per analyte,
+      these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical
+      estimates or session-specific measured values.
     type: object
     properties:
       '@id':
@@ -2563,7 +2570,7 @@ $defs:
     - ada:dataType
   solutionQicpms_detectionLimitMethod:
     title: Detection Limit Method
-    description: Method used to calculate detection limits for each analyte.
+    description: Method used to calculate detection limits for each reported concentration variable.
     type: object
     properties:
       '@id':
@@ -2834,8 +2841,11 @@ $defs:
     - schema:defaultValue
   solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
-      and the assessment method.
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
     type: object
     properties:
       '@id':
@@ -2863,8 +2873,9 @@ $defs:
     - ada:dataType
   solutionSficpms_detectionLimit:
     title: Detection Limit
-    description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether
-      values are procedure-typical estimates or session-specific measured values.
+    description: Elemental detection limits, one per reported concentration variable (one per analyte,
+      these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical
+      estimates or session-specific measured values.
     type: object
     properties:
       '@id':
@@ -2894,7 +2905,7 @@ $defs:
     - ada:dataType
   solutionSficpms_detectionLimitMethod:
     title: Detection Limit Method
-    description: Method used to calculate detection limits for each analyte.
+    description: Method used to calculate detection limits for each reported concentration variable.
     type: object
     properties:
       '@id':
@@ -2923,8 +2934,8 @@ $defs:
     - schema:defaultValue
   solutionSficpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
-      dwell times are programmed.
+    description: Integration time spent on each mass peak per sweep (ms). May differ between masses where
+      per-mass dwell times are programmed.
     type: object
     properties:
       '@id':
@@ -2988,7 +2999,7 @@ $defs:
     title: Interfering Species
     description: List of isobaric or polyatomic species mathematically corrected in data reduction. In
       SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections
-      address residual interferences not resolved at the operating resolution. Analyte-specific.
+      address residual interferences not resolved at the operating resolution.
     type: object
     properties:
       '@id':
@@ -3074,6 +3085,38 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  solutionSficpms_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode assigned to each acquired mass. The selected resolution determines
+      which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be
+      acquired at more than one resolution, so the assignment is per acquired mass rather than per element.
+      The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionSficpms_massResolutionPerAnalyte:
     title: Mass Resolution per Analyte
     description: Mass resolution mode assigned to each analyte in this procedure. The selected resolution
@@ -3108,8 +3151,10 @@ $defs:
     - schema:defaultValue
   solutionSficpms_monitoredIsotopes:
     title: Monitored Isotopes
-    description: Specific isotope(s) monitored per analyte element in this procedure, including any interference-monitor
-      masses. Analyte-specific field.
+    description: Specific isotope(s) monitored in this procedure, grouped by the analyte element they
+      serve where they serve one. Includes interference-monitor and internal-standard masses, which serve
+      no analyte and so have no parent element. The analyte list is given by the Analyte field and is
+      never inferred from the element symbols appearing here.
     type: object
     properties:
       '@id':

@@ -590,7 +590,10 @@ $defs:
 
   empa_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -897,8 +900,9 @@ $defs:
     - ada:fieldScope
   empa_detectionLimitDefault:
     title: Detection Limit
-    description: Method detection limit at 99% confidence (3-sigma) for each analyte, derived from counting
-      statistics on peak and background. Include the method and resulting value per analyte.
+    description: Method detection limit at 99% confidence (3-sigma), one per reported concentration variable
+      (one per analyte, these being the same set), derived from counting statistics on peak and background.
+      Include the method and the resulting value for each.
     type: object
     properties:
       '@id':
@@ -988,8 +992,8 @@ $defs:
     - ada:fieldScope
   empa_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities
-      for each analyte per analysis.
+    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
+      for each reported concentration variable per analysis.
     type: object
     properties:
       '@id':
@@ -2043,8 +2047,10 @@ $defs:
     - ada:fieldScope
   labxct_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for the analysed sample. IGSN (International Geo
-      Sample Number) is the recommended standard for geological and cosmochemical samples.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -2595,8 +2601,12 @@ $defs:
       analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features,
       because each voxel integrates the attenuation of all material within its volume. PVE correction can
       be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion
-      adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or
-      size distribution calculations, and whether PVE correction is required or optional.
+      adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in
+      modal abundance or size distribution calculations, and whether PVE correction is required or optional.
+      Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at
+      least 10 for reliable shape and volume characterisation; state whether the criterion follows that
+      convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported
+      modal abundances and size distributions, so two datasets are not comparable without it.
     type: object
     properties:
       '@id':
@@ -3165,9 +3175,13 @@ $defs:
     - ada:dataType
     - ada:fieldScope
 
+
   semComposition_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -3508,8 +3522,8 @@ $defs:
     - ada:fieldScope
   semComposition_detectionLimitDefault:
     title: Detection Limit
-    description: Method detection limit at 99% confidence for each analyte. Include the method used and
-      the resulting value per analyte.
+    description: Method detection limit at 99% confidence, one per reported concentration variable (one
+      per analyte, these being the same set). Include the method used and the resulting value for each.
     type: object
     properties:
       '@id':
@@ -3539,8 +3553,8 @@ $defs:
   semComposition_analyticalPrecisionDefault:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent reference material,
-      expressed as 1-sigma relative standard deviation (%). Include reference material name and number of
-      analyses.
+      expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses
+      (n), and value per analyte or element group.
     type: object
     properties:
       '@id':
@@ -3570,7 +3584,7 @@ $defs:
   semComposition_analyticalAccuracyDefault:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary standards, expressed
-      as percent relative bias.
+      as percent relative bias. Include reference material, reference value source, and per-analyte value.
     type: object
     properties:
       '@id':
@@ -3599,8 +3613,8 @@ $defs:
     - ada:fieldScope
   semComposition_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities
-      for each analyte per analysis.
+    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
+      for each reported concentration variable per analysis.
     type: object
     properties:
       '@id':
@@ -3630,7 +3644,10 @@ $defs:
 
   semFibsem_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -3693,7 +3710,10 @@ $defs:
 
   semImaging_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -3910,7 +3930,10 @@ $defs:
 
   solutionQicpms_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: International Geo Sample Number (IGSN) or other persistent identifier for the sample.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -4002,8 +4025,9 @@ $defs:
   solutionQicpms_torchDepthDefault:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers
-      the target torch position; analyst confirms or adjusts during session tuning.
+      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
+      formation, and doubly-charged species production. The procedure specifies a target value optimised
+      during initial setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -4319,8 +4343,9 @@ $defs:
     - ada:fieldScope
   solutionQicpms_detectionLimitDefault:
     title: Detection Limit
-    description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values
-      are procedure-typical estimates or session-specific measured values.
+    description: Elemental detection limits, one per reported concentration variable (one per analyte, these
+      being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates
+      or session-specific measured values.
     type: object
     properties:
       '@id':
@@ -4378,8 +4403,11 @@ $defs:
     - ada:fieldScope
   solutionQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
-      and the assessment method.
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material values
+      across all sessions.'
     type: object
     properties:
       '@id':
@@ -4409,7 +4437,10 @@ $defs:
 
   solutionSficpms_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: International Geo Sample Number (IGSN) or other persistent identifier for the sample.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -4501,8 +4532,9 @@ $defs:
   solutionSficpms_torchDepthDefault:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers
-      the target torch position; analyst confirms or adjusts during session tuning.
+      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
+      formation, and doubly-charged species production. The procedure specifies a target value optimised
+      during initial setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -4788,8 +4820,9 @@ $defs:
     - ada:fieldScope
   solutionSficpms_detectionLimitDefault:
     title: Detection Limit
-    description: Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values
-      are procedure-typical estimates or session-specific measured values.
+    description: Elemental detection limits, one per reported concentration variable (one per analyte, these
+      being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates
+      or session-specific measured values.
     type: object
     properties:
       '@id':
@@ -4847,8 +4880,11 @@ $defs:
     - ada:fieldScope
   solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: Precision of measurements across multiple analysis sessions (long-term reproducibility)
-      and the assessment method.
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material values
+      across all sessions.'
     type: object
     properties:
       '@id':
@@ -4878,7 +4914,10 @@ $defs:
 
   tem_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -5572,8 +5611,9 @@ $defs:
     - ada:fieldScope
   tem_edsDetectionLimitDefault:
     title: EDS Detection Limit
-    description: Estimated detection limits for key target analytes by EDS under this procedure conditions.
-      Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+    description: Estimated detection limits by EDS under this procedure's conditions, one per reported concentration
+      variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic
+      Detector(s).
     type: object
     properties:
       '@id':

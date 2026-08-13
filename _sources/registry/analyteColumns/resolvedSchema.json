@@ -497,7 +497,7 @@
         },
         "empa_countingStatisticsError": {
             "title": "Counting Statistics Error",
-            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -537,7 +537,7 @@
         },
         "empa_detectionLimit": {
             "title": "Detection Limit",
-            "description": "Method detection limit at 99% confidence (3-sigma) for each analyte, derived from counting statistics on peak and background. Include the method and resulting value per analyte.",
+            "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -577,7 +577,7 @@
         },
         "empa_diffractingCrystal": {
             "title": "Diffracting Crystal",
-            "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+            "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -740,7 +740,7 @@
         },
         "empa_proportionalCounterDetector": {
             "title": "Proportional Counter / Detector",
-            "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -861,7 +861,7 @@
         },
         "empa_wdsSpectrometerChannel": {
             "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -879,7 +879,7 @@
                     "const": "WDS Spectrometer Channel"
                 },
                 "ada:dataType": {
-                    "const": "integer"
+                    "const": "string"
                 },
                 "schema:readonlyValue": {
                     "const": true
@@ -888,14 +888,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1543,7 +1536,7 @@
         },
         "peakCountingTime": {
             "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies standard values per analyte; analysts may adjust within procedure-defined bounds.",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
             "type": "object",
             "properties": {
                 "@id": {

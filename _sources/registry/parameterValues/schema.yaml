@@ -1474,7 +1474,10 @@ $defs:
     - schema:value
   empa_samplePersistentIdentifier:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -1501,8 +1504,7 @@ $defs:
       applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
       freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
       which states the material type the procedure is designed for: this field states how, within such a
-      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
-      which implements this concept for a single technique.'
+      sample, the analysed portion is picked out.'
     type: object
     properties:
       '@id':
@@ -1718,8 +1720,8 @@ $defs:
     - schema:value
   empa_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies
-      standard values per analyte; analysts may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer
+      assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -1832,8 +1834,8 @@ $defs:
   empa_dwellTimePerPixel:
     title: Dwell Time per Pixel
     description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds.
-      For WDS: per spectrometer per pixel; may differ by analyte if spectrometers are assigned differently.
-      For EDS: total live-time per spectrum per pixel.'
+      For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per
+      pixel, a single value.'
     type: object
     properties:
       '@id':
@@ -2016,9 +2018,8 @@ $defs:
     description: 'An externally-calibrated factor that converts the measured quantity into the reported
       quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
       calibrated against a reference of independently known value, rather than on the instrument response
-      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
-      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
-      records the resulting factor itself.'
+      alone. Distinct from the fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -2043,10 +2044,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -2169,8 +2170,9 @@ $defs:
     - schema:value
   empa_wdsSpectrometerConfiguration:
     title: WDS Spectrometer Configuration
-    description: Number, type, and crystal range of WDS spectrometers on the instrument. For SEM-WDS configurations
-      (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.
+    description: Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer,
+      model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include
+      WDS manufacturer and model.
     type: object
     properties:
       '@id':
@@ -2217,8 +2219,10 @@ $defs:
     - schema:value
   empa_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: WDS spectrometer number assigned to each analyte. Different spectrometers may have different
-      crystal configurations.
+    description: WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte
+      may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting),
+      and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is
+      the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.
     type: object
     properties:
       '@id':
@@ -2232,9 +2236,7 @@ $defs:
       schema:name:
         const: WDS Spectrometer Channel
       schema:value:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2243,10 +2245,9 @@ $defs:
     - schema:value
   empa_sequence:
     title: Sequence
-    description: Order in which analytes are acquired in the spectrometer sequence during point analysis.
-      Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel
-      setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at
-      each pixel.
+    description: Order in which spectrometer assignments are acquired during point analysis. Relevant for
+      minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups.
+      Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -2271,8 +2272,8 @@ $defs:
     - schema:value
   empa_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
-      count rate linearity.
+    description: Type of detector used on each spectrometer assignment. Affects sensitivity and count rate
+      linearity.
     type: object
     properties:
       '@id':
@@ -2371,6 +2372,9 @@ $defs:
   empa_edsSpectralProcessingType:
     title: EDS Spectral Processing Type
     description: Method used to process EDS spectra and extract net peak intensities from raw spectral data.
+      Applied before quantification (see Matrix Correction Method). Common approaches include background
+      fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for
+      overlapping peaks.
     type: object
     properties:
       '@id':
@@ -4595,8 +4599,10 @@ $defs:
     - schema:value
   labxct_samplePersistentIdentifier:
     title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for the analysed sample. IGSN (International Geo
-      Sample Number) is the recommended standard for geological and cosmochemical samples.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -4648,8 +4654,7 @@ $defs:
       applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
       freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
       which states the material type the procedure is designed for: this field states how, within such a
-      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
-      which implements this concept for a single technique.'
+      sample, the analysed portion is picked out.'
     type: object
     properties:
       '@id':
@@ -4934,10 +4939,10 @@ $defs:
   labxct_voxelSize:
     title: Voxel Size
     description: Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure
-      registers the target voxel size, set based on the minimum feature size to be resolved (target voxel
-      size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel
-      size as reported by the reconstruction software, which may differ slightly from the target due to
-      final geometric calibration.
+      registers the target voxel size, set based on the smallest feature to be resolved (target voxel size
+      ≤ ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At
+      analysis level, record the achieved voxel size as reported by the reconstruction software, which may
+      differ slightly from the target due to final geometric calibration.
     type: object
     properties:
       '@id':
@@ -5499,9 +5504,8 @@ $defs:
     description: 'An externally-calibrated factor that converts the measured quantity into the reported
       quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
       calibrated against a reference of independently known value, rather than on the instrument response
-      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
-      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
-      records the resulting factor itself.'
+      alone. Distinct from the fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -5526,10 +5530,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -5550,8 +5554,8 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  labxct_spatialResolution:
-    title: Spatial Resolution
+  labxct_effectiveSpatialResolution:
+    title: Effective Spatial Resolution (PSF/MTF)
     description: Effective spatial resolution of the reconstructed CT volume, which typically differs from
       (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness,
       and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal
@@ -5559,19 +5563,21 @@ $defs:
       function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable,
       an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of
       the voxel size may be recorded. Report the value in µm along with the method used to determine or
-      estimate it.
+      estimate it. Note that most XCT papers use the bare phrase "spatial resolution" for the voxel size;
+      record that under Voxel Size, and leave this field as not reported unless an effective resolution
+      was actually determined.
     type: object
     properties:
       '@id':
-        const: ada:parameter/labxctTAPP/spatialResolution
+        const: ada:parameter/labxctTAPP/effectiveSpatialResolution
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-          '@id': ada:parameter/labxctTAPP/spatialResolution
+          '@id': ada:parameter/labxctTAPP/effectiveSpatialResolution
       schema:name:
-        const: Spatial Resolution
+        const: Effective Spatial Resolution (PSF/MTF)
       schema:value:
         type: string
     required:
@@ -5670,8 +5676,12 @@ $defs:
       analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features,
       because each voxel integrates the attenuation of all material within its volume. PVE correction can
       be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion
-      adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or
-      size distribution calculations, and whether PVE correction is required or optional.
+      adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in
+      modal abundance or size distribution calculations, and whether PVE correction is required or optional.
+      Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at
+      least 10 for reliable shape and volume characterisation; state whether the criterion follows that
+      convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported
+      modal abundances and size distributions, so two datasets are not comparable without it.
     type: object
     properties:
       '@id':
@@ -5717,39 +5727,6 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  labxct_minimumResolvableFeatureSize:
-    title: Minimum Resolvable Feature Size
-    description: Smallest feature reliably detected and quantified in this analysis at the achieved voxel
-      size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial
-      resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels
-      to be positively identified, and at least 10 voxels for reliable shape and volume characterisation.
-      Report the minimum feature size threshold applied in quantitative analysis and the basis for that
-      value (e.g., SNR-limited, PVE-limited, or analyst-defined).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/minimumResolvableFeatureSize
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-          '@id': ada:parameter/labxctTAPP/minimumResolvableFeatureSize
-      schema:name:
-        const: Minimum Resolvable Feature Size
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
   labxct_signalToNoiseRatio:
     title: Signal-to-Noise Ratio
     description: Quantitative measure of image quality in the reconstructed CT volume. Typically calculated
@@ -7195,6 +7172,7 @@ $defs:
     - schema:name
     - schema:value
 
+
   semComposition_coupledProcedureDoi:
     title: Coupled Procedure DOI
     description: Registered procedure DOI for the coupled technique named above. Provides a stable, citable
@@ -7278,7 +7256,10 @@ $defs:
     - schema:value
   semComposition_samplePersistentIdentifier:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -7305,8 +7286,7 @@ $defs:
       applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
       freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
       which states the material type the procedure is designed for: this field states how, within such a
-      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
-      which implements this concept for a single technique.'
+      sample, the analysed portion is picked out.'
     type: object
     properties:
       '@id':
@@ -7640,9 +7620,9 @@ $defs:
   semComposition_stepSizePixelSize:
     title: Step Size / Pixel Size
     description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS
-      mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions,
-      determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition
-      time.
+      mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid
+      dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend
+      acquisition time.
     type: object
     properties:
       '@id':
@@ -7667,8 +7647,8 @@ $defs:
     - schema:value
   semComposition_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure
-      specifies standard values; analysts may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer
+      assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -7750,8 +7730,8 @@ $defs:
   semComposition_backgroundCorrectionMethod:
     title: Background Correction Method
     description: 'Method used to estimate and subtract background X-ray intensity beneath the peak. For
-      WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral
-      background modelling within EDS software.'
+      WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model.
+      For EDS: spectral background fitting or top-hat filter applied during spectral processing.'
     type: object
     properties:
       '@id':
@@ -7875,9 +7855,8 @@ $defs:
     description: 'An externally-calibrated factor that converts the measured quantity into the reported
       quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
       calibrated against a reference of independently known value, rather than on the instrument response
-      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
-      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
-      records the resulting factor itself.'
+      alone. Distinct from the fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -7902,10 +7881,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -8052,7 +8031,7 @@ $defs:
     - schema:value
   semComposition_wdsSpectrometerConfiguration:
     title: WDS Spectrometer Configuration
-    description: Number, type, and crystal range of WDS spectrometers attached to the SEM. Include manufacturer,
+    description: Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer,
       model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include
       WDS manufacturer and model.
     type: object
@@ -8103,8 +8082,10 @@ $defs:
     - schema:value
   semComposition_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: WDS spectrometer number assigned to each analyte. Different spectrometers may have different
-      crystal configurations.
+    description: WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte
+      may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting),
+      and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is
+      the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.
     type: object
     properties:
       '@id':
@@ -8118,9 +8099,7 @@ $defs:
       schema:name:
         const: WDS Spectrometer Channel
       schema:value:
-        anyOf:
-        - type: number
-        - type: string
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8129,8 +8108,9 @@ $defs:
     - schema:value
   semComposition_sequence:
     title: Sequence
-    description: Order in which analytes are acquired in the spectrometer sequence during point analysis.
-      Relevant for minimizing beam damage (volatile elements measured first).
+    description: Order in which spectrometer assignments are acquired during point analysis. Relevant for
+      minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups.
+      Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -8155,8 +8135,8 @@ $defs:
     - schema:value
   semComposition_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and
-      count rate linearity.
+    description: Type of detector used on each spectrometer assignment. Affects sensitivity and count rate
+      linearity.
     type: object
     properties:
       '@id':
@@ -8229,8 +8209,10 @@ $defs:
     - schema:value
   semComposition_edsSpectralProcessingType:
     title: EDS Spectral Processing Type
-    description: Method used to process raw EDS spectra and extract net peak intensities from raw spectral
-      data.
+    description: Method used to process EDS spectra and extract net peak intensities from raw spectral data.
+      Applied before quantification (see Matrix Correction Method). Common approaches include background
+      fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for
+      overlapping peaks.
     type: object
     properties:
       '@id':
@@ -8383,7 +8365,10 @@ $defs:
     - schema:value
   semFibsem_samplePersistentIdentifier:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -8410,8 +8395,7 @@ $defs:
       applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
       freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
       which states the material type the procedure is designed for: this field states how, within such a
-      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
-      which implements this concept for a single technique.'
+      sample, the analysed portion is picked out.'
     type: object
     properties:
       '@id':
@@ -8787,10 +8771,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -8944,7 +8928,10 @@ $defs:
     - schema:value
   semImaging_samplePersistentIdentifier:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -8971,8 +8958,7 @@ $defs:
       applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
       freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
       which states the material type the procedure is designed for: this field states how, within such a
-      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
-      which implements this concept for a single technique.'
+      sample, the analysed portion is picked out.'
     type: object
     properties:
       '@id':
@@ -9324,10 +9310,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -9633,8 +9619,9 @@ $defs:
   solutionQicpms_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers
-      the target torch position; analyst confirms or adjusts during session tuning.
+      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
+      formation, and doubly-charged species production. The procedure specifies a target value optimised
+      during initial setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -9832,8 +9819,8 @@ $defs:
     - schema:unitText
   solutionQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
-      dwell times are programmed.
+    description: Integration time spent on each mass peak per sweep (ms). May differ between masses where
+      per-mass dwell times are programmed.
     type: object
     properties:
       '@id':
@@ -10133,9 +10120,8 @@ $defs:
     description: 'An externally-calibrated factor that converts the measured quantity into the reported
       quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
       calibrated against a reference of independently known value, rather than on the instrument response
-      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
-      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
-      records the resulting factor itself.'
+      alone. Distinct from the fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -10160,10 +10146,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -10574,8 +10560,9 @@ $defs:
   solutionSficpms_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers
-      the target torch position; analyst confirms or adjusts during session tuning.
+      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
+      formation, and doubly-charged species production. The procedure specifies a target value optimised
+      during initial setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -10601,7 +10588,7 @@ $defs:
     description: Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection
       of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution
       (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented
-      in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms
+      in Group 4 under Mass Resolution Assignment). Procedure registers the mode(s) in use; analyst confirms
       at session start.
     type: object
     properties:
@@ -10800,8 +10787,8 @@ $defs:
     - schema:unitText
   solutionSficpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
-      dwell times are programmed.
+    description: Integration time spent on each mass peak per sweep (ms). May differ between masses where
+      per-mass dwell times are programmed.
     type: object
     properties:
       '@id':
@@ -11014,9 +11001,8 @@ $defs:
     description: 'An externally-calibrated factor that converts the measured quantity into the reported
       quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
       calibrated against a reference of independently known value, rather than on the instrument response
-      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
-      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
-      records the resulting factor itself.'
+      alone. Distinct from the fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -11041,10 +11027,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -11240,10 +11226,9 @@ $defs:
     - schema:value
   solutionSficpms_eScanRange:
     title: E-scan Range
-    description: Electric scan range used for peak acquisition, expressed as percentage of the center mass
+    description: Electric scan range used for peak acquisition, expressed as percentage of the centre mass
       (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without
-      re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used. Record 'N/A' where E-scan
-      acquisition mode is not used.
+      re-scanning the magnet. Record 'N/A' if E-scan acquisition mode is not used.
     type: object
     properties:
       '@id':
@@ -11272,8 +11257,9 @@ $defs:
   solutionSficpms_tripleScanningMode:
     title: Triple Scanning Mode
     description: Whether each mass peak is scanned three times per cycle and the results averaged (Y/N).
-      Used to reduce noise from short-term magnetic field instabilities. Record 'N/A' if not applicable
-      to the instrument.
+      Used to reduce noise from short-term magnetic field instabilities on sector-field instruments. Triple
+      scanning affects the effective integration time per cycle and should be reported. Record 'N/A' if
+      not applicable to the instrument.
     type: object
     properties:
       '@id':
@@ -11380,7 +11366,10 @@ $defs:
     - schema:value
   tem_samplePersistentIdentifier:
     title: Sample Persistent Identifier
-    description: Persistent identifier (e.g., IGSN) for the sample analyzed.
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
     type: object
     properties:
       '@id':
@@ -11407,8 +11396,7 @@ $defs:
       applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
       freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material,
       which states the material type the procedure is designed for: this field states how, within such a
-      sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection Criteria'',
-      which implements this concept for a single technique.'
+      sample, the analysed portion is picked out.'
     type: object
     properties:
       '@id':
@@ -12190,9 +12178,8 @@ $defs:
     description: 'An externally-calibrated factor that converts the measured quantity into the reported
       quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor
       calibrated against a reference of independently known value, rather than on the instrument response
-      alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from
-      Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field
-      records the resulting factor itself.'
+      alone. Distinct from the fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -12217,10 +12204,10 @@ $defs:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to calculate the final reported
       quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference
-      values used in a correction or calculation), together with their source. Distinct from Reference Material
-      Information / Secondary Reference Materials (Group 6), which document accepted values for specific
-      calibration/validation materials rather than universal physical constants. Record "None" if no citable,
-      revisable physical constants feed into this procedure's data reduction.
+      values used in a correction or calculation), together with their source. Distinct from the Group 6
+      reference-material fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable physical constants
+      feed into this procedure's data reduction.
     type: object
     properties:
       '@id':

@@ -85,7 +85,7 @@
                             "type": "array",
                             "items": {
                               "title": "Constants and Reference Values Used",
-                              "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                              "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                               "type": "object",
                               "properties": {
                                 "@id": {
@@ -120,7 +120,7 @@
                               {
                                 "contains": {
                                   "title": "Constants and Reference Values Used",
-                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                   "type": "object",
                                   "properties": {
                                     "@id": {
@@ -211,7 +211,7 @@
                   "then": {
                     "properties": {
                       "schema:name": {
-                        "description": "Name or identifier of the sample or sample mount analyzed in this session.",
+                        "description": "Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
                         "anyOf": [
                           {
                             "type": "string"
@@ -225,7 +225,7 @@
                         ]
                       },
                       "schema:identifier": {
-                        "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+                        "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
                         "anyOf": [
                           {
                             "type": "string"
@@ -611,7 +611,7 @@
                 },
                 {
                   "title": "Step Size / Pixel Size",
-                  "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+                  "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
                   "type": "object",
                   "properties": {
                     "@id": {
@@ -894,7 +894,7 @@
               {
                 "contains": {
                   "title": "Step Size / Pixel Size",
-                  "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+                  "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
                   "type": "object",
                   "properties": {
                     "@id": {

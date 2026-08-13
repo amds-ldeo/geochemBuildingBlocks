@@ -10,8 +10,8 @@ type: object
 $defs:
   solutionQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific
-      dwell times are programmed.
+    description: Integration time spent on each mass peak per sweep (ms). May differ between masses where
+      per-mass dwell times are programmed.
     type: object
     properties:
       '@id':
@@ -73,9 +73,9 @@ $defs:
     - schema:defaultValue
   solutionQicpms_interferingSpecies:
     title: Interfering Species
-    description: List of isobaric or polyatomic species mathematically corrected in data reduction. Analyte-specific.
-      For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+
-      on Eu. Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.
+    description: List of isobaric or polyatomic species mathematically corrected in data reduction. For
+      Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu.
+      Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.
     type: object
     properties:
       '@id':
