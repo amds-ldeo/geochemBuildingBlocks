@@ -499,6 +499,18 @@ allOf:
         type: array
         items:
           $ref: '#/$defs/QualityMeasure'
+      "schema:additionalProperty":
+        description: >-
+          PropertyValue entries describing the DELIVERED DATA rather than the analysis that
+          produced it — the area a map covers, the pixel dimensions of a reconstructed volume, how
+          many sub-volumes it was written as. Distinct from the per-analysis
+          prov:wasGeneratedBy.schema:additionalProperty, which records how the instrument was
+          configured for the session: one session can yield products of differing extent, and a
+          product carries these properties whether or not its provenance is described at all.
+          Technique profiles constrain these.
+        type: array
+        items:
+          type: object
       "schema:distribution":
         description: >-
           A distribution is EITHER a MONOLITHIC single-file dataset — a

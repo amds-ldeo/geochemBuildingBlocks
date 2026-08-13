@@ -176,6 +176,13 @@ def recognize(s):
         (r"^\$Dataset\.schema:measurementTechnique(\.schema:DefinedTerm)?\.schema:identifier$", "dataset-measurement-technique"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate)$", "dataset-provenance"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-prov-parameter"),
+        # A property of the DELIVERED DATA, not of the session that produced it — map area, volume
+        # dimensions, sub-volume count. These sit on the dataset root precisely because they are not
+        # activity parameters: one session can yield products of differing extent, and the property
+        # holds whether or not the provenance is described. Contrast dataset-prov-parameter above,
+        # which says how the instrument was configured. Both spellings are legal and they mean
+        # different things, so nothing here can auto-correct one into the other.
+        (r"^\$Dataset\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-parameter"),
         # analysis-tier half of a dual-homed STEP parameter. `value` only, deliberately: a dataset
         # records what was used, never a default — that lives on the TAPP side.
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-step-parameter"),
