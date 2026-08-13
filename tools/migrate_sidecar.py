@@ -51,6 +51,13 @@ ALIASES = {
 }
 
 
+# The tier pairs the matrix says are dual-homed: a procedure default plus a per-analysis value.
+# Mirrors bootstrap_schemapaths.DUAL_HOMED; kept here so callers that only need the rule do not
+# have to import the bootstrapper.
+DUAL_HOMED = {("Advanced", "Editable"), ("Advanced", "Advanced"), ("Advanced", "Basic"),
+              ("Basic", "Editable")}
+
+
 def _norm(s):
     """Case- and punctuation-insensitive form, for matching names that have drifted."""
     return re.sub(r"[^a-z0-9]+", " ", str(s).lower()).strip()

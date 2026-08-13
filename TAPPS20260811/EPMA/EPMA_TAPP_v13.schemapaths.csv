@@ -33,7 +33,7 @@ Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:re
 Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default
 Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: analysis-tier value
 Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default
-Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
 Detection Limit,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,
 Detection Limit Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
 Diffracting Crystal,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,
@@ -95,11 +95,12 @@ WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.
 X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='xrayLine'].schema:name,authored,divergent,divergence decision applied
 Target Selection Criteria,Basic,Editable,Text (free),$MethodDefinition.ada:targetSelectionCriteriaDefault,authored,,new in this revision (needs mapping)
 Calibration Factor and Determination Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Calibration Factor and Determination Method'].schema:defaultValue,authored,,new in this revision (needs mapping)
-EDS Dead Time,N/A,Basic,Numeric (%),,flagged,,analysis-instance (needs mapping)
+EDS Dead Time,N/A,Basic,Numeric (%),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Dead Time'].schema:value,authored,,analysis-instance (needs mapping)
 Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,,follows the geochronTAPP reported-property pilot — revisit with that workstream
-Map Area,N/A,Basic,Numeric pair (um x um),,flagged,,analysis-instance (needs mapping)
-Map Dimensions,N/A,Basic,Numeric pair (pixels x pixels),,flagged,,analysis-instance (needs mapping)
-Procedural Blank Level,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping)
+Map Area,N/A,Basic,Numeric pair (um x um),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Map Area'].schema:value,authored,,analysis-instance (needs mapping)
+Map Dimensions,N/A,Basic,Numeric pair (pixels x pixels),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Map Dimensions'].schema:value,authored,,analysis-instance (needs mapping)
+Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Procedural Blank Level'].schema:value,authored,,new in this revision (needs mapping)
 Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,"data-reduction step parameter, following geochronTAPP"
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='dataReduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP"
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping)
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Goodness-of-Fit'].dqv:value,authored,,new in this revision (needs mapping)
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Dispersion Statistic'].dqv:value,authored,,new in this revision (needs mapping)
