@@ -6021,6 +6021,47 @@
                                 ]
                               },
                               {
+                                "title": "Calibration Factor and Determination Method",
+                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Calibration Factor and Determination Method"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
                                 "title": "Constants and Reference Values Used",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
@@ -6083,6 +6124,51 @@
                                   },
                                   "schema:name": {
                                     "const": "Analysis Inclusion and Rejection Criteria"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Calibration Factor and Determination Method",
+                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Calibration Factor and Determination Method"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -6422,6 +6508,10 @@
           ],
           "readOnly": true
         },
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+          "type": "string"
+        },
         "ada:reportedPropertyTemplate": {
           "type": "object",
           "properties": {
@@ -6447,7 +6537,8 @@
         "schema:name",
         "schema:datePublished",
         "ada:stepSizePixelSizeDefault",
-        "ada:wdsDeadTimeCorrection"
+        "ada:wdsDeadTimeCorrection",
+        "ada:targetSelectionCriteriaDefault"
       ]
     }
   ],

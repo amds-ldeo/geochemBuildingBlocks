@@ -1681,6 +1681,41 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                       - &id027
+                        title: Calibration Factor and Determination Method
+                        description: 'An externally-calibrated factor that converts the measured quantity
+                          into the reported quantity, how it was determined, and its uncertainty. Applies
+                          where the conversion depends on a factor calibrated against a reference of independently
+                          known value, rather than on the instrument response alone. Distinct from Primary
+                          Calibration Standard Name, which identifies the material used, and from Per-Analyte
+                          Calibration Strategy, which states which approach applies to which analyte:
+                          this field records the resulting factor itself.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: calibrationFactorAndDeterminationMethodDefault
+                          schema:name:
+                            const: Calibration Factor and Determination Method
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id028
                         title: Constants and Reference Values Used
                         description: Physical constants and reference values used in data reduction to
                           calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -1721,6 +1756,9 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains: *id027
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id028
                       minContains: 0
                       maxContains: 1
             - if:
@@ -1904,6 +1942,14 @@ allOf:
       - N/A
       - None
       readOnly: true
+    ada:targetSelectionCriteriaDefault:
+      description: 'The rules governing which part of the sample is analysed, and why. Covers the criteria
+        applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
+        freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target
+        Material, which states the material type the procedure is designed for: this field states how,
+        within such a sample, the analysed portion is picked out. Generalised from Lab-XCT''s ''VOI Selection
+        Criteria'', which implements this concept for a single technique.'
+      type: string
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -1931,3 +1977,4 @@ allOf:
   - schema:datePublished
   - ada:stepSizePixelSizeDefault
   - ada:wdsDeadTimeCorrection
+  - ada:targetSelectionCriteriaDefault
