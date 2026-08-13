@@ -129,8 +129,8 @@ def recognize(s):
     if root is None:
         return None, "no recognizable root"
     fams = [
-        (r"^\$MethodDefinition\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "direct-ada"),
-        (r"^\$Dataset\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "dataset-scalar"),
+        (r"^\$MethodDefinition\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "direct-ada"),
+        (r"^\$Dataset\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "dataset-scalar"),
         (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:analyteColumns\[\]$", "analyte-template"),
         # the analyte-identifier column; special_resolve() already emits this for the `Analyte` row
         (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:defaultAnalytes\[\]$", "analyte-identifier"),
@@ -155,6 +155,11 @@ def recognize(s):
         # A step parameter dual-homes exactly like an instrument parameter: `defaultValue` on the
         # TAPP side, `value` per analysis. This previously allowed `value` only, so a dual-homed
         # step parameter had no legal TAPP-side path at all.
+        # A Basic-tier field ON a workflow step: the matrix gives Basic a direct property, and a
+        # step is a container like an instrument, so this is the exact analogue of
+        # instrument-direct-ada. The emitter already places it correctly; only the grammar
+        # lacked the family, so the path validated nowhere and was reported as unrecognised.
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "workflow-step-ada"),
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "workflow-step-parameter"),
         # a step's reagent list (sample digestion acids); the reagent is named, not parameterised
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.bios:reagent\[\](\.schema:(name|identifier))?$", "workflow-step-reagent"),
@@ -166,7 +171,7 @@ def recognize(s):
         # `description` carries the free-text instrument variant ('FIB-SEM dual-beam + VP'), which
         # is neither an identifier nor a parameter; likewise on a component.
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(name|identifier|additionalType|description)$", "instrument-identity"),
-        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(\[\])?$", "instrument-direct-ada"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "instrument-direct-ada"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-parameter"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:(name|identifier|description)$", "instrument-component"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-component-parameter"),
@@ -191,20 +196,20 @@ def recognize(s):
         # analysis-tier partners of $MethodDefinition.ada:<name>Default and .schema:description.
         # `(?<!Default)` deliberately: the Default suffix marks the PROCEDURE's default, so a
         # dataset property can never carry it — the dataset records what was actually used.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.ada:[A-Za-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-activity-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-activity-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:description$", "dataset-activity-description"),
         # where the analysis actually happened — partner of $MethodDefinition.schema:location.
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:location\.schema:Place\[schema:additionalType='[^']*'\]\.schema:(name|identifier)$", "dataset-location"),
         # prov:used items are entities, selected by whichever key discriminates them:
         # schema:additionalType for an instrument, ada:toolRole for a computational tool,
         # ada:reagentRole for a reagent. Identity fields only; parameters have their own families.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[(schema:additionalType|ada:[A-Za-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[(schema:additionalType|ada:[a-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
         (r"^\$Dataset\.schema:distribution\.schema:encodingFormat$", "dataset-distribution"),
         # dataset-side instrument mirrors. On the protocol the instrument is schema:instrument; on
         # the dataset the provenance activity carries it as prov:used, so these are the analysis-tier
         # partners of instrument-direct-ada / instrument-parameter / instrument-component-parameter.
         # `value` only — the default lives on the TAPP side.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.ada:[A-Za-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),

@@ -1,4 +1,4 @@
-Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes
+﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes
 Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,shared,
 Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,inferred,shared,
 Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,shared,
@@ -17,7 +17,7 @@ Auxiliary Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:
 Auxiliary Gas Flow Rate,Basic,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Auxiliary Gas Flow Rate'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
 Coolant (Plasma) Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:defaultValue,authored,shared,
 Coolant (Plasma) Gas Flow Rate,Basic,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
-Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProtocol'].schema:target.schema:url,inferred,shared,
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProcedure'].schema:target.schema:url,inferred,shared,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,inferred,shared,
 Target Material,Basic,Read-Only,Text (free),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,
 Sample Persistent Identifier,Advanced,Basic,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,inferred,shared,
