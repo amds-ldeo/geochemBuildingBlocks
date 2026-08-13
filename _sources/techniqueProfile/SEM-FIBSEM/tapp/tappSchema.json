@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)",
-    "description": "Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx by tools/build_tapp.py.",
+    "description": "Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from TAPPS20260811/SEM/SEM_FIBSEM_TAPP_v9.csv by tools/build_tapp.py.",
     "allOf": [
         {
             "$ref": "../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -10,7 +10,7 @@
             "type": "object",
             "properties": {
                 "schema:name": {
-                    "description": "A short descriptive name for this analytical protocol. Should include instrument, technique, analytical mode(s), and target material scope.",
+                    "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
                     "type": "string",
                     "readOnly": true
                 },
@@ -37,7 +37,7 @@
                     "type": "object",
                     "properties": {
                         "schema:name": {
-                            "description": "Person(s) or laboratory responsible for developing and registering this protocol.",
+                            "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
                             "type": "string",
                             "readOnly": true
                         }
@@ -57,7 +57,7 @@
                     }
                 },
                 "schema:datePublished": {
-                    "description": "First date this protocol configuration was used in production.",
+                    "description": "First date this procedure configuration was used in production.",
                     "type": "string",
                     "readOnly": true
                 },
@@ -67,7 +67,7 @@
                         "type": "object",
                         "properties": {
                             "schema:name": {
-                                "description": "Grants and funding that supported development of this protocol. Include grant IDs.",
+                                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
                                 "type": "string",
                                 "readOnly": true
                             }
@@ -96,7 +96,7 @@
                                             "type": "object",
                                             "properties": {
                                                 "schema:name": {
-                                                    "description": "DOI or URL for publications or reports describing or evaluating this protocol.",
+                                                    "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
                                                     "type": "string",
                                                     "readOnly": true
                                                 }
@@ -121,8 +121,18 @@
                                         "schema:target": {
                                             "type": "object",
                                             "properties": {
+                                                "schema:name": {
+                                                    "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "EPMA; NanoSIMS",
+                                                        "XCT (pre-SEM overview)",
+                                                        "None",
+                                                        "N/A"
+                                                    ]
+                                                },
                                                 "schema:description": {
-                                                    "description": "Describes (1) the functional relationship between this SEM/FIB-SEM dataset and the coupled technique — what data or context flows between them — and (2) the analytical sequence — which technique was performed first and why. Required when Coupled Technique(s) is not 'None'.",
+                                                    "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
                                                     "type": "string"
                                                 }
                                             }
@@ -174,7 +184,7 @@
                                                                 "schema:value": {
                                                                     "type": "array",
                                                                     "items": {
-                                                                        "description": "General description of the material type(s) this protocol is designed to analyze.",
+                                                                        "description": "General description of the material type(s) this procedure is designed to analyze.",
                                                                         "type": "string",
                                                                         "enum": [
                                                                             "Silicate mineral",
@@ -270,6 +280,665 @@
                                                             }
                                                         }
                                                     ]
+                                                },
+                                                "schema:additionalProperty": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "title": "Protective Coating Deposition",
+                                                        "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@id": {
+                                                                "const": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault"
+                                                            },
+                                                            "@type": {
+                                                                "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                ]
+                                                            },
+                                                            "schema:valueName": {
+                                                                "const": "protectiveCoatingDepositionDefault"
+                                                            },
+                                                            "schema:name": {
+                                                                "const": "Protective Coating Deposition"
+                                                            },
+                                                            "ada:dataType": {
+                                                                "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                                "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                                "const": false
+                                                            },
+                                                            "ada:tier": {
+                                                                "const": "R"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
+                                                        ]
+                                                    },
+                                                    "allOf": [
+                                                        {
+                                                            "contains": {
+                                                                "title": "Protective Coating Deposition",
+                                                                "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "protectiveCoatingDepositionDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Protective Coating Deposition"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "schema:name": {
+                                                    "const": "ionMilling"
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        },
+                                        "then": {
+                                            "properties": {
+                                                "schema:additionalProperty": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "anyOf": [
+                                                            {
+                                                                "title": "Coarse Milling Conditions",
+                                                                "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/coarseMillingConditionsDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "coarseMillingConditionsDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Coarse Milling Conditions"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "title": "Fine Polishing Conditions",
+                                                                "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "finePolishingConditionsDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Fine Polishing Conditions"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "title": "Foil Thickness",
+                                                                "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/foilThicknessDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "foilThicknessDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Foil Thickness"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "number"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "title": "Lift-out Method",
+                                                                "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValue"
+                                                                        ]
+                                                                    },
+                                                                    "schema:propertyID": {
+                                                                        "const": {
+                                                                            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                                                        }
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Lift-out Method"
+                                                                    },
+                                                                    "schema:value": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:propertyID",
+                                                                    "schema:name",
+                                                                    "schema:value"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            {
+                                                                "title": "Slice Thickness",
+                                                                "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/sliceThicknessDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "sliceThicknessDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Slice Thickness"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "number"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    },
+                                                                    "schema:unitText": {
+                                                                        "const": "nm"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    "allOf": [
+                                                        {
+                                                            "contains": {
+                                                                "title": "Coarse Milling Conditions",
+                                                                "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/coarseMillingConditionsDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "coarseMillingConditionsDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Coarse Milling Conditions"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "title": "Fine Polishing Conditions",
+                                                                "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "finePolishingConditionsDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Fine Polishing Conditions"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "title": "Foil Thickness",
+                                                                "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/foilThicknessDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "foilThicknessDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Foil Thickness"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "number"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "title": "Lift-out Method",
+                                                                "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValue"
+                                                                        ]
+                                                                    },
+                                                                    "schema:propertyID": {
+                                                                        "const": {
+                                                                            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                                                        }
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Lift-out Method"
+                                                                    },
+                                                                    "schema:value": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:propertyID",
+                                                                    "schema:name",
+                                                                    "schema:value"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "title": "Slice Thickness",
+                                                                "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/sliceThicknessDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "sliceThicknessDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Slice Thickness"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "number"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    },
+                                                                    "schema:unitText": {
+                                                                        "const": "nm"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:description": {
+                                                    "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning. These parameters determine material removal rate per slice and exposed surface quality.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "schema:name": {
+                                                    "const": "dataReduction"
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        },
+                                        "then": {
+                                            "properties": {
+                                                "schema:additionalProperty": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "title": "Constants and Reference Values Used",
+                                                        "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@id": {
+                                                                "const": "ada:parameter/semFibsemTAPP/constantsAndReferenceValuesUsedDefault"
+                                                            },
+                                                            "@type": {
+                                                                "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                ]
+                                                            },
+                                                            "schema:valueName": {
+                                                                "const": "constantsAndReferenceValuesUsedDefault"
+                                                            },
+                                                            "schema:name": {
+                                                                "const": "Constants and Reference Values Used"
+                                                            },
+                                                            "ada:dataType": {
+                                                                "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                                "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                                "const": false
+                                                            },
+                                                            "ada:tier": {
+                                                                "const": "R"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
+                                                        ]
+                                                    },
+                                                    "allOf": [
+                                                        {
+                                                            "contains": {
+                                                                "title": "Constants and Reference Values Used",
+                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semFibsemTAPP/constantsAndReferenceValuesUsedDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "constantsAndReferenceValuesUsedDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Constants and Reference Values Used"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         }
@@ -288,98 +957,473 @@
                                             "schema:name"
                                         ]
                                     }
+                                },
+                                {
+                                    "contains": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "const": "ionMilling"
+                                            }
+                                        },
+                                        "required": [
+                                            "schema:name"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "contains": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "const": "dataReduction"
+                                            }
+                                        },
+                                        "required": [
+                                            "schema:name"
+                                        ]
+                                    }
                                 }
                             ]
                         }
                     }
                 },
-                "ada:instrumentManufacturer": {
-                    "description": "Make of the SEM or FIB-SEM instrument.",
-                    "type": "string",
-                    "enum": [
-                        "JEOL",
-                        "Zeiss",
-                        "FEI / Thermo Fisher Scientific",
-                        "Hitachi",
-                        "Tescan",
-                        "Phenom",
-                        "Unknown",
-                        "N/A",
-                        "None"
-                    ],
-                    "readOnly": true
-                },
-                "ada:instrumentModel": {
-                    "description": "Model designation of the SEM or FIB-SEM instrument, including generation suffix if applicable.",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "ada:electronSource": {
-                    "description": "Type of electron gun used in the SEM instrument.",
-                    "type": "string",
-                    "enum": [
-                        "Cold-FEG",
-                        "Schottky FEG",
-                        "LaB6 / CeB6",
-                        "Tungsten (W)",
-                        "Unknown",
-                        "N/A",
-                        "None"
-                    ],
-                    "readOnly": true
-                },
-                "ada:instrumentVariant": {
-                    "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
-                    "type": "string",
-                    "enum": [
-                        "Standard SEM",
-                        "FIB-SEM dual-beam",
-                        "VP-SEM / ESEM",
-                        "FIB-SEM dual-beam + VP",
-                        "N/A",
-                        "None"
-                    ],
-                    "readOnly": true
-                },
-                "ada:ionBeamSource": {
-                    "description": "Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume milling; helium and neon ion microscopes (GFIS) provide nanometre-resolution imaging and low-damage milling.",
-                    "type": "string",
-                    "enum": [
-                        "Gallium LMIS (Ga+)",
-                        "Xenon plasma FIB (PFIB)",
-                        "Helium GFIS",
-                        "Neon GFIS",
-                        "N/A",
-                        "None"
-                    ],
-                    "readOnly": true
-                },
-                "ada:seDetectorType": {
-                    "description": "Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.",
-                    "type": "string",
-                    "enum": [
-                        "Everhart-Thornley (ET)",
-                        "In-lens / TLD (through-the-lens)",
-                        "GSED (VP/ESEM)",
-                        "ESED (VP/ESEM)",
-                        "N/A",
-                        "None"
-                    ],
-                    "readOnly": true
-                },
-                "ada:bseDetectorType": {
-                    "description": "Type of backscattered electron detector. Solid-state diode detectors (single or segmented) are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments). In-lens BSE detectors provide improved BSE collection at short working distances.",
-                    "type": "string",
-                    "enum": [
-                        "Solid-state diode (single)",
-                        "Solid-state diode (segmented, composition mode)",
-                        "Solid-state diode (segmented, topography mode)",
-                        "In-lens BSE",
-                        "YAG scintillator",
-                        "N/A",
-                        "None"
-                    ],
-                    "readOnly": true
+                "schema:instrument": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "schema:additionalType": {
+                                            "contains": {
+                                                "const": "SEM"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "schema:additionalType"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:manufacturer": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:name": {
+                                                    "description": "Make of the SEM or FIB-SEM instrument.",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "JEOL",
+                                                        "Zeiss",
+                                                        "FEI / Thermo Fisher Scientific",
+                                                        "Hitachi",
+                                                        "Tescan",
+                                                        "Phenom",
+                                                        "Unknown",
+                                                        "N/A",
+                                                        "None"
+                                                    ],
+                                                    "readOnly": true
+                                                }
+                                            }
+                                        },
+                                        "schema:model": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:name": {
+                                                    "description": "Model designation of the SEM or FIB-SEM instrument, including generation suffix if applicable.",
+                                                    "type": "string",
+                                                    "readOnly": true
+                                                }
+                                            }
+                                        },
+                                        "schema:hasPart": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "allOf": [
+                                                    {
+                                                        "if": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "Electron source"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        },
+                                                        "then": {
+                                                            "properties": {
+                                                                "schema:description": {
+                                                                    "description": "Type of electron gun used in the SEM instrument.",
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "Cold-FEG",
+                                                                                "Schottky FEG",
+                                                                                "LaB6 / CeB6",
+                                                                                "Tungsten (W)",
+                                                                                "Unknown",
+                                                                                "N/A",
+                                                                                "None"
+                                                                            ],
+                                                                            "readOnly": true
+                                                                        },
+                                                                        {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string",
+                                                                                "enum": [
+                                                                                    "Cold-FEG",
+                                                                                    "Schottky FEG",
+                                                                                    "LaB6 / CeB6",
+                                                                                    "Tungsten (W)",
+                                                                                    "Unknown",
+                                                                                    "N/A",
+                                                                                    "None"
+                                                                                ],
+                                                                                "readOnly": true
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "if": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "SEDetector"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        },
+                                                        "then": {
+                                                            "properties": {
+                                                                "schema:name": {
+                                                                    "description": "Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.",
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "Everhart-Thornley (ET)",
+                                                                                "In-lens / TLD (through-the-lens)",
+                                                                                "GSED (VP/ESEM)",
+                                                                                "ESED (VP/ESEM)",
+                                                                                "N/A",
+                                                                                "None"
+                                                                            ],
+                                                                            "readOnly": true
+                                                                        },
+                                                                        {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string",
+                                                                                "enum": [
+                                                                                    "Everhart-Thornley (ET)",
+                                                                                    "In-lens / TLD (through-the-lens)",
+                                                                                    "GSED (VP/ESEM)",
+                                                                                    "ESED (VP/ESEM)",
+                                                                                    "N/A",
+                                                                                    "None"
+                                                                                ],
+                                                                                "readOnly": true
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "if": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "BSEDetector"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        },
+                                                        "then": {
+                                                            "properties": {
+                                                                "schema:name": {
+                                                                    "description": "Type of backscattered electron detector. Solid-state diode detectors (single or segmented) are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments). In-lens BSE detectors provide improved BSE collection at short working distances.",
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "Solid-state diode (single)",
+                                                                                "Solid-state diode (segmented, composition mode)",
+                                                                                "Solid-state diode (segmented, topography mode)",
+                                                                                "In-lens BSE",
+                                                                                "YAG scintillator",
+                                                                                "N/A",
+                                                                                "None"
+                                                                            ],
+                                                                            "readOnly": true
+                                                                        },
+                                                                        {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string",
+                                                                                "enum": [
+                                                                                    "Solid-state diode (single)",
+                                                                                    "Solid-state diode (segmented, composition mode)",
+                                                                                    "Solid-state diode (segmented, topography mode)",
+                                                                                    "In-lens BSE",
+                                                                                    "YAG scintillator",
+                                                                                    "N/A",
+                                                                                    "None"
+                                                                                ],
+                                                                                "readOnly": true
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "contains": {
+                                                        "properties": {
+                                                            "schema:additionalType": {
+                                                                "contains": {
+                                                                    "const": "Electron source"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "schema:additionalType"
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "properties": {
+                                                            "schema:additionalType": {
+                                                                "contains": {
+                                                                    "const": "SEDetector"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "schema:additionalType"
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "properties": {
+                                                            "schema:additionalType": {
+                                                                "contains": {
+                                                                    "const": "BSEDetector"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "schema:additionalType"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "schema:description": {
+                                            "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
+                                            "anyOf": [
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "Standard SEM",
+                                                        "FIB-SEM dual-beam",
+                                                        "VP-SEM / ESEM",
+                                                        "FIB-SEM dual-beam + VP",
+                                                        "N/A",
+                                                        "None"
+                                                    ],
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "Standard SEM",
+                                                            "FIB-SEM dual-beam",
+                                                            "VP-SEM / ESEM",
+                                                            "FIB-SEM dual-beam + VP",
+                                                            "N/A",
+                                                            "None"
+                                                        ],
+                                                        "readOnly": true
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "ada:acceleratingVoltageDefault": {
+                                            "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "ada:workingDistanceDefault": {
+                                            "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "schema:additionalType": {
+                                            "contains": {
+                                                "const": "FIBSEM"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "schema:additionalType"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:hasPart": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "allOf": [
+                                                    {
+                                                        "if": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "Ion Beam Source"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        },
+                                                        "then": {
+                                                            "properties": {
+                                                                "schema:name": {
+                                                                    "description": "Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume milling; helium and neon ion microscopes (GFIS) provide nanometre-resolution imaging and low-damage milling.",
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                                "Gallium LMIS (Ga+)",
+                                                                                "Xenon plasma FIB (PFIB)",
+                                                                                "Helium GFIS",
+                                                                                "Neon GFIS",
+                                                                                "N/A",
+                                                                                "None"
+                                                                            ],
+                                                                            "readOnly": true
+                                                                        },
+                                                                        {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string",
+                                                                                "enum": [
+                                                                                    "Gallium LMIS (Ga+)",
+                                                                                    "Xenon plasma FIB (PFIB)",
+                                                                                    "Helium GFIS",
+                                                                                    "Neon GFIS",
+                                                                                    "N/A",
+                                                                                    "None"
+                                                                                ],
+                                                                                "readOnly": true
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "contains": {
+                                                        "properties": {
+                                                            "schema:additionalType": {
+                                                                "contains": {
+                                                                    "const": "Ion Beam Source"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "schema:additionalType"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "properties": {
+                                    "schema:additionalType": {
+                                        "contains": {
+                                            "const": "SEM"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "schema:additionalType"
+                                ]
+                            }
+                        },
+                        {
+                            "contains": {
+                                "properties": {
+                                    "schema:additionalType": {
+                                        "contains": {
+                                            "const": "FIBSEM"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "schema:additionalType"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 "bios:computationalTool": {
                     "type": "array",
@@ -478,7 +1522,7 @@
                 "ada:analyticalMode": {
                     "type": "array",
                     "items": {
-                        "description": "Primary analytical mode(s) executed under this protocol. For multi-mode protocols (e.g., simultaneous BSE + EDS mapping), list all active modes.",
+                        "description": "Primary analytical mode(s) executed under this procedure. For multi-mode procedures (e.g., simultaneous BSE + EDS mapping), list all active modes.",
                         "type": "string",
                         "enum": [
                             "SE Imaging",
@@ -495,40 +1539,124 @@
                         "readOnly": true
                     }
                 },
-                "ada:acceleratingVoltage": {
-                    "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
+                "ada:analyteTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:analyteColumns": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
+                                    },
+                                    {
+                                        "title": "Beam Current",
+                                        "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/semFibsemTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "title": "Beam Current",
+                                        "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/semFibsemTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                }
+                            ]
                         }
-                    ]
+                    }
                 },
-                "ada:beamCurrent": {
-                    "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "ada:workingDistance": {
-                    "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "ada:dwellTimePerPixel": {
+                "ada:dwellTimePerPixelDefault": {
                     "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
                     "anyOf": [
                         {
@@ -539,81 +1667,38 @@
                         }
                     ]
                 },
-                "ada:protectiveCoatingDeposition": {
-                    "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
+                "ada:imageRegistration3DDefault": {
+                    "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
                     "type": "string"
                 },
-                "ada:coarseMillingConditions": {
-                    "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
+                "ada:segmentationMethod3DDefault": {
+                    "description": "Method and software used to segment phases and features in the aligned 3D image stack, transforming the grayscale stack into labelled 3D regions (pores, mineral phases, grain boundaries, organic matter).",
                     "type": "string"
-                },
-                "ada:finePolishingConditions": {
-                    "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
-                    "type": "string"
-                },
-                "ada:targetFoilThickness": {
-                    "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "ada:liftOutMethod": {
-                    "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
-                    "type": "string",
-                    "enum": [
-                        "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
-                        "Ex-situ",
-                        "N/A",
-                        "None"
-                    ],
-                    "readOnly": true
-                },
-                "ada:ionMillingConditions": {
-                    "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning. These parameters determine material removal rate per slice and exposed surface quality.",
-                    "type": "string"
-                },
-                "ada:sliceThickness": {
-                    "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
                 },
                 "schema:description": {
-                    "description": "Any additional context about this protocol or analysis session not captured by structured fields above.",
+                    "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
                     "type": "string"
+                },
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "description": "The final variable(s) this procedure reports and their units — distinct from Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire many masses and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+                                "type": "string",
+                                "readOnly": true
+                            }
+                        }
+                    }
                 }
             },
             "required": [
                 "schema:name",
                 "schema:datePublished",
-                "ada:instrumentManufacturer",
-                "ada:instrumentModel",
-                "ada:electronSource",
-                "ada:instrumentVariant",
-                "ada:ionBeamSource",
-                "ada:seDetectorType",
-                "ada:bseDetectorType",
-                "ada:acceleratingVoltage",
-                "ada:beamCurrent",
-                "ada:workingDistance",
-                "ada:dwellTimePerPixel",
-                "ada:protectiveCoatingDeposition",
-                "ada:coarseMillingConditions",
-                "ada:finePolishingConditions",
-                "ada:targetFoilThickness",
-                "ada:liftOutMethod",
-                "ada:ionMillingConditions",
-                "ada:sliceThickness"
+                "ada:dwellTimePerPixelDefault",
+                "ada:imageRegistration3DDefault",
+                "ada:segmentationMethod3DDefault"
             ]
         }
     ]

@@ -27,6 +27,7 @@
                                         },
                                         {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "description": "Reference by node @id to a semTAPP definition object defined elsewhere.",
                                             "properties": {
                                                 "@id": {
@@ -132,6 +133,10 @@
                         "dcterms:conformsTo": {
                             "contains": {
                                 "type": "object",
+                                "required": [
+                                    "@id"
+                                ],
+                                "additionalProperties": false,
                                 "properties": {
                                     "@id": {
                                         "const": "https://w3id.org/geochem/metadata/profiles/adaSEMFull"

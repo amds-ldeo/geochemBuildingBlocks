@@ -279,7 +279,7 @@
                         "properties": {
                             "prov:used": {
                                 "type": "array",
-                                "description": "Instruments and/or Technique-Aligned Protocol Profile (TAPP) definitions used in the analysis. Each item is an instrument BB instance, a tappDefinition BB instance (inlined), or an @id reference to a TAPP definition node defined elsewhere. Technique profiles narrow the tappDefinition branch to their specific TAPP.",
+                                "description": "Resources used in the analysis. Each item is one of: an instrument BB instance; a computational tool actually used (schema:SoftwareApplication); a reagent / reference material actually used; a tappDefinition BB instance (inlined); or an @id reference to a TAPP definition node defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument / computationalTool / reagent list; these prov:used entries record the ACTUALS used in this specific run (tool versions, reagent lots, and their run roles), mirroring how the instrument is already recorded here. Technique profiles narrow the tappDefinition branch to their specific TAPP.",
                                 "items": {
                                     "anyOf": [
                                         {
@@ -287,6 +287,96 @@
                                         },
                                         {
                                             "type": "object",
+                                            "description": "Computational tool actually used (acquisition, data reduction, or processing).",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "contains": {
+                                                        "const": "schema:SoftwareApplication"
+                                                    }
+                                                },
+                                                "@id": {
+                                                    "type": "string"
+                                                },
+                                                "schema:name": {
+                                                    "type": "string"
+                                                },
+                                                "schema:version": {
+                                                    "type": "string"
+                                                },
+                                                "schema:url": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "schema:description": {
+                                                    "type": "string"
+                                                },
+                                                "ada:toolRole": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "acquisition",
+                                                        "dataReduction",
+                                                        "processing",
+                                                        "visualization"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "description": "Reference material, calibration standard, or chemical reagent actually used.",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "minItems": 1
+                                                },
+                                                "@id": {
+                                                    "type": "string"
+                                                },
+                                                "schema:name": {
+                                                    "type": "string"
+                                                },
+                                                "schema:description": {
+                                                    "type": "string"
+                                                },
+                                                "schema:identifier": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "type": "object"
+                                                        }
+                                                    ]
+                                                },
+                                                "ada:reagentRole": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "primaryStandard",
+                                                        "secondaryStandard",
+                                                        "interferenceStandard",
+                                                        "blankMaterial",
+                                                        "coatingMaterial",
+                                                        "reagent"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "additionalProperties": false,
                                             "description": "Reference by node @id to a TAPP definition object defined elsewhere.",
                                             "properties": {
                                                 "@id": {
@@ -403,6 +493,10 @@
                                         },
                                         {
                                             "type": "object",
+                                            "required": [
+                                                "@id"
+                                            ],
+                                            "additionalProperties": false,
                                             "properties": {
                                                 "@id": {
                                                     "type": "string"
@@ -444,6 +538,10 @@
                                     },
                                     {
                                         "type": "object",
+                                        "required": [
+                                            "@id"
+                                        ],
+                                        "additionalProperties": false,
                                         "properties": {
                                             "@id": {
                                                 "type": "string"
@@ -509,6 +607,13 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/$defs/QualityMeasure"
+                    }
+                },
+                "schema:additionalProperty": {
+                    "description": "PropertyValue entries describing the DELIVERED DATA rather than the analysis that produced it — the area a map covers, the pixel dimensions of a reconstructed volume, how many sub-volumes it was written as. Distinct from the per-analysis prov:wasGeneratedBy.schema:additionalProperty, which records how the instrument was configured for the session: one session can yield products of differing extent, and a product carries these properties whether or not its provenance is described at all. Technique profiles constrain these.",
+                    "type": "array",
+                    "items": {
+                        "type": "object"
                     }
                 },
                 "schema:distribution": {
@@ -584,6 +689,10 @@
                         "dcterms:conformsTo": {
                             "contains": {
                                 "type": "object",
+                                "required": [
+                                    "@id"
+                                ],
+                                "additionalProperties": false,
                                 "properties": {
                                     "@id": {
                                         "const": "https://w3id.org/geochem/metadata/profiles/adaProduct"

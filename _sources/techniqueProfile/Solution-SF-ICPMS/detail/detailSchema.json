@@ -4,81 +4,1267 @@
     "description": "Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.",
     "type": "object",
     "properties": {
-        "schema:measurementTechnique": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "schema:identifier": {
-                        "description": "Persistent identifier (DOI) assigned to this registered protocol. Enter 'pending' if a DOI has been applied for but not yet minted.",
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "schema:contributor": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "allOf": [
-                    {
-                        "if": {
-                            "properties": {
-                                "schema:roleName": {
-                                    "const": "analyst"
-                                }
-                            },
-                            "required": [
-                                "schema:roleName"
-                            ]
-                        },
-                        "then": {
-                            "properties": {
-                                "schema:name": {
-                                    "description": "Name of the analyst who conducted the analysis session.",
-                                    "anyOf": [
-                                        {
-                                            "type": "string"
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            "allOf": [
-                {
-                    "contains": {
-                        "properties": {
-                            "schema:roleName": {
-                                "const": "analyst"
-                            }
-                        },
-                        "required": [
-                            "schema:roleName"
-                        ]
-                    }
-                }
-            ]
-        },
         "prov:wasGeneratedBy": {
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
+                    "prov:used": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "ada:toolRole": {
+                                                "const": "acquisition"
+                                            }
+                                        },
+                                        "required": [
+                                            "ada:toolRole"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "description": "Name and version of the software used to control the instrument and acquire raw mass spectrum data.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "schema:additionalType": {
+                                                "contains": {
+                                                    "const": "ICPMS"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "schema:additionalType"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:hasPart": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "allOf": [
+                                                        {
+                                                            "if": {
+                                                                "properties": {
+                                                                    "schema:additionalType": {
+                                                                        "contains": {
+                                                                            "const": "ICP Source"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "schema:additionalType"
+                                                                ]
+                                                            },
+                                                            "then": {
+                                                                "properties": {
+                                                                    "schema:additionalProperty": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "title": "Auxiliary Gas Flow Rate",
+                                                                                    "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Auxiliary Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "title": "Coolant (Plasma) Gas Flow Rate",
+                                                                                    "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Coolant (Plasma) Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "title": "RF Power",
+                                                                                    "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "RF Power"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "allOf": [
+                                                                            {
+                                                                                "contains": {
+                                                                                    "title": "Auxiliary Gas Flow Rate",
+                                                                                    "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Auxiliary Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                "minContains": 0,
+                                                                                "maxContains": 1
+                                                                            },
+                                                                            {
+                                                                                "contains": {
+                                                                                    "title": "Coolant (Plasma) Gas Flow Rate",
+                                                                                    "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Coolant (Plasma) Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                "minContains": 0,
+                                                                                "maxContains": 1
+                                                                            },
+                                                                            {
+                                                                                "contains": {
+                                                                                    "title": "RF Power",
+                                                                                    "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/rfPower"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "RF Power"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                "minContains": 0,
+                                                                                "maxContains": 1
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "if": {
+                                                                "properties": {
+                                                                    "schema:additionalType": {
+                                                                        "contains": {
+                                                                            "const": "Sample Introduction System"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "schema:additionalType"
+                                                                ]
+                                                            },
+                                                            "then": {
+                                                                "properties": {
+                                                                    "schema:additionalProperty": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "title": "Make-up Gas Flow Rate",
+                                                                                    "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Make-up Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "title": "Nebulizer Gas Flow Rate",
+                                                                                    "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Nebulizer Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "title": "Sample Uptake Rate",
+                                                                                    "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Sample Uptake Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "allOf": [
+                                                                            {
+                                                                                "contains": {
+                                                                                    "title": "Make-up Gas Flow Rate",
+                                                                                    "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Make-up Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                "minContains": 0,
+                                                                                "maxContains": 1
+                                                                            },
+                                                                            {
+                                                                                "contains": {
+                                                                                    "title": "Nebulizer Gas Flow Rate",
+                                                                                    "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Nebulizer Gas Flow Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                "minContains": 0,
+                                                                                "maxContains": 1
+                                                                            },
+                                                                            {
+                                                                                "contains": {
+                                                                                    "title": "Sample Uptake Rate",
+                                                                                    "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Sample Uptake Rate"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "type": "number"
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:unitText": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value",
+                                                                                        "schema:unitText"
+                                                                                    ]
+                                                                                },
+                                                                                "minContains": 0,
+                                                                                "maxContains": 1
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "if": {
+                                                                "properties": {
+                                                                    "schema:additionalType": {
+                                                                        "contains": {
+                                                                            "const": "Torch"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "schema:additionalType"
+                                                                ]
+                                                            },
+                                                            "then": {
+                                                                "properties": {
+                                                                    "schema:additionalProperty": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "title": "Torch Depth",
+                                                                            "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/solutionSficpmsTAPP/torchDepth"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": {
+                                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/torchDepth"
+                                                                                    }
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Torch Depth"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        "allOf": [
+                                                                            {
+                                                                                "contains": {
+                                                                                    "title": "Torch Depth",
+                                                                                    "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "@id": {
+                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/torchDepth"
+                                                                                        },
+                                                                                        "@type": {
+                                                                                            "const": [
+                                                                                                "schema:PropertyValue"
+                                                                                            ]
+                                                                                        },
+                                                                                        "schema:propertyID": {
+                                                                                            "const": {
+                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/torchDepth"
+                                                                                            }
+                                                                                        },
+                                                                                        "schema:name": {
+                                                                                            "const": "Torch Depth"
+                                                                                        },
+                                                                                        "schema:value": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "@id",
+                                                                                        "@type",
+                                                                                        "schema:propertyID",
+                                                                                        "schema:name",
+                                                                                        "schema:value"
+                                                                                    ]
+                                                                                },
+                                                                                "minContains": 0,
+                                                                                "maxContains": 1
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "contains": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "ICP Source"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "contains": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "Sample Introduction System"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "schema:additionalProperty": {
+                                                "type": "array",
+                                                "items": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "Doubly-Charged Species Monitor",
+                                                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Monitor"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "Doubly-Charged Species Production",
+                                                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Production"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "Mass Resolution Setting",
+                                                            "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms at session start.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/massResolutionSetting"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/massResolutionSetting"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Mass Resolution Setting"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "Memory Effect Mitigation",
+                                                            "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Memory Effect Mitigation"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "contains": {
+                                                            "title": "Doubly-Charged Species Monitor",
+                                                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Monitor"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    },
+                                                    {
+                                                        "contains": {
+                                                            "title": "Doubly-Charged Species Production",
+                                                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Doubly-Charged Species Production"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    },
+                                                    {
+                                                        "contains": {
+                                                            "title": "Mass Resolution Setting",
+                                                            "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms at session start.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/massResolutionSetting"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/massResolutionSetting"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Mass Resolution Setting"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    },
+                                                    {
+                                                        "contains": {
+                                                            "title": "Memory Effect Mitigation",
+                                                            "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": {
+                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
+                                                                    }
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Memory Effect Mitigation"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    }
+                                                ]
+                                            },
+                                            "schema:identifier": {
+                                                "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "ada:toolRole": {
+                                                "const": "dataReduction"
+                                            }
+                                        },
+                                        "required": [
+                                            "ada:toolRole"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "description": "Name and version of the software used for data reduction: blank correction, internal standard normalization, calibration, and concentration calculation. Include version number.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "ada:reagentRole": {
+                                                "const": "primaryStandard"
+                                            }
+                                        },
+                                        "required": [
+                                            "ada:reagentRole"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "description": "Name and reference material identifier of the external calibration standard used to convert signal intensities to elemental concentrations. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "ada:reagentRole": {
+                                                "const": "secondaryReferenceMaterial"
+                                            }
+                                        },
+                                        "required": [
+                                            "ada:reagentRole"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "description": "Reference material(s) measured as unknowns to independently assess analytical accuracy. Specify material name and expected-value source.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "allOf": [
+                            {
+                                "contains": {
+                                    "properties": {
+                                        "ada:toolRole": {
+                                            "const": "acquisition"
+                                        }
+                                    },
+                                    "required": [
+                                        "ada:toolRole"
+                                    ]
+                                }
+                            },
+                            {
+                                "contains": {
+                                    "properties": {
+                                        "schema:additionalType": {
+                                            "contains": {
+                                                "const": "ICPMS"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "schema:additionalType"
+                                    ]
+                                }
+                            },
+                            {
+                                "contains": {
+                                    "properties": {
+                                        "ada:toolRole": {
+                                            "const": "dataReduction"
+                                        }
+                                    },
+                                    "required": [
+                                        "ada:toolRole"
+                                    ]
+                                }
+                            },
+                            {
+                                "contains": {
+                                    "properties": {
+                                        "ada:reagentRole": {
+                                            "const": "primaryStandard"
+                                        }
+                                    },
+                                    "required": [
+                                        "ada:reagentRole"
+                                    ]
+                                }
+                            },
+                            {
+                                "contains": {
+                                    "properties": {
+                                        "ada:reagentRole": {
+                                            "const": "secondaryReferenceMaterial"
+                                        }
+                                    },
+                                    "required": [
+                                        "ada:reagentRole"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
                     "schema:startDate": {
-                        "description": "Date on which the analysis session began.",
+                        "description": "Date on which the analytical session began. For sessions spanning multiple days, use the date of the first session. Format: YYYY-MM-DD.",
                         "type": "string"
                     },
                     "schema:endDate": {
-                        "description": "Date on which the analysis session ended (if spanning multiple days).",
+                        "description": "Date on which the analytical session ended. May equal Analysis Start Date for single-day sessions. Format: YYYY-MM-DD.",
                         "type": "string"
                     },
                     "schema:object": {
@@ -225,6 +1411,20 @@
                                                         "maxContains": 1
                                                     }
                                                 ]
+                                            },
+                                            "schema:name": {
+                                                "description": "Name or identifier of the sample analysed, as used in the laboratory. Should match the identifier used in associated publications or data tables.",
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
                                             }
                                         }
                                     }
@@ -248,374 +1448,6 @@
                             }
                         ]
                     },
-                    "prov:used": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "allOf": [
-                                {
-                                    "if": {
-                                        "properties": {
-                                            "schema:additionalType": {
-                                                "contains": {
-                                                    "const": "ICPMS"
-                                                }
-                                            }
-                                        },
-                                        "required": [
-                                            "schema:additionalType"
-                                        ]
-                                    },
-                                    "then": {
-                                        "properties": {
-                                            "schema:additionalProperty": {
-                                                "type": "array",
-                                                "items": {
-                                                    "anyOf": [
-                                                        {
-                                                            "title": "Doubly-Charged Species Monitor",
-                                                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.",
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
-                                                                },
-                                                                "@type": {
-                                                                    "const": [
-                                                                        "schema:PropertyValue"
-                                                                    ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "const": {
-                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
-                                                                    }
-                                                                },
-                                                                "schema:name": {
-                                                                    "const": "Doubly-Charged Species Monitor"
-                                                                },
-                                                                "schema:value": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "schema:value"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "title": "Doubly-Charged Species Production",
-                                                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
-                                                                },
-                                                                "@type": {
-                                                                    "const": [
-                                                                        "schema:PropertyValue"
-                                                                    ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "const": {
-                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
-                                                                    }
-                                                                },
-                                                                "schema:name": {
-                                                                    "const": "Doubly-Charged Species Production"
-                                                                },
-                                                                "schema:value": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "schema:value"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "title": "Memory Effect Mitigation",
-                                                            "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "const": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
-                                                                },
-                                                                "@type": {
-                                                                    "const": [
-                                                                        "schema:PropertyValue"
-                                                                    ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "const": {
-                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
-                                                                    }
-                                                                },
-                                                                "schema:name": {
-                                                                    "const": "Memory Effect Mitigation"
-                                                                },
-                                                                "schema:value": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "schema:value"
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                "allOf": [
-                                                    {
-                                                        "contains": {
-                                                            "title": "Doubly-Charged Species Monitor",
-                                                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.",
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
-                                                                },
-                                                                "@type": {
-                                                                    "const": [
-                                                                        "schema:PropertyValue"
-                                                                    ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "const": {
-                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor"
-                                                                    }
-                                                                },
-                                                                "schema:name": {
-                                                                    "const": "Doubly-Charged Species Monitor"
-                                                                },
-                                                                "schema:value": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "schema:value"
-                                                            ]
-                                                        },
-                                                        "minContains": 0,
-                                                        "maxContains": 1
-                                                    },
-                                                    {
-                                                        "contains": {
-                                                            "title": "Doubly-Charged Species Production",
-                                                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "const": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
-                                                                },
-                                                                "@type": {
-                                                                    "const": [
-                                                                        "schema:PropertyValue"
-                                                                    ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "const": {
-                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction"
-                                                                    }
-                                                                },
-                                                                "schema:name": {
-                                                                    "const": "Doubly-Charged Species Production"
-                                                                },
-                                                                "schema:value": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "schema:value"
-                                                            ]
-                                                        },
-                                                        "minContains": 0,
-                                                        "maxContains": 1
-                                                    },
-                                                    {
-                                                        "contains": {
-                                                            "title": "Memory Effect Mitigation",
-                                                            "description": "Protocol applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "const": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
-                                                                },
-                                                                "@type": {
-                                                                    "const": [
-                                                                        "schema:PropertyValue"
-                                                                    ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "const": {
-                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation"
-                                                                    }
-                                                                },
-                                                                "schema:name": {
-                                                                    "const": "Memory Effect Mitigation"
-                                                                },
-                                                                "schema:value": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "schema:value"
-                                                            ]
-                                                        },
-                                                        "minContains": 0,
-                                                        "maxContains": 1
-                                                    }
-                                                ]
-                                            },
-                                            "schema:hasPart": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "allOf": [
-                                                        {
-                                                            "if": {
-                                                                "properties": {
-                                                                    "schema:additionalType": {
-                                                                        "contains": {
-                                                                            "const": "Sample Introduction System"
-                                                                        }
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "schema:additionalType"
-                                                                ]
-                                                            },
-                                                            "then": {
-                                                                "properties": {
-                                                                    "schema:additionalProperty": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "title": "Make-up Gas Flow Rate",
-                                                                            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": {
-                                                                                        "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                                                                    }
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Make-up Gas Flow Rate"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "anyOf": [
-                                                                                        {
-                                                                                            "type": "number"
-                                                                                        },
-                                                                                        {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:unitText": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value",
-                                                                                "schema:unitText"
-                                                                            ]
-                                                                        },
-                                                                        "allOf": [
-                                                                            {
-                                                                                "contains": {
-                                                                                    "title": "Make-up Gas Flow Rate",
-                                                                                    "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used.",
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "@id": {
-                                                                                            "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                                                                        },
-                                                                                        "@type": {
-                                                                                            "const": [
-                                                                                                "schema:PropertyValue"
-                                                                                            ]
-                                                                                        },
-                                                                                        "schema:propertyID": {
-                                                                                            "const": {
-                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
-                                                                                            }
-                                                                                        },
-                                                                                        "schema:name": {
-                                                                                            "const": "Make-up Gas Flow Rate"
-                                                                                        },
-                                                                                        "schema:value": {
-                                                                                            "anyOf": [
-                                                                                                {
-                                                                                                    "type": "number"
-                                                                                                },
-                                                                                                {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            ]
-                                                                                        },
-                                                                                        "schema:unitText": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    },
-                                                                                    "required": [
-                                                                                        "@id",
-                                                                                        "@type",
-                                                                                        "schema:propertyID",
-                                                                                        "schema:name",
-                                                                                        "schema:value",
-                                                                                        "schema:unitText"
-                                                                                    ]
-                                                                                },
-                                                                                "minContains": 0,
-                                                                                "maxContains": 1
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    },
                     "schema:actionProcess": {
                         "type": "object",
                         "properties": {
@@ -624,6 +1456,193 @@
                                 "items": {
                                     "type": "object",
                                     "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "schema:name": {
+                                                        "const": "sampleDigestion"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "schema:name"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:additionalProperty": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "title": "Digestion Duration",
+                                                                    "description": "Duration of the primary acid digestion step (hours or days).",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/solutionSficpmsTAPP/digestionDuration"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": {
+                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/digestionDuration"
+                                                                            }
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Digestion Duration"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "title": "Digestion Temperature",
+                                                                    "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/solutionSficpmsTAPP/digestionTemperature"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": {
+                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/digestionTemperature"
+                                                                            }
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Digestion Temperature"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "type": "number"
+                                                                                },
+                                                                                {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "schema:unitText": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value",
+                                                                        "schema:unitText"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        "allOf": [
+                                                            {
+                                                                "contains": {
+                                                                    "title": "Digestion Duration",
+                                                                    "description": "Duration of the primary acid digestion step (hours or days).",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/solutionSficpmsTAPP/digestionDuration"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": {
+                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/digestionDuration"
+                                                                            }
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Digestion Duration"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            },
+                                                            {
+                                                                "contains": {
+                                                                    "title": "Digestion Temperature",
+                                                                    "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/solutionSficpmsTAPP/digestionTemperature"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": {
+                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/digestionTemperature"
+                                                                            }
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Digestion Temperature"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "type": "number"
+                                                                                },
+                                                                                {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "schema:unitText": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value",
+                                                                        "schema:unitText"
+                                                                    ]
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
                                         {
                                             "if": {
                                                 "properties": {
@@ -642,7 +1661,7 @@
                                                         "items": {
                                                             "anyOf": [
                                                                 {
-                                                                    "title": "Normalization/Standards-Based Correction",
+                                                                    "title": "Normalization / Standards-Based Correction",
                                                                     "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
                                                                     "type": "object",
                                                                     "properties": {
@@ -660,7 +1679,7 @@
                                                                             }
                                                                         },
                                                                         "schema:name": {
-                                                                            "const": "Normalization/Standards-Based Correction"
+                                                                            "const": "Normalization / Standards-Based Correction"
                                                                         },
                                                                         "schema:value": {
                                                                             "type": "string"
@@ -708,7 +1727,7 @@
                                                                     ]
                                                                 },
                                                                 {
-                                                                    "title": "Spike/Outlier Filtering Approach",
+                                                                    "title": "Spike / Outlier Filtering Approach",
                                                                     "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
                                                                     "type": "object",
                                                                     "properties": {
@@ -726,7 +1745,7 @@
                                                                             }
                                                                         },
                                                                         "schema:name": {
-                                                                            "const": "Spike/Outlier Filtering Approach"
+                                                                            "const": "Spike / Outlier Filtering Approach"
                                                                         },
                                                                         "schema:value": {
                                                                             "type": "string"
@@ -742,7 +1761,7 @@
                                                                 },
                                                                 {
                                                                     "title": "Uncertainty Propagation Method",
-                                                                    "description": "Method used to propagate analytical uncertainties from raw signals through to final concentration values.",
+                                                                    "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "@id": {
@@ -760,6 +1779,39 @@
                                                                         },
                                                                         "schema:name": {
                                                                             "const": "Uncertainty Propagation Method"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "title": "Constants and Reference Values Used",
+                                                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": {
+                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed"
+                                                                            }
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Constants and Reference Values Used"
                                                                         },
                                                                         "schema:value": {
                                                                             "type": "string"
@@ -778,7 +1830,7 @@
                                                         "allOf": [
                                                             {
                                                                 "contains": {
-                                                                    "title": "Normalization/Standards-Based Correction",
+                                                                    "title": "Normalization / Standards-Based Correction",
                                                                     "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
                                                                     "type": "object",
                                                                     "properties": {
@@ -796,7 +1848,7 @@
                                                                             }
                                                                         },
                                                                         "schema:name": {
-                                                                            "const": "Normalization/Standards-Based Correction"
+                                                                            "const": "Normalization / Standards-Based Correction"
                                                                         },
                                                                         "schema:value": {
                                                                             "type": "string"
@@ -852,7 +1904,7 @@
                                                             },
                                                             {
                                                                 "contains": {
-                                                                    "title": "Spike/Outlier Filtering Approach",
+                                                                    "title": "Spike / Outlier Filtering Approach",
                                                                     "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
                                                                     "type": "object",
                                                                     "properties": {
@@ -870,7 +1922,7 @@
                                                                             }
                                                                         },
                                                                         "schema:name": {
-                                                                            "const": "Spike/Outlier Filtering Approach"
+                                                                            "const": "Spike / Outlier Filtering Approach"
                                                                         },
                                                                         "schema:value": {
                                                                             "type": "string"
@@ -890,7 +1942,7 @@
                                                             {
                                                                 "contains": {
                                                                     "title": "Uncertainty Propagation Method",
-                                                                    "description": "Method used to propagate analytical uncertainties from raw signals through to final concentration values.",
+                                                                    "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "@id": {
@@ -908,6 +1960,43 @@
                                                                         },
                                                                         "schema:name": {
                                                                             "const": "Uncertainty Propagation Method"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            },
+                                                            {
+                                                                "contains": {
+                                                                    "title": "Constants and Reference Values Used",
+                                                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": {
+                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed"
+                                                                            }
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Constants and Reference Values Used"
                                                                         },
                                                                         "schema:value": {
                                                                             "type": "string"
@@ -930,7 +2019,46 @@
                                             }
                                         }
                                     ]
-                                }
+                                },
+                                "allOf": [
+                                    {
+                                        "contains": {
+                                            "properties": {
+                                                "schema:name": {
+                                                    "const": "sampleDigestion"
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "contains": {
+                                            "properties": {
+                                                "schema:name": {
+                                                    "const": "dataReduction"
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "schema:location": {
+                        "type": "object",
+                        "properties": {
+                            "schema:name": {
+                                "description": "Name of the laboratory or institution hosting the instrument.",
+                                "type": "string"
+                            },
+                            "schema:identifier": {
+                                "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+                                "type": "string"
                             }
                         }
                     },
@@ -1030,9 +2158,77 @@
                                 "maxContains": 1
                             }
                         ]
+                    },
+                    "schema:description": {
+                        "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+                        "type": "string"
                     }
                 }
             }
+        },
+        "schema:measurementTechnique": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "schema:identifier": {
+                        "description": "DOI or unique persistent identifier for the registered procedure used in this analysis, generated upon procedure submission to a data repository. This field is mandatory when submitting analytical data, to encourage formal procedure registration and ensure traceability. If a DOI has been applied for but not yet minted, enter \"pending\".",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "schema:contributor": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "schema:roleName": {
+                                    "const": "analyst"
+                                }
+                            },
+                            "required": [
+                                "schema:roleName"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "schema:name": {
+                                    "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "properties": {
+                            "schema:roleName": {
+                                "const": "analyst"
+                            }
+                        },
+                        "required": [
+                            "schema:roleName"
+                        ]
+                    }
+                }
+            ]
         },
         "schema:funding": {
             "type": "array"
@@ -1059,7 +2255,7 @@
                                     "type": "object",
                                     "properties": {
                                         "schema:url": {
-                                            "description": "DOI of the registered protocol for the coupled technique.",
+                                            "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
                                             "type": "string"
                                         }
                                     }
@@ -1081,7 +2277,7 @@
                         "then": {
                             "properties": {
                                 "schema:target": {
-                                    "description": "DOI of the dataset or publication containing the coupled technique data. If coupling is documented only through a shared sample IGSN (Group 2), this field may be 'None'.",
+                                    "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
                                     "anyOf": [
                                         {
                                             "type": "string"
@@ -1114,7 +2310,21 @@
                                     "type": "object",
                                     "properties": {
                                         "schema:name": {
-                                            "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this protocol. Document coupling with any technique whose results are functionally linked to this dataset (e.g., providing calibration inputs, complementary spatial context, or required companion measurements).",
+                                            "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                                            "type": "string",
+                                            "enum": [
+                                                "Solution MC-ICP-MS",
+                                                "TIMS",
+                                                "LA-ICP-MS",
+                                                "EPMA",
+                                                "Noble Gas MS",
+                                                "INAA",
+                                                "None",
+                                                "N/A"
+                                            ]
+                                        },
+                                        "schema:description": {
+                                            "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
                                             "type": "string"
                                         }
                                     }
@@ -1144,7 +2354,7 @@
                         "then": {
                             "properties": {
                                 "dqv:value": {
-                                    "description": "Measured oxide production ratio obtained during session-start tuning, for the proxy specified in Oxide Production Method and Threshold. Record the measured value and confirm whether the protocol threshold was met.",
+                                    "description": "Measured oxide production ratio obtained during session-start tuning, for the proxy specified in Oxide Production Method and Threshold. Record the measured value and confirm whether the procedure threshold was met.",
                                     "anyOf": [
                                         {
                                             "type": "string"

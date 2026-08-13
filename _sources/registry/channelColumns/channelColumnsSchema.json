@@ -1,0 +1,179 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA Channel Column Specification Registry",
+    "description": "Registry of reusable schema:PropertyValueSpecification channel column definitions derived from technique TAPP workbooks. Each $def constrains one column of the channel table, a channel being an instrument selection position -- a mass, a Faraday cup, an energy-loss edge, an X-ray line -- as distinct from the analyte measured on it. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
+    "type": "object",
+    "$defs": {
+        "solutionQicpms_dwellTimePerMass": {
+            "title": "Dwell Time per Mass",
+            "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionQicpmsTAPP/dwellTimePerMass"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "dwellTimePerMass"
+                },
+                "schema:name": {
+                    "const": "Dwell Time per Mass"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionQicpms_interferenceCorrectionMethod": {
+            "title": "Interference Correction Method",
+            "description": "Mathematical approach used to calculate and remove interference contributions from measured signals (e.g., interference standard solutions isolating specific polyatomics, mass-balance equations using empirical correction factors).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "interferenceCorrectionMethod"
+                },
+                "schema:name": {
+                    "const": "Interference Correction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionQicpms_interferingSpecies": {
+            "title": "Interfering Species",
+            "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Analyte-specific. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionQicpmsTAPP/interferingSpecies"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "interferingSpecies"
+                },
+                "schema:name": {
+                    "const": "Interfering Species"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionQicpms_isobaricInterferenceCorrectionsApplied": {
+            "title": "Isobaric Interference Corrections Applied",
+            "description": "Whether mathematical corrections for isobaric or polyatomic interferences are applied during data reduction (in addition to any KED or DRC mitigation in the instrument).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "isobaricInterferenceCorrectionsApplied"
+                },
+                "schema:name": {
+                    "const": "Isobaric Interference Corrections Applied"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        }
+    }
+}
