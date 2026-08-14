@@ -62,6 +62,37 @@ def _table(root, rel):
     return _INDEX[root].get(os.path.basename(rel))
 
 
+def blocks_of(name):
+    """{block name -> {normalized field}} for a conditional module, else None.
+
+    A conditional module does not contribute all its fields to every consumer: ReportingCore's six
+    are grouped into five blocks, each with an `applies_when`, and a TAPP selects only the blocks
+    that apply — `Procedural Blank Level` is absent from TEM because TEM has no analytical blank.
+    Comparing the whole module against every consumer therefore reports 18 fields as missing when
+    the block conditions say they should be, which is the module working rather than a defect.
+
+    The mapping is DECLARED in the module's own .json, so it is read rather than inferred.
+    """
+    p = os.path.join(MODDIR, f"Module_{name}.json")
+    if not os.path.exists(p):
+        return None
+    j = json.load(open(p, encoding="utf-8"))
+    if not j.get("conditional"):
+        return None
+    return {b["name"]: {ms._norm(ms.rename(f)) for f in b.get("fields") or []}
+            for b in j.get("blocks") or []}
+
+
+def selected_fields(blocks, chosen):
+    """The fields a consumer actually takes, given its `blocks` entry ('all' or a comma list)."""
+    if blocks is None:
+        return None                      # not conditional: every field applies
+    if not chosen or str(chosen).strip() == "all":
+        return set().union(*blocks.values()) if blocks else set()
+    want = {c.strip() for c in str(chosen).split(",") if c.strip()}
+    return set().union(*(v for k, v in blocks.items() if k in want)) if want else set()
+
+
 def tiers(path):
     """{normalized item -> (P, A)}"""
     return {ms._norm(ms.rename(i)): (P, A) for i, P, A, _ in ms.source_items(path)}
@@ -89,11 +120,12 @@ def main():
     for entry in man.get("composed") or []:
         for m in entry.get("modules") or []:
             if m.get("name"):
-                consumers[m["name"]].append(entry["tapp"])
+                consumers[m["name"]].append((entry["tapp"], m.get("blocks")))
 
     names = a.module or sorted(consumers)
     grand = collections.Counter()
     missing = set()      # manifest tables absent from the delivery — reported, never passed over
+    skipped = 0          # (field x table) pairs a conditional module's blocks legitimately exclude
     for name in names:
         src = os.path.join(MODDIR, f"Module_{name}.csv")
         if not os.path.exists(src):
@@ -101,13 +133,18 @@ def main():
         mod = {k: v for k, v in tiers(src).items() if v[0] or v[1]}   # owned rows only
         label = {k: i for i, _, _, _ in ms.source_items(src) for k in [ms._norm(ms.rename(i))]}
         findings = []
-        for rel in consumers[name]:
+        blocks = blocks_of(name)
+        for rel, chosen in consumers[name]:
+            applies = selected_fields(blocks, chosen)
             p = _table(man_root, rel)
             if not p:
                 missing.add(rel)
                 continue
             tab = tiers(p)
             for k, (mP, mA) in mod.items():
+                if applies is not None and k not in applies:
+                    skipped += 1     # this consumer's blocks exclude the field; absence is correct
+                    continue
                 if k not in tab:
                     # The manifest says this table composes the module, but the table does not carry
                     # the field. Composing therefore ADDS it — which for a Basic field means adding a
@@ -154,6 +191,9 @@ def main():
               f"their fields\nwent unchecked — the totals below do not cover them:")
         for x in sorted(missing):
             print(f"    {x}")
+    if skipped:
+        print(f"\n{skipped} (field x table) pair(s) not compared: a conditional module's blocks\n"
+              f"exclude them from that consumer. See docs/REPORTINGCORE_BLOCKS.md.")
     print(f"\nTOTAL   TIGHTENS {grand['TIGHTENS']}   LOOSENS {grand['LOOSENS']}   "
           f"ABSENT {grand['ABSENT']}   ADDS {grand['ADDS']}")
     print("\nTIGHTENS breaks instances the table calls valid; LOOSENS silently drops enforcement;")

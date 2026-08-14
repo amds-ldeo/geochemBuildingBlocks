@@ -80,11 +80,32 @@ def module_rows(name):
     return [(i, P, A, dt, desc.get(i, "")) for i, P, A, dt in ms.source_items(src) if P or A]
 
 
-def build_schema(name):
-    """({root -> subschema}, stats) from the module's sidecar paths."""
+def module_blocks(name):
+    """{block -> [field]} for a conditional module, else None. Declared in the module's own .json.
+
+    ReportingCore is the only one today, but the flag is what is tested, not the name: a consuming
+    TAPP takes only the blocks that apply to it, so composing the whole module would give a
+    technique fields its own table deliberately omits. See docs/REPORTINGCORE_BLOCKS.md.
+    """
+    p = os.path.join(MODDIR, f"Module_{name}.json")
+    if not os.path.exists(p):
+        return None
+    j = json.load(open(p, encoding="utf-8"))
+    if not j.get("conditional"):
+        return None
+    return {b["name"]: list(b.get("fields") or []) for b in j.get("blocks") or []}
+
+
+def build_schema(name, only=None):
+    """({root -> subschema}, stats) from the module's sidecar paths.
+
+    `only` limits the build to a set of field names — how a conditional module gets one $def per
+    block rather than one covering everything.
+    """
     rows = module_rows(name)
     spec = schemapath_io.load_spec(schemapath_io.csv_path(os.path.join(MODDIR, f"Module_{name}.csv")))
-    meta = {i: (P, A, dt, d) for i, P, A, dt, d in rows}
+    meta = {i: (P, A, dt, d) for i, P, A, dt, d in rows
+            if only is None or i in only}
     roots = {"MethodDefinition": e.Obj(), "Dataset": e.Obj()}
     # Object-level requiredness is NOT carried in the tree — Obj has no `required`, and
     # schema_path_emitter.build() accumulates it separately for wrap() to apply. Calling
@@ -151,10 +172,10 @@ def render(name, defs, stats, composed_by):
             "value space, never widen it."),
         "$defs": {},
     }
-    for r, sch in defs.items():
-        doc["$defs"][DEF_NAME[r]] = {"title": f"{name} fields on the "
-                                     f"{'procedure' if r == 'MethodDefinition' else 'analysis'}",
-                                     "description": DEF_BLURB[r], **sch}
+    for defname, (r, sch, label) in defs.items():
+        doc["$defs"][defname] = {"title": f"{label} on the "
+                                 f"{'procedure' if r == 'MethodDefinition' else 'analysis'}",
+                                 "description": DEF_BLURB[r], **sch}
     return doc
 
 
@@ -385,13 +406,33 @@ def main():
         if not usage.get(name):
             print(f"{name:<22s} skipped (composed by no table in the manifest)")
             continue
-        defs, stats = build_schema(name)
-        if not defs:
+        whole, stats = build_schema(name)
+        if not whole:
             print(f"{name:<22s} CANNOT GENERATE — all {stats['fields']} fields unplaced "
                   f"({', '.join(stats['unplaced'][:4])}{'…' if len(stats['unplaced']) > 4 else ''})")
             continue
+
+        # A conditional module gets one $def per block per side, so a consumer composes only the
+        # blocks its manifest entry selects. Composing the whole of ReportingCore would hand
+        # Lab-XCT a Procedural Blank Level for a technique with no blank — and five of its six
+        # fields are Basic on some tier, so most such additions become requirements the table never
+        # stated. allOf cannot relax a constraint, so the selection has to happen here.
+        blocks = module_blocks(name)
+        defs = {}
+        if blocks:
+            for blk, fields in blocks.items():
+                sub, _ = build_schema(name, only=set(fields))
+                camel = "".join(w.capitalize() for w in blk.split("_"))
+                for r, sch in sub.items():
+                    side = "Procedure" if r == "MethodDefinition" else "Analysis"
+                    defs[f"{camel}_{side}"] = (r, sch, f"{name} · {blk}")
+        for r, sch in whole.items():
+            side = "Procedure" if r == "MethodDefinition" else "Analysis"
+            key = f"AllBlocks_{side}" if blocks else DEF_NAME[r]
+            defs[key] = (r, sch, f"{name} (all blocks)" if blocks else name)
+
         doc = render(name, defs, stats, usage[name])
-        halves = ", ".join(DEF_NAME[r] for r in defs)
+        halves = ", ".join(defs)
         print(f"{name:<22s} {stats['fields']:2d} fields, {stats['placed']:2d} paths -> {halves}"
               f"{'   unplaced: ' + ', '.join(stats['unplaced']) if stats['unplaced'] else ''}")
         if a.write:

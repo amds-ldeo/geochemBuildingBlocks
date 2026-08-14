@@ -14,7 +14,7 @@ description: 'The shared MCICPMS block of the 2026-08-11 TAPP library (Claude Sk
   is pinned here — a consuming TAPP may narrow a value space, never widen it.'
 $defs:
   ProcedureIdentification:
-    title: MCICPMS fields on the procedure
+    title: MCICPMS on the procedure
     description: 'Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every
       analysis that follows it.'
     type: object
@@ -108,15 +108,17 @@ $defs:
                                 required:
                                 - schema:name
                           schema:description:
-                            description: 'Assignment of isotope masses to Faraday cup or ion counter detector
-                              positions for this procedure. Lists the mass number monitored in each collector
-                              position (e.g., L4=116Sn, L3=117Sn, L2=118Sn, L1=119Sn, Ax=120Sn, H1=121Sb,
-                              H2=122Sn, H3=123Sb, H4=124Sn). For static multi-collection procedures, one
-                              configuration applies throughout the measurement. For multi-dynamic procedures,
-                              list all configurations and the cycling sequence. Includes all interference-monitor
-                              masses collected in addition to analyte isotopes. Analyte-specific: different
-                              element systems require different mass assignments within the collector
-                              array span.'
+                            description: Assignment of isotope masses to Faraday cup or ion counter detector
+                              positions for this procedure, and the analyte each position serves. Lists
+                              the mass number monitored in each collector position with its analyte element
+                              where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb
+                              (interference monitor, no analyte)'. Interference-monitor and internal-standard
+                              positions serve no analyte and carry no parent element; the analyte list
+                              itself is given by the Analyte field and is never inferred from the mass
+                              labels here. For static multi-collection procedures, one configuration applies
+                              throughout the measurement. For multi-dynamic procedures, list all configurations
+                              and the cycling sequence. Different element systems require different mass
+                              assignments within the collector array span.
                             anyOf:
                             - &id003
                               type: string
@@ -306,8 +308,8 @@ $defs:
                     but increase the impact of signal drift within the integration window. For high-gain
                     (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to
                     accumulate sufficient charge. Procedure specifies the standard integration time; analyst
-                    may confirm or adjust within procedure bounds. Analyte-specific when different isotope
-                    channels use different integration schemes.
+                    may confirm or adjust within procedure bounds. Where different isotope channels use
+                    different integration schemes, record the time for each channel.
                   anyOf:
                   - type: number
                   - type: string
@@ -443,7 +445,7 @@ $defs:
     required:
     - ada:internalNormalizationElementAndIsotopeRatio
   AnalysisIdentification:
-    title: MCICPMS fields on the analysis
+    title: MCICPMS on the analysis
     description: 'Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh,
       because it cannot be known until the analysis happens.'
     type: object
@@ -508,8 +510,9 @@ $defs:
                           but increase the impact of signal drift within the integration window. For high-gain
                           (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required
                           to accumulate sufficient charge. Procedure specifies the standard integration
-                          time; analyst may confirm or adjust within procedure bounds. Analyte-specific
-                          when different isotope channels use different integration schemes.
+                          time; analyst may confirm or adjust within procedure bounds. Where different
+                          isotope channels use different integration schemes, record the time for each
+                          channel.
                         anyOf:
                         - type: number
                         - type: string
