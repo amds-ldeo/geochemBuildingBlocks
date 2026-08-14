@@ -8,7 +8,7 @@ The scheme involves three components:
 
 2. A building block JSON schema specific to the protocol. This protocol definition object is registered in a protocol registry and accessible via its URI. The TAPP definition is referenced as a measurementTechnique in dataset metadata. 
 
-3. A technique-specific 'detail' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. There is one detail block per technique, at `_sources/techniqueProfile/<TECH>/detail/`, not a single 'details' file. The content of this schema is included in the schema for dataset instances to create a metadata schema for Datasets conforming to the profile. Session-level and per-analyte parameters are defined once in a registered parameter registry (`parameterValues`) and referenced from the detail blocks by URI, so a parameter can be reused across detail definitions; the references are resolved inline into the published resolved schema.
+3. A technique-specific 'detail' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. There is one detail block per technique, at `_sources/techniqueProfile/geochemProfile/<TECH>/detail/`, not a single 'details' file. The content of this schema is included in the schema for dataset instances to create a metadata schema for Datasets conforming to the profile. Session-level and per-analyte parameters are defined once in a registered parameter registry (`parameterValues`) and referenced from the detail blocks by URI, so a parameter can be reused across detail definitions; the references are resolved inline into the published resolved schema.
 
 ## Structure
 
@@ -26,13 +26,18 @@ _sources/
     parameterTemplates/ registered BB: PropertyValueSpecification $defs, editable params (178)
     parameterValues/    registered BB: schema:PropertyValue $defs, fixed values (432)
     vocab/              catalog: schema:DefinedTermSet files, by @id not $ref (162)
-  techniqueProfile/     one directory per technique (43), each with up to four BBs:
-    <TECH>/tapp/        the TAPP definition for that technique      (11 techniques)
-    <TECH>/detail/      per-dataset analysis-instance detail        (25 techniques)
-    <TECH>/profile/     path-driven product profile: adaProduct +
+  techniqueProfile/     one directory per technique (44), under two roots:
+    geochemProfile/     the 12 TAPP-aware techniques
+      <TECH>/tapp/      the TAPP definition for that technique      (12 techniques)
+      <TECH>/detail/    per-dataset analysis-instance detail        (12 techniques)
+      <TECH>/profile/   path-driven product profile: adaProduct +
                         detail + TAPP linkage                        (10 techniques)
-    <TECH>/profile-ada/ generic product profile: adaProduct +
-                        componentType constraints only               (35 techniques)
+      <TECH>/profile-ada/ generic product profile, written by the
+                        TAPP tooling                                  (4 techniques)
+    adaProfile/         the other 32 techniques, untouched by the TAPP work
+      <TECH>/profile-ada/ generic product profile: adaProduct +
+                        componentType constraints only               (31 techniques)
+      <TECH>/detail/    instrument-detail stub                       (14 techniques)
 ```
 
 **Profile directory names are not profile names.** `EMPA/profile-ada` publishes `adaEMPA`; `SEM/profile` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path.
@@ -61,7 +66,7 @@ The catalogs are **shared dictionary resources** — multiple TAPPs `$ref` the s
 
 `parameterTemplates` holds editable parameters (a `PropertyValueSpecification` with a default the analyst may override); `parameterValues` holds fixed protocol values (a `schema:PropertyValue`). That split — specification vs value — is how read-only-ness is expressed; `ada:methodParameters` was retired repo-wide in favour of `schema:additionalProperty`.
 
-### techniqueProfile/&lt;TECH&gt;
+### techniqueProfile/geochemProfile/&lt;TECH&gt;
 
 Eleven techniques have a `tapp/`: EMPA, Geochron, LA-ICPMS, SEM, SEM-Composition, SEM-FIBSEM, SEM-Imaging, Solution-Q-ICPMS, Solution-SF-ICPMS, TEM, XCT. Ten of those also publish a path-driven `profile/` (all but TEM).
 
@@ -180,7 +185,7 @@ A TAPP definition is a **plan** — a reusable procedure that *prescribes* an an
 - **Two PROV roles.** The analysis *occurrence* is a `prov:Activity` — it lives in `adaProduct.prov:wasGeneratedBy[]` (a `prov:Activity` + `schema:Action`, following `cdifDataType/cdifProvActivity`). That activity references the TAPP as one of its **`prov:used`** entities (`prov:wasGeneratedBy[].prov:used[] → tappDefinition`, alongside the actual instrument). The TAPP is therefore a **used entity**, and in PROV terms a plan used by an activity is a **`prov:Plan`** — hence `prov:Plan` in the TAPP `@type`.
 - **`cdi:Activity` vs `prov:Activity`.** `prov:Activity` (W3C PROV) is an *occurrence* — something that happened, that `prov:used`/`prov:generated` entities. `cdi:Activity` (DDI-CDI process model) is a *design-level description* of a process/method — reusable, plan-like. The TAPP uses `cdi:Activity` (which aligns with `prov:Plan`) because it describes a method; it is **not** typed `prov:Activity`. The TAPP's `schema:actionProcess` (a `schema:HowTo` of `cdi:Activity` steps) is likewise a plan.
 - **Why instrument/tool/reagent are direct properties (no `prov:used` on the TAPP).** In `cdifProvActivity`, an *activity's* instruments are `prov:used[].schema:instrument` entities — because an occurrence uses them. A *plan* does not "use" entities in the provenance sense; it *specifies* resources. So the TAPP carries `schema:instrument`, `bios:computationalTool`, `bios:reagent` as **direct properties** (the Bioschemas `LabProtocol` convention), and has **no `prov:used`**. The `prov:used` pattern operates one level up, on the `prov:Activity` in `adaProduct.prov:wasGeneratedBy`, which uses both the actual instrument and this plan.
-- **Division of labour.** The TAPP (plan) fixes the reproducible aspects of the method; the analysis instance leaves the rest to `adaProduct.prov:wasGeneratedBy` and the technique's `techniqueProfile/<TECH>/detail/` block (per-dataset values). Instrument-type terms populate `schema:category` (a controlled-vocabulary `schema:DefinedTerm`); standalone-vs-`schema:hasPart` placement of sub-components is a per-field decision recorded in the schema-path sidecar.
+- **Division of labour.** The TAPP (plan) fixes the reproducible aspects of the method; the analysis instance leaves the rest to `adaProduct.prov:wasGeneratedBy` and the technique's `techniqueProfile/geochemProfile/<TECH>/detail/` block (per-dataset values). Instrument-type terms populate `schema:category` (a controlled-vocabulary `schema:DefinedTerm`); standalone-vs-`schema:hasPart` placement of sub-components is a per-field decision recorded in the schema-path sidecar.
 
 ### Structure
 

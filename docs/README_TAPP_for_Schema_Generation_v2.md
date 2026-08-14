@@ -32,8 +32,8 @@ exists to express.
 
 | v1 calls it | here | root | file |
 |---|---|---|---|
-| procedure schema | `$MethodDefinition` | `prov:Plan` + `ada:TAPPDefinition` | `_sources/techniqueProfile/<T>/tapp/schema.yaml` |
-| analysis schema | `$Dataset` | `schema:Dataset` | `_sources/techniqueProfile/<T>/detail/schema.yaml` |
+| procedure schema | `$MethodDefinition` | `prov:Plan` + `ada:TAPPDefinition` | `_sources/techniqueProfile/geochemProfile/<T>/tapp/schema.yaml` |
+| analysis schema | `$Dataset` | `schema:Dataset` | `_sources/techniqueProfile/geochemProfile/<T>/detail/schema.yaml` |
 
 Those two names are the roots of every schema path (§10), so a row states which object it lands on
 before it says anything else.

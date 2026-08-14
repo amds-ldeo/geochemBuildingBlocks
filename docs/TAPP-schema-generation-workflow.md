@@ -31,9 +31,9 @@ flowchart TD
     LIB["reference library<br/>LA-Q_SF-ICPMS…schemapaths.json"]
     SP["schemapaths<br/>docs/&lt;wb&gt;.schemapaths.csv<br/>(1 row → 1+ canonical paths)"]
     REG["registry/ catalogs + vocab<br/>parameterTemplates, parameterValues,<br/>analyteColumns, vocab"]
-    TAPP["techniqueProfile/&lt;tech&gt;/tapp/schema.yaml"]
-    DET["techniqueProfile/&lt;tech&gt;/detail/schema.yaml"]
-    PROF["techniqueProfile/&lt;tech&gt;/profile/schema.yaml"]
+    TAPP["techniqueProfile/geochemProfile/&lt;tech&gt;/tapp/schema.yaml"]
+    DET["techniqueProfile/geochemProfile/&lt;tech&gt;/detail/schema.yaml"]
+    PROF["techniqueProfile/geochemProfile/&lt;tech&gt;/profile/schema.yaml"]
     RES["resolvedSchema.json<br/>(self-contained, for validators)"]
     EX["example*.json<br/>(synthetic instances)"]
 
@@ -223,7 +223,7 @@ _sources/
     analyteColumns/  parameterTemplates/  parameterValues/  vocab/
   BaseSchema/                        # foundation BBs
     tappDefinition/  adaProduct/  instrument/ laboratory/ image/ tabularData/ …
-  techniqueProfile/<Tech>/           # one folder per technique, e.g. EMPA, LA-ICPMS, XCT
+  techniqueProfile/geochemProfile/<Tech>/           # one folder per technique, e.g. EMPA, LA-ICPMS, XCT
     tapp/          # the TAPP definition BB
     detail/        # the analysis-instance detail BB
     profile/       # the path-driven product profile
@@ -305,7 +305,7 @@ pre‑reorg identity name); `audit_building_blocks.py --filter <bb>` (building-b
 
 You build **two forms** from two schemas, matching the two authoring moments:
 
-1. **Protocol form** ← the **TAPP definition** schema (`techniqueProfile/<tech>/tapp/resolvedSchema.json`).
+1. **Protocol form** ← the **TAPP definition** schema (`techniqueProfile/geochemProfile/<tech>/tapp/resolvedSchema.json`).
    Filled once when a lab registers a protocol.
 2. **Dataset form** ← the **analysis detail** schema (`…/detail/resolvedSchema.json`). Filled per submitted
    dataset. It links back to a chosen TAPP by `@id`.
@@ -370,8 +370,8 @@ Everything technique‑specific is the top‑level `ada:` properties (required a
 python tools/bootstrap_schemapaths.py docs/<Workbook>.xlsx
 python tools/build_tapp.py <tapp>
 python tools/build_pathdriven.py <tapp>
-python tools/resolve_schema.py --file _sources/techniqueProfile/<Tech>/tapp/schema.yaml   -o _sources/techniqueProfile/<Tech>/tapp/resolvedSchema.json
-python tools/resolve_schema.py --file _sources/techniqueProfile/<Tech>/detail/schema.yaml -o _sources/techniqueProfile/<Tech>/detail/resolvedSchema.json
+python tools/resolve_schema.py --file _sources/techniqueProfile/geochemProfile/<Tech>/tapp/schema.yaml   -o _sources/techniqueProfile/geochemProfile/<Tech>/tapp/resolvedSchema.json
+python tools/resolve_schema.py --file _sources/techniqueProfile/geochemProfile/<Tech>/detail/schema.yaml -o _sources/techniqueProfile/geochemProfile/<Tech>/detail/resolvedSchema.json
 python tools/build_pathdriven.py <tapp> --validate
 python tools/build_profile.py <tapp>          # optional: product profile
 ```
@@ -380,6 +380,6 @@ python tools/build_profile.py <tapp>          # optional: product profile
 
 - Workbook: `docs/<Technique>_TAPP_v#.xlsx` (worksheet `TAPP`) — Ruolin's source, never annotated
 - Path mapping (source of truth): `docs/<wb>.schemapaths.csv` — hand‑authored, keyed by Metadata Item
-- Generated BBs: `_sources/techniqueProfile/<Tech>/{tapp,detail,profile}/`
+- Generated BBs: `_sources/techniqueProfile/geochemProfile/<Tech>/{tapp,detail,profile}/`
 - Shared catalogs: `_sources/registry/{parameterTemplates,parameterValues,analyteColumns,vocab}/`
 - Foundation: `_sources/BaseSchema/{tappDefinition,adaProduct,…}/`
