@@ -568,6 +568,7 @@ $defs:
           - '@id'
         - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/schema.yaml
         - type: object
+          additionalProperties: false
           description: >-
             Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use
             when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.
@@ -782,6 +783,7 @@ $defs:
           - '@id'
         - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/schema.yaml
         - type: object
+          additionalProperties: false
           description: >-
             Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use
             when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.
@@ -1015,6 +1017,17 @@ $defs:
         items:
           type: string
         minItems: 1
+        description: >-
+          What the material IS, independent of the role it plays here (that is ada:reagentRole).
+          One of the three kinds must be present: schema:DefinedTerm for a material identified by a
+          registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen
+          or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance
+          for a bulk chemical or coating stock.
+        contains:
+          enum:
+          - schema:DefinedTerm
+          - schema:Product
+          - schema:ChemicalSubstance
       '@id':
         type: string
         description: >-
@@ -1030,6 +1043,7 @@ $defs:
         anyOf:
         - type: string
         - type: object
+          additionalProperties: false
           properties:
             '@type':
               type: array
@@ -1039,6 +1053,24 @@ $defs:
             'schema:propertyID':
               type: string
             'schema:value':
+              type: string
+      'schema:termCode':
+        type: string
+        description: >-
+          Registry code for the material on the schema:DefinedTerm path (e.g. "SRM 610", "ATHO-G").
+      'schema:inDefinedTermSet':
+        description: >-
+          The registry the schema:termCode belongs to (GeoReM, NIST SRM catalogue, USGS RM list).
+        anyOf:
+        - type: string
+          format: uri
+        - type: object
+          additionalProperties: false
+          properties:
+            '@id':
+              type: string
+              format: uri
+            'schema:name':
               type: string
       'ada:reagentRole':
         type: string
@@ -1057,6 +1089,7 @@ $defs:
         anyOf:
         - type: string
         - type: object
+          additionalProperties: false
           properties:
             '@type':
               type: array
@@ -1068,9 +1101,10 @@ $defs:
               type: string
               format: uri
     required:
+    - '@type'
     - schema:name
-    
-    
+
+
   QualityMeasure:
     $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/schema.yaml
   DefinedTerm:

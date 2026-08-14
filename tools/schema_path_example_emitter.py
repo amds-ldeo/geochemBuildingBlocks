@@ -185,9 +185,11 @@ def _self_test(tapp="laicpmsTAPP", out_dir=None):
 def _type_const(subschema):
     """The @type value a subschema demands, or None.
 
-    Four shapes are in use across the base schemas: `const: [...]`; an array with
-    `contains: {const: X}` (the CDIF person profile, and instrument additionalType); a `default`
-    (the organization profile); and an `enum` of permitted tokens.
+    Five shapes are in use across the base schemas: `const: [...]`; an array with
+    `contains: {const: X}` (the CDIF person profile, and instrument additionalType); an array with
+    `contains: {enum: [...]}` where the schema permits a choice of kinds (the reagent branch — take
+    the first as the placeholder); a `default` (the organization profile); and an `enum` of
+    permitted tokens.
     """
     t = (subschema.get("properties") or {}).get("@type")
     if not isinstance(t, dict):
@@ -197,6 +199,8 @@ def _type_const(subschema):
     c = t.get("contains")
     if isinstance(c, dict) and isinstance(c.get("const"), str):
         return [c["const"]]
+    if isinstance(c, dict) and isinstance(c.get("enum"), list) and c["enum"]:
+        return [c["enum"][0]]
     if isinstance(t.get("default"), str):
         return [t["default"]]
     if isinstance(t.get("default"), list):
