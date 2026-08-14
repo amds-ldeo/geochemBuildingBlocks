@@ -41,6 +41,7 @@ TECH_DIR = {
     "semTAPP": "SEM", "semImagingTAPP": "SEM-Imaging", "semFibsemTAPP": "SEM-FIBSEM",
     "semCompositionTAPP": "SEM-Composition", "solutionQicpmsTAPP": "Solution-Q-ICPMS",
     "solutionSficpmsTAPP": "Solution-SF-ICPMS", "temTAPP": "TEM",
+    "solutionMcicpmsTAPP": "Solution-MC-ICPMS",
 }
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
@@ -234,7 +235,7 @@ TAPP_CONFIGS = {
                                "reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "semTAPP": {
-        "xlsx": "docs/SEM_TAPP_v4.xlsx",
+        "xlsx": "TAPPS20260813/Current TAPPs/SEM_TAPP_v17.csv",
         "prefix": "sem",
         "component_types": ["ada:SEMImage", "ada:BSEImage", "ada:SEMEDSSpectrum", "ada:SEMEDSMap",
                             "ada:EBSDMap", "ada:SEMTabular"],
@@ -245,10 +246,29 @@ TAPP_CONFIGS = {
         "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
         "description": ("Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + "
                         "FIB-SEM) extension of the base TAPP definition, generated from "
-                        "docs/SEM_TAPP_v4.xlsx via the path-driven pipeline."),
+                        "TAPPS20260813/Current TAPPs/SEM_TAPP_v17.csv via the path-driven pipeline."),
         "detail_title": "SEM Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for SEM (superset), reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    "solutionMcicpmsTAPP": {
+        # New to the pipeline with the 2026-08-13 delivery. Seeded from solutionQicpmsTAPP, which
+        # already places 76% of its fields — the two share the whole solution-introduction and
+        # ICP-MS core and differ in the multi-collector detector array.
+        "xlsx": "TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv",
+        "prefix": "solutionMcicpms",
+        "component_types": ["ada:SolutionICPMSTabular"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)",
+        "description": ("Solution multi-collector ICP-MS extension of the base TAPP definition, "
+                        "generated from TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv "
+                        "via the path-driven pipeline."),
+        "detail_title": "Solution MC-ICP-MS Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for solution MC-ICP-MS, "
+                               "reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "solutionQicpmsTAPP": {
         "xlsx": "TAPPS20260813/Current TAPPs/Solution_Q-ICP-MS_TAPP_v17.csv",

@@ -156,9 +156,19 @@ def rewrite_selectors(path, by_norm):
     return re.sub(r"'([^']*)'", sub, path), n[0]
 
 
-def migrate(tapp, new_source, write=False):
+def migrate(tapp, new_source, write=False, seed=None):
     b.configure(tapp)
     old_csv = schemapath_io.csv_path(b.XLSX)
+    if seed:
+        # Seed from ANOTHER technique's sidecar. A table new to the pipeline has no prior sidecar of
+        # its own, but it is rarely new content: SEM v17 shares 70% of its fields with EPMA, Solution
+        # MC 76% with Solution Q. Starting from the nearest curated neighbour carries those
+        # placements instead of re-deriving them, and the report still shows every rename and every
+        # row left flagged, so nothing arrives unexamined.
+        b.configure(seed)
+        old_csv = schemapath_io.csv_path(b.XLSX)
+        b.configure(tapp)
+        print(f"  seeded from {seed} ({os.path.basename(old_csv)})")
     new_csv = schemapath_io.csv_path(new_source)
     if not os.path.exists(old_csv):
         print(f"{tapp}: no existing sidecar at {os.path.relpath(old_csv)}")
@@ -229,7 +239,13 @@ def migrate(tapp, new_source, write=False):
     for o in sorted(renamed):
         print(f"      rename  {o!r} -> {renamed[o]!r}")
     for d in dropped:
-        print(f"      DROPPED {d!r}  (paths discarded — confirm this item really is gone)")
+        # In seed mode these are simply fields the neighbour has and this technique does not, which
+        # is expected and not a loss. Saying "confirm this item really is gone" there would send a
+        # reviewer chasing thirteen phantom deletions, so the two cases are worded apart.
+        if seed:
+            print(f"      seed-only {d!r}  (not in this table; nothing carried)")
+        else:
+            print(f"      DROPPED {d!r}  (paths discarded — confirm this item really is gone)")
     for a in added:
         print(f"      new     {a!r}")
 
@@ -247,12 +263,13 @@ def main():
     ap.add_argument("tapp")
     ap.add_argument("--source", required=True, help="the new TAPP table (.csv or .xlsx)")
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--seed", help="take the starting sidecar from this TAPP instead")
     a = ap.parse_args()
     if a.tapp not in b.TAPP_CONFIGS:
         raise SystemExit(f"unknown tapp {a.tapp!r}; one of {', '.join(sorted(b.TAPP_CONFIGS))}")
     if not os.path.exists(a.source):
         raise SystemExit(f"no such source table: {a.source}")
-    return migrate(a.tapp, a.source, a.write)
+    return migrate(a.tapp, a.source, a.write, a.seed)
 
 
 if __name__ == "__main__":
