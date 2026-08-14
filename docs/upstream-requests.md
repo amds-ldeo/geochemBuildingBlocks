@@ -78,16 +78,9 @@ actually built, for you to name and scope:
 The last group is the widest: those six are shared by **every** technique, not only LA, yet none is in Group1 or ReportingCore. They may belong in one of those rather than a new module.
 
 **That accounts for 71 of the 83.** Of the remaining 12, three are the technique-dependent fields
-above. Two are ICP-MS-specific and could join a group — `Mapping Area` and `Pulse / Analog Detector
-Nonlinearity Correction`. The other **seven are universal**, and this is a finding in its own right:
-
-> `Acquisition Software` · `Data Reduction Software` · `Analytical Mode` · `Analyte` ·
-> `Reported Variables and Units` · `Constants and Reference Values Used` · `Additional Notes`
-
-Your README §10 lists most of these among the fields "present in all 16" — yet none is in `Group1`
-or `ReportingCore`, so every TAPP carries its own copy. If the sample/specimen six belong in an
-existing module, these seven probably do too, and that is a change to `Group1`/`ReportingCore`
-rather than a new module.
+above and two are ICP-MS-specific and could join a group — `Mapping Area` and `Pulse / Analog
+Detector Nonlinearity Correction`. The other seven turned out to be a separate and wider finding,
+which is §2.
 
 *Reproduce:* `python tools/draft_module.py --measure` — it reads the six `Current TAPPs/LA-*.csv`
 tables and your `Claude Skills for TAPP/modules/Module_*.csv`, and refuses any field whose
@@ -95,17 +88,53 @@ definition differs between tables rather than averaging it.
 
 ---
 
+## 2. Seven near-universal fields are in no module — 101 repeated instances
+
+Found while reconciling §1's arithmetic, and it applies to the whole library rather than just LA.
+These seven appear in nearly every TAPP and belong to **no module at all**, so each of the sixteen
+carries its own copy:
+
+| field | in N of 16 | in a module |
+|---|---|---|
+| `Acquisition Software` | 16 | — |
+| `Analytical Mode` | 16 | — |
+| `Reported Variables and Units` | 16 | — |
+| `Constants and Reference Values Used` | 16 | — |
+| `Additional Notes` | 16 | — |
+| `Data Reduction Software` | 15 | — |
+| `Analyte` | 13 | — |
+| **108 field instances** | | **7 if modularised — 101 stop being repeated** |
+
+**All seven are structurally identical wherever they appear** — same tiers, data type and
+`Keyed By`, with no exceptions across all sixteen tables. That is a stronger result than §1's
+(80 of 83), and it means there is nothing to reconcile before they could move.
+
+Your README §10 already singles out three of them as fields "worth special handling", present in all
+16 — `Reported Variables and Units`, `Constants and Reference Values Used` and `Additional Notes`,
+the last described as always the final field of the whole TAPP. Fields that important, that
+consistent and that widespread look like module material.
+
+**Suggestion.** These are not a new subject area, so a new module seems wrong. `Acquisition
+Software` and `Data Reduction Software` are procedure identification, so `Group1`. `Reported
+Variables and Units`, `Constants and Reference Values Used` and `Additional Notes` are reporting, so
+`ReportingCore` — though note `ReportingCore` is block-conditional and these would need to be
+unconditional, or a block every TAPP selects. `Analytical Mode` and `Analyte` are the two I am least
+sure about: both are declarative (`Analyte` carries `defines: analyte`), and a definer moving into a
+shared module may interact with Rule 7 in ways you will see and I will not.
+
+*Reproduce:* counts and the identity test run over `Current TAPPs/*.csv` against
+`Claude Skills for TAPP/modules/Module_*.csv`.
 
 ---
 
-##  `Error Correlation Between Reported Quantities` belongs to no module
+## 3. `Error Correlation Between Reported Quantities` belongs to no module
 
 It appears in the UPb tables and in none of the eight modules — the only UPb-specific field with no
 module home. Should it join `Module_UPb` or `Module_Geochronology`?
 
 ---
 
-##  Delivery mechanics
+## 4. Delivery mechanics
 
 
 **composed_tapps.json `tapp` paths do not match the delivery layout.** The manifest records per-technique paths such
