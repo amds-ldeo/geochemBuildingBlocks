@@ -20,7 +20,7 @@ The data lives on a sheet named **`TAPP`**. Row 1 is the header. These columns a
 |---|---|
 | `Metadata Item` | Human label for the field (col A). |
 | `Description` / `Description / Purpose` | Field description (→ schema `description`). |
-| `Protocol-Level Tier` (or `Basic/Advanced`) | `Basic` / `Advanced` / `N/A`. |
+| `Procedure-Level Tier` (was `Procedure-Level Tier`) | `Basic` / `Advanced` / `N/A`. |
 | `Analysis-Level Tier` | `Basic` / `Editable` / `Read-Only` / `Advanced` / `N/A`. |
 | `Data Type` | e.g. `Numeric (kV)`, `Text (free)`, `Controlled list`, `Boolean`, `Integer`, `Date`, `URI`. |
 | `Example/Allowed Content` | Sample value / pipe-delimited allowed values. |
@@ -37,7 +37,7 @@ Tier values are case-normalised by the generator, but **use the canonical casing
 
 ---
 
-## 2. The routing matrix (Protocol-Level × Analysis-Level)
+## 2. The routing matrix (Procedure-Level × Analysis-Level)
 
 | Protocol | Analysis | TAPP definition | Detail block (`detail<TAPP>`) |
 |---|---|---|---|

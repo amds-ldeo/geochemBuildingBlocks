@@ -1,6 +1,9 @@
 # `Keyed By` → schema-path grammar
 
-Written 2026-08-11 against the TAPP delivery in `TAPPS20260811/` — 16 TAPPs, 1691 content rows.
+Written 2026-08-11 against the delivery in `TAPPS20260811/` (16 TAPPs, 1691 content rows) and
+still current against `TAPPS20260813/`, whose `Keyed By` values are unchanged. Three of the eight
+domains are implemented — `analyte`, `channel`, `reported property`; the rest are flagged, not
+guessed at.
 Every field name, tier, count and example is taken from those CSVs.
 
 **Status: design proposal.** One part is already implemented — the tier rules on analyte columns
@@ -8,7 +11,7 @@ Every field name, tier, count and example is taken from those CSVs.
 
 Column I (`Keyed By`) states what a field's value repeats over. It decides schema *shape*, and we
 currently model one of its six domains. Companion reading:
-`TAPPS20260811/README_TAPP_for_Schema_Generation.md` §4, and `SCHEMA_PATH_GRAMMAR.md` for the
+`README_TAPP_for_Schema_Generation_v2.md` §4, and `SCHEMA_PATH_GRAMMAR.md` for the
 families we already have.
 
 ---

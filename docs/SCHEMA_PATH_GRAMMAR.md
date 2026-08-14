@@ -1,4 +1,4 @@
-# TAPP schema-path canonical grammar (v1)
+# TAPP schema-path canonical grammar (v2)
 
 The `schema path` in a TAPP workbook says **where a row's value belongs** in the JSON-LD instance
 of the TAPP definition (`$MethodDefinition`, a `schema:Action`/`cdi:Activity`) or the dataset that
@@ -18,10 +18,10 @@ curie     := ns ":" localname                 # colons only, never "." ; e.g. sc
 
 ### Roots and their aliases
 
-Two canonical roots, distinguishing the reusable protocol from the analysis document:
+Two canonical roots, distinguishing the reusable procedure from the analysis document:
 
-- **`$MethodDefinition`** — the TAPP definition (a `prov:Plan`). Protocol-level and plan-scoped rows (Protocol-Level Tier = Basic/Advanced). Analyte columns are plan-level, so `$.` (self/context) is an alias for `$MethodDefinition` (e.g. `$.ada:analyteTemplate.ada:analyteColumns[]`).
-- **`$Dataset`** — the technique **product document** root (the profile / analysis instance). Analysis-instance rows (Protocol-Level Tier = N/A) land here, mostly on existing cdif slots. The workbook may name the owning CDIF module instead of `$Dataset`; these are **aliases** normalized to `$Dataset`:
+- **`$MethodDefinition`** — the TAPP definition (a `prov:Plan`). Protocol-level and plan-scoped rows (Procedure-Level Tier = Basic/Advanced). Analyte columns are plan-level, so `$.` (self/context) is an alias for `$MethodDefinition` (e.g. `$.ada:analyteTemplate.ada:analyteColumns[]`).
+- **`$Dataset`** — the technique **product document** root (the profile / analysis instance). Analysis-instance rows (Procedure-Level Tier = N/A) land here, mostly on existing cdif slots. The workbook may name the owning CDIF module instead of `$Dataset`; these are **aliases** normalized to `$Dataset`:
   - `$cdifCore` → `$Dataset` (owns `schema:contributor`, `schema:funding`, `schema:relatedLink`, `schema:creator`…)
   - `$cdifDiscovery` → `$Dataset` (owns `schema:measurementTechnique`, `dqv:hasQualityMeasurement`)
   - `$cdifProvenance`/`$cdifManifest`/`$cdifDataDescription` → `$Dataset` (module-annotated; same root)
@@ -36,33 +36,61 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
 
 ## Canonical forms per family
 
-| family | canonical path |
+<!-- BEGIN generated: families -->
+
+*47 patterns across 45 families — two families are recognised by more than one shape. Generated from `tools/normalize_schema_paths.py` by `tools/gen_grammar_doc.py`; edit the recognizer, not this table.*
+
+| family | canonical shape |
 |---|---|
-| analyte identifier column | `$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]` |
-| direct protocol property | `$MethodDefinition.ada:<name>` (append `[]` if list-valued) |
-| protocol method parameter | `$MethodDefinition.schema:additionalProperty[schema:name='<Item>'].schema:value` (or `.schema:defaultValue`) |
-| inherited identity field | `$MethodDefinition.schema:<name\|creator\|instrument\|location\|object\|funding\|datePublished\|identifier\|measurementTechnique>[…]` |
-| computational tool (whole) | `$MethodDefinition.bios:computationalTool[<schema:name\|ada:toolRole>='<sel>']` — selected by role (`acquisition`, `dataReduction`) where the tool's NAME is the recorded value |
-| computational tool field | `$MethodDefinition.bios:computationalTool[<schema:name\|ada:toolRole>='<sel>'].schema:<name\|description>` |
-| related link target | `$MethodDefinition.schema:relatedLink[schema:linkRelationship='<rel>'].schema:target.<field>` |
-| workflow step (whole/field) | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'](.<field>)?` |
-| workflow-step reagent | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].bios:reagent[](.schema:<name\|identifier>)?` |
-| workflow-step parameter | `$MethodDefinition.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
-| instrument identity | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:<model\|manufacturer>.schema:name` (or `.schema:<name\|identifier\|additionalType\|description>`) |
-| instrument direct property | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].ada:<name>` |
-| instrument parameter | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
-| instrument component | `$MethodDefinition.schema:instrument[schema:additionalType='<type>'].schema:hasPart[schema:additionalType='<component>'].schema:<name\|identifier\|description>` |
-| instrument component parameter | `…schema:hasPart[schema:additionalType='<component>'].schema:additionalProperty[schema:name='<param>'].schema:<value\|defaultValue>` |
-| dataset scalar | `$Dataset.ada:<name>` |
-| dataset provenance | `$Dataset.prov:wasGeneratedBy.<schema:startDate\|schema:endDate>` |
-| dataset prov parameter | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<param>'].schema:value` |
-| dataset step parameter | `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='<step>'].schema:additionalProperty[schema:name='<param>'].schema:value` — analysis-tier half of a dual-homed step parameter. `value` only: a dataset records what was used, never a default |
-| dataset sample | `$Dataset.prov:wasGeneratedBy.schema:object[schema:additionalType='materialsample'].schema:<name\|identifier\|description>` |
-| dataset contributor | `$Dataset.schema:contributor[schema:roleName='<role>'](.schema:<name\|identifier>)?` |
-| dataset funding | `$Dataset.schema:funding` |
-| dataset measurement technique | `$Dataset.schema:measurementTechnique(.schema:DefinedTerm)?.schema:identifier` |
-| dataset related link | `$Dataset.schema:relatedLink[schema:linkRelationship='<rel>'].schema:target(.schema:<name\|url\|description>)?` |
-| dataset quality | `$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='<measure>'].dqv:value` |
+| `direct-ada` | `$MethodDefinition.ada:<name>[]?` |
+| `dataset-scalar` | `$Dataset.ada:<name>[]?` |
+| `analyte-template` | `$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]` |
+| `analyte-identifier` | `$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]` |
+| `reported-property-template` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:reportedPropertyColumns[]` |
+| `reported-property-identifier` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]` |
+| `channel-template` | `$MethodDefinition.ada:channelTemplate.ada:channelColumns[]` |
+| `channel-identifier` | `$MethodDefinition.ada:channelTemplate.ada:defaultChannels[]` |
+| `dataset-variable-measured` | `$Dataset.schema:variableMeasured[](.schema:(name|description|unitText|propertyID))?` |
+| `protocol-description` | `$MethodDefinition.schema:description` |
+| `method-parameter` | `$MethodDefinition.schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
+| `computational-tool` | `$MethodDefinition.bios:computationalTool[(schema:name|ada:toolRole)='<value>'](.schema:(name|description))?` |
+| `computational-tool-list` | `$MethodDefinition.bios:computationalTool[]` |
+| `related-link` | `$MethodDefinition.schema:relatedLink[schema:linkRelationship='<value>'].schema:target(.schema:(name|description|url))?` |
+| `workflow-step` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'](.schema:(name|description))?` |
+| `workflow-step-ada` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].ada:<name>[]?` |
+| `workflow-step-parameter` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
+| `workflow-step-reagent` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].bios:reagent[](.schema:(name|identifier))?` |
+| `inherited-identity` | `$MethodDefinition.schema:(name|identifier|datePublished)` |
+| `protocol-sample-parameter` | `$MethodDefinition.schema:object[@type='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)[]?` |
+| `instrument-identity` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:(model|manufacturer)(.schema:[A-Z][A-Za-z]*)?.schema:name` |
+| `instrument-identity` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:(name|identifier|additionalType|description)` |
+| `instrument-direct-ada` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].ada:<name>[]?` |
+| `instrument-parameter` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
+| `instrument-component` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:(name|identifier|description)` |
+| `instrument-component-parameter` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
+| `inherited-identity` | `$MethodDefinition.schema:(creator|location|measurementTechnique|object|funding)\b.*` |
+| `dataset-contributor` | `$Dataset.schema:contributor[schema:roleName='<value>'](.schema:(name|identifier))?` |
+| `dataset-measurement-technique` | `$Dataset.schema:measurementTechnique(.schema:DefinedTerm)?.schema:identifier` |
+| `dataset-provenance` | `$Dataset.prov:wasGeneratedBy.schema:(startDate|endDate|identifier)` |
+| `dataset-prov-parameter` | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-parameter` | `$Dataset.schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-step-parameter` | `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-step` | `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'](.schema:(name|description))?` |
+| `dataset-activity-ada` | `$Dataset.prov:wasGeneratedBy.ada:<name>[]?` |
+| `dataset-activity-description` | `$Dataset.prov:wasGeneratedBy.schema:description` |
+| `dataset-location` | `$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='<value>'].schema:(name|identifier)` |
+| `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.prov:used[(schema:additionalType|ada:<name>)='<value>'].schema:(name|identifier|description)` |
+| `dataset-distribution` | `$Dataset.schema:distribution.schema:encodingFormat` |
+| `dataset-instrument-ada` | `$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='<value>'].ada:<name>[]?` |
+| `dataset-instrument-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-instrument-component-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-sample` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:(name|identifier|description)` |
+| `dataset-sample-parameter` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-funding` | `$Dataset.schema:funding` |
+| `dataset-related-link` | `$Dataset.schema:relatedLink[schema:linkRelationship='<value>'].schema:target(.schema:(name|url|description))?` |
+| `dataset-quality` | `$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='<value>'].dqv:value` |
+
+<!-- END generated: families -->
 
 ## Normalization rules (what the normalizer auto-applies)
 
@@ -81,6 +109,30 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
    `relatedLink[schema:linkRelationship='X'].schema:target…`.
 5. Doubled separators collapsed: `$MethodDefinition..schema:actionProcess` → `…​.schema:actionProcess`
    (outside quoted literals, where `..` may be part of a name).
+6. `prov:used.<kind>[sel]` → `prov:used[sel]`, for `schema:instrument`, `bios:computationalTool` and
+   `bios:reagent`. `adaProduct` defines `prov:used` as an array whose items **are** the instrument,
+   tool or reagent, discriminated by their own selector key — there is no property to navigate into.
+   Authors write the kind because it mirrors the `$MethodDefinition` path and reads better.
+
+## Two distinctions the grammar enforces, and why
+
+**An `ada:` segment must be lowerCamel.** UpperCamel is the parser's `@type`-assertion syntax — it
+is how `schema:DefinedTerm` and `schema:Place` work — so `ada:ReportedDateType` parses as a *type*
+and emits **nothing**, while a looser recognizer happily calls it `direct-ada`. A path could
+therefore pass every check and contribute no schema at all. UpperCamel `ada:` segments are now
+rejected rather than silently dropped.
+
+**`$Dataset.schema:additionalProperty[…]` and
+`$Dataset.prov:wasGeneratedBy.schema:additionalProperty[…]` are different things.** The first
+(`dataset-parameter`) is a property of the delivered DATA — the area a map covers, the dimensions of
+a reconstructed volume. The second (`dataset-prov-parameter`) is a parameter of the SESSION — how
+the instrument was configured. One session can yield products of differing extent, and a product
+keeps its dimensions whether or not its provenance is described, so both spellings are legal and
+**nothing normalizes one into the other**.
+
+Related: a `$Dataset` path never carries a `Default`. The analysis records what was used; the
+default lives on the procedure. Two families encode that with a negative lookbehind rather than
+trusting authors to remember.
 
 ## What the normalizer FLAGS for human review (does not guess)
 
@@ -88,3 +140,7 @@ Two canonical roots, distinguishing the reusable protocol from the analysis docu
 - malformed: unbalanced brackets, trailing `.`, `"special handling"`, missing terminal
 - the complex/inconsistent instrument `hasPart`/`additionalType` variants (several incompatible forms)
 - any path that matches no family after auto-fixing
+
+**A clean sweep here is necessary but not sufficient.** Recognition proves a path is well-formed,
+not that it produces anything: confirm newly authored paths actually emit a property. The
+UpperCamel case above is exactly this failure, and it went unnoticed for a whole delivery.

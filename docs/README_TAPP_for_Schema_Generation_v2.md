@@ -322,12 +322,18 @@ schema.org, PROV, DDI-CDI and Bioschemas. `Laboratory` is not a new property —
 `schema:location` on a `schema:Place`. `Analysis Start Date` is `prov:wasGeneratedBy.schema:startDate`.
 
 So every field is mapped, by hand, to a **canonical schema path** in an existing vocabulary, and
-those mappings live in a **sidecar CSV** beside each table:
+those mappings live in a **sidecar CSV**, one row per (item → path):
 
 ```
-Current TAPPs/EPMA_TAPP_v20.csv                  ← Ruolin's table
-Current TAPPs/EPMA_TAPP_v20.schemapaths.csv      ← our placement, one row per (item → path)
+TAPPS20260813/Current TAPPs/EPMA_TAPP_v20.csv    ← Ruolin's table, read-only to us
+docs/EPMA_TAPP_v20.schemapaths.csv               ← our placement
+docs/modules/Module_Group1.schemapaths.csv       ← module placements, shared by every consumer
 ```
+
+Sidecars sit in `docs/`, not beside their tables. They were briefly co-located, which reads well
+until you notice it puts our hand-authored mapping inside somebody else's tree — the boundary
+`.github/CODEOWNERS` draws. `schemapath_io.csv_path()` resolves on the source's **basename**, so a
+table can move (2026-08-13 flattened them all into `Current TAPPs/`) without moving its sidecar.
 
 Columns: `Metadata Item | Protocol Tier | Analysis Tier | Data Type | Schema Path | Source | Scope | Notes`.
 `Metadata Item` is the join key back to the table, which is why it must match the table exactly.

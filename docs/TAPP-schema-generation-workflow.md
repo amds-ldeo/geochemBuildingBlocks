@@ -29,7 +29,7 @@ flowchart TD
     XLSX["TAPP workbook<br/>docs/&lt;Technique&gt;_TAPP_v#.xlsx<br/>(worksheet: TAPP)"]
     OV["overrides sidecar<br/>docs/&lt;wb&gt;.overrides.json"]
     LIB["reference library<br/>LA-Q_SF-ICPMS…schemapaths.json"]
-    SP["schemapaths<br/>docs/&lt;wb&gt;.schemapaths.json<br/>(1 row → 1+ canonical paths)"]
+    SP["schemapaths<br/>docs/&lt;wb&gt;.schemapaths.csv<br/>(1 row → 1+ canonical paths)"]
     REG["registry/ catalogs + vocab<br/>parameterTemplates, parameterValues,<br/>analyteColumns, vocab"]
     TAPP["techniqueProfile/&lt;tech&gt;/tapp/schema.yaml"]
     DET["techniqueProfile/&lt;tech&gt;/detail/schema.yaml"]
@@ -112,7 +112,7 @@ already exists under both roots**, the pair is the *same path shape* under `$Met
 > - `$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name`
 >   — the coupling actually used for this dataset
 >
-> All nine sidecars carry this item and every one is marked `divergent`, because two picked the
+> All the sidecars of the day carried this item and every one is marked `divergent`, because two picked the
 > `$MethodDefinition` root and seven picked `$Dataset`. The resolution is **both rows, not one**.
 
 This is why `tools/add_dual_home_rows.py` **reports** such items rather than generating them: it
@@ -246,16 +246,47 @@ Each BB folder is: `schema.yaml` (source) + `resolvedSchema.json` (compiled, sel
 | 5 | `resolve_schema.py --file <schema.yaml> -o <resolvedSchema.json>` | inlines all `$ref`s (local + remote CDIF) into a self‑contained schema |
 | 6 | validate | `jsonschema` each `example*.json` against its `resolvedSchema.json` |
 
-The mapping is read via `schemapath_io.py` (`load_spec` collapses the CSV to `{item: path(s)}`). Utilities:
-`write_schemapath_sheet.py <wb.xlsx>` (render the CSV as a styled `.xlsx`); `build_parameter_codelist.py`
-(master parameter SKOS scheme); `bb_locate.py` (resolve a BB by its pre‑reorg identity name).
+The mapping is read via `schemapath_io.py` (`load_spec` collapses the CSV to `{item: path(s)}`), and
+tables via `tapp_source.py`, which takes `.csv` or `.xlsx` — the library moved to CSV with the
+2026-08 delivery. `tapp_source` also answers which delivery is current, where its modules are, and
+where the newest `composed_tapps.json` is, so no tool hard-codes a delivery.
+
+### 4.2a Taking in a new delivery
+
+The tables are Ruolin's and arrive as a dated folder. We never edit them, so the risk is not merge
+conflicts but **drift** — a rename upstream invalidates sidecar rows keyed on Metadata Item, and it
+fails quietly.
+
+| Tool | What it answers |
+|---|---|
+| `intake_delivery.py TAPPS<date>` | **Run first.** Read-only: what would carry, rename, be **dropped** or arrive flagged; what composing a module would change; which paths no longer resolve |
+| `migrate_sidecar.py <tapp> --source <table> [--seed <tapp>] --write` | carries a sidecar onto a new revision, rewriting the selector literals that quote item names |
+| `seed_module_sidecars.py [--modules-dir D] --write` | fills module sidecars from the technique consensus; never replaces an existing path with a flag |
+| `module_conflict_check.py` | what composing a module would do to consumers — TIGHTENS / LOOSENS / ABSENT / ADDS |
+| `build_module_bb.py --write` | generates a module building block from its CSV + sidecar |
+| `draft_module.py --measure` | drafts candidate modules and measures what they would save |
+| `fill_flagged.py --write` | places flagged rows from sidecars that already solved them |
+| `gen_grammar_doc.py --write` | regenerates the family table in `SCHEMA_PATH_GRAMMAR.md` |
+
+**Read `DROPPED` closely.** An item that looks deleted is usually renamed beyond the mechanical
+rules, and its authored paths go with it. Confirm against the new table's own Description, then
+record it in `migrate_sidecar.ALIASES` rather than letting the paths be discarded.
+
+Other utilities: `write_schemapath_sheet.py <table>` (render a sidecar as a styled `.xlsx`);
+`build_parameter_codelist.py` (master parameter SKOS scheme); `bb_locate.py` (resolve a BB by its
+pre‑reorg identity name); `audit_building_blocks.py --filter <bb>` (building-block completeness).
 
 ### 4.3 Adding a new technique
 
-1. Drop the workbook in `docs/`, add a `TAPP_CONFIGS[<tappName>]` entry in `build_tapp.py`
-   (`xlsx`, `prefix`, `component_types`, titles) and its technique‑dir in the `TECH_DIR` maps.
-2. `bootstrap_schemapaths.py docs/<wb>.xlsx` → inspect the coverage report; resolve flagged rows with an
-   `overrides.json` sidecar.
+1. The source table is already in the delivery — it is Ruolin's, and we never copy or edit it.
+   Add a `TAPP_CONFIGS[<tappName>]` entry in `build_tapp.py` pointing `xlsx` at it (the key is
+   historical; it takes a `.csv` too), plus `prefix`, `component_types`, titles, and the
+   technique‑dir in `TECH_DIR`. **Two strings name the source** — the `xlsx` key and the path quoted
+   in `description` — and missing the second leaves the schema citing a stale table.
+2. Seed the sidecar. If a curated neighbour exists, prefer it:
+   `migrate_sidecar.py <tapp> --source <table> --seed <nearest tapp> --write` — SEM v17 shares 70%
+   of its fields with EPMA, Solution MC 76% with Solution Q. Otherwise
+   `bootstrap_schemapaths.py <table>`, then inspect the coverage report and resolve flagged rows.
 3. `build_tapp.py` → `build_pathdriven.py` → `resolve_schema.py` (tapp + detail) → validate.
 4. For a product profile, add an entry to `build_profile.py:PROFILES` and run it (+ resolve + validate).
 
