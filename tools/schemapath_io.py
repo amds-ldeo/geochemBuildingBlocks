@@ -24,15 +24,25 @@ FIELDS = ["Metadata Item", "Protocol Tier", "Analysis Tier", "Data Type", "Schem
 # workbook and will drop it — re-run mark_shared_mappings.py after a re-seed.
 
 
-def csv_path(source_path):
-    """<dir>/<wb>.{xlsx,csv} -> <dir>/<wb>.schemapaths.csv — the sidecar sits BESIDE its source.
+DOCS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs")
 
-    A sidecar is only meaningful against one revision of one table: its rows are keyed by that
-    table's Metadata Item values. Keeping the two together means a technique folder holds the whole
-    story, and there is never a question of which sidecar goes with which source. Carrying the
-    curation onto the next delivery is migrate_sidecar.py's job, not the filesystem's.
+
+def csv_path(source_path):
+    """<anywhere>/<wb>.{xlsx,csv} -> docs/<wb>.schemapaths.csv (docs/modules/ for a module).
+
+    Sidecars live in docs/ because they are OURS. The TAPPS<date>/ folders are Ruolin's library,
+    cached locally for reference and never modified — a sidecar written into one puts our
+    hand-authored mapping inside somebody else's tree, which is exactly the boundary
+    .github/CODEOWNERS draws. Resolving on the BASENAME lets a source sit wherever the delivery
+    happens to put it (2026-08-13 moved every table into a flat `Current TAPPs/`) while its sidecar
+    stays where it is curated.
+
+    Module sidecars go to docs/modules/ so the technique folder does not mix the two: a module
+    sidecar is shared by every TAPP that composes it, a technique sidecar belongs to one table.
     """
-    return os.path.splitext(source_path)[0] + ".schemapaths.csv"
+    stem = os.path.splitext(os.path.basename(source_path))[0]
+    sub = "modules" if stem.startswith("Module_") else ""
+    return os.path.join(DOCS, sub, stem + ".schemapaths.csv")
 
 
 def read(csv_file):

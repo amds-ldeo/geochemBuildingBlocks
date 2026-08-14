@@ -138,11 +138,10 @@ def _all_sidecars():
         p = schemapath_io.csv_path(b.XLSX)
         if os.path.exists(p):
             out.append((t, p))
-    # Only the CURRENT delivery's modules. Walking the tree instead picked up every superseded
-    # delivery's module sidecars as well and counted them all, which inflated the reported path
-    # total by the whole of the older set — a number that looks like coverage and is really a
-    # duplicate.
-    md = tapp_source.modules_dir()
+    # Module sidecars are ours and live in docs/modules/ — one set, not one per delivery. Walking
+    # the tree instead picked up every superseded delivery's copies and counted them all, inflating
+    # the total by the whole of the older set: a number that looks like coverage and is a duplicate.
+    md = os.path.join(ROOT, "docs", "modules")
     if os.path.isdir(md):
         for f in sorted(os.listdir(md)):
             if f.startswith("Module_") and f.endswith(".schemapaths.csv"):

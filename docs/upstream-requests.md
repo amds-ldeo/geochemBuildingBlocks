@@ -1,30 +1,23 @@
 # Requests to the TAPP library
 
-Things the schema-generation work has found that can only be fixed upstream, in the tables and
-modules Ruolin authors. We import those read-only ([.github/CODEOWNERS](../.github/CODEOWNERS)), so
-nothing here is something we can change on our side.
+(from claude with SMR edits)
 
-Ordered by how much work each one saves. Every number is measured against the 2026-08-13 delivery
-and reproducible with the tool named beside it.
+Things the schema-generation work has found that can only be fixed upstream, in the tables and modules Ruolin authors. SMR imports those read-only ([.github/CODEOWNERS](../.github/CODEOWNERS)), so I don't want to change in my github unless you give me the go ahead....
+
+Ordered by how much work each one saves. Every number is measured against the 2026-08-13 delivery and reproducible with the tool named beside it.  I copies teh 8-13 drop from the google drive. 
 
 ---
 
 ## 1. The LA family needs more modules — 83 shared fields have none
 
-**The finding.** The six LA tables (Q/SF/MC, each with a UPb variant) hold 153 distinct fields.
-**115 of them appear in all six.** The existing modules cover 42. The remaining **73 are duplicated
-six times over**, and 10 more are shared by four or more tables with no module either.
+**The finding.** The six LA tables (Q/SF/MC, each with a UPb variant) hold 153 distinct fields. **115 of them appear in all six.** The existing modules cover 42. The remaining **73 are duplicated six times over**, and 10 more are shared by four or more tables with no module either.
 
 | shared by | fields | in a module | in none |
 |---|---|---|---|
 | all 6 tables | 115 | 42 | **73** |
 | 4–5 tables | 10 | 0 | **10** |
 
-**Why it matters to us.** Without modules for these, generating schemas for the six LA tables means
-authoring six near-identical sets of schema paths — about 230 placements, most of them the same
-decision repeated. That is the drift the module system exists to prevent, and it is why the LA
-configs are on hold: we would rather wait than manufacture six copies of an ICP-MS core that should
-be one module.
+**Why it matters.** Without modules, generating schemas for the six LA tables means authoring six near-identical sets of schema paths (mapping from TAPP property to JSON-LD path) — about 230 placements, most of them the same decision repeated. That is the drift the module system exists to prevent; I'm holding up on the configs until we decide about adding these modules.
 
 **Proposal.** The 83 fields cluster cleanly. Suggested groupings, for you to name and scope:
 
@@ -50,67 +43,26 @@ be one module.
 - **Sample / specimen** — Sample Name, Sample Persistent Identifier, Sample Form / Analytical
   Substrate, Sample Preparation Method, Target Material, Sampling Unit
 
-The last group is the widest: those six are shared by **every** technique, not only LA, yet none is
-in Group1 or ReportingCore. They may belong in one of those rather than a new module.
+The last group is the widest: those six are shared by **every** technique, not only LA, yet none is in Group1 or ReportingCore. They may belong in one of those rather than a new module.
 
-*Reproduce:* the per-field counts come from the six `Current TAPPs/LA-*.csv` tables against
-`Claude Skills for TAPP/modules/Module_*.csv`.
+*Reproduce:* the per-field counts come from the six `Current TAPPs/LA-*.csv` tables against `Claude Skills for TAPP/modules/Module_*.csv`.
 
 ---
 
-## 2. `Module_UPb` — 12 of its 15 rows carry no tiers
-
-Only `Chemical Abrasion Conditions`, `Intermediate Daughter Disequilibrium Correction` and
-`Discordance Definition and Values` have a Procedure or Analysis tier and a Description. The other
-twelve carry only an `Example / Allowed Content` value, against fields `Module_Geochronology` and
-`Module_ReportingCore` own.
-
-We read those as **example overlays, not owned fields**, and generate nothing for them — a module
-row with no tier has no requiredness to express and no placement to author. Confirming that reading
-would be useful; if they are meant to be owned, they need tiers.
-
-`Module_Geochronology` has no such rows, so the pattern looks deliberate rather than accidental.
-
-*Reproduce:* `python tools/build_module_bb.py`
 
 ---
 
-## 3. `Module_ReportingCore` carries six fields that seven tables do not
-
-The manifest says all sixteen tables compose ReportingCore, but seven lack fields the module
-declares — 18 (field × table) pairs:
-
-- **Lab-XCT, SEM-FIBSEM, SEM-Imaging, TEM** lack Procedural Blank Level, Goodness-of-Fit or
-  Dispersion Statistic, Analysis Inclusion and Rejection Criteria
-- **Solution Q, SF, MC** lack Target Selection Criteria, Pre-Analysis Imaging and Screening
-
-Composing gives those tables the fields, which is reasonable if the module is the newer statement of
-intent — but `Analysis Inclusion and Rejection Criteria` and `Target Selection Criteria` are
-Procedure-Level Basic, so they become **requirements those tables never stated**. Is the module
-ahead of the tables, or are those tables genuinely exempt?
-
-Everything else agrees exactly: across 578 (module field × consuming table) pairs where the table
-carries the field, tiers match in **all 578**. No TIGHTENS, LOOSENS or ABSENT anywhere.
-
-*Reproduce:* `python tools/module_conflict_check.py`
-
----
-
-## 4. `Error Correlation Between Reported Quantities` belongs to no module
+##  `Error Correlation Between Reported Quantities` belongs to no module
 
 It appears in the UPb tables and in none of the eight modules — the only UPb-specific field with no
 module home. Should it join `Module_UPb` or `Module_Geochronology`?
 
 ---
 
-## 5. Delivery mechanics
+##  Delivery mechanics
 
-**`composed_tapps.json` did not ship with the 2026-08-13 drop.** Stephen copied it across from
-Drive. Since it declares what composes what, a delivery without it leaves the composition
-undescribed; our tooling now falls back to the newest manifest in any delivery and says which one it
-used, but the fallback is a workaround.
 
-**Its `tapp` paths do not match the delivery layout.** The manifest records per-technique paths such
+**composed_tapps.json `tapp` paths do not match the delivery layout.** The manifest records per-technique paths such
 as `EPMA/EPMA_TAPP_v20.csv`, while 2026-08-13 puts every table in a flat `Current TAPPs/` folder —
 so **0 of 16 entries resolve** as written. We now resolve by filename instead. Either the manifest
 or the layout should move, since a consumer following the manifest literally finds nothing.
