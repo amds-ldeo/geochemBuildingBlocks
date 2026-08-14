@@ -1078,6 +1078,18 @@ def _merge_non_profile_structured(schema_path: Path, global_defs: dict,
         resolved_defs[def_name] = resolve_def_aware(def_path, file_to_def,
                                                     inline_def_map, seen=set())
 
+    # The document's OWN $defs. resolve_def_aware drops them deliberately — a normal BB's local defs
+    # are hoisted into global_defs by collect_global_defs, which scans REFERENCED files and so never
+    # picks up the root's own. That is invisible until a schema's $defs are its whole point: every
+    # composition module under BaseSchema/modules/ resolved to nothing but $schema, title and
+    # description, because all nine of ReportingCore's defs went out this way. Added with setdefault
+    # so a global of the same name still wins, leaving existing behaviour alone.
+    own = load_schema_file(schema_path.resolve()).get("$defs") or {}
+    for def_name, def_body in own.items():
+        resolved_defs.setdefault(def_name, _resolve_node_structured(
+            def_body, schema_path.parent, own, file_to_def, inline_def_map,
+            current_file=schema_path.resolve(), seen=set()))
+
     if resolved_defs:
         resolved["$defs"] = resolved_defs
 
@@ -1139,6 +1151,18 @@ def _is_in_cycle(name: str, defs: dict) -> bool:
                 reachable.add(other)
                 stack.append(other)
     return name in reachable
+
+
+_DEFS_ONLY_META = {"$schema", "$id", "title", "description", "$comment", "$defs"}
+
+
+def _has_structure_outside_defs(schema: dict) -> bool:
+    """True unless the document is nothing but metadata and `$defs`.
+
+    A defs-only schema is a library of named shapes for other files to reference, not a schema that
+    constrains anything itself — the composition modules are the case in hand.
+    """
+    return bool(set(schema) - _DEFS_ONLY_META)
 
 
 def inline_low_use_defs(schema: dict, threshold: int = 2) -> dict:
@@ -1242,8 +1266,16 @@ def resolve_structured(schema_path: Path) -> dict:
         print(f"  Promoted {len(promoted_resolved)} inline $defs ({', '.join(sorted(promoted_resolved.keys()))})",
               file=sys.stderr)
 
-    # Phase 4-5: inline low-use defs (skips cyclic ones automatically)
-    result = inline_low_use_defs(result, threshold=2)
+    # Phase 4-5: inline low-use defs (skips cyclic ones automatically).
+    #
+    # NOT for a defs-only document. Inlining prunes a $def the document itself barely references,
+    # which is right for a local helper and wrong for a schema whose $defs ARE its public surface:
+    # the composition modules under BaseSchema/modules/ exist to be $ref'd from other files, so
+    # every one of their defs has zero internal references and all of them were being dropped —
+    # leaving a resolvedSchema.json holding nothing but $schema, title and description. A document
+    # with no structure outside $defs has nothing to inline INTO, so the pass has no work there.
+    if _has_structure_outside_defs(result):
+        result = inline_low_use_defs(result, threshold=2)
 
     # Phase 6: strip metadata
     result = strip_metadata_keys(result, is_root=True)
