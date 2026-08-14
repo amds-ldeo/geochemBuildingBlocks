@@ -11,7 +11,7 @@
     "skos:ConceptScheme"
   ],
   "skos:prefLabel": "Technique per Analyte",
-  "skos:definition": "For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a protocol employs both EDS and WDS simultaneously, assigning each element to the detector appropriate to its concentration range, line overlap situation, or required precision. ",
+  "skos:definition": "For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning each element to the detector appropriate to its concentration range, line overlap situation, or required precision.",
   "schema:identifier": "ada:vocab/semTAPP/techniquePerAnalyte",
   "schema:dateModified": "2026-07-31",
   "schema:license": [
@@ -19,12 +19,25 @@
   ],
   "skos:hasTopConcept": [
     {
-      "@id": "ada:vocab/semTAPP/techniquePerAnalyte/Si_WDS_Al_WDS_Fe_WDS_Na_EDS_C_EDS",
+      "@id": "ada:vocab/semTAPP/techniquePerAnalyte/WDS",
       "@type": [
         "skos:Concept"
       ],
-      "skos:prefLabel": "Si: WDS; Al: WDS; Fe: WDS; Na: EDS; C: EDS",
-      "skos:notation": "Si: WDS; Al: WDS; Fe: WDS; Na: EDS; C: EDS",
+      "skos:prefLabel": "WDS",
+      "skos:notation": "WDS",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semTAPP/techniquePerAnalyte"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/semTAPP/techniquePerAnalyte/EDS",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "EDS",
+      "skos:notation": "EDS",
       "skos:inScheme": [
         {
           "@id": "ada:vocab/semTAPP/techniquePerAnalyte"

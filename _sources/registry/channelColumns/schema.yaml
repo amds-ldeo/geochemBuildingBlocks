@@ -8,6 +8,103 @@ description: Registry of reusable schema:PropertyValueSpecification channel colu
   no instantiable properties of its own.
 type: object
 $defs:
+  solutionMcicpms_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Mathematical approach used to calculate and remove residual interference contributions.
+      For direct isobars, interference monitor masses (e.g., 202Hg to correct 204Hg on 204Pb) are measured
+      simultaneously and used with natural abundance ratios to calculate the interference contribution.
+      For abundance sensitivity, the tailing factor is measured using a pure standard.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionMcicpms_interferingSpecies:
+    title: Interfering Species
+    description: List of isobaric or polyatomic species mathematically corrected in data reduction. Includes
+      direct isobars (e.g., 54Cr+ on 54Fe+, 58Ni+ on 58Fe+), abundance sensitivity tailing (e.g., 238U
+      tail on 235U and 236U in U isotope measurements), and hydride interferences (e.g., 238UH+ at mass
+      239).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionMcicpmsTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionMcicpms_isobaricInterferenceCorrectionsApplied:
+    title: Isobaric Interference Corrections Applied
+    description: 'Whether mathematical corrections for residual isobaric or polyatomic interferences are
+      applied in data reduction, supplementary to any interference suppression achieved by chemical separation
+      or mass resolution. In solution MC-ICP-MS, chemical separation is the primary interference mitigation;
+      mathematical corrections address residual contributions. Common examples: 204Hg on 204Pb; abundance
+      sensitivity tailing of 238U onto 236U and 235U.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: isobaricInterferenceCorrectionsApplied
+      schema:name:
+        const: Isobaric Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
     description: Integration time spent on each mass peak per sweep (ms). May differ between masses where

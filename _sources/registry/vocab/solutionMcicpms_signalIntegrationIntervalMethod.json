@@ -1,0 +1,61 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": "Signal Integration Interval Method",
+  "skos:definition": "Method used to define which portion of the acquisition signal is integrated for each measurement. In MC-ICP-MS, all cycles within a block are typically used unless signal instability is detected. Specify the rule for including or excluding individual cycles.",
+  "schema:identifier": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
+    {
+      "@id": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod/All_cycles_included_unless_signal_instability_detected",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "All cycles included unless signal instability detected",
+      "skos:notation": "All cycles included unless signal instability detected",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod/Visual_inspection_of_cycle-by-cycle_data_outlier_cycles_excluded_manually",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Visual inspection of cycle-by-cycle data; outlier cycles excluded manually",
+      "skos:notation": "Visual inspection of cycle-by-cycle data; outlier cycles excluded manually",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod/Automated_2_outlier_rejection_per_block",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Automated 2σ outlier rejection per block",
+      "skos:notation": "Automated 2σ outlier rejection per block",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/solutionMcicpmsTAPP/signalIntegrationIntervalMethod"
+        }
+      ]
+    }
+  ]
+}

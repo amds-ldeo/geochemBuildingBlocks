@@ -12,24 +12,138 @@
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:identifier": "example protocolDoi"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
   "prov:wasGeneratedBy": [
     {
-      "schema:startDate": "example analysisStartDate",
+      "prov:used": [
+        {
+          "schema:additionalType": [
+            "EPMA"
+          ],
+          "ada:acceleratingVoltage": 1.0,
+          "ada:beamDiameter": 1.0
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "example acquisitionSoftware"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "example dataReductionSoftware"
+        }
+      ],
+      "schema:description": "example additionalNotes",
       "schema:endDate": "example analysisEndDate",
+      "schema:startDate": "example analysisStartDate",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semTAPP/beamDamageMinimization",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/beamDamageMinimization"
+          },
+          "schema:name": "Beam Damage Minimization",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/beamRasterDimensions",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/beamRasterDimensions"
+          },
+          "schema:name": "Beam Raster Dimensions",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semTAPP/driftCorrection",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/driftCorrection"
+          },
+          "schema:name": "Drift Correction",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/dwellTimePerPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/dwellTimePerPixel"
+          },
+          "schema:name": "Dwell Time per Pixel",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
+          },
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/halogenCorrectionOnOxygen",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/halogenCorrectionOnOxygen"
+          },
+          "schema:name": "Halogen Correction on Oxygen",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/stepSizePixelSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/stepSizePixelSize"
+          },
+          "schema:name": "Step Size / Pixel Size",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semTAPP/edsDeadTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/edsDeadTime"
+          },
+          "schema:name": "EDS Dead Time",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/proceduralBlankLevel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": {
+            "@id": "ada:parameter/semTAPP/proceduralBlankLevel"
+          },
+          "schema:name": "Procedural Blank Level",
+          "schema:value": "example value"
+        }
+      ],
+      "ada:edsLiveTimePerPointOrPixel": 1.0,
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
       "schema:object": [
         {
           "@type": [
@@ -38,161 +152,88 @@
           "schema:name": "example sampleName",
           "schema:identifier": "example samplePersistentIdentifier"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "samplePreparation",
+            "schema:description": "example samplePreparationMethod"
+          },
+          {
+            "schema:name": "dataReduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": {
+                  "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
+                },
+                "schema:name": "Constants and Reference Values Used",
+                "schema:value": "example value"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
-  "schema:funding": [],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
   "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "example coupledTechnique"
-      }
-    },
-    {
-      "schema:linkRelationship": "coupledProtocol",
-      "schema:target": {
-        "schema:url": "example coupledProtocolDoi"
-      }
-    },
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
+    },
+    {
+      "schema:linkRelationship": "coupledProcedure",
+      "schema:target": {
+        "schema:url": "example coupledProcedureDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA; NanoSIMS",
+        "schema:description": "example couplingDescription"
+      }
+    }
+  ],
+  "schema:funding": [],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example procedureDoi"
     }
   ],
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/semTAPP/beamRasterDimensions",
+      "@id": "ada:parameter/semTAPP/mapArea",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/beamRasterDimensions"
+        "@id": "ada:parameter/semTAPP/mapArea"
       },
-      "schema:name": "Beam Raster Dimensions",
+      "schema:name": "Map Area",
       "schema:value": 1
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     },
     {
-      "@id": "ada:parameter/semTAPP/beamDamageMinimization",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/beamDamageMinimization"
-      },
-      "schema:name": "Beam Damage Minimization",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/driftCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/driftCorrection"
-      },
-      "schema:name": "Drift Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/chamberPressure",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/chamberPressure"
-      },
-      "schema:name": "Chamber Pressure",
-      "schema:value": 1
-    },
-    {
-      "@id": "ada:parameter/semTAPP/backgroundPosition",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/backgroundPosition"
-      },
-      "schema:name": "Background Position(s)",
-      "schema:value": 1
-    },
-    {
-      "@id": "ada:parameter/semTAPP/ebsdFrameTime",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/ebsdFrameTime"
-      },
-      "schema:name": "EBSD Frame Time",
-      "schema:value": 1,
-      "schema:unitText": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/timeDependentIntensityCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/timeDependentIntensityCorrection"
-      },
-      "schema:name": "Time-Dependent Intensity Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/halogenCorrectionOnOxygen",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/halogenCorrectionOnOxygen"
-      },
-      "schema:name": "Halogen Correction on Oxygen",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/blankCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/blankCorrection"
-      },
-      "schema:name": "Blank Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
-      },
-      "schema:name": "Normalization / Standards-Based Correction",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/ebsdPatternQualityThreshold",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/ebsdPatternQualityThreshold"
-      },
-      "schema:name": "EBSD Pattern Quality Threshold",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/clWavelengthCalibrationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/semTAPP/clWavelengthCalibrationReference"
-      },
-      "schema:name": "CL Wavelength Calibration Reference",
-      "schema:value": "example value"
+      "dqv:isMeasurementOf": "Dispersion Statistic",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }
