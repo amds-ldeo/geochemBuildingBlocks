@@ -17,35 +17,81 @@ Ordered by how much work each one saves. Every number is measured against the 20
 | all 6 tables | 115 | 42 | **73** |
 | 4–5 tables | 10 | 0 | **10** |
 
-**Why it matters.** Without modules, generating schemas for the six LA tables means authoring six near-identical sets of schema paths (mapping from TAPP property to JSON-LD path) — about 230 placements, most of them the same decision repeated. That is the drift the module system exists to prevent; I'm holding up on the configs until we decide about adding these modules.
+**Why it matters.** Without modules, generating schemas for the six LA tables means authoring six near-identical sets of schema paths (mapping from TAPP property to JSON-LD path), most of them the same decision repeated. That is the drift the module system exists to prevent; I'm holding up on the configs until we decide about adding these modules.
 
-**Proposal.** The 83 fields cluster cleanly. Suggested groupings, for you to name and scope:
+**What it would save — measured, not estimated.** I built the six groupings below as local drafts
+(`docs/modules/draft/`) and counted:
 
-- **ICP-MS instrument core** — ICP-MS Manufacturer & Model, ICP-MS Type, RF Power, coolant /
+| | placements |
+|---|---|
+| field instances across the six LA tables | 796 |
+| already covered by your existing modules | 309 |
+| **left to place per-table today** | **487** |
+| covered if these six were modules | 717 |
+| **left to place per-table then** | **79** |
+
+487 becomes 71 authored once plus 79 remaining — a **net reduction of 337, about 69%**. And 67 of
+the 71 (94%) already have a placement in a technique sidecar we curated earlier, so the module-side
+work would largely seed itself; only 4 fields need placing from scratch.
+
+**The precondition holds.** A field can only be a module field if its definition is the same
+everywhere. Of the 83 candidates, **80 carry identical tiers, data type and `Keyed By` across all
+six tables**. The 3 that differ are `Mass Resolution Setting`, `Monitored Isotopes` and
+`Primary Calibration Standard Name` — all documented as technique-dependent by design (README §4),
+so they stay per-table. That is the right answer rather than a gap, and it is why they are absent
+from the groupings below.
+
+One thing for you to settle if you adopt this: six of the collision/reaction-cell fields are
+structurally identical but **worded differently** between the Q and MC families. The drafts use the
+more common wording; a real module needs one description.
+
+**Proposal.** The 83 fields cluster cleanly. Suggested groupings — field counts are what the drafts
+actually built, for you to name and scope:
+
+- **ICP-MS instrument core** (20) — ICP-MS Manufacturer & Model, ICP-MS Type, RF Power, coolant /
   auxiliary / carrier gas flow rates, Torch Type, Torch Depth, Interface Cone Configuration,
   Sampler and Skimmer Cone Material, Guard Electrode, Plasma Thermal Mode, Detector Configuration,
   Ion Counter Dead Time, Sample Introduction, Instrument Serial Number or Lab Identifier, ICP
-  Tuning, Instrument Warm-up / Session Duration Limit
-- **Collision / reaction cell** — CRC Configuration, Collision Gas Type and Flow Rate, Reaction Gas
+  Tuning, Instrument Warm-up / Session Duration Limit, Plasma / Make-up Gas Addition,
+  Sensitivity as Useful Yield
+- **Collision / reaction cell** (6) — CRC Configuration, Collision Gas Type and Flow Rate, Reaction Gas
   Type and Flow Rate, Cell Exit Discrimination Voltage
-- **Signal acquisition** — Dwell Time per Mass, Signal Integration Time, Signal Integration Interval
-  Method, Total Integration Time per Output Data Point, Background Count Time, Number of Replicates,
-  Signal Smoothing, Monitored Isotopes, Mass Resolution Setting, Mass Resolution Assignment
-- **Interference handling** — Interfering Species, Isobaric Interference Corrections Applied,
+- **Signal acquisition** (9) — Dwell Time per Mass, Signal Integration Time, Signal Integration
+  Interval Method, Total Integration Time per Output Data Point, Background Count Time, Number of
+  Replicates, Signal Smoothing, Mass Resolution Assignment, Multi-Run Sequential Analysis Design
+- **Interference handling** (7) — Interfering Species, Isobaric Interference Corrections Applied,
   Interference Correction Method, Oxide Production, Oxide Production Method and Threshold,
   Doubly-Charged Species Production, Doubly-Charged Species Monitor
-- **Calibration and uncertainty** — Detection Limit, Detection Limit Method, Limit of Quantification
+- **Calibration and uncertainty** (21) — Detection Limit, Detection Limit Method, Limit of Quantification
   (LOQ) Method, Within-Session and Between-Session Analytical Precision and Assessment Method,
   Analytical Accuracy and Assessment Method, Uncertainty Level, Uncertainty Propagation Method,
-  Primary Calibration Standard Name, Secondary Reference Materials, Per-Analyte Calibration
+  Secondary Reference Materials, Per-Analyte Calibration
   Strategy, Internal Standard Approach, Internal Standard Element, Normalization / Standards-Based
-  Correction, Blank / Background Correction Method
-- **Sample / specimen** — Sample Name, Sample Persistent Identifier, Sample Form / Analytical
-  Substrate, Sample Preparation Method, Target Material, Sampling Unit
+  Correction, Blank / Background Correction Method, Calibration Standard Measurement Frequency,
+  Spike / Outlier Filtering Approach, Elemental Fractionation Correction, Mass Bias Correction
+  Strategy, Matrix Offset Correction (LIEF), Isotope Dilution Data Reduction Method, Memory
+  Effect Mitigation
+- **Sample / specimen** (8) — Sample Name, Sample Persistent Identifier, Sample Form / Analytical
+  Substrate, Sample Preparation Method, Target Material, Sampling Unit, Analysis Sequence,
+  Fusion Flux and Dilution Ratio
 
 The last group is the widest: those six are shared by **every** technique, not only LA, yet none is in Group1 or ReportingCore. They may belong in one of those rather than a new module.
 
-*Reproduce:* the per-field counts come from the six `Current TAPPs/LA-*.csv` tables against `Claude Skills for TAPP/modules/Module_*.csv`.
+**That accounts for 71 of the 83.** Of the remaining 12, three are the technique-dependent fields
+above. Two are ICP-MS-specific and could join a group — `Mapping Area` and `Pulse / Analog Detector
+Nonlinearity Correction`. The other **seven are universal**, and this is a finding in its own right:
+
+> `Acquisition Software` · `Data Reduction Software` · `Analytical Mode` · `Analyte` ·
+> `Reported Variables and Units` · `Constants and Reference Values Used` · `Additional Notes`
+
+Your README §10 lists most of these among the fields "present in all 16" — yet none is in `Group1`
+or `ReportingCore`, so every TAPP carries its own copy. If the sample/specimen six belong in an
+existing module, these seven probably do too, and that is a change to `Group1`/`ReportingCore`
+rather than a new module.
+
+*Reproduce:* `python tools/draft_module.py --measure` — it reads the six `Current TAPPs/LA-*.csv`
+tables and your `Claude Skills for TAPP/modules/Module_*.csv`, and refuses any field whose
+definition differs between tables rather than averaging it.
 
 ---
 
