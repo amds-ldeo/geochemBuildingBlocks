@@ -4,13 +4,13 @@
     "description": "Registry of reusable schema:PropertyValue parameter-value definitions derived from technique TAPP spreadsheets. Each $def constrains one per-dataset schema:PropertyValue entry. Detail building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
-        "sem_coupledProtocolDoi": {
-            "title": "Coupled Protocol DOI",
-            "description": "DOI of the registered protocol for the coupled technique.",
+        "sem_coupledProcedureDoi": {
+            "title": "Coupled Procedure DOI",
+            "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/semTAPP/coupledProtocolDoi"
+                    "const": "ada:parameter/semTAPP/coupledProcedureDoi"
                 },
                 "@type": {
                     "const": [
@@ -19,11 +19,11 @@
                 },
                 "schema:propertyID": {
                     "const": {
-                        "@id": "ada:parameter/semTAPP/coupledProtocolDoi"
+                        "@id": "ada:parameter/semTAPP/coupledProcedureDoi"
                     }
                 },
                 "schema:name": {
-                    "const": "Coupled Protocol DOI"
+                    "const": "Coupled Procedure DOI"
                 },
                 "schema:value": {
                     "type": "string"
@@ -39,7 +39,7 @@
         },
         "sem_coupledDatasetOrPublicationReference": {
             "title": "Coupled Dataset or Publication Reference",
-            "description": "DOI of the dataset or publication containing the coupled technique data. If coupling is documented only through a shared sample IGSN, this field may be 'None'.",
+            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
             "type": "object",
             "properties": {
                 "@id": {
@@ -105,7 +105,7 @@
         },
         "sem_samplePersistentIdentifier": {
             "title": "Sample Persistent Identifier",
-            "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -123,6 +123,72 @@
                 },
                 "schema:name": {
                     "const": "Sample Persistent Identifier"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_targetSelectionCriteria": {
+            "title": "Target Selection Criteria",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/targetSelectionCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/semTAPP/targetSelectionCriteria"
+                    }
+                },
+                "schema:name": {
+                    "const": "Target Selection Criteria"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_preAnalysisImagingAndScreening": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
+                    }
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
                 },
                 "schema:value": {
                     "type": "string"
@@ -494,9 +560,9 @@
                 "schema:value"
             ]
         },
-        "analyte": {
+        "sem_analyte": {
             "title": "Analyte",
-            "description": "Element(s) measured by this protocol. The protocol registers the full intended analyte suite; analysts record the specific subset measured in a given session, which may be narrower. Fields below flagged as Analyte-Specific in the Comments column apply individually to each element in this list.",
+            "description": "The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules. The procedure registers the full analyte suite; analysts record the specific subset actually measured in a given session, which may be narrower. Fields whose Keyed By column declares 'analyte' apply individually to each element in this list.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -571,9 +637,49 @@
                 "schema:unitText"
             ]
         },
+        "sem_stepSizePixelSize": {
+            "title": "Step Size / Pixel Size",
+            "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/stepSizePixelSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/semTAPP/stepSizePixelSize"
+                    }
+                },
+                "schema:name": {
+                    "const": "Step Size / Pixel Size"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "sem_peakCountingTime": {
             "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Protocol specifies standard values; analysts may adjust within protocol-defined bounds.",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -681,14 +787,7 @@
                     "const": "Background Position(s)"
                 },
                 "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -739,7 +838,7 @@
                 "schema:value"
             ]
         },
-        "ebsdStepSize": {
+        "sem_ebsdStepSize": {
             "title": "EBSD Step Size",
             "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
             "type": "object",
@@ -779,7 +878,7 @@
                 "schema:value"
             ]
         },
-        "ebsdFrameTime": {
+        "sem_ebsdFrameTime": {
             "title": "EBSD Frame Time",
             "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time improves pattern quality and indexing rate but increases total acquisition time.",
             "type": "object",
@@ -823,9 +922,9 @@
                 "schema:unitText"
             ]
         },
-        "ebsdPhaseList": {
+        "sem_ebsdPhaseList": {
             "title": "EBSD Phase List",
-            "description": "Mineral phases included in the EBSD reference pattern library for this protocol. The protocol specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
+            "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -955,13 +1054,13 @@
                 "schema:value"
             ]
         },
-        "sem_targetFoilThickness": {
-            "title": "Target Foil Thickness",
+        "sem_foilThickness": {
+            "title": "Foil Thickness",
             "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/semTAPP/targetFoilThickness"
+                    "const": "ada:parameter/semTAPP/foilThickness"
                 },
                 "@type": {
                     "const": [
@@ -970,11 +1069,11 @@
                 },
                 "schema:propertyID": {
                     "const": {
-                        "@id": "ada:parameter/semTAPP/targetFoilThickness"
+                        "@id": "ada:parameter/semTAPP/foilThickness"
                     }
                 },
                 "schema:name": {
-                    "const": "Target Foil Thickness"
+                    "const": "Foil Thickness"
                 },
                 "schema:value": {
                     "anyOf": [
@@ -1074,7 +1173,7 @@
         },
         "sem_backgroundCorrectionMethod": {
             "title": "Background Correction Method",
-            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1270,7 +1369,7 @@
                 "schema:value"
             ]
         },
-        "ebsdPatternQualityThreshold": {
+        "sem_ebsdPatternQualityThreshold": {
             "title": "EBSD Pattern Quality Threshold",
             "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
             "type": "object",
@@ -1303,13 +1402,13 @@
                 "schema:value"
             ]
         },
-        "3dImageRegistration": {
+        "sem_imageRegistration3D": {
             "title": "3D Image Registration",
             "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/semTAPP/3dImageRegistration"
+                    "const": "ada:parameter/semTAPP/imageRegistration3D"
                 },
                 "@type": {
                     "const": [
@@ -1318,7 +1417,7 @@
                 },
                 "schema:propertyID": {
                     "const": {
-                        "@id": "ada:parameter/semTAPP/3dImageRegistration"
+                        "@id": "ada:parameter/semTAPP/imageRegistration3D"
                     }
                 },
                 "schema:name": {
@@ -1336,13 +1435,13 @@
                 "schema:value"
             ]
         },
-        "3dSegmentationMethod": {
+        "sem_segmentationMethod3D": {
             "title": "3D Segmentation Method",
             "description": "Method and software used to segment phases and features in the aligned 3D image stack, transforming the grayscale stack into labelled 3D regions (pores, mineral phases, grain boundaries, organic matter).",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/semTAPP/3dSegmentationMethod"
+                    "const": "ada:parameter/semTAPP/segmentationMethod3D"
                 },
                 "@type": {
                     "const": [
@@ -1351,7 +1450,7 @@
                 },
                 "schema:propertyID": {
                     "const": {
-                        "@id": "ada:parameter/semTAPP/3dSegmentationMethod"
+                        "@id": "ada:parameter/semTAPP/segmentationMethod3D"
                     }
                 },
                 "schema:name": {
@@ -1369,9 +1468,75 @@
                 "schema:value"
             ]
         },
+        "sem_calibrationFactorAndDeterminationMethod": {
+            "title": "Calibration Factor and Determination Method",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
+                    }
+                },
+                "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_constantsAndReferenceValuesUsed": {
+            "title": "Constants and Reference Values Used",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
+                    }
+                },
+                "schema:name": {
+                    "const": "Constants and Reference Values Used"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "sem_primaryCalibrationStandardName": {
             "title": "Primary Calibration Standard Name",
-            "description": "Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS quantification.",
+            "description": "Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS quantification. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1435,39 +1600,6 @@
                 "schema:value"
             ]
         },
-        "sem_detectionLimitMethod": {
-            "title": "Detection Limit Method",
-            "description": "Formula or procedure used to calculate detection limits.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/detectionLimitMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": {
-                        "@id": "ada:parameter/semTAPP/detectionLimitMethod"
-                    }
-                },
-                "schema:name": {
-                    "const": "Detection Limit Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
         "sem_clWavelengthCalibrationReference": {
             "title": "CL Wavelength Calibration Reference",
             "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
@@ -1488,6 +1620,72 @@
                 },
                 "schema:name": {
                     "const": "CL Wavelength Calibration Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_fundingSourceForProcedureDevelopment": {
+            "title": "Funding Source for Procedure Development",
+            "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/fundingSourceForProcedureDevelopment"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/semTAPP/fundingSourceForProcedureDevelopment"
+                    }
+                },
+                "schema:name": {
+                    "const": "Funding Source for Procedure Development"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_procedureReference": {
+            "title": "Procedure Reference(s)",
+            "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/procedureReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/semTAPP/procedureReference"
+                    }
+                },
+                "schema:name": {
+                    "const": "Procedure Reference(s)"
                 },
                 "schema:value": {
                     "type": "string"
@@ -1536,7 +1734,7 @@
         },
         "sem_wdsSpectrometerConfiguration": {
             "title": "WDS Spectrometer Configuration",
-            "description": "Number, type, and crystal range of WDS spectrometers attached to the SEM. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1635,7 +1833,7 @@
         },
         "sem_wdsSpectrometerChannel": {
             "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1655,14 +1853,7 @@
                     "const": "WDS Spectrometer Channel"
                 },
                 "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1675,7 +1866,7 @@
         },
         "sem_sequence": {
             "title": "Sequence",
-            "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first).",
+            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1715,7 +1906,7 @@
         },
         "sem_proportionalCounterDetector": {
             "title": "Proportional Counter / Detector",
-            "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1779,7 +1970,7 @@
                 "schema:value"
             ]
         },
-        "clGrating": {
+        "sem_clGrating": {
             "title": "CL Grating",
             "description": "Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.",
             "type": "object",
@@ -1847,7 +2038,7 @@
         },
         "sem_edsSpectralProcessingType": {
             "title": "EDS Spectral Processing Type",
-            "description": "Method used to process raw EDS spectra and extract net peak intensities from raw spectral data.",
+            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1931,6 +2122,1384 @@
                 },
                 "schema:name": {
                     "const": "Interference Correction Standard"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_coupledProcedureDoi": {
+            "title": "Coupled Procedure DOI",
+            "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/coupledProcedureDoi"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/coupledProcedureDoi"
+                    }
+                },
+                "schema:name": {
+                    "const": "Coupled Procedure DOI"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_coupledDatasetOrPublicationReference": {
+            "title": "Coupled Dataset or Publication Reference",
+            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/coupledDatasetOrPublicationReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/coupledDatasetOrPublicationReference"
+                    }
+                },
+                "schema:name": {
+                    "const": "Coupled Dataset or Publication Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_digestionTemperature": {
+            "title": "Digestion Temperature",
+            "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                    }
+                },
+                "schema:name": {
+                    "const": "Digestion Temperature"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_digestionDuration": {
+            "title": "Digestion Duration",
+            "description": "Duration of the primary acid digestion step (hours or days).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                    }
+                },
+                "schema:name": {
+                    "const": "Digestion Duration"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_sampleAliquotMassOrVolume": {
+            "title": "Sample Aliquot Mass or Volume",
+            "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                    }
+                },
+                "schema:name": {
+                    "const": "Sample Aliquot Mass or Volume"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_instrumentSerialNumberOrLabIdentifier": {
+            "title": "Instrument Serial Number or Lab Identifier",
+            "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/instrumentSerialNumberOrLabIdentifier"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/instrumentSerialNumberOrLabIdentifier"
+                    }
+                },
+                "schema:name": {
+                    "const": "Instrument Serial Number or Lab Identifier"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_torchDepth": {
+            "title": "Torch Depth",
+            "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/torchDepth"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/torchDepth"
+                    }
+                },
+                "schema:name": {
+                    "const": "Torch Depth"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_massResolutionSetting": {
+            "title": "Mass Resolution Setting",
+            "description": "Mass resolution mode used in this procedure. MC-ICP-MS instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 3000–8000), or high resolution (HR; m/Δm ≈ 10,000–12,000). Most isotope ratio measurements use low resolution after chemical separation has removed interfering elements. Medium or high resolution is used when polyatomic interferences (e.g., ArN+, ArO+, ArOH+ on Fe isotopes) cannot be fully resolved by chemistry alone. Procedure registers the mode in use; analyst confirms at session start.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/massResolutionSetting"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/massResolutionSetting"
+                    }
+                },
+                "schema:name": {
+                    "const": "Mass Resolution Setting"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_sampleUptakeRate": {
+            "title": "Sample Uptake Rate",
+            "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                    }
+                },
+                "schema:name": {
+                    "const": "Sample Uptake Rate"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_rfPower": {
+            "title": "RF Power",
+            "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/rfPower"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/rfPower"
+                    }
+                },
+                "schema:name": {
+                    "const": "RF Power"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_coolantGasFlowRate": {
+            "title": "Coolant (Plasma) Gas Flow Rate",
+            "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate"
+                    }
+                },
+                "schema:name": {
+                    "const": "Coolant (Plasma) Gas Flow Rate"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_auxiliaryGasFlowRate": {
+            "title": "Auxiliary Gas Flow Rate",
+            "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate"
+                    }
+                },
+                "schema:name": {
+                    "const": "Auxiliary Gas Flow Rate"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_nebulizerGasFlowRate": {
+            "title": "Nebulizer Gas Flow Rate",
+            "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                    }
+                },
+                "schema:name": {
+                    "const": "Nebulizer Gas Flow Rate"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_makeUpGasFlowRate": {
+            "title": "Make-up Gas Flow Rate",
+            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                    }
+                },
+                "schema:name": {
+                    "const": "Make-up Gas Flow Rate"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_numberOfBlocksPerMeasurement": {
+            "title": "Number of Blocks per Measurement",
+            "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample allow inspection of signal stability and within-measurement drift. Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement"
+                    }
+                },
+                "schema:name": {
+                    "const": "Number of Blocks per Measurement"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_numberOfCyclesPerBlock": {
+            "title": "Number of Cycles per Block",
+            "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value; analyst may adjust within procedure bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
+                    }
+                },
+                "schema:name": {
+                    "const": "Number of Cycles per Block"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_integrationTimePerCycle": {
+            "title": "Integration Time per Cycle",
+            "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/integrationTimePerCycle"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/integrationTimePerCycle"
+                    }
+                },
+                "schema:name": {
+                    "const": "Integration Time per Cycle"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_collisionGasFlowRate": {
+            "title": "Collision Gas Flow Rate",
+            "description": "Flow rate of the collision gas in KED mode (mL/min), on collision/reaction-cell-equipped MC-ICP-MS instruments. Higher flow rates provide greater interference suppression at the cost of analyte sensitivity. Record 'N/A' if the instrument has no cell or KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate"
+                    }
+                },
+                "schema:name": {
+                    "const": "Collision Gas Flow Rate"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_cellExitDiscriminationVoltage": {
+            "title": "Cell Exit Discrimination Voltage",
+            "description": "Kinetic energy discrimination offset voltage applied at the exit of the collision cell (V), on collision/reaction-cell-equipped MC-ICP-MS instruments. Controls the degree of polyatomic ion suppression. Record 'N/A' if the instrument has no cell or KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage"
+                    }
+                },
+                "schema:name": {
+                    "const": "Cell Exit Discrimination Voltage"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_reactionGasFlowRate": {
+            "title": "Reaction Gas Flow Rate",
+            "description": "Flow rate of the reaction gas in DRC mode (mL/min), on collision/reaction-cell-equipped MC-ICP-MS instruments. Record 'N/A' if the instrument has no cell or DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate"
+                    }
+                },
+                "schema:name": {
+                    "const": "Reaction Gas Flow Rate"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_doubleSpikeMixingRatio": {
+            "title": "Double-Spike Mixing Ratio",
+            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
+                    }
+                },
+                "schema:name": {
+                    "const": "Double-Spike Mixing Ratio"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_spikeOutlierFilteringApproach": {
+            "title": "Spike / Outlier Filtering Approach",
+            "description": "Criteria used to identify and exclude anomalous cycles or replicate measurements from the calculated isotope ratio mean. Filtering is applied after baseline subtraction and before mass bias correction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach"
+                    }
+                },
+                "schema:name": {
+                    "const": "Spike / Outlier Filtering Approach"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_memoryEffectMitigation": {
+            "title": "Memory Effect Mitigation",
+            "description": "Procedure applied to minimize carryover of analyte isotopes between successive sample introductions. In MC-ICP-MS, extended rinse periods with the same acid matrix as samples (see Wash Time Between Samples) are the primary mitigation. At data processing level, documents any flagging or exclusion of measurements preceded by samples with significantly different isotopic compositions where carryover may be suspected.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation"
+                    }
+                },
+                "schema:name": {
+                    "const": "Memory Effect Mitigation"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_uncertaintyPropagationMethod": {
+            "title": "Uncertainty Propagation Method",
+            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
+                    }
+                },
+                "schema:name": {
+                    "const": "Uncertainty Propagation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_normalizationStandardsBasedCorrection": {
+            "title": "Normalization / Standards-Based Correction",
+            "description": "Post-acquisition normalization applied to output isotope ratio data beyond the primary mass bias correction. Examples: correction of δ values for decay of enriched spike isotopes between calibration and use date (double-spike procedures); age correction of δ238U for secular disequilibrium. Record 'None' if no additional normalization is applied.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                    }
+                },
+                "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_calibrationFactorAndDeterminationMethod": {
+            "title": "Calibration Factor and Determination Method",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
+                    }
+                },
+                "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_constantsAndReferenceValuesUsed": {
+            "title": "Constants and Reference Values Used",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                    }
+                },
+                "schema:name": {
+                    "const": "Constants and Reference Values Used"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_primaryCalibrationStandardName": {
+            "title": "Primary Calibration Standard Name",
+            "description": "Name and reference material identifier of the isotopic reference standard used as the bracketing standard (SSB) or zero-delta anchor. This is an isotopic composition standard (not a concentration standard): it defines the isotopic composition against which all sample δ or ε values are normalized. Must be a pure, homogeneous, internationally distributed material with well-characterized isotopic composition. For double-spike procedures, also used for spike calibration. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName"
+                    }
+                },
+                "schema:name": {
+                    "const": "Primary Calibration Standard Name"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_secondaryReferenceMaterials": {
+            "title": "Secondary Reference Materials",
+            "description": "Reference material(s) measured as unknowns to independently assess analytical accuracy. Specify material name and the isotopic composition reference source (certified value, consensus value, or literature compilation). For isotope ratio procedures, secondary RMs are geological materials with published isotopic compositions (e.g., BHVO-2 for Fe isotopes) or pure isotopic standards of certified composition.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials"
+                    }
+                },
+                "schema:name": {
+                    "const": "Secondary Reference Materials"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_fundingSourceForProcedureDevelopment": {
+            "title": "Funding Source for Procedure Development",
+            "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/fundingSourceForProcedureDevelopment"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/fundingSourceForProcedureDevelopment"
+                    }
+                },
+                "schema:name": {
+                    "const": "Funding Source for Procedure Development"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_procedureReference": {
+            "title": "Procedure Reference(s)",
+            "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/procedureReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/procedureReference"
+                    }
+                },
+                "schema:name": {
+                    "const": "Procedure Reference(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_torchType": {
+            "title": "Torch Type",
+            "description": "Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/torchType"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/torchType"
+                    }
+                },
+                "schema:name": {
+                    "const": "Torch Type"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_samplerAndSkimmerConeMaterial": {
+            "title": "Sampler and Skimmer Cone Material",
+            "description": "Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for HNO3 matrices. Platinum (Pt) cones are used for HCl-rich matrices (e.g., 6 M HCl in Fe chemistry procedures) due to greater corrosion resistance.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial"
+                    }
+                },
+                "schema:name": {
+                    "const": "Sampler and Skimmer Cone Material"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_desolvationSystem": {
+            "title": "Desolvation System",
+            "description": "Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce additional instrumental mass bias instability relative to wet plasma introduction. Record 'None' if not used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem"
+                    }
+                },
+                "schema:name": {
+                    "const": "Desolvation System"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_reactionGasType": {
+            "title": "Reaction Gas Type",
+            "description": "Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4), on collision/reaction-cell-equipped MC-ICP-MS instruments. Record 'N/A' if the instrument has no cell or DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/reactionGasType"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/reactionGasType"
+                    }
+                },
+                "schema:name": {
+                    "const": "Reaction Gas Type"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "solutionMcicpms_internalStandardConcentration": {
+            "title": "Internal Standard Concentration",
+            "description": "Target concentration of internal standard element(s) in all measured solutions (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration"
+                    }
+                },
+                "schema:name": {
+                    "const": "Internal Standard Concentration"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "solutionMcicpms_perAnalyteCalibrationStrategy": {
+            "title": "Per-Analyte Calibration Strategy",
+            "description": "Approach used to convert measured ion signals to elemental concentrations, where concentration data are also a product of the procedure (e.g., isotope dilution combined with isotope ratio measurement). For procedures producing isotope ratios only (no concentration output), record 'Not applicable (isotope ratios only)'. For double-spike procedures that simultaneously yield concentrations, record the ID calculation approach. Where different elements use different strategies, record each.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": {
+                        "@id": "ada:parameter/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy"
+                    }
+                },
+                "schema:name": {
+                    "const": "Per-Analyte Calibration Strategy"
                 },
                 "schema:value": {
                     "type": "string"
@@ -2045,7 +3614,7 @@
         },
         "empa_samplePersistentIdentifier": {
             "title": "Sample Persistent Identifier",
-            "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2078,7 +3647,7 @@
         },
         "empa_targetSelectionCriteria": {
             "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2386,7 +3955,7 @@
         },
         "empa_peakCountingTime": {
             "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies standard values per analyte; analysts may adjust within procedure-defined bounds.",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2551,7 +4120,7 @@
         },
         "empa_dwellTimePerPixel": {
             "title": "Dwell Time per Pixel",
-            "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: per spectrometer per pixel; may differ by analyte if spectrometers are assigned differently. For EDS: total live-time per spectrum per pixel.",
+            "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2804,7 +4373,7 @@
         },
         "empa_calibrationFactorAndDeterminationMethod": {
             "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2837,7 +4406,7 @@
         },
         "empa_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3002,7 +4571,7 @@
         },
         "empa_wdsSpectrometerConfiguration": {
             "title": "WDS Spectrometer Configuration",
-            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3068,7 +4637,7 @@
         },
         "empa_wdsSpectrometerChannel": {
             "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3088,14 +4657,7 @@
                     "const": "WDS Spectrometer Channel"
                 },
                 "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -3108,7 +4670,7 @@
         },
         "empa_sequence": {
             "title": "Sequence",
-            "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3148,7 +4710,7 @@
         },
         "empa_proportionalCounterDetector": {
             "title": "Proportional Counter / Detector",
-            "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3280,7 +4842,7 @@
         },
         "empa_edsSpectralProcessingType": {
             "title": "EDS Spectral Processing Type",
-            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data.",
+            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -6319,7 +7881,7 @@
         },
         "labxct_samplePersistentIdentifier": {
             "title": "Sample Persistent Identifier",
-            "description": "Globally unique, persistent identifier for the analysed sample. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples.",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -6385,7 +7947,7 @@
         },
         "labxct_targetSelectionCriteria": {
             "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -6770,7 +8332,7 @@
         },
         "labxct_voxelSize": {
             "title": "Voxel Size",
-            "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the minimum feature size to be resolved (target voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+            "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size ≤ ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -7521,7 +9083,7 @@
         },
         "labxct_calibrationFactorAndDeterminationMethod": {
             "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -7554,7 +9116,7 @@
         },
         "labxct_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -7585,13 +9147,13 @@
                 "schema:value"
             ]
         },
-        "labxct_spatialResolution": {
-            "title": "Spatial Resolution",
-            "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
+        "labxct_effectiveSpatialResolution": {
+            "title": "Effective Spatial Resolution (PSF/MTF)",
+            "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\" for the voxel size; record that under Voxel Size, and leave this field as not reported unless an effective resolution was actually determined.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/labxctTAPP/spatialResolution"
+                    "const": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
                 },
                 "@type": {
                     "const": [
@@ -7600,11 +9162,11 @@
                 },
                 "schema:propertyID": {
                     "const": {
-                        "@id": "ada:parameter/labxctTAPP/spatialResolution"
+                        "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
                     }
                 },
                 "schema:name": {
-                    "const": "Spatial Resolution"
+                    "const": "Effective Spatial Resolution (PSF/MTF)"
                 },
                 "schema:value": {
                     "type": "string"
@@ -7719,7 +9281,7 @@
         },
         "labxct_partialVolumeEffectCriteria": {
             "title": "Partial Volume Effect Criteria",
-            "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
+            "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation; state whether the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported modal abundances and size distributions, so two datasets are not comparable without it.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -7781,50 +9343,6 @@
                 "schema:propertyID",
                 "schema:name",
                 "schema:value"
-            ]
-        },
-        "labxct_minimumResolvableFeatureSize": {
-            "title": "Minimum Resolvable Feature Size",
-            "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": {
-                        "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                    }
-                },
-                "schema:name": {
-                    "const": "Minimum Resolvable Feature Size"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
             ]
         },
         "labxct_signalToNoiseRatio": {
@@ -9853,7 +11371,7 @@
         },
         "semComposition_samplePersistentIdentifier": {
             "title": "Sample Persistent Identifier",
-            "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -9886,7 +11404,7 @@
         },
         "semComposition_targetSelectionCriteria": {
             "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10354,7 +11872,7 @@
         },
         "semComposition_stepSizePixelSize": {
             "title": "Step Size / Pixel Size",
-            "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with Map Dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+            "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10394,7 +11912,7 @@
         },
         "semComposition_peakCountingTime": {
             "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10515,7 +12033,7 @@
         },
         "semComposition_backgroundCorrectionMethod": {
             "title": "Background Correction Method",
-            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10680,7 +12198,7 @@
         },
         "semComposition_calibrationFactorAndDeterminationMethod": {
             "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10713,7 +12231,7 @@
         },
         "semComposition_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10911,7 +12429,7 @@
         },
         "semComposition_wdsSpectrometerConfiguration": {
             "title": "WDS Spectrometer Configuration",
-            "description": "Number, type, and crystal range of WDS spectrometers attached to the SEM. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10977,7 +12495,7 @@
         },
         "semComposition_wdsSpectrometerChannel": {
             "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10997,14 +12515,7 @@
                     "const": "WDS Spectrometer Channel"
                 },
                 "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -11017,7 +12528,7 @@
         },
         "semComposition_sequence": {
             "title": "Sequence",
-            "description": "Order in which analytes are acquired in the spectrometer sequence during point analysis. Relevant for minimizing beam damage (volatile elements measured first).",
+            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11057,7 +12568,7 @@
         },
         "semComposition_proportionalCounterDetector": {
             "title": "Proportional Counter / Detector",
-            "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11156,7 +12667,7 @@
         },
         "semComposition_edsSpectralProcessingType": {
             "title": "EDS Spectral Processing Type",
-            "description": "Method used to process raw EDS spectra and extract net peak intensities from raw spectral data.",
+            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11354,7 +12865,7 @@
         },
         "semFibsem_samplePersistentIdentifier": {
             "title": "Sample Persistent Identifier",
-            "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11387,7 +12898,7 @@
         },
         "semFibsem_targetSelectionCriteria": {
             "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11907,7 +13418,7 @@
         },
         "semFibsem_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -12105,7 +13616,7 @@
         },
         "semImaging_samplePersistentIdentifier": {
             "title": "Sample Persistent Identifier",
-            "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -12138,7 +13649,7 @@
         },
         "semImaging_targetSelectionCriteria": {
             "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -12639,7 +14150,7 @@
         },
         "semImaging_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -13057,7 +14568,7 @@
         },
         "solutionQicpms_torchDepth": {
             "title": "Torch Depth",
-            "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
+            "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -13354,7 +14865,7 @@
         },
         "solutionQicpms_dwellTimePerMass": {
             "title": "Dwell Time per Mass",
-            "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+            "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -13761,7 +15272,7 @@
         },
         "solutionQicpms_calibrationFactorAndDeterminationMethod": {
             "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -13794,7 +15305,7 @@
         },
         "solutionQicpms_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -14355,7 +15866,7 @@
         },
         "solutionSficpms_torchDepth": {
             "title": "Torch Depth",
-            "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
+            "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -14388,7 +15899,7 @@
         },
         "solutionSficpms_massResolutionSetting": {
             "title": "Mass Resolution Setting",
-            "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms at session start.",
+            "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution Assignment). Procedure registers the mode(s) in use; analyst confirms at session start.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -14685,7 +16196,7 @@
         },
         "solutionSficpms_dwellTimePerMass": {
             "title": "Dwell Time per Mass",
-            "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+            "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -14960,7 +16471,7 @@
         },
         "solutionSficpms_calibrationFactorAndDeterminationMethod": {
             "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -14993,7 +16504,7 @@
         },
         "solutionSficpms_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -15257,7 +16768,7 @@
         },
         "solutionSficpms_eScanRange": {
             "title": "E-scan Range",
-            "description": "Electric scan range used for peak acquisition, expressed as percentage of the center mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used. Record 'N/A' where E-scan acquisition mode is not used.",
+            "description": "Electric scan range used for peak acquisition, expressed as percentage of the centre mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition mode is not used.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -15301,7 +16812,7 @@
         },
         "solutionSficpms_tripleScanningMode": {
             "title": "Triple Scanning Mode",
-            "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities. Record 'N/A' if not applicable to the instrument.",
+            "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities on sector-field instruments. Triple scanning affects the effective integration time per cycle and should be reported. Record 'N/A' if not applicable to the instrument.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -15444,7 +16955,7 @@
         },
         "tem_samplePersistentIdentifier": {
             "title": "Sample Persistent Identifier",
-            "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -15477,7 +16988,7 @@
         },
         "tem_targetSelectionCriteria": {
             "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -16544,7 +18055,7 @@
         },
         "tem_calibrationFactorAndDeterminationMethod": {
             "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -16577,7 +18088,7 @@
         },
         "tem_constantsAndReferenceValuesUsed": {
             "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
             "type": "object",
             "properties": {
                 "@id": {

@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)",
-    "description": "Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from TAPPS20260811/Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v13.csv via the path-driven pipeline.",
+    "description": "Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.csv via the path-driven pipeline.",
     "allOf": [
         {
             "$ref": "../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -140,7 +140,7 @@
                         "ada:defaultAnalytes": {
                             "type": "array",
                             "items": {
-                                "description": "Elements or isotopes this procedure is designed to measure. The procedure registers the full analyte suite; at analysis level, the analyst records the specific subset actually measured in the session, which may be narrower if certain masses were excluded due to interferences or scope reduction. Fields flagged as Analyte-Specific in the Comments column apply individually to each element or isotope in this list.",
+                                "description": "The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules. Isotopes are not analytes: isotopes of an element are the same chemical species. The procedure registers the full analyte suite; at analysis level the analyst records the specific subset actually measured in the session, which may be narrower if elements were excluded due to interferences or scope reduction. Fields whose Keyed By column declares 'analyte' apply individually to each element in this list. Monitored Isotopes records the masses actually acquired, including interference-monitor and internal-standard masses that are not analytes.",
                                 "type": "string"
                             }
                         },
@@ -153,7 +153,7 @@
                                     },
                                     {
                                         "title": "Monitored Isotopes",
-                                        "description": "Specific isotope(s) monitored per analyte element in this procedure, including any interference-monitor masses. Analyte-specific field.",
+                                        "description": "Specific isotope(s) monitored in this procedure, grouped by the analyte element they serve where they serve one. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -193,12 +193,12 @@
                                         ]
                                     },
                                     {
-                                        "title": "Mass Resolution per Analyte",
-                                        "description": "Mass resolution mode assigned to each analyte in this procedure. The selected resolution determines which polyatomic interferences are physically resolved by the magnet sector. Per-analyte assignments are documented here; the overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3). Analyte-specific field.",
+                                        "title": "Mass Resolution Assignment",
+                                        "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
-                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionPerAnalyte"
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
                                             },
                                             "@type": {
                                                 "const": [
@@ -206,10 +206,10 @@
                                                 ]
                                             },
                                             "schema:valueName": {
-                                                "const": "massResolutionPerAnalyte"
+                                                "const": "massResolutionAssignment"
                                             },
                                             "schema:name": {
-                                                "const": "Mass Resolution per Analyte"
+                                                "const": "Mass Resolution Assignment"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -235,7 +235,7 @@
                                     },
                                     {
                                         "title": "Dwell Time per Mass",
-                                        "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+                                        "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -324,7 +324,7 @@
                                     },
                                     {
                                         "title": "Interfering Species",
-                                        "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution. Analyte-specific.",
+                                        "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -406,7 +406,7 @@
                                     },
                                     {
                                         "title": "Detection Limit",
-                                        "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                                        "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -453,7 +453,7 @@
                                     },
                                     {
                                         "title": "Detection Limit Method",
-                                        "description": "Method used to calculate detection limits for each analyte.",
+                                        "description": "Method used to calculate detection limits for each reported concentration variable.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -575,7 +575,7 @@
                                     },
                                     {
                                         "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                        "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+                                        "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -660,7 +660,7 @@
                                 {
                                     "contains": {
                                         "title": "Monitored Isotopes",
-                                        "description": "Specific isotope(s) monitored per analyte element in this procedure, including any interference-monitor masses. Analyte-specific field.",
+                                        "description": "Specific isotope(s) monitored in this procedure, grouped by the analyte element they serve where they serve one. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -704,12 +704,12 @@
                                 },
                                 {
                                     "contains": {
-                                        "title": "Mass Resolution per Analyte",
-                                        "description": "Mass resolution mode assigned to each analyte in this procedure. The selected resolution determines which polyatomic interferences are physically resolved by the magnet sector. Per-analyte assignments are documented here; the overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3). Analyte-specific field.",
+                                        "title": "Mass Resolution Assignment",
+                                        "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
-                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionPerAnalyte"
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
                                             },
                                             "@type": {
                                                 "const": [
@@ -717,10 +717,10 @@
                                                 ]
                                             },
                                             "schema:valueName": {
-                                                "const": "massResolutionPerAnalyte"
+                                                "const": "massResolutionAssignment"
                                             },
                                             "schema:name": {
-                                                "const": "Mass Resolution per Analyte"
+                                                "const": "Mass Resolution Assignment"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -750,7 +750,7 @@
                                 {
                                     "contains": {
                                         "title": "Dwell Time per Mass",
-                                        "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+                                        "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -847,7 +847,7 @@
                                 {
                                     "contains": {
                                         "title": "Interfering Species",
-                                        "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution. Analyte-specific.",
+                                        "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -937,7 +937,7 @@
                                 {
                                     "contains": {
                                         "title": "Detection Limit",
-                                        "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                                        "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -988,7 +988,7 @@
                                 {
                                     "contains": {
                                         "title": "Detection Limit Method",
-                                        "description": "Method used to calculate detection limits for each analyte.",
+                                        "description": "Method used to calculate detection limits for each reported concentration variable.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -1122,7 +1122,7 @@
                                 {
                                     "contains": {
                                         "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                        "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+                                        "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -1738,7 +1738,7 @@
                                                                     "type": "array",
                                                                     "items": {
                                                                         "title": "Torch Depth",
-                                                                        "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                                                        "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "@id": {
@@ -1781,7 +1781,7 @@
                                                                         {
                                                                             "contains": {
                                                                                 "title": "Torch Depth",
-                                                                                "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position. Affects ion transmission efficiency and oxide formation rates. Procedure registers the target torch position; analyst confirms or adjusts during session tuning.",
+                                                                                "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
                                                                                 "type": "object",
                                                                                 "properties": {
                                                                                     "@id": {
@@ -2618,7 +2618,7 @@
                                                     },
                                                     {
                                                         "title": "Mass Resolution Setting",
-                                                        "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms at session start.",
+                                                        "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution Assignment). Procedure registers the mode(s) in use; analyst confirms at session start.",
                                                         "type": "object",
                                                         "properties": {
                                                             "@id": {
@@ -2925,7 +2925,7 @@
                                                 {
                                                     "contains": {
                                                         "title": "Mass Resolution Setting",
-                                                        "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution per Analyte). Procedure registers the mode(s) in use; analyst confirms at session start.",
+                                                        "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈ 2500–5000), or high resolution (HR; m/Δm ≈ 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution Assignment). Procedure registers the mode(s) in use; analyst confirms at session start.",
                                                         "type": "object",
                                                         "properties": {
                                                             "@id": {
@@ -3814,7 +3814,7 @@
                                                             },
                                                             {
                                                                 "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "@id": {
@@ -3987,7 +3987,7 @@
                                                         {
                                                             "contains": {
                                                                 "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "@id": {
@@ -4151,7 +4151,7 @@
                             },
                             {
                                 "title": "E-scan Range",
-                                "description": "Electric scan range used for peak acquisition, expressed as percentage of the center mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used. Record 'N/A' where E-scan acquisition mode is not used.",
+                                "description": "Electric scan range used for peak acquisition, expressed as percentage of the centre mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition mode is not used.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -4196,7 +4196,7 @@
                             },
                             {
                                 "title": "Triple Scanning Mode",
-                                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities. Record 'N/A' if not applicable to the instrument.",
+                                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities on sector-field instruments. Triple scanning affects the effective integration time per cycle and should be reported. Record 'N/A' if not applicable to the instrument.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -4399,7 +4399,7 @@
                         {
                             "contains": {
                                 "title": "E-scan Range",
-                                "description": "Electric scan range used for peak acquisition, expressed as percentage of the center mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition is not used. Record 'N/A' where E-scan acquisition mode is not used.",
+                                "description": "Electric scan range used for peak acquisition, expressed as percentage of the centre mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition mode is not used.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -4448,7 +4448,7 @@
                         {
                             "contains": {
                                 "title": "Triple Scanning Mode",
-                                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities. Record 'N/A' if not applicable to the instrument.",
+                                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities on sector-field instruments. Triple scanning affects the effective integration time per cycle and should be reported. Record 'N/A' if not applicable to the instrument.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -4684,7 +4684,7 @@
                     "readOnly": true
                 },
                 "ada:oxideProductionMethodAndThreshold": {
-                    "description": "Method used to quantify plasma oxide production and the acceptance threshold applied before commencing analysis. For solution SF-ICP-MS, CeO+/Ce+ (m/z 156/140) is the standard monitor proxy; stricter thresholds than Q-ICP-MS are commonly required. BaO+/Ba+ may also be monitored. Record both the monitored mass ratio(s) and the maximum allowed threshold(s). Measured values are recorded in Oxide Production.",
+                    "description": "Method used to quantify plasma oxide production and the acceptance threshold applied before commencing analysis. Record both the monitored mass ratio(s) and the maximum allowed threshold(s). Measured values are recorded in Oxide Production. CeO+/Ce+ (m/z 156/140) is the standard monitor proxy; stricter thresholds than Q-ICP-MS are commonly required. BaO+/Ba+ may also be monitored.",
                     "type": "string",
                     "readOnly": true
                 },
@@ -4790,7 +4790,7 @@
                         "ada:defaultReportedProperties": {
                             "type": "array",
                             "items": {
-                                "description": "The final variable(s) this procedure reports and their units — distinct from Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire many masses and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+                                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
                                 "type": "string",
                                 "readOnly": true
                             }

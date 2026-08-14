@@ -692,7 +692,7 @@
         },
         "empa_countingStatisticsError": {
             "title": "Counting Statistics Error",
-            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -732,7 +732,7 @@
         },
         "empa_detectionLimit": {
             "title": "Detection Limit",
-            "description": "Method detection limit at 99% confidence (3-sigma) for each analyte, derived from counting statistics on peak and background. Include the method and resulting value per analyte.",
+            "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -772,7 +772,7 @@
         },
         "empa_diffractingCrystal": {
             "title": "Diffracting Crystal",
-            "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+            "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -935,7 +935,7 @@
         },
         "empa_proportionalCounterDetector": {
             "title": "Proportional Counter / Detector",
-            "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1056,7 +1056,7 @@
         },
         "empa_wdsSpectrometerChannel": {
             "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1074,7 +1074,7 @@
                     "const": "WDS Spectrometer Channel"
                 },
                 "ada:dataType": {
-                    "const": "integer"
+                    "const": "string"
                 },
                 "schema:readonlyValue": {
                     "const": true
@@ -1083,14 +1083,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2261,7 +2254,7 @@
         },
         "peakCountingTime": {
             "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds. Procedure specifies standard values per analyte; analysts may adjust within procedure-defined bounds.",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2420,7 +2413,7 @@
         },
         "semComposition_analyticalAccuracy": {
             "title": "Analytical Accuracy",
-            "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias.",
+            "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and per-analyte value.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2460,7 +2453,7 @@
         },
         "semComposition_analyticalPrecision": {
             "title": "Analytical Precision",
-            "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name and number of analyses.",
+            "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and value per analyte or element group.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2500,7 +2493,7 @@
         },
         "semComposition_backgroundCorrectionMethod": {
             "title": "Background Correction Method",
-            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) model. For EDS: spectral background modelling within EDS software.",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2717,7 +2710,7 @@
         },
         "semComposition_countingStatisticsError": {
             "title": "Counting Statistics Error",
-            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities for each analyte per analysis.",
+            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2757,7 +2750,7 @@
         },
         "semComposition_detectionLimit": {
             "title": "Detection Limit",
-            "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+            "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2838,7 +2831,7 @@
         },
         "semComposition_diffractingCrystal": {
             "title": "Diffracting Crystal",
-            "description": "Analyzing crystal (monochromator) used in the WDS spectrometer for each analyte. Crystal choice determines the detectable wavelength range and dispersion.",
+            "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2919,7 +2912,7 @@
         },
         "semComposition_peakCountingTime": {
             "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position in seconds per analyte. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3008,7 +3001,7 @@
         },
         "semComposition_proportionalCounterDetector": {
             "title": "Proportional Counter / Detector",
-            "description": "Type of detector used in the WDS spectrometer for each analyte. Affects sensitivity and count rate linearity.",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3169,7 +3162,7 @@
         },
         "semComposition_wdsSpectrometerChannel": {
             "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer number assigned to each analyte. Different spectrometers may have different crystal configurations.",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3187,7 +3180,7 @@
                     "const": "WDS Spectrometer Channel"
                 },
                 "ada:dataType": {
-                    "const": "integer"
+                    "const": "string"
                 },
                 "schema:readonlyValue": {
                     "const": true
@@ -3196,14 +3189,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -3310,9 +3296,346 @@
                 "schema:defaultValue"
             ]
         },
+        "sem_analyticalAccuracy": {
+            "title": "Analytical Accuracy",
+            "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and per-analyte value.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/analyticalAccuracy"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "analyticalAccuracy"
+                },
+                "schema:name": {
+                    "const": "Analytical Accuracy"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_analyticalPrecision": {
+            "title": "Analytical Precision",
+            "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and value per analyte or element group.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/analyticalPrecision"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "analyticalPrecision"
+                },
+                "schema:name": {
+                    "const": "Analytical Precision"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_backgroundCorrectionMethod": {
+            "title": "Background Correction Method",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/backgroundCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundCorrectionMethod"
+                },
+                "schema:name": {
+                    "const": "Background Correction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_backgroundCountingTime": {
+            "title": "Background Counting Time",
+            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/backgroundCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundCountingTime"
+                },
+                "schema:name": {
+                    "const": "Background Counting Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_backgroundPosition": {
+            "title": "Background Position(s)",
+            "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/backgroundPosition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundPosition"
+                },
+                "schema:name": {
+                    "const": "Background Position(s)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_beamCurrent": {
+            "title": "Beam Current",
+            "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/beamCurrent"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "beamCurrent"
+                },
+                "schema:name": {
+                    "const": "Beam Current"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_blankCorrection": {
+            "title": "Blank Correction",
+            "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/blankCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "blankCorrection"
+                },
+                "schema:name": {
+                    "const": "Blank Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_countingStatisticsError": {
+            "title": "Counting Statistics Error",
+            "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/countingStatisticsError"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "countingStatisticsError"
+                },
+                "schema:name": {
+                    "const": "Counting Statistics Error"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
         "sem_detectionLimit": {
             "title": "Detection Limit",
-            "description": "Method detection limit at 99% confidence for each analyte. Include the method used and the resulting value per analyte.",
+            "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3336,7 +3659,10 @@
                     "const": false
                 },
                 "ada:tier": {
-                    "const": "M"
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -3349,7 +3675,7 @@
         },
         "sem_detectionLimitMethod": {
             "title": "Detection Limit Method",
-            "description": "Formula or procedure used to calculate detection limits.",
+            "description": "Formula or approach used to calculate detection limits.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3370,10 +3696,554 @@
                     "const": "string"
                 },
                 "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_diffractingCrystal": {
+            "title": "Diffracting Crystal",
+            "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/diffractingCrystal"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "diffractingCrystal"
+                },
+                "schema:name": {
+                    "const": "Diffracting Crystal"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_normalizationStandardsBasedCorrection": {
+            "title": "Normalization / Standards-Based Correction",
+            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/normalizationStandardsBasedCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrection"
+                },
+                "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_peakCountingTime": {
+            "title": "Peak Counting Time",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/peakCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "peakCountingTime"
+                },
+                "schema:name": {
+                    "const": "Peak Counting Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
                     "const": false
                 },
                 "ada:tier": {
                     "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_primaryCalibrationStandardName": {
+            "title": "Primary Calibration Standard Name",
+            "description": "Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS quantification. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/primaryCalibrationStandardName"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "primaryCalibrationStandardName"
+                },
+                "schema:name": {
+                    "const": "Primary Calibration Standard Name"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_proportionalCounterDetector": {
+            "title": "Proportional Counter / Detector",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/proportionalCounterDetector"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "proportionalCounterDetector"
+                },
+                "schema:name": {
+                    "const": "Proportional Counter / Detector"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_secondaryReferenceMaterials": {
+            "title": "Secondary Reference Materials",
+            "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values where available.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/secondaryReferenceMaterials"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "secondaryReferenceMaterials"
+                },
+                "schema:name": {
+                    "const": "Secondary Reference Materials"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "sem_timeDependentIntensityCorrection": {
+            "title": "Time-Dependent Intensity Correction",
+            "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/timeDependentIntensityCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "timeDependentIntensityCorrection"
+                },
+                "schema:name": {
+                    "const": "Time-Dependent Intensity Correction"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_wdsPhaSetting": {
+            "title": "WDS PHA Setting",
+            "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/wdsPhaSetting"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "wdsPhaSetting"
+                },
+                "schema:name": {
+                    "const": "WDS PHA Setting"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "sem_wdsSpectrometerChannel": {
+            "title": "WDS Spectrometer Channel",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/semTAPP/wdsSpectrometerChannel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "wdsSpectrometerChannel"
+                },
+                "schema:name": {
+                    "const": "WDS Spectrometer Channel"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "solutionMcicpms_analyticalAccuracyAndAssessmentMethod": {
+            "title": "Analytical Accuracy and Assessment Method",
+            "description": "Accuracy of isotope ratio or δ-value measurements relative to certified or published consensus values and the method used to assess it. For isotope ratio procedures, accuracy is typically assessed by comparing measured δ values for secondary geological reference materials against published interlaboratory compilations or certified values.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "analyticalAccuracyAndAssessmentMethod"
+                },
+                "schema:name": {
+                    "const": "Analytical Accuracy and Assessment Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionMcicpms_detectionLimit": {
+            "title": "Detection Limit",
+            "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set), applicable when isotope dilution concentrations are also reported. For pure isotope ratio procedures (no concentration output), this field is N/A or reports the minimum sample mass required for a measurement at target precision. Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "detectionLimit"
+                },
+                "schema:name": {
+                    "const": "Detection Limit"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "solutionMcicpms_detectionLimitMethod": {
+            "title": "Detection Limit Method",
+            "description": "Method used to calculate detection limits for each reported concentration variable, where concentration data are reported.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "detectionLimitMethod"
+                },
+                "schema:name": {
+                    "const": "Detection Limit Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionMcicpms_limitOfQuantificationMethod": {
+            "title": "Limit of Quantification (LOQ) Method",
+            "description": "Method used to determine the limit of quantification, where applicable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "limitOfQuantificationMethod"
+                },
+                "schema:name": {
+                    "const": "Limit of Quantification (LOQ) Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -3427,7 +4297,7 @@
         },
         "solutionQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod": {
             "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-            "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3467,7 +4337,7 @@
         },
         "solutionQicpms_detectionLimit": {
             "title": "Detection Limit",
-            "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
+            "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3514,7 +4384,7 @@
         },
         "solutionQicpms_detectionLimitMethod": {
             "title": "Detection Limit Method",
-            "description": "Method used to calculate detection limits for each analyte.",
+            "description": "Method used to calculate detection limits for each reported concentration variable.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3889,7 +4759,7 @@
         },
         "solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod": {
             "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-            "description": "Precision of measurements across multiple analysis sessions (long-term reproducibility) and the assessment method.",
+            "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3929,7 +4799,7 @@
         },
         "solutionSficpms_detectionLimit": {
             "title": "Detection Limit",
-            "description": "Elemental detection limits for each analyte. Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
+            "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3976,7 +4846,7 @@
         },
         "solutionSficpms_detectionLimitMethod": {
             "title": "Detection Limit Method",
-            "description": "Method used to calculate detection limits for each analyte.",
+            "description": "Method used to calculate detection limits for each reported concentration variable.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -4017,7 +4887,7 @@
         },
         "solutionSficpms_dwellTimePerMass": {
             "title": "Dwell Time per Mass",
-            "description": "Integration time spent on each mass peak per sweep (ms). May differ per analyte if analyte-specific dwell times are programmed.",
+            "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -4106,7 +4976,7 @@
         },
         "solutionSficpms_interferingSpecies": {
             "title": "Interfering Species",
-            "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution. Analyte-specific.",
+            "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -4226,6 +5096,47 @@
                 "ada:dataType"
             ]
         },
+        "solutionSficpms_massResolutionAssignment": {
+            "title": "Mass Resolution Assignment",
+            "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "massResolutionAssignment"
+                },
+                "schema:name": {
+                    "const": "Mass Resolution Assignment"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
         "solutionSficpms_massResolutionPerAnalyte": {
             "title": "Mass Resolution per Analyte",
             "description": "Mass resolution mode assigned to each analyte in this procedure. The selected resolution determines which polyatomic interferences are physically resolved by the magnet sector. Per-analyte assignments are documented here; the overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3). Analyte-specific field.",
@@ -4269,7 +5180,7 @@
         },
         "solutionSficpms_monitoredIsotopes": {
             "title": "Monitored Isotopes",
-            "description": "Specific isotope(s) monitored per analyte element in this procedure, including any interference-monitor masses. Analyte-specific field.",
+            "description": "Specific isotope(s) monitored in this procedure, grouped by the analyte element they serve where they serve one. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
             "type": "object",
             "properties": {
                 "@id": {

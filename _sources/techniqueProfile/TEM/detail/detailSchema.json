@@ -150,7 +150,7 @@
                                 },
                                 {
                                     "title": "Target Selection Criteria",
-                                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+                                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -1272,7 +1272,7 @@
                                 },
                                 {
                                     "title": "Calibration Factor and Determination Method",
-                                    "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+                                    "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -1305,7 +1305,7 @@
                                 },
                                 {
                                     "title": "Constants and Reference Values Used",
-                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -1437,7 +1437,7 @@
                                 },
                                 {
                                     "title": "EDS Detection Limit",
-                                    "description": "Estimated detection limits for key target analytes by EDS under this procedure conditions. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                    "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -1577,7 +1577,7 @@
                             {
                                 "contains": {
                                     "title": "Target Selection Criteria",
-                                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+                                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -2823,7 +2823,7 @@
                             {
                                 "contains": {
                                     "title": "Calibration Factor and Determination Method",
-                                    "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+                                    "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -2860,7 +2860,7 @@
                             {
                                 "contains": {
                                     "title": "Constants and Reference Values Used",
-                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -3008,7 +3008,7 @@
                             {
                                 "contains": {
                                     "title": "EDS Detection Limit",
-                                    "description": "Estimated detection limits for key target analytes by EDS under this procedure conditions. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                    "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -3139,7 +3139,7 @@
                                     "then": {
                                         "properties": {
                                             "schema:name": {
-                                                "description": "Name or identifier of the sample or TEM section analyzed in this session.",
+                                                "description": "Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -3153,7 +3153,7 @@
                                                 ]
                                             },
                                             "schema:identifier": {
-                                                "description": "Persistent identifier (e.g., IGSN) for the sample analyzed.",
+                                                "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
                                                 "anyOf": [
                                                     {
                                                         "type": "string"

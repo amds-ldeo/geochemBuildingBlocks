@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "TEM Technique-Aligned Protocol Profile (temTAPP)",
-    "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from TAPPS20260811/TEM/TEM_TAPP_v13.csv by tools/build_tapp.py.",
+    "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from TAPPS20260813/Current TAPPs/TEM_TAPP_v17.csv by tools/build_tapp.py.",
     "allOf": [
         {
             "$ref": "../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -1493,7 +1493,7 @@
                             },
                             {
                                 "title": "EDS Detection Limit",
-                                "description": "Estimated detection limits for key target analytes by EDS under this procedure conditions. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -2892,7 +2892,7 @@
                         {
                             "contains": {
                                 "title": "EDS Detection Limit",
-                                "description": "Estimated detection limits for key target analytes by EDS under this procedure conditions. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -3043,7 +3043,7 @@
                     ]
                 },
                 "ada:targetSelectionCriteriaDefault": {
-                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out. Generalised from Lab-XCT's 'VOI Selection Criteria', which implements this concept for a single technique.",
+                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
                     "type": "string"
                 },
                 "schema:instrument": {
@@ -3070,7 +3070,7 @@
                                             "type": "object",
                                             "properties": {
                                                 "schema:name": {
-                                                    "description": "Make of the TEM/STEM instrument.",
+                                                    "description": "Make of the instrument used for this procedure.",
                                                     "type": "string",
                                                     "enum": [
                                                         "JEOL",
@@ -3117,7 +3117,7 @@
                                                         "then": {
                                                             "properties": {
                                                                 "schema:description": {
-                                                                    "description": "Type of electron gun used.",
+                                                                    "description": "Type of electron gun used in the instrument.",
                                                                     "anyOf": [
                                                                         {
                                                                             "type": "string",
@@ -3682,7 +3682,7 @@
                         "ada:defaultAnalytes": {
                             "type": "array",
                             "items": {
-                                "description": "Element(s) this procedure is designed to detect or quantify by any spectroscopic method (EDS, EELS, or both). The procedure registers the full intended analyte suite; analysts confirm or narrow this list at analysis time to reflect the elements actually measured in the session. For sessions using both EDS and EELS, list all elements targeted by either technique. For EDS and EELS the analyte list is determined by the detectors in use; see 'EELS Edges' for the corresponding ionization edges.",
+                                "description": "The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules. The procedure registers the full intended analyte suite; analysts confirm or narrow this list at analysis time to reflect the elements actually measured in the session. For sessions using both EDS and EELS, list all elements targeted by either technique. For EDS and EELS the analyte list is determined by the detectors in use; see 'EELS Edges' for the corresponding ionization edges.",
                                 "type": "string"
                             }
                         }
@@ -3694,7 +3694,7 @@
                         "ada:defaultReportedProperties": {
                             "type": "array",
                             "items": {
-                                "description": "The final variable(s) this procedure reports and their units — distinct from Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire many masses and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+                                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
                                 "type": "string",
                                 "readOnly": true
                             }
@@ -3762,15 +3762,15 @@
                     "readOnly": true
                 },
                 "ada:calibrationFactorAndDeterminationMethodDefault": {
-                    "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from Primary Calibration Standard Name, which identifies the material used, and from Per-Analyte Calibration Strategy, which states which approach applies to which analyte: this field records the resulting factor itself.",
+                    "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
                     "type": "string"
                 },
                 "ada:analysisInclusionAndRejectionCriteria": {
-                    "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from Spike / Outlier Filtering Approach, which removes anomalous points within a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
+                    "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
                     "type": "string"
                 },
                 "ada:constantsAndReferenceValuesUsedDefault": {
-                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                     "type": "string"
                 },
                 "ada:edsCalibrationStandardDefault": {

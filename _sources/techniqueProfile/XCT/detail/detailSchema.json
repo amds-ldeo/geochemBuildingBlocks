@@ -274,7 +274,7 @@
                                                 ]
                                             },
                                             "schema:name": {
-                                                "description": "Name or identifier of the sample as used in the laboratory. Should match the identifier used in associated publications or data tables.",
+                                                "description": "Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -288,7 +288,7 @@
                                                 ]
                                             },
                                             "schema:identifier": {
-                                                "description": "Globally unique, persistent identifier for the analysed sample. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples.",
+                                                "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -941,7 +941,7 @@
                                 },
                                 {
                                     "title": "Partial Volume Effect Criteria",
-                                    "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
+                                    "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation; state whether the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported modal abundances and size distributions, so two datasets are not comparable without it.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -1691,7 +1691,7 @@
                             {
                                 "contains": {
                                     "title": "Partial Volume Effect Criteria",
-                                    "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional.",
+                                    "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation; state whether the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported modal abundances and size distributions, so two datasets are not comparable without it.",
                                     "type": "object",
                                     "properties": {
                                         "@id": {
@@ -1881,7 +1881,7 @@
                                                 ]
                                             },
                                             "ada:voxelSize": {
-                                                "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the minimum feature size to be resolved (target voxel size ≤ ~1/3 of the minimum resolvable feature size). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                                                "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size ≤ ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
                                                 "anyOf": [
                                                     {
                                                         "type": "number"
@@ -2063,7 +2063,7 @@
                                                                 },
                                                                 {
                                                                     "title": "Constants and Reference Values Used",
-                                                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "@id": {
@@ -2174,7 +2174,7 @@
                                                             {
                                                                 "contains": {
                                                                     "title": "Constants and Reference Values Used",
-                                                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "@id": {
@@ -2398,12 +2398,12 @@
             "items": {
                 "anyOf": [
                     {
-                        "title": "Spatial Resolution",
-                        "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
+                        "title": "Effective Spatial Resolution (PSF/MTF)",
+                        "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\" for the voxel size; record that under Voxel Size, and leave this field as not reported unless an effective resolution was actually determined.",
                         "type": "object",
                         "properties": {
                             "@id": {
-                                "const": "ada:parameter/labxctTAPP/spatialResolution"
+                                "const": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
                             },
                             "@type": {
                                 "const": [
@@ -2412,11 +2412,11 @@
                             },
                             "schema:propertyID": {
                                 "const": {
-                                    "@id": "ada:parameter/labxctTAPP/spatialResolution"
+                                    "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
                                 }
                             },
                             "schema:name": {
-                                "const": "Spatial Resolution"
+                                "const": "Effective Spatial Resolution (PSF/MTF)"
                             },
                             "schema:value": {
                                 "type": "string"
@@ -2428,50 +2428,6 @@
                             "schema:propertyID",
                             "schema:name",
                             "schema:value"
-                        ]
-                    },
-                    {
-                        "title": "Minimum Resolvable Feature Size",
-                        "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                            },
-                            "@type": {
-                                "const": [
-                                    "schema:PropertyValue"
-                                ]
-                            },
-                            "schema:propertyID": {
-                                "const": {
-                                    "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                                }
-                            },
-                            "schema:name": {
-                                "const": "Minimum Resolvable Feature Size"
-                            },
-                            "schema:value": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            },
-                            "schema:unitText": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "@id",
-                            "@type",
-                            "schema:propertyID",
-                            "schema:name",
-                            "schema:value",
-                            "schema:unitText"
                         ]
                     },
                     {
@@ -2592,12 +2548,12 @@
             "allOf": [
                 {
                     "contains": {
-                        "title": "Spatial Resolution",
-                        "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it.",
+                        "title": "Effective Spatial Resolution (PSF/MTF)",
+                        "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2× the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in µm along with the method used to determine or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\" for the voxel size; record that under Voxel Size, and leave this field as not reported unless an effective resolution was actually determined.",
                         "type": "object",
                         "properties": {
                             "@id": {
-                                "const": "ada:parameter/labxctTAPP/spatialResolution"
+                                "const": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
                             },
                             "@type": {
                                 "const": [
@@ -2606,11 +2562,11 @@
                             },
                             "schema:propertyID": {
                                 "const": {
-                                    "@id": "ada:parameter/labxctTAPP/spatialResolution"
+                                    "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
                                 }
                             },
                             "schema:name": {
-                                "const": "Spatial Resolution"
+                                "const": "Effective Spatial Resolution (PSF/MTF)"
                             },
                             "schema:value": {
                                 "type": "string"
@@ -2622,54 +2578,6 @@
                             "schema:propertyID",
                             "schema:name",
                             "schema:value"
-                        ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                },
-                {
-                    "contains": {
-                        "title": "Minimum Resolvable Feature Size",
-                        "description": "Smallest feature reliably detected and quantified in this analysis at the achieved voxel size and SNR. The practical detection limit is determined jointly by voxel size, effective spatial resolution (PSF), and image contrast. Per Withers et al. (2021), a feature must span at least 3 voxels to be positively identified, and at least 10 voxels for reliable shape and volume characterisation. Report the minimum feature size threshold applied in quantitative analysis and the basis for that value (e.g., SNR-limited, PVE-limited, or analyst-defined).",
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "const": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                            },
-                            "@type": {
-                                "const": [
-                                    "schema:PropertyValue"
-                                ]
-                            },
-                            "schema:propertyID": {
-                                "const": {
-                                    "@id": "ada:parameter/labxctTAPP/minimumResolvableFeatureSize"
-                                }
-                            },
-                            "schema:name": {
-                                "const": "Minimum Resolvable Feature Size"
-                            },
-                            "schema:value": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            },
-                            "schema:unitText": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "@id",
-                            "@type",
-                            "schema:propertyID",
-                            "schema:name",
-                            "schema:value",
-                            "schema:unitText"
                         ]
                     },
                     "minContains": 0,

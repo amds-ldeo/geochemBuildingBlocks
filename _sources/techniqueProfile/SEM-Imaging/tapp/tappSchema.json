@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)",
-    "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from TAPPS20260811/SEM/SEM_Imaging_TAPP_v9.csv by tools/build_tapp.py.",
+    "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from TAPPS20260813/Current TAPPs/SEM_Imaging_TAPP_v11.csv by tools/build_tapp.py.",
     "allOf": [
         {
             "$ref": "../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -344,7 +344,7 @@
                                                             },
                                                             {
                                                                 "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "@id": {
@@ -434,7 +434,7 @@
                                                         {
                                                             "contains": {
                                                                 "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "@id": {
@@ -536,7 +536,7 @@
                                             "type": "object",
                                             "properties": {
                                                 "schema:name": {
-                                                    "description": "Make of the SEM or FIB-SEM instrument.",
+                                                    "description": "Make of the instrument used for this procedure.",
                                                     "type": "string",
                                                     "enum": [
                                                         "JEOL",
@@ -584,7 +584,7 @@
                                                         "then": {
                                                             "properties": {
                                                                 "schema:description": {
-                                                                    "description": "Type of electron gun used in the SEM instrument.",
+                                                                    "description": "Type of electron gun used in the instrument.",
                                                                     "anyOf": [
                                                                         {
                                                                             "type": "string",
@@ -1489,7 +1489,7 @@
                         "ada:defaultReportedProperties": {
                             "type": "array",
                             "items": {
-                                "description": "The final variable(s) this procedure reports and their units — distinct from Analyte and Monitored Isotopes, which record what was acquired. A procedure may acquire many masses and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+                                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
                                 "type": "string",
                                 "readOnly": true
                             }
