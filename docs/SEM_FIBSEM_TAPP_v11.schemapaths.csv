@@ -33,15 +33,15 @@ Ion Beam Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrum
 SE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='SEDetector'].schema:name,authored,shared,
 BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSEDetector'].schema:name,authored,shared,
 Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
 Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default
-Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
 Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],authored,shared,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltageDefault,authored,divergent,divergence decision applied
-Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
+Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
 Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
 Working Distance,Basic,Editable,Numeric (mm),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:workingDistanceDefault,authored,shared,divergence decision applied
-Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:workingDistance,inferred,shared,dual-home counterpart (tier matrix)
+Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].ada:workingDistance,inferred,shared,dual-home counterpart (tier matrix)
 Dwell Time per Pixel,Basic,Editable,Numeric + unit,$MethodDefinition.ada:dwellTimePerPixelDefault,authored,shared,divergence decision applied
 Dwell Time per Pixel,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value,inferred,shared,dual-home counterpart (tier matrix)
 Protective Coating Deposition,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='samplePreparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema:defaultValue,authored,,dual-home decision: protocol default

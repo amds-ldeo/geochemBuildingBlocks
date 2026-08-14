@@ -46,14 +46,14 @@ EELS Spectrometer,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instru
 Imaging and Diffraction Detectors,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='ImagingDetector'].schema:description,authored,,instrument component
 4D-STEM Detector,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='4DSTEMDetector'].schema:description,authored,,instrument component
 Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,inferred,,
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='acquisition'].schema:name,inferred,,
+Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,inferred,,
 SAED Pattern Simulation Software,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='SAED Pattern Simulation Software'].schema:defaultValue,inferred,,"candidate for bios:computationalTool[ada:toolRole=...]; only 'acquisition' and 'dataReduction' roles exist, so a new token is a vocabulary decision"
 SAED Pattern Simulation Software,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='SAED Pattern Simulation Software'].schema:value,inferred,,"candidate for bios:computationalTool[ada:toolRole=...]; only 'acquisition' and 'dataReduction' roles exist, so a new token is a vocabulary decision"
 Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,inferred,,
-Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,inferred,,
+Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,inferred,,
 Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],inferred,,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='TEM'].ada:acceleratingVoltageDefault,authored,,dual-home: instrument default + per-analysis value
-Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='TEM'].ada:acceleratingVoltage,authored,,dual-home: instrument default + per-analysis value
+Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='TEM'].ada:acceleratingVoltage,authored,,dual-home: instrument default + per-analysis value
 Analytical Sub-mode,Basic,Editable,Controlled list,$MethodDefinition.ada:analyticalSubModeDefault,inferred,,
 Analytical Sub-mode,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analytical Sub-mode'].schema:value,inferred,,
 TEM Objective Aperture,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='TEM Objective Aperture'].schema:defaultValue,inferred,,

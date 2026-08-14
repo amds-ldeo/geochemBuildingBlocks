@@ -34,15 +34,15 @@ BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instr
 CL Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='CL Detector Configuration'].schema:value,inferred,,
 EBSD Detector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.ada:ebsdDetectorConfiguration,inferred,,
 Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
 Data Reduction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default
-Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value
 Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],inferred,shared,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltageDefault,authored,divergent,divergence decision applied
-Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
+Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
 Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied
 Working Distance,Basic,Editable,Numeric (mm),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:workingDistanceDefault,authored,shared,divergence decision applied
-Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='SEM'].ada:workingDistance,inferred,shared,dual-home counterpart (tier matrix)
+Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].ada:workingDistance,inferred,shared,dual-home counterpart (tier matrix)
 Chamber Pressure,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue,inferred,shared,
 Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Image Pixel Size,Advanced,Basic,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:defaultValue,authored,,dual-home decision: protocol default

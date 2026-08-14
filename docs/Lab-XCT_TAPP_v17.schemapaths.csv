@@ -40,26 +40,26 @@ Detector Array Size,Advanced,Read-Only,Text (free),$MethodDefinition.schema:addi
 Detector Pixel Size,Advanced,Read-Only,Numeric (µm),$MethodDefinition.schema:additionalProperty[schema:name='Detector Pixel Size'].schema:value,inferred,,
 Optical Objective,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Optical Objective'].schema:value,inferred,,
 Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
+Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value
 Reconstruction Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,,dual-home decision: protocol default
-Reconstruction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,authored,,dual-home decision: analysis-tier value
+Reconstruction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,,dual-home decision: analysis-tier value
 Segmentation and Analysis Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,,dual-home decision: protocol default
-Segmentation and Analysis Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[ada:toolRole='dataReduction'].schema:name,authored,,dual-home decision: analysis-tier value
+Segmentation and Analysis Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,,dual-home decision: analysis-tier value
 Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],inferred,shared,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='XCT'].ada:acceleratingVoltageDefault,authored,divergent,divergence decision applied
-Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='XCT'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
+Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='XCT'].ada:acceleratingVoltage,inferred,divergent,dual-home counterpart (tier matrix)
 Tube Current,Basic,Editable,Numeric (µA),$MethodDefinition.schema:instrument[schema:additionalType='XCT'].ada:tubeCurrentDefault,authored,,dual-home decision: protocol default
-Tube Current,Basic,Editable,Numeric (µA),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='XCT'].ada:tubeCurrent,authored,,dual-home decision: analysis-tier value
+Tube Current,Basic,Editable,Numeric (µA),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='XCT'].ada:tubeCurrent,authored,,dual-home decision: analysis-tier value
 X-ray Power,Advanced,Editable,Numeric (W),$MethodDefinition.schema:additionalProperty[schema:name='X ray Power'].schema:defaultValue,inferred,,
 X-ray Power,Advanced,Editable,Numeric (W),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='X ray Power'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 X-ray Pre-filter,Basic,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='XCT'].ada:xRayPreFilterDefault,authored,,dual-home decision: protocol default
-X-ray Pre-filter,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='XCT'].ada:xRayPreFilter,authored,,dual-home decision: analysis-tier value
+X-ray Pre-filter,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='XCT'].ada:xRayPreFilter,authored,,dual-home decision: analysis-tier value
 Source-to-Object Distance (SOD),Advanced,Editable,Numeric (mm),$MethodDefinition.schema:additionalProperty[schema:name='Source to Object Distance SOD'].schema:defaultValue,inferred,,
 Source-to-Object Distance (SOD),Advanced,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Source to Object Distance SOD'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Source-to-Detector Distance (SDD),Advanced,Editable,Numeric (mm),$MethodDefinition.schema:additionalProperty[schema:name='Source to Detector Distance SDD'].schema:defaultValue,inferred,,
 Source-to-Detector Distance (SDD),Advanced,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Source to Detector Distance SDD'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy
 Voxel Size,Basic,Editable,Numeric (µm),$MethodDefinition.schema:instrument[schema:additionalType='XCT'].ada:voxelSizeDefault,authored,,dual-home decision: protocol default
-Voxel Size,Basic,Editable,Numeric (µm),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='XCT'].ada:voxelSize,authored,,dual-home decision: analysis-tier value
+Voxel Size,Basic,Editable,Numeric (µm),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='XCT'].ada:voxelSize,authored,,dual-home decision: analysis-tier value
 Rotation Range,Basic,Editable,Numeric (°),$MethodDefinition.ada:rotationRangeDefault,authored,,dual-home decision: protocol default
 Rotation Range,Basic,Editable,Numeric (°),$Dataset.prov:wasGeneratedBy.ada:rotationRange,authored,,dual-home decision: analysis-tier value
 Number of Projections,Basic,Editable,Integer,$MethodDefinition.ada:numberOfProjectionsDefault,authored,,dual-home decision: protocol default
