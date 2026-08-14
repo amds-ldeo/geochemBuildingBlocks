@@ -57,20 +57,25 @@ $defs:
     description: >-
       Composed into a technique detail (schema:Dataset) schema. The required properties are the
       module's Analysis-Level Basic fields -- values that cannot be known until the analysis runs:
-      Procedure DOI, Analyst, Analysis Start Date, Analysis End Date and Funding Source for
-      Analysis. Coupled Procedure DOI and Coupled Dataset or Publication Reference are
-      Analysis-Level Advanced and therefore optional.
+      Procedure DOI, Analyst, Session Identifier, Analysis Start Date, Analysis End Date and
+      Funding Source for Analysis. Coupled Procedure DOI and Coupled Dataset or Publication
+      Reference are Analysis-Level Advanced and therefore optional.
     type: object
     required:
     - schema:measurementTechnique   # Procedure DOI -- identifies the procedure this analysis ran
     - schema:contributor            # Analyst, via schema:roleName 'analyst'
-    - prov:wasGeneratedBy           # carries Analysis Start Date / End Date
+    - prov:wasGeneratedBy           # carries Session Identifier + Analysis Start / End Date
     - schema:funding                # Funding Source for Analysis
     properties:
       prov:wasGeneratedBy:
         type: array
         items:
           type: object
+          # All three identify the session, and the session IS this activity: schema:identifier
+          # names the run, the dates bound it. Session Identifier arrived with the 2026-08-13
+          # delivery in all sixteen tables and in Module_Group1, so it is placed once here rather
+          # than sixteen times.
           required:
+          - schema:identifier
           - schema:startDate
           - schema:endDate

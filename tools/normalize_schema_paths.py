@@ -179,7 +179,12 @@ def recognize(s):
         # dataset side (belongs on the analysis session / detail, not the reusable protocol)
         (r"^\$Dataset\.schema:contributor\[schema:roleName='[^']*'\](\.schema:(name|identifier))?$", "dataset-contributor"),
         (r"^\$Dataset\.schema:measurementTechnique(\.schema:DefinedTerm)?\.schema:identifier$", "dataset-measurement-technique"),
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate)$", "dataset-provenance"),
+        # identifier joins the dates: all three are the session's own, and the session is the
+        # activity. Group1's Session Identifier lands here rather than in a parameter bag, which is
+        # the module's whole character — every one of its fields maps to a property that already
+        # exists rather than inventing one.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate|identifier)$",
+         "dataset-provenance"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-prov-parameter"),
         # A property of the DELIVERED DATA, not of the session that produced it — map area, volume
         # dimensions, sub-volume count. These sit on the dataset root precisely because they are not

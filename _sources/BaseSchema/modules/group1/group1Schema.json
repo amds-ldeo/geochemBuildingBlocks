@@ -25,7 +25,7 @@
         },
         "AnalysisIdentification": {
             "title": "Group1 fields that live on the analysis",
-            "description": "Composed into a technique detail (schema:Dataset) schema. The required properties are the module's Analysis-Level Basic fields -- values that cannot be known until the analysis runs: Procedure DOI, Analyst, Analysis Start Date, Analysis End Date and Funding Source for Analysis. Coupled Procedure DOI and Coupled Dataset or Publication Reference are Analysis-Level Advanced and therefore optional.",
+            "description": "Composed into a technique detail (schema:Dataset) schema. The required properties are the module's Analysis-Level Basic fields -- values that cannot be known until the analysis runs: Procedure DOI, Analyst, Session Identifier, Analysis Start Date, Analysis End Date and Funding Source for Analysis. Coupled Procedure DOI and Coupled Dataset or Publication Reference are Analysis-Level Advanced and therefore optional.",
             "type": "object",
             "required": [
                 "schema:measurementTechnique",
@@ -39,6 +39,7 @@
                     "items": {
                         "type": "object",
                         "required": [
+                            "schema:identifier",
                             "schema:startDate",
                             "schema:endDate"
                         ]
