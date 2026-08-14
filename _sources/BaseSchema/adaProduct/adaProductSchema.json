@@ -287,6 +287,7 @@
                                         },
                                         {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "description": "Computational tool actually used (acquisition, data reduction, or processing).",
                                             "properties": {
                                                 "@type": {
@@ -330,6 +331,7 @@
                                         },
                                         {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "description": "Reference material, calibration standard, or chemical reagent actually used.",
                                             "properties": {
                                                 "@type": {
@@ -337,7 +339,15 @@
                                                     "items": {
                                                         "type": "string"
                                                     },
-                                                    "minItems": 1
+                                                    "minItems": 1,
+                                                    "description": "What the material IS, independent of the role it plays in this run (that is ada:reagentRole). schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance for a bulk chemical or coating stock.",
+                                                    "contains": {
+                                                        "enum": [
+                                                            "schema:DefinedTerm",
+                                                            "schema:Product",
+                                                            "schema:ChemicalSubstance"
+                                                        ]
+                                                    }
                                                 },
                                                 "@id": {
                                                     "type": "string"
@@ -349,12 +359,55 @@
                                                     "type": "string"
                                                 },
                                                 "schema:identifier": {
+                                                    "description": "Formal identifier (IGSN, catalog number, GeoReM ID). Mirrors tappDefinition $defs/Reagent.",
                                                     "anyOf": [
                                                         {
                                                             "type": "string"
                                                         },
                                                         {
-                                                            "type": "object"
+                                                            "type": "object",
+                                                            "additionalProperties": false,
+                                                            "properties": {
+                                                                "@type": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "minItems": 1
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "type": "string"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:termCode": {
+                                                    "type": "string",
+                                                    "description": "Registry code for the material on the schema:DefinedTerm path."
+                                                },
+                                                "schema:inDefinedTermSet": {
+                                                    "description": "The registry the schema:termCode belongs to.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string",
+                                                            "format": "uri"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "additionalProperties": false,
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "type": "string",
+                                                                    "format": "uri"
+                                                                },
+                                                                "schema:name": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
                                                         }
                                                     ]
                                                 },
@@ -371,6 +424,7 @@
                                                 }
                                             },
                                             "required": [
+                                                "@type",
                                                 "schema:name"
                                             ]
                                         },
@@ -509,6 +563,7 @@
                                         },
                                         {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "properties": {
                                                 "@type": {
                                                     "type": "array",
@@ -554,6 +609,7 @@
                                     },
                                     {
                                         "type": "object",
+                                        "additionalProperties": false,
                                         "properties": {
                                             "@type": {
                                                 "type": "array",
