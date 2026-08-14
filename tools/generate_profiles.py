@@ -673,7 +673,7 @@ description: >-
   Extends the base ADA product profile with constraints on valid {cfg['short_name']} component
   types{detail_note}.
 allOf:
-  - $ref: ../../../BaseSchema/adaProduct/schema.yaml
+  - $ref: ../../../../BaseSchema/adaProduct/schema.yaml
   - type: object
     properties:
       "schema:additionalType":
@@ -693,7 +693,7 @@ allOf:
                         "@type":
                           enum:
 {technique_ct_lines}
-                    - $ref: ../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
+                    - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
             - required:
                 - "schema:hasPart"
               properties:
@@ -706,7 +706,7 @@ allOf:
                               "@type":
                                 enum:
 {haspart_ct_lines}
-                          - $ref: ../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
+                          - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
 """
 
 
@@ -888,9 +888,21 @@ def _tech(name: str) -> str:
     return _TECH_ALIAS.get(raw.lower(), raw)
 
 
+# TAPP-aware techniques live under geochemProfile/, every other technique under adaProfile/.
+_TAPP_TECHS = {
+    "EMPA", "Geochron", "LA-ICPMS", "SEM", "SEM-Composition", "SEM-FIBSEM", "SEM-Imaging",
+    "Solution-MC-ICPMS", "Solution-Q-ICPMS", "Solution-SF-ICPMS", "TEM", "XCT",
+}
+
+
+def _root(tech: str) -> str:
+    return "geochemProfile" if tech in _TAPP_TECHS else "adaProfile"
+
+
 def generate_profile(name: str, cfg: dict, base_dir: Path) -> None:
     """Generate all files for a single profile."""
-    profile_dir = base_dir / "_sources" / "techniqueProfile" / _tech(name) / "profile-ada"
+    tech = _tech(name)
+    profile_dir = base_dir / "_sources" / "techniqueProfile" / _root(tech) / tech / "profile-ada"
     profile_dir.mkdir(parents=True, exist_ok=True)
 
     files = {

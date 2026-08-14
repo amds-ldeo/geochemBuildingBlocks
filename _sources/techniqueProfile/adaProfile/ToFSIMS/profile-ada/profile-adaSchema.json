@@ -1,0 +1,76 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA ToF-SIMS Product Profile",
+    "description": "Technique-specific profile for Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS) products. Extends the base ADA product profile with constraints on valid ToF-SIMS component types.",
+    "allOf": [
+        {
+            "$ref": "../../../../BaseSchema/adaProduct/adaProductSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "schema:additionalType": {
+                    "description": "Must include a ToF-SIMS product type identifier.",
+                    "contains": {
+                        "enum": [
+                            "Time-of-flight secondary ion mass spectrometry (TOFSIMS)",
+                            "Time-of-Flight Secondary Ion Mass Spectrometry",
+                            "Time-of-Flight Secondary Ion Mass Spectrometer"
+                        ]
+                    }
+                },
+                "schema:distribution": {
+                    "description": "Distribution items for adaToFSIMS. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:hasPart": {
+                                "items": {
+                                    "type": "object",
+                                    "anyOf": [
+                                        {
+                                            "$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ada:TOFSIMSCollection",
+                                                        "ada:peaks"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:subjectOf": {
+                    "properties": {
+                        "dcterms:conformsTo": {
+                            "contains": {
+                                "type": "object",
+                                "required": [
+                                    "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "@id": {
+                                        "const": "https://w3id.org/geochem/metadata/profiles/adaToFSIMS"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

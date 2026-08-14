@@ -1,0 +1,141 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA LA-ICP-MS Geochronology Product Profile",
+    "description": "Path-driven technique-specific profile for ADA LA-ICP-MS Geochronology Product Profile. Extends the base ADA product profile with the GEOCHRON analysis-instance detail on the schema:Dataset root, narrows prov:used to the geochronTAPP protocol, and constrains valid component types on schema:distribution.hasPart.",
+    "allOf": [
+        {
+            "$ref": "../../../../BaseSchema/adaProduct/adaProductSchema.json"
+        },
+        {
+            "$ref": "../detail/detailSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "prov:wasGeneratedBy": {
+                    "description": "Narrow the base prov:used to the geochronTAPP definition — inline, or by node @id — alongside the instrument.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "prov:used": {
+                                "type": "array",
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "../../../../BaseSchema/instrument/instrumentSchema.json"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "description": "Reference by node @id to a geochronTAPP definition object defined elsewhere.",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../tapp/tappSchema.json"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:additionalType": {
+                    "description": "Must include a GEOCHRON product type identifier.",
+                    "contains": {
+                        "enum": [
+                            "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry",
+                            "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"
+                        ]
+                    }
+                },
+                "schema:distribution": {
+                    "description": "Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType is a GEOCHRON-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).",
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "required": [
+                                    "ada:componentType"
+                                ],
+                                "properties": {
+                                    "ada:componentType": {
+                                        "type": "string",
+                                        "anyOf": [
+                                            {
+                                                "$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType"
+                                            },
+                                            {
+                                                "enum": [
+                                                    "ada:LAICPMSGeochronTabular"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "required": [
+                                    "schema:hasPart"
+                                ],
+                                "properties": {
+                                    "schema:hasPart": {
+                                        "items": {
+                                            "type": "object",
+                                            "anyOf": [
+                                                {
+                                                    "$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "ada:componentType": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "ada:LAICPMSGeochronTabular"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "ada:componentType"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "schema:subjectOf": {
+                    "properties": {
+                        "dcterms:conformsTo": {
+                            "contains": {
+                                "type": "object",
+                                "required": [
+                                    "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "@id": {
+                                        "const": "https://w3id.org/geochem/metadata/profiles/adaGeochron"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -31,7 +31,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # group-by-technique layout: registry/ (catalogs+vocab), BaseSchema/ (tappDefinition+adaProduct+
 # geochemProperties), techniqueProfile/<tech>/{tapp,detail,profile,profile-ada}.
 REG = os.path.join(ROOT, "_sources", "registry")
-TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
+TPROF = os.path.join(ROOT, "_sources", "techniqueProfile", "geochemProfile")
 VOCAB_DIR = os.path.join(REG, "vocab")
 PT = os.path.join(REG, "parameterTemplates", "schema.yaml")
 PV = os.path.join(REG, "parameterValues", "schema.yaml")
@@ -721,17 +721,17 @@ def build():
         if b["cov"] > 0:
             basic_required.append(key)
     if acols:
-        ac_refs = [{"$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"}] + \
-                  [{"$ref": "../../../registry/analyteColumns/schema.yaml#/$defs/" + c} for c in acols]
-        ac_contains = [{"contains": {"$ref": "../../../registry/analyteColumns/schema.yaml#/$defs/" + c},
+        ac_refs = [{"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"}] + \
+                  [{"$ref": "../../../../registry/analyteColumns/schema.yaml#/$defs/" + c} for c in acols]
+        ac_contains = [{"contains": {"$ref": "../../../../registry/analyteColumns/schema.yaml#/$defs/" + c},
                         "minContains": 0, "maxContains": 1} for c in acols]
         tapp_props["ada:analyteTemplate"] = {"type": "object", "properties": {
             "ada:analyteColumns": {"type": "array", "items": {"anyOf": ac_refs}, "allOf": ac_contains}}}
-    sap_refs = [{"$ref": "../../../registry/parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys] + \
-               [{"$ref": "../../../registry/parameterValues/schema.yaml#/$defs/" + n} for n in mv_keys]
-    sap_contains = [{"contains": {"$ref": "../../../registry/parameterTemplates/schema.yaml#/$defs/" + n},
+    sap_refs = [{"$ref": "../../../../registry/parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys] + \
+               [{"$ref": "../../../../registry/parameterValues/schema.yaml#/$defs/" + n} for n in mv_keys]
+    sap_contains = [{"contains": {"$ref": "../../../../registry/parameterTemplates/schema.yaml#/$defs/" + n},
                      "minContains": 0, "maxContains": 1} for n in pt_keys] + \
-                   [{"contains": {"$ref": "../../../registry/parameterValues/schema.yaml#/$defs/" + n},
+                   [{"contains": {"$ref": "../../../../registry/parameterValues/schema.yaml#/$defs/" + n},
                      "minContains": 0, "maxContains": 1} for n in mv_keys]
     if sap_refs:  # omit the overlay constraint when the technique has no Advanced params
         tapp_props["schema:additionalProperty"] = {
@@ -744,7 +744,7 @@ def build():
     tapp_schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "title": CFG["title"], "description": CFG["description"],
-        "allOf": [{"$ref": "../../../BaseSchema/tappDefinition/schema.yaml"},
+        "allOf": [{"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"},
                   {"type": "object", "properties": tapp_props, "required": basic_required}]}
     write(os.path.join(TAPP_DIR, "schema.yaml"), dump_yaml(tapp_schema))
 
@@ -766,7 +766,7 @@ def build():
             block1[key] = {"description": b["desc"], "type": "string"}
         if not b["multivol_only"]:
             req.append(key)
-    pv_branches = [{"$ref": "../../../registry/parameterValues/schema.yaml#/$defs/" + n} for n in pv_keys]
+    pv_branches = [{"$ref": "../../../../registry/parameterValues/schema.yaml#/$defs/" + n} for n in pv_keys]
     catchall = {"type": "object",
         "description": f"Catch-all for additional schema:PropertyValue entries beyond the {TAPP}-derived catalog.",
         "properties": {"@type": {"type": "array", "items": {"type": "string"},
@@ -991,7 +991,7 @@ def _regen_detail_addl_constraint(L, detail_param_names):
     y.indent(mapping=2, sequence=4, offset=2)
     doc = y.load(open(sp, encoding="utf-8"))
     names = sorted(detail_param_names)
-    pvbase = "../../../registry/parameterValues/schema.yaml#/$defs/"
+    pvbase = "../../../../registry/parameterValues/schema.yaml#/$defs/"
     anyof = [{"$ref": pvbase + n} for n in names]
     anyof.append({
         "type": "object",

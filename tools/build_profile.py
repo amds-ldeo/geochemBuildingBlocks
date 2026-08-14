@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
+TPROF = os.path.join(ROOT, "_sources", "techniqueProfile", "geochemProfile")
 LAI = os.path.join(TPROF, "LA-ICPMS", "profile", "exampleadaICPMS.json")
 
 
@@ -78,14 +78,14 @@ def _schema(tapp, cfg, component_types):
                         f"schema:Dataset root, narrows prov:used to the {tapp} protocol, and constrains "
                         f"valid component types on schema:distribution.hasPart."),
         "allOf": [
-            {"$ref": "../../../BaseSchema/adaProduct/schema.yaml"},
+            {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml"},
             {"$ref": "../detail/schema.yaml"},
             {"type": "object", "properties": {
                 "prov:wasGeneratedBy": {
                     "description": f"Narrow the base prov:used to the {tapp} definition — inline, or by node @id — alongside the instrument.",
                     "type": "array",
                     "items": {"type": "object", "properties": {"prov:used": {"type": "array", "items": {"anyOf": [
-                        {"$ref": "../../../BaseSchema/instrument/schema.yaml"},
+                        {"$ref": "../../../../BaseSchema/instrument/schema.yaml"},
                         {"type": "object",
                          "description": f"Reference by node @id to a {tapp} definition object defined elsewhere.",
                          "properties": {"@id": {"type": "string", "format": "uri"}}, "required": ["@id"]},
@@ -103,12 +103,12 @@ def _schema(tapp, cfg, component_types):
                         # monolithic: the single file IS the dataset -> componentType on the distribution item
                         {"type": "object", "required": ["ada:componentType"],
                          "properties": {"ada:componentType": {"type": "string", "anyOf": [
-                             {"$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType"},
+                             {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType"},
                              {"enum": component_types}]}}},
                         # bundle: componentType on each hasPart member
                         {"type": "object", "required": ["schema:hasPart"],
                          "properties": {"schema:hasPart": {"items": {"type": "object", "anyOf": [
-                             {"$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
+                             {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
                              {"properties": {"ada:componentType": {"type": "string", "enum": component_types}},
                               "required": ["ada:componentType"]}]}}}}]}},
                 "schema:subjectOf": {"properties": {"dcterms:conformsTo": {"contains": {

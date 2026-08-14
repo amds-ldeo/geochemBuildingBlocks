@@ -1,0 +1,84 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA Lab-XCT Product Profile
+description: Path-driven technique-specific profile for ADA Lab-XCT Product Profile. Extends the base
+  ADA product profile with the LABXCT analysis-instance detail on the schema:Dataset root, narrows prov:used
+  to the labxctTAPP protocol, and constrains valid component types on schema:distribution.hasPart.
+allOf:
+- $ref: ../../../../BaseSchema/adaProduct/schema.yaml
+- $ref: ../detail/schema.yaml
+- type: object
+  properties:
+    prov:wasGeneratedBy:
+      description: Narrow the base prov:used to the labxctTAPP definition — inline, or by node @id — alongside
+        the instrument.
+      type: array
+      items:
+        type: object
+        properties:
+          prov:used:
+            type: array
+            items:
+              anyOf:
+              - $ref: ../../../../BaseSchema/instrument/schema.yaml
+              - type: object
+                additionalProperties: false
+                description: Reference by node @id to a labxctTAPP definition object defined elsewhere.
+                properties:
+                  '@id':
+                    type: string
+                    format: uri
+                required:
+                - '@id'
+              - $ref: ../tapp/schema.yaml
+    schema:additionalType:
+      description: Must include a LABXCT product type identifier.
+      contains:
+        enum:
+        - X-ray Computed Tomography (XCT) Image Collection
+        - X-ray computed tomography
+    schema:distribution:
+      description: Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType
+        is a LABXCT-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose
+        schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).
+      type: array
+      items:
+        anyOf:
+        - type: object
+          required:
+          - ada:componentType
+          properties:
+            ada:componentType:
+              type: string
+              anyOf:
+              - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
+              - enum: &id001
+                - ada:XCTVolume
+                - ada:XCTProjectionImageSet
+                - ada:XCTSegmentationVolume
+                - ada:XCTRenderedImage
+                - ada:XCTQuantitativeTabular
+        - type: object
+          required:
+          - schema:hasPart
+          properties:
+            schema:hasPart:
+              items:
+                type: object
+                anyOf:
+                - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                - properties:
+                    ada:componentType:
+                      type: string
+                      enum: *id001
+                  required:
+                  - ada:componentType
+    schema:subjectOf:
+      properties:
+        dcterms:conformsTo:
+          contains:
+            type: object
+            required: ['@id']
+            additionalProperties: false
+            properties:
+              '@id':
+                const: https://w3id.org/geochem/metadata/profiles/adaLabXCT

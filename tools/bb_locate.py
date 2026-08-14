@@ -45,24 +45,32 @@ def find_bb_dir(name: str, sources) -> Path | None:
     def ok(d: Path):
         return d if d.is_dir() and (d / "schema.yaml").exists() else None
 
+    def at(tech: str, role: str):
+        """Technique dirs sit under one of two roots: geochemProfile (TAPP-aware) or adaProfile.
+        Trying both keeps the locator working if a technique later moves between them."""
+        for root in ("geochemProfile", "adaProfile"):
+            if (hit := ok(tp / root / tech / role)):
+                return hit
+        return None
+
     # 1. identity-named BB anywhere (adaProduct, tappDefinition, registry catalogs, BaseSchema helpers)
     for cand in sources.rglob(name):
         if (hit := ok(cand)):
             return hit
     # 2. <x>TAPP
     if name.endswith("TAPP"):
-        if (hit := ok(tp / _tech(name[:-4]) / "tapp")):
+        if (hit := at(_tech(name[:-4]), "tapp")):
             return hit
     # 3. detail<X>  (old detailXCT stub lives under detail-legacy)
     if name.startswith("detail"):
         role = "detail-legacy" if name == "detailXCT" else "detail"
-        if (hit := ok(tp / _tech(name[len("detail"):]) / role)):
+        if (hit := at(_tech(name[len("detail"):]), role)):
             return hit
     # 4. generic ada<X> profile
     if name.startswith("ada"):
-        if (hit := ok(tp / _tech(name[3:]) / "profile-ada")):
+        if (hit := at(_tech(name[3:]), "profile-ada")):
             return hit
     # 5. path-driven geochem product profile (by dir/technique name)
-    if (hit := ok(tp / _tech(name) / "profile")):
+    if (hit := at(_tech(name), "profile")):
         return hit
     return None

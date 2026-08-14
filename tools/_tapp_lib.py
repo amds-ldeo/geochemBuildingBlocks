@@ -49,8 +49,8 @@ def _tech(tapp_name):
 TAPP_NAME = "empaTAPP"
 DETAIL_NAME = "detailEMPA"
 XLSX = REPO_ROOT / "docs" / "TAPP_EPMA_filled.xlsx"
-BB = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "tapp"
-DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "detail"
+BB = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
+DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
 
 
 # ---------- per-TAPP configuration ----------
@@ -189,8 +189,8 @@ def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
     if xlsx_path is not None:
         p = Path(xlsx_path)
         XLSX = p if p.is_absolute() else REPO_ROOT / p
-    BB = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "tapp"
-    DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "detail"
+    BB = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
+    DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
     if tapp_name not in TAPP_PROFILES:
         raise ValueError(
             f"Unknown TAPP {tapp_name!r}. Add an entry to TAPP_PROFILES in "
@@ -1388,7 +1388,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     doc["title"] = CFG["schema_title"]
     doc["description"] = CFG["schema_description"]
     allof = CommentedSeq()
-    allof.append({"$ref": "../../../BaseSchema/tappDefinition/schema.yaml"})
+    allof.append({"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"})
     overlay = CommentedMap()
     overlay["type"] = "object"
     req_set = set(required_props or [])
@@ -1413,9 +1413,9 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
 
     if analyte_column_names:
         anyof = CommentedSeq()
-        anyof.append({"$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
+        anyof.append({"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
         for col_name in sorted(analyte_column_names):
-            anyof.append({"$ref": f"../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"})
+            anyof.append({"$ref": f"../../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"})
 
         ac_items = CommentedMap()
         ac_items["anyOf"] = anyof
@@ -1426,7 +1426,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         ac_unique = CommentedSeq()
         for col_name in sorted(analyte_column_names):
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"}
+            cm["contains"] = {"$ref": f"../../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             ac_unique.append(cm)
@@ -1450,10 +1450,10 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     value_param_names = value_param_names or []
     if parameter_names or value_param_names:
         def _pt(n):
-            return f"../../../registry/parameterTemplates/schema.yaml#/$defs/{n}"
+            return f"../../../../registry/parameterTemplates/schema.yaml#/$defs/{n}"
 
         def _pv(n):
-            return f"../../../registry/parameterValues/schema.yaml#/$defs/{n}"
+            return f"../../../../registry/parameterValues/schema.yaml#/$defs/{n}"
 
         refs = [{"$ref": _pt(n)} for n in sorted(parameter_names)] + \
                [{"$ref": _pv(n)} for n in sorted(value_param_names)]
@@ -2133,10 +2133,10 @@ def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
     (e.g. for laicpmsTAPP)."""
     if not CFG.get("emit_profile_examples", False):
         return {"written": 0, "skipped": 0}
-    profile_dir = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "profile-ada"
+    profile_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "profile-ada"
     profile_dir.mkdir(parents=True, exist_ok=True)
-    tapp_dir = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "tapp"
-    detail_dir = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "detail"
+    tapp_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
+    detail_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
 
     written, skipped = 0, 0
     for pub_code, pub_citation in _pubs():
@@ -2559,7 +2559,7 @@ def build_profile_BB() -> None:
       - schema:distribution[*].schema:hasPart[*] anyOf includes detailXXX
     """
     short = TAPP_NAME.replace("TAPP", "")  # e.g. "empa", "xrd"
-    profile_dir = REPO_ROOT / "_sources" / "techniqueProfile" / _tech(TAPP_NAME) / "profile"
+    profile_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "profile"
     profile_dir.mkdir(parents=True, exist_ok=True)
 
     schema_path = profile_dir / "schema.yaml"
@@ -2577,7 +2577,7 @@ def build_profile_BB() -> None:
             f"that points at a {TAPP_NAME} TAPP definition."
         )
         allof = CommentedSeq()
-        allof.append({"$ref": "../../../BaseSchema/adaProduct/schema.yaml"})
+        allof.append({"$ref": "../../../../BaseSchema/adaProduct/schema.yaml"})
         overlay = CommentedMap()
         overlay["type"] = "object"
         ovprops = CommentedMap()
@@ -2601,7 +2601,7 @@ def build_profile_BB() -> None:
         dist_props = CommentedMap()
         hp = CommentedMap()
         hp["items"] = CommentedMap([("anyOf", CommentedSeq([
-            {"$ref": "../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
+            {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
             {"$ref": "../detail/schema.yaml"},
         ]))])
         dist_props["schema:hasPart"] = hp

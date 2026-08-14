@@ -1,0 +1,44 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA LIT Product Profile
+description: Technique-specific profile for Lock-In Thermography (LIT) products. Extends the base ADA product profile with constraints on valid LIT component types.
+allOf:
+  - $ref: ../../../../BaseSchema/adaProduct/schema.yaml
+  - type: object
+    properties:
+      schema:additionalType:
+        description: Must include a LIT product type identifier.
+        contains:
+          enum:
+            - Lock-In Thermography (LIT) image
+            - Lock-In Thermography (LIT) Collection
+            - Lock-In Thermography
+      schema:distribution:
+        description: Distribution items for adaLIT. Archive hasPart items must have ada:componentType from technique-specific or universal values.
+        type: array
+        items:
+          type: object
+          properties:
+            schema:hasPart:
+              items:
+                type: object
+                anyOf:
+                  - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                  - properties:
+                      ada:componentType:
+                        type: string
+                        enum:
+                          - ada:LITImage
+                          - ada:LIT2DDataCollection
+                          - ada:LITPolarDataCollection
+                    required:
+                      - ada:componentType
+      schema:subjectOf:
+        properties:
+          dcterms:conformsTo:
+            contains:
+              type: object
+              required: ['@id']
+              additionalProperties: false
+              properties:
+                '@id':
+                  const: 'https://w3id.org/geochem/metadata/profiles/adaLIT'

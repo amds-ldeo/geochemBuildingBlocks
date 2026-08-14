@@ -1,0 +1,1851 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: SEM Technique-Aligned Protocol Profile (semTAPP)
+description: Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension
+  of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/SEM_TAPP_v17.csv via the path-driven
+  pipeline.
+allOf:
+- $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
+- $ref: ../../../../BaseSchema/modules/group1/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/reportingCore/schema.yaml#/$defs/AllBlocks_Procedure
+- type: object
+  properties:
+    schema:instrument:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  const: EPMA
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              ada:acceleratingVoltageDefault:
+                description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
+                  depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low
+                  voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages
+                  (15-20 kV) improve X-ray generation for quantitative analysis.
+                anyOf:
+                - type: number
+                - type: string
+              ada:beamDiameterDefault:
+                description: Nominal electron beam diameter (spot size) at the sample surface, in nanometres
+                  or micrometres, as set by the condenser aperture and working distance. Controls the
+                  spatial resolution and X-ray excitation volume. For mapping modes, the effective spatial
+                  sampling interval is further defined by Step Size / Pixel Size.
+                anyOf:
+                - type: number
+                - type: string
+              ada:beamMode:
+                description: Whether the electron beam was operated as a stationary focused spot, defocused
+                  to a specified diameter, or rastered over a small area during analysis. Controls the
+                  effective sampling volume and irradiation footprint; critical for beam-sensitive phases
+                  such as hydrous minerals, glasses, and carbonates. Must be consistent with the Beam
+                  Diameter and Beam Raster Dimensions fields.
+                anyOf:
+                - type: string
+                  enum:
+                  - Focused
+                  - Defocused
+                  - Rastered
+                  - N/A
+                  - None
+                  readOnly: true
+                - type: array
+                  items:
+                    type: string
+                    enum:
+                    - Focused
+                    - Defocused
+                    - Rastered
+                    - N/A
+                    - None
+                    readOnly: true
+              schema:hasPart:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: EDSDetector
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:description:
+                          description: EDS detector type, manufacturer, active area, solid angle, window
+                            type, and geometry (take-off angle, position). Multiple detectors should be
+                            listed separately.
+                          anyOf:
+                          - type: string
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              readOnly: true
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: Electron source
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:description:
+                          description: Type of electron gun used in the instrument.
+                          anyOf:
+                          - type: string
+                            enum:
+                            - Cold-FEG
+                            - Schottky FEG
+                            - LaB6 / CeB6
+                            - Tungsten (W)
+                            - Unknown
+                            - N/A
+                            - None
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              enum:
+                              - Cold-FEG
+                              - Schottky FEG
+                              - LaB6 / CeB6
+                              - Tungsten (W)
+                              - Unknown
+                              - N/A
+                              - None
+                              readOnly: true
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: WDSSpectrometer
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:name:
+                          description: Number, type, and crystal range of WDS spectrometers on the instrument.
+                            Include manufacturer, model, and crystal range. For SEM-WDS configurations
+                            (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.
+                          anyOf:
+                          - type: string
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              readOnly: true
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: xrayLine
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:name:
+                          description: X-ray emission line measured on each spectrometer assignment. Line
+                            choice affects sensitivity, matrix correction accuracy, and susceptibility
+                            to peak overlap and spectral interference.
+                          anyOf:
+                          - type: string
+                            enum:
+                            - Ka
+                            - Kb
+                            - La
+                            - Lb
+                            - Lg
+                            - Ma
+                            - Mb
+                            - N/A
+                            - None
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              enum:
+                              - Ka
+                              - Kb
+                              - La
+                              - Lb
+                              - Lg
+                              - Ma
+                              - Mb
+                              - N/A
+                              - None
+                              readOnly: true
+                allOf:
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: Electron source
+                    required:
+                    - schema:additionalType
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: xrayLine
+                    required:
+                    - schema:additionalType
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Make of the instrument used for this procedure.
+                    type: string
+                    enum:
+                    - JEOL
+                    - Zeiss
+                    - FEI / Thermo Fisher Scientific
+                    - Hitachi
+                    - Tescan
+                    - Phenom
+                    - Unknown
+                    - N/A
+                    - None
+                    readOnly: true
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  const: SEM
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Model designation of the SEM or FIB-SEM instrument, including generation
+                      suffix if applicable.
+                    type: string
+                    readOnly: true
+      allOf:
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: EPMA
+          required:
+          - schema:additionalType
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: SEM
+          required:
+          - schema:additionalType
+    bios:computationalTool:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              ada:toolRole:
+                const: acquisition
+            required:
+            - ada:toolRole
+          then:
+            properties:
+              schema:name:
+                description: Software used to control the SEM and acquire data, including version number.
+                  For FIB-SEM 3D tomography, include the automated slice-and-view module name and version.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        - if:
+            properties:
+              ada:toolRole:
+                const: dataReduction
+            required:
+            - ada:toolRole
+          then:
+            properties:
+              schema:name:
+                description: Software used for post-acquisition data reduction and analysis. List all
+                  packages with version numbers.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+      allOf:
+      - contains:
+          properties:
+            ada:toolRole:
+              const: acquisition
+          required:
+          - ada:toolRole
+      - contains:
+          properties:
+            ada:toolRole:
+              const: dataReduction
+          required:
+          - ada:toolRole
+    schema:description:
+      description: 'Any procedure- or analysis-specific information not captured by a structured field
+        anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
+        modifications, and supplementary context. Scope is the whole document, not Group 6: this is the
+        last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
+        for anything that can be formally categorised.'
+      type: string
+    ada:analyteTemplate:
+      type: object
+      properties:
+        ada:defaultAnalytes:
+          type: array
+          items:
+            description: The chemical species this procedure is designed to determine, recorded at whatever
+              resolution the chemistry is resolved — element(s) for this technique; valence species where
+              a procedure resolves oxidation state; compounds where it resolves molecules. The procedure
+              registers the full analyte suite; analysts record the specific subset actually measured
+              in a given session, which may be narrower. Fields whose Keyed By column declares 'analyte'
+              apply individually to each element in this list.
+            type: string
+        ada:analyteColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - &id001
+              title: Analytical Accuracy
+              description: Offset between measured and accepted reference values for secondary standards,
+                expressed as percent relative bias. Include reference material, reference value source,
+                and per-analyte value.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/analyticalAccuracy
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: analyticalAccuracy
+                schema:name:
+                  const: Analytical Accuracy
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id002
+              title: Analytical Precision
+              description: Reproducibility of repeated measurements on the same or equivalent reference
+                material, expressed as 1-sigma relative standard deviation (%). Include reference material
+                name, number of analyses (n), and value per analyte or element group.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/analyticalPrecision
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: analyticalPrecision
+                schema:name:
+                  const: Analytical Precision
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id003
+              title: Background Correction Method
+              description: 'Method used to estimate and subtract background X-ray intensity beneath the
+                peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN)
+                background model. For EDS: spectral background fitting or top-hat filter applied during
+                spectral processing.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/backgroundCorrectionMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCorrectionMethod
+                schema:name:
+                  const: Background Correction Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id004
+              title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s) in seconds, summed
+                across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id005
+              title: Background Position(s)
+              description: Location(s) of off-peak background measurement(s) relative to the peak, in
+                mm or sin-theta, and whether on the high- or low-energy side.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/backgroundPosition
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundPosition
+                schema:name:
+                  const: Background Position(s)
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id006
+              title: Beam Current
+              description: Electron beam probe current. Higher current improves signal-to-noise for X-ray
+                analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution.
+                Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/beamCurrent
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: beamCurrent
+                schema:name:
+                  const: Beam Current
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id007
+              title: Blank Correction
+              description: Method and reference material(s) used to determine and subtract blank signal
+                contributions (e.g., carbon coat contribution to C signal, or background contamination
+                for trace elements).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/blankCorrection
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: blankCorrection
+                schema:name:
+                  const: Blank Correction
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id008
+              title: Counting Statistics Error
+              description: 1-sigma uncertainty propagated from counting statistics on peak and background
+                intensities, for each reported concentration variable per analysis.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id009
+              title: Detection Limit
+              description: Method detection limit at 99% confidence, one per reported concentration variable
+                (one per analyte, these being the same set). Include the method used and the resulting
+                value for each.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/detectionLimit
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimit
+                schema:name:
+                  const: Detection Limit
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id010
+              title: Detection Limit Method
+              description: Formula or approach used to calculate detection limits.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/detectionLimitMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimitMethod
+                schema:name:
+                  const: Detection Limit Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id011
+              title: Diffracting Crystal
+              description: Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal
+                choice determines the detectable wavelength range and dispersion.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/diffractingCrystal
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: diffractingCrystal
+                schema:name:
+                  const: Diffracting Crystal
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id012
+              title: Normalization / Standards-Based Correction
+              description: Post-acquisition normalization applied using secondary reference materials
+                to correct for session-to-session calibration drift.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/normalizationStandardsBasedCorrection
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: normalizationStandardsBasedCorrection
+                schema:name:
+                  const: Normalization / Standards-Based Correction
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id013
+              title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position, in seconds, on each
+                spectrometer assignment. Procedure specifies standard values; analysts may adjust within
+                procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id014
+              title: Primary Calibration Standard Name
+              description: Name(s) of the primary reference material(s) used for intensity calibration
+                in EDS or WDS quantification. Include the material name, its source or supplier, and a
+                citation for the accepted values used, since results calibrated against different published
+                values for the same material are not directly comparable.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id015
+              title: Proportional Counter / Detector
+              description: Type of detector used on each spectrometer assignment. Affects sensitivity
+                and count rate linearity.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/proportionalCounterDetector
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: proportionalCounterDetector
+                schema:name:
+                  const: Proportional Counter / Detector
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id016
+              title: Secondary Reference Materials
+              description: Quality-control reference material(s) analyzed alongside unknowns to verify
+                calibration accuracy. Include material name, assessed elements, number of analyses (n),
+                and measured vs. accepted values where available.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/secondaryReferenceMaterials
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: secondaryReferenceMaterials
+                schema:name:
+                  const: Secondary Reference Materials
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id017
+              title: Time-Dependent Intensity Correction
+              description: Type of time-dependent intensity (TDI) correction applied to compensate for
+                beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses,
+                feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS
+                or X-ray mapping.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/timeDependentIntensityCorrection
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: timeDependentIntensityCorrection
+                schema:name:
+                  const: Time-Dependent Intensity Correction
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id018
+              title: WDS PHA Setting
+              description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts
+                all pulses above a threshold; Differential mode selects a narrow energy window to reject
+                higher-order reflections and escape peaks.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/wdsPhaSetting
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: wdsPhaSetting
+                schema:name:
+                  const: WDS PHA Setting
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id019
+              title: WDS Spectrometer Channel
+              description: WDS spectrometer position(s) assigned to each analyte, one entry per assignment.
+                An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate
+                intensity counting), and one spectrometer serves several analytes across a run, so the
+                assignment — not the analyte — is the unit carrying the spectrometer setup. Different
+                spectrometers may have different crystal configurations.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semTAPP/wdsSpectrometerChannel
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: wdsSpectrometerChannel
+                schema:name:
+                  const: WDS Spectrometer Channel
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id001
+            minContains: 0
+            maxContains: 1
+          - contains: *id002
+            minContains: 0
+            maxContains: 1
+          - contains: *id003
+            minContains: 0
+            maxContains: 1
+          - contains: *id004
+            minContains: 0
+            maxContains: 1
+          - contains: *id005
+            minContains: 0
+            maxContains: 1
+          - contains: *id006
+            minContains: 0
+            maxContains: 1
+          - contains: *id007
+            minContains: 0
+            maxContains: 1
+          - contains: *id008
+            minContains: 0
+            maxContains: 1
+          - contains: *id009
+            minContains: 0
+            maxContains: 1
+          - contains: *id010
+            minContains: 0
+            maxContains: 1
+          - contains: *id011
+            minContains: 0
+            maxContains: 1
+          - contains: *id012
+            minContains: 0
+            maxContains: 1
+          - contains: *id013
+            minContains: 0
+            maxContains: 1
+          - contains: *id014
+            minContains: 0
+            maxContains: 1
+          - contains: *id015
+            minContains: 0
+            maxContains: 1
+          - contains: *id016
+            minContains: 0
+            maxContains: 1
+          - contains: *id017
+            minContains: 0
+            maxContains: 1
+          - contains: *id018
+            minContains: 0
+            maxContains: 1
+          - contains: *id019
+            minContains: 0
+            maxContains: 1
+    schema:additionalProperty:
+      type: array
+      items:
+        anyOf:
+        - title: Analyte Estimation Method
+          description: Whether elemental concentrations were calculated directly from measured X-ray intensities,
+            or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates;
+            carbon from stoichiometry in carbonates).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/analyteEstimationMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/analyteEstimationMethod
+            schema:name:
+              const: Analyte Estimation Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - &id020
+          title: Beam Damage Minimization
+          description: 'Describes any measures taken to reduce electron beam damage to the sample during
+            analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered
+            beam, cooled stage, short acquisition sequences, or rotating between multiple points. Particularly
+            important for volatile-bearing phases, hydrous minerals, glasses, organic materials, and biological
+            samples.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/beamDamageMinimizationDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: beamDamageMinimizationDefault
+            schema:name:
+              const: Beam Damage Minimization
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id021
+          title: Beam Raster Dimensions
+          description: Dimensions of the small area over which the beam is rastered during a single analysis
+            point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the
+            effective spatial footprint of the measurement and distributes dose over a larger area to
+            reduce beam damage on sensitive phases.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/beamRasterDimensionsDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: beamRasterDimensionsDefault
+            schema:name:
+              const: Beam Raster Dimensions
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id022
+          title: Drift Correction
+          description: 'Describes whether and how stage or beam drift was monitored and corrected during
+            the measurement session. Examples: periodic stage realignment to a fiducial marker, automated
+            beam drift correction in acquisition software, or reanalysis of a reference point at regular
+            intervals. Particularly relevant for long mapping runs and high-magnification sessions where
+            positional accuracy affects data quality.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/driftCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: driftCorrectionDefault
+            schema:name:
+              const: Drift Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id023
+          title: Pre-Analysis Imaging and Screening
+          description: Imaging or other characterisation performed before the measurement in order to
+            select or locate the analysed target, including the technique, instrument and settings used,
+            and how individual analyses are linked back to the images. Distinct from any imaging the procedure
+            performs as its own measurement. Where the imaging is performed on a separate instrument,
+            it should also be recorded in the Group 1 coupling fields.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/preAnalysisImagingAndScreeningDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: preAnalysisImagingAndScreeningDefault
+            schema:name:
+              const: Pre-Analysis Imaging and Screening
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: EDS Spectral Processing Type
+          description: Method used to process EDS spectra and extract net peak intensities from raw spectral
+            data. Applied before quantification (see Matrix Correction Method). Common approaches include
+            background fitting and subtraction followed by peak integration, and filter fit or Gaussian
+            deconvolution for overlapping peaks.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/edsSpectralProcessingType
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/edsSpectralProcessingType
+            schema:name:
+              const: EDS Spectral Processing Type
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - &id024
+          title: Halogen Correction on Oxygen
+          description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
+            Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
+            is calculated by stoichiometry.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/halogenCorrectionOnOxygenDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: halogenCorrectionOnOxygenDefault
+            schema:name:
+              const: Halogen Correction on Oxygen
+            ada:dataType:
+              const: boolean
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Interference Correction Standard
+          description: Reference material used to quantify and calibrate the interference correction for
+            each affected analyte.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/interferenceCorrectionStandard
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/interferenceCorrectionStandard
+            schema:name:
+              const: Interference Correction Standard
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - title: Interfering Elements
+          description: Element(s) whose X-ray lines overlap with the measured peak for one or more analytes,
+            requiring a correction.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/interferingElements
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/interferingElements
+            schema:name:
+              const: Interfering Elements
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - title: Sequence
+          description: Order in which spectrometer assignments are acquired during point analysis. Relevant
+            for minimizing beam damage (volatile elements measured first) and for sequential multi-channel
+            setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously
+            at each pixel.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/sequence
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/sequence
+            schema:name:
+              const: Sequence
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - title: Stage Scan vs. Beam Scan
+          description: For mapping modes, records whether the map was acquired by moving the stage while
+            the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage
+            is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric
+            fidelity; beam scan is faster for smaller fields but may introduce geometric distortion at
+            the map edges.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/stageScanVsBeamScan
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/stageScanVsBeamScan
+            schema:name:
+              const: Stage Scan vs. Beam Scan
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+      allOf:
+      - contains:
+          title: Analyte Estimation Method
+          description: Whether elemental concentrations were calculated directly from measured X-ray intensities,
+            or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates;
+            carbon from stoichiometry in carbonates).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/analyteEstimationMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/analyteEstimationMethod
+            schema:name:
+              const: Analyte Estimation Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains: *id020
+        minContains: 0
+        maxContains: 1
+      - contains: *id021
+        minContains: 0
+        maxContains: 1
+      - contains: *id022
+        minContains: 0
+        maxContains: 1
+      - contains: *id023
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: EDS Spectral Processing Type
+          description: Method used to process EDS spectra and extract net peak intensities from raw spectral
+            data. Applied before quantification (see Matrix Correction Method). Common approaches include
+            background fitting and subtraction followed by peak integration, and filter fit or Gaussian
+            deconvolution for overlapping peaks.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/edsSpectralProcessingType
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/edsSpectralProcessingType
+            schema:name:
+              const: EDS Spectral Processing Type
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains: *id024
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Interference Correction Standard
+          description: Reference material used to quantify and calibrate the interference correction for
+            each affected analyte.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/interferenceCorrectionStandard
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/interferenceCorrectionStandard
+            schema:name:
+              const: Interference Correction Standard
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Interfering Elements
+          description: Element(s) whose X-ray lines overlap with the measured peak for one or more analytes,
+            requiring a correction.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/interferingElements
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/interferingElements
+            schema:name:
+              const: Interfering Elements
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Sequence
+          description: Order in which spectrometer assignments are acquired during point analysis. Relevant
+            for minimizing beam damage (volatile elements measured first) and for sequential multi-channel
+            setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously
+            at each pixel.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/sequence
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/sequence
+            schema:name:
+              const: Sequence
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Stage Scan vs. Beam Scan
+          description: For mapping modes, records whether the map was acquired by moving the stage while
+            the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage
+            is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric
+            fidelity; beam scan is faster for smaller fields but may introduce geometric distortion at
+            the map edges.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semTAPP/stageScanVsBeamScan
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+                '@id': ada:parameter/semTAPP/stageScanVsBeamScan
+            schema:name:
+              const: Stage Scan vs. Beam Scan
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+    ada:analyticalMode:
+      type: array
+      items:
+        description: Primary analytical mode(s) executed under this procedure. For multi-mode procedures
+          (e.g., simultaneous BSE + EDS mapping), list all active modes.
+        type: string
+        enum:
+        - SE Imaging
+        - BSE Imaging
+        - EDS
+        - SEM-WDS
+        - CL
+        - EBSD
+        - TEM Sample Preparation
+        - 3D Tomography
+        - N/A
+        - None
+        readOnly: true
+    ada:dwellTimePerPixelDefault:
+      description: Time the electron beam dwells on each pixel during raster scanning (imaging modes)
+        or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds
+        or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases
+        total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping,
+        the dwell time is per spectrometer per pixel.
+      anyOf:
+      - type: number
+      - type: string
+    ada:edsAcquisitionMode:
+      description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition,
+        linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over
+        a pixel grid). Specifies how the beam is positioned during data collection within the declared
+        Analytical Mode. Particularly important when a procedure includes linescans as a distinct acquisition
+        approach not fully captured by the mode flag columns.'
+      type: string
+      enum:
+      - Point / spot
+      - Line scan
+      - Map
+      - Automated mineralogy
+      - N/A
+      - None
+      readOnly: true
+    ada:edsLiveTimePerPointOrPixelDefault:
+      description: EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer
+        live time improves counting statistics but increases beam damage risk and total acquisition time.
+      anyOf:
+      - type: number
+      - type: string
+    ada:interferenceCorrectionsApplied:
+      description: Whether a spectral interference correction was applied for each analyte. Common interferences
+        include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+      type: boolean
+      readOnly: true
+    ada:samplingUnit:
+      description: The physical subdivision of the sample to which one row of reported values corresponds
+        — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit
+        type at procedure level and the units actually analysed at analysis level. Where units nest (e.g.
+        confined tracks within grains), state both levels.
+      type: string
+      enum:
+      - Whole sample
+      - Aliquot
+      - Grain
+      - Spot
+      - Analysis point
+      - Phase
+      - Sub-volume
+      - Region of interest
+      - N/A
+      - None
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: dataReduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - &id025
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual analyses contribute to a
+                          reported aggregate result, together with the outcome of applying them: how many
+                          analyses were acquired, how many were included, and on what grounds any were
+                          excluded. Distinct from within-analysis outlier filtering, which removes anomalous
+                          points inside a single analysis: this field decides which whole analyses enter
+                          the reported value. Criteria and outcome are combined in one field because neither
+                          is interpretable without the other, following the precision/accuracy precedent.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id026
+                        title: Calibration Factor and Determination Method
+                        description: 'An externally-calibrated factor that converts the measured quantity
+                          into the reported quantity, how it was determined, and its uncertainty. Applies
+                          where the conversion depends on a factor calibrated against a reference of independently
+                          known value, rather than on the instrument response alone. Distinct from the
+                          fields that name the calibration material and that state which approach applies
+                          to which analyte, where the technique has them: this field records the resulting
+                          factor itself.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semTAPP/calibrationFactorAndDeterminationMethodDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: calibrationFactorAndDeterminationMethodDefault
+                          schema:name:
+                            const: Calibration Factor and Determination Method
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id027
+                        title: Constants and Reference Values Used
+                        description: Physical constants and reference values used in data reduction to
+                          calculate the final reported quantity (e.g., decay constants for age calculation,
+                          standard isotope ratios, or other citable reference values used in a correction
+                          or calculation), together with their source. Distinct from the Group 6 reference-material
+                          fields, which document accepted values for specific calibration/validation materials
+                          rather than universal physical constants. Record "None" if no citable, revisable
+                          physical constants feed into this procedure's data reduction.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semTAPP/constantsAndReferenceValuesUsedDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: constantsAndReferenceValuesUsedDefault
+                          schema:name:
+                            const: Constants and Reference Values Used
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                    allOf:
+                    - contains: *id025
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id026
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id027
+                      minContains: 0
+                      maxContains: 1
+            - if:
+                properties:
+                  schema:name:
+                    const: samplePreparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:description:
+                    description: Method by which samples were prepared for SEM analysis prior to loading
+                      in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing
+                      steps (alumina, colloidal silica, argon ion mill), and conductive coating type and
+                      thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and
+                      the gas type used. FIB-specific in-session operations (protective coating deposition,
+                      milling conditions, lamella preparation) are documented separately in Group 4.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: dataReduction
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: samplePreparation
+              required:
+              - schema:name
+    ada:massAbsorptionCoefficients:
+      description: Database of mass absorption coefficients used in the matrix correction. MAC database
+        choice affects accuracy particularly for light elements (B, C, N, O, F, Na).
+      type: string
+      enum:
+      - LINEMU
+      - CITZMU
+      - MCMASTER
+      - MAC30
+      - MACJTA
+      - FFAST
+      - Unknown
+      - N/A
+      - None
+      readOnly: true
+    ada:matrixCorrectionMethod:
+      description: X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction.
+        For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps.
+      type: string
+      enum:
+      - XPP (Simplified PAP)
+      - PAP (Pouchou & Pichoir Full)
+      - ZAF
+      - CITZAF (Armstrong 1995)
+      - Phi-rho-z (EPQ-91)
+      - Unknown
+      - N/A
+      - None
+      readOnly: true
+    ada:stepSizePixelSizeDefault:
+      description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels
+        (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid
+        dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but
+        extend acquisition time.
+      anyOf:
+      - type: number
+      - type: string
+    schema:object:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              '@type':
+                contains:
+                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+            required:
+            - '@type'
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        schema:name:
+                          const: Target Material
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:value:
+                          type: array
+                          items:
+                            description: General description of the material type(s) this procedure is
+                              designed to analyze.
+                            type: string
+                            enum:
+                            - Silicate mineral
+                            - Oxide
+                            - Sulfide
+                            - Carbonate
+                            - Phosphate
+                            - Metal alloy
+                            - Organic matter
+                            - Glass
+                            - Regolith
+                            - Whole rock / polished section
+                            - Porous material
+                            - N/A
+                            - None
+                            readOnly: true
+                allOf:
+                - contains:
+                    properties:
+                      schema:name:
+                        const: Target Material
+                    required:
+                    - schema:name
+      allOf:
+      - contains:
+          properties:
+            '@type':
+              contains:
+                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+          required:
+          - '@type'
+    ada:wdsDeadTimeCorrection:
+      description: Method used to correct for WDS proportional counter dead time at high count rates.
+        Dead time errors are most significant for major elements with high count rates (e.g., Si, Fe,
+        Ca). Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage
+        (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction
+        software. No separate measured WDS dead time value is reported; the correction is applied transparently
+        during intensity-to-concentration conversion.
+      type: string
+      enum:
+      - Default constant (manufacturer)
+      - Adjusted constant
+      - High-precision (Probe for EPMA)
+      - Logarithmic
+      - Unknown
+      - N/A
+      - None
+      readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            description: The final variable(s) this procedure reports and their units — distinct from
+              the fields recording what was *acquired* rather than what is reported. A procedure may acquire
+              many channels and report a small number of derived quantities; without this field a data
+              consumer cannot tell which. Record every reported variable, including intermediate quantities
+              reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date).
+              Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification),
+              record the variable and give the unit as 'N/A — nominal property'.
+            type: string
+            readOnly: true
+  required:
+  - ada:dwellTimePerPixelDefault
+  - ada:edsAcquisitionMode
+  - ada:edsLiveTimePerPointOrPixelDefault
+  - ada:interferenceCorrectionsApplied
+  - ada:samplingUnit
+  - ada:massAbsorptionCoefficients
+  - ada:matrixCorrectionMethod
+  - ada:stepSizePixelSizeDefault
+  - ada:wdsDeadTimeCorrection

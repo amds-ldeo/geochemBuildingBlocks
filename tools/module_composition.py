@@ -161,8 +161,10 @@ def plan(source_path):
     return refs, covered
 
 
-def ref_objects(refs, root, depth=3):
-    """[{$ref: …}] for one side, as they appear in a technique schema's allOf."""
+def ref_objects(refs, root, depth=4):
+    """[{$ref: …}] for one side, as they appear in a technique schema's allOf.
+
+    Four levels up from techniqueProfile/geochemProfile/<tech>/<bb>/ reaches _sources."""
     up = "../" * depth
     out = []
     for name, defs in refs:

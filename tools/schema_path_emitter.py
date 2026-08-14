@@ -89,7 +89,7 @@ ANALYTE_COLUMN_ARRAY = "ada:analyteColumns"
 # tappDefinition's mandatory analyte-identifier column, which must stay permissible once the
 # overlay narrows `items` to the technique's own columns.
 ANALYTE_IDENTIFIER_REF = {
-    "$ref": "../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
+    "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
 }
 
 # Keyed tables: one row per member of a domain, one column per field whose value repeats over it
@@ -107,7 +107,7 @@ KEYED_TABLES = {
         "template": "ada:channelTemplate",
         "registry": "channelColumns",
         "identifier_ref": {
-            "$ref": "../../../BaseSchema/tappDefinition/schema.yaml"
+            "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
                     "#/$defs/ChannelIdentifierColumn"
         },
     },
@@ -115,7 +115,7 @@ KEYED_TABLES = {
         "template": "ada:reportedPropertyTemplate",
         "registry": "reportedPropertyColumns",
         "identifier_ref": {
-            "$ref": "../../../BaseSchema/tappDefinition/schema.yaml"
+            "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
                     "#/$defs/ReportedPropertyIdentifierColumn"
         },
     },
@@ -363,7 +363,7 @@ def _load_rows(tapp):
 
 
 # registry-ref path prefix per artifact root (from the artifact's own directory)
-_REG_PREFIX = {"MethodDefinition": "../../../registry", "Dataset": "../../../registry"}
+_REG_PREFIX = {"MethodDefinition": "../../../../registry", "Dataset": "../../../../registry"}
 
 
 def _is_addl_param(p: spp.ParsedPath) -> bool:
@@ -511,8 +511,8 @@ def build(tapp):
 
 
 # base building block each overlay extends via allOf (relative to the artifact's own dir)
-_BASE_REF = {"MethodDefinition": "../../../BaseSchema/tappDefinition/schema.yaml",
-             "Dataset": "../../../BaseSchema/adaProduct/schema.yaml"}
+_BASE_REF = {"MethodDefinition": "../../../../BaseSchema/tappDefinition/schema.yaml",
+             "Dataset": "../../../../BaseSchema/adaProduct/schema.yaml"}
 
 
 def wrap(root, overlay, required, title=None, description=None, module_refs=()):
