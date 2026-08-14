@@ -123,6 +123,14 @@ def build_schema(name, only=None):
             unplaced.append(item)
             continue
         for path in paths:
+            # A module $def must not constrain schema:additionalProperty. The consuming technique
+            # already constrains that array as a closed anyOf over the parameters its own table
+            # enumerates, and allOf makes every element satisfy both — so two universal constraints
+            # on one array can never both hold. Parameters stay with the technique; see
+            # module_composition._is_composable. 54 of the 105 module paths remain, all 22 of
+            # Group1's among them.
+            if "schema:additionalProperty" in path:
+                continue
             parsed = spp.parse(path)
             require = (P == "Basic") if parsed.root == "MethodDefinition" else (A == "Basic")
             e.insert(roots[parsed.root], parsed, e.leaf_for(desc, dt), require=require)
@@ -400,9 +408,12 @@ def main():
                          if f.startswith("Module_") and f.endswith(".csv")
                          and not f.endswith(".schemapaths.csv")]   # the sidecars sit alongside
     for name in names:
-        if name == "Group1":
-            print(f"{name:<22s} skipped (hand-authored building block)")
-            continue
+        # Group1 was hand-written as the pilot, before this generator existed, and it is a THIN
+        # profile: it asserts schema:relatedLink is an array without saying what is in one. That was
+        # harmless while nothing composed it, and became a real loss the moment techniques started
+        # dropping their own rows in its favour — 210 property paths went missing across twelve
+        # schemas, because the module replaced structure with a stub. Generated from its sidecar it
+        # carries the same shape the techniques had.
         if not usage.get(name):
             print(f"{name:<22s} skipped (composed by no table in the manifest)")
             continue

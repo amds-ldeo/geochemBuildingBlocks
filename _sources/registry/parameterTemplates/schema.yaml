@@ -3,1125 +3,6 @@ title: ADA Method-Parameter Template Registry
 description: Registry of reusable schema:PropertyValueSpecification method-parameter templates derived from technique TAPP spreadsheets. Each $def constrains one method-level (readOnly:true) parameter template (e.g. DriftCorrection, massAbsorptionCoefficients). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.
 type: object
 $defs:
-  empa_samplePersistentIdentifierDefault:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
-      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
-      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/samplePersistentIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePersistentIdentifierDefault
-      schema:name:
-        const: Sample Persistent Identifier
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_preAnalysisImagingAndScreeningDefault:
-    title: Pre-Analysis Imaging and Screening
-    description: Imaging or other characterisation performed before the measurement in order to select or
-      locate the analysed target, including the technique, instrument and settings used, and how individual
-      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
-      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
-      the Group 1 coupling fields.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: preAnalysisImagingAndScreeningDefault
-      schema:name:
-        const: Pre-Analysis Imaging and Screening
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_beamRasterDimensionsDefault:
-    title: Beam Raster Dimensions
-    description: X x Y dimensions of a small beam raster used at a single analysis point to average a coarse-grained
-      or beam-sensitive phase. Different from X-ray mapping mode; not applicable when mapping.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/beamRasterDimensionsDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: beamRasterDimensionsDefault
-      schema:name:
-        const: Beam Raster Dimensions
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: um x um
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_beamDamageMinimizationDefault:
-    title: Beam Damage Minimization
-    description: Measures taken to minimize beam damage, particularly volatilization or migration of Na,
-      K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach,
-      beam conditions used, and phases for which it was applied.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/beamDamageMinimizationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: beamDamageMinimizationDefault
-      schema:name:
-        const: Beam Damage Minimization
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_driftCorrectionDefault:
-    title: Drift Correction
-    description: Method used to monitor and correct for instrument drift (beam current drift, spectrometer
-      drift) during the analytical session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/driftCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: driftCorrectionDefault
-      schema:name:
-        const: Drift Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_backgroundPositionDefault:
-    title: Background Position(s)
-    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
-      and whether on the high- or low-energy side.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/backgroundPositionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundPositionDefault
-      schema:name:
-        const: Background Position(s)
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_timeDependentIntensityCorrectionDefault:
-    title: Time-Dependent Intensity Correction
-    description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced
-      volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
-      Most commonly applied in point analysis; uncommon for X-ray mapping.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/timeDependentIntensityCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: timeDependentIntensityCorrectionDefault
-      schema:name:
-        const: Time-Dependent Intensity Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_halogenCorrectionOnOxygenDefault:
-    title: Halogen Correction on Oxygen
-    description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing
-      OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by
-      stoichiometry.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: halogenCorrectionOnOxygenDefault
-      schema:name:
-        const: Halogen Correction on Oxygen
-      ada:dataType:
-        const: boolean
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_blankCorrectionDefault:
-    title: Blank Correction
-    description: Method and reference material(s) used to determine and subtract blank signal contributions
-      (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/blankCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: blankCorrectionDefault
-      schema:name:
-        const: Blank Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_normalizationStandardsBasedCorrectionDefault:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference materials to correct for
-      session-to-session calibration drift.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: normalizationStandardsBasedCorrectionDefault
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_detectionLimitDefault:
-    title: Detection Limit
-    description: Method detection limit at 99% confidence (3-sigma), one per reported concentration variable
-      (one per analyte, these being the same set), derived from counting statistics on peak and background.
-      Include the method and the resulting value for each.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/detectionLimitDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitDefault
-      schema:name:
-        const: Detection Limit
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_analyticalPrecisionDefault:
-    title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent reference material,
-      expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses
-      (n), and value per analyte or element group.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/analyticalPrecisionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analyticalPrecisionDefault
-      schema:name:
-        const: Analytical Precision
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_analyticalAccuracyDefault:
-    title: Analytical Accuracy
-    description: Offset between measured and accepted reference values for secondary standards, expressed
-      as percent relative bias. Include reference material, reference value source, and per-analyte value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/analyticalAccuracyDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analyticalAccuracyDefault
-      schema:name:
-        const: Analytical Accuracy
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  empa_countingStatisticsErrorDefault:
-    title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
-      for each reported concentration variable per analysis.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/countingStatisticsErrorDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: countingStatisticsErrorDefault
-      schema:name:
-        const: Counting Statistics Error
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-
-  labxct_sampleDimensionsDefault:
-    title: Sample Dimensions (L × W × H)
-    description: Physical dimensions of the sample in mm, reported as length × width × height (or equivalent
-      three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view
-      and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels
-      span the smallest feature of interest.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sampleDimensionsDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleDimensionsDefault
-      schema:name:
-        const: Sample Dimensions (L × W × H)
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_sampleMountingMethodDefault:
-    title: Sample Mounting Method
-    description: Method used to mount or hold the sample on the instrument rotation stage. Mounting material
-      should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder
-      type, adhesive or support material, and any alignment aids used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sampleMountingMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleMountingMethodDefault
-      schema:name:
-        const: Sample Mounting Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_samplePersistentIdentifierDefault:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
-      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
-      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/samplePersistentIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePersistentIdentifierDefault
-      schema:name:
-        const: Sample Persistent Identifier
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_samplePreparationNotesDefault:
-    title: Sample Preparation Notes
-    description: Any preparation steps applied to the sample before scanning, including cleaning, trimming,
-      consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note
-      any exceptions.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePreparationNotesDefault
-      schema:name:
-        const: Sample Preparation Notes
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_preAnalysisImagingAndScreeningDefault:
-    title: Pre-Analysis Imaging and Screening
-    description: Imaging or other characterisation performed before the measurement in order to select or
-      locate the analysed target, including the technique, instrument and settings used, and how individual
-      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
-      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
-      the Group 1 coupling fields.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: preAnalysisImagingAndScreeningDefault
-      schema:name:
-        const: Pre-Analysis Imaging and Screening
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_xRayPowerDefault:
-    title: X-ray Power
-    description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) ×
-      current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes:
-      higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone
-      field because it is routinely reported in the literature and directly constrains instrument operating
-      limits. If power was varied across samples within the session, report the full range applied (e.g.,
-      7–13 W).'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/xRayPowerDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: xRayPowerDefault
-      schema:name:
-        const: X-ray Power
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: W
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_sourceToObjectDistanceDefault:
-    title: Source-to-Object Distance (SOD)
-    description: Distance from the X-ray source focal spot to the centre of the sample rotation axis, in
-      mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD).
-      Shorter SOD increases magnification and reduces voxel size.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sourceToObjectDistanceDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sourceToObjectDistanceDefault
-      schema:name:
-        const: Source-to-Object Distance (SOD)
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mm
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_sourceToDetectorDistanceDefault:
-    title: Source-to-Detector Distance (SDD)
-    description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
-      by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈
-      detector pixel size / M (before binning; divide additionally by optical objective for Versa-class
-      systems).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sourceToDetectorDistanceDefault
-      schema:name:
-        const: Source-to-Detector Distance (SDD)
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mm
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_rotationStepSizeDefault:
-    title: Rotation Step Size
-    description: Angular increment between successive projection images, in degrees. Equal to Rotation Range
-      divided by Number of Projections when both are reported; however, some sources report step size as
-      the primary rotation parameter without stating the total number of projections explicitly. Finer step
-      sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/rotationStepSizeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: rotationStepSizeDefault
-      schema:name:
-        const: Rotation Step Size
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: °
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_framesAveragedPerProjectionDefault:
-    title: Frames Averaged per Projection
-    description: Number of individual detector frames acquired and averaged to produce each saved projection
-      image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective
-      exposure per projection = exposure time per frame × frames averaged.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: framesAveragedPerProjectionDefault
-      schema:name:
-        const: Frames Averaged per Projection
-      ada:dataType:
-        const: integer
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_detectorBinningDefault:
-    title: Detector Binning
-    description: Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels
-      (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR
-      and reducing file size. 1×1 indicates no binning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/detectorBinningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectorBinningDefault
-      schema:name:
-        const: Detector Binning
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_reconstructionConvolutionFilterDefault:
-    title: Reconstruction Convolution Filter
-    description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
-      Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters
-      (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level
-      tradeoff.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/reconstructionConvolutionFilterDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: reconstructionConvolutionFilterDefault
-      schema:name:
-        const: Reconstruction Convolution Filter
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_beamHardeningCorrectionParameterDefault:
-    title: Beam Hardening Correction Parameter
-    description: Numerical value or setting applied in the software beam hardening correction algorithm
-      for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level
-      companion to Beam Hardening Correction Method.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: beamHardeningCorrectionParameterDefault
-      schema:name:
-        const: Beam Hardening Correction Parameter
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_ringArtifactCorrectionMethodDefault:
-    title: Ring Artifact Correction Method
-    description: Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric
-      circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels.
-      Method is the procedure-level specification; whether correction was applied and its outcome are recorded
-      at analysis level in Group 6.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ringArtifactCorrectionMethodDefault
-      schema:name:
-        const: Ring Artifact Correction Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_ctNumberCalibrationDefault:
-    title: CT Number Calibration
-    description: Whether the raw CT grayscale values have been calibrated to physically meaningful units
-      using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison
-      and support phase identification by comparison to calculated linear attenuation coefficient (LAC)
-      values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and
-      session-specific.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/ctNumberCalibrationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ctNumberCalibrationDefault
-      schema:name:
-        const: CT Number Calibration
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_segmentationThresholdValuesOrCriteriaDefault:
-    title: Segmentation Threshold Values or Criteria
-    description: Specific CT number range(s) or quantitative criteria used to define each segmented phase
-      or feature. Documenting these values enables reproducibility assessment and cross-study comparison.
-      For LAC-calibrated datasets, report values in cm⁻¹.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: segmentationThresholdValuesOrCriteriaDefault
-      schema:name:
-        const: Segmentation Threshold Values or Criteria
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_phaseIdentificationMethodDefault:
-    title: Phase Identification Method
-    description: Method used to assign reconstructed CT number ranges to specific mineral phases or material
-      types. Approaches include comparison to calculated linear attenuation coefficients (LAC), cross-validation
-      with independent analytical techniques, or empirical calibration.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/phaseIdentificationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: phaseIdentificationMethodDefault
-      schema:name:
-        const: Phase Identification Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_voiSelectionCriteriaDefault:
-    title: VOI Selection Criteria
-    description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for
-      quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening
-      halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis
-      is recorded separately at analysis level.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/voiSelectionCriteriaDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: voiSelectionCriteriaDefault
-      schema:name:
-        const: VOI Selection Criteria
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_outputBitDepthDefault:
-    title: Output Bit Depth
-    description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale
-      value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating
-      point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation
-      analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend
-      on a consistent grayscale range; the analyst confirms or adjusts at analysis time.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/outputBitDepthDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: outputBitDepthDefault
-      schema:name:
-        const: Output Bit Depth
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_partialVolumeEffectCriteriaDefault:
-    title: Partial Volume Effect Criteria
-    description: Procedure-level specification of how partial volume effects (PVE) are managed in quantitative
-      analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features,
-      because each voxel integrates the attenuation of all material within its volume. PVE correction can
-      be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion
-      adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in
-      modal abundance or size distribution calculations, and whether PVE correction is required or optional.
-      Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at
-      least 10 for reliable shape and volume characterisation; state whether the criterion follows that
-      convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported
-      modal abundances and size distributions, so two datasets are not comparable without it.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: partialVolumeEffectCriteriaDefault
-      schema:name:
-        const: Partial Volume Effect Criteria
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_crossValidationProcedureRequirementDefault:
-    title: Cross-Validation Procedure Requirement
-    description: Procedure-level specification of what independent analytical validation is required to
-      confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
-      is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation
-      coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
-      for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the
-      sampling fraction (e.g., every sample, one per session, or a representative subset).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/crossValidationProcedureRequirementDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: crossValidationProcedureRequirementDefault
-      schema:name:
-        const: Cross-Validation Procedure Requirement
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-
   tem_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
@@ -2435,6 +1316,1644 @@ $defs:
     - ada:dataType
     - ada:fieldScope
 
+  semImaging_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semImaging_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semImaging_chamberPressureDefault:
+    title: Chamber Pressure
+    description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
+      and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None'
+      for standard high-vacuum operation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/chamberPressureDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: chamberPressureDefault
+      schema:name:
+        const: Chamber Pressure
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semImaging_imagePixelSizeDefault:
+    title: Image Pixel Size
+    description: Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling
+      of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and
+      the number and arrangement of tiles.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/imagePixelSizeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: imagePixelSizeDefault
+      schema:name:
+        const: Image Pixel Size
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semImaging_ebsdFrameTimeDefault:
+    title: EBSD Frame Time
+    description: Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time
+      improves pattern quality and indexing rate but increases total acquisition time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/ebsdFrameTimeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ebsdFrameTimeDefault
+      schema:name:
+        const: EBSD Frame Time
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: ms
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semImaging_ebsdPatternQualityThresholdDefault:
+    title: EBSD Pattern Quality Threshold
+    description: Minimum pattern quality or confidence index threshold applied during EBSD data processing
+      to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/ebsdPatternQualityThresholdDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ebsdPatternQualityThresholdDefault
+      schema:name:
+        const: EBSD Pattern Quality Threshold
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semImaging_clWavelengthCalibrationReferenceDefault:
+    title: CL Wavelength Calibration Reference
+    description: Reference light source or standard material used to calibrate the wavelength axis of the
+      CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/clWavelengthCalibrationReferenceDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: clWavelengthCalibrationReferenceDefault
+      schema:name:
+        const: CL Wavelength Calibration Reference
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
+  solutionQicpms_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_sampleAliquotMassOrVolumeDefault:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
+      for yield calculations and concentration back-calculation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolumeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleAliquotMassOrVolumeDefault
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mg or mL
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_instrumentSerialNumberOrLabIdentifierDefault:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
+      traceability to instrument service records.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: instrumentSerialNumberOrLabIdentifierDefault
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_torchDepthDefault:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
+      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
+      formation, and doubly-charged species production. The procedure specifies a target value optimised
+      during initial setup; the analyst confirms or fine-adjusts during session tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/torchDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: torchDepthDefault
+      schema:name:
+        const: Torch Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_makeUpGasFlowRateDefault:
+    title: Make-up Gas Flow Rate
+    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
+      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where
+      Desolvation System is 'None'.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: makeUpGasFlowRateDefault
+      schema:name:
+        const: Make-up Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: L/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_reactionGasFlowRateDefault:
+    title: Reaction Gas Flow Rate
+    description: Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used.
+      Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionGasFlowRateDefault
+      schema:name:
+        const: Reaction Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_doublyChargedSpeciesMonitorDefault:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
+      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
+      analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution
+      ICP-MS.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesMonitorDefault
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_doublyChargedSpeciesProductionDefault:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored species at the time
+      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
+      production indicates incomplete ionization and potential interference on elements at approximately
+      half the mass of abundant matrix components.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesProductionDefault
+      schema:name:
+        const: Doubly-Charged Species Production
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_spikeOutlierFilteringApproachDefault:
+    title: Spike / Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
+      the calculated mean.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproachDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spikeOutlierFilteringApproachDefault
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response at the transition between
+      pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors,
+      a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate
+      cross-calibration is critical for analytes spanning a wide concentration range in the same session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: pulseAnalogDetectorNonlinearityCorrectionDefault
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_memoryEffectMitigationDefault:
+    title: Memory Effect Mitigation
+    description: Procedure applied to identify and minimize carry-over of high-concentration elements between
+      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
+      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
+      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
+      where the required washout time may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: memoryEffectMitigationDefault
+      schema:name:
+        const: Memory Effect Mitigation
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_uncertaintyPropagationMethodDefault:
+    title: Uncertainty Propagation Method
+    description: 'The approach used to propagate analytical uncertainty through the data reduction chain
+      to the final reported value. State which sources are included in the propagation: counting statistics,
+      calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic
+      contributions. Distinct from Uncertainty Level, which states the convention at which the resulting
+      uncertainty is quoted.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: uncertaintyPropagationMethodDefault
+      schema:name:
+        const: Uncertainty Propagation Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_normalizationStandardsBasedCorrectionDefault:
+    title: Normalization / Standards-Based Correction
+    description: Post-acquisition normalization applied to output concentrations relative to a reference
+      value (e.g., correction to a monitor element's certified value in the calibration standard).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrectionDefault
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_detectionLimitDefault:
+    title: Detection Limit
+    description: Elemental detection limits, one per reported concentration variable (one per analyte, these
+      being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates
+      or session-specific measured values.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitDefault
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_limitOfQuantificationMethodDefault:
+    title: Limit of Quantification (LOQ) Method
+    description: Method used to determine the limit of quantification.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/limitOfQuantificationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethodDefault
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material values
+      across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
+  solutionSficpms_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_sampleAliquotMassOrVolumeDefault:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
+      for yield calculations and concentration back-calculation.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleAliquotMassOrVolumeDefault
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mg or mL
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_instrumentSerialNumberOrLabIdentifierDefault:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
+      traceability to instrument service records.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: instrumentSerialNumberOrLabIdentifierDefault
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_torchDepthDefault:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
+      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
+      formation, and doubly-charged species production. The procedure specifies a target value optimised
+      during initial setup; the analyst confirms or fine-adjusts during session tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/torchDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: torchDepthDefault
+      schema:name:
+        const: Torch Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_makeUpGasFlowRateDefault:
+    title: Make-up Gas Flow Rate
+    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
+      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where
+      Desolvation System is 'None'.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: makeUpGasFlowRateDefault
+      schema:name:
+        const: Make-up Gas Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: L/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_doublyChargedSpeciesMonitorDefault:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
+      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
+      analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require
+      monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesMonitorDefault
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_doublyChargedSpeciesProductionDefault:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored species at the time
+      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
+      production indicates incomplete ionization and potential interference on elements at approximately
+      half the mass of abundant matrix components.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProductionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesProductionDefault
+      schema:name:
+        const: Doubly-Charged Species Production
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_spikeOutlierFilteringApproachDefault:
+    title: Spike / Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
+      the calculated mean.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spikeOutlierFilteringApproachDefault
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response at the transition between
+      pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS
+      instruments, the signal transitions between pulse counting (low concentrations) and analog detection
+      (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition
+      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between
+      detector modes must be confirmed, typically measured each session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: pulseAnalogDetectorNonlinearityCorrectionDefault
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_memoryEffectMitigationDefault:
+    title: Memory Effect Mitigation
+    description: Procedure applied to identify and minimize carry-over of high-concentration elements between
+      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
+      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
+      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
+      where the required washout time may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: memoryEffectMitigationDefault
+      schema:name:
+        const: Memory Effect Mitigation
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_uncertaintyPropagationMethodDefault:
+    title: Uncertainty Propagation Method
+    description: 'The approach used to propagate analytical uncertainty through the data reduction chain
+      to the final reported value. State which sources are included in the propagation: counting statistics,
+      calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic
+      contributions. Distinct from Uncertainty Level, which states the convention at which the resulting
+      uncertainty is quoted.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: uncertaintyPropagationMethodDefault
+      schema:name:
+        const: Uncertainty Propagation Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_normalizationStandardsBasedCorrectionDefault:
+    title: Normalization / Standards-Based Correction
+    description: Post-acquisition normalization applied to output concentrations relative to a reference
+      value (e.g., correction to a BHVO-2 working value).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrectionDefault
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_detectionLimitDefault:
+    title: Detection Limit
+    description: Elemental detection limits, one per reported concentration variable (one per analyte, these
+      being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates
+      or session-specific measured values.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/detectionLimitDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitDefault
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_limitOfQuantificationMethodDefault:
+    title: Limit of Quantification (LOQ) Method
+    description: Method used to determine the limit of quantification.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/limitOfQuantificationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethodDefault
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material values
+      across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
+
+  empa_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_beamRasterDimensionsDefault:
+    title: Beam Raster Dimensions
+    description: X x Y dimensions of a small beam raster used at a single analysis point to average a coarse-grained
+      or beam-sensitive phase. Different from X-ray mapping mode; not applicable when mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/beamRasterDimensionsDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: beamRasterDimensionsDefault
+      schema:name:
+        const: Beam Raster Dimensions
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: um x um
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_beamDamageMinimizationDefault:
+    title: Beam Damage Minimization
+    description: Measures taken to minimize beam damage, particularly volatilization or migration of Na,
+      K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach,
+      beam conditions used, and phases for which it was applied.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/beamDamageMinimizationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: beamDamageMinimizationDefault
+      schema:name:
+        const: Beam Damage Minimization
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_driftCorrectionDefault:
+    title: Drift Correction
+    description: Method used to monitor and correct for instrument drift (beam current drift, spectrometer
+      drift) during the analytical session.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/driftCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: driftCorrectionDefault
+      schema:name:
+        const: Drift Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_backgroundPositionDefault:
+    title: Background Position(s)
+    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
+      and whether on the high- or low-energy side.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/backgroundPositionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundPositionDefault
+      schema:name:
+        const: Background Position(s)
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_timeDependentIntensityCorrectionDefault:
+    title: Time-Dependent Intensity Correction
+    description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced
+      volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
+      Most commonly applied in point analysis; uncommon for X-ray mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/timeDependentIntensityCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: timeDependentIntensityCorrectionDefault
+      schema:name:
+        const: Time-Dependent Intensity Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_halogenCorrectionOnOxygenDefault:
+    title: Halogen Correction on Oxygen
+    description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing
+      OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by
+      stoichiometry.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: halogenCorrectionOnOxygenDefault
+      schema:name:
+        const: Halogen Correction on Oxygen
+      ada:dataType:
+        const: boolean
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_blankCorrectionDefault:
+    title: Blank Correction
+    description: Method and reference material(s) used to determine and subtract blank signal contributions
+      (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/blankCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: blankCorrectionDefault
+      schema:name:
+        const: Blank Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_normalizationStandardsBasedCorrectionDefault:
+    title: Normalization / Standards-Based Correction
+    description: Post-acquisition normalization applied using secondary reference materials to correct for
+      session-to-session calibration drift.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrectionDefault
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_detectionLimitDefault:
+    title: Detection Limit
+    description: Method detection limit at 99% confidence (3-sigma), one per reported concentration variable
+      (one per analyte, these being the same set), derived from counting statistics on peak and background.
+      Include the method and the resulting value for each.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/detectionLimitDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitDefault
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_analyticalPrecisionDefault:
+    title: Analytical Precision
+    description: Reproducibility of repeated measurements on the same or equivalent reference material,
+      expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses
+      (n), and value per analyte or element group.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/analyticalPrecisionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalPrecisionDefault
+      schema:name:
+        const: Analytical Precision
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_analyticalAccuracyDefault:
+    title: Analytical Accuracy
+    description: Offset between measured and accepted reference values for secondary standards, expressed
+      as percent relative bias. Include reference material, reference value source, and per-analyte value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/analyticalAccuracyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyDefault
+      schema:name:
+        const: Analytical Accuracy
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  empa_countingStatisticsErrorDefault:
+    title: Counting Statistics Error
+    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
+      for each reported concentration variable per analysis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/countingStatisticsErrorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: countingStatisticsErrorDefault
+      schema:name:
+        const: Counting Statistics Error
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
   geochron_imagingDefault:
     title: Imaging
     description: Pre-ablation characterisation imaging (typically cathodoluminescence [CL] or backscattered
@@ -3380,6 +3899,692 @@ $defs:
         const: limitOfQuantificationMethodDefault
       schema:name:
         const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
+  labxct_sampleDimensionsDefault:
+    title: Sample Dimensions (L × W × H)
+    description: Physical dimensions of the sample in mm, reported as length × width × height (or equivalent
+      three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view
+      and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels
+      span the smallest feature of interest.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sampleDimensionsDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleDimensionsDefault
+      schema:name:
+        const: Sample Dimensions (L × W × H)
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_sampleMountingMethodDefault:
+    title: Sample Mounting Method
+    description: Method used to mount or hold the sample on the instrument rotation stage. Mounting material
+      should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder
+      type, adhesive or support material, and any alignment aids used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sampleMountingMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleMountingMethodDefault
+      schema:name:
+        const: Sample Mounting Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_samplePreparationNotesDefault:
+    title: Sample Preparation Notes
+    description: Any preparation steps applied to the sample before scanning, including cleaning, trimming,
+      consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note
+      any exceptions.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePreparationNotesDefault
+      schema:name:
+        const: Sample Preparation Notes
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_xRayPowerDefault:
+    title: X-ray Power
+    description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) ×
+      current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes:
+      higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone
+      field because it is routinely reported in the literature and directly constrains instrument operating
+      limits. If power was varied across samples within the session, report the full range applied (e.g.,
+      7–13 W).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/xRayPowerDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayPowerDefault
+      schema:name:
+        const: X-ray Power
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: W
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_sourceToObjectDistanceDefault:
+    title: Source-to-Object Distance (SOD)
+    description: Distance from the X-ray source focal spot to the centre of the sample rotation axis, in
+      mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD).
+      Shorter SOD increases magnification and reduces voxel size.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sourceToObjectDistanceDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sourceToObjectDistanceDefault
+      schema:name:
+        const: Source-to-Object Distance (SOD)
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mm
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_sourceToDetectorDistanceDefault:
+    title: Source-to-Detector Distance (SDD)
+    description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
+      by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈
+      detector pixel size / M (before binning; divide additionally by optical objective for Versa-class
+      systems).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sourceToDetectorDistanceDefault
+      schema:name:
+        const: Source-to-Detector Distance (SDD)
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mm
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_rotationStepSizeDefault:
+    title: Rotation Step Size
+    description: Angular increment between successive projection images, in degrees. Equal to Rotation Range
+      divided by Number of Projections when both are reported; however, some sources report step size as
+      the primary rotation parameter without stating the total number of projections explicitly. Finer step
+      sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/rotationStepSizeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: rotationStepSizeDefault
+      schema:name:
+        const: Rotation Step Size
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: °
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_framesAveragedPerProjectionDefault:
+    title: Frames Averaged per Projection
+    description: Number of individual detector frames acquired and averaged to produce each saved projection
+      image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective
+      exposure per projection = exposure time per frame × frames averaged.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: framesAveragedPerProjectionDefault
+      schema:name:
+        const: Frames Averaged per Projection
+      ada:dataType:
+        const: integer
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_detectorBinningDefault:
+    title: Detector Binning
+    description: Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels
+      (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR
+      and reducing file size. 1×1 indicates no binning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/detectorBinningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectorBinningDefault
+      schema:name:
+        const: Detector Binning
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_reconstructionConvolutionFilterDefault:
+    title: Reconstruction Convolution Filter
+    description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
+      Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters
+      (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level
+      tradeoff.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/reconstructionConvolutionFilterDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reconstructionConvolutionFilterDefault
+      schema:name:
+        const: Reconstruction Convolution Filter
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_beamHardeningCorrectionParameterDefault:
+    title: Beam Hardening Correction Parameter
+    description: Numerical value or setting applied in the software beam hardening correction algorithm
+      for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level
+      companion to Beam Hardening Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: beamHardeningCorrectionParameterDefault
+      schema:name:
+        const: Beam Hardening Correction Parameter
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_ringArtifactCorrectionMethodDefault:
+    title: Ring Artifact Correction Method
+    description: Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric
+      circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels.
+      Method is the procedure-level specification; whether correction was applied and its outcome are recorded
+      at analysis level in Group 6.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ringArtifactCorrectionMethodDefault
+      schema:name:
+        const: Ring Artifact Correction Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_ctNumberCalibrationDefault:
+    title: CT Number Calibration
+    description: Whether the raw CT grayscale values have been calibrated to physically meaningful units
+      using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison
+      and support phase identification by comparison to calculated linear attenuation coefficient (LAC)
+      values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and
+      session-specific.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/ctNumberCalibrationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ctNumberCalibrationDefault
+      schema:name:
+        const: CT Number Calibration
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_segmentationThresholdValuesOrCriteriaDefault:
+    title: Segmentation Threshold Values or Criteria
+    description: Specific CT number range(s) or quantitative criteria used to define each segmented phase
+      or feature. Documenting these values enables reproducibility assessment and cross-study comparison.
+      For LAC-calibrated datasets, report values in cm⁻¹.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: segmentationThresholdValuesOrCriteriaDefault
+      schema:name:
+        const: Segmentation Threshold Values or Criteria
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_phaseIdentificationMethodDefault:
+    title: Phase Identification Method
+    description: Method used to assign reconstructed CT number ranges to specific mineral phases or material
+      types. Approaches include comparison to calculated linear attenuation coefficients (LAC), cross-validation
+      with independent analytical techniques, or empirical calibration.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/phaseIdentificationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: phaseIdentificationMethodDefault
+      schema:name:
+        const: Phase Identification Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_voiSelectionCriteriaDefault:
+    title: VOI Selection Criteria
+    description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for
+      quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening
+      halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis
+      is recorded separately at analysis level.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/voiSelectionCriteriaDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: voiSelectionCriteriaDefault
+      schema:name:
+        const: VOI Selection Criteria
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_outputBitDepthDefault:
+    title: Output Bit Depth
+    description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale
+      value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating
+      point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation
+      analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend
+      on a consistent grayscale range; the analyst confirms or adjusts at analysis time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/outputBitDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: outputBitDepthDefault
+      schema:name:
+        const: Output Bit Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_partialVolumeEffectCriteriaDefault:
+    title: Partial Volume Effect Criteria
+    description: Procedure-level specification of how partial volume effects (PVE) are managed in quantitative
+      analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features,
+      because each voxel integrates the attenuation of all material within its volume. PVE correction can
+      be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion
+      adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in
+      modal abundance or size distribution calculations, and whether PVE correction is required or optional.
+      Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at
+      least 10 for reliable shape and volume characterisation; state whether the criterion follows that
+      convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported
+      modal abundances and size distributions, so two datasets are not comparable without it.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: partialVolumeEffectCriteriaDefault
+      schema:name:
+        const: Partial Volume Effect Criteria
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_crossValidationProcedureRequirementDefault:
+    title: Cross-Validation Procedure Requirement
+    description: Procedure-level specification of what independent analytical validation is required to
+      confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
+      is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation
+      coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
+      for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the
+      sampling fraction (e.g., every sample, one per session, or a representative subset).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/crossValidationProcedureRequirementDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: crossValidationProcedureRequirementDefault
+      schema:name:
+        const: Cross-Validation Procedure Requirement
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -5008,1210 +6213,6 @@ $defs:
         const: preAnalysisImagingAndScreeningDefault
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-
-  semImaging_samplePersistentIdentifierDefault:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
-      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
-      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semImagingTAPP/samplePersistentIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePersistentIdentifierDefault
-      schema:name:
-        const: Sample Persistent Identifier
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  semImaging_preAnalysisImagingAndScreeningDefault:
-    title: Pre-Analysis Imaging and Screening
-    description: Imaging or other characterisation performed before the measurement in order to select or
-      locate the analysed target, including the technique, instrument and settings used, and how individual
-      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
-      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
-      the Group 1 coupling fields.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semImagingTAPP/preAnalysisImagingAndScreeningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: preAnalysisImagingAndScreeningDefault
-      schema:name:
-        const: Pre-Analysis Imaging and Screening
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  semImaging_chamberPressureDefault:
-    title: Chamber Pressure
-    description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
-      and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None'
-      for standard high-vacuum operation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semImagingTAPP/chamberPressureDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: chamberPressureDefault
-      schema:name:
-        const: Chamber Pressure
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  semImaging_imagePixelSizeDefault:
-    title: Image Pixel Size
-    description: Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling
-      of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and
-      the number and arrangement of tiles.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semImagingTAPP/imagePixelSizeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: imagePixelSizeDefault
-      schema:name:
-        const: Image Pixel Size
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  semImaging_ebsdFrameTimeDefault:
-    title: EBSD Frame Time
-    description: Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time
-      improves pattern quality and indexing rate but increases total acquisition time.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semImagingTAPP/ebsdFrameTimeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ebsdFrameTimeDefault
-      schema:name:
-        const: EBSD Frame Time
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: ms
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  semImaging_ebsdPatternQualityThresholdDefault:
-    title: EBSD Pattern Quality Threshold
-    description: Minimum pattern quality or confidence index threshold applied during EBSD data processing
-      to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semImagingTAPP/ebsdPatternQualityThresholdDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ebsdPatternQualityThresholdDefault
-      schema:name:
-        const: EBSD Pattern Quality Threshold
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  semImaging_clWavelengthCalibrationReferenceDefault:
-    title: CL Wavelength Calibration Reference
-    description: Reference light source or standard material used to calibrate the wavelength axis of the
-      CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semImagingTAPP/clWavelengthCalibrationReferenceDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: clWavelengthCalibrationReferenceDefault
-      schema:name:
-        const: CL Wavelength Calibration Reference
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-
-  solutionQicpms_samplePersistentIdentifierDefault:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
-      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
-      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/samplePersistentIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePersistentIdentifierDefault
-      schema:name:
-        const: Sample Persistent Identifier
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_sampleAliquotMassOrVolumeDefault:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
-      for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolumeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleAliquotMassOrVolumeDefault
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mg or mL
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_instrumentSerialNumberOrLabIdentifierDefault:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
-      traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: instrumentSerialNumberOrLabIdentifierDefault
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_torchDepthDefault:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
-      formation, and doubly-charged species production. The procedure specifies a target value optimised
-      during initial setup; the analyst confirms or fine-adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/torchDepthDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: torchDepthDefault
-      schema:name:
-        const: Torch Depth
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_makeUpGasFlowRateDefault:
-    title: Make-up Gas Flow Rate
-    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
-      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where
-      Desolvation System is 'None'.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRateDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: makeUpGasFlowRateDefault
-      schema:name:
-        const: Make-up Gas Flow Rate
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: L/min
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_reactionGasFlowRateDefault:
-    title: Reaction Gas Flow Rate
-    description: Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used.
-      Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRateDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: reactionGasFlowRateDefault
-      schema:name:
-        const: Reaction Gas Flow Rate
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mL/min
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_doublyChargedSpeciesMonitorDefault:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
-      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
-      analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution
-      ICP-MS.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesMonitorDefault
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_doublyChargedSpeciesProductionDefault:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored species at the time
-      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
-      production indicates incomplete ionization and potential interference on elements at approximately
-      half the mass of abundant matrix components.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesProductionDefault
-      schema:name:
-        const: Doubly-Charged Species Production
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_spikeOutlierFilteringApproachDefault:
-    title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
-      the calculated mean.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproachDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: spikeOutlierFilteringApproachDefault
-      schema:name:
-        const: Spike / Outlier Filtering Approach
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response at the transition between
-      pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors,
-      a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate
-      cross-calibration is critical for analytes spanning a wide concentration range in the same session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: pulseAnalogDetectorNonlinearityCorrectionDefault
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_memoryEffectMitigationDefault:
-    title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimize carry-over of high-concentration elements between
-      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
-      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
-      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
-      where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: memoryEffectMitigationDefault
-      schema:name:
-        const: Memory Effect Mitigation
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_uncertaintyPropagationMethodDefault:
-    title: Uncertainty Propagation Method
-    description: 'The approach used to propagate analytical uncertainty through the data reduction chain
-      to the final reported value. State which sources are included in the propagation: counting statistics,
-      calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic
-      contributions. Distinct from Uncertainty Level, which states the convention at which the resulting
-      uncertainty is quoted.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: uncertaintyPropagationMethodDefault
-      schema:name:
-        const: Uncertainty Propagation Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_normalizationStandardsBasedCorrectionDefault:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative to a reference
-      value (e.g., correction to a monitor element's certified value in the calibration standard).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: normalizationStandardsBasedCorrectionDefault
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_detectionLimitDefault:
-    title: Detection Limit
-    description: Elemental detection limits, one per reported concentration variable (one per analyte, these
-      being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates
-      or session-specific measured values.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitDefault
-      schema:name:
-        const: Detection Limit
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_limitOfQuantificationMethodDefault:
-    title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/limitOfQuantificationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: limitOfQuantificationMethodDefault
-      schema:name:
-        const: Limit of Quantification (LOQ) Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
-    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
-      (long-term or intermediate precision). Report both the assessment method and the precision values.
-      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
-      Long-term precision is typically assessed from a compiled record of secondary reference material values
-      across all sessions.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      schema:name:
-        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-
-  solutionSficpms_samplePersistentIdentifierDefault:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
-      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
-      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePersistentIdentifierDefault
-      schema:name:
-        const: Sample Persistent Identifier
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_sampleAliquotMassOrVolumeDefault:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used
-      for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleAliquotMassOrVolumeDefault
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mg or mL
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_instrumentSerialNumberOrLabIdentifierDefault:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific instrument unit. Supports
-      traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: instrumentSerialNumberOrLabIdentifierDefault
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_torchDepthDefault:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also called injector depth
-      or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide
-      formation, and doubly-charged species production. The procedure specifies a target value optimised
-      during initial setup; the analyst confirms or fine-adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/torchDepthDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: torchDepthDefault
-      schema:name:
-        const: Torch Depth
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_makeUpGasFlowRateDefault:
-    title: Make-up Gas Flow Rate
-    description: Supplementary argon flow added downstream of a desolvation system to maintain total gas
-      delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where
-      Desolvation System is 'None'.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRateDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: makeUpGasFlowRateDefault
-      schema:name:
-        const: Make-up Gas Flow Rate
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: L/min
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_doublyChargedSpeciesMonitorDefault:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.
-      Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter
-      analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require
-      monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitorDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesMonitorDefault
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_doublyChargedSpeciesProductionDefault:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored species at the time
-      of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged
-      production indicates incomplete ionization and potential interference on elements at approximately
-      half the mass of abundant matrix components.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProductionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: doublyChargedSpeciesProductionDefault
-      schema:name:
-        const: Doubly-Charged Species Production
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_spikeOutlierFilteringApproachDefault:
-    title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements or data points from
-      the calculated mean.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: spikeOutlierFilteringApproachDefault
-      schema:name:
-        const: Spike / Outlier Filtering Approach
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response at the transition between
-      pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS
-      instruments, the signal transitions between pulse counting (low concentrations) and analog detection
-      (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition
-      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between
-      detector modes must be confirmed, typically measured each session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: pulseAnalogDetectorNonlinearityCorrectionDefault
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_memoryEffectMitigationDefault:
-    title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimize carry-over of high-concentration elements between
-      successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement
-      time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level,
-      documents any flagging or exclusion of measurements preceded by high-concentration samples or standards
-      where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: memoryEffectMitigationDefault
-      schema:name:
-        const: Memory Effect Mitigation
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_uncertaintyPropagationMethodDefault:
-    title: Uncertainty Propagation Method
-    description: 'The approach used to propagate analytical uncertainty through the data reduction chain
-      to the final reported value. State which sources are included in the propagation: counting statistics,
-      calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic
-      contributions. Distinct from Uncertainty Level, which states the convention at which the resulting
-      uncertainty is quoted.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: uncertaintyPropagationMethodDefault
-      schema:name:
-        const: Uncertainty Propagation Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_normalizationStandardsBasedCorrectionDefault:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative to a reference
-      value (e.g., correction to a BHVO-2 working value).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: normalizationStandardsBasedCorrectionDefault
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_detectionLimitDefault:
-    title: Detection Limit
-    description: Elemental detection limits, one per reported concentration variable (one per analyte, these
-      being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates
-      or session-specific measured values.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/detectionLimitDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitDefault
-      schema:name:
-        const: Detection Limit
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_limitOfQuantificationMethodDefault:
-    title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/limitOfQuantificationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: limitOfQuantificationMethodDefault
-      schema:name:
-        const: Limit of Quantification (LOQ) Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
-    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
-      (long-term or intermediate precision). Report both the assessment method and the precision values.
-      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
-      Long-term precision is typically assessed from a compiled record of secondary reference material values
-      across all sessions.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      schema:name:
-        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
       ada:dataType:
         const: string
       ada:fieldScope:

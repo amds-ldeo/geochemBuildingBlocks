@@ -223,17 +223,31 @@ def build_pathdriven(tapp, write_registries=True):
     # (geochron-@id'd) parameter instances then fail. Inlining from THIS TAPP's in-memory registry
     # keeps schema and example on the same @ids.
     md = _inline_registry_refs(overlays["MethodDefinition"], registries, {})
+    # Compose the modules this TAPP's manifest entry names. ReportingCore contributes one $def per
+    # BLOCK, so a technique takes only the blocks that apply to it — see docs/REPORTINGCORE_BLOCKS.md.
+    import module_composition as mc
+    _refs, _ = mc.plan(b.XLSX)
     tapp_schema = e.wrap("MethodDefinition", md, required["MethodDefinition"],
-                         title=b.CFG.get("title"), description=b.CFG.get("description"))
+                         title=b.CFG.get("title"), description=b.CFG.get("description"),
+                         module_refs=mc.ref_objects(_refs, "MethodDefinition"))
     b.write(os.path.join(b.TAPP_DIR, "schema.yaml"), b.dump_yaml(tapp_schema))
 
     # ---- detail schema: standalone Dataset overlay, PropertyValue defs inlined
     ds = _inline_registry_refs(overlays["Dataset"], registries, {})
     detail = {"$schema": "https://json-schema.org/draft/2020-12/schema",
               "title": b.CFG.get("detail_title"), "description": b.CFG.get("detail_description")}
-    detail.update(ds)  # type + properties (+ any node-level constraints)
-    if required["Dataset"]:
-        detail["required"] = required["Dataset"]
+    ds_refs = mc.ref_objects(_refs, "Dataset")
+    if ds_refs:
+        # the detail is a standalone overlay, so its own body becomes one allOf branch beside the
+        # module refs rather than sitting at the root
+        body = {k: v for k, v in ds.items() if k not in ("$schema", "title", "description")}
+        if required["Dataset"]:
+            body["required"] = required["Dataset"]
+        detail["allOf"] = [*ds_refs, body]
+    else:
+        detail.update(ds)  # type + properties (+ any node-level constraints)
+        if required["Dataset"]:
+            detail["required"] = required["Dataset"]
     b.write(os.path.join(b.DETAIL_DIR, "schema.yaml"), b.dump_yaml(detail))
 
     # ---- examples: synthetic -P0 for the TAPP and the detail, built from the same schema paths

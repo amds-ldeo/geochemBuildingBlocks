@@ -2600,12 +2600,13 @@
       ]
     },
     {
+      "title": "Group1 on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -2614,15 +2615,7 @@
             "properties": {
               "schema:termCode": {
                 "description": "Top-level analytical technique identifier.",
-                "type": "string",
-                "enum": [
-                  "TEM",
-                  "STEM",
-                  "TEM/STEM",
-                  "N/A",
-                  "None"
-                ],
-                "readOnly": true
+                "type": "string"
               }
             }
           }
@@ -2632,8 +2625,7 @@
           "properties": {
             "schema:name": {
               "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-              "type": "string",
-              "readOnly": true
+              "type": "string"
             }
           }
         },
@@ -2652,8 +2644,7 @@
         },
         "schema:datePublished": {
           "description": "First date this procedure configuration was used in production.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "schema:funding": {
           "type": "array",
@@ -2662,8 +2653,7 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                "type": "string",
-                "readOnly": true
+                "type": "string"
               }
             }
           }
@@ -2691,8 +2681,7 @@
                       "properties": {
                         "schema:name": {
                           "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                          "type": "string",
-                          "readOnly": true
+                          "type": "string"
                         }
                       }
                     }
@@ -2717,12 +2706,7 @@
                       "properties": {
                         "schema:name": {
                           "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                          "type": "string",
-                          "enum": [
-                            "NanoSIMS; STXM; Raman",
-                            "None",
-                            "N/A"
-                          ]
+                          "type": "string"
                         },
                         "schema:description": {
                           "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
@@ -2735,7 +2719,30 @@
               }
             ]
           }
-        },
+        }
+      },
+      "required": [
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "ReportingCore · target_selection on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:targetSelectionCriteriaDefault"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
         "schema:object": {
           "type": "array",
           "items": {
@@ -5635,10 +5642,6 @@
             "None"
           ]
         },
-        "ada:targetSelectionCriteriaDefault": {
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-          "type": "string"
-        },
         "schema:instrument": {
           "type": "array",
           "items": {
@@ -6376,10 +6379,7 @@
         }
       },
       "required": [
-        "schema:name",
-        "schema:datePublished",
         "ada:samplingUnit",
-        "ada:targetSelectionCriteriaDefault",
         "ada:spectroscopicDetectorDefault",
         "ada:analyticalSubModeDefault",
         "ada:convergenceSemiAngle",

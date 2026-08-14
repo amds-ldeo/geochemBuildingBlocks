@@ -4,33 +4,10 @@ description: Solution sector-field (high-resolution) ICP-MS extension of the bas
   from TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../BaseSchema/tappDefinition/schema.yaml
+- $ref: ../../../BaseSchema/modules/group1/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:name:
-      description: A short descriptive name for this analytical procedure, including a version number.
-        Should identify the instrument, the technique, and the scope of what is measured — analyte, material,
-        or feature.
-      type: string
-      readOnly: true
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - Solution SF-ICP-MS
-            readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          description: Person(s) or laboratory responsible for developing and registering this procedure.
-            ORCID recommended for individuals.
-          type: string
-          readOnly: true
     bios:computationalTool:
       type: array
       items:
@@ -511,78 +488,6 @@ allOf:
           - contains: *id012
             minContains: 0
             maxContains: 1
-    schema:datePublished:
-      description: First date this procedure configuration was used in production.
-      type: string
-      readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            description: Grants and other funding sources that supported instrument acquisition, major
-              upgrades, procedure development, and associated personnel time. Include grant numbers and
-              funding agencies where applicable.
-            type: string
-            readOnly: true
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: DOI or URL for peer-reviewed publications or technical reports describing,
-                      validating, or benchmarking this procedure.
-                    type: string
-                    readOnly: true
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: Other analytical techniques applied to the same sample(s) whose results
-                      are intended to be interpreted together with data from this procedure. Document
-                      coupling with any technique whose results are functionally linked to this dataset
-                      — providing calibration inputs, complementary spatial context, or required companion
-                      measurements. Use the same controlled vocabulary as the Technique field. Enter "None"
-                      if no coupling is intended.
-                    type: string
-                    enum:
-                    - Solution MC-ICP-MS
-                    - TIMS
-                    - LA-ICP-MS
-                    - EPMA
-                    - Noble Gas MS
-                    - INAA
-                    - None
-                    - N/A
-                  schema:description:
-                    description: 'Description of how this procedure is coupled with the technique(s) listed
-                      above. Include: (1) the functional relationship — what data or context flows between
-                      techniques, or how results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2) the analytical sequence
-                      — which technique is performed first and why (e.g. non-destructive before destructive).
-                      Required when Coupled Technique(s) is not "None".'
-                    type: string
     schema:instrument:
       type: array
       items:
@@ -1589,18 +1494,6 @@ allOf:
                 - schema:name
               then:
                 properties:
-                  bios:reagent:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        schema:name:
-                          description: Acid mixture used for sample dissolution. Record acid type(s) and
-                            concentration(s) where known (e.g., concentrated HF–HNO3 in Parr bombs is
-                            standard for silicate dissolution). For isotope-ratio work, complete matrix
-                            dissolution is required to avoid isotopic fractionation during partial dissolution.
-                          type: string
-                          readOnly: true
                   schema:additionalProperty:
                     type: array
                     items:
@@ -2054,40 +1947,6 @@ allOf:
                   const: dataReduction
               required:
               - schema:name
-    ada:finalSolutionMatrix:
-      description: Acid type and concentration of the final dissolved sample solution introduced to the
-        instrument. Directly affects instrument response and ion transmission. For isotope-ratio procedures,
-        acid molarity must be precisely matched between samples and bracketing standards to avoid matrix-induced
-        mass bias offsets. Procedures targeting HFSE may add trace HF to the final solution to keep those
-        elements in solution.
-      type: string
-      readOnly: true
-    ada:chromatographicSeparationApplied:
-      description: Whether chromatographic separation of element groups (e.g., using ion exchange resin)
-        was performed prior to analysis. Separation may be required to remove matrix elements that cause
-        variable mass bias, to eliminate isobaric interferences, or to isolate an element group before
-        measurement (e.g., Fe and Cu–Zn for isotope dilution, Hf separation from REE, removal of Cr and
-        Ni from Fe fractions). It is usually mandatory for isotope-ratio procedures and optional for concentration
-        measurement. Record resin type and elution matrix conditions if applied. Record 'None' if the
-        direct digestion solution is analyzed.
-      type: string
-      enum:
-      - Anion exchange resin (HCl)
-      - Cation exchange resin
-      - AG1-X8 (HBr)
-      - None
-      - N/A
-      readOnly: true
-    ada:isotopeDilutionSpike:
-      description: Isotopic spike material added to the sample before or during digestion for isotope
-        dilution (ID) analysis or double-spike mass bias correction. For double-spike procedures, the
-        spike must be added and equilibrated before digestion to correct for any isotopic fractionation
-        during dissolution and column chemistry. For concentration ID, the spike must be added before
-        digestion for complete equilibration. Record spike name or certificate reference, spike isotopes,
-        and whether added pre- or post-digestion. Record 'None' if ID or double-spike technique is not
-        used.
-      type: string
-      readOnly: true
     schema:additionalProperty:
       type: array
       items:
@@ -2398,15 +2257,6 @@ allOf:
       - contains: *id031
         minContains: 0
         maxContains: 1
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
     ada:numberOfScansPerReplicate:
       description: Number of complete mass scans accumulated per analytical replicate.
       anyOf:
@@ -2423,14 +2273,6 @@ allOf:
       description: 'Description of the measurement order within a session: how samples, blanks, calibration
         standards, and reference materials are interleaved.'
       type: string
-      readOnly: true
-    ada:washTimeBetweenSamples:
-      description: Duration of instrument rinse between successive sample solutions (seconds). Controls
-        carryover and memory effects. For isotope-ratio work, complete washout is critical to prevent
-        cross-contamination between samples with differing isotopic compositions.
-      anyOf:
-      - type: number
-      - type: string
       readOnly: true
     ada:internalStandardElement:
       description: Element(s) added at a known concentration to all solutions (samples, blanks, calibration
@@ -2554,15 +2396,9 @@ allOf:
             type: string
             readOnly: true
   required:
-  - schema:name
-  - schema:datePublished
-  - ada:finalSolutionMatrix
-  - ada:chromatographicSeparationApplied
-  - ada:isotopeDilutionSpike
   - ada:numberOfScansPerReplicate
   - ada:numberOfReplicatesPerSample
   - ada:sampleSequenceDesign
-  - ada:washTimeBetweenSamples
   - ada:internalStandardElement
   - ada:oxideProductionMethodAndThreshold
   - ada:primaryStandardNameDefault

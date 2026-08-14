@@ -435,12 +435,20 @@ def build(tapp):
     roots = {"MethodDefinition": Obj(), "Dataset": Obj()}
     registries = {"parameterTemplates": {}, "parameterValues": {}, "analyteColumns": {}}
     required = {"MethodDefinition": [], "Dataset": []}
+    # Rows a composed module already supplies. They are dropped from this overlay so a shared field
+    # is defined once — otherwise the technique's copy sits alongside the module's and silently wins
+    # wherever the two differ, which is the drift composition exists to end. module_composition only
+    # reports a row as covered when a module $def demonstrably provides it on that root.
+    import module_composition as mc
+    _, _covered = mc.plan(b.XLSX)
     pt_seen, pv_seen = set(), set()
     for item, rec in spec.items():
         m = meta.get(item, {})
         paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
         for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
             parsed = spp.parse(path)
+            if mc.ms._norm(mc.ms.rename(item)) in _covered[parsed.root]:
+                continue                  # the module carries this one
             require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
             # A TAPP-definition property is JSON-Schema readOnly unless it is editable at the dataset
             # level (Analysis tier Editable/Basic/Advanced) — i.e. read-only / protocol-only fields are
@@ -507,8 +515,12 @@ _BASE_REF = {"MethodDefinition": "../../../BaseSchema/tappDefinition/schema.yaml
              "Dataset": "../../../BaseSchema/adaProduct/schema.yaml"}
 
 
-def wrap(root, overlay, required, title=None, description=None):
-    """Wrap an overlay as a full artifact schema: allOf[{$ref base}, {overlay + required}]."""
+def wrap(root, overlay, required, title=None, description=None, module_refs=()):
+    """Wrap an overlay as a full artifact schema: allOf[{$ref base}, *modules, {overlay + required}].
+
+    The module refs sit between the base and this technique's own properties, which is only
+    presentation — allOf is unordered — but reads as inherit, then compose, then specialise.
+    """
     inner = {"type": "object", "properties": overlay.get("properties", {})}
     if required:
         inner["required"] = required
@@ -517,7 +529,7 @@ def wrap(root, overlay, required, title=None, description=None):
         out["title"] = title
     if description:
         out["description"] = description
-    out["allOf"] = [{"$ref": _BASE_REF[root]}, inner]
+    out["allOf"] = [{"$ref": _BASE_REF[root]}, *module_refs, inner]
     return out
 
 

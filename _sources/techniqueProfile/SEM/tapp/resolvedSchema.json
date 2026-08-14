@@ -2600,6 +2600,147 @@
       ]
     },
     {
+      "title": "Group1 on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "schema:name": {
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
+          "type": "string"
+        },
+        "schema:measurementTechnique": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:termCode": {
+                "description": "Top-level analytical technique identifier.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
+              "type": "string"
+            }
+          }
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Name of the laboratory or institution hosting the instrument.",
+              "type": "string"
+            },
+            "schema:identifier": {
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+              "type": "string"
+            }
+          }
+        },
+        "schema:datePublished": {
+          "description": "First date this procedure configuration was used in production.",
+          "type": "string"
+        },
+        "schema:funding": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:relatedLink": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                          "type": "string"
+                        },
+                        "schema:description": {
+                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "ReportingCore (all blocks) on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:targetSelectionCriteriaDefault"
+      ]
+    },
+    {
       "type": "object",
       "properties": {
         "schema:instrument": {
@@ -5695,75 +5836,6 @@
             "readOnly": true
           }
         },
-        "schema:relatedLink": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:linkRelationship": {
-                      "const": "coupledTechnique"
-                    }
-                  },
-                  "required": [
-                    "schema:linkRelationship"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:target": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                          "type": "string",
-                          "enum": [
-                            "EPMA; NanoSIMS",
-                            "XCT (pre-SEM overview)",
-                            "None",
-                            "N/A"
-                          ]
-                        },
-                        "schema:description": {
-                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:linkRelationship": {
-                      "const": "techniquePublication"
-                    }
-                  },
-                  "required": [
-                    "schema:linkRelationship"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:target": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                          "type": "string",
-                          "readOnly": true
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
         "ada:dwellTimePerPixelDefault": {
           "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
           "anyOf": [
@@ -5799,36 +5871,10 @@
             }
           ]
         },
-        "schema:funding": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:name": {
-                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                "type": "string",
-                "readOnly": true
-              }
-            }
-          }
-        },
         "ada:interferenceCorrectionsApplied": {
           "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
           "type": "boolean",
           "readOnly": true
-        },
-        "schema:location": {
-          "type": "object",
-          "properties": {
-            "schema:name": {
-              "description": "Name of the laboratory or institution hosting the instrument.",
-              "type": "string"
-            },
-            "schema:identifier": {
-              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
-              "type": "string"
-            }
-          }
         },
         "ada:samplingUnit": {
           "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
@@ -6229,26 +6275,6 @@
           ],
           "readOnly": true
         },
-        "schema:creator": {
-          "type": "object",
-          "properties": {
-            "schema:name": {
-              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-              "type": "string",
-              "readOnly": true
-            }
-          }
-        },
-        "schema:name": {
-          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-          "type": "string",
-          "readOnly": true
-        },
-        "schema:datePublished": {
-          "description": "First date this procedure configuration was used in production.",
-          "type": "string",
-          "readOnly": true
-        },
         "ada:stepSizePixelSizeDefault": {
           "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
           "anyOf": [
@@ -6363,25 +6389,6 @@
             }
           ]
         },
-        "schema:measurementTechnique": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:termCode": {
-                "description": "Top-level analytical technique identifier.",
-                "type": "string",
-                "enum": [
-                  "SEM",
-                  "SEM/FIB-SEM",
-                  "N/A",
-                  "None"
-                ],
-                "readOnly": true
-              }
-            }
-          }
-        },
         "ada:wdsDeadTimeCorrection": {
           "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion.",
           "type": "string",
@@ -6395,10 +6402,6 @@
             "None"
           ],
           "readOnly": true
-        },
-        "ada:targetSelectionCriteriaDefault": {
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-          "type": "string"
         },
         "ada:reportedPropertyTemplate": {
           "type": "object",
@@ -6422,11 +6425,8 @@
         "ada:samplingUnit",
         "ada:massAbsorptionCoefficients",
         "ada:matrixCorrectionMethod",
-        "schema:name",
-        "schema:datePublished",
         "ada:stepSizePixelSizeDefault",
-        "ada:wdsDeadTimeCorrection",
-        "ada:targetSelectionCriteriaDefault"
+        "ada:wdsDeadTimeCorrection"
       ]
     }
   ],

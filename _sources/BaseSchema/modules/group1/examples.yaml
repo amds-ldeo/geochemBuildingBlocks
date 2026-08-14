@@ -1,85 +1,97 @@
 - title: Group1 composed into a procedure (ProcedureIdentification)
-  content: |-
-    The procedure half, as it appears on a TAPP definition. The five required properties are the
-    module's Procedure-Level Basic fields: Procedure Name, Technique, Procedure Author, Laboratory
-    and Procedure Start Date. Laboratory ID rides on the same schema:location node, and the two
-    optional arrays carry the Advanced fields — funding for procedure development, and the
-    technique-publication and coupled-technique links.
+  content: The procedure half of the Group1 module, with every property populated. Generated from the
+    schema, so it tracks the sidecar.
   prefixes:
     schema: http://schema.org/
-    ada: https://ada.astromat.org/metadata/
-    prov: http://www.w3.org/ns/prov#
   snippets:
-    - language: json
-      code: |
-        {
-          "@type": ["prov:Plan", "schema:Action", "ada:TAPPDefinition"],
-          "schema:name": "EPMA quantitative WDS analysis of silicate glass",
-          "schema:measurementTechnique": {
-            "schema:DefinedTerm": {
-              "schema:termCode": "EPMA"
+  - language: json
+    code: |-
+      {
+        "schema:name": "example value",
+        "schema:measurementTechnique": [
+          {
+            "schema:termCode": "example value"
+          }
+        ],
+        "schema:creator": {
+          "schema:name": "example value"
+        },
+        "schema:location": {
+          "schema:name": "example value",
+          "schema:identifier": "example value"
+        },
+        "schema:datePublished": "example value",
+        "schema:funding": [
+          {
+            "schema:name": "example value"
+          }
+        ],
+        "schema:relatedLink": [
+          {
+            "schema:linkRelationship": "techniquePublication",
+            "schema:target": {
+              "schema:name": "example value"
             }
           },
-          "schema:creator": {
-            "@type": ["schema:Person"],
-            "schema:name": "A. Analyst"
-          },
-          "schema:location": {
-            "schema:Place": {
-              "schema:additionalType": ["Default Laboratory"],
-              "schema:name": "Lunar and Planetary Laboratory Electron Microprobe Facility",
-              "schema:identifier": "https://ror.org/03m2x1q45"
+          {
+            "schema:linkRelationship": "coupledTechnique",
+            "schema:target": {
+              "schema:name": "example value",
+              "schema:description": "example value"
             }
-          },
-          "schema:datePublished": "2026-02-05",
-          "schema:funding": [
-            {
-              "schema:MonetaryGrant": {
-                "schema:name": "NASA Astromaterials Data Management 80NSSC22K0123"
-              }
-            }
-          ],
-          "schema:relatedLink": [
-            {
-              "schema:linkRelationship": "techniquePublication",
-              "schema:target": {
-                "schema:name": "Jarosewich et al. (1980), Geostandards Newsletter 4, 43-47"
-              }
-            }
-          ]
-        }
-
+          }
+        ]
+      }
 - title: Group1 composed into an analysis (AnalysisIdentification)
-  content: |-
-    The analysis half, as it appears on a technique detail. These are the Analysis-Level Basic
-    fields — values that cannot be known until the analysis runs: which procedure was followed,
-    who ran it, when it started and ended, and what funded it. Coupled Procedure DOI and Coupled
-    Dataset or Publication Reference are Analysis-Level Advanced and so omitted here.
+  content: The analysis half of the Group1 module, with every property populated. Generated from the schema,
+    so it tracks the sidecar.
   prefixes:
-    schema: http://schema.org/
     prov: http://www.w3.org/ns/prov#
+    schema: http://schema.org/
   snippets:
-    - language: json
-      code: |
-        {
-          "@type": ["schema:Dataset"],
-          "schema:measurementTechnique": {
-            "schema:DefinedTerm": {
-              "schema:identifier": "https://doi.org/10.60520/example-epma-procedure"
+  - language: json
+    code: |-
+      {
+        "prov:wasGeneratedBy": [
+          {
+            "schema:location": {
+              "schema:name": "example value",
+              "schema:identifier": "example value"
+            },
+            "schema:identifier": "example value",
+            "schema:startDate": "example value",
+            "schema:endDate": "example value"
+          }
+        ],
+        "schema:measurementTechnique": [
+          {
+            "schema:identifier": "example value"
+          }
+        ],
+        "schema:contributor": [
+          {
+            "schema:roleName": "analyst",
+            "schema:name": "example value"
+          }
+        ],
+        "schema:funding": [],
+        "schema:relatedLink": [
+          {
+            "schema:linkRelationship": "coupledTechnique",
+            "schema:target": {
+              "schema:name": "example value",
+              "schema:description": "example value"
             }
           },
-          "schema:contributor": [
-            {
-              "schema:roleName": "analyst",
-              "schema:name": "B. Operator"
+          {
+            "schema:linkRelationship": "coupledProcedure",
+            "schema:target": {
+              "schema:url": "example value"
             }
-          ],
-          "prov:wasGeneratedBy": [
-            {
-              "schema:identifier": "LPL-EMPA-2026-03-11-run14",
-              "schema:startDate": "2026-03-11",
-              "schema:endDate": "2026-03-12"
-            }
-          ],
-          "schema:funding": "NSF EAR-2201234"
-        }
+          },
+          {
+            "schema:linkRelationship": "coupledDataset",
+            "schema:target": "example value"
+          }
+        ]
+      }

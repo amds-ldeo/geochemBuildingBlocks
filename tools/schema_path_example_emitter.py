@@ -72,6 +72,33 @@ def build_example(tapp):
     sidecar = b.load_sidecar()
     import schemapath_io
     spec = schemapath_io.load_spec(schemapath_io.csv_path(b.XLSX))
+
+    # Fields the composed modules contribute. The example must satisfy the COMPOSED schema, and a
+    # module can require something the technique's own table never lists: Group1 requires Session
+    # Identifier on the activity, which appears in no technique sidecar, so an example built from
+    # the technique alone became invalid the moment composition was wired.
+    import module_composition as mc
+    _refs, _ = mc.plan(b.XLSX)
+    for _name, _ in _refs:
+        _sc = schemapath_io.csv_path(os.path.join(mc.ts.modules_dir(), f"Module_{_name}.csv"))
+        if not os.path.exists(_sc):
+            continue
+        for _item, _rec in schemapath_io.load_spec(_sc).items():
+            # Mirrors module_composition's rule exactly: inject what the module now carries, and
+            # never a schema:additionalProperty row. The technique constrains that array as a
+            # closed anyOf over the parameters it enumerates, so an element it has never heard of
+            # matches no branch and the example fails against its own schema.
+            # Filter PER PATH, not per item. A dual-homed module row carries a composable
+            # procedure path AND a parameter dataset path; keeping the item on the strength of the
+            # first injected the second too, putting an element in the example that the technique's
+            # closed anyOf had never enumerated.
+            _paths = _rec["path"] if isinstance(_rec["path"], list) else [_rec["path"]]
+            _keep = [_p for _p in _paths if _p and mc._is_composable(_p)]
+            if not _keep:
+                continue
+            spec.setdefault(_item, {**_rec, "path": _keep})   # a technique's own row wins
+            meta.setdefault(_item, {})
+
     roots = {"MethodDefinition": e.Obj(), "Dataset": e.Obj()}
     pt_seen, pv_seen = set(), set()
     # base-owned rich-object properties (analyteTemplate, computationalTool, workflow steps, the
