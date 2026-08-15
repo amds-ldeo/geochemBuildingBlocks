@@ -11447,6 +11447,2257 @@
                 "schema:value"
             ]
         },
+        "sem_coupledProcedureDoi": {
+            "title": "Coupled Procedure DOI",
+            "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/coupledProcedureDoi"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/coupledProcedureDoi"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Procedure DOI"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_coupledDatasetOrPublicationReference": {
+            "title": "Coupled Dataset or Publication Reference",
+            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/coupledDatasetOrPublicationReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/coupledDatasetOrPublicationReference"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Dataset or Publication Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_samplePreparationMethod": {
+            "title": "Sample Preparation Method",
+            "description": "Method by which samples were prepared for SEM analysis prior to loading in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing steps (alumina, colloidal silica, argon ion mill), and conductive coating type and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and the gas type used. FIB-specific in-session operations (protective coating deposition, milling conditions, lamella preparation) are documented separately in Group 4.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/samplePreparationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/samplePreparationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Preparation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_samplePersistentIdentifier": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/samplePersistentIdentifier"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/samplePersistentIdentifier"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_targetSelectionCriteria": {
+            "title": "Target Selection Criteria",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/targetSelectionCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/targetSelectionCriteria"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Target Selection Criteria"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_preAnalysisImagingAndScreening": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_acceleratingVoltage": {
+            "title": "Accelerating Voltage",
+            "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/acceleratingVoltage"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/acceleratingVoltage"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Accelerating Voltage"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_beamCurrent": {
+            "title": "Beam Current",
+            "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/beamCurrent"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/beamCurrent"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Current"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_beamDiameter": {
+            "title": "Beam Diameter",
+            "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. Controls the spatial resolution and X-ray excitation volume. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/beamDiameter"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/beamDiameter"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Diameter"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_beamRasterDimensions": {
+            "title": "Beam Raster Dimensions",
+            "description": "Dimensions of the small area over which the beam is rastered during a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement and distributes dose over a larger area to reduce beam damage on sensitive phases.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/beamRasterDimensions"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/beamRasterDimensions"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_beamDamageMinimization": {
+            "title": "Beam Damage Minimization",
+            "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points. Particularly important for volatile-bearing phases, hydrous minerals, glasses, organic materials, and biological samples.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/beamDamageMinimization"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/beamDamageMinimization"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Damage Minimization"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_driftCorrection": {
+            "title": "Drift Correction",
+            "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/driftCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/driftCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Drift Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_workingDistance": {
+            "title": "Working Distance",
+            "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/workingDistance"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/workingDistance"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Working Distance"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_chamberPressure": {
+            "title": "Chamber Pressure",
+            "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/chamberPressure"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/chamberPressure"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Chamber Pressure"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_dwellTimePerPixel": {
+            "title": "Dwell Time per Pixel",
+            "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/dwellTimePerPixel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/dwellTimePerPixel"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Dwell Time per Pixel"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_analyte": {
+            "title": "Analyte",
+            "description": "The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules. The procedure registers the full analyte suite; analysts record the specific subset actually measured in a given session, which may be narrower. Fields whose Keyed By column declares 'analyte' apply individually to each element in this list.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/analyte"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/analyte"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Analyte"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_edsLiveTimePerPointOrPixel": {
+            "title": "EDS Live Time per Point or Pixel",
+            "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer live time improves counting statistics but increases beam damage risk and total acquisition time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixel"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EDS Live Time per Point or Pixel"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_stepSizePixelSize": {
+            "title": "Step Size / Pixel Size",
+            "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/stepSizePixelSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/stepSizePixelSize"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Step Size / Pixel Size"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_peakCountingTime": {
+            "title": "Peak Counting Time",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/peakCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/peakCountingTime"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Peak Counting Time"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_backgroundCountingTime": {
+            "title": "Background Counting Time",
+            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/backgroundCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/backgroundCountingTime"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Background Counting Time"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_backgroundPosition": {
+            "title": "Background Position(s)",
+            "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/backgroundPosition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/backgroundPosition"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Background Position(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_clIntegrationTime": {
+            "title": "CL Integration Time",
+            "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/clIntegrationTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/clIntegrationTime"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "CL Integration Time"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_ebsdStepSize": {
+            "title": "EBSD Step Size",
+            "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdStepSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/ebsdStepSize"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EBSD Step Size"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_ebsdFrameTime": {
+            "title": "EBSD Frame Time",
+            "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time improves pattern quality and indexing rate but increases total acquisition time.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdFrameTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/ebsdFrameTime"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EBSD Frame Time"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_ebsdPhaseList": {
+            "title": "EBSD Phase List",
+            "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdPhaseList"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/ebsdPhaseList"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EBSD Phase List"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_protectiveCoatingDeposition": {
+            "title": "Protective Coating Deposition",
+            "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/protectiveCoatingDeposition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/protectiveCoatingDeposition"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Protective Coating Deposition"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_coarseMillingConditions": {
+            "title": "Coarse Milling Conditions",
+            "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/coarseMillingConditions"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/coarseMillingConditions"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coarse Milling Conditions"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_finePolishingConditions": {
+            "title": "Fine Polishing Conditions",
+            "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/finePolishingConditions"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/finePolishingConditions"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Fine Polishing Conditions"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_foilThickness": {
+            "title": "Foil Thickness",
+            "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/foilThickness"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/foilThickness"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Foil Thickness"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_ionMillingConditions": {
+            "title": "Ion Milling Conditions (3D Tomography)",
+            "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning. These parameters determine material removal rate per slice and exposed surface quality.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/ionMillingConditions"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/ionMillingConditions"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Ion Milling Conditions (3D Tomography)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_sliceThickness": {
+            "title": "Slice Thickness",
+            "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/sliceThickness"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/sliceThickness"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Slice Thickness"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "sem_backgroundCorrectionMethod": {
+            "title": "Background Correction Method",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/backgroundCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/backgroundCorrectionMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Background Correction Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_timeDependentIntensityCorrection": {
+            "title": "Time-Dependent Intensity Correction",
+            "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/timeDependentIntensityCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/timeDependentIntensityCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Time-Dependent Intensity Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_halogenCorrectionOnOxygen": {
+            "title": "Halogen Correction on Oxygen",
+            "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/halogenCorrectionOnOxygen"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/halogenCorrectionOnOxygen"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Halogen Correction on Oxygen"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_blankCorrection": {
+            "title": "Blank Correction",
+            "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/blankCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/blankCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Blank Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_normalizationStandardsBasedCorrection": {
+            "title": "Normalization / Standards-Based Correction",
+            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_crystalStructureDatabase": {
+            "title": "Crystal Structure Database",
+            "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/crystalStructureDatabase"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/crystalStructureDatabase"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Crystal Structure Database"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_ebsdPatternQualityThreshold": {
+            "title": "EBSD Pattern Quality Threshold",
+            "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdPatternQualityThreshold"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/ebsdPatternQualityThreshold"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EBSD Pattern Quality Threshold"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_imageRegistration3D": {
+            "title": "3D Image Registration",
+            "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/imageRegistration3D"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/imageRegistration3D"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "3D Image Registration"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_segmentationMethod3D": {
+            "title": "3D Segmentation Method",
+            "description": "Method and software used to segment phases and features in the aligned 3D image stack, transforming the grayscale stack into labelled 3D regions (pores, mineral phases, grain boundaries, organic matter).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/segmentationMethod3D"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/segmentationMethod3D"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "3D Segmentation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_calibrationFactorAndDeterminationMethod": {
+            "title": "Calibration Factor and Determination Method",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_constantsAndReferenceValuesUsed": {
+            "title": "Constants and Reference Values Used",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Constants and Reference Values Used"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_primaryCalibrationStandardName": {
+            "title": "Primary Calibration Standard Name",
+            "description": "Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS quantification. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/primaryCalibrationStandardName"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/primaryCalibrationStandardName"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Primary Calibration Standard Name"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_secondaryReferenceMaterials": {
+            "title": "Secondary Reference Materials",
+            "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values where available.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/secondaryReferenceMaterials"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/secondaryReferenceMaterials"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Secondary Reference Materials"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_clWavelengthCalibrationReference": {
+            "title": "CL Wavelength Calibration Reference",
+            "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/clWavelengthCalibrationReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/clWavelengthCalibrationReference"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "CL Wavelength Calibration Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_fundingSourceForProcedureDevelopment": {
+            "title": "Funding Source for Procedure Development",
+            "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/fundingSourceForProcedureDevelopment"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/fundingSourceForProcedureDevelopment"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Funding Source for Procedure Development"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_procedureReference": {
+            "title": "Procedure Reference(s)",
+            "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/procedureReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/procedureReference"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Procedure Reference(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_edsDetectorConfiguration": {
+            "title": "EDS Detector Configuration",
+            "description": "EDS detector type, manufacturer, active area, solid angle, window type, and geometry (take-off angle, position). Multiple detectors should be listed separately.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/edsDetectorConfiguration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/edsDetectorConfiguration"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EDS Detector Configuration"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_wdsSpectrometerConfiguration": {
+            "title": "WDS Spectrometer Configuration",
+            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/wdsSpectrometerConfiguration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/wdsSpectrometerConfiguration"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "WDS Spectrometer Configuration"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_clDetectorConfiguration": {
+            "title": "CL Detector Configuration",
+            "description": "CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/clDetectorConfiguration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/clDetectorConfiguration"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "CL Detector Configuration"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_stageScanVsBeamScan": {
+            "title": "Stage Scan vs. Beam Scan",
+            "description": "For mapping modes, records whether the map was acquired by moving the stage while the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric fidelity; beam scan is faster for smaller fields but may introduce geometric distortion at the map edges.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/stageScanVsBeamScan"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/stageScanVsBeamScan"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Stage Scan vs. Beam Scan"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_wdsSpectrometerChannel": {
+            "title": "WDS Spectrometer Channel",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/wdsSpectrometerChannel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/wdsSpectrometerChannel"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "WDS Spectrometer Channel"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_sequence": {
+            "title": "Sequence",
+            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/sequence"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/sequence"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sequence"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_proportionalCounterDetector": {
+            "title": "Proportional Counter / Detector",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/proportionalCounterDetector"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/proportionalCounterDetector"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Proportional Counter / Detector"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_wdsPhaSetting": {
+            "title": "WDS PHA Setting",
+            "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/wdsPhaSetting"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/wdsPhaSetting"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "WDS PHA Setting"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_clGrating": {
+            "title": "CL Grating",
+            "description": "Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/clGrating"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/clGrating"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "CL Grating"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_analyteEstimationMethod": {
+            "title": "Analyte Estimation Method",
+            "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/analyteEstimationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/analyteEstimationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Analyte Estimation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_edsSpectralProcessingType": {
+            "title": "EDS Spectral Processing Type",
+            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/edsSpectralProcessingType"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EDS Spectral Processing Type"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_interferingElements": {
+            "title": "Interfering Elements",
+            "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/interferingElements"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/interferingElements"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Interfering Elements"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "sem_interferenceCorrectionStandard": {
+            "title": "Interference Correction Standard",
+            "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semTAPP/interferenceCorrectionStandard"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/semTAPP/interferenceCorrectionStandard"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Interference Correction Standard"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "solutionMcicpms_coupledProcedureDoi": {
             "title": "Coupled Procedure DOI",
             "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
@@ -17237,2257 +19488,6 @@
                 },
                 "schema:name": {
                     "const": "EDS Spectral Processing Type"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_coupledProcedureDoi": {
-            "title": "Coupled Procedure DOI",
-            "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/coupledProcedureDoi"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/coupledProcedureDoi"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Coupled Procedure DOI"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_coupledDatasetOrPublicationReference": {
-            "title": "Coupled Dataset or Publication Reference",
-            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/coupledDatasetOrPublicationReference"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/coupledDatasetOrPublicationReference"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Coupled Dataset or Publication Reference"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_samplePreparationMethod": {
-            "title": "Sample Preparation Method",
-            "description": "Method by which samples were prepared for SEM analysis prior to loading in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing steps (alumina, colloidal silica, argon ion mill), and conductive coating type and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and the gas type used. FIB-specific in-session operations (protective coating deposition, milling conditions, lamella preparation) are documented separately in Group 4.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/samplePreparationMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/samplePreparationMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Sample Preparation Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_samplePersistentIdentifier": {
-            "title": "Sample Persistent Identifier",
-            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/samplePersistentIdentifier"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/samplePersistentIdentifier"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Sample Persistent Identifier"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_targetSelectionCriteria": {
-            "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/targetSelectionCriteria"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/targetSelectionCriteria"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Target Selection Criteria"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_preAnalysisImagingAndScreening": {
-            "title": "Pre-Analysis Imaging and Screening",
-            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_acceleratingVoltage": {
-            "title": "Accelerating Voltage",
-            "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/acceleratingVoltage"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/acceleratingVoltage"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Accelerating Voltage"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_beamCurrent": {
-            "title": "Beam Current",
-            "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/beamCurrent"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/beamCurrent"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Current"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_beamDiameter": {
-            "title": "Beam Diameter",
-            "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. Controls the spatial resolution and X-ray excitation volume. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/beamDiameter"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/beamDiameter"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Diameter"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_beamRasterDimensions": {
-            "title": "Beam Raster Dimensions",
-            "description": "Dimensions of the small area over which the beam is rastered during a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement and distributes dose over a larger area to reduce beam damage on sensitive phases.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/beamRasterDimensions"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/beamRasterDimensions"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Raster Dimensions"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_beamDamageMinimization": {
-            "title": "Beam Damage Minimization",
-            "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points. Particularly important for volatile-bearing phases, hydrous minerals, glasses, organic materials, and biological samples.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/beamDamageMinimization"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/beamDamageMinimization"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Damage Minimization"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_driftCorrection": {
-            "title": "Drift Correction",
-            "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/driftCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/driftCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Drift Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_workingDistance": {
-            "title": "Working Distance",
-            "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/workingDistance"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/workingDistance"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Working Distance"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_chamberPressure": {
-            "title": "Chamber Pressure",
-            "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/chamberPressure"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/chamberPressure"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Chamber Pressure"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_dwellTimePerPixel": {
-            "title": "Dwell Time per Pixel",
-            "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/dwellTimePerPixel"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/dwellTimePerPixel"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Dwell Time per Pixel"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_analyte": {
-            "title": "Analyte",
-            "description": "The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules. The procedure registers the full analyte suite; analysts record the specific subset actually measured in a given session, which may be narrower. Fields whose Keyed By column declares 'analyte' apply individually to each element in this list.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/analyte"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/analyte"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Analyte"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_edsLiveTimePerPointOrPixel": {
-            "title": "EDS Live Time per Point or Pixel",
-            "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer live time improves counting statistics but increases beam damage risk and total acquisition time.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixel"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixel"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EDS Live Time per Point or Pixel"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_stepSizePixelSize": {
-            "title": "Step Size / Pixel Size",
-            "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/stepSizePixelSize"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/stepSizePixelSize"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Step Size / Pixel Size"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_peakCountingTime": {
-            "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/peakCountingTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/peakCountingTime"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Peak Counting Time"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_backgroundCountingTime": {
-            "title": "Background Counting Time",
-            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/backgroundCountingTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/backgroundCountingTime"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Background Counting Time"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_backgroundPosition": {
-            "title": "Background Position(s)",
-            "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/backgroundPosition"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/backgroundPosition"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Background Position(s)"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_clIntegrationTime": {
-            "title": "CL Integration Time",
-            "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/clIntegrationTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/clIntegrationTime"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "CL Integration Time"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_ebsdStepSize": {
-            "title": "EBSD Step Size",
-            "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/ebsdStepSize"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/ebsdStepSize"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EBSD Step Size"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_ebsdFrameTime": {
-            "title": "EBSD Frame Time",
-            "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time improves pattern quality and indexing rate but increases total acquisition time.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/ebsdFrameTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/ebsdFrameTime"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EBSD Frame Time"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_ebsdPhaseList": {
-            "title": "EBSD Phase List",
-            "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/ebsdPhaseList"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/ebsdPhaseList"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EBSD Phase List"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_protectiveCoatingDeposition": {
-            "title": "Protective Coating Deposition",
-            "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/protectiveCoatingDeposition"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/protectiveCoatingDeposition"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Protective Coating Deposition"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_coarseMillingConditions": {
-            "title": "Coarse Milling Conditions",
-            "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/coarseMillingConditions"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/coarseMillingConditions"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Coarse Milling Conditions"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_finePolishingConditions": {
-            "title": "Fine Polishing Conditions",
-            "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/finePolishingConditions"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/finePolishingConditions"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Fine Polishing Conditions"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_foilThickness": {
-            "title": "Foil Thickness",
-            "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/foilThickness"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/foilThickness"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Foil Thickness"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_ionMillingConditions": {
-            "title": "Ion Milling Conditions (3D Tomography)",
-            "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning. These parameters determine material removal rate per slice and exposed surface quality.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/ionMillingConditions"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/ionMillingConditions"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Ion Milling Conditions (3D Tomography)"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_sliceThickness": {
-            "title": "Slice Thickness",
-            "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/sliceThickness"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/sliceThickness"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Slice Thickness"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "sem_backgroundCorrectionMethod": {
-            "title": "Background Correction Method",
-            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/backgroundCorrectionMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/backgroundCorrectionMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Background Correction Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_timeDependentIntensityCorrection": {
-            "title": "Time-Dependent Intensity Correction",
-            "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point analysis; uncommon for EDS or X-ray mapping.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/timeDependentIntensityCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/timeDependentIntensityCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Time-Dependent Intensity Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_halogenCorrectionOnOxygen": {
-            "title": "Halogen Correction on Oxygen",
-            "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/halogenCorrectionOnOxygen"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/halogenCorrectionOnOxygen"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_blankCorrection": {
-            "title": "Blank Correction",
-            "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/blankCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/blankCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Blank Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_normalizationStandardsBasedCorrection": {
-            "title": "Normalization / Standards-Based Correction",
-            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_crystalStructureDatabase": {
-            "title": "Crystal Structure Database",
-            "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/crystalStructureDatabase"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/crystalStructureDatabase"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Crystal Structure Database"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_ebsdPatternQualityThreshold": {
-            "title": "EBSD Pattern Quality Threshold",
-            "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/ebsdPatternQualityThreshold"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/ebsdPatternQualityThreshold"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EBSD Pattern Quality Threshold"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_imageRegistration3D": {
-            "title": "3D Image Registration",
-            "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/imageRegistration3D"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/imageRegistration3D"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "3D Image Registration"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_segmentationMethod3D": {
-            "title": "3D Segmentation Method",
-            "description": "Method and software used to segment phases and features in the aligned 3D image stack, transforming the grayscale stack into labelled 3D regions (pores, mineral phases, grain boundaries, organic matter).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/segmentationMethod3D"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/segmentationMethod3D"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "3D Segmentation Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_calibrationFactorAndDeterminationMethod": {
-            "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_constantsAndReferenceValuesUsed": {
-            "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Constants and Reference Values Used"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_primaryCalibrationStandardName": {
-            "title": "Primary Calibration Standard Name",
-            "description": "Name(s) of the primary reference material(s) used for intensity calibration in EDS or WDS quantification. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/primaryCalibrationStandardName"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/primaryCalibrationStandardName"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Primary Calibration Standard Name"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_secondaryReferenceMaterials": {
-            "title": "Secondary Reference Materials",
-            "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values where available.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/secondaryReferenceMaterials"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/secondaryReferenceMaterials"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Secondary Reference Materials"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_clWavelengthCalibrationReference": {
-            "title": "CL Wavelength Calibration Reference",
-            "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/clWavelengthCalibrationReference"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/clWavelengthCalibrationReference"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "CL Wavelength Calibration Reference"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_fundingSourceForProcedureDevelopment": {
-            "title": "Funding Source for Procedure Development",
-            "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/fundingSourceForProcedureDevelopment"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/fundingSourceForProcedureDevelopment"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Funding Source for Procedure Development"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_procedureReference": {
-            "title": "Procedure Reference(s)",
-            "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/procedureReference"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/procedureReference"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Procedure Reference(s)"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_edsDetectorConfiguration": {
-            "title": "EDS Detector Configuration",
-            "description": "EDS detector type, manufacturer, active area, solid angle, window type, and geometry (take-off angle, position). Multiple detectors should be listed separately.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/edsDetectorConfiguration"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/edsDetectorConfiguration"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EDS Detector Configuration"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_wdsSpectrometerConfiguration": {
-            "title": "WDS Spectrometer Configuration",
-            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/wdsSpectrometerConfiguration"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/wdsSpectrometerConfiguration"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "WDS Spectrometer Configuration"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_clDetectorConfiguration": {
-            "title": "CL Detector Configuration",
-            "description": "CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/clDetectorConfiguration"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/clDetectorConfiguration"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "CL Detector Configuration"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_stageScanVsBeamScan": {
-            "title": "Stage Scan vs. Beam Scan",
-            "description": "For mapping modes, records whether the map was acquired by moving the stage while the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric fidelity; beam scan is faster for smaller fields but may introduce geometric distortion at the map edges.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/stageScanVsBeamScan"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/stageScanVsBeamScan"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Stage Scan vs. Beam Scan"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_wdsSpectrometerChannel": {
-            "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/wdsSpectrometerChannel"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/wdsSpectrometerChannel"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "WDS Spectrometer Channel"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_sequence": {
-            "title": "Sequence",
-            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/sequence"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/sequence"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Sequence"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_proportionalCounterDetector": {
-            "title": "Proportional Counter / Detector",
-            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/proportionalCounterDetector"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/proportionalCounterDetector"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Proportional Counter / Detector"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_wdsPhaSetting": {
-            "title": "WDS PHA Setting",
-            "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/wdsPhaSetting"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/wdsPhaSetting"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "WDS PHA Setting"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_clGrating": {
-            "title": "CL Grating",
-            "description": "Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/clGrating"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/clGrating"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "CL Grating"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_analyteEstimationMethod": {
-            "title": "Analyte Estimation Method",
-            "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/analyteEstimationMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/analyteEstimationMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Analyte Estimation Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_edsSpectralProcessingType": {
-            "title": "EDS Spectral Processing Type",
-            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/edsSpectralProcessingType"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EDS Spectral Processing Type"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_interferingElements": {
-            "title": "Interfering Elements",
-            "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/interferingElements"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/interferingElements"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Interfering Elements"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "sem_interferenceCorrectionStandard": {
-            "title": "Interference Correction Standard",
-            "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/semTAPP/interferenceCorrectionStandard"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/semTAPP/interferenceCorrectionStandard"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Interference Correction Standard"
                 },
                 "schema:value": {
                     "type": "string"

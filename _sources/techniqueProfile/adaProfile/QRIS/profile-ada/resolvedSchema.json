@@ -2746,7 +2746,7 @@
                     ]
                   },
                   {
-                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_ktd_n0em\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_ff7ywwd3\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                   }
                 ]
               },
@@ -3751,7 +3751,7 @@
                                       ]
                                     },
                                     {
-                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_ktd_n0em\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_ff7ywwd3\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                                     }
                                   ]
                                 }
@@ -10214,6 +10214,7 @@
                                 }
                               },
                               "required": [
+                                "@type",
                                 "schema:name"
                               ]
                             }
@@ -17556,6 +17557,74 @@
                 },
                 "required": [
                   "@id"
+                ]
+              }
+            },
+            "schema:hasPart": {
+              "description": "Sub-components of this instrument system (a torch, an ICP source, a collision/reaction cell, a spectrometer). A component IS an instrument -- same @type (schema:Product + schema:Thing), same Wikidata term, and its own schema:additionalType token saying which kind of component it is. The shape is restated rather than written as `$ref: '#'`, because resolve_schema replaces a circular ref with an empty stub -- it would read as \"a part is an instrument\" and enforce nothing. Upstream types a component more loosely (schema:Thing alone, no Wikidata); this narrows it, and the two compose because allOf intersects.",
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "@type",
+                      "schema:name",
+                      "schema:additionalType"
+                    ],
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "minItems": 2,
+                        "allOf": [
+                          {
+                            "contains": {
+                              "const": "schema:Product"
+                            }
+                          },
+                          {
+                            "contains": {
+                              "const": "schema:Thing"
+                            }
+                          }
+                        ]
+                      },
+                      "schema:name": {
+                        "type": "string"
+                      },
+                      "schema:additionalType": {
+                        "type": "array",
+                        "minItems": 1,
+                        "contains": {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "properties": {
+                            "@id": {
+                              "const": "https://www.wikidata.org/wiki/Q3099911"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "description": "Reference by node @id to a component described elsewhere.",
+                    "required": [
+                      "@id"
+                    ],
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 ]
               }
             }
