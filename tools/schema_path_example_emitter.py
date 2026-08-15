@@ -343,6 +343,14 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                         node.append({"@id": const})
                         added += 1
                         break
+                    # a plain token the array must contain -- an instrument part carrying
+                    # schema:Thing but not schema:Product. Extend rather than replace: the node
+                    # already holds types that other branches require.
+                    plain = sub.get("const")
+                    if isinstance(plain, str) and plain not in node:
+                        node.append(plain)
+                        added += 1
+                        break
         filled += added
         if not added:
             break
