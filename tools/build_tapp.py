@@ -482,8 +482,10 @@ def param_value_def(b, existing):
     props = {
         "@id": {"const": PARAM_BASE + "/" + bare},
         "@type": {"const": ["schema:PropertyValue"]},
-        # schema:propertyID is a URI-shape identifier -> JSON-LD @id reference (CDIF convention)
-        "schema:propertyID": {"const": {"@id": PARAM_BASE + "/" + bare}},
+        # schema:propertyID is a URI-shape identifier -> JSON-LD @id reference (CDIF convention),
+        # and it is 0..*, so an array like every other repeatable property. The bare object form
+        # validated here but not against the CDIF PropertyValue, which types propertyID as array.
+        "schema:propertyID": {"const": [{"@id": PARAM_BASE + "/" + bare}]},
         "schema:name": {"const": b["item"]},
     }
     props["schema:value"] = ({"anyOf": [{"type": "number"}, {"type": "string"}]}

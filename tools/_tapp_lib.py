@@ -696,7 +696,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
         }),
         ("@id", parameter_uri),
         ("@type", ["schema:PropertyValue"]),
-        ("schema:propertyID", {"@id": parameter_uri}),
+        ("schema:propertyID", [{"@id": parameter_uri}]),
         ("schema:name", label),
         ("schema:description", desc or label),
         ("schema:value", canonical_value),
@@ -723,7 +723,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
     properties = OrderedDict([
         ("@id", {"const": parameter_uri}),
         ("@type", {"const": ["schema:PropertyValue"]}),
-        ("schema:propertyID", {"const": {"@id": parameter_uri}}),
+        ("schema:propertyID", {"const": [{"@id": parameter_uri}]}),
         ("schema:name", {"const": label}),
         ("schema:value", value_schema),
     ])
@@ -1699,7 +1699,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                         method_params.append(OrderedDict([
                             ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
                             ("@type", ["schema:PropertyValue"]),
-                            ("schema:propertyID", {"@id": f"ada:parameter/{TAPP_NAME}/{r['mdname']}"}),
+                            ("schema:propertyID", [{"@id": f"ada:parameter/{TAPP_NAME}/{r['mdname']}"}]),
                             ("schema:name", item),
                             ("schema:value", coerced if coerced is not None else v),
                         ]))
@@ -1724,7 +1724,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                         entry = OrderedDict([
                             ("@id", f"ada:parameter/{TAPP_NAME}/{r['name']}"),
                             ("@type", ["schema:PropertyValue"]),
-                            ("schema:propertyID", {"@id": f"ada:parameter/{TAPP_NAME}/{r['name']}"}),
+                            ("schema:propertyID", [{"@id": f"ada:parameter/{TAPP_NAME}/{r['name']}"}]),
                             ("schema:name", item),
                             ("schema:value", coerced),
                         ])
@@ -1771,7 +1771,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                     entry = OrderedDict([
                         ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("@type", ["schema:PropertyValue"]),
-                        ("schema:propertyID", {"@id": f"ada:parameter/{TAPP_NAME}/{name}"}),
+                        ("schema:propertyID", [{"@id": f"ada:parameter/{TAPP_NAME}/{name}"}]),
                         ("schema:name", item),
                         ("schema:value", coerced),
                     ])

@@ -201,6 +201,14 @@ def _type_const(subschema):
         return [c["const"]]
     if isinstance(c, dict) and isinstance(c.get("enum"), list) and c["enum"]:
         return [c["enum"][0]]
+    # several required types, each asserted by its own `contains` under an allOf -- the CDIF
+    # instrument shape (schema:Product AND schema:Thing). All of them must be present.
+    if isinstance(t.get("allOf"), list):
+        consts = [b["contains"]["const"] for b in t["allOf"]
+                  if isinstance(b, dict) and isinstance(b.get("contains"), dict)
+                  and isinstance(b["contains"].get("const"), str)]
+        if consts:
+            return consts
     if isinstance(t.get("default"), str):
         return [t["default"]]
     if isinstance(t.get("default"), list):
@@ -221,9 +229,13 @@ def _declaring_branch(err, cand):
     that KEYWORD'S LIST, so the walk starts there, not at err.schema itself.
     """
     node = err.schema
-    if isinstance(node, dict) and isinstance(node.get(err.validator), list):
+    # Only a BRANCH keyword's value is a list of subschemas. `required` also holds a list -- of
+    # property names -- so unwrapping it walked into the names and lost the branch, which meant a
+    # required-@type error reported directly (not via an anyOf) could never be filled.
+    if (err.validator in ("anyOf", "oneOf", "allOf")
+            and isinstance(node, dict) and isinstance(node.get(err.validator), list)):
         node = node[err.validator]
-    best = None
+    best = node if isinstance(node, dict) and "@type" in (node.get("properties") or {}) else None
     for step in list(cand.schema_path):
         if isinstance(node, dict) and "@type" in (node.get("properties") or {}):
             best = node
@@ -268,7 +280,11 @@ def fill_required_types(inst, resolved_schema, max_passes=6):
             for cand in ([err] + list(err.context or [])):
                 if cand.validator != "required" or "'@type'" not in cand.message:
                     continue
-                node = _at(inst, list(err.absolute_path) + list(cand.path))
+                # cand.path is relative to err ONLY when cand came from err.context; when cand IS
+                # err it already holds the absolute path, and appending it doubled the path so the
+                # node was never found.
+                rel = list(cand.path) if cand is not err else []
+                node = _at(inst, list(err.absolute_path) + rel)
                 if not isinstance(node, dict) or "@type" in node:
                     continue
                 branch = _declaring_branch(err, cand)
@@ -277,6 +293,56 @@ def fill_required_types(inst, resolved_schema, max_passes=6):
                     node["@type"] = t
                     added += 1
                     break
+        filled += added
+        if not added:
+            break
+    return filled
+
+
+def fill_structural_gaps(inst, resolved_schema, max_passes=6):
+    """Supply the other things a schema path cannot carry, read off the schema the same way.
+
+    Two cases, both structural rather than metadata, and both introduced by composing the base
+    instrument shape into a technique detail:
+
+      * a required `schema:name` the paths never set (an instrument is identified in the sidecar by
+        schema:additionalType, so nothing names it) -> a placeholder, flagged as such;
+      * an unsatisfied `contains` whose subschema pins an @id to a const -- the Wikidata
+        "measuring instrument" term every instrument carries -> append that exact IRI reference.
+
+    Mutates `inst`; returns how many gaps were filled.
+    """
+    import jsonschema
+    validator = jsonschema.Draft202012Validator(resolved_schema)
+    filled = 0
+    for _ in range(max_passes):
+        added = 0
+        for err in validator.iter_errors(inst):
+            for cand in ([err] + list(err.context or [])):
+                rel = list(cand.path) if cand is not err else []
+                node = _at(inst, list(err.absolute_path) + rel)
+                if cand.validator == "required" and "'schema:name'" in cand.message:
+                    if isinstance(node, dict) and "schema:name" not in node:
+                        node["schema:name"] = "example instrumentName"
+                        added += 1
+                        break
+                # a 1..* / 0..* property is always a JSON array in these schemas, but a schema path
+                # carries one value, so the builder writes the bare value. Wrap it.
+                if (cand.validator == "type" and cand.validator_value == "array"
+                        and node is not None and not isinstance(node, list)):
+                    path = list(err.absolute_path) + rel
+                    parent = _at(inst, path[:-1]) if path else None
+                    if isinstance(parent, (dict, list)):
+                        parent[path[-1]] = [node]
+                        added += 1
+                        break
+                if cand.validator == "contains" and isinstance(node, list):
+                    sub = (cand.schema or {}).get("contains") or {}
+                    const = ((sub.get("properties") or {}).get("@id") or {}).get("const")
+                    if const and not any(isinstance(x, dict) and x.get("@id") == const for x in node):
+                        node.append({"@id": const})
+                        added += 1
+                        break
         filled += added
         if not added:
             break

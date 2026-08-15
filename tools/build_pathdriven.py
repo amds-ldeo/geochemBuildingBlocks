@@ -267,10 +267,17 @@ def build_pathdriven(tapp, write_registries=True):
     # the resolved schema — see ex.fill_required_types.
     tapp_res = _resolve(os.path.join(b.TAPP_DIR, "schema.yaml"))
     detail_res = _resolve(os.path.join(b.DETAIL_DIR, "schema.yaml"))
-    n1 = ex.fill_required_types(tapp_inst, json.load(open(tapp_res, encoding="utf-8")))
-    n2 = ex.fill_required_types(detail_inst, json.load(open(detail_res, encoding="utf-8")))
+    tapp_sch = json.load(open(tapp_res, encoding="utf-8"))
+    detail_sch = json.load(open(detail_res, encoding="utf-8"))
+    n1 = ex.fill_required_types(tapp_inst, tapp_sch)
+    n2 = ex.fill_required_types(detail_inst, detail_sch)
     if n1 or n2:
         print(f"  filled {n1 + n2} required @type discriminator(s) in the examples")
+    # @type first: typing a node is what exposes the rest of what its branch requires.
+    g1 = ex.fill_structural_gaps(tapp_inst, tapp_sch)
+    g2 = ex.fill_structural_gaps(detail_inst, detail_sch)
+    if g1 or g2:
+        print(f"  filled {g1 + g2} structural gap(s) (instrument name / Wikidata term)")
 
     _write_json(os.path.join(b.TAPP_DIR, f"example{tapp}-P0.json"), tapp_inst)
     _write_json(os.path.join(b.DETAIL_DIR, f"exampledetail{short}-P0.json"), detail_inst)

@@ -70,6 +70,25 @@ ARRAY_VALUED = {"schema:additionalType", "@type"}
 # are handled separately via branches.
 KNOWN_ARRAY = {"prov:wasGeneratedBy", "schema:measurementTechnique", "schema:funding"}
 
+# prov:used is an array of role-keyed WRAPPERS (CDIF 2026-08): each item carries exactly one of
+# these keys, and the value is an array of entities. The item is discriminated by which key is
+# PRESENT, not by a selector value, so these branches need their own marker -- `_WRAPPER` -- to
+# tell to_schema to emit `if required:[key] then properties:{key: …}` rather than the
+# `if key == value` form every other branch uses.
+PROV_USED = "prov:used"
+WRAPPER_KEYS = {"schema:instrument", "bios:computationalTool", "prov:reagent"}
+_WRAPPER = "\0wrapper"
+
+# What each wrapper's entities ARE. Referencing the base rather than restating its shape keeps one
+# definition of an instrument / tool / reagent, and it is what makes the generated examples usable:
+# the example emitter supplies @type where a schema REQUIRES one, so without these refs a detail
+# block demands nothing and the entities come out untyped.
+WRAPPER_ITEM_REF = {
+    "schema:instrument": "../../../../BaseSchema/instrument/schema.yaml",
+    "bios:computationalTool": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedComputationalTool",
+    "prov:reagent": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedReagent",
+}
+
 # base-owned array properties whose items are rich objects defined in tappDefinition
 # (ComputationalTool). A bare "[]" append leaves items as {type:object} so the base's object shape
 # applies instead of a spurious string-item constraint from the path leaf.
@@ -154,6 +173,19 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 node.types.append(seg.prop)
             continue
         curie = seg.prop
+        # prov:used -> one wrapper item per role key, so an instrument, a tool and a reagent are
+        # three separate items rather than three keys on one item.
+        if (curie == PROV_USED and not is_last
+                and segs[i + 1].prop in WRAPPER_KEYS and not segs[i + 1].is_type):
+            arr = node.props.get(curie)
+            if not isinstance(arr, Arr):
+                arr = Arr(); node.props[curie] = arr
+            wrapper_key = segs[i + 1].prop
+            branch = arr.branches.get((_WRAPPER, wrapper_key))
+            if not isinstance(branch, Obj):
+                branch = Obj(); arr.branches[(_WRAPPER, wrapper_key)] = branch
+            node = branch
+            continue
         if seg.is_array or seg.selector:      # array container (selected element or append)
             arr = node.props.get(curie)
             if not isinstance(arr, Arr):
@@ -263,6 +295,17 @@ def to_schema(node):
                 for (skey, val), br in node.branches.items():
                     if not isinstance(br, Obj):
                         continue
+                    if skey == _WRAPPER:
+                        # a role-keyed wrapper: discriminate on the key being present
+                        inner = br.props.get(val)
+                        if inner is not None:
+                            sch = to_schema(inner)
+                            ref = WRAPPER_ITEM_REF.get(val)
+                            if ref and isinstance(sch.get("items"), dict):
+                                sch["items"] = {"allOf": [{"$ref": ref}, sch["items"]]}
+                            cond.append({"if": {"required": [val]},
+                                         "then": {"properties": {val: sch}}})
+                        continue
                     skey = skey or node.selkey
                     nested = {k: _jsonld_card(to_schema(v)) for k, v in br.props.items() if k != skey}
                     if nested:
@@ -275,6 +318,10 @@ def to_schema(node):
             # branch must be CONTAINED (selector key = the token/name).
             allof = []
             for (skey, val), br in node.branches.items():
+                if skey == _WRAPPER:
+                    if (skey, val) in node.required:
+                        allof.append({"contains": {"required": [val]}})
+                    continue
                 skey = skey or node.selkey
                 if isinstance(br, Leaf):
                     allof.append({"contains": br.schema, "minContains": 0, "maxContains": 1})

@@ -535,17 +535,10 @@ $defs:
         description: >-
           URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar
           term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({"@id":"..."}).
-        anyOf:
-        - type: string
-          format: uri
-        - type: object
-          additionalProperties: false
-          required:
-          - '@id'
-          properties:
-            '@id':
-              type: string
-        - $ref: '#/$defs/DefinedTerm'
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/PropertyIDValue'
       'schema:inDefinedTermSet':
         description: >-
           Controlled vocabulary providing allowed values for this parameter. When present, form renders
@@ -700,16 +693,10 @@ $defs:
         description: >-
           URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be
           serialized as JSON-LD IRI references ({"@id":"..."}).
-        anyOf:
-        - type: string
-        - type: object
-          additionalProperties: false
-          required:
-          - '@id'
-          properties:
-            '@id':
-              type: string
-        - $ref: '#/$defs/DefinedTerm'
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/PropertyIDValue'
       'schema:value':
         description: The fixed protocol value for this read-only parameter.
       'schema:unitText':
@@ -751,17 +738,10 @@ $defs:
         description: >-
           URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be
           serialized as JSON-LD IRI references ({"@id":"..."}).
-        anyOf:
-        - type: string
-          format: uri
-        - type: object
-          additionalProperties: false
-          required:
-          - '@id'
-          properties:
-            '@id':
-              type: string
-        - $ref: '#/$defs/DefinedTerm'
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/PropertyIDValue'
       'schema:inDefinedTermSet':
         description: >-
           Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1)
@@ -1106,6 +1086,22 @@ $defs:
     - schema:name
 
 
+  PropertyIDValue:
+    description: >-
+      One value of schema:propertyID: a vocabulary URI, a JSON-LD IRI reference, or a DefinedTerm.
+      propertyID is 0..*, so the property is ALWAYS an array of these -- never a bare value. A
+      consumer therefore iterates without first testing the value's type.
+    anyOf:
+    - type: string
+      format: uri
+    - type: object
+      additionalProperties: false
+      required:
+      - '@id'
+      properties:
+        '@id':
+          type: string
+    - $ref: '#/$defs/DefinedTerm'
   QualityMeasure:
     $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/schema.yaml
   DefinedTerm:
