@@ -10,8 +10,9 @@ allOf:
 - type: object
   properties:
     prov:wasGeneratedBy:
-      description: Narrow the base prov:used to the solutionSficpmsTAPP definition — inline, or by node
-        @id — alongside the instrument.
+      description: 'Pin the solutionSficpmsTAPP definition and the instrument where prov:used carries
+        them. Constraint-only if/then, never a narrowed anyOf: prov:used items are role-keyed wrappers,
+        and an anyOf here would allOf-merge with the base union and exclude item shapes the base allows.'
       type: array
       items:
         type: object
@@ -19,19 +20,28 @@ allOf:
           prov:used:
             type: array
             items:
-              anyOf:
-              - $ref: ../../../../BaseSchema/instrument/schema.yaml
-              - type: object
-                additionalProperties: false
-                description: Reference by node @id to a solutionSficpmsTAPP definition object defined
-                  elsewhere.
-                properties:
-                  '@id':
-                    type: string
-                    format: uri
-                required:
-                - '@id'
-              - $ref: ../tapp/schema.yaml
+              allOf:
+              - if:
+                  type: object
+                  required:
+                  - schema:instrument
+                then:
+                  properties:
+                    schema:instrument:
+                      type: array
+                      minItems: 1
+                      items:
+                        $ref: ../../../../BaseSchema/instrument/schema.yaml
+              - if:
+                  type: object
+                  properties:
+                    '@type':
+                      contains:
+                        const: ada:TAPPDefinition
+                  required:
+                  - '@type'
+                then:
+                  $ref: ../tapp/schema.yaml
     schema:additionalType:
       description: Must include a SOLUTIONSFICPMS product type identifier.
       contains:
@@ -75,8 +85,6 @@ allOf:
         dcterms:conformsTo:
           contains:
             type: object
-            required: ['@id']
-            additionalProperties: false
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSolutionSFICPMS

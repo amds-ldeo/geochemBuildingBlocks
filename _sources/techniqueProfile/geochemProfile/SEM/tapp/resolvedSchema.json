@@ -2761,7 +2761,7 @@
                   "properties": {
                     "schema:additionalType": {
                       "contains": {
-                        "const": "EPMA"
+                        "const": "SEM"
                       }
                     }
                   },
@@ -3057,25 +3057,7 @@
                           "readOnly": true
                         }
                       }
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:additionalType": {
-                      "contains": {
-                        "const": "SEM"
-                      }
-                    }
-                  },
-                  "required": [
-                    "schema:additionalType"
-                  ]
-                },
-                "then": {
-                  "properties": {
+                    },
                     "schema:model": {
                       "type": "object",
                       "properties": {
@@ -3092,20 +3074,6 @@
             ]
           },
           "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "schema:additionalType": {
-                    "contains": {
-                      "const": "EPMA"
-                    }
-                  }
-                },
-                "required": [
-                  "schema:additionalType"
-                ]
-              }
-            },
             {
               "contains": {
                 "properties": {
@@ -9673,7 +9641,7 @@
       ]
     },
     "PropertyIDValue": {
-      "description": "One value of schema:propertyID: a vocabulary URI, a JSON-LD IRI reference, or a DefinedTerm. propertyID is 0..*, so the property is ALWAYS an array of these -- never a bare value. A consumer therefore iterates without first testing the value's type.",
+      "description": "One value of schema:propertyID: a vocabulary URI, a JSON-LD IRI reference, or a DefinedTerm.\nWhether the property holding these is an ARRAY depends on which job schema:PropertyValue is doing, because schema.org overloads that one class for several things that ought to be distinct (see the CDIF Core Implementation Guide, \"Polymorphism of PropertyValue\"):\n\n  * schema:additionalProperty and schema:variableMeasured -- a measured or declared parameter.\n    propertyID is 0..* there, so it is ALWAYS an array and a consumer iterates without first\n    testing the value's type.\n  * schema:identifier -- an identifier for the identifier scheme (DOI, ARK, IGSN). Upstream\n    types that one as a bare string or {\"@id\": ...}, never an array, so do NOT wrap it.",
       "anyOf": [
         {
           "type": "string",

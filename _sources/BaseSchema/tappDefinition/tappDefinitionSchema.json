@@ -594,27 +594,11 @@
                 },
                 "schema:propertyID": {
                     "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                                "@id"
-                            ],
-                            "properties": {
-                                "@id": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        {
-                            "$ref": "#/$defs/DefinedTerm"
-                        }
-                    ]
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/PropertyIDValue"
+                    }
                 },
                 "schema:inDefinedTermSet": {
                     "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
@@ -804,26 +788,11 @@
                 },
                 "schema:propertyID": {
                     "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                                "@id"
-                            ],
-                            "properties": {
-                                "@id": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        {
-                            "$ref": "#/$defs/DefinedTerm"
-                        }
-                    ]
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/PropertyIDValue"
+                    }
                 },
                 "schema:value": {
                     "description": "The fixed protocol value for this read-only parameter."
@@ -866,27 +835,11 @@
                 },
                 "schema:propertyID": {
                     "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                                "@id"
-                            ],
-                            "properties": {
-                                "@id": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        {
-                            "$ref": "#/$defs/DefinedTerm"
-                        }
-                    ]
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/PropertyIDValue"
+                    }
                 },
                 "schema:inDefinedTermSet": {
                     "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
@@ -1326,6 +1279,30 @@
             "required": [
                 "@type",
                 "schema:name"
+            ]
+        },
+        "PropertyIDValue": {
+            "description": "One value of schema:propertyID: a vocabulary URI, a JSON-LD IRI reference, or a DefinedTerm.\nWhether the property holding these is an ARRAY depends on which job schema:PropertyValue is doing, because schema.org overloads that one class for several things that ought to be distinct (see the CDIF Core Implementation Guide, \"Polymorphism of PropertyValue\"):\n\n  * schema:additionalProperty and schema:variableMeasured -- a measured or declared parameter.\n    propertyID is 0..* there, so it is ALWAYS an array and a consumer iterates without first\n    testing the value's type.\n  * schema:identifier -- an identifier for the identifier scheme (DOI, ARK, IGSN). Upstream\n    types that one as a bare string or {\"@id\": ...}, never an array, so do NOT wrap it.",
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "@id"
+                    ],
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/$defs/DefinedTerm"
+                }
             ]
         },
         "QualityMeasure": {

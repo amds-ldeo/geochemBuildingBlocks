@@ -18,7 +18,7 @@ allOf:
             properties:
               schema:additionalType:
                 contains:
-                  const: EPMA
+                  const: SEM
             required:
             - schema:additionalType
           then:
@@ -215,15 +215,6 @@ allOf:
                     - N/A
                     - None
                     readOnly: true
-        - if:
-            properties:
-              schema:additionalType:
-                contains:
-                  const: SEM
-            required:
-            - schema:additionalType
-          then:
-            properties:
               schema:model:
                 type: object
                 properties:
@@ -233,13 +224,6 @@ allOf:
                     type: string
                     readOnly: true
       allOf:
-      - contains:
-          properties:
-            schema:additionalType:
-              contains:
-                const: EPMA
-          required:
-          - schema:additionalType
       - contains:
           properties:
             schema:additionalType:

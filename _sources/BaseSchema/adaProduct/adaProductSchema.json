@@ -281,170 +281,81 @@
                                 "type": "array",
                                 "description": "Resources used in the analysis. Each item is one of: an instrument BB instance; a computational tool actually used (schema:SoftwareApplication); a reagent / reference material actually used; a tappDefinition BB instance (inlined); or an @id reference to a TAPP definition node defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument / computationalTool / reagent list; these prov:used entries record the ACTUALS used in this specific run (tool versions, reagent lots, and their run roles), mirroring how the instrument is already recorded here. Technique profiles narrow the tappDefinition branch to their specific TAPP.",
                                 "items": {
-                                    "anyOf": [
+                                    "allOf": [
                                         {
-                                            "$ref": "../instrument/instrumentSchema.json"
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "schema:instrument"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:instrument": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "../instrument/instrumentSchema.json"
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         },
                                         {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "description": "Computational tool actually used (acquisition, data reduction, or processing).",
-                                            "properties": {
-                                                "@type": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    },
-                                                    "contains": {
-                                                        "const": "schema:SoftwareApplication"
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "bios:computationalTool"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "bios:computationalTool": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "#/$defs/UsedComputationalTool"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "prov:reagent"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "prov:reagent": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "#/$defs/UsedReagent"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "contains": {
+                                                            "const": "ada:TAPPDefinition"
+                                                        }
                                                     }
                                                 },
-                                                "@id": {
-                                                    "type": "string"
-                                                },
-                                                "schema:name": {
-                                                    "type": "string"
-                                                },
-                                                "schema:version": {
-                                                    "type": "string"
-                                                },
-                                                "schema:url": {
-                                                    "type": "string",
-                                                    "format": "uri"
-                                                },
-                                                "schema:description": {
-                                                    "type": "string"
-                                                },
-                                                "ada:toolRole": {
-                                                    "type": "string",
-                                                    "enum": [
-                                                        "acquisition",
-                                                        "dataReduction",
-                                                        "processing",
-                                                        "visualization"
-                                                    ]
-                                                }
+                                                "required": [
+                                                    "@type"
+                                                ]
                                             },
-                                            "required": [
-                                                "schema:name"
-                                            ]
-                                        },
-                                        {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "description": "Reference material, calibration standard, or chemical reagent actually used.",
-                                            "properties": {
-                                                "@type": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    },
-                                                    "minItems": 1,
-                                                    "description": "What the material IS, independent of the role it plays in this run (that is ada:reagentRole). schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance for a bulk chemical or coating stock.",
-                                                    "contains": {
-                                                        "enum": [
-                                                            "schema:DefinedTerm",
-                                                            "schema:Product",
-                                                            "schema:ChemicalSubstance"
-                                                        ]
-                                                    }
-                                                },
-                                                "@id": {
-                                                    "type": "string"
-                                                },
-                                                "schema:name": {
-                                                    "type": "string"
-                                                },
-                                                "schema:description": {
-                                                    "type": "string"
-                                                },
-                                                "schema:identifier": {
-                                                    "description": "Formal identifier (IGSN, catalog number, GeoReM ID). Mirrors tappDefinition $defs/Reagent.",
-                                                    "anyOf": [
-                                                        {
-                                                            "type": "string"
-                                                        },
-                                                        {
-                                                            "type": "object",
-                                                            "additionalProperties": false,
-                                                            "properties": {
-                                                                "@type": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "string"
-                                                                    },
-                                                                    "minItems": 1
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "type": "string"
-                                                                },
-                                                                "schema:value": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                "schema:termCode": {
-                                                    "type": "string",
-                                                    "description": "Registry code for the material on the schema:DefinedTerm path."
-                                                },
-                                                "schema:inDefinedTermSet": {
-                                                    "description": "The registry the schema:termCode belongs to.",
-                                                    "anyOf": [
-                                                        {
-                                                            "type": "string",
-                                                            "format": "uri"
-                                                        },
-                                                        {
-                                                            "type": "object",
-                                                            "additionalProperties": false,
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "type": "string",
-                                                                    "format": "uri"
-                                                                },
-                                                                "schema:name": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                "ada:reagentRole": {
-                                                    "type": "string",
-                                                    "enum": [
-                                                        "primaryStandard",
-                                                        "secondaryStandard",
-                                                        "interferenceStandard",
-                                                        "blankMaterial",
-                                                        "coatingMaterial",
-                                                        "referenceMaterial",
-                                                        "reagent"
-                                                    ]
-                                                }
-                                            },
-                                            "required": [
-                                                "@type",
-                                                "schema:name"
-                                            ]
-                                        },
-                                        {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "description": "Reference by node @id to a TAPP definition object defined elsewhere.",
-                                            "properties": {
-                                                "@id": {
-                                                    "type": "string",
-                                                    "format": "uri"
-                                                }
-                                            },
-                                            "required": [
-                                                "@id"
-                                            ]
-                                        },
-                                        {
-                                            "$ref": "../tappDefinition/tappDefinitionSchema.json"
+                                            "then": {
+                                                "$ref": "../tappDefinition/tappDefinitionSchema.json"
+                                            }
                                         }
                                     ]
                                 }
@@ -767,6 +678,150 @@
         }
     ],
     "$defs": {
+        "UsedComputationalTool": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Computational tool actually used (acquisition, data reduction, or processing).",
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "contains": {
+                        "const": "schema:SoftwareApplication"
+                    }
+                },
+                "@id": {
+                    "type": "string"
+                },
+                "schema:name": {
+                    "type": "string"
+                },
+                "schema:version": {
+                    "type": "string"
+                },
+                "schema:url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "schema:description": {
+                    "type": "string"
+                },
+                "ada:toolRole": {
+                    "type": "string",
+                    "enum": [
+                        "acquisition",
+                        "dataReduction",
+                        "processing",
+                        "visualization"
+                    ]
+                }
+            },
+            "required": [
+                "schema:name"
+            ]
+        },
+        "UsedReagent": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Reference material, calibration standard, or chemical reagent actually used.",
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "description": "What the material IS, independent of the role it plays in this run (that is ada:reagentRole). schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance for a bulk chemical or coating stock.",
+                    "contains": {
+                        "enum": [
+                            "schema:DefinedTerm",
+                            "schema:Product",
+                            "schema:ChemicalSubstance"
+                        ]
+                    }
+                },
+                "@id": {
+                    "type": "string"
+                },
+                "schema:name": {
+                    "type": "string"
+                },
+                "schema:description": {
+                    "type": "string"
+                },
+                "schema:identifier": {
+                    "description": "Formal identifier (IGSN, catalog number, GeoReM ID). Mirrors tappDefinition $defs/Reagent.",
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "@type": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "minItems": 1
+                                },
+                                "schema:propertyID": {
+                                    "type": "string"
+                                },
+                                "schema:value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "schema:termCode": {
+                    "type": "string",
+                    "description": "Registry code for the material on the schema:DefinedTerm path."
+                },
+                "schema:inDefinedTermSet": {
+                    "description": "The registry the schema:termCode belongs to.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "@id": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "schema:name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "ada:reagentRole": {
+                    "type": "string",
+                    "enum": [
+                        "primaryStandard",
+                        "secondaryStandard",
+                        "interferenceStandard",
+                        "blankMaterial",
+                        "coatingMaterial",
+                        "referenceMaterial",
+                        "reagent"
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "schema:name"
+            ]
+        },
         "SpatialExtent": {
             "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/spatialExtentSchema.json"
         },

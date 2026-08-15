@@ -24,67 +24,79 @@
                                     "allOf": [
                                         {
                                             "if": {
-                                                "properties": {
-                                                    "schema:additionalType": {
-                                                        "contains": {
-                                                            "const": "EPMA"
-                                                        }
-                                                    }
-                                                },
                                                 "required": [
-                                                    "schema:additionalType"
+                                                    "schema:instrument"
                                                 ]
                                             },
                                             "then": {
                                                 "properties": {
-                                                    "ada:acceleratingVoltage": {
-                                                        "description": "Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard operating voltage; analysts record and justify any deviations.",
-                                                        "anyOf": [
+                                                    "schema:instrument": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "../../../../BaseSchema/instrument/instrumentSchema.json"
+                                                                },
+                                                                {
+                                                                    "type": "object",
+                                                                    "allOf": [
+                                                                        {
+                                                                            "if": {
+                                                                                "properties": {
+                                                                                    "schema:additionalType": {
+                                                                                        "contains": {
+                                                                                            "const": "EPMA"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "required": [
+                                                                                    "schema:additionalType"
+                                                                                ]
+                                                                            },
+                                                                            "then": {
+                                                                                "properties": {
+                                                                                    "ada:acceleratingVoltage": {
+                                                                                        "description": "Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard operating voltage; analysts record and justify any deviations.",
+                                                                                        "anyOf": [
+                                                                                            {
+                                                                                                "type": "number"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    "ada:beamDiameter": {
+                                                                                        "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
+                                                                                        "anyOf": [
+                                                                                            {
+                                                                                                "type": "number"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        "allOf": [
                                                             {
-                                                                "type": "number"
-                                                            },
-                                                            {
-                                                                "type": "string"
-                                                            }
-                                                        ]
-                                                    },
-                                                    "ada:beamDiameter": {
-                                                        "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
-                                                        "anyOf": [
-                                                            {
-                                                                "type": "number"
-                                                            },
-                                                            {
-                                                                "type": "string"
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "if": {
-                                                "properties": {
-                                                    "ada:toolRole": {
-                                                        "const": "acquisition"
-                                                    }
-                                                },
-                                                "required": [
-                                                    "ada:toolRole"
-                                                ]
-                                            },
-                                            "then": {
-                                                "properties": {
-                                                    "schema:name": {
-                                                        "description": "Data acquisition and automation software, including version number.",
-                                                        "anyOf": [
-                                                            {
-                                                                "type": "string"
-                                                            },
-                                                            {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
+                                                                "contains": {
+                                                                    "properties": {
+                                                                        "schema:additionalType": {
+                                                                            "contains": {
+                                                                                "const": "EPMA"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "schema:additionalType"
+                                                                    ]
                                                                 }
                                                             }
                                                         ]
@@ -94,27 +106,109 @@
                                         },
                                         {
                                             "if": {
-                                                "properties": {
-                                                    "ada:toolRole": {
-                                                        "const": "dataReduction"
-                                                    }
-                                                },
                                                 "required": [
-                                                    "ada:toolRole"
+                                                    "bios:computationalTool"
                                                 ]
                                             },
                                             "then": {
                                                 "properties": {
-                                                    "schema:name": {
-                                                        "description": "Software used for matrix correction and quantitative data reduction, if separate from the acquisition software. For mapping workflows, include software used to process count maps into concentration maps.",
-                                                        "anyOf": [
+                                                    "bios:computationalTool": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedComputationalTool"
+                                                                },
+                                                                {
+                                                                    "type": "object",
+                                                                    "allOf": [
+                                                                        {
+                                                                            "if": {
+                                                                                "properties": {
+                                                                                    "ada:toolRole": {
+                                                                                        "const": "acquisition"
+                                                                                    }
+                                                                                },
+                                                                                "required": [
+                                                                                    "ada:toolRole"
+                                                                                ]
+                                                                            },
+                                                                            "then": {
+                                                                                "properties": {
+                                                                                    "schema:name": {
+                                                                                        "description": "Data acquisition and automation software, including version number.",
+                                                                                        "anyOf": [
+                                                                                            {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "if": {
+                                                                                "properties": {
+                                                                                    "ada:toolRole": {
+                                                                                        "const": "dataReduction"
+                                                                                    }
+                                                                                },
+                                                                                "required": [
+                                                                                    "ada:toolRole"
+                                                                                ]
+                                                                            },
+                                                                            "then": {
+                                                                                "properties": {
+                                                                                    "schema:name": {
+                                                                                        "description": "Software used for matrix correction and quantitative data reduction, if separate from the acquisition software. For mapping workflows, include software used to process count maps into concentration maps.",
+                                                                                        "anyOf": [
+                                                                                            {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        "allOf": [
                                                             {
-                                                                "type": "string"
+                                                                "contains": {
+                                                                    "properties": {
+                                                                        "ada:toolRole": {
+                                                                            "const": "acquisition"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "ada:toolRole"
+                                                                    ]
+                                                                }
                                                             },
                                                             {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
+                                                                "contains": {
+                                                                    "properties": {
+                                                                        "ada:toolRole": {
+                                                                            "const": "dataReduction"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "ada:toolRole"
+                                                                    ]
                                                                 }
                                                             }
                                                         ]
@@ -123,47 +217,7 @@
                                             }
                                         }
                                     ]
-                                },
-                                "allOf": [
-                                    {
-                                        "contains": {
-                                            "properties": {
-                                                "schema:additionalType": {
-                                                    "contains": {
-                                                        "const": "EPMA"
-                                                    }
-                                                }
-                                            },
-                                            "required": [
-                                                "schema:additionalType"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "contains": {
-                                            "properties": {
-                                                "ada:toolRole": {
-                                                    "const": "acquisition"
-                                                }
-                                            },
-                                            "required": [
-                                                "ada:toolRole"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "contains": {
-                                            "properties": {
-                                                "ada:toolRole": {
-                                                    "const": "dataReduction"
-                                                }
-                                            },
-                                            "required": [
-                                                "ada:toolRole"
-                                            ]
-                                        }
-                                    }
-                                ]
+                                }
                             },
                             "schema:description": {
                                 "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
@@ -187,9 +241,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Beam Damage Minimization"
@@ -220,9 +276,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Beam Raster Dimensions"
@@ -264,9 +322,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/driftCorrection"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/driftCorrection"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Drift Correction"
@@ -297,9 +357,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Dwell Time per Pixel"
@@ -341,9 +403,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Pre-Analysis Imaging and Screening"
@@ -374,9 +438,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Halogen Correction on Oxygen"
@@ -407,9 +473,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Step Size / Pixel Size"
@@ -451,9 +519,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/edsDeadTime"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/edsDeadTime"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "EDS Dead Time"
@@ -495,9 +565,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Procedural Blank Level"
@@ -532,9 +604,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Beam Damage Minimization"
@@ -569,9 +643,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Beam Raster Dimensions"
@@ -617,9 +693,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/driftCorrection"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/driftCorrection"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Drift Correction"
@@ -654,9 +732,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Dwell Time per Pixel"
@@ -702,9 +782,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Pre-Analysis Imaging and Screening"
@@ -739,9 +821,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Halogen Correction on Oxygen"
@@ -776,9 +860,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Step Size / Pixel Size"
@@ -824,9 +910,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/edsDeadTime"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/edsDeadTime"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "EDS Dead Time"
@@ -872,9 +960,11 @@
                                                     ]
                                                 },
                                                 "schema:propertyID": {
-                                                    "const": {
-                                                        "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
-                                                    }
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
+                                                        }
+                                                    ]
                                                 },
                                                 "schema:name": {
                                                     "const": "Procedural Blank Level"
@@ -1044,9 +1134,11 @@
                                                                             ]
                                                                         },
                                                                         "schema:propertyID": {
-                                                                            "const": {
-                                                                                "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
-                                                                            }
+                                                                            "const": [
+                                                                                {
+                                                                                    "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                                                                }
+                                                                            ]
                                                                         },
                                                                         "schema:name": {
                                                                             "const": "Constants and Reference Values Used"
@@ -1079,9 +1171,11 @@
                                                                                     ]
                                                                                 },
                                                                                 "schema:propertyID": {
-                                                                                    "const": {
-                                                                                        "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
-                                                                                    }
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                                                                        }
+                                                                                    ]
                                                                                 },
                                                                                 "schema:name": {
                                                                                     "const": "Constants and Reference Values Used"
@@ -1158,9 +1252,11 @@
                                         ]
                                     },
                                     "schema:propertyID": {
-                                        "const": {
-                                            "@id": "ada:parameter/empaTAPP/mapArea"
-                                        }
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/empaTAPP/mapArea"
+                                            }
+                                        ]
                                     },
                                     "schema:name": {
                                         "const": "Map Area"
@@ -1202,9 +1298,11 @@
                                         ]
                                     },
                                     "schema:propertyID": {
-                                        "const": {
-                                            "@id": "ada:parameter/empaTAPP/mapDimensions"
-                                        }
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/empaTAPP/mapDimensions"
+                                            }
+                                        ]
                                     },
                                     "schema:name": {
                                         "const": "Map Dimensions"
@@ -1250,9 +1348,11 @@
                                         ]
                                     },
                                     "schema:propertyID": {
-                                        "const": {
-                                            "@id": "ada:parameter/empaTAPP/mapArea"
-                                        }
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/empaTAPP/mapArea"
+                                            }
+                                        ]
                                     },
                                     "schema:name": {
                                         "const": "Map Area"
@@ -1298,9 +1398,11 @@
                                         ]
                                     },
                                     "schema:propertyID": {
-                                        "const": {
-                                            "@id": "ada:parameter/empaTAPP/mapDimensions"
-                                        }
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/empaTAPP/mapDimensions"
+                                            }
+                                        ]
                                     },
                                     "schema:name": {
                                         "const": "Map Dimensions"
