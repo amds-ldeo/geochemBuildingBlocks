@@ -37,9 +37,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsed"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsed"
+                  }
+                ],
                 "schema:name": "Constants and Reference Values Used",
                 "schema:value": "example value"
               }
@@ -58,20 +60,36 @@
       ],
       "prov:used": [
         {
-          "ada:toolRole": "acquisition",
-          "schema:name": "example acquisitionSoftware"
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware"
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware"
+            }
+          ]
         },
         {
-          "ada:toolRole": "dataReduction",
-          "schema:name": "example dataReductionSoftware"
-        },
-        {
-          "schema:additionalType": [
-            "SEM"
-          ],
-          "ada:acceleratingVoltage": 1.0,
-          "ada:beamDiameter": 1.0,
-          "ada:workingDistance": 1.0
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:acceleratingVoltage": 1.0,
+              "ada:beamDiameter": 1.0,
+              "ada:workingDistance": 1.0,
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
+            }
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -80,9 +98,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semCompositionTAPP/beamRasterDimensions"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/beamRasterDimensions"
+            }
+          ],
           "schema:name": "Beam Raster Dimensions",
           "schema:value": 1
         },
@@ -91,9 +111,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semCompositionTAPP/beamDamageMinimization"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/beamDamageMinimization"
+            }
+          ],
           "schema:name": "Beam Damage Minimization",
           "schema:value": "example value"
         },
@@ -102,9 +124,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semCompositionTAPP/driftCorrection"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/driftCorrection"
+            }
+          ],
           "schema:name": "Drift Correction",
           "schema:value": "example value"
         },
@@ -113,9 +137,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semCompositionTAPP/chamberPressure"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/chamberPressure"
+            }
+          ],
           "schema:name": "Chamber Pressure",
           "schema:value": 1
         },
@@ -124,9 +150,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semCompositionTAPP/dwellTimePerPixel"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/dwellTimePerPixel"
+            }
+          ],
           "schema:name": "Dwell Time per Pixel",
           "schema:value": 1
         },
@@ -135,9 +163,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSize"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSize"
+            }
+          ],
           "schema:name": "Step Size / Pixel Size",
           "schema:value": 1
         },
@@ -146,9 +176,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygen"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/halogenCorrectionOnOxygen"
+            }
+          ],
           "schema:name": "Halogen Correction on Oxygen",
           "schema:value": "example value"
         }

@@ -18,79 +18,107 @@ allOf:
               type: object
               allOf:
               - if:
-                  properties:
-                    schema:additionalType:
-                      contains:
-                        const: EPMA
                   required:
-                  - schema:additionalType
+                  - schema:instrument
                 then:
                   properties:
-                    ada:acceleratingVoltage:
-                      description: Electron beam accelerating voltage in kilovolts (kV). The procedure
-                        specifies the standard operating voltage; analysts record and justify any deviations.
-                      anyOf:
-                      - type: number
-                      - type: string
-                    ada:beamDiameter:
-                      description: Diameter of the electron beam in micrometers. 0 indicates a fully focused
-                        beam. Document defocused diameter when used to minimize beam damage or improve
-                        spatial averaging for beam-sensitive phases.
-                      anyOf:
-                      - type: number
-                      - type: string
+                    schema:instrument:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: ../../../../BaseSchema/instrument/schema.yaml
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                schema:additionalType:
+                                  contains:
+                                    const: EPMA
+                              required:
+                              - schema:additionalType
+                            then:
+                              properties:
+                                ada:acceleratingVoltage:
+                                  description: Electron beam accelerating voltage in kilovolts (kV). The
+                                    procedure specifies the standard operating voltage; analysts record
+                                    and justify any deviations.
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                                ada:beamDiameter:
+                                  description: Diameter of the electron beam in micrometers. 0 indicates
+                                    a fully focused beam. Document defocused diameter when used to minimize
+                                    beam damage or improve spatial averaging for beam-sensitive phases.
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                      allOf:
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: EPMA
+                          required:
+                          - schema:additionalType
               - if:
-                  properties:
-                    ada:toolRole:
-                      const: acquisition
                   required:
-                  - ada:toolRole
+                  - bios:computationalTool
                 then:
                   properties:
-                    schema:name:
-                      description: Data acquisition and automation software, including version number.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
-              - if:
-                  properties:
-                    ada:toolRole:
-                      const: dataReduction
-                  required:
-                  - ada:toolRole
-                then:
-                  properties:
-                    schema:name:
-                      description: Software used for matrix correction and quantitative data reduction,
-                        if separate from the acquisition software. For mapping workflows, include software
-                        used to process count maps into concentration maps.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
-            allOf:
-            - contains:
-                properties:
-                  schema:additionalType:
-                    contains:
-                      const: EPMA
-                required:
-                - schema:additionalType
-            - contains:
-                properties:
-                  ada:toolRole:
-                    const: acquisition
-                required:
-                - ada:toolRole
-            - contains:
-                properties:
-                  ada:toolRole:
-                    const: dataReduction
-                required:
-                - ada:toolRole
+                    bios:computationalTool:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedComputationalTool
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: acquisition
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Data acquisition and automation software, including version
+                                    number.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: dataReduction
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Software used for matrix correction and quantitative data
+                                    reduction, if separate from the acquisition software. For mapping
+                                    workflows, include software used to process count maps into concentration
+                                    maps.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                      allOf:
+                      - contains:
+                          properties:
+                            ada:toolRole:
+                              const: acquisition
+                          required:
+                          - ada:toolRole
+                      - contains:
+                          properties:
+                            ada:toolRole:
+                              const: dataReduction
+                          required:
+                          - ada:toolRole
           schema:description:
             description: 'Any procedure- or analysis-specific information not captured by a structured
               field anywhere in this TAPP — including anomalies, deviations from the registered procedure,
@@ -116,7 +144,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/beamDamageMinimization
+                    - '@id': ada:parameter/empaTAPP/beamDamageMinimization
                   schema:name:
                     const: Beam Damage Minimization
                   schema:value:
@@ -141,7 +169,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/beamRasterDimensions
+                    - '@id': ada:parameter/empaTAPP/beamRasterDimensions
                   schema:name:
                     const: Beam Raster Dimensions
                   schema:value:
@@ -170,7 +198,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/driftCorrection
+                    - '@id': ada:parameter/empaTAPP/driftCorrection
                   schema:name:
                     const: Drift Correction
                   schema:value:
@@ -195,7 +223,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/dwellTimePerPixel
+                    - '@id': ada:parameter/empaTAPP/dwellTimePerPixel
                   schema:name:
                     const: Dwell Time per Pixel
                   schema:value:
@@ -227,7 +255,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
+                    - '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
                   schema:name:
                     const: Pre-Analysis Imaging and Screening
                   schema:value:
@@ -252,7 +280,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+                    - '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
                   schema:name:
                     const: Halogen Correction on Oxygen
                   schema:value:
@@ -276,7 +304,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/stepSizePixelSize
+                    - '@id': ada:parameter/empaTAPP/stepSizePixelSize
                   schema:name:
                     const: Step Size / Pixel Size
                   schema:value:
@@ -309,7 +337,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/edsDeadTime
+                    - '@id': ada:parameter/empaTAPP/edsDeadTime
                   schema:name:
                     const: EDS Dead Time
                   schema:value:
@@ -342,7 +370,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/empaTAPP/proceduralBlankLevel
+                    - '@id': ada:parameter/empaTAPP/proceduralBlankLevel
                   schema:name:
                     const: Procedural Blank Level
                   schema:value:
@@ -489,7 +517,7 @@ allOf:
                                 - schema:PropertyValue
                               schema:propertyID:
                                 const:
-                                  '@id': ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
+                                - '@id': ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
                               schema:name:
                                 const: Constants and Reference Values Used
                               schema:value:
@@ -534,7 +562,7 @@ allOf:
               - schema:PropertyValue
             schema:propertyID:
               const:
-                '@id': ada:parameter/empaTAPP/mapArea
+              - '@id': ada:parameter/empaTAPP/mapArea
             schema:name:
               const: Map Area
             schema:value:
@@ -563,7 +591,7 @@ allOf:
               - schema:PropertyValue
             schema:propertyID:
               const:
-                '@id': ada:parameter/empaTAPP/mapDimensions
+              - '@id': ada:parameter/empaTAPP/mapDimensions
             schema:name:
               const: Map Dimensions
             schema:value:

@@ -67,7 +67,7 @@ allOf:
                                   - schema:PropertyValue
                                 schema:propertyID:
                                   const:
-                                    '@id': ada:parameter/semImagingTAPP/crystalStructureDatabase
+                                  - '@id': ada:parameter/semImagingTAPP/crystalStructureDatabase
                                 schema:name:
                                   const: Crystal Structure Database
                                 schema:value:
@@ -97,7 +97,7 @@ allOf:
                                   - schema:PropertyValue
                                 schema:propertyID:
                                   const:
-                                    '@id': ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed
+                                  - '@id': ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed
                                 schema:name:
                                   const: Constants and Reference Values Used
                                 schema:value:
@@ -179,82 +179,108 @@ allOf:
               type: object
               allOf:
               - if:
-                  properties:
-                    ada:toolRole:
-                      const: acquisition
                   required:
-                  - ada:toolRole
+                  - bios:computationalTool
                 then:
                   properties:
-                    schema:name:
-                      description: Software used to control the SEM and acquire data, including version
-                        number. For FIB-SEM 3D tomography, include the automated slice-and-view module
-                        name and version.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
+                    bios:computationalTool:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedComputationalTool
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: acquisition
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Software used to control the SEM and acquire data, including
+                                    version number. For FIB-SEM 3D tomography, include the automated slice-and-view
+                                    module name and version.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: dataReduction
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Software used for post-acquisition data reduction and analysis.
+                                    List all packages with version numbers.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                      allOf:
+                      - contains:
+                          properties:
+                            ada:toolRole:
+                              const: acquisition
+                          required:
+                          - ada:toolRole
+                      - contains:
+                          properties:
+                            ada:toolRole:
+                              const: dataReduction
+                          required:
+                          - ada:toolRole
               - if:
-                  properties:
-                    ada:toolRole:
-                      const: dataReduction
                   required:
-                  - ada:toolRole
+                  - schema:instrument
                 then:
                   properties:
-                    schema:name:
-                      description: Software used for post-acquisition data reduction and analysis. List
-                        all packages with version numbers.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
-              - if:
-                  properties:
-                    schema:additionalType:
-                      contains:
-                        const: SEM
-                  required:
-                  - schema:additionalType
-                then:
-                  properties:
-                    ada:acceleratingVoltage:
-                      description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
-                        depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration.
-                        Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high
-                        voltages (15-20 kV) improve X-ray generation for quantitative analysis.
-                      anyOf:
-                      - type: number
-                      - type: string
-                    ada:workingDistance:
-                      description: Distance between the objective lens pole piece and the specimen surface
-                        in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off
-                        angle, and EBSD geometry.
-                      anyOf:
-                      - type: number
-                      - type: string
-            allOf:
-            - contains:
-                properties:
-                  ada:toolRole:
-                    const: acquisition
-                required:
-                - ada:toolRole
-            - contains:
-                properties:
-                  ada:toolRole:
-                    const: dataReduction
-                required:
-                - ada:toolRole
-            - contains:
-                properties:
-                  schema:additionalType:
-                    contains:
-                      const: SEM
-                required:
-                - schema:additionalType
+                    schema:instrument:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: ../../../../BaseSchema/instrument/schema.yaml
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                schema:additionalType:
+                                  contains:
+                                    const: SEM
+                              required:
+                              - schema:additionalType
+                            then:
+                              properties:
+                                ada:acceleratingVoltage:
+                                  description: Electron beam accelerating voltage in kilovolts. Affects
+                                    X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                    and beam penetration. Low voltages (1-5 kV) improve surface sensitivity
+                                    and reduce beam damage; high voltages (15-20 kV) improve X-ray generation
+                                    for quantitative analysis.
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                                ada:workingDistance:
+                                  description: Distance between the objective lens pole piece and the
+                                    specimen surface in millimetres. Affects spatial resolution, depth
+                                    of focus, EDS X-ray take-off angle, and EBSD geometry.
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                      allOf:
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: SEM
+                          required:
+                          - schema:additionalType
           schema:additionalProperty:
             type: array
             items:
@@ -273,7 +299,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semImagingTAPP/chamberPressure
+                    - '@id': ada:parameter/semImagingTAPP/chamberPressure
                   schema:name:
                     const: Chamber Pressure
                   schema:value:
@@ -300,7 +326,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semImagingTAPP/imagePixelSize
+                    - '@id': ada:parameter/semImagingTAPP/imagePixelSize
                   schema:name:
                     const: Image Pixel Size
                   schema:value:
@@ -329,7 +355,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semImagingTAPP/dwellTimePerPixel
+                    - '@id': ada:parameter/semImagingTAPP/dwellTimePerPixel
                   schema:name:
                     const: Dwell Time per Pixel
                   schema:value:
@@ -356,7 +382,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
+                    - '@id': ada:parameter/semImagingTAPP/clWavelengthCalibrationReference
                   schema:name:
                     const: CL Wavelength Calibration Reference
                   schema:value:

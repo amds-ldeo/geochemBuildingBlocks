@@ -18,84 +18,110 @@ allOf:
               type: object
               allOf:
               - if:
-                  properties:
-                    schema:additionalType:
-                      contains:
-                        const: EPMA
                   required:
-                  - schema:additionalType
+                  - schema:instrument
                 then:
                   properties:
-                    ada:acceleratingVoltage:
-                      description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
-                        depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration.
-                        Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high
-                        voltages (15-20 kV) improve X-ray generation for quantitative analysis.
-                      anyOf:
-                      - type: number
-                      - type: string
-                    ada:beamDiameter:
-                      description: Nominal electron beam diameter (spot size) at the sample surface, in
-                        nanometres or micrometres, as set by the condenser aperture and working distance.
-                        Controls the spatial resolution and X-ray excitation volume. For mapping modes,
-                        the effective spatial sampling interval is further defined by Step Size / Pixel
-                        Size.
-                      anyOf:
-                      - type: number
-                      - type: string
+                    schema:instrument:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: ../../../../BaseSchema/instrument/schema.yaml
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                schema:additionalType:
+                                  contains:
+                                    const: EPMA
+                              required:
+                              - schema:additionalType
+                            then:
+                              properties:
+                                ada:acceleratingVoltage:
+                                  description: Electron beam accelerating voltage in kilovolts. Affects
+                                    X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                    and beam penetration. Low voltages (1-5 kV) improve surface sensitivity
+                                    and reduce beam damage; high voltages (15-20 kV) improve X-ray generation
+                                    for quantitative analysis.
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                                ada:beamDiameter:
+                                  description: Nominal electron beam diameter (spot size) at the sample
+                                    surface, in nanometres or micrometres, as set by the condenser aperture
+                                    and working distance. Controls the spatial resolution and X-ray excitation
+                                    volume. For mapping modes, the effective spatial sampling interval
+                                    is further defined by Step Size / Pixel Size.
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                      allOf:
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: EPMA
+                          required:
+                          - schema:additionalType
               - if:
-                  properties:
-                    ada:toolRole:
-                      const: acquisition
                   required:
-                  - ada:toolRole
+                  - bios:computationalTool
                 then:
                   properties:
-                    schema:name:
-                      description: Software used to control the SEM and acquire data, including version
-                        number. For FIB-SEM 3D tomography, include the automated slice-and-view module
-                        name and version.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
-              - if:
-                  properties:
-                    ada:toolRole:
-                      const: dataReduction
-                  required:
-                  - ada:toolRole
-                then:
-                  properties:
-                    schema:name:
-                      description: Software used for post-acquisition data reduction and analysis. List
-                        all packages with version numbers.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
-            allOf:
-            - contains:
-                properties:
-                  schema:additionalType:
-                    contains:
-                      const: EPMA
-                required:
-                - schema:additionalType
-            - contains:
-                properties:
-                  ada:toolRole:
-                    const: acquisition
-                required:
-                - ada:toolRole
-            - contains:
-                properties:
-                  ada:toolRole:
-                    const: dataReduction
-                required:
-                - ada:toolRole
+                    bios:computationalTool:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedComputationalTool
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: acquisition
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Software used to control the SEM and acquire data, including
+                                    version number. For FIB-SEM 3D tomography, include the automated slice-and-view
+                                    module name and version.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: dataReduction
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Software used for post-acquisition data reduction and analysis.
+                                    List all packages with version numbers.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                      allOf:
+                      - contains:
+                          properties:
+                            ada:toolRole:
+                              const: acquisition
+                          required:
+                          - ada:toolRole
+                      - contains:
+                          properties:
+                            ada:toolRole:
+                              const: dataReduction
+                          required:
+                          - ada:toolRole
           schema:description:
             description: 'Any procedure- or analysis-specific information not captured by a structured
               field anywhere in this TAPP — including anomalies, deviations from the registered procedure,
@@ -123,7 +149,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/beamDamageMinimization
+                    - '@id': ada:parameter/semTAPP/beamDamageMinimization
                   schema:name:
                     const: Beam Damage Minimization
                   schema:value:
@@ -149,7 +175,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/beamRasterDimensions
+                    - '@id': ada:parameter/semTAPP/beamRasterDimensions
                   schema:name:
                     const: Beam Raster Dimensions
                   schema:value:
@@ -178,7 +204,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/driftCorrection
+                    - '@id': ada:parameter/semTAPP/driftCorrection
                   schema:name:
                     const: Drift Correction
                   schema:value:
@@ -205,7 +231,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/dwellTimePerPixel
+                    - '@id': ada:parameter/semTAPP/dwellTimePerPixel
                   schema:name:
                     const: Dwell Time per Pixel
                   schema:value:
@@ -234,7 +260,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/preAnalysisImagingAndScreening
+                    - '@id': ada:parameter/semTAPP/preAnalysisImagingAndScreening
                   schema:name:
                     const: Pre-Analysis Imaging and Screening
                   schema:value:
@@ -259,7 +285,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/halogenCorrectionOnOxygen
+                    - '@id': ada:parameter/semTAPP/halogenCorrectionOnOxygen
                   schema:name:
                     const: Halogen Correction on Oxygen
                   schema:value:
@@ -285,7 +311,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/stepSizePixelSize
+                    - '@id': ada:parameter/semTAPP/stepSizePixelSize
                   schema:name:
                     const: Step Size / Pixel Size
                   schema:value:
@@ -315,7 +341,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/edsDeadTime
+                    - '@id': ada:parameter/semTAPP/edsDeadTime
                   schema:name:
                     const: EDS Dead Time
                   schema:value:
@@ -348,7 +374,7 @@ allOf:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                      '@id': ada:parameter/semTAPP/proceduralBlankLevel
+                    - '@id': ada:parameter/semTAPP/proceduralBlankLevel
                   schema:name:
                     const: Procedural Blank Level
                   schema:value:
@@ -497,7 +523,7 @@ allOf:
                                 - schema:PropertyValue
                               schema:propertyID:
                                 const:
-                                  '@id': ada:parameter/semTAPP/constantsAndReferenceValuesUsed
+                                - '@id': ada:parameter/semTAPP/constantsAndReferenceValuesUsed
                               schema:name:
                                 const: Constants and Reference Values Used
                               schema:value:
@@ -542,7 +568,7 @@ allOf:
             - schema:PropertyValue
           schema:propertyID:
             const:
-              '@id': ada:parameter/semTAPP/mapArea
+            - '@id': ada:parameter/semTAPP/mapArea
           schema:name:
             const: Map Area
           schema:value:

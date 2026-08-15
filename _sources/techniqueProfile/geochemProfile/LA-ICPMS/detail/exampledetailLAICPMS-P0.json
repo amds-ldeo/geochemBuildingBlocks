@@ -40,9 +40,11 @@
               "@type": [
                 "schema:PropertyValue"
               ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate"
-              },
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/sampleFormAnalyticalSubstrate"
+                }
+              ],
               "schema:name": "Sample Form / Analytical Substrate",
               "schema:value": "example value"
             },
@@ -51,9 +53,11 @@
               "@type": [
                 "schema:PropertyValue"
               ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/analysisLocationSpotCoordinates"
-              },
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/analysisLocationSpotCoordinates"
+                }
+              ],
               "schema:name": "Analysis Location/Spot Coordinates",
               "schema:value": "example value"
             }
@@ -72,9 +76,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/laicpmsTAPP/fusionFluxAndDilutionRatio"
+                  }
+                ],
                 "schema:name": "Fusion Flux and Dilution Ratio",
                 "schema:value": "example value"
               },
@@ -83,9 +89,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatment"
+                  }
+                ],
                 "schema:name": "Pre-Ablation Surface Treatment",
                 "schema:value": "example value"
               }
@@ -100,9 +108,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/signalSmoothing"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/laicpmsTAPP/signalSmoothing"
+                  }
+                ],
                 "schema:name": "Signal Smoothing",
                 "schema:value": "example value"
               },
@@ -111,9 +121,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/laicpmsTAPP/uncertaintyPropagationMethod"
+                  }
+                ],
                 "schema:name": "Uncertainty Propagation Method",
                 "schema:value": "example value"
               },
@@ -122,9 +134,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/outlierFiltering"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/laicpmsTAPP/outlierFiltering"
+                  }
+                ],
                 "schema:name": "Spike / Outlier Filtering Approach",
                 "schema:value": "example value"
               },
@@ -133,9 +147,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrection"
+                  }
+                ],
                 "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
                 "schema:value": "example value"
               }
@@ -145,211 +161,285 @@
       },
       "prov:used": [
         {
-          "schema:additionalType": [
-            "ICPMS"
-          ],
-          "schema:identifier": "example instrumentIdentifier",
-          "schema:hasPart": [
+          "schema:instrument": [
             {
               "schema:additionalType": [
-                "Torch"
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:identifier": [
+                "example instrumentIdentifier"
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Torch"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/torchDepth",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/laicpmsTAPP/torchDepth"
+                        }
+                      ],
+                      "schema:name": "Torch Depth",
+                      "schema:value": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/coolantGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/laicpmsTAPP/coolantGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant (Plasma) Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/laicpmsTAPP/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Collision Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage"
+                        }
+                      ],
+                      "schema:name": "Cell Exit Discrimination Voltage",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Reaction Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/laicpmsTAPP/torchDepth",
+                  "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting",
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/laicpmsTAPP/torchDepth"
-                  },
-                  "schema:name": "Torch Depth",
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting"
+                    }
+                  ],
+                  "schema:name": "Mass Resolution Setting",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor"
+                    }
+                  ],
+                  "schema:name": "Doubly-Charged Species Monitor",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction"
+                    }
+                  ],
+                  "schema:name": "Doubly-Charged Species Production",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
                   "schema:value": "example value"
                 }
-              ]
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
             },
             {
               "schema:additionalType": [
-                "ICP Source"
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
               ],
+              "ada:laserSpotGeometry": "example spotGeometry",
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/laicpmsTAPP/coolantGasFlowRate",
+                  "@id": "ada:parameter/laicpmsTAPP/laserEnergy",
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/laicpmsTAPP/coolantGasFlowRate"
-                  },
-                  "schema:name": "Coolant (Plasma) Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/laicpmsTAPP/laserEnergy"
+                    }
                   ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/laicpmsTAPP/auxiliaryGasFlowRate"
-                  },
-                  "schema:name": "Auxiliary Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/laicpmsTAPP/rfPower",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/laicpmsTAPP/rfPower"
-                  },
-                  "schema:name": "RF Power",
+                  "schema:name": "Laser Energy",
                   "schema:value": 1,
                   "schema:unitText": "example value"
                 }
-              ]
-            },
-            {
-              "schema:additionalType": [
-                "Collision Reaction Cell"
               ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/laicpmsTAPP/collisionGasFlowRate"
-                  },
-                  "schema:name": "Collision Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/laicpmsTAPP/cellExitDiscriminationVoltage"
-                  },
-                  "schema:name": "Cell Exit Discrimination Voltage",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/laicpmsTAPP/reactionGasFlowRate"
-                  },
-                  "schema:name": "Reaction Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
-            }
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting",
+              "ada:laserFluence": 1.0,
+              "ada:laserRepetitionRate": 1.0,
               "@type": [
-                "schema:PropertyValue"
+                "schema:Product",
+                "schema:Thing"
               ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/massResolutionSetting"
-              },
-              "schema:name": "Mass Resolution Setting",
-              "schema:value": "example value"
-            },
-            {
-              "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuning",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuning"
-              },
-              "schema:name": "ICP Tuning",
-              "schema:value": "example value"
-            },
-            {
-              "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesMonitor"
-              },
-              "schema:name": "Doubly-Charged Species Monitor",
-              "schema:value": "example value"
-            },
-            {
-              "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/doublyChargedSpeciesProduction"
-              },
-              "schema:name": "Doubly-Charged Species Production",
-              "schema:value": "example value"
-            },
-            {
-              "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigation",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigation"
-              },
-              "schema:name": "Memory Effect Mitigation",
-              "schema:value": "example value"
+              "schema:name": "example instrumentName"
             }
           ]
         },
         {
-          "ada:toolRole": "acquisition",
-          "schema:name": "example acquisitionSoftware"
-        },
-        {
-          "ada:toolRole": "dataReduction",
-          "schema:name": "example dataReductionSoftware"
-        },
-        {
-          "schema:additionalType": [
-            "Laser Ablation System"
-          ],
-          "ada:laserSpotGeometry": "example spotGeometry",
-          "schema:additionalProperty": [
+          "bios:computationalTool": [
             {
-              "@id": "ada:parameter/laicpmsTAPP/laserEnergy",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/laicpmsTAPP/laserEnergy"
-              },
-              "schema:name": "Laser Energy",
-              "schema:value": 1,
-              "schema:unitText": "example value"
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware"
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware"
             }
-          ],
-          "ada:laserFluence": 1.0,
-          "ada:laserRepetitionRate": 1.0
+          ]
         },
         {
-          "ada:reagentRole": "primaryStandard",
-          "schema:name": "example primaryCalibrationStandardName"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "example secondaryReferenceMaterial"
+          "prov:reagent": [
+            {
+              "ada:reagentRole": "primaryStandard",
+              "schema:name": "example primaryCalibrationStandardName",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            },
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "example secondaryReferenceMaterial",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
         }
       ],
       "ada:ablationSpotDuration": 1.0,
@@ -359,9 +449,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSize"
+            }
+          ],
           "schema:name": "Transect Rate, Mapping Rate or Step Size",
           "schema:value": "example value"
         },
@@ -370,9 +462,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAddition"
+            }
+          ],
           "schema:name": "Plasma / Make-up Gas Addition",
           "schema:value": "example value"
         },
@@ -381,9 +475,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/laicpmsTAPP/numberOfReplicates"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/numberOfReplicates"
+            }
+          ],
           "schema:name": "Number of Replicates",
           "schema:value": 1
         },
@@ -392,9 +488,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/laicpmsTAPP/transectLength"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/transectLength"
+            }
+          ],
           "schema:name": "Transect Length",
           "schema:value": 1,
           "schema:unitText": "example value"
@@ -404,9 +502,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/laicpmsTAPP/mappingArea"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/mappingArea"
+            }
+          ],
           "schema:name": "Mapping Area",
           "schema:value": "example value"
         },
@@ -415,9 +515,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/laicpmsTAPP/signalIntegrationTime"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laicpmsTAPP/signalIntegrationTime"
+            }
+          ],
           "schema:name": "Signal Integration Time",
           "schema:value": 1,
           "schema:unitText": "example value"

@@ -36,9 +36,11 @@
               "@type": [
                 "schema:PropertyValue"
               ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
-              },
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                }
+              ],
               "schema:name": "Sample Aliquot Mass or Volume",
               "schema:value": 1,
               "schema:unitText": "example value"
@@ -57,9 +59,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                  }
+                ],
                 "schema:name": "Digestion Temperature",
                 "schema:value": 1,
                 "schema:unitText": "example value"
@@ -69,9 +73,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                  }
+                ],
                 "schema:name": "Digestion Duration",
                 "schema:value": "example value"
               }
@@ -85,9 +91,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach"
+                  }
+                ],
                 "schema:name": "Spike / Outlier Filtering Approach",
                 "schema:value": "example value"
               },
@@ -96,9 +104,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
+                  }
+                ],
                 "schema:name": "Uncertainty Propagation Method",
                 "schema:value": "example value"
               },
@@ -107,9 +117,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                  }
+                ],
                 "schema:name": "Normalization / Standards-Based Correction",
                 "schema:value": "example value"
               },
@@ -118,9 +130,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                  }
+                ],
                 "schema:name": "Constants and Reference Values Used",
                 "schema:value": "example value"
               }
@@ -130,188 +144,254 @@
       },
       "prov:used": [
         {
-          "schema:additionalType": [
-            "ICPMS"
-          ],
-          "schema:identifier": "example instrumentSerialNumberOrLabIdentifier",
-          "schema:hasPart": [
+          "schema:instrument": [
             {
               "schema:additionalType": [
-                "Torch"
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:identifier": [
+                "example instrumentSerialNumberOrLabIdentifier"
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Torch"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/torchDepth",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/torchDepth"
+                        }
+                      ],
+                      "schema:name": "Torch Depth",
+                      "schema:value": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Nebulizer Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Make-up Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant (Plasma) Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Collision Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage"
+                        }
+                      ],
+                      "schema:name": "Cell Exit Discrimination Voltage",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Reaction Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/torchDepth",
+                  "@id": "ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation",
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/torchDepth"
-                  },
-                  "schema:name": "Torch Depth",
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
                   "schema:value": "example value"
                 }
-              ]
-            },
-            {
-              "schema:additionalType": [
-                "Sample Introduction System"
               ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
-                  },
-                  "schema:name": "Sample Uptake Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
-                  },
-                  "schema:name": "Nebulizer Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
-                  },
-                  "schema:name": "Make-up Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
-            },
-            {
-              "schema:additionalType": [
-                "ICP Source"
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/rfPower",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/rfPower"
-                  },
-                  "schema:name": "RF Power",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate"
-                  },
-                  "schema:name": "Coolant (Plasma) Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate"
-                  },
-                  "schema:name": "Auxiliary Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
-            },
-            {
-              "schema:additionalType": [
-                "Collision Reaction Cell"
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate"
-                  },
-                  "schema:name": "Collision Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage"
-                  },
-                  "schema:name": "Cell Exit Discrimination Voltage",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate"
-                  },
-                  "schema:name": "Reaction Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
-            }
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation",
               "@type": [
-                "schema:PropertyValue"
+                "schema:Product",
+                "schema:Thing"
               ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation"
-              },
-              "schema:name": "Memory Effect Mitigation",
-              "schema:value": "example value"
+              "schema:name": "example instrumentName"
             }
           ]
         },
         {
-          "ada:toolRole": "acquisition",
-          "schema:name": "example acquisitionSoftware"
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware"
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware"
+            }
+          ]
         },
         {
-          "ada:toolRole": "dataReduction",
-          "schema:name": "example dataReductionSoftware"
-        },
-        {
-          "ada:reagentRole": "primaryStandard",
-          "schema:name": "example primaryCalibrationStandardName"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "example secondaryReferenceMaterials"
+          "prov:reagent": [
+            {
+              "ada:reagentRole": "primaryStandard",
+              "schema:name": "example primaryCalibrationStandardName",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            },
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "example secondaryReferenceMaterials",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -320,9 +400,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime"
+            }
+          ],
           "schema:name": "Signal Integration Time",
           "schema:value": 1,
           "schema:unitText": "example value"

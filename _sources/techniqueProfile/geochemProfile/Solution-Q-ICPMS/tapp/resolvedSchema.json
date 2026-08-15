@@ -1397,27 +1397,11 @@
               },
               "schema:propertyID": {
                 "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/PropertyIDValue"
+                }
               },
               "schema:inDefinedTermSet": {
                 "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
@@ -1635,26 +1619,11 @@
               },
               "schema:propertyID": {
                 "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/PropertyIDValue"
+                }
               },
               "schema:value": {
                 "description": "The fixed protocol value for this read-only parameter."
@@ -3620,9 +3589,11 @@
                                     ]
                                   },
                                   "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
-                                    }
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
+                                      }
+                                    ]
                                   },
                                   "schema:name": {
                                     "const": "Digestion Vessel Type"
@@ -3654,9 +3625,11 @@
                                     ]
                                   },
                                   "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
-                                    }
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
+                                      }
+                                    ]
                                   },
                                   "schema:name": {
                                     "const": "Number of Digestion Steps"
@@ -3784,9 +3757,11 @@
                                     ]
                                   },
                                   "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
-                                    }
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/solutionQicpmsTAPP/digestionVesselType"
+                                      }
+                                    ]
                                   },
                                   "schema:name": {
                                     "const": "Digestion Vessel Type"
@@ -3822,9 +3797,11 @@
                                     ]
                                   },
                                   "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
-                                    }
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/solutionQicpmsTAPP/numberOfDigestionSteps"
+                                      }
+                                    ]
                                   },
                                   "schema:name": {
                                     "const": "Number of Digestion Steps"
@@ -3979,9 +3956,11 @@
                                 ]
                               },
                               "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-                                }
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
+                                  }
+                                ]
                               },
                               "schema:name": {
                                 "const": "Guard Electrode"
@@ -4015,9 +3994,11 @@
                                     ]
                                   },
                                   "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-                                    }
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
+                                      }
+                                    ]
                                   },
                                   "schema:name": {
                                     "const": "Guard Electrode"
@@ -4115,9 +4096,11 @@
                                     ]
                                   },
                                   "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-                                    }
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
+                                      }
+                                    ]
                                   },
                                   "schema:name": {
                                     "const": "Isotope Dilution Data Reduction Method"
@@ -4280,9 +4263,11 @@
                                     ]
                                   },
                                   "schema:propertyID": {
-                                    "const": {
-                                      "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-                                    }
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
+                                      }
+                                    ]
                                   },
                                   "schema:name": {
                                     "const": "Isotope Dilution Data Reduction Method"
@@ -4542,9 +4527,11 @@
                                 ]
                               },
                               "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-                                }
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+                                  }
+                                ]
                               },
                               "schema:name": {
                                 "const": "Mass Resolution Setting"
@@ -4576,9 +4563,11 @@
                                 ]
                               },
                               "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
-                                }
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                                  }
+                                ]
                               },
                               "schema:name": {
                                 "const": "Detector Configuration"
@@ -4826,9 +4815,11 @@
                                 ]
                               },
                               "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-                                }
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+                                  }
+                                ]
                               },
                               "schema:name": {
                                 "const": "Mass Resolution Setting"
@@ -4864,9 +4855,11 @@
                                 ]
                               },
                               "schema:propertyID": {
-                                "const": {
-                                  "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
-                                }
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                                  }
+                                ]
                               },
                               "schema:name": {
                                 "const": "Detector Configuration"
@@ -5235,9 +5228,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Interface Cone Configuration"
@@ -5269,9 +5264,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Sampler and Skimmer Cone Material"
@@ -5307,9 +5304,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Interface Cone Configuration"
@@ -5345,9 +5344,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Sampler and Skimmer Cone Material"
@@ -5438,9 +5439,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Collision Gas Type"
@@ -5560,9 +5563,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Reaction Gas Type"
@@ -5642,9 +5647,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Collision Gas Type"
@@ -5776,9 +5783,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Reaction Gas Type"
@@ -5885,9 +5894,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Nebulizer Type"
@@ -5919,9 +5930,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Spray Chamber Type and Cooling Temperature"
@@ -6045,9 +6058,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerType"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Nebulizer Type"
@@ -6083,9 +6098,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Spray Chamber Type and Cooling Temperature"
@@ -6372,9 +6389,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Plasma Thermal Mode"
@@ -6554,9 +6573,11 @@
                                             ]
                                           },
                                           "schema:propertyID": {
-                                            "const": {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                                            }
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
+                                              }
+                                            ]
                                           },
                                           "schema:name": {
                                             "const": "Plasma Thermal Mode"
@@ -6683,9 +6704,11 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/solutionQicpmsTAPP/desolvationSystem"
-                    }
+                    "const": [
+                      {
+                        "@id": "ada:parameter/solutionQicpmsTAPP/desolvationSystem"
+                      }
+                    ]
                   },
                   "schema:name": {
                     "const": "Desolvation System"
@@ -6717,9 +6740,11 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/solutionQicpmsTAPP/internalStandardConcentration"
-                    }
+                    "const": [
+                      {
+                        "@id": "ada:parameter/solutionQicpmsTAPP/internalStandardConcentration"
+                      }
+                    ]
                   },
                   "schema:name": {
                     "const": "Internal Standard Concentration"
@@ -6848,9 +6873,11 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/solutionQicpmsTAPP/desolvationSystem"
-                    }
+                    "const": [
+                      {
+                        "@id": "ada:parameter/solutionQicpmsTAPP/desolvationSystem"
+                      }
+                    ]
                   },
                   "schema:name": {
                     "const": "Desolvation System"
@@ -6886,9 +6913,11 @@
                     ]
                   },
                   "schema:propertyID": {
-                    "const": {
-                      "@id": "ada:parameter/solutionQicpmsTAPP/internalStandardConcentration"
-                    }
+                    "const": [
+                      {
+                        "@id": "ada:parameter/solutionQicpmsTAPP/internalStandardConcentration"
+                      }
+                    ]
                   },
                   "schema:name": {
                     "const": "Internal Standard Concentration"
@@ -9903,7 +9932,7 @@
           "type": "object",
           "properties": {
             "schema:additionalType": {
-              "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid.",
+              "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
               "type": "array",
               "items": {
                 "anyOf": [
@@ -9924,7 +9953,18 @@
                   }
                 ]
               },
-              "minItems": 1
+              "minItems": 1,
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "https://www.wikidata.org/wiki/Q3099911"
+                  }
+                },
+                "required": [
+                  "@id"
+                ]
+              }
             }
           },
           "required": [
@@ -10690,11 +10730,8 @@
           ]
         },
         "skos:notation": {
-          "description": "Classification code for this concept within a scheme.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "description": "Classification code for this concept within a scheme (a single notation string, consistent with CdifCodelistConcept).",
+          "type": "string"
         },
         "skos:definition": {
           "description": "Formal explanation of the meaning of this concept.",
@@ -11178,27 +11215,11 @@
                   },
                   "schema:propertyID": {
                     "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "anyOf": [
-                      {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                          "@id"
-                        ],
-                        "properties": {
-                          "@id": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      {
-                        "$ref": "#/$defs/DefinedTerm"
-                      }
-                    ]
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "#/$defs/PropertyIDValue"
+                    }
                   },
                   "schema:inDefinedTermSet": {
                     "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
@@ -11416,26 +11437,11 @@
                   },
                   "schema:propertyID": {
                     "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                          "@id"
-                        ],
-                        "properties": {
-                          "@id": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      {
-                        "$ref": "#/$defs/DefinedTerm"
-                      }
-                    ]
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "#/$defs/PropertyIDValue"
+                    }
                   },
                   "schema:value": {
                     "description": "The fixed protocol value for this read-only parameter."
@@ -11523,6 +11529,30 @@
         "schema:position"
       ]
     },
+    "PropertyIDValue": {
+      "description": "One value of schema:propertyID: a vocabulary URI, a JSON-LD IRI reference, or a DefinedTerm. propertyID is 0..*, so the property is ALWAYS an array of these -- never a bare value. A consumer therefore iterates without first testing the value's type.",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "@id"
+          ],
+          "properties": {
+            "@id": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/DefinedTerm"
+        }
+      ]
+    },
     "KeyedTableColumn": {
       "type": "object",
       "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. AnalyteColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
@@ -11551,27 +11581,11 @@
         },
         "schema:propertyID": {
           "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "uri"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "@id"
-              ],
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "$ref": "#/$defs/DefinedTerm"
-            }
-          ]
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/PropertyIDValue"
+          }
         },
         "schema:inDefinedTermSet": {
           "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",

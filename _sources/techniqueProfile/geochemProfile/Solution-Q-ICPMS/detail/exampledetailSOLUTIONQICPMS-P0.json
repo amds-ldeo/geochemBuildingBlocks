@@ -36,9 +36,11 @@
               "@type": [
                 "schema:PropertyValue"
               ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
-              },
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume"
+                }
+              ],
               "schema:name": "Sample Aliquot Mass or Volume",
               "schema:value": 1,
               "schema:unitText": "example value"
@@ -57,9 +59,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/digestionTemperature"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/digestionTemperature"
+                  }
+                ],
                 "schema:name": "Digestion Temperature",
                 "schema:value": 1,
                 "schema:unitText": "example value"
@@ -69,9 +73,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/digestionDuration"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/digestionDuration"
+                  }
+                ],
                 "schema:name": "Digestion Duration",
                 "schema:value": "example value"
               }
@@ -85,9 +91,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach"
+                  }
+                ],
                 "schema:name": "Spike / Outlier Filtering Approach",
                 "schema:value": "example value"
               },
@@ -96,9 +104,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
+                  }
+                ],
                 "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
                 "schema:value": "example value"
               },
@@ -107,9 +117,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod"
+                  }
+                ],
                 "schema:name": "Uncertainty Propagation Method",
                 "schema:value": "example value"
               },
@@ -118,9 +130,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
+                  }
+                ],
                 "schema:name": "Normalization / Standards-Based Correction",
                 "schema:value": "example value"
               },
@@ -129,9 +143,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed"
+                  }
+                ],
                 "schema:name": "Constants and Reference Values Used",
                 "schema:value": "example value"
               }
@@ -141,210 +157,280 @@
       },
       "prov:used": [
         {
-          "schema:additionalType": [
-            "ICPMS"
-          ],
-          "schema:identifier": "example instrumentSerialNumberOrLabIdentifier",
-          "schema:hasPart": [
+          "schema:instrument": [
             {
               "schema:additionalType": [
-                "Torch"
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:identifier": [
+                "example instrumentSerialNumberOrLabIdentifier"
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Torch"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/torchDepth",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/torchDepth"
+                        }
+                      ],
+                      "schema:name": "Torch Depth",
+                      "schema:value": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Nebulizer Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Make-up Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant (Plasma) Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell"
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Collision Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage"
+                        }
+                      ],
+                      "schema:name": "Cell Exit Discrimination Voltage",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Reaction Gas Flow Rate",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example instrumentName"
+                }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/torchDepth",
+                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor",
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/torchDepth"
-                  },
-                  "schema:name": "Torch Depth",
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
+                    }
+                  ],
+                  "schema:name": "Doubly-Charged Species Monitor",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
+                    }
+                  ],
+                  "schema:name": "Doubly-Charged Species Production",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
                   "schema:value": "example value"
                 }
-              ]
-            },
-            {
-              "schema:additionalType": [
-                "Sample Introduction System"
               ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/sampleUptakeRate"
-                  },
-                  "schema:name": "Sample Uptake Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate"
-                  },
-                  "schema:name": "Nebulizer Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate"
-                  },
-                  "schema:name": "Make-up Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
-            },
-            {
-              "schema:additionalType": [
-                "ICP Source"
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/rfPower",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/rfPower"
-                  },
-                  "schema:name": "RF Power",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate"
-                  },
-                  "schema:name": "Coolant (Plasma) Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate"
-                  },
-                  "schema:name": "Auxiliary Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
-            },
-            {
-              "schema:additionalType": [
-                "Collision Reaction Cell"
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate"
-                  },
-                  "schema:name": "Collision Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage"
-                  },
-                  "schema:name": "Cell Exit Discrimination Voltage",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": {
-                    "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate"
-                  },
-                  "schema:name": "Reaction Gas Flow Rate",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ]
-            }
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor",
               "@type": [
-                "schema:PropertyValue"
+                "schema:Product",
+                "schema:Thing"
               ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
-              },
-              "schema:name": "Doubly-Charged Species Monitor",
-              "schema:value": "example value"
-            },
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
-              },
-              "schema:name": "Doubly-Charged Species Production",
-              "schema:value": "example value"
-            },
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": {
-                "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation"
-              },
-              "schema:name": "Memory Effect Mitigation",
-              "schema:value": "example value"
+              "schema:name": "example instrumentName"
             }
           ]
         },
         {
-          "ada:toolRole": "acquisition",
-          "schema:name": "example acquisitionSoftware"
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware"
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware"
+            }
+          ]
         },
         {
-          "ada:toolRole": "dataReduction",
-          "schema:name": "example dataReductionSoftware"
-        },
-        {
-          "ada:reagentRole": "primaryStandard",
-          "schema:name": "example primaryCalibrationStandardName"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "example secondaryReferenceMaterials"
+          "prov:reagent": [
+            {
+              "ada:reagentRole": "primaryStandard",
+              "schema:name": "example primaryCalibrationStandardName",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            },
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "example secondaryReferenceMaterials",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -353,9 +439,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/solutionQicpmsTAPP/signalIntegrationTime"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/signalIntegrationTime"
+            }
+          ],
           "schema:name": "Signal Integration Time",
           "schema:value": 1,
           "schema:unitText": "example value"

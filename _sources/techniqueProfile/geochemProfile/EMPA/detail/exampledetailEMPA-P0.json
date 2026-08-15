@@ -16,19 +16,35 @@
     {
       "prov:used": [
         {
-          "schema:additionalType": [
-            "EPMA"
-          ],
-          "ada:acceleratingVoltage": 1.0,
-          "ada:beamDiameter": 1.0
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "EPMA",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:acceleratingVoltage": 1.0,
+              "ada:beamDiameter": 1.0,
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
+            }
+          ]
         },
         {
-          "ada:toolRole": "acquisition",
-          "schema:name": "example acquisitionSoftware"
-        },
-        {
-          "ada:toolRole": "dataReduction",
-          "schema:name": "example dataReductionSoftware"
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware"
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware"
+            }
+          ]
         }
       ],
       "schema:description": "example additionalNotes",
@@ -40,9 +56,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
+            }
+          ],
           "schema:name": "Beam Damage Minimization",
           "schema:value": "example value"
         },
@@ -51,9 +69,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
+            }
+          ],
           "schema:name": "Beam Raster Dimensions",
           "schema:value": 1,
           "schema:unitText": "example value"
@@ -63,9 +83,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/driftCorrection"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/driftCorrection"
+            }
+          ],
           "schema:name": "Drift Correction",
           "schema:value": "example value"
         },
@@ -74,9 +96,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
+            }
+          ],
           "schema:name": "Dwell Time per Pixel",
           "schema:value": 1,
           "schema:unitText": "example value"
@@ -86,9 +110,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+            }
+          ],
           "schema:name": "Pre-Analysis Imaging and Screening",
           "schema:value": "example value"
         },
@@ -97,9 +123,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+            }
+          ],
           "schema:name": "Halogen Correction on Oxygen",
           "schema:value": "example value"
         },
@@ -108,9 +136,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
+            }
+          ],
           "schema:name": "Step Size / Pixel Size",
           "schema:value": 1,
           "schema:unitText": "example value"
@@ -120,9 +150,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/edsDeadTime"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/edsDeadTime"
+            }
+          ],
           "schema:name": "EDS Dead Time",
           "schema:value": 1,
           "schema:unitText": "example value"
@@ -132,9 +164,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
+            }
+          ],
           "schema:name": "Procedural Blank Level",
           "schema:value": "example value"
         }
@@ -170,9 +204,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                  }
+                ],
                 "schema:name": "Constants and Reference Values Used",
                 "schema:value": "example value"
               }
@@ -223,9 +259,11 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/mapArea"
-      },
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/empaTAPP/mapArea"
+        }
+      ],
       "schema:name": "Map Area",
       "schema:value": 1,
       "schema:unitText": "example value"
@@ -235,9 +273,11 @@
       "@type": [
         "schema:PropertyValue"
       ],
-      "schema:propertyID": {
-        "@id": "ada:parameter/empaTAPP/mapDimensions"
-      },
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/empaTAPP/mapDimensions"
+        }
+      ],
       "schema:name": "Map Dimensions",
       "schema:value": 1,
       "schema:unitText": "example value"

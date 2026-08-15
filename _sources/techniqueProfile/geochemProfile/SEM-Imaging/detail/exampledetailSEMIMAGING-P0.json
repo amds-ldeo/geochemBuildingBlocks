@@ -37,9 +37,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase"
+                  }
+                ],
                 "schema:name": "Crystal Structure Database",
                 "schema:value": "example value"
               },
@@ -48,9 +50,11 @@
                 "@type": [
                   "schema:PropertyValue"
                 ],
-                "schema:propertyID": {
-                  "@id": "ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed"
-                },
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed"
+                  }
+                ],
                 "schema:name": "Constants and Reference Values Used",
                 "schema:value": "example value"
               }
@@ -69,19 +73,35 @@
       ],
       "prov:used": [
         {
-          "ada:toolRole": "acquisition",
-          "schema:name": "example acquisitionSoftware"
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware"
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware"
+            }
+          ]
         },
         {
-          "ada:toolRole": "dataReduction",
-          "schema:name": "example dataReductionSoftware"
-        },
-        {
-          "schema:additionalType": [
-            "SEM"
-          ],
-          "ada:acceleratingVoltage": 1.0,
-          "ada:workingDistance": 1.0
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:acceleratingVoltage": 1.0,
+              "ada:workingDistance": 1.0,
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
+            }
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -90,9 +110,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semImagingTAPP/chamberPressure"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+            }
+          ],
           "schema:name": "Chamber Pressure",
           "schema:value": 1
         },
@@ -101,9 +123,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semImagingTAPP/imagePixelSize"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/imagePixelSize"
+            }
+          ],
           "schema:name": "Image Pixel Size",
           "schema:value": 1
         },
@@ -112,9 +136,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
+            }
+          ],
           "schema:name": "Dwell Time per Pixel",
           "schema:value": 1
         },
@@ -123,9 +149,11 @@
           "@type": [
             "schema:PropertyValue"
           ],
-          "schema:propertyID": {
-            "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
-          },
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+            }
+          ],
           "schema:name": "CL Wavelength Calibration Reference",
           "schema:value": "example value"
         }
