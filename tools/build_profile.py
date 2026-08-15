@@ -160,6 +160,12 @@ def _example(tapp, cfg, component_types):
     ex["schema:description"] = (f"Example path-driven {cfg['short']} product record: dataset-level analysis "
                                 f"detail plus technique component types on distribution.hasPart. Mock data.")
     ex["schema:additionalType"] = [cfg["addtype"][0], "ada:DataDeliveryPackage"]
+    # The scaffolding is the LA-ICPMS example, so its prov:used instrument is an ICPMS. Retarget it
+    # to whatever THIS technique's detail selects on, or every profile example claims an ICP-MS --
+    # an EMPA record asserting it used a mass spectrometer. A laser-ablation technique legitimately
+    # names two (Laser Ablation System + ICPMS); both go on the one instrument, which is what
+    # satisfies a `contains` per token.
+    _retarget_instrument(ex, _instrument_tokens(tapp))
     # swap distribution componentType -> this technique's first componentType, and mark each
     # BUNDLE distribution (one with schema:hasPart) as a schema:Collection so it is recognized as
     # an archive and held to the manifest profile (symmetric with the monolithic cdi:PhysicalDataSet).
@@ -267,6 +273,62 @@ def _bundled(node):
     if isinstance(node, list):
         return [_bundled(v) for v in node]
     return node
+
+
+def _instrument_tokens(tapp):
+    """The schema:additionalType tokens this technique's detail requires on a prov:used instrument.
+
+    Read from the generated detail schema rather than a second hand-maintained table, so the example
+    cannot drift from the constraint it has to satisfy."""
+    import yaml
+    d = os.path.join(TPROF, b.TECH_DIR[tapp], "detail", "schema.yaml")
+    if not os.path.exists(d):
+        return []
+    doc = yaml.safe_load(open(d, encoding="utf-8"))
+    toks, seen = [], set()
+
+    def walk(n, under_instr):
+        if isinstance(n, dict):
+            for k, v in n.items():
+                # a sub-component (Torch, ICP Source, ...) is typed on schema:hasPart, not on the
+                # instrument itself, so its subtree contributes no instrument-level token
+                if k == "schema:hasPart":
+                    continue
+                if under_instr and k == "schema:additionalType" and isinstance(v, dict):
+                    c = v.get("contains")
+                    if isinstance(c, dict) and isinstance(c.get("const"), str) and c["const"] not in seen:
+                        seen.add(c["const"]); toks.append(c["const"])
+                walk(v, under_instr or k == "schema:instrument")
+        elif isinstance(n, list):
+            for v in n:
+                walk(v, under_instr)
+
+    walk(doc, False)
+    return toks
+
+
+def _retarget_instrument(ex, tokens):
+    """Put `tokens` on every prov:used instrument, replacing the scaffolding's own technique token."""
+    if not tokens:
+        return
+    keep_prefixes = ("nxs:",)
+
+    def walk(x):
+        if isinstance(x, dict):
+            for k, v in x.items():
+                if k == "schema:instrument":
+                    for e in (v if isinstance(v, list) else [v]):
+                        if not isinstance(e, dict):
+                            continue
+                        at = e.get("schema:additionalType") or []
+                        kept = [a for a in at if not isinstance(a, str) or a.startswith(keep_prefixes)]
+                        e["schema:additionalType"] = kept[:1] + list(tokens) + kept[1:]
+                walk(v)
+        elif isinstance(x, list):
+            for i in x:
+                walk(i)
+
+    walk(ex)
 
 
 def build(tapp):
