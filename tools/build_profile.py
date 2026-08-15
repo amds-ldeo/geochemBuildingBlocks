@@ -82,14 +82,20 @@ def _schema(tapp, cfg, component_types):
             {"$ref": "../detail/schema.yaml"},
             {"type": "object", "properties": {
                 "prov:wasGeneratedBy": {
-                    "description": f"Narrow the base prov:used to the {tapp} definition — inline, or by node @id — alongside the instrument.",
+                    "description": (f"Pin the {tapp} definition and the instrument where prov:used carries them. "
+                                    f"Constraint-only if/then, never a narrowed anyOf: prov:used items are "
+                                    f"role-keyed wrappers, and an anyOf here would allOf-merge with the base "
+                                    f"union and exclude item shapes the base allows."),
                     "type": "array",
-                    "items": {"type": "object", "properties": {"prov:used": {"type": "array", "items": {"anyOf": [
-                        {"$ref": "../../../../BaseSchema/instrument/schema.yaml"},
-                        {"type": "object",
-                         "description": f"Reference by node @id to a {tapp} definition object defined elsewhere.",
-                         "properties": {"@id": {"type": "string", "format": "uri"}}, "required": ["@id"]},
-                        {"$ref": "../tapp/schema.yaml"}]}}}}},
+                    "items": {"type": "object", "properties": {"prov:used": {"type": "array", "items": {"allOf": [
+                        {"if": {"type": "object", "required": ["schema:instrument"]},
+                         "then": {"properties": {"schema:instrument": {
+                             "type": "array", "minItems": 1,
+                             "items": {"$ref": "../../../../BaseSchema/instrument/schema.yaml"}}}}},
+                        {"if": {"type": "object",
+                                "properties": {"@type": {"contains": {"const": "ada:TAPPDefinition"}}},
+                                "required": ["@type"]},
+                         "then": {"$ref": "../tapp/schema.yaml"}}]}}}}},
                 "schema:additionalType": {
                     "description": f"Must include a {cfg['short']} product type identifier.",
                     "contains": {"enum": cfg["addtype"]}},

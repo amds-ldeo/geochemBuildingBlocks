@@ -19,20 +19,32 @@ allOf:
           type: object
           properties:
             prov:used:
+              # Constraint-only pins, not a narrowed anyOf: prov:used items are role-keyed
+              # wrappers, and an anyOf here allOf-merges with the base union and excludes item
+              # shapes the base allows. A bare {"@id"} reference to an empaTAPP needs no pin --
+              # the base accepts it already.
               type: array
               items:
-                anyOf:
-                  - $ref: ../../../../BaseSchema/instrument/schema.yaml
-                  - type: object
-                    additionalProperties: false
-                    description: Reference by node @id to an empaTAPP definition object defined elsewhere.
-                    properties:
-                      '@id':
-                        type: string
-                        format: uri
-                    required:
-                      - '@id'
-                  - $ref: ../tapp/schema.yaml
+                allOf:
+                  - if:
+                      type: object
+                      required: ['schema:instrument']
+                    then:
+                      properties:
+                        'schema:instrument':
+                          type: array
+                          minItems: 1
+                          items:
+                            $ref: ../../../../BaseSchema/instrument/schema.yaml
+                  - if:
+                      type: object
+                      properties:
+                        '@type':
+                          contains:
+                            const: ada:TAPPDefinition
+                      required: ['@type']
+                    then:
+                      $ref: ../tapp/schema.yaml
       schema:additionalType:
         description: Must include an EMPA product type identifier.
         contains:
