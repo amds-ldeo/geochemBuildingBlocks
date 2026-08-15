@@ -99,6 +99,10 @@
                         "anyOf": [
                           {
                             "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
                             "properties": {
                               "@id": {
                                 "type": "string",
@@ -150,6 +154,7 @@
                                           },
                                           {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "required": [
                                               "@id"
                                             ],
@@ -269,6 +274,10 @@
                   },
                   "cdif:formats_InstanceVariable": {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "description": "Reference to a variable defined in schema:variableMeasured.",
                     "properties": {
                       "@id": {
@@ -342,11 +351,8 @@
           ]
         },
         "skos:notation": {
-          "description": "Classification code for this concept within a scheme.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "description": "Classification code for this concept within a scheme (a single notation string, consistent with CdifCodelistConcept).",
+          "type": "string"
         },
         "skos:definition": {
           "description": "Formal explanation of the meaning of this concept.",
@@ -401,6 +407,7 @@
           "anyOf": [
             {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -414,6 +421,7 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -433,6 +441,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
@@ -457,6 +466,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {

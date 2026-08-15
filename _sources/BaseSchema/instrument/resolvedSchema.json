@@ -58,6 +58,7 @@
               },
               {
                 "type": "object",
+                "additionalProperties": false,
                 "required": [
                   "@id"
                 ],
@@ -90,6 +91,7 @@
               },
               {
                 "type": "object",
+                "additionalProperties": false,
                 "required": [
                   "@id"
                 ],
@@ -207,6 +209,7 @@
                           },
                           {
                             "type": "object",
+                            "additionalProperties": false,
                             "required": [
                               "@id"
                             ],
@@ -324,6 +327,10 @@
                     "anyOf": [
                       {
                         "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string",
@@ -375,6 +382,7 @@
                                       },
                                       {
                                         "type": "object",
+                                        "additionalProperties": false,
                                         "required": [
                                           "@id"
                                         ],
@@ -468,6 +476,7 @@
                 "anyOf": [
                   {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
@@ -526,6 +535,7 @@
                                   },
                                   {
                                     "type": "object",
+                                    "additionalProperties": false,
                                     "required": [
                                       "@id"
                                     ],
@@ -653,6 +663,7 @@
                                       },
                                       {
                                         "type": "object",
+                                        "additionalProperties": false,
                                         "required": [
                                           "@id"
                                         ],
@@ -712,6 +723,10 @@
                                 },
                                 {
                                   "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false,
                                   "properties": {
                                     "@id": {
                                       "type": "string"
@@ -779,6 +794,10 @@
                             },
                             {
                               "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false,
                               "properties": {
                                 "@id": {
                                   "type": "string"
@@ -885,6 +904,7 @@
                                   },
                                   {
                                     "type": "object",
+                                    "additionalProperties": false,
                                     "required": [
                                       "@id"
                                     ],
@@ -944,6 +964,10 @@
                             },
                             {
                               "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false,
                               "properties": {
                                 "@id": {
                                   "type": "string"
@@ -1013,6 +1037,10 @@
                     },
                     {
                       "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
                       "properties": {
                         "@id": {
                           "type": "string"
@@ -1129,6 +1157,7 @@
                         },
                         {
                           "type": "object",
+                          "additionalProperties": false,
                           "required": [
                             "@id"
                           ],
@@ -1167,6 +1196,10 @@
                               },
                               {
                                 "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
                                 "properties": {
                                   "@id": {
                                     "type": "string"
@@ -1235,6 +1268,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -1277,6 +1311,7 @@
               },
               {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -1354,6 +1389,10 @@
                         "anyOf": [
                           {
                             "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
                             "properties": {
                               "@id": {
                                 "type": "string",
@@ -1405,6 +1444,7 @@
                                           },
                                           {
                                             "type": "object",
+                                            "additionalProperties": false,
                                             "required": [
                                               "@id"
                                             ],
@@ -1523,6 +1563,10 @@
             },
             "schema:about": {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
@@ -1540,6 +1584,10 @@
                   },
                   {
                     "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string"
@@ -1564,7 +1612,7 @@
       "type": "object",
       "properties": {
         "schema:additionalType": {
-          "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid.",
+          "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
           "type": "array",
           "items": {
             "anyOf": [
@@ -1573,6 +1621,7 @@
               },
               {
                 "type": "object",
+                "additionalProperties": false,
                 "required": [
                   "@id"
                 ],
@@ -1584,7 +1633,18 @@
               }
             ]
           },
-          "minItems": 1
+          "minItems": 1,
+          "contains": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "const": "https://www.wikidata.org/wiki/Q3099911"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          }
         }
       },
       "required": [
@@ -1614,6 +1674,7 @@
             },
             {
               "type": "object",
+              "additionalProperties": false,
               "required": [
                 "@id"
               ],
@@ -1732,6 +1793,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -1791,6 +1853,10 @@
               },
               {
                 "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -1835,6 +1901,10 @@
           "anyOf": [
             {
               "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
@@ -1886,6 +1956,7 @@
                             },
                             {
                               "type": "object",
+                              "additionalProperties": false,
                               "required": [
                                 "@id"
                               ],
@@ -2019,6 +2090,7 @@
                     },
                     {
                       "type": "object",
+                      "additionalProperties": false,
                       "required": [
                         "@id"
                       ],
@@ -2148,11 +2220,8 @@
           ]
         },
         "skos:notation": {
-          "description": "Classification code for this concept within a scheme.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "description": "Classification code for this concept within a scheme (a single notation string, consistent with CdifCodelistConcept).",
+          "type": "string"
         },
         "skos:definition": {
           "description": "Formal explanation of the meaning of this concept.",
@@ -2207,6 +2276,7 @@
           "anyOf": [
             {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string"
@@ -2220,6 +2290,7 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "@id": {
                     "type": "string"
@@ -2239,6 +2310,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
@@ -2263,6 +2335,7 @@
             "anyOf": [
               {
                 "type": "object",
+                "additionalProperties": false,
                 "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
