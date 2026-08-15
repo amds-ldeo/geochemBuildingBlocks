@@ -28,9 +28,7 @@
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": [
-      "https://registry.identifiers.org/registry/doi"
-    ],
+    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
     "schema:value": "10.99999/adaicpms-example-001",
     "schema:url": "https://doi.org/10.99999/adaicpms-example-001"
   },
@@ -141,9 +139,7 @@
         "@type": [
           "schema:PropertyValue"
         ],
-        "schema:propertyID": [
-          "award number"
-        ],
+        "schema:propertyID": "award number",
         "schema:value": "NNX17AE48G"
       },
       "schema:name": "Astromaterials Curation and Analysis",
@@ -173,17 +169,24 @@
       "schema:startDate": "2026-01-10T09:30:00",
       "prov:used": [
         {
-          "@type": [
-            "schema:Thing",
-            "schema:Product"
-          ],
-          "schema:additionalType": [
-            "nxs:BaseClass/NXinstrument",
-            "ada:ICPMSInstrument"
-          ],
-          "schema:name": "Example ICPMS Instrument",
-          "schema:identifier": [
-            "ex:instrument-icpms-001"
+          "schema:instrument": [
+            {
+              "@type": [
+                "schema:Thing",
+                "schema:Product"
+              ],
+              "schema:additionalType": [
+                "nxs:BaseClass/NXinstrument",
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:name": "Example ICPMS Instrument",
+              "schema:identifier": [
+                "ex:instrument-icpms-001"
+              ]
+            }
           ]
         }
       ],
@@ -368,5 +371,15 @@
       "schema:name": "Astromat Data Archive",
       "schema:url": "https://astromat.org"
     }
-  }
+  },
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Dispersion Statistic",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+    }
+  ]
 }
