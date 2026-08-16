@@ -39,7 +39,8 @@
                                     "LA-ICP-MS U-(Th-)Pb Geochronology",
                                     "LA-Q-ICP-MS U-(Th-)Pb Geochronology",
                                     "LA-SF-ICP-MS U-(Th-)Pb Geochronology",
-                                    "LA-MC-ICP-MS U-(Th-)Pb Geochronology"
+                                    "LA-MC-ICP-MS U-(Th-)Pb Geochronology",
+                                    "missing"
                                 ],
                                 "readOnly": true
                             }
@@ -129,7 +130,8 @@
                                                         "SIMS",
                                                         "EPMA",
                                                         "CL/BSE Imaging",
-                                                        "None"
+                                                        "None",
+                                                        "missing"
                                                     ]
                                                 },
                                                 "schema:description": {
@@ -2167,7 +2169,8 @@
                                                                             "Xenotime",
                                                                             "Baddeleyite",
                                                                             "Perovskite",
-                                                                            "Allanite"
+                                                                            "Allanite",
+                                                                            "missing"
                                                                         ],
                                                                         "readOnly": true
                                                                     }
@@ -4146,7 +4149,8 @@
                                                                                 "KED (kinetic energy discrimination, He gas)",
                                                                                 "DRC (dynamic reaction cell, reactive gas)",
                                                                                 "Not installed",
-                                                                                "Not applicable (SF-ICP-MS)"
+                                                                                "Not applicable (SF-ICP-MS)",
+                                                                                "missing"
                                                                             ],
                                                                             "readOnly": true
                                                                         },
@@ -4159,7 +4163,8 @@
                                                                                     "KED (kinetic energy discrimination, He gas)",
                                                                                     "DRC (dynamic reaction cell, reactive gas)",
                                                                                     "Not installed",
-                                                                                    "Not applicable (SF-ICP-MS)"
+                                                                                    "Not applicable (SF-ICP-MS)",
+                                                                                    "missing"
                                                                                 ],
                                                                                 "readOnly": true
                                                                             }
@@ -5110,34 +5115,11 @@
                                     }
                                 }
                             }
+                        ],
+                        "required": [
+                            "ada:toolRole"
                         ]
-                    },
-                    "allOf": [
-                        {
-                            "contains": {
-                                "properties": {
-                                    "ada:toolRole": {
-                                        "const": "acquisition"
-                                    }
-                                },
-                                "required": [
-                                    "ada:toolRole"
-                                ]
-                            }
-                        },
-                        {
-                            "contains": {
-                                "properties": {
-                                    "ada:toolRole": {
-                                        "const": "dataReduction"
-                                    }
-                                },
-                                "required": [
-                                    "ada:toolRole"
-                                ]
-                            }
-                        }
-                    ]
+                    }
                 },
                 "ada:analyticalMode": {
                     "type": "array",
@@ -5145,7 +5127,8 @@
                         "description": "Procedure-level declaration of the analytical mode(s) this procedure covers. This TAPP is scoped to static spot ablation only, consistent with Table 3 (Horstwood et al. 2016). No mode-flag columns are used in this TAPP because only one mode is in scope.",
                         "type": "string",
                         "enum": [
-                            "Spot Analysis"
+                            "Spot Analysis",
+                            "missing"
                         ],
                         "readOnly": true
                     }
@@ -5157,7 +5140,8 @@
                         "Spot (stationary)",
                         "Transect (continuous line scan)",
                         "Raster area (2D elemental mapping)",
-                        "Stepped line profile"
+                        "Stepped line profile",
+                        "missing"
                     ],
                     "readOnly": true
                 },
@@ -5403,7 +5387,8 @@
                     "enum": [
                         "Peak hopping",
                         "Scanning",
-                        "Not applicable (SF/MC-ICP-MS)"
+                        "Not applicable (SF/MC-ICP-MS)",
+                        "missing"
                     ],
                     "readOnly": true
                 },
@@ -6131,7 +6116,8 @@
                     "description": "Primary strategy used to correct for instrumental isotopic mass fractionation (mass bias/mass discrimination).",
                     "type": "string",
                     "enum": [
-                        "Internal normalization"
+                        "Internal normalization",
+                        "missing"
                     ],
                     "readOnly": true
                 },
@@ -6152,7 +6138,8 @@
                         "type": "string",
                         "enum": [
                             "Single strategy: matrix-matched primary reference material for all analytes",
-                            "N/A"
+                            "N/A",
+                            "missing"
                         ],
                         "readOnly": true
                     }

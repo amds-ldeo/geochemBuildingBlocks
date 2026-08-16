@@ -2746,7 +2746,7 @@
                     ]
                   },
                   {
-                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_ff7ywwd3\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_y458cpmg\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                   }
                 ]
               },
@@ -3751,7 +3751,7 @@
                                       ]
                                     },
                                     {
-                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_ff7ywwd3\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_y458cpmg\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                                     }
                                   ]
                                 }
@@ -4635,7 +4635,8 @@
                             "SIMS",
                             "ICP-MS (solution)",
                             "Noble Gas MS",
-                            "None"
+                            "None",
+                            "missing"
                           ]
                         },
                         "schema:description": {
@@ -14007,36 +14008,13 @@
                                         }
                                       }
                                     }
+                                  ],
+                                  "required": [
+                                    "ada:toolRole"
                                   ]
                                 }
                               ]
-                            },
-                            "allOf": [
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "ada:toolRole": {
-                                      "const": "acquisition"
-                                    }
-                                  },
-                                  "required": [
-                                    "ada:toolRole"
-                                  ]
-                                }
-                              },
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "ada:toolRole": {
-                                      "const": "dataReduction"
-                                    }
-                                  },
-                                  "required": [
-                                    "ada:toolRole"
-                                  ]
-                                }
-                              }
-                            ]
+                            }
                           }
                         }
                       }
@@ -14216,36 +14194,13 @@
                                         }
                                       }
                                     }
+                                  ],
+                                  "required": [
+                                    "ada:reagentRole"
                                   ]
                                 }
                               ]
-                            },
-                            "allOf": [
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "ada:reagentRole": {
-                                      "const": "primaryStandard"
-                                    }
-                                  },
-                                  "required": [
-                                    "ada:reagentRole"
-                                  ]
-                                }
-                              },
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "ada:reagentRole": {
-                                      "const": "referenceMaterial"
-                                    }
-                                  },
-                                  "required": [
-                                    "ada:reagentRole"
-                                  ]
-                                }
-                              }
-                            ]
+                            }
                           }
                         }
                       }
@@ -19768,10 +19723,13 @@
                                       "type": "string",
                                       "enum": [
                                         "LA-ICP-MS",
+                                        "LA-SF-ICP-MS",
+                                        "LA-Q-ICP-MS",
                                         "LA-ICP-OES",
                                         "LA-MC-ICP-MS",
                                         "LA-ICP-ToF-MS",
-                                        "LA-ICP-MS/MS"
+                                        "LA-ICP-MS/MS",
+                                        "missing"
                                       ],
                                       "readOnly": true
                                     }
@@ -19874,7 +19832,8 @@
                                                   "SIMS",
                                                   "ICP-MS (solution)",
                                                   "Noble Gas MS",
-                                                  "None"
+                                                  "None",
+                                                  "missing"
                                                 ]
                                               },
                                               "schema:description": {
@@ -19945,7 +19904,8 @@
                                                             "Iron meteorite",
                                                             "Fluid inclusion",
                                                             "Melt inclusion",
-                                                            "Whole rock"
+                                                            "Whole rock",
+                                                            "missing"
                                                           ],
                                                           "readOnly": true
                                                         }
@@ -22069,7 +22029,8 @@
                                                               "KED (kinetic energy discrimination, He gas)",
                                                               "DRC (dynamic reaction cell, reactive gas)",
                                                               "ICP-MS/MS (triple-quadrupole mode)",
-                                                              "Not applicable (SF-ICP-MS)"
+                                                              "Not applicable (SF-ICP-MS)",
+                                                              "missing"
                                                             ],
                                                             "readOnly": true
                                                           },
@@ -22082,7 +22043,8 @@
                                                                 "KED (kinetic energy discrimination, He gas)",
                                                                 "DRC (dynamic reaction cell, reactive gas)",
                                                                 "ICP-MS/MS (triple-quadrupole mode)",
-                                                                "Not applicable (SF-ICP-MS)"
+                                                                "Not applicable (SF-ICP-MS)",
+                                                                "missing"
                                                               ],
                                                               "readOnly": true
                                                             }
@@ -23056,34 +23018,11 @@
                                         }
                                       }
                                     }
+                                  ],
+                                  "required": [
+                                    "ada:toolRole"
                                   ]
-                                },
-                                "allOf": [
-                                  {
-                                    "contains": {
-                                      "properties": {
-                                        "ada:toolRole": {
-                                          "const": "acquisition"
-                                        }
-                                      },
-                                      "required": [
-                                        "ada:toolRole"
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "contains": {
-                                      "properties": {
-                                        "ada:toolRole": {
-                                          "const": "dataReduction"
-                                        }
-                                      },
-                                      "required": [
-                                        "ada:toolRole"
-                                      ]
-                                    }
-                                  }
-                                ]
+                                }
                               },
                               "ada:analyticalMode": {
                                 "type": "array",
@@ -23094,7 +23033,8 @@
                                     "Spot",
                                     "Transect",
                                     "Mapping",
-                                    "Spot; Transect"
+                                    "Spot; Transect",
+                                    "missing"
                                   ],
                                   "readOnly": true
                                 }
@@ -23106,7 +23046,8 @@
                                   "Spot (stationary)",
                                   "Transect (continuous line scan)",
                                   "Raster area (2D elemental mapping)",
-                                  "Stepped line profile"
+                                  "Stepped line profile",
+                                  "missing"
                                 ],
                                 "readOnly": true
                               },
@@ -24956,7 +24897,8 @@
                                   "Peak hopping",
                                   "Scanning",
                                   "N/A",
-                                  "None"
+                                  "None",
+                                  "missing"
                                 ],
                                 "readOnly": true
                               },

@@ -55,6 +55,7 @@ allOf:
                             - Cosmic spherule
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                 allOf:
                 - contains:
@@ -1053,6 +1054,7 @@ allOf:
       - Transmission target, nanofocal
       - N/A
       - None
+      - missing
       readOnly: true
     ada:detectorType:
       description: Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous
@@ -1066,6 +1068,7 @@ allOf:
       - CMOS + scintillator
       - N/A
       - None
+      - missing
       readOnly: true
     bios:computationalTool:
       type: array
@@ -1104,19 +1107,8 @@ allOf:
                 - type: array
                   items:
                     type: string
-      allOf:
-      - contains:
-          properties:
-            ada:toolRole:
-              const: acquisition
-          required:
-          - ada:toolRole
-      - contains:
-          properties:
-            ada:toolRole:
-              const: dataReduction
-          required:
-          - ada:toolRole
+        required:
+        - ada:toolRole
     ada:analyticalMode:
       type: array
       items:
@@ -1129,6 +1121,7 @@ allOf:
         - Single-volume
         - Multi-volume stitching
         - Single-volume; Multi-volume stitching
+        - missing
         readOnly: true
     schema:instrument:
       type: array
@@ -1407,6 +1400,7 @@ allOf:
       - Continuous rotation
       - N/A
       - None
+      - missing
     ada:samplingUnit:
       description: The physical subdivision of the sample to which one row of reported values corresponds
         — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit
@@ -1424,6 +1418,7 @@ allOf:
       - Region of interest
       - N/A
       - None
+      - missing
     ada:minimumSubVolumeOverlap:
       description: Minimum number of reconstructed slices that must overlap between adjacent sub-volumes
         in a stitched dataset. This is a procedure-level quality specification. Eckley et al. (2025) report
@@ -1445,6 +1440,7 @@ allOf:
       - SART
       - N/A
       - None
+      - missing
       readOnly: true
     ada:beamHardeningCorrectionMethod:
       description: 'Strategy used to reduce beam hardening artifacts caused by preferential attenuation
@@ -1459,6 +1455,7 @@ allOf:
       - Ketcham & Hanna (2014) iterative BH correction
       - None applied
       - N/A
+      - missing
       readOnly: true
     ada:outputDataFormatDefault:
       description: File format of the reconstructed CT volume as output by the reconstruction software.
@@ -1471,6 +1468,7 @@ allOf:
       - DICOM
       - N/A
       - None
+      - missing
     ada:segmentationMethodDefault:
       description: General approach used to separate distinct phases or features in the reconstructed
         CT volume. The method must be reported for any quantitative result to be reproducible.
@@ -1482,6 +1480,7 @@ allOf:
       - 'Semi-automated: threshold + morphological filtering'
       - N/A
       - None
+      - missing
     ada:reportedPropertyTemplate:
       type: object
       properties:

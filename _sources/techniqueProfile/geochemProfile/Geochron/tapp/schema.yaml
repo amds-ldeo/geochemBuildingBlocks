@@ -36,6 +36,7 @@ allOf:
             - LA-Q-ICP-MS U-(Th-)Pb Geochronology
             - LA-SF-ICP-MS U-(Th-)Pb Geochronology
             - LA-MC-ICP-MS U-(Th-)Pb Geochronology
+            - missing
             readOnly: true
     schema:creator:
       type: object
@@ -102,6 +103,7 @@ allOf:
                     - EPMA
                     - CL/BSE Imaging
                     - None
+                    - missing
                   schema:description:
                     description: Describes (1) the functional relationship between this dataset and the
                       coupled technique, and (2) the analytical sequence — which technique was performed
@@ -1235,6 +1237,7 @@ allOf:
                             - Baddeleyite
                             - Perovskite
                             - Allanite
+                            - missing
                             readOnly: true
                 allOf:
                 - contains:
@@ -2248,6 +2251,7 @@ allOf:
                             - DRC (dynamic reaction cell, reactive gas)
                             - Not installed
                             - Not applicable (SF-ICP-MS)
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -2258,6 +2262,7 @@ allOf:
                               - DRC (dynamic reaction cell, reactive gas)
                               - Not installed
                               - Not applicable (SF-ICP-MS)
+                              - missing
                               readOnly: true
                         schema:additionalProperty:
                           type: array
@@ -2729,19 +2734,8 @@ allOf:
                 - type: array
                   items:
                     type: string
-      allOf:
-      - contains:
-          properties:
-            ada:toolRole:
-              const: acquisition
-          required:
-          - ada:toolRole
-      - contains:
-          properties:
-            ada:toolRole:
-              const: dataReduction
-          required:
-          - ada:toolRole
+        required:
+        - ada:toolRole
     ada:analyticalMode:
       type: array
       items:
@@ -2751,6 +2745,7 @@ allOf:
         type: string
         enum:
         - Spot Analysis
+        - missing
         readOnly: true
     ada:ablationSamplingMode:
       description: Sampling mode or ablation pattern used during analysis, as described in Table 3 of
@@ -2761,6 +2756,7 @@ allOf:
       - Transect (continuous line scan)
       - Raster area (2D elemental mapping)
       - Stepped line profile
+      - missing
       readOnly: true
     ada:spotDiameterDefault:
       description: Diameter of the laser spot as set in the acquisition method (nominal/target value).
@@ -2896,6 +2892,7 @@ allOf:
       - Peak hopping
       - Scanning
       - Not applicable (SF/MC-ICP-MS)
+      - missing
       readOnly: true
     ada:analyteTemplate:
       type: object
@@ -3194,6 +3191,7 @@ allOf:
       type: string
       enum:
       - Internal normalization
+      - missing
       readOnly: true
     ada:internalNormalizationElementAndIsotopeRatio:
       description: Element and isotope ratio used as the internal normalization standard for mass bias
@@ -3214,6 +3212,7 @@ allOf:
         enum:
         - 'Single strategy: matrix-matched primary reference material for all analytes'
         - N/A
+        - missing
         readOnly: true
     ada:signalIntegrationIntervalMethod:
       description: Approach used to select the stable signal interval for integration during data reduction,

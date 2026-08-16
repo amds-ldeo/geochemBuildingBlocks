@@ -769,17 +769,6 @@ allOf:
                                   - type: array
                                     items:
                                       type: string
-                      allOf:
-                      - contains:
-                          properties:
-                            ada:toolRole:
-                              const: acquisition
-                          required:
-                          - ada:toolRole
-                      - contains:
-                          properties:
-                            ada:toolRole:
-                              const: dataReduction
                           required:
                           - ada:toolRole
               - if:
@@ -1018,6 +1007,7 @@ allOf:
             - Continuous rotation
             - N/A
             - None
+            - missing
           ada:segmentationMethod:
             description: General approach used to separate distinct phases or features in the reconstructed
               CT volume. The method must be reported for any quantitative result to be reproducible.
@@ -1029,6 +1019,7 @@ allOf:
             - 'Semi-automated: threshold + morphological filtering'
             - N/A
             - None
+            - missing
           schema:description:
             description: 'Any procedure- or analysis-specific information not captured by a structured
               field anywhere in this TAPP — including anomalies, deviations from the registered procedure,
@@ -1050,6 +1041,7 @@ allOf:
           - DICOM
           - N/A
           - None
+          - missing
     schema:additionalProperty:
       type: array
       items:

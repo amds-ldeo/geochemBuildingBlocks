@@ -1006,17 +1006,6 @@ properties:
                                 - type: array
                                   items:
                                     type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          ada:toolRole:
-                            const: acquisition
-                        required:
-                        - ada:toolRole
-                    - contains:
-                        properties:
-                          ada:toolRole:
-                            const: dataReduction
                         required:
                         - ada:toolRole
             - if:
@@ -1069,17 +1058,6 @@ properties:
                                 - type: array
                                   items:
                                     type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          ada:reagentRole:
-                            const: primaryStandard
-                        required:
-                        - ada:reagentRole
-                    - contains:
-                        properties:
-                          ada:reagentRole:
-                            const: referenceMaterial
                         required:
                         - ada:reagentRole
         ada:ablationSpotDuration:
@@ -1361,6 +1339,7 @@ properties:
                   - ICP-MS (solution)
                   - Noble Gas MS
                   - None
+                  - missing
                 schema:description:
                   description: 'Description of how this protocol is coupled with the technique(s) listed
                     above. Include: (1) the functional relationship — what data or context flows between

@@ -46,6 +46,7 @@ allOf:
                             - Unknown
                             - N/A
                             - None
+                            - missing
                           - type: array
                             items:
                               type: string
@@ -60,6 +61,7 @@ allOf:
                               - Unknown
                               - N/A
                               - None
+                              - missing
                 allOf:
                 - contains:
                     properties:
@@ -1371,17 +1373,6 @@ allOf:
                                   - type: array
                                     items:
                                       type: string
-                      allOf:
-                      - contains:
-                          properties:
-                            ada:toolRole:
-                              const: acquisition
-                          required:
-                          - ada:toolRole
-                      - contains:
-                          properties:
-                            ada:toolRole:
-                              const: dataReduction
                           required:
                           - ada:toolRole
               - if:

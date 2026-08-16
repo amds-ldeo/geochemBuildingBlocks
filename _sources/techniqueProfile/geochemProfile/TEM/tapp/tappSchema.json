@@ -69,7 +69,8 @@
                                                                             "Amorphous phase",
                                                                             "Nanoparticle",
                                                                             "N/A",
-                                                                            "None"
+                                                                            "None",
+                                                                            "missing"
                                                                         ],
                                                                         "readOnly": true
                                                                     }
@@ -152,7 +153,8 @@
                                                                 "Electropolishing",
                                                                 "Unknown",
                                                                 "N/A",
-                                                                "None"
+                                                                "None",
+                                                                "missing"
                                                             ],
                                                             "readOnly": true
                                                         },
@@ -170,7 +172,8 @@
                                                                     "Electropolishing",
                                                                     "Unknown",
                                                                     "N/A",
-                                                                    "None"
+                                                                    "None",
+                                                                    "missing"
                                                                 ],
                                                                 "readOnly": true
                                                             }
@@ -2927,7 +2930,8 @@
                         "Sub-volume",
                         "Region of interest",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ]
                 },
                 "schema:instrument": {
@@ -2964,7 +2968,8 @@
                                                         "Zeiss",
                                                         "Unknown",
                                                         "N/A",
-                                                        "None"
+                                                        "None",
+                                                        "missing"
                                                     ],
                                                     "readOnly": true
                                                 }
@@ -3013,7 +3018,8 @@
                                                                                 "Tungsten (W)",
                                                                                 "Unknown",
                                                                                 "N/A",
-                                                                                "None"
+                                                                                "None",
+                                                                                "missing"
                                                                             ],
                                                                             "readOnly": true
                                                                         },
@@ -3029,7 +3035,8 @@
                                                                                     "Tungsten (W)",
                                                                                     "Unknown",
                                                                                     "N/A",
-                                                                                    "None"
+                                                                                    "None",
+                                                                                    "missing"
                                                                                 ],
                                                                                 "readOnly": true
                                                                             }
@@ -3067,7 +3074,8 @@
                                                                                 "Cs-corrected (type unknown)",
                                                                                 "Unknown",
                                                                                 "N/A",
-                                                                                "None"
+                                                                                "None",
+                                                                                "missing"
                                                                             ],
                                                                             "readOnly": true
                                                                         },
@@ -3083,7 +3091,8 @@
                                                                                     "Cs-corrected (type unknown)",
                                                                                     "Unknown",
                                                                                     "N/A",
-                                                                                    "None"
+                                                                                    "None",
+                                                                                    "missing"
                                                                                 ],
                                                                                 "readOnly": true
                                                                             }
@@ -3119,7 +3128,8 @@
                                                                                 "No",
                                                                                 "Unknown",
                                                                                 "N/A",
-                                                                                "None"
+                                                                                "None",
+                                                                                "missing"
                                                                             ],
                                                                             "readOnly": true
                                                                         },
@@ -3133,7 +3143,8 @@
                                                                                     "No",
                                                                                     "Unknown",
                                                                                     "N/A",
-                                                                                    "None"
+                                                                                    "None",
+                                                                                    "missing"
                                                                                 ],
                                                                                 "readOnly": true
                                                                             }
@@ -3369,7 +3380,8 @@
                         "EELS and EFTEM",
                         "EDS and EELS and EFTEM",
                         "None",
-                        "N/A"
+                        "N/A",
+                        "missing"
                     ]
                 },
                 "bios:computationalTool": {
@@ -3437,34 +3449,11 @@
                                     }
                                 }
                             }
+                        ],
+                        "required": [
+                            "ada:toolRole"
                         ]
-                    },
-                    "allOf": [
-                        {
-                            "contains": {
-                                "properties": {
-                                    "ada:toolRole": {
-                                        "const": "acquisition"
-                                    }
-                                },
-                                "required": [
-                                    "ada:toolRole"
-                                ]
-                            }
-                        },
-                        {
-                            "contains": {
-                                "properties": {
-                                    "ada:toolRole": {
-                                        "const": "dataReduction"
-                                    }
-                                },
-                                "required": [
-                                    "ada:toolRole"
-                                ]
-                            }
-                        }
-                    ]
+                    }
                 },
                 "ada:analyticalMode": {
                     "type": "array",
@@ -3475,7 +3464,8 @@
                             "TEM Imaging",
                             "STEM Imaging",
                             "Electron Diffraction",
-                            "STEM Imaging; Electron Diffraction"
+                            "STEM Imaging; Electron Diffraction",
+                            "missing"
                         ],
                         "readOnly": true
                     }
@@ -3497,7 +3487,8 @@
                         "Precession ED",
                         "4D-STEM (Electron Diffraction)",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ]
                 },
                 "ada:convergenceSemiAngle": {
@@ -3543,7 +3534,8 @@
                         "Spectrum image (map)",
                         "Simultaneous EDS+EELS",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ]
                 },
                 "ada:edsQuantificationMethod": {
@@ -3556,7 +3548,8 @@
                         "Standardless",
                         "Direct comparison to reference spectra",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ],
                     "readOnly": true
                 },
@@ -3595,7 +3588,8 @@
                         "Dual-EELS (simultaneous low- and high-loss)",
                         "Simultaneous EDS+EELS",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ]
                 },
                 "ada:eelsEdgesDefault": {
@@ -3641,7 +3635,8 @@
                         "ESPRIT CRYSTAL",
                         "ORIX",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ],
                     "readOnly": true
                 },

@@ -57,6 +57,7 @@ allOf:
                             - Porous material
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                 allOf:
                 - contains:
@@ -451,6 +452,7 @@ allOf:
                     - Unknown
                     - N/A
                     - None
+                    - missing
                     readOnly: true
               schema:model:
                 type: object
@@ -486,6 +488,7 @@ allOf:
                             - Unknown
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -498,6 +501,7 @@ allOf:
                               - Unknown
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                   - if:
                       properties:
@@ -523,6 +527,7 @@ allOf:
                             - ESED (VP/ESEM)
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -534,6 +539,7 @@ allOf:
                               - ESED (VP/ESEM)
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                   - if:
                       properties:
@@ -560,6 +566,7 @@ allOf:
                             - YAG scintillator
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -572,6 +579,7 @@ allOf:
                               - YAG scintillator
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                 allOf:
                 - contains:
@@ -610,6 +618,7 @@ allOf:
                   - FIB-SEM dual-beam + VP
                   - N/A
                   - None
+                  - missing
                   readOnly: true
                 - type: array
                   items:
@@ -621,6 +630,7 @@ allOf:
                     - FIB-SEM dual-beam + VP
                     - N/A
                     - None
+                    - missing
                     readOnly: true
               ada:acceleratingVoltageDefault:
                 description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
@@ -674,6 +684,7 @@ allOf:
                             - Neon GFIS
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -685,6 +696,7 @@ allOf:
                               - Neon GFIS
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                 allOf:
                 - contains:
@@ -746,19 +758,8 @@ allOf:
                 - type: array
                   items:
                     type: string
-      allOf:
-      - contains:
-          properties:
-            ada:toolRole:
-              const: acquisition
-          required:
-          - ada:toolRole
-      - contains:
-          properties:
-            ada:toolRole:
-              const: dataReduction
-          required:
-          - ada:toolRole
+        required:
+        - ada:toolRole
     ada:analyticalMode:
       type: array
       items:
@@ -776,6 +777,7 @@ allOf:
         - 3D Tomography
         - N/A
         - None
+        - missing
         readOnly: true
     ada:analyteTemplate:
       type: object

@@ -1700,7 +1700,8 @@
                                                                                 "KED (kinetic energy discrimination, He gas)",
                                                                                 "DRC (dynamic reaction cell, reactive gas)",
                                                                                 "N/A",
-                                                                                "None"
+                                                                                "None",
+                                                                                "missing"
                                                                             ],
                                                                             "readOnly": true
                                                                         },
@@ -1714,7 +1715,8 @@
                                                                                     "KED (kinetic energy discrimination, He gas)",
                                                                                     "DRC (dynamic reaction cell, reactive gas)",
                                                                                     "N/A",
-                                                                                    "None"
+                                                                                    "None",
+                                                                                    "missing"
                                                                                 ],
                                                                                 "readOnly": true
                                                                             }
@@ -3406,34 +3408,11 @@
                                     }
                                 }
                             }
+                        ],
+                        "required": [
+                            "ada:toolRole"
                         ]
-                    },
-                    "allOf": [
-                        {
-                            "contains": {
-                                "properties": {
-                                    "ada:toolRole": {
-                                        "const": "acquisition"
-                                    }
-                                },
-                                "required": [
-                                    "ada:toolRole"
-                                ]
-                            }
-                        },
-                        {
-                            "contains": {
-                                "properties": {
-                                    "ada:toolRole": {
-                                        "const": "dataReduction"
-                                    }
-                                },
-                                "required": [
-                                    "ada:toolRole"
-                                ]
-                            }
-                        }
-                    ]
+                    }
                 },
                 "ada:analyteTemplate": {
                     "type": "object",
@@ -3838,7 +3817,8 @@
                             "Isotope dilution via double-spike inversion (concentrations co-determined with isotope ratios)",
                             "IUPAC isotope dilution equations (separate ID spike)",
                             "N/A",
-                            "None"
+                            "None",
+                            "missing"
                         ],
                         "readOnly": true
                     }
@@ -3851,7 +3831,8 @@
                         "Visual inspection of cycle-by-cycle data; outlier cycles excluded manually",
                         "Automated 2σ outlier rejection per block",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ],
                     "readOnly": true
                 },
@@ -3863,7 +3844,8 @@
                         "Procedural blank",
                         "On-peak zero + procedural blank",
                         "N/A",
-                        "None"
+                        "None",
+                        "missing"
                     ],
                     "readOnly": true
                 },
@@ -4169,7 +4151,8 @@
                         "type": "string",
                         "enum": [
                             "Solution nebulisation (continuous)",
-                            "Flow injection"
+                            "Flow injection",
+                            "missing"
                         ],
                         "readOnly": true
                     }

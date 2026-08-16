@@ -55,6 +55,7 @@ allOf:
                             - Nanoparticle
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                 allOf:
                 - contains:
@@ -104,6 +105,7 @@ allOf:
                       - Unknown
                       - N/A
                       - None
+                      - missing
                       readOnly: true
                     - type: array
                       items:
@@ -119,6 +121,7 @@ allOf:
                         - Unknown
                         - N/A
                         - None
+                        - missing
                         readOnly: true
           allOf:
           - contains:
@@ -1334,6 +1337,7 @@ allOf:
       - Region of interest
       - N/A
       - None
+      - missing
     schema:instrument:
       type: array
       items:
@@ -1363,6 +1367,7 @@ allOf:
                     - Unknown
                     - N/A
                     - None
+                    - missing
                     readOnly: true
               schema:model:
                 type: object
@@ -1399,6 +1404,7 @@ allOf:
                             - Unknown
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -1412,6 +1418,7 @@ allOf:
                               - Unknown
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                   - if:
                       properties:
@@ -1437,6 +1444,7 @@ allOf:
                             - Unknown
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -1450,6 +1458,7 @@ allOf:
                               - Unknown
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                   - if:
                       properties:
@@ -1474,6 +1483,7 @@ allOf:
                             - Unknown
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -1485,6 +1495,7 @@ allOf:
                               - Unknown
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                   - if:
                       properties:
@@ -1617,6 +1628,7 @@ allOf:
       - EDS and EELS and EFTEM
       - None
       - N/A
+      - missing
     bios:computationalTool:
       type: array
       items:
@@ -1654,19 +1666,8 @@ allOf:
                 - type: array
                   items:
                     type: string
-      allOf:
-      - contains:
-          properties:
-            ada:toolRole:
-              const: acquisition
-          required:
-          - ada:toolRole
-      - contains:
-          properties:
-            ada:toolRole:
-              const: dataReduction
-          required:
-          - ada:toolRole
+        required:
+        - ada:toolRole
     ada:analyticalMode:
       type: array
       items:
@@ -1682,6 +1683,7 @@ allOf:
         - STEM Imaging
         - Electron Diffraction
         - STEM Imaging; Electron Diffraction
+        - missing
         readOnly: true
     ada:analyticalSubModeDefault:
       description: 'Sub-mode(s) of imaging or diffraction performed under this procedure. TEM Imaging
@@ -1704,6 +1706,7 @@ allOf:
       - 4D-STEM (Electron Diffraction)
       - N/A
       - None
+      - missing
     ada:convergenceSemiAngle:
       description: Semi-angle of the converged electron probe in milliradians. Controls probe size (smaller
         angle = larger probe but less coherent), depth of field, and in 4D-STEM, the size of diffraction
@@ -1742,6 +1745,7 @@ allOf:
       - Simultaneous EDS+EELS
       - N/A
       - None
+      - missing
     ada:edsQuantificationMethod:
       description: Method used to convert EDS X-ray intensities to elemental concentrations. Record 'N/A'
         where EDS is not listed in Spectroscopic Detector(s).
@@ -1754,6 +1758,7 @@ allOf:
       - Direct comparison to reference spectra
       - N/A
       - None
+      - missing
       readOnly: true
     ada:analyteTemplate:
       type: object
@@ -1797,6 +1802,7 @@ allOf:
       - Simultaneous EDS+EELS
       - N/A
       - None
+      - missing
     ada:eelsEdgesDefault:
       description: 'Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g.,
         Fe L2,3; O K). Provides the EELS-specific counterpart to the Analyte field: while Analyte lists
@@ -1837,6 +1843,7 @@ allOf:
       - ORIX
       - N/A
       - None
+      - missing
       readOnly: true
     ada:calibrationFactorAndDeterminationMethodDefault:
       description: 'An externally-calibrated factor that converts the measured quantity into the reported

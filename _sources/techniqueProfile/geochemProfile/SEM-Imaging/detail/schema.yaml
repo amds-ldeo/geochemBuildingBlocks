@@ -223,17 +223,6 @@ allOf:
                                   - type: array
                                     items:
                                       type: string
-                      allOf:
-                      - contains:
-                          properties:
-                            ada:toolRole:
-                              const: acquisition
-                          required:
-                          - ada:toolRole
-                      - contains:
-                          properties:
-                            ada:toolRole:
-                              const: dataReduction
                           required:
                           - ada:toolRole
               - if:
@@ -454,6 +443,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      - missing
     ada:patternQualityThreshold:
       description: Minimum pattern quality or confidence index threshold applied during EBSD data processing
         to exclude unreliably indexed points from orientation maps. Include metric name and threshold

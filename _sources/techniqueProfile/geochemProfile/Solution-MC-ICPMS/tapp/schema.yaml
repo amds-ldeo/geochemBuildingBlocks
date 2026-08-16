@@ -934,6 +934,7 @@ allOf:
                             - DRC (dynamic reaction cell, reactive gas)
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -945,6 +946,7 @@ allOf:
                               - DRC (dynamic reaction cell, reactive gas)
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                         schema:additionalProperty:
                           type: array
@@ -1814,19 +1816,8 @@ allOf:
                 - type: array
                   items:
                     type: string
-      allOf:
-      - contains:
-          properties:
-            ada:toolRole:
-              const: acquisition
-          required:
-          - ada:toolRole
-      - contains:
-          properties:
-            ada:toolRole:
-              const: dataReduction
-          required:
-          - ada:toolRole
+        required:
+        - ada:toolRole
     ada:analyteTemplate:
       type: object
       properties:
@@ -2027,6 +2018,7 @@ allOf:
         - IUPAC isotope dilution equations (separate ID spike)
         - N/A
         - None
+        - missing
         readOnly: true
     ada:signalIntegrationIntervalMethod:
       description: Method used to define which portion of the acquisition signal is integrated for each
@@ -2039,6 +2031,7 @@ allOf:
       - Automated 2σ outlier rejection per block
       - N/A
       - None
+      - missing
       readOnly: true
     ada:blankBackgroundCorrectionMethod:
       description: Method used to subtract instrument background from analytical signals. In MC-ICP-MS,
@@ -2054,6 +2047,7 @@ allOf:
       - On-peak zero + procedural blank
       - N/A
       - None
+      - missing
       readOnly: true
     ada:channelTemplate:
       type: object
@@ -2213,6 +2207,7 @@ allOf:
         enum:
         - Solution nebulisation (continuous)
         - Flow injection
+        - missing
         readOnly: true
     ada:reportedPropertyTemplate:
       type: object

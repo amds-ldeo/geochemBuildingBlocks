@@ -23,10 +23,13 @@ allOf:
             type: string
             enum:
             - LA-ICP-MS
+            - LA-SF-ICP-MS
+            - LA-Q-ICP-MS
             - LA-ICP-OES
             - LA-MC-ICP-MS
             - LA-ICP-ToF-MS
             - LA-ICP-MS/MS
+            - missing
             readOnly: true
     schema:creator:
       type: object
@@ -104,6 +107,7 @@ allOf:
                     - ICP-MS (solution)
                     - Noble Gas MS
                     - None
+                    - missing
                   schema:description:
                     description: 'Description of how this protocol is coupled with the technique(s) listed
                       above. Include: (1) the functional relationship — what data or context flows between
@@ -158,6 +162,7 @@ allOf:
                             - Fluid inclusion
                             - Melt inclusion
                             - Whole rock
+                            - missing
                             readOnly: true
                 allOf:
                 - contains:
@@ -1277,6 +1282,7 @@ allOf:
                             - DRC (dynamic reaction cell, reactive gas)
                             - ICP-MS/MS (triple-quadrupole mode)
                             - Not applicable (SF-ICP-MS)
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -1287,6 +1293,7 @@ allOf:
                               - DRC (dynamic reaction cell, reactive gas)
                               - ICP-MS/MS (triple-quadrupole mode)
                               - Not applicable (SF-ICP-MS)
+                              - missing
                               readOnly: true
                         schema:additionalProperty:
                           type: array
@@ -1770,19 +1777,8 @@ allOf:
                 - type: array
                   items:
                     type: string
-      allOf:
-      - contains:
-          properties:
-            ada:toolRole:
-              const: acquisition
-          required:
-          - ada:toolRole
-      - contains:
-          properties:
-            ada:toolRole:
-              const: dataReduction
-          required:
-          - ada:toolRole
+        required:
+        - ada:toolRole
     ada:analyticalMode:
       type: array
       items:
@@ -1796,6 +1792,7 @@ allOf:
         - Transect
         - Mapping
         - Spot; Transect
+        - missing
         readOnly: true
     ada:ablationSamplingMode:
       description: Sampling mode or ablation pattern used during analysis.
@@ -1805,6 +1802,7 @@ allOf:
       - Transect (continuous line scan)
       - Raster area (2D elemental mapping)
       - Stepped line profile
+      - missing
       readOnly: true
     ada:ablationSpotDurationDefault:
       description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds,
@@ -2710,6 +2708,7 @@ allOf:
       - Scanning
       - N/A
       - None
+      - missing
       readOnly: true
     ada:backgroundCountTimeDefault:
       description: Total time spent measuring gas blank (background signal with laser off or shutter closed)

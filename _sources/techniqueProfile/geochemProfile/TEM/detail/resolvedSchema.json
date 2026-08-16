@@ -351,7 +351,8 @@
                                       "Electropolishing",
                                       "Unknown",
                                       "N/A",
-                                      "None"
+                                      "None",
+                                      "missing"
                                     ]
                                   },
                                   {
@@ -368,7 +369,8 @@
                                         "Electropolishing",
                                         "Unknown",
                                         "N/A",
-                                        "None"
+                                        "None",
+                                        "missing"
                                       ]
                                     }
                                   }
@@ -3758,36 +3760,13 @@
                                         }
                                       }
                                     }
+                                  ],
+                                  "required": [
+                                    "ada:toolRole"
                                   ]
                                 }
                               ]
-                            },
-                            "allOf": [
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "ada:toolRole": {
-                                      "const": "acquisition"
-                                    }
-                                  },
-                                  "required": [
-                                    "ada:toolRole"
-                                  ]
-                                }
-                              },
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "ada:toolRole": {
-                                      "const": "dataReduction"
-                                    }
-                                  },
-                                  "required": [
-                                    "ada:toolRole"
-                                  ]
-                                }
-                              }
-                            ]
+                            }
                           }
                         }
                       }

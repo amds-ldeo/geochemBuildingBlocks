@@ -1232,17 +1232,6 @@ properties:
                                 - type: array
                                   items:
                                     type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          ada:toolRole:
-                            const: acquisition
-                        required:
-                        - ada:toolRole
-                    - contains:
-                        properties:
-                          ada:toolRole:
-                            const: dataReduction
                         required:
                         - ada:toolRole
             - if:
@@ -1291,17 +1280,6 @@ properties:
                                 - type: array
                                   items:
                                     type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          ada:reagentRole:
-                            const: primaryStandard
-                        required:
-                        - ada:reagentRole
-                    - contains:
-                        properties:
-                          ada:reagentRole:
-                            const: referenceMaterial
                         required:
                         - ada:reagentRole
         ada:spotDiameter:
@@ -1402,6 +1380,7 @@ properties:
                   - EPMA
                   - CL/BSE Imaging
                   - None
+                  - missing
                 schema:description:
                   description: Describes (1) the functional relationship between this dataset and the
                     coupled technique, and (2) the analytical sequence — which technique was performed

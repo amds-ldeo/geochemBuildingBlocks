@@ -48,6 +48,7 @@ allOf:
                   - Raster
                   - N/A
                   - None
+                  - missing
                   readOnly: true
                 - type: array
                   items:
@@ -58,6 +59,7 @@ allOf:
                     - Raster
                     - N/A
                     - None
+                    - missing
                     readOnly: true
               schema:hasPart:
                 type: array
@@ -103,6 +105,7 @@ allOf:
                             - Unknown
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -114,6 +117,7 @@ allOf:
                               - Unknown
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                   - if:
                       properties:
@@ -160,6 +164,7 @@ allOf:
                             - Mb
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                           - type: array
                             items:
@@ -174,6 +179,7 @@ allOf:
                               - Mb
                               - N/A
                               - None
+                              - missing
                               readOnly: true
                 allOf:
                 - contains:
@@ -202,6 +208,7 @@ allOf:
                     - Unknown
                     - N/A
                     - None
+                    - missing
                     readOnly: true
         - if:
             properties:
@@ -230,6 +237,7 @@ allOf:
                     - Unknown
                     - N/A
                     - None
+                    - missing
                     readOnly: true
       allOf:
       - contains:
@@ -283,19 +291,8 @@ allOf:
                 - type: array
                   items:
                     type: string
-      allOf:
-      - contains:
-          properties:
-            ada:toolRole:
-              const: acquisition
-          required:
-          - ada:toolRole
-      - contains:
-          properties:
-            ada:toolRole:
-              const: dataReduction
-          required:
-          - ada:toolRole
+        required:
+        - ada:toolRole
     schema:description:
       description: 'Any procedure- or analysis-specific information not captured by a structured field
         anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
@@ -1510,6 +1507,7 @@ allOf:
         - WDS Mapping
         - EDS Mapping
         - WDS Point Analysis; EDS Point Analysis
+        - missing
         readOnly: true
     ada:dwellTimePerPixelDefault:
       description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds.
@@ -1531,6 +1529,7 @@ allOf:
       - Map
       - N/A
       - None
+      - missing
       readOnly: true
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point in seconds. Previously referred
@@ -1562,6 +1561,7 @@ allOf:
       - Region of interest
       - N/A
       - None
+      - missing
     schema:actionProcess:
       type: object
       properties:
@@ -1741,6 +1741,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      - missing
       readOnly: true
     ada:matrixCorrectionMethod:
       description: X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction.
@@ -1759,6 +1760,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      - missing
       readOnly: true
     ada:stepSizePixelSizeDefault:
       description: Distance between adjacent measurement points in the X-ray map in micrometers, defining
@@ -1809,6 +1811,7 @@ allOf:
                             - Metal alloy
                             - N/A
                             - None
+                            - missing
                             readOnly: true
                 allOf:
                 - contains:
@@ -1844,6 +1847,7 @@ allOf:
       - Unknown
       - N/A
       - None
+      - missing
       readOnly: true
     ada:reportedPropertyTemplate:
       type: object

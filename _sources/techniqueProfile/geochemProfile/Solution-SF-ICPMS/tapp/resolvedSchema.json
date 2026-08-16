@@ -3460,34 +3460,11 @@
                   }
                 }
               }
+            ],
+            "required": [
+              "ada:toolRole"
             ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "ada:toolRole": {
-                    "const": "acquisition"
-                  }
-                },
-                "required": [
-                  "ada:toolRole"
-                ]
-              }
-            },
-            {
-              "contains": {
-                "properties": {
-                  "ada:toolRole": {
-                    "const": "dataReduction"
-                  }
-                },
-                "required": [
-                  "ada:toolRole"
-                ]
-              }
-            }
-          ]
+          }
         },
         "ada:analyteTemplate": {
           "type": "object",
@@ -8001,7 +7978,8 @@
             "Matrix normalization",
             "Drift + matrix normalization",
             "N/A",
-            "None"
+            "None",
+            "missing"
           ],
           "readOnly": true
         },
@@ -8013,7 +7991,8 @@
             "Standard bracketing",
             "IS normalization + bracketing",
             "None",
-            "N/A"
+            "N/A",
+            "missing"
           ],
           "readOnly": true
         },
@@ -8028,7 +8007,8 @@
               "Matrix-matched bracketing with BHVO-2",
               "ID for REE; external calibration for transition metals",
               "N/A",
-              "None"
+              "None",
+              "missing"
             ],
             "readOnly": true
           }
@@ -8041,7 +8021,8 @@
             "Stable interval selection",
             "Automated peak detection",
             "N/A",
-            "None"
+            "None",
+            "missing"
           ],
           "readOnly": true
         },
@@ -8053,7 +8034,8 @@
             "Solution blank",
             "Procedural blank",
             "N/A",
-            "None"
+            "None",
+            "missing"
           ],
           "readOnly": true
         },
@@ -8080,7 +8062,8 @@
             "type": "string",
             "enum": [
               "Solution nebulisation (continuous)",
-              "Flow injection"
+              "Flow injection",
+              "missing"
             ],
             "readOnly": true
           }
