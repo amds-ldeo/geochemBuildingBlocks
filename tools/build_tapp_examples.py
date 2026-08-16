@@ -276,6 +276,12 @@ def _required_scalar_props(tapp_dir):
         with open(path, encoding="utf-8") as f:
             doc = json.load(f)
 
+        # Descend ONLY through composition keywords. Recursing into a property's own subschema
+        # collects requiredness that belongs to a nested object — schema:geo, schema:latitude,
+        # schema:termCode, ada:fieldScope — and hoists it to the TAPP root, which pollutes every
+        # example with sentinels for properties the root never had. Requiredness is positional.
+        COMPOSITION = ("allOf", "anyOf", "oneOf", "then", "else", "if")
+
         def walk(n):
             if isinstance(n, dict):
                 for r in (n.get("required") or []):
@@ -283,9 +289,8 @@ def _required_scalar_props(tapp_dir):
                         req.add(r)
                 for k, v in (n.get("properties") or {}).items():
                     props.setdefault(k, v if isinstance(v, dict) else {})
-                for k, v in n.items():
-                    if k not in ("required",):
-                        walk(v)
+                for k in COMPOSITION:
+                    walk(n.get(k))
             elif isinstance(n, list):
                 for v in n:
                     walk(v)
@@ -344,7 +349,9 @@ def sentinel_for(sub):
 
 def fill_required_sentinels(inst, tapp_dir):
     """Give every still-absent required field the transcription sentinel its schema accepts."""
-    for key, sub in _required_scalar_props(tapp_dir)[0].items():
+    # sorted: the required set is a set, and unsorted iteration reordered keys on every rebuild,
+    # producing a 385-line diff across the examples with no content change
+    for key, sub in sorted(_required_scalar_props(tapp_dir)[0].items()):
         if key in inst:
             continue
         got = sentinel_for(sub)
