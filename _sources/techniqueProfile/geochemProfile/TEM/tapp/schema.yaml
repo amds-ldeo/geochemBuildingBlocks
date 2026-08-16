@@ -1766,15 +1766,8 @@ allOf:
         ada:defaultAnalytes:
           type: array
           items:
-            description: The chemical species this procedure is designed to determine, recorded at whatever
-              resolution the chemistry is resolved — element(s) for this technique; valence species where
-              a procedure resolves oxidation state; compounds where it resolves molecules. The procedure
-              registers the full intended analyte suite; analysts confirm or narrow this list at analysis
-              time to reflect the elements actually measured in the session. For sessions using both EDS
-              and EELS, list all elements targeted by either technique. For EDS and EELS the analyte list
-              is determined by the detectors in use; see 'EELS Edges' for the corresponding ionization
-              edges.
-            type: string
+            type: object
+            properties: {}
     ada:reportedPropertyTemplate:
       type: object
       properties:
