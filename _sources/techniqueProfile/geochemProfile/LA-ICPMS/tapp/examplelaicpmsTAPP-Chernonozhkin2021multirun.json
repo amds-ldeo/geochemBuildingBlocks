@@ -48,7 +48,6 @@
   "ada:detectorConfiguration": "Triple mode detection; Faraday used for major elements in run 1",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration ~5 ns",
   "ada:spotGeometryDefault": "Run 1 (major): 30 µm circular; Run 2 (trace): 130 µm circular",
-  "ada:spotPath": "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)",
   "ada:laserFluenceDefault": "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²",
   "ada:laserRepetitionRateDefault": "Run 1 (major): 20 Hz; Run 2 (trace): 40 Hz",
   "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 — duration set by 34 runs covering 400 µm + washout, not a fixed spot duration)",
@@ -69,8 +68,6 @@
   "ada:isobaricInterferenceCorrection": "Yes — cool plasma not applicable (normal plasma); argide corrections less critical; oxide interferences monitored; spectral interference list in Table C1",
   "ada:interferingSpecies": "Same interference list as mapping (Table C1); argide-based interferences less critical without cool plasma",
   "ada:isobaricInterferenceCorrectionMethod": "Argide corrections less critical (normal plasma); oxide-based interferences minimized by tuning; same interference list but without cool plasma mitigation",
-  "ada:primaryCalibrationStandardNameDefault": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements",
-  "ada:calibrationStandardMeasurementFrequency": "Same as mapping protocol; GRMs at start and end",
   "ada:secondaryReferenceMaterialDefault": "Same GRM set measured as unknowns for accuracy assessment",
   "schema:additionalProperty": [
     {
@@ -363,5 +360,13 @@
         ]
       }
     ]
-  }
+  },
+  "ada:primaryStandardNameDefault": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements",
+  "ada:calibrationMeasurementFrequency": "Same as mapping protocol; GRMs at start and end",
+  "ada:ablationSamplingMode": [
+    "Transect (continuous line scan)",
+    "Spot (stationary)"
+  ],
+  "schema:datePublished": "2026-08-16",
+  "ada:signalCollectionMode": "missing"
 }

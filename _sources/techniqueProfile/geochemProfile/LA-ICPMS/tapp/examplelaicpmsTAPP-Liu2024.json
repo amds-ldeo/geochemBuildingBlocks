@@ -48,7 +48,6 @@
   "ada:detectorConfiguration": "Dual mode detector (30 ms / 10 ms dwell alternation)",
   "ada:laserWavelengthAndType": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
   "ada:spotGeometryDefault": "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)",
-  "ada:spotPath": "Spot (stationary; single spot at 1 Hz)",
   "ada:laserFluenceDefault": "6.79 J cm⁻²",
   "ada:laserRepetitionRateDefault": "1 Hz",
   "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
@@ -69,8 +68,6 @@
   "ada:isobaricInterferenceCorrection": "Yes — fs laser substantially reduces oxide and matrix interferences; flux blank contributions to V, Co, Zn, Ba, La, Ce, Ta, U identified and subtracted",
   "ada:interferingSpecies": "Li₂B₄O₇ flux blank contains V, Co, Zn, Ba, La, Ce, Ta, U at detectable levels; subtracted as blank contribution",
   "ada:isobaricInterferenceCorrectionMethod": "Flux blank subtraction: blank contribution to each pollution element (V, Co, Zn, Ba, La, Ce, Ta, U) measured in procedure blanks and subtracted; LOQ for pollution elements = blank value + 10SD",
-  "ada:primaryCalibrationStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
-  "ada:calibrationStandardMeasurementFrequency": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
   "ada:secondaryReferenceMaterialDefault": "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS",
   "schema:additionalProperty": [
     {
@@ -346,5 +343,12 @@
         ]
       }
     ]
-  }
+  },
+  "ada:primaryStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
+  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "schema:datePublished": "2026-08-16",
+  "ada:signalCollectionMode": "missing"
 }

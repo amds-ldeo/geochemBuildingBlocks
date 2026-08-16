@@ -48,7 +48,6 @@
   "ada:detectorConfiguration": "Triple mode detector (pulse counting, analog, Faraday)",
   "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration 4 ns",
   "ada:spotGeometryDefault": "150 µm circular",
-  "ada:spotPath": "Spot (stationary)",
   "ada:laserFluenceDefault": "7 J cm⁻²",
   "ada:laserRepetitionRateDefault": "10 Hz",
   "ada:ablationSpotDurationDefault": "40 s on-sample ablation (after 20 s background measurement)",
@@ -69,8 +68,6 @@
   "ada:isobaricInterferenceCorrection": "Yes — isotope selection to minimize interferences (e.g., ⁹⁹Ru instead of ¹⁰¹Ru to avoid ⁴⁰Ar⁶¹Ni⁺; low abundance isotopes for Fe and Ni)",
   "ada:interferingSpecies": "⁴⁰Ar⁶¹Ni⁺ on ¹⁰¹Ru (primary concern) → ⁹⁹Ru used instead; Fe and Ni matrix species on other isotopes minimized by isotope selection",
   "ada:isobaricInterferenceCorrectionMethod": "Isotope selection minimizes interferences; low-abundance isotopes of Fe and Ni chosen for analog mode to prevent detector saturation",
-  "ada:primaryCalibrationStandardNameDefault": "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) — used together with yield correction in iolite 3D DRS",
-  "ada:calibrationStandardMeasurementFrequency": "NIST SRM 612 and North Chile measured bracketing every 15 unknowns: 3×STD → 3×STD → 10×unknowns → repeat",
   "ada:secondaryReferenceMaterialDefault": "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)",
   "schema:additionalProperty": [
     {
@@ -270,5 +267,12 @@
         ]
       }
     ]
-  }
+  },
+  "ada:primaryStandardNameDefault": "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) — used together with yield correction in iolite 3D DRS",
+  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and North Chile measured bracketing every 15 unknowns: 3×STD → 3×STD → 10×unknowns → repeat",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "schema:datePublished": "2026-08-16",
+  "ada:signalCollectionMode": "missing"
 }
