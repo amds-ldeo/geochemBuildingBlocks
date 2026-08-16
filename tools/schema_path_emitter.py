@@ -106,7 +106,14 @@ WRAPPER_ITEM_REF = {
 # since items are AnalyteColumn objects — and with every row writing the same append, last-one-wins.
 # It is now handled by ANALYTE_COLUMN_ARRAY below, which turns each row into a generated column def
 # rather than consuming the row's leaf.
-BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
+BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool",
+                           # tappDefinition types a default analyte as an OBJECT (an
+                           # identifier plus whatever per-analyte columns the technique
+                           # adds). The sidecar row carries the analyte NAME, so its
+                           # "Text (free)" leaf emitted items:{type:string} -- allOf then
+                           # intersected string with object and nothing could satisfy it,
+                           # which is why every entry failed in whichever form it was written.
+                           "ada:defaultAnalytes"}
 
 # The per-analyte column array. Each row targeting it names one column; the emitter generates a
 # column def per row and narrows the array to those columns plus the base's identifier column.
