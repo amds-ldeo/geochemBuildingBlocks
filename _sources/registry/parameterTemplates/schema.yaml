@@ -1397,692 +1397,6 @@ $defs:
     - ada:dataType
     - ada:fieldScope
 
-  labxct_sampleDimensionsDefault:
-    title: Sample Dimensions (L × W × H)
-    description: Physical dimensions of the sample in mm, reported as length × width × height (or equivalent
-      three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view
-      and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels
-      span the smallest feature of interest.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sampleDimensionsDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleDimensionsDefault
-      schema:name:
-        const: Sample Dimensions (L × W × H)
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_sampleMountingMethodDefault:
-    title: Sample Mounting Method
-    description: Method used to mount or hold the sample on the instrument rotation stage. Mounting material
-      should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder
-      type, adhesive or support material, and any alignment aids used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sampleMountingMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sampleMountingMethodDefault
-      schema:name:
-        const: Sample Mounting Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_samplePersistentIdentifierDefault:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
-      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
-      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/samplePersistentIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePersistentIdentifierDefault
-      schema:name:
-        const: Sample Persistent Identifier
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_samplePreparationNotesDefault:
-    title: Sample Preparation Notes
-    description: Any preparation steps applied to the sample before scanning, including cleaning, trimming,
-      consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note
-      any exceptions.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePreparationNotesDefault
-      schema:name:
-        const: Sample Preparation Notes
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_preAnalysisImagingAndScreeningDefault:
-    title: Pre-Analysis Imaging and Screening
-    description: Imaging or other characterisation performed before the measurement in order to select or
-      locate the analysed target, including the technique, instrument and settings used, and how individual
-      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
-      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
-      the Group 1 coupling fields.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: preAnalysisImagingAndScreeningDefault
-      schema:name:
-        const: Pre-Analysis Imaging and Screening
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_xRayPowerDefault:
-    title: X-ray Power
-    description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) ×
-      current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes:
-      higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone
-      field because it is routinely reported in the literature and directly constrains instrument operating
-      limits. If power was varied across samples within the session, report the full range applied (e.g.,
-      7–13 W).'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/xRayPowerDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: xRayPowerDefault
-      schema:name:
-        const: X-ray Power
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: W
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_sourceToObjectDistanceDefault:
-    title: Source-to-Object Distance (SOD)
-    description: Distance from the X-ray source focal spot to the centre of the sample rotation axis, in
-      mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD).
-      Shorter SOD increases magnification and reduces voxel size.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sourceToObjectDistanceDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sourceToObjectDistanceDefault
-      schema:name:
-        const: Source-to-Object Distance (SOD)
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mm
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_sourceToDetectorDistanceDefault:
-    title: Source-to-Detector Distance (SDD)
-    description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
-      by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈
-      detector pixel size / M (before binning; divide additionally by optical objective for Versa-class
-      systems).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: sourceToDetectorDistanceDefault
-      schema:name:
-        const: Source-to-Detector Distance (SDD)
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: mm
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_rotationStepSizeDefault:
-    title: Rotation Step Size
-    description: Angular increment between successive projection images, in degrees. Equal to Rotation Range
-      divided by Number of Projections when both are reported; however, some sources report step size as
-      the primary rotation parameter without stating the total number of projections explicitly. Finer step
-      sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/rotationStepSizeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: rotationStepSizeDefault
-      schema:name:
-        const: Rotation Step Size
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: °
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_framesAveragedPerProjectionDefault:
-    title: Frames Averaged per Projection
-    description: Number of individual detector frames acquired and averaged to produce each saved projection
-      image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective
-      exposure per projection = exposure time per frame × frames averaged.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: framesAveragedPerProjectionDefault
-      schema:name:
-        const: Frames Averaged per Projection
-      ada:dataType:
-        const: integer
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_detectorBinningDefault:
-    title: Detector Binning
-    description: Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels
-      (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR
-      and reducing file size. 1×1 indicates no binning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/detectorBinningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectorBinningDefault
-      schema:name:
-        const: Detector Binning
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_reconstructionConvolutionFilterDefault:
-    title: Reconstruction Convolution Filter
-    description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
-      Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters
-      (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level
-      tradeoff.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/reconstructionConvolutionFilterDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: reconstructionConvolutionFilterDefault
-      schema:name:
-        const: Reconstruction Convolution Filter
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_beamHardeningCorrectionParameterDefault:
-    title: Beam Hardening Correction Parameter
-    description: Numerical value or setting applied in the software beam hardening correction algorithm
-      for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level
-      companion to Beam Hardening Correction Method.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: beamHardeningCorrectionParameterDefault
-      schema:name:
-        const: Beam Hardening Correction Parameter
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_ringArtifactCorrectionMethodDefault:
-    title: Ring Artifact Correction Method
-    description: Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric
-      circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels.
-      Method is the procedure-level specification; whether correction was applied and its outcome are recorded
-      at analysis level in Group 6.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ringArtifactCorrectionMethodDefault
-      schema:name:
-        const: Ring Artifact Correction Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_ctNumberCalibrationDefault:
-    title: CT Number Calibration
-    description: Whether the raw CT grayscale values have been calibrated to physically meaningful units
-      using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison
-      and support phase identification by comparison to calculated linear attenuation coefficient (LAC)
-      values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and
-      session-specific.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/ctNumberCalibrationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ctNumberCalibrationDefault
-      schema:name:
-        const: CT Number Calibration
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_segmentationThresholdValuesOrCriteriaDefault:
-    title: Segmentation Threshold Values or Criteria
-    description: Specific CT number range(s) or quantitative criteria used to define each segmented phase
-      or feature. Documenting these values enables reproducibility assessment and cross-study comparison.
-      For LAC-calibrated datasets, report values in cm⁻¹.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: segmentationThresholdValuesOrCriteriaDefault
-      schema:name:
-        const: Segmentation Threshold Values or Criteria
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_phaseIdentificationMethodDefault:
-    title: Phase Identification Method
-    description: Method used to assign reconstructed CT number ranges to specific mineral phases or material
-      types. Approaches include comparison to calculated linear attenuation coefficients (LAC), cross-validation
-      with independent analytical techniques, or empirical calibration.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/phaseIdentificationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: phaseIdentificationMethodDefault
-      schema:name:
-        const: Phase Identification Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_voiSelectionCriteriaDefault:
-    title: VOI Selection Criteria
-    description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for
-      quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening
-      halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis
-      is recorded separately at analysis level.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/voiSelectionCriteriaDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: voiSelectionCriteriaDefault
-      schema:name:
-        const: VOI Selection Criteria
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_outputBitDepthDefault:
-    title: Output Bit Depth
-    description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale
-      value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating
-      point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation
-      analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend
-      on a consistent grayscale range; the analyst confirms or adjusts at analysis time.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/outputBitDepthDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: outputBitDepthDefault
-      schema:name:
-        const: Output Bit Depth
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_partialVolumeEffectCriteriaDefault:
-    title: Partial Volume Effect Criteria
-    description: Procedure-level specification of how partial volume effects (PVE) are managed in quantitative
-      analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features,
-      because each voxel integrates the attenuation of all material within its volume. PVE correction can
-      be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion
-      adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in
-      modal abundance or size distribution calculations, and whether PVE correction is required or optional.
-      Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at
-      least 10 for reliable shape and volume characterisation; state whether the criterion follows that
-      convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported
-      modal abundances and size distributions, so two datasets are not comparable without it.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: partialVolumeEffectCriteriaDefault
-      schema:name:
-        const: Partial Volume Effect Criteria
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  labxct_crossValidationProcedureRequirementDefault:
-    title: Cross-Validation Procedure Requirement
-    description: Procedure-level specification of what independent analytical validation is required to
-      confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
-      is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation
-      coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
-      for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the
-      sampling fraction (e.g., every sample, one per session, or a representative subset).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/crossValidationProcedureRequirementDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: crossValidationProcedureRequirementDefault
-      schema:name:
-        const: Cross-Validation Procedure Requirement
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-
   laicpms_fusionFluxAndDilutionRatioDefault:
     title: Fusion Flux and Dilution Ratio
     description: For protocols using fused glass, the flux type and sample:flux dilution ratio used to prepare
@@ -6212,6 +5526,692 @@ $defs:
         const: clWavelengthCalibrationReferenceDefault
       schema:name:
         const: CL Wavelength Calibration Reference
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+
+  labxct_sampleDimensionsDefault:
+    title: Sample Dimensions (L × W × H)
+    description: Physical dimensions of the sample in mm, reported as length × width × height (or equivalent
+      three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view
+      and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels
+      span the smallest feature of interest.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sampleDimensionsDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleDimensionsDefault
+      schema:name:
+        const: Sample Dimensions (L × W × H)
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_sampleMountingMethodDefault:
+    title: Sample Mounting Method
+    description: Method used to mount or hold the sample on the instrument rotation stage. Mounting material
+      should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder
+      type, adhesive or support material, and any alignment aids used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sampleMountingMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleMountingMethodDefault
+      schema:name:
+        const: Sample Mounting Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_samplePreparationNotesDefault:
+    title: Sample Preparation Notes
+    description: Any preparation steps applied to the sample before scanning, including cleaning, trimming,
+      consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note
+      any exceptions.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePreparationNotesDefault
+      schema:name:
+        const: Sample Preparation Notes
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the analysed target, including the technique, instrument and settings used, and how individual
+      analyses are linked back to the images. Distinct from any imaging the procedure performs as its own
+      measurement. Where the imaging is performed on a separate instrument, it should also be recorded in
+      the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_xRayPowerDefault:
+    title: X-ray Power
+    description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) ×
+      current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes:
+      higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone
+      field because it is routinely reported in the literature and directly constrains instrument operating
+      limits. If power was varied across samples within the session, report the full range applied (e.g.,
+      7–13 W).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/xRayPowerDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayPowerDefault
+      schema:name:
+        const: X-ray Power
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: W
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_sourceToObjectDistanceDefault:
+    title: Source-to-Object Distance (SOD)
+    description: Distance from the X-ray source focal spot to the centre of the sample rotation axis, in
+      mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD).
+      Shorter SOD increases magnification and reduces voxel size.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sourceToObjectDistanceDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sourceToObjectDistanceDefault
+      schema:name:
+        const: Source-to-Object Distance (SOD)
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mm
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_sourceToDetectorDistanceDefault:
+    title: Source-to-Detector Distance (SDD)
+    description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
+      by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size ≈
+      detector pixel size / M (before binning; divide additionally by optical objective for Versa-class
+      systems).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sourceToDetectorDistanceDefault
+      schema:name:
+        const: Source-to-Detector Distance (SDD)
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mm
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_rotationStepSizeDefault:
+    title: Rotation Step Size
+    description: Angular increment between successive projection images, in degrees. Equal to Rotation Range
+      divided by Number of Projections when both are reported; however, some sources report step size as
+      the primary rotation parameter without stating the total number of projections explicitly. Finer step
+      sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/rotationStepSizeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: rotationStepSizeDefault
+      schema:name:
+        const: Rotation Step Size
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: °
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_framesAveragedPerProjectionDefault:
+    title: Frames Averaged per Projection
+    description: Number of individual detector frames acquired and averaged to produce each saved projection
+      image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective
+      exposure per projection = exposure time per frame × frames averaged.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: framesAveragedPerProjectionDefault
+      schema:name:
+        const: Frames Averaged per Projection
+      ada:dataType:
+        const: integer
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_detectorBinningDefault:
+    title: Detector Binning
+    description: Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels
+      (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR
+      and reducing file size. 1×1 indicates no binning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/detectorBinningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectorBinningDefault
+      schema:name:
+        const: Detector Binning
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_reconstructionConvolutionFilterDefault:
+    title: Reconstruction Convolution Filter
+    description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
+      Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters
+      (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level
+      tradeoff.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/reconstructionConvolutionFilterDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reconstructionConvolutionFilterDefault
+      schema:name:
+        const: Reconstruction Convolution Filter
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_beamHardeningCorrectionParameterDefault:
+    title: Beam Hardening Correction Parameter
+    description: Numerical value or setting applied in the software beam hardening correction algorithm
+      for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level
+      companion to Beam Hardening Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: beamHardeningCorrectionParameterDefault
+      schema:name:
+        const: Beam Hardening Correction Parameter
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_ringArtifactCorrectionMethodDefault:
+    title: Ring Artifact Correction Method
+    description: Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric
+      circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels.
+      Method is the procedure-level specification; whether correction was applied and its outcome are recorded
+      at analysis level in Group 6.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ringArtifactCorrectionMethodDefault
+      schema:name:
+        const: Ring Artifact Correction Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_ctNumberCalibrationDefault:
+    title: CT Number Calibration
+    description: Whether the raw CT grayscale values have been calibrated to physically meaningful units
+      using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison
+      and support phase identification by comparison to calculated linear attenuation coefficient (LAC)
+      values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and
+      session-specific.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/ctNumberCalibrationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ctNumberCalibrationDefault
+      schema:name:
+        const: CT Number Calibration
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_segmentationThresholdValuesOrCriteriaDefault:
+    title: Segmentation Threshold Values or Criteria
+    description: Specific CT number range(s) or quantitative criteria used to define each segmented phase
+      or feature. Documenting these values enables reproducibility assessment and cross-study comparison.
+      For LAC-calibrated datasets, report values in cm⁻¹.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: segmentationThresholdValuesOrCriteriaDefault
+      schema:name:
+        const: Segmentation Threshold Values or Criteria
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_phaseIdentificationMethodDefault:
+    title: Phase Identification Method
+    description: Method used to assign reconstructed CT number ranges to specific mineral phases or material
+      types. Approaches include comparison to calculated linear attenuation coefficients (LAC), cross-validation
+      with independent analytical techniques, or empirical calibration.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/phaseIdentificationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: phaseIdentificationMethodDefault
+      schema:name:
+        const: Phase Identification Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_voiSelectionCriteriaDefault:
+    title: VOI Selection Criteria
+    description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for
+      quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening
+      halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis
+      is recorded separately at analysis level.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/voiSelectionCriteriaDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: voiSelectionCriteriaDefault
+      schema:name:
+        const: VOI Selection Criteria
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_outputBitDepthDefault:
+    title: Output Bit Depth
+    description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale
+      value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating
+      point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation
+      analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend
+      on a consistent grayscale range; the analyst confirms or adjusts at analysis time.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/outputBitDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: outputBitDepthDefault
+      schema:name:
+        const: Output Bit Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_partialVolumeEffectCriteriaDefault:
+    title: Partial Volume Effect Criteria
+    description: Procedure-level specification of how partial volume effects (PVE) are managed in quantitative
+      analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features,
+      because each voxel integrates the attenuation of all material within its volume. PVE correction can
+      be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion
+      adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in
+      modal abundance or size distribution calculations, and whether PVE correction is required or optional.
+      Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at
+      least 10 for reliable shape and volume characterisation; state whether the criterion follows that
+      convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported
+      modal abundances and size distributions, so two datasets are not comparable without it.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: partialVolumeEffectCriteriaDefault
+      schema:name:
+        const: Partial Volume Effect Criteria
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  labxct_crossValidationProcedureRequirementDefault:
+    title: Cross-Validation Procedure Requirement
+    description: Procedure-level specification of what independent analytical validation is required to
+      confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
+      is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation
+      coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
+      for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the
+      sampling fraction (e.g., every sample, one per session, or a representative subset).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/crossValidationProcedureRequirementDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: crossValidationProcedureRequirementDefault
+      schema:name:
+        const: Cross-Validation Procedure Requirement
       ada:dataType:
         const: string
       ada:fieldScope:
