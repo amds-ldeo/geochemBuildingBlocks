@@ -74,19 +74,6 @@
   "ada:secondaryReferenceMaterialDefault": "Same GRM set measured as unknowns for accuracy assessment",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "preAblationSurfaceTreatmentDefault",
-      "schema:name": "Pre-Ablation Surface Treatment",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Pre-ablation pass: 150 µm square, 2 J cm⁻², 20 Hz, 300 µm s⁻¹ scan before trace element spot run; removes surface contamination and re-deposited material"
-    },
-    {
       "@id": "ada:parameter/laicpmsTAPP/transectOrMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -113,19 +100,6 @@
       "schema:defaultValue": "Ar make-up: 0.947 l min⁻¹ (run 1 and run 2); N₂ not added"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "signalSmoothingDefault",
-      "schema:name": "Signal Smoothing",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "None"
-    },
-    {
       "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -137,32 +111,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Same instrument as mapping; tuning optimized per run (different RF power and resolution settings per run)"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "outlierFilteringDefault",
-      "schema:name": "Spike / Outlier Filtering Approach",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Manual inspection; analyses with elevated P, Ca, Co, Ni (phosphate or metal inclusions) excluded; Cr heterogeneities also flagged"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "nonlinearResponseCorrectionDefault",
-      "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault",
@@ -323,6 +271,96 @@
       },
       {
         "analyte": "238U"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:position": 1,
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laicpmsTAPP/preAblationSurfaceTreatmentDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "preAblationSurfaceTreatmentDefault",
+            "schema:name": "Pre-Ablation Surface Treatment",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Pre-ablation pass: 150 µm square, 2 J cm⁻², 20 Hz, 300 µm s⁻¹ scan before trace element spot run; removes surface contamination and re-deposited material"
+          }
+        ]
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:position": 3,
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "None"
+          },
+          {
+            "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "outlierFilteringDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Manual inspection; analyses with elevated P, Ca, Co, Ni (phosphate or metal inclusions) excluded; Cr heterogeneities also flagged"
+          },
+          {
+            "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "nonlinearResponseCorrectionDefault",
+            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed"
+          }
+        ]
       }
     ]
   }

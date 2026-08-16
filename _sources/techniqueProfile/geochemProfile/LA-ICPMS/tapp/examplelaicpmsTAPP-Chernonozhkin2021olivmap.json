@@ -100,19 +100,6 @@
       "schema:defaultValue": "Ar make-up: 0.81–0.99 l min⁻¹ (mapping); N₂ explicitly not added"
     },
     {
-      "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "signalSmoothingDefault",
-      "schema:name": "Signal Smoothing",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "None (no signal smoothing device; N₂ not added)"
-    },
-    {
       "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -124,32 +111,6 @@
       "schema:readonlyValue": false,
       "ada:tier": "R",
       "schema:defaultValue": "Daily tuning; cool plasma conditions optimized; N₂ explicitly not added to avoid N-based interferences"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "outlierFilteringDefault",
-      "schema:name": "Spike / Outlier Filtering Approach",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Manual identification and exclusion of P-rich veinlet pixels from olivine averages; anomalous spikes from inclusions excluded per line"
-    },
-    {
-      "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "nonlinearResponseCorrectionDefault",
-      "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed"
     },
     {
       "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault",
@@ -249,6 +210,81 @@
       },
       {
         "analyte": "195Pt"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:position": 1,
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ]
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:position": 3,
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "None (no signal smoothing device; N₂ not added)"
+          },
+          {
+            "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "outlierFilteringDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Manual identification and exclusion of P-rich veinlet pixels from olivine averages; anomalous spikes from inclusions excluded per line"
+          },
+          {
+            "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "nonlinearResponseCorrectionDefault",
+            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed"
+          }
+        ]
       }
     ]
   }
