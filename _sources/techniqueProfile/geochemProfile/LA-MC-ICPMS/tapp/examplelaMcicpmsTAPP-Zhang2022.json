@@ -1,0 +1,321 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laMcicpmsTAPP-Zhang2022",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)",
+  "schema:description": "laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteorite silicates (Rb-Sr geochronology) Line scan (transect) fs-LA-MC-ICP-MS China Univ. of Geosciences (publication column of LA-MC-ICPMS_TAPP_v13.xlsx).",
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "ICPMS",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "Multi-collector sector-field (MC-ICP-MS)",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laMcicpmsTAPP/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:readonlyValue": false,
+          "ada:tier": "R",
+          "schema:defaultValue": "NIST 610 used to optimize He/Ar gas flows, torch position, RF power, and source lens settings for max sensitivity and peak flatness; small N₂ added downstream"
+        }
+      ]
+    },
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China"
+  },
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": "Zhang et al. (China Univ. of Geosciences Wuhan)"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-MC-ICP-MS",
+      "schema:name": "fs-LA-MC-ICP-MS"
+    }
+  ],
+  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished thin section (two-volume cell)",
+  "ada:samplingUnit": "missing",
+  "ada:samplePreparationMethodDefault": "Polished thin section (two-volume cell)",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:laserManufacturerModel": "New Wave Research NWR FemtoUC (Yb:KGW fs, 257 nm PHAROS amplifier)",
+  "ada:icpMsManufacturerModel": "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)",
+  "ada:icpMsType": "Multi-collector sector-field (MC-ICP-MS)",
+  "ada:interfaceConeConfiguration": "X skimmer cone + Jet sample cone (high-sensitivity configuration)",
+  "ada:guardElectrode": "missing",
+  "ada:massResolutionSettingDefault": "Low resolution (M/ΔM ≈ 400)",
+  "ada:detectorConfiguration": "Seven fixed electron multiplier ICs + nine Faraday cups (1011 Ω resistors)",
+  "ada:collisionReactionCellConfiguration": "missing",
+  "ada:laserWavelengthAndType": "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)",
+  "ada:ablationCellType": "Two-volume cell (constant distance between laser and aerosol extraction)",
+  "ada:sampleIntroduction": "missing",
+  "ada:faradayCupArrayConfiguration": "missing",
+  "ada:faradayCupAmplifierResistorValues": "missing",
+  "ada:faradayCupGainCalibrationMethod": "missing",
+  "ada:laserSpotGeometryDefault": "50–60 µm circular",
+  "ada:laserSpotPathAblationMode": "Transect (continuous line scan at 2–6 µm s⁻¹)",
+  "ada:laserFluenceDefault": "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)",
+  "ada:laserRepetitionRateDefault": "10–30 Hz (varied based on Sr concentration in samples)",
+  "ada:laserPulseDuration": "300 fs (Yb:KGW PHAROS femtosecond amplifier)",
+  "ada:ablationDurationPerSpotDefault": "missing",
+  "ada:ablationPitDepthAndAblationRateDefault": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:carrierGasAndFlowRateDefault": "He, 0.90 l min⁻¹ (two-volume cell)",
+  "ada:coolantGasFlowRateDefault": "Cool gas: 16.0 l min⁻¹ Ar",
+  "ada:auxiliaryGasFlowRateDefault": "Auxiliary: 0.80 l min⁻¹ Ar",
+  "ada:rfPowerDefault": "1250 W",
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:analysisSequenceDefault": "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis",
+  "ada:monitoredIsotopes": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:massResolutionAssignment": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:collisionGasType": "missing",
+  "ada:collisionGasFlowRateDefault": "missing",
+  "ada:cellExitDiscriminationVoltageDefault": "missing",
+  "ada:backgroundCountTimeDefault": "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)",
+  "ada:collectorConfiguration": "missing",
+  "ada:numberOfBlocksPerMeasurementDefault": "missing",
+  "ada:numberOfCyclesPerBlockDefault": "missing",
+  "ada:integrationTimePerCycleDefault": "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)",
+  "ada:baselineMeasurementApproach": "missing",
+  "ada:peakFlatnessMethodAndThreshold": "missing",
+  "ada:internalStandardApproach": "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)",
+  "ada:internalStandardElement": "No conventional IS; ⁸⁵Rb used to calculate ⁸⁷Rb/⁸⁶Sr via 87Rb/85Rb; external calibration for Rb/Sr elemental fractionation using reference glasses",
+  "ada:perAnalyteCalibrationStrategy": [
+    "missing"
+  ],
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)"
+  ],
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:uncertaintyLevel": "missing",
+  "ada:signalIntegrationIntervalMethod": "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle",
+  "ada:blankBackgroundCorrectionMethod": "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied",
+  "ada:isobaricInterferenceCorrectionsApplied": "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)",
+  "ada:interferingSpecies": "¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ + ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb on ⁸⁷Sr (isobaric)",
+  "ada:interferenceCorrectionMethod": "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er²⁺ and 173Yb²⁺ signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias",
+  "ada:isotopeDilutionDataReductionMethod": "missing",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:massFractionationLaw": "missing",
+  "ada:internalNormalizationElementAndIsotopeRatio": "missing",
+  "ada:doubleSpikeIsotopePair": "missing",
+  "ada:doubleSpikeInversionAlgorithm": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:primaryCalibrationStandardNameDefault": "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of ⁸⁷Rb/⁸⁶Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for ⁸⁷Sr/⁸⁶Sr data quality evaluation",
+  "ada:calibrationStandardMeasurementFrequency": "missing",
+  "ada:secondaryReferenceMaterialsDefault": "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 — measured as unknowns for 87Sr/86Sr data quality evaluation",
+  "ada:detectionLimitMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1",
+  "ada:analyticalAccuracyAndAssessmentMethod": "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion",
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
+          },
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "spikeOutlierFilteringApproachDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
+          }
+        ]
+      }
+    ]
+  },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)"
+    },
+    {
+      "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
+      "schema:name": "Plasma / Make-up Gas Addition",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Ar make-up (flow rate not separately stated); N₂ 12 ml min⁻¹ added via Y-connector downstream of signal-smoothing device"
+    },
+    {
+      "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Standard error (SE = SD/√n) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
+    },
+    {
+      "@id": "ada:parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single line scan per location (1 block of 120 cycles at 0.524 s integration)"
+    }
+  ],
+  "schema:identifier": "missing",
+  "ada:channelColumns": [
+    "missing"
+  ],
+  "schema:line": "missing",
+  "schema:valueName": "missing",
+  "ada:primaryStandardNameDefault": "missing",
+  "schema:email": "missing",
+  "ada:cdifPropertyPath": "missing",
+  "schema:latitude": -9999,
+  "schema:linkRelationship": "missing",
+  "schema:termCode": "missing",
+  "schema:propertyID": "missing",
+  "schema:datePublished": "missing",
+  "ada:fieldScope": "missing",
+  "schema:funder": "missing",
+  "schema:roleName": "missing",
+  "schema:value": "missing",
+  "schema:url": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "schema:box": "missing",
+  "ada:tier": "missing",
+  "schema:position": -9999,
+  "schema:defaultValue": "missing",
+  "schema:longitude": -9999,
+  "ada:ablationSpotDurationDefault": -9999,
+  "ada:analyteColumns": [
+    "missing"
+  ],
+  "schema:geo": "missing",
+  "ada:carrierGasFlowRateDefault": "missing",
+  "schema:additionalType": [
+    "missing"
+  ],
+  "ada:dataType": "missing",
+  "ada:ablationPitDepthRateDefault": "missing",
+  "ada:reportedPropertyColumns": [
+    "missing"
+  ],
+  "ada:toolRole": "missing"
+}

@@ -1214,6 +1214,2418 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpmsUPb_analyticalAccuracyAndAssessmentMethod:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials,
+      expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
+      (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or
+      element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyAndAssessmentMethod
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpmsUPb_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpmsUPb_detectionLimit:
+    title: Detection Limit
+    description: Session detection limit, one per reported concentration variable (one per analyte, these
+      being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level
+      to demonstrate the reliability of reported near-detection-limit concentrations. The calculation
+      method is captured separately in Detection Limit Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/detectionLimit
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimit
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpmsUPb_detectionLimitMethod:
+    title: Detection Limit Method
+    description: Reference or description of the method used to calculate session detection limits. Mandatory
+      at analysis level. Must be consistent with the method applied to generate the Detection Limit values
+      reported above.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/detectionLimitMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethod
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpmsUPb_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpmsUPb_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Equation or procedure used to correct for isobaric interferences, including the production
+      rate factor and the reference material used to measure it.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpmsUPb_interferingSpecies:
+    title: Interfering Species
+    description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+      the measured isotope.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpmsUPb_isobaricInterferenceCorrectionsApplied:
+    title: Isobaric Interference Corrections Applied
+    description: 'Whether isobaric interference corrections were applied for any measured isotope in this
+      procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is
+      always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction
+      Method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: isobaricInterferenceCorrectionsApplied
+      schema:name:
+        const: Isobaric Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpmsUPb_limitOfQuantificationMethod:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification
+      (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory
+      at analysis level when concentrations near the LOD are reported. Concentrations between LOD and
+      LOQ are detectable but not reliably quantifiable.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/limitOfQuantificationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethod
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpmsUPb_massResolutionPerAnalyte:
+    title: Mass Resolution per Analyte
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/massResolutionPerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionPerAnalyte
+      schema:name:
+        const: Mass Resolution per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpmsUPb_monitoredIsotopes:
+    title: Monitored Isotopes
+    description: Specific isotope(s) monitored in this procedure, grouped by the analyte element they
+      serve where they serve one. Includes interference-monitor and internal-standard masses, which serve
+      no analyte and so have no parent element. The analyte list is given by the Analyte field and is
+      never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/monitoredIsotopes
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredIsotopes
+      schema:name:
+        const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpmsUPb_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+      Distinct from the primary internal standard approach captured in Internal Standard Approach.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report
+      both the assessment method and the precision values. Assessment method must specify: (1) the reference
+      material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.).
+      For mapping: assess from repeated analyses of a reference material area at session start and end,
+      or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_analyticalAccuracyAndAssessmentMethod:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials,
+      expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
+      (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or
+      element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyAndAssessmentMethod
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_detectionLimit:
+    title: Detection Limit
+    description: Session detection limit, one per reported concentration variable (one per analyte, these
+      being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level
+      to demonstrate the reliability of reported near-detection-limit concentrations. The calculation
+      method is captured separately in Detection Limit Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/detectionLimit
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimit
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_detectionLimitMethod:
+    title: Detection Limit Method
+    description: Reference or description of the method used to calculate session detection limits. Mandatory
+      at analysis level. Must be consistent with the method applied to generate the Detection Limit values
+      reported above.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/detectionLimitMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethod
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Equation or procedure used to correct for isobaric interferences, including the production
+      rate factor and the reference material used to measure it.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_interferingSpecies:
+    title: Interfering Species
+    description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+      the measured isotope.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_isobaricInterferenceCorrectionsApplied:
+    title: Isobaric Interference Corrections Applied
+    description: 'Whether isobaric interference corrections were applied for any measured isotope in this
+      procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is
+      always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction
+      Method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: isobaricInterferenceCorrectionsApplied
+      schema:name:
+        const: Isobaric Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_limitOfQuantificationMethod:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification
+      (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory
+      at analysis level when concentrations near the LOD are reported. Concentrations between LOD and
+      LOQ are detectable but not reliably quantifiable.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethod
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_massResolutionPerAnalyte:
+    title: Mass Resolution per Analyte
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/massResolutionPerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionPerAnalyte
+      schema:name:
+        const: Mass Resolution per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_monitoredIsotopes:
+    title: Monitored Isotopes
+    description: Specific isotope(s) monitored in this procedure, grouped by the analyte element they
+      serve where they serve one. Includes interference-monitor and internal-standard masses, which serve
+      no analyte and so have no parent element. The analyte list is given by the Analyte field and is
+      never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/monitoredIsotopes
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredIsotopes
+      schema:name:
+        const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+      Distinct from the primary internal standard approach captured in Internal Standard Approach.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report
+      both the assessment method and the precision values. Assessment method must specify: (1) the reference
+      material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.).
+      For mapping: assess from repeated analyses of a reference material area at session start and end,
+      or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_analyticalAccuracyAndAssessmentMethod:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials,
+      expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
+      (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or
+      element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyAndAssessmentMethod
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpmsUPb_detectionLimit:
+    title: Detection Limit
+    description: Session detection limit, one per reported concentration variable (one per analyte, these
+      being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level
+      to demonstrate the reliability of reported near-detection-limit concentrations. The calculation
+      method is captured separately in Detection Limit Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/detectionLimit
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimit
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpmsUPb_detectionLimitMethod:
+    title: Detection Limit Method
+    description: Reference or description of the method used to calculate session detection limits. Mandatory
+      at analysis level. Must be consistent with the method applied to generate the Detection Limit values
+      reported above.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethod
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
+      Longer dwell times improve counting statistics and lower detection limits but reduce the number
+      of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines
+      spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Equation or procedure used to correct for isobaric interferences, including the production
+      rate factor and the reference material used to measure it.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_interferingSpecies:
+    title: Interfering Species
+    description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+      the measured isotope.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_isobaricInterferenceCorrectionsApplied:
+    title: Isobaric Interference Corrections Applied
+    description: 'Whether isobaric interference corrections were applied for any measured isotope in this
+      procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is
+      always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction
+      Method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: isobaricInterferenceCorrectionsApplied
+      schema:name:
+        const: Isobaric Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_limitOfQuantificationMethod:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification
+      (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory
+      at analysis level when concentrations near the LOD are reported. Concentrations between LOD and
+      LOQ are detectable but not reliably quantifiable.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/limitOfQuantificationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethod
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpmsUPb_massResolutionPerAnalyte:
+    title: Mass Resolution per Analyte
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/massResolutionPerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionPerAnalyte
+      schema:name:
+        const: Mass Resolution per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpmsUPb_monitoredIsotopes:
+    title: Monitored Isotopes
+    description: Specific isotope(s) monitored in this procedure, grouped by the analyte element they
+      serve where they serve one. Includes interference-monitor and internal-standard masses, which serve
+      no analyte and so have no parent element. The analyte list is given by the Analyte field and is
+      never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/monitoredIsotopes
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredIsotopes
+      schema:name:
+        const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpmsUPb_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+      Distinct from the primary internal standard approach captured in Internal Standard Approach.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report
+      both the assessment method and the precision values. Assessment method must specify: (1) the reference
+      material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.).
+      For mapping: assess from repeated analyses of a reference material area at session start and end,
+      or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_analyticalAccuracyAndAssessmentMethod:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials,
+      expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
+      (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or
+      element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyAndAssessmentMethod
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpms_detectionLimit:
+    title: Detection Limit
+    description: Session detection limit, one per reported concentration variable (one per analyte, these
+      being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level
+      to demonstrate the reliability of reported near-detection-limit concentrations. The calculation
+      method is captured separately in Detection Limit Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/detectionLimit
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimit
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpms_detectionLimitMethod:
+    title: Detection Limit Method
+    description: Reference or description of the method used to calculate session detection limits. Mandatory
+      at analysis level. Must be consistent with the method applied to generate the Detection Limit values
+      reported above.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/detectionLimitMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethod
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
+      Longer dwell times improve counting statistics and lower detection limits but reduce the number
+      of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines
+      spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Equation or procedure used to correct for isobaric interferences, including the production
+      rate factor and the reference material used to measure it.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_interferingSpecies:
+    title: Interfering Species
+    description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+      the measured isotope.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_isobaricInterferenceCorrectionsApplied:
+    title: Isobaric Interference Corrections Applied
+    description: 'Whether isobaric interference corrections were applied for any measured isotope in this
+      procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is
+      always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction
+      Method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: isobaricInterferenceCorrectionsApplied
+      schema:name:
+        const: Isobaric Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_limitOfQuantificationMethod:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification
+      (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory
+      at analysis level when concentrations near the LOD are reported. Concentrations between LOD and
+      LOQ are detectable but not reliably quantifiable.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethod
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpms_massResolutionPerAnalyte:
+    title: Mass Resolution per Analyte
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionPerAnalyte
+      schema:name:
+        const: Mass Resolution per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpms_monitoredIsotopes:
+    title: Monitored Isotopes
+    description: Specific isotope(s) monitored in this procedure, grouped by the analyte element they
+      serve where they serve one. Includes interference-monitor and internal-standard masses, which serve
+      no analyte and so have no parent element. The analyte list is given by the Analyte field and is
+      never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredIsotopes
+      schema:name:
+        const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laQicpms_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+      Distinct from the primary internal standard approach captured in Internal Standard Approach.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report
+      both the assessment method and the precision values. Assessment method must specify: (1) the reference
+      material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.).
+      For mapping: assess from repeated analyses of a reference material area at session start and end,
+      or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_analyticalAccuracyAndAssessmentMethod:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials,
+      expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
+      (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or
+      element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyAndAssessmentMethod
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpmsUPb_detectionLimit:
+    title: Detection Limit
+    description: Session detection limit, one per reported concentration variable (one per analyte, these
+      being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level
+      to demonstrate the reliability of reported near-detection-limit concentrations. The calculation
+      method is captured separately in Detection Limit Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimit
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpmsUPb_detectionLimitMethod:
+    title: Detection Limit Method
+    description: Reference or description of the method used to calculate session detection limits. Mandatory
+      at analysis level. Must be consistent with the method applied to generate the Detection Limit values
+      reported above.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethod
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
+      Longer dwell times improve counting statistics and lower detection limits but reduce the number
+      of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines
+      spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Equation or procedure used to correct for isobaric interferences, including the production
+      rate factor and the reference material used to measure it.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_interferingSpecies:
+    title: Interfering Species
+    description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+      the measured isotope.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_isobaricInterferenceCorrectionsApplied:
+    title: Isobaric Interference Corrections Applied
+    description: 'Whether isobaric interference corrections were applied for any measured isotope in this
+      procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is
+      always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction
+      Method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: isobaricInterferenceCorrectionsApplied
+      schema:name:
+        const: Isobaric Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_limitOfQuantificationMethod:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification
+      (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory
+      at analysis level when concentrations near the LOD are reported. Concentrations between LOD and
+      LOQ are detectable but not reliably quantifiable.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethod
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpmsUPb_massResolutionPerAnalyte:
+    title: Mass Resolution per Analyte
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/massResolutionPerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionPerAnalyte
+      schema:name:
+        const: Mass Resolution per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpmsUPb_monitoredIsotopes:
+    title: Monitored Isotopes
+    description: Specific isotope(s) monitored in this procedure, grouped by the analyte element they
+      serve where they serve one. Includes interference-monitor and internal-standard masses, which serve
+      no analyte and so have no parent element. The analyte list is given by the Analyte field and is
+      never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/monitoredIsotopes
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredIsotopes
+      schema:name:
+        const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpmsUPb_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+      Distinct from the primary internal standard approach captured in Internal Standard Approach.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report
+      both the assessment method and the precision values. Assessment method must specify: (1) the reference
+      material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.).
+      For mapping: assess from repeated analyses of a reference material area at session start and end,
+      or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_analyticalAccuracyAndAssessmentMethod:
+    title: Analytical Accuracy and Assessment Method
+    description: 'Offset between measured and accepted reference values for secondary reference materials,
+      expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
+      (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements or
+      element groups assessed. Report any systematic biases and likely causes.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyAndAssessmentMethod
+      schema:name:
+        const: Analytical Accuracy and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: 'Reproducibility of measurements across multiple analytical sessions over weeks to months
+      (long-term or intermediate precision). Report both the assessment method and the precision values.
+      Specify: reference material used, number of sessions n, time span covered, and statistic reported.
+      Long-term precision is typically assessed from a compiled record of secondary reference material
+      values across all sessions.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpms_detectionLimit:
+    title: Detection Limit
+    description: Session detection limit, one per reported concentration variable (one per analyte, these
+      being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level
+      to demonstrate the reliability of reported near-detection-limit concentrations. The calculation
+      method is captured separately in Detection Limit Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/detectionLimit
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimit
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpms_detectionLimitMethod:
+    title: Detection Limit Method
+    description: Reference or description of the method used to calculate session detection limits. Mandatory
+      at analysis level. Must be consistent with the method applied to generate the Detection Limit values
+      reported above.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/detectionLimitMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitMethod
+      schema:name:
+        const: Detection Limit Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
+      Longer dwell times improve counting statistics and lower detection limits but reduce the number
+      of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines
+      spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Equation or procedure used to correct for isobaric interferences, including the production
+      rate factor and the reference material used to measure it.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_interferingSpecies:
+    title: Interfering Species
+    description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+      the measured isotope.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_isobaricInterferenceCorrectionsApplied:
+    title: Isobaric Interference Corrections Applied
+    description: 'Whether isobaric interference corrections were applied for any measured isotope in this
+      procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is
+      always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction
+      Method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: isobaricInterferenceCorrectionsApplied
+      schema:name:
+        const: Isobaric Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_limitOfQuantificationMethod:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit of quantification
+      (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory
+      at analysis level when concentrations near the LOD are reported. Concentrations between LOD and
+      LOQ are detectable but not reliably quantifiable.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/limitOfQuantificationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethod
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: uri
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpms_massResolutionPerAnalyte:
+    title: Mass Resolution per Analyte
+    description: ''
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionPerAnalyte
+      schema:name:
+        const: Mass Resolution per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpms_monitoredIsotopes:
+    title: Monitored Isotopes
+    description: Specific isotope(s) monitored in this procedure, grouped by the analyte element they
+      serve where they serve one. Includes interference-monitor and internal-standard masses, which serve
+      no analyte and so have no parent element. The analyte list is given by the Analyte field and is
+      never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/monitoredIsotopes
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredIsotopes
+      schema:name:
+        const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laSficpms_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: Any post-acquisition normalization applied to correct for systematic biases identified
+      from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+      Distinct from the primary internal standard approach captured in Internal Standard Approach.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
+    title: Within-Session Analytical Precision and Assessment Method
+    description: 'Reproducibility of repeated measurements within a single analytical session. Report
+      both the assessment method and the precision values. Assessment method must specify: (1) the reference
+      material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.).
+      For mapping: assess from repeated analyses of a reference material area at session start and end,
+      or from replicate analyses of a homogeneous reference phase within the map.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Within-Session Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laicpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
     description: 'Offset between measured and accepted reference values for secondary reference materials,

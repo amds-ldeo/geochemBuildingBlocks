@@ -1,0 +1,288 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laSficpmsUPbTAPP-Navarro2024-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)",
+  "schema:description": "laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Raster mapping (2D) ns-LA-SF-ICP-MS University of Campinas (publication column of LA-SF-ICP-MS_UPb_TAPP_v17.xlsx).",
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "ICPMS",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "Sector field (SF-ICP-MS) (explicitly stated)",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:readonlyValue": false,
+          "ada:tier": "R",
+          "schema:defaultValue": "Same as spot protocol"
+        }
+      ]
+    },
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil"
+  },
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": "Navarro, Enzweiler, Crósta et al."
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS",
+      "schema:name": "LA-SF-ICP-MS"
+    }
+  ],
+  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished epoxy mount (same Augusto Pestana fragment as spot protocol)",
+  "ada:samplingUnit": "missing",
+  "ada:samplePreparationMethodDefault": "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:chemicalAbrasionConditions": "missing",
+  "ada:laserManufacturerModel": "Teledyne Excite 193 (193 nm ArF excimer)",
+  "ada:icpMsManufacturerModel": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+  "ada:icpMsType": "Sector field (SF-ICP-MS) (explicitly stated)",
+  "ada:interfaceConeConfiguration": "Ni sampler cone; Ni skimmer cone",
+  "ada:guardElectrode": "On (active)",
+  "ada:massResolutionSettingDefault": "Low resolution (M/ΔM = 300)",
+  "ada:detectorConfiguration": "Triple mode detector (pulse counting, analog, Faraday)",
+  "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration 4 ns",
+  "ada:ablationCellType": "HelEx II two-volume sample cell",
+  "ada:sampleIntroduction": "missing",
+  "ada:laserSpotGeometryDefault": "150 µm square (mapping mode)",
+  "ada:laserSpotPathAblationMode": "Raster area (2D elemental mapping)",
+  "ada:laserFluenceDefault": "7 J cm⁻²",
+  "ada:laserRepetitionRateDefault": "10 Hz",
+  "ada:laserPulseDuration": "4 ns (ArF excimer Excite 193)",
+  "ada:ablationDurationPerSpotDefault": "missing",
+  "ada:ablationPitDepthAndAblationRateDefault": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:carrierGasAndFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
+  "ada:coolantGasFlowRateDefault": "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹",
+  "ada:auxiliaryGasFlowRateDefault": "missing",
+  "ada:rfPowerDefault": "1200 W",
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:analysisSequenceDefault": "Background (1 min) → NIST SRM 612(×3) → North Chile(×3) → unknown map (30 min) → North Chile(×3) → NIST SRM 612(×3) → background",
+  "ada:monitoredIsotopes": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:massResolutionAssignment": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:dwellTimePerMassDefault": "0.02 s per isotope; 100 samples per peak (same as spot protocol)",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:backgroundCountTimeDefault": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background",
+  "ada:internalStandardApproach": "Fe+Ni+Co sum normalization to 100% (same DRS as spot protocol; mandatory for multi-phase mapping without prior IS knowledge)",
+  "ada:internalStandardElement": "No single IS; Fe+Ni+Co=100% normalization (same as spot protocol)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "missing"
+  ],
+  "ada:elementalFractionationCorrection": [
+    "Same calibration approach as spot protocol (iolite 3D DRS; same yield correction)"
+  ],
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:uncertaintyLevel": "missing",
+  "ada:signalIntegrationIntervalMethod": "Same procedure as spot protocol; signal integration for mapping not separately described",
+  "ada:blankBackgroundCorrectionMethod": "Background (1 min) measured at session start; additional 3 measurements of NIST and North Chile used for calibration (background included in regression line for gas blank)",
+  "ada:isobaricInterferenceCorrectionsApplied": "Yes (same as spot protocol)",
+  "ada:interferingSpecies": "Same as spot protocol",
+  "ada:interferenceCorrectionMethod": "Same isotope selection as spot protocol",
+  "ada:isotopeDilutionDataReductionMethod": "missing",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:ageCalculationMethod": [
+    "missing"
+  ],
+  "ada:reportedDateTypeDefault": "missing",
+  "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
+  "ada:ageModelDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:primaryCalibrationStandardNameDefault": "NIST SRM 612 (Jochum et al. 2011) + North Chile Filomena — same as spot protocol",
+  "ada:calibrationStandardMeasurementFrequency": "NIST SRM 612 and North Chile at start and end of mapping session (30 min map; 3 measurements each before and after)",
+  "ada:secondaryReferenceMaterialsDefault": "North Chile and NIST SRM 612 measured before and after mapping session as QC materials",
+  "ada:detectionLimitMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "missing",
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laSficpmsUPbTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "None"
+          },
+          {
+            "@id": "ada:parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Applied (same as spot)"
+          }
+        ]
+      }
+    ]
+  },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "10 µm s⁻¹ (continuous raster scan)"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAdditionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
+      "schema:name": "Plasma / Make-up Gas Addition",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Ar make-up gas (same as spot protocol)"
+    }
+  ],
+  "schema:propertyID": "missing",
+  "schema:datePublished": "missing",
+  "ada:toolRole": "missing",
+  "ada:fieldScope": "missing",
+  "schema:position": -9999,
+  "schema:latitude": -9999,
+  "schema:url": "missing",
+  "schema:defaultValue": "missing",
+  "schema:roleName": "missing",
+  "schema:unitText": "missing",
+  "schema:geo": "missing",
+  "ada:dataType": "missing",
+  "ada:analyteColumns": [
+    "missing"
+  ],
+  "ada:tier": "missing",
+  "schema:email": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "schema:value": "missing",
+  "schema:funder": "missing",
+  "ada:reportedPropertyColumns": [
+    "missing"
+  ],
+  "ada:carrierGasFlowRateDefault": "missing",
+  "ada:cdifPropertyPath": "missing",
+  "schema:additionalType": [
+    "missing"
+  ],
+  "schema:box": "missing",
+  "ada:ablationPitDepthRateDefault": "missing",
+  "schema:termCode": "missing",
+  "ada:channelColumns": [
+    "missing"
+  ],
+  "schema:identifier": "missing",
+  "schema:line": "missing",
+  "ada:ablationSpotDurationDefault": -9999,
+  "schema:linkRelationship": "missing",
+  "schema:longitude": -9999,
+  "ada:primaryStandardNameDefault": "missing",
+  "schema:valueName": "missing"
+}

@@ -124,8 +124,11 @@
                     ]
                 },
                 "ada:ablationSamplingMode": {
-                    "description": "Sampling mode or ablation pattern used during analysis.",
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "description": "Sampling mode or ablation pattern used during analysis.",
+                        "type": "string"
+                    }
                 },
                 "ada:ablationSpotDurationDefault": {
                     "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a procedure-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent procedure-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
@@ -149,7 +152,6 @@
             },
             "required": [
                 "ada:ablationPitDepthRateDefault",
-                "ada:ablationSamplingMode",
                 "ada:ablationSpotDurationDefault",
                 "ada:rasterLineSpacingDefault"
             ]
@@ -171,54 +173,80 @@
                                     "allOf": [
                                         {
                                             "if": {
-                                                "properties": {
-                                                    "schema:additionalType": {
-                                                        "contains": {
-                                                            "const": "Laser Ablation System"
-                                                        }
-                                                    }
-                                                },
                                                 "required": [
-                                                    "schema:additionalType"
+                                                    "schema:instrument"
                                                 ]
                                             },
                                             "then": {
                                                 "properties": {
-                                                    "ada:laserSpotGeometry": {
-                                                        "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
-                                                        "anyOf": [
-                                                            {
-                                                                "type": "string"
-                                                            },
-                                                            {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
+                                                    "schema:instrument": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "../../../../BaseSchema/instrument/instrumentSchema.json"
+                                                                },
+                                                                {
+                                                                    "type": "object",
+                                                                    "allOf": [
+                                                                        {
+                                                                            "if": {
+                                                                                "properties": {
+                                                                                    "schema:additionalType": {
+                                                                                        "contains": {
+                                                                                            "const": "Laser Ablation System"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "required": [
+                                                                                    "schema:additionalType"
+                                                                                ]
+                                                                            },
+                                                                            "then": {
+                                                                                "properties": {
+                                                                                    "ada:laserSpotGeometry": {
+                                                                                        "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
+                                                                                        "anyOf": [
+                                                                                            {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    "ada:laserFluence": {
+                                                                                        "description": "Laser pulse energy per unit area at the sample surface in J cm⁻², as registered by the procedure. Fluence is the physically meaningful quantity controlling ablation rate, crater morphology, elemental fractionation, and particle size distribution. If the system reports only as % of maximum output, include that value and note the system maximum where known.",
+                                                                                        "anyOf": [
+                                                                                            {
+                                                                                                "type": "number"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    "ada:laserRepetitionRate": {
+                                                                                        "description": "Laser pulse repetition rate in hertz registered by the procedure. For mapping methods, repetition rate together with scan speed and spot size determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed bounds.",
+                                                                                        "anyOf": [
+                                                                                            {
+                                                                                                "type": "number"
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
                                                                 }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "ada:laserFluence": {
-                                                        "description": "Laser pulse energy per unit area at the sample surface in J cm⁻², as registered by the procedure. Fluence is the physically meaningful quantity controlling ablation rate, crater morphology, elemental fractionation, and particle size distribution. If the system reports only as % of maximum output, include that value and note the system maximum where known.",
-                                                        "anyOf": [
-                                                            {
-                                                                "type": "number"
-                                                            },
-                                                            {
-                                                                "type": "string"
-                                                            }
-                                                        ]
-                                                    },
-                                                    "ada:laserRepetitionRate": {
-                                                        "description": "Laser pulse repetition rate in hertz registered by the procedure. For mapping methods, repetition rate together with scan speed and spot size determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed bounds.",
-                                                        "anyOf": [
-                                                            {
-                                                                "type": "number"
-                                                            },
-                                                            {
-                                                                "type": "string"
-                                                            }
-                                                        ]
+                                                            ]
+                                                        }
                                                     }
                                                 }
                                             }

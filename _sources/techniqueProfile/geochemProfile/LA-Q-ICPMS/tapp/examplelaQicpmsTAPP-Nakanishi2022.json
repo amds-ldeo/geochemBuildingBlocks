@@ -1,0 +1,269 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laQicpmsTAPP-Nakanishi2022",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards",
+  "schema:description": "laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (publication column of LA-Q-ICP-MS_TAPP_v15.xlsx).",
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "ICPMS",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "Single-collector quadrupole (Q-ICP-MS)"
+    },
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
+  },
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS",
+      "schema:name": "fs-LA-Q-ICP-MS"
+    }
+  ],
+  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished epoxy thick section (petropoxy 154 resin, 0.5 µm diamond finish)",
+  "ada:samplingUnit": "missing",
+  "ada:samplePreparationMethodDefault": "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:laserManufacturerModel": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)",
+  "ada:icpMsManufacturerModel": "Thermo Scientific X-series 2 (Q-ICP-MS)",
+  "ada:icpMsType": "Single-collector quadrupole (Q-ICP-MS)",
+  "ada:interfaceConeConfiguration": "Ni micro-skimmer cone Xs; Ni sampler cone",
+  "ada:guardElectrode": "missing",
+  "ada:massResolutionSetting": "Unit resolution (quadrupole fixed)",
+  "ada:detectorConfiguration": "missing",
+  "ada:collisionReactionCellConfiguration": "missing",
+  "ada:laserWavelengthAndType": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
+  "ada:ablationCellType": "missing",
+  "ada:sampleIntroduction": "missing",
+  "ada:laserSpotGeometryDefault": "30 µm circular",
+  "ada:laserSpotPathAblationMode": "Spot (stationary)",
+  "ada:laserFluenceDefault": "12 J cm⁻²",
+  "ada:laserRepetitionRateDefault": "20 Hz",
+  "ada:laserPulseDuration": "~220 fs (Ti:sapphire IFRIT system)",
+  "ada:ablationDurationPerSpotDefault": "missing",
+  "ada:ablationPitDepthAndAblationRateDefault": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:carrierGasAndFlowRateDefault": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
+  "ada:coolantGasFlowRateDefault": "Cool gas: 12–13 l min⁻¹ Ar; Auxiliary: 0.6–1.2 l min⁻¹",
+  "ada:auxiliaryGasFlowRateDefault": "missing",
+  "ada:rfPowerDefault": "1400 W",
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
+  "ada:monitoredIsotopes": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:signalCollectionMode": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:collisionGasType": "missing",
+  "ada:collisionGasFlowRateDefault": "missing",
+  "ada:cellExitDiscriminationVoltageDefault": "missing",
+  "ada:dwellTimePerMassDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
+  "ada:backgroundCountTimeDefault": -9999,
+  "ada:internalStandardApproach": "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS",
+  "ada:internalStandardElement": "⁶¹Ni; concentration from EPMA measured at exact analysis spot location",
+  "ada:perAnalyteCalibrationStrategy": [
+    "missing"
+  ],
+  "ada:elementalFractionationCorrection": [
+    "External calibration using calibration curve method with IVB iron meteorite standards; ⁶¹Ni as IS from EPMA corrects for ablation yield differences between sample and standard"
+  ],
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:uncertaintyLevel": "missing",
+  "ada:signalIntegrationIntervalMethod": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
+  "ada:isobaricInterferenceCorrectionsApplied": "No explicit corrections applied; monitoring of Mg, Si, P, S used to detect and exclude inclusion-contaminated analyses rather than correct for spectral interferences",
+  "ada:interferingSpecies": "Sulfide inclusions detectable via ³³S signal; phosphide inclusions via ³¹P; silicate inclusions via ²⁴Mg, ²⁹Si (used to exclude contaminated analyses)",
+  "ada:interferenceCorrectionMethod": "Exclusion-based approach: analyses with elevated Mg, Si, P, S (from silicate, phosphate, or sulfide inclusions) excluded entirely rather than applying mathematical corrections",
+  "ada:isotopeDilutionDataReductionMethod": "missing",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:primaryCalibrationStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method",
+  "ada:calibrationStandardMeasurementFrequency": "missing",
+  "ada:secondaryReferenceMaterialsDefault": "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns",
+  "ada:detectionLimitMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "Analytical uncertainties: 2SE of individual spot measurements reported alongside data",
+  "ada:analyticalAccuracyAndAssessmentMethod": "missing",
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "spikeOutlierFilteringApproachDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Monitoring of Mg, Si, P, S to check for micro-inclusions (sulfides); analyses with elevated inclusion signals excluded entirely"
+          }
+        ]
+      }
+    ]
+  },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
+      "schema:name": "Plasma / Make-up Gas Addition",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "2SE of individual spot measurements reported"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot per location (30 µm circular)"
+    }
+  ],
+  "schema:linkRelationship": "missing",
+  "ada:ablationPitDepthRateDefault": "missing",
+  "schema:additionalType": [
+    "missing"
+  ],
+  "schema:datePublished": "missing",
+  "schema:longitude": -9999,
+  "schema:latitude": -9999,
+  "ada:dataType": "missing",
+  "schema:geo": "missing",
+  "schema:termCode": "missing",
+  "ada:fieldScope": "missing",
+  "schema:email": "missing",
+  "ada:tier": "missing",
+  "ada:toolRole": "missing",
+  "ada:carrierGasFlowRateDefault": "missing",
+  "schema:identifier": "missing",
+  "schema:roleName": "missing",
+  "schema:box": "missing",
+  "schema:value": "missing",
+  "ada:analyteColumns": [
+    "missing"
+  ],
+  "ada:reportedPropertyColumns": [
+    "missing"
+  ],
+  "ada:ablationSpotDurationDefault": -9999,
+  "ada:primaryStandardNameDefault": "missing",
+  "schema:url": "missing",
+  "schema:position": -9999,
+  "schema:funder": "missing",
+  "ada:channelColumns": [
+    "missing"
+  ],
+  "schema:propertyID": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "schema:valueName": "missing",
+  "ada:cdifPropertyPath": "missing",
+  "schema:defaultValue": "missing",
+  "schema:line": "missing"
+}
