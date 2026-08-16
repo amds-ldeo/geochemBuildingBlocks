@@ -37,11 +37,16 @@ PT = os.path.join(REG, "parameterTemplates", "schema.yaml")
 PV = os.path.join(REG, "parameterValues", "schema.yaml")
 # each TAPP -> its technique directory under techniqueProfile/
 TECH_DIR = {
-    "empaTAPP": "EMPA", "geochronTAPP": "Geochron", "laicpmsTAPP": "LA-ICPMS", "labxctTAPP": "XCT",
+    "empaTAPP": "EMPA", "labxctTAPP": "XCT",
     "semTAPP": "SEM", "semImagingTAPP": "SEM-Imaging", "semFibsemTAPP": "SEM-FIBSEM",
     "semCompositionTAPP": "SEM-Composition", "solutionQicpmsTAPP": "Solution-Q-ICPMS",
     "solutionSficpmsTAPP": "Solution-SF-ICPMS", "temTAPP": "TEM",
     "solutionMcicpmsTAPP": "Solution-MC-ICPMS",
+    # LA family, split by mass analyser to match the 2026-08-13 release, which replaced the single
+    # combined LA-Q_SF workbook and the separate Horstwood geochronology one.
+    "laQicpmsTAPP": "LA-Q-ICPMS", "laSficpmsTAPP": "LA-SF-ICPMS", "laMcicpmsTAPP": "LA-MC-ICPMS",
+    "laQicpmsUPbTAPP": "LA-Q-ICPMS-UPb", "laSficpmsUPbTAPP": "LA-SF-ICPMS-UPb",
+    "laMcicpmsUPbTAPP": "LA-MC-ICPMS-UPb",
 }
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
@@ -60,15 +65,24 @@ LAICPMS_ANALYTE_MAP = {
     "Interference Correction Method": ["IsobaricInterferenceCorrectionMethod"],
     "Isobaric Interference Corrections Applied": ["IsobaricInterferenceCorrection"],
 }
+# The 2026-08-13 release renamed every "Protocol …" identity row to "Procedure …" (a TAPP registers a
+# procedure; a protocol is the published document). Matching is by item label, so the old names alone
+# stopped recognising six identity rows in all sixteen release workbooks — they fell through to the
+# parameter route and were emitted as schema:additionalProperty entries the schema does not enumerate
+# (procedureReference and fundingSourceForProcedureDevelopment among the LA example errors). Both
+# spellings are kept so the archived workbooks still route.
 _IDENTITY_COMMON = {"Protocol Name", "Technique", "Protocol Author", "Laboratory",
                     "Protocol Start Date", "Funding Source for Protocol Development",
-                    "Target Material", "Protocol Reference(s)", "Protocol DOI", "Laboratory ID"}
+                    "Target Material", "Protocol Reference(s)", "Protocol DOI", "Laboratory ID",
+                    "Procedure Name", "Procedure Author", "Procedure Start Date",
+                    "Funding Source for Procedure Development", "Procedure Reference(s)",
+                    "Procedure DOI"}
 
 TAPP_CONFIGS = {
     "empaTAPP": {
         # Converted to the path-driven pipeline (2026-08-04) from the v-numbered workbook, replacing
         # the earlier matrix/`schema path` route (build_empa) + _tapp_lib publication examples.
-        "xlsx": "TAPPS20260813/Current TAPPs/EPMA_TAPP_v20.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/EPMA_TAPP_v20.xlsx",
         "prefix": "empa",
         "component_types": ["ada:EMPAImage", "ada:EMPAImageMap", "ada:EMPAQEATabular",
                             "ada:EMPAImageCollection", "ada:EMPAESPCTabular", "ada:EMPAESPCPlot"],
@@ -78,52 +92,14 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
         "description": ("Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP "
-                        "definition, generated from TAPPS20260813/Current TAPPs/EPMA_TAPP_v20.csv via the path-driven pipeline "
+                        "definition, generated from TAPPS20260813/Current TAPPs/EPMA_TAPP_v20.xlsx via the path-driven pipeline "
                         "(bootstrap_schemapaths.py + build_pathdriven.py)."),
         "detail_title": "EPMA/EMPA Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for EPMA/EMPA, reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
     },
-    "geochronTAPP": {
-        "xlsx": "docs/LA-ICPMS_Geochron_Horstwood_TAPP_v6.xlsx",
-        "prefix": "geochron",
-        "component_types": ["ada:LAICPMSGeochronTabular"],
-        "base_items": _IDENTITY_COMMON | {"Analyte"},
-        "analyte_map": {},
-        "conditional_mode": "MC-ICP-MS",
-        "enum_props": {},
-        "title": "LA-ICP-MS Geochronology TAPP (geochronTAPP)",
-        "description": ("Laser-ablation ICP-MS geochronology (U-Pb / Pb-Pb and related) Technique-"
-                        "Aligned Protocol Profile. Covers LA-Q/SF/MC-ICP-MS variants. Generated from "
-                        "docs/LA-ICPMS_Geochron_Horstwood_TAPP_v6.xlsx via the path-driven pipeline."),
-        "detail_title": "LA-ICP-MS Geochronology Analysis Detail",
-        "detail_description": ("Dataset-level analysis-instance detail for LA-ICP-MS geochronology, "
-                               "reusing CDIF/schema.org slots on the schema:Dataset root."),
-    },
-    "laicpmsTAPP": {
-        "xlsx": "docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx",
-        "prefix": "laicpms",
-        "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage", "ada:LAICPMSTransect"],
-        "base_items": _IDENTITY_COMMON | {"Analyte"},
-        "analyte_map": LAICPMS_ANALYTE_MAP,
-        "conditional_mode": "Mapping",
-        "enum_props": {},
-        "title": "LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)",
-        "description": ("LA-ICP-MS (incl. LA-Q-ICP-MS and LA-SF-ICP-MS) extension of the base TAPP "
-                        "definition. Basic protocol-tier fields are required top-level ada: properties; "
-                        "Advanced protocol-tier fields are schema:additionalProperty[] "
-                        "PropertyValueSpecification entries; an ada:analyteTemplate carries the "
-                        "per-element columns. Generated from docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx by "
-                        "tools/build_tapp.py."),
-        "detail_title": "LA-ICPMS Analysis Detail",
-        "detail_description": ("Detail block for LA-ICP-MS hasPart items. Discriminates on "
-                               "ada:componentType, carries analysis-level required properties and an "
-                               "@id reference to a registered laicpmsTAPP definition, and per-dataset "
-                               "schema:additionalProperty entries constrained via $refs to the "
-                               "parameterValues registry plus a catch-all. Generated by tools/build_tapp.py."),
-    },
     "labxctTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.xlsx",
         "prefix": "labxct",
         "component_types": ["ada:XCTVolume", "ada:XCTProjectionImageSet", "ada:XCTSegmentationVolume",
                             "ada:XCTRenderedImage", "ada:XCTQuantitativeTabular"],
@@ -137,7 +113,7 @@ TAPP_CONFIGS = {
                         "the base TAPP definition. Basic protocol-tier fields are required top-level "
                         "ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] "
                         "PropertyValueSpecification entries. XCT has no per-element analyte axis, so no "
-                        "ada:analyteTemplate is defined. Generated from TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.csv by "
+                        "ada:analyteTemplate is defined. Generated from TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.xlsx by "
                         "tools/build_tapp.py."),
         "detail_title": "Lab-XCT Analysis Detail",
         "detail_description": ("Detail block for Lab-XCT hasPart items. Discriminates on "
@@ -147,7 +123,7 @@ TAPP_CONFIGS = {
                                "parameterValues registry plus a catch-all. Generated by tools/build_tapp.py."),
     },
     "temTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/TEM_TAPP_v17.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/TEM_TAPP_v17.xlsx",
         "prefix": "tem",
         # componentType placeholders — refine against the Components worksheet when available.
         "component_types": ["ada:TEMImage", "ada:STEMImage", "ada:TEMDiffractionPattern",
@@ -161,7 +137,7 @@ TAPP_CONFIGS = {
                         "base TAPP definition. Basic protocol-tier fields are required top-level ada: "
                         "properties; Advanced protocol-tier fields are schema:additionalProperty[] "
                         "entries; an ada:analyteTemplate carries per-element columns. Generated from "
-                        "TAPPS20260813/Current TAPPs/TEM_TAPP_v17.csv by tools/build_tapp.py."),
+                        "TAPPS20260813/Current TAPPs/TEM_TAPP_v17.xlsx by tools/build_tapp.py."),
         "detail_title": "TEM Analysis Detail",
         "detail_description": ("Detail block for TEM hasPart items. Discriminates on ada:componentType, "
                                "carries analysis-level required properties and an @id reference to a "
@@ -170,7 +146,7 @@ TAPP_CONFIGS = {
                                "catch-all. Generated by tools/build_tapp.py."),
     },
     "semImagingTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/SEM_Imaging_TAPP_v11.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/SEM_Imaging_TAPP_v11.xlsx",
         "prefix": "semImaging",
         "component_types": ["ada:SEMImage", "ada:BSEImage", "ada:CLImage", "ada:CLSpectrum",
                             "ada:EBSDMap", "ada:SEMTabular"],
@@ -183,7 +159,7 @@ TAPP_CONFIGS = {
                         "TAPP definition. Basic protocol-tier fields are required top-level ada: "
                         "properties; Advanced protocol-tier fields are schema:additionalProperty[] "
                         "entries. No ada:analyteTemplate (imaging has no per-element analyte axis). "
-                        "Generated from TAPPS20260813/Current TAPPs/SEM_Imaging_TAPP_v11.csv by tools/build_tapp.py."),
+                        "Generated from TAPPS20260813/Current TAPPs/SEM_Imaging_TAPP_v11.xlsx by tools/build_tapp.py."),
         "detail_title": "SEM Imaging Analysis Detail",
         "detail_description": ("Detail block for SEM imaging hasPart items. Discriminates on "
                                "ada:componentType, carries analysis-level required properties and an "
@@ -192,7 +168,7 @@ TAPP_CONFIGS = {
                                "parameterValues registry plus a catch-all. Generated by tools/build_tapp.py."),
     },
     "semFibsemTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/SEM_FIBSEM_TAPP_v11.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/SEM_FIBSEM_TAPP_v11.xlsx",
         "prefix": "semFibsem",
         "component_types": ["ada:FIBSEMVolume", "ada:FIBSEMImage", "ada:FIBSEMSegmentation",
                             "ada:FIBSEMTabular"],
@@ -204,7 +180,7 @@ TAPP_CONFIGS = {
         "description": ("Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the "
                         "base TAPP definition. Basic protocol-tier fields are required top-level ada: "
                         "properties; Advanced protocol-tier fields are schema:additionalProperty[] "
-                        "entries. No ada:analyteTemplate. Generated from TAPPS20260813/Current TAPPs/SEM_FIBSEM_TAPP_v11.csv "
+                        "entries. No ada:analyteTemplate. Generated from TAPPS20260813/Current TAPPs/SEM_FIBSEM_TAPP_v11.xlsx "
                         "by tools/build_tapp.py."),
         "detail_title": "FIB-SEM Analysis Detail",
         "detail_description": ("Detail block for FIB-SEM hasPart items. Discriminates on "
@@ -218,7 +194,7 @@ TAPP_CONFIGS = {
     # only feed build_tapp.build()'s registries/vocab/bblock pass; build_pathdriven then overwrites
     # the schemas from the schema paths. componentType consts are PROPOSED (refine vs Components ws).
     "semCompositionTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.xlsx",
         "prefix": "semComposition",
         "component_types": ["ada:SEMEDSSpectrum", "ada:SEMEDSMap", "ada:SEMWDSSpectrum",
                             "ada:SEMCompositionTabular"],
@@ -228,14 +204,14 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)",
         "description": ("Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of "
-                        "the base TAPP definition, generated from TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.csv via "
+                        "the base TAPP definition, generated from TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.xlsx via "
                         "the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py)."),
         "detail_title": "SEM Composition Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for SEM composition (EDS/WDS), "
                                "reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "semTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/SEM_TAPP_v17.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/SEM_TAPP_v17.xlsx",
         "prefix": "sem",
         "component_types": ["ada:SEMImage", "ada:BSEImage", "ada:SEMEDSSpectrum", "ada:SEMEDSMap",
                             "ada:EBSDMap", "ada:SEMTabular"],
@@ -246,7 +222,7 @@ TAPP_CONFIGS = {
         "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
         "description": ("Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + "
                         "FIB-SEM) extension of the base TAPP definition, generated from "
-                        "TAPPS20260813/Current TAPPs/SEM_TAPP_v17.csv via the path-driven pipeline."),
+                        "TAPPS20260813/Current TAPPs/SEM_TAPP_v17.xlsx via the path-driven pipeline."),
         "detail_title": "SEM Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for SEM (superset), reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
@@ -255,7 +231,7 @@ TAPP_CONFIGS = {
         # New to the pipeline with the 2026-08-13 delivery. Seeded from solutionQicpmsTAPP, which
         # already places 76% of its fields — the two share the whole solution-introduction and
         # ICP-MS core and differ in the multi-collector detector array.
-        "xlsx": "TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.xlsx",
         "prefix": "solutionMcicpms",
         "component_types": ["ada:SolutionICPMSTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -264,14 +240,14 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)",
         "description": ("Solution multi-collector ICP-MS extension of the base TAPP definition, "
-                        "generated from TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv "
+                        "generated from TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.xlsx "
                         "via the path-driven pipeline."),
         "detail_title": "Solution MC-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for solution MC-ICP-MS, "
                                "reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "solutionQicpmsTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/Solution_Q-ICP-MS_TAPP_v17.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/Solution_Q-ICP-MS_TAPP_v17.xlsx",
         "prefix": "solutionQicpms",
         "component_types": ["ada:SolutionICPMSTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -280,13 +256,13 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)",
         "description": ("Solution quadrupole ICP-MS extension of the base TAPP definition, generated "
-                        "from TAPPS20260813/Current TAPPs/Solution_Q-ICP-MS_TAPP_v17.csv via the path-driven pipeline."),
+                        "from TAPPS20260813/Current TAPPs/Solution_Q-ICP-MS_TAPP_v17.xlsx via the path-driven pipeline."),
         "detail_title": "Solution Q-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
     },
     "solutionSficpmsTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.csv",
+        "xlsx": "TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.xlsx",
         "prefix": "solutionSficpms",
         "component_types": ["ada:SolutionICPMSTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -295,11 +271,115 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)",
         "description": ("Solution sector-field (high-resolution) ICP-MS extension of the base TAPP "
-                        "definition, generated from TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.csv via the "
+                        "definition, generated from TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.xlsx via the "
                         "path-driven pipeline."),
         "detail_title": "Solution SF-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    # ---- LA family. The 2026-08-13 release splits laser ablation by mass analyser and folds
+    # geochronology into per-analyser U-Pb variants, retiring the combined docs/LA-Q_SF-ICPMS_v3 and
+    # docs/LA-ICPMS_Geochron_Horstwood_v6 workbooks that laicpmsTAPP and geochronTAPP were built from.
+    # The six sidecars were seeded from those two so the hand modelling carried over; see
+    # docs/archive/README.md.
+    "laQicpmsTAPP": {
+        "xlsx": "TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_TAPP_v15.xlsx",
+        "prefix": "laQicpms",
+        "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage",
+                            "ada:LAICPMSTransect"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": LAICPMS_ANALYTE_MAP,
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)",
+        "description": ("Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, "
+                        "generated from TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_TAPP_v15.xlsx via the "
+                        "path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py)."),
+        "detail_title": "LA-Q-ICP-MS Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for LA-Q-ICP-MS, reusing "
+                               "CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    "laSficpmsTAPP": {
+        "xlsx": "TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_TAPP_v16.xlsx",
+        "prefix": "laSficpms",
+        "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage",
+                            "ada:LAICPMSTransect"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": LAICPMS_ANALYTE_MAP,
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "LA-SF-ICP-MS Technique-Aligned Procedure Profile (laSficpmsTAPP)",
+        "description": ("Laser-ablation sector-field (high-resolution) ICP-MS extension of the base "
+                        "TAPP definition, generated from TAPPS20260813/Current TAPPs/"
+                        "LA-SF-ICP-MS_TAPP_v16.csv via the path-driven pipeline."),
+        "detail_title": "LA-SF-ICP-MS Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for LA-SF-ICP-MS, reusing "
+                               "CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    "laMcicpmsTAPP": {
+        "xlsx": "TAPPS20260813/Current TAPPs/LA-MC-ICPMS_TAPP_v13.xlsx",
+        "prefix": "laMcicpms",
+        "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage",
+                            "ada:LAICPMSTransect"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": LAICPMS_ANALYTE_MAP,
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)",
+        "description": ("Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, "
+                        "generated from TAPPS20260813/Current TAPPs/LA-MC-ICPMS_TAPP_v13.xlsx via the "
+                        "path-driven pipeline."),
+        "detail_title": "LA-MC-ICP-MS Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for LA-MC-ICP-MS, reusing "
+                               "CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    "laQicpmsUPbTAPP": {
+        "xlsx": "TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v16.xlsx",
+        "prefix": "laQicpmsUPb",
+        "component_types": ["ada:LAICPMSGeochronTabular"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "LA-Q-ICP-MS U-Pb Geochronology TAPP (laQicpmsUPbTAPP)",
+        "description": ("Laser-ablation quadrupole ICP-MS U-Pb geochronology extension of the base "
+                        "TAPP definition, generated from TAPPS20260813/Current TAPPs/"
+                        "LA-Q-ICP-MS_UPb_TAPP_v16.csv via the path-driven pipeline."),
+        "detail_title": "LA-Q-ICP-MS U-Pb Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for LA-Q-ICP-MS U-Pb "
+                               "geochronology, reusing CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    "laSficpmsUPbTAPP": {
+        "xlsx": "TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v17.xlsx",
+        "prefix": "laSficpmsUPb",
+        "component_types": ["ada:LAICPMSGeochronTabular"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "LA-SF-ICP-MS U-Pb Geochronology TAPP (laSficpmsUPbTAPP)",
+        "description": ("Laser-ablation sector-field ICP-MS U-Pb geochronology extension of the base "
+                        "TAPP definition, generated from TAPPS20260813/Current TAPPs/"
+                        "LA-SF-ICP-MS_UPb_TAPP_v17.csv via the path-driven pipeline."),
+        "detail_title": "LA-SF-ICP-MS U-Pb Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for LA-SF-ICP-MS U-Pb "
+                               "geochronology, reusing CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    "laMcicpmsUPbTAPP": {
+        "xlsx": "TAPPS20260813/Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v13.xlsx",
+        "prefix": "laMcicpmsUPb",
+        "component_types": ["ada:LAICPMSGeochronTabular"],
+        "base_items": _IDENTITY_COMMON | {"Analyte"},
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "LA-MC-ICP-MS U-Pb Geochronology TAPP (laMcicpmsUPbTAPP)",
+        "description": ("Laser-ablation multi-collector ICP-MS U-Pb geochronology extension of the "
+                        "base TAPP definition, generated from TAPPS20260813/Current TAPPs/"
+                        "LA-MC-ICPMS_UPb_TAPP_v13.csv via the path-driven pipeline."),
+        "detail_title": "LA-MC-ICP-MS U-Pb Analysis Detail",
+        "detail_description": ("Dataset-level analysis-instance detail for LA-MC-ICP-MS U-Pb "
+                               "geochronology, reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
 }
 
