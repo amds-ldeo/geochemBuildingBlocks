@@ -715,7 +715,8 @@ def build():
                 items["enum"] = list(mode_names)
             tapp_props[key] = {"description": b["desc"], "type": "array", "items": items}
         elif b["name"] in enum_props:
-            tapp_props[key] = {"description": b["desc"], "type": "string", "enum": list(enum_props[b["name"]])}
+            tapp_props[key] = {"description": b["desc"], "type": "string",
+                               "enum": with_sentinel(enum_props[b["name"]])}
         elif b["jtype"] in ("number", "integer"):
             tapp_props[key] = {"description": b["desc"], "anyOf": [{"type": "number"}, {"type": "string"}]}
         else:
@@ -859,6 +860,22 @@ def _empa_base_name(row):
     return camel(row["item"])
 
 
+# A controlled field records what a lab did. When a source -- typically a publication being
+# transcribed -- does not state it, "missing" says so explicitly, which omission cannot: an absent
+# key is indistinguishable from "not applicable" or "nobody looked". It is admitted by every
+# generated enum for that reason, and deliberately NOT published as a concept in the vocabulary
+# (vocab_obj drops it alongside N/A and None) -- it is the absence of a value, not one of them.
+SENTINEL = "missing"
+
+
+def with_sentinel(values):
+    """The enum as constrained in the schema: the controlled values plus the sentinel."""
+    out = list(values)
+    if SENTINEL not in out:
+        out.append(SENTINEL)
+    return out
+
+
 def route_empa(rows, L):
     """Matrix + schema-path routing for empaTAPP, producing the classification
     structures consumed by _tapp_lib's build_schema_yaml / registry writers."""
@@ -924,7 +941,7 @@ def route_empa(rows, L):
             key = "ada:" + name + ("Default" if A == "Editable" else "")
             rec["tapp_key"] = key
             if enum:
-                block = {"description": row.get("desc") or "", "type": "string", "enum": list(enum)}
+                block = {"description": row.get("desc") or "", "type": "string", "enum": with_sentinel(enum)}
             elif jt in ("number", "integer"):
                 block = {"description": row.get("desc") or "",
                          "anyOf": [{"type": "number"}, {"type": "string"}]}

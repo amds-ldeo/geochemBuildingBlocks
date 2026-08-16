@@ -551,13 +551,15 @@ def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
 
     Each allowed value becomes a skos:Concept whose skos:notation preserves the
     original spelling (including special characters) and whose skos:prefLabel is
-    the same label. Sentinel non-values (`N/A`, `None`) are dropped. This shape
+    the same label. Sentinel non-values (`N/A`, `None`, `missing`) are dropped: a schema enum
+    admits `missing` so a transcriber can say the source did not report the field, but it is the
+    absence of a value rather than one of them, so it is not published as a concept. This shape
     replaces the earlier schema:DefinedTermSet form; `schema:inDefinedTermSet`
     references elsewhere still resolve because the scheme @id is unchanged
     (`ada:vocab/<tapp>/<name>`)."""
     scheme_id = f"ada:vocab/{TAPP_NAME}/{vname}"
     concepts = [concept_obj(scheme_id, t, t)
-                for t in terms if t not in ("N/A", "None")]
+                for t in terms if t not in ("N/A", "None", "missing")]
     return concept_scheme_obj(scheme_id, label, desc or f"Allowed values for {label}.", concepts)
 
 
@@ -1399,9 +1401,11 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         for k, v in schema_block.items():
             if isinstance(v, list):
                 vals = list(v)
-                # required enum props may be sentinel-filled with "missing" when a
-                # publication doesn't report them -> the sentinel must be a valid term.
-                if k == "enum" and ada_prop in req_set and "missing" not in vals:
+                # any enum prop may be sentinel-filled with "missing" when a publication
+                # doesn't report it -> the sentinel must be a valid term. Not restricted to
+                # REQUIRED props: an optional controlled field is just as likely to be
+                # transcribed as unreported, and "missing" says more than omission does.
+                if k == "enum" and "missing" not in vals:
                     vals.append("missing")
                 seq = CommentedSeq()
                 for x in vals:

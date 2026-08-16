@@ -75,9 +75,16 @@ KNOWN_ARRAY = {"prov:wasGeneratedBy", "schema:measurementTechnique", "schema:fun
 # PRESENT, not by a selector value, so these branches need their own marker -- `_WRAPPER` -- to
 # tell to_schema to emit `if required:[key] then properties:{key: …}` rather than the
 # `if key == value` form every other branch uses.
+
 PROV_USED = "prov:used"
 WRAPPER_KEYS = {"schema:instrument", "bios:computationalTool", "prov:reagent"}
 _WRAPPER = "\0wrapper"
+
+# Roles that discriminate members of an OPTIONAL collection. bios:computationalTool and
+# bios:reagent are optional -- a TAPP need not own software or reference materials -- so a
+# required row selecting on one of these means "record the role of what you list", never "you
+# must possess one of these". The role itself is required on each member that IS listed.
+ROLE_KEYS = {"ada:toolRole", "ada:reagentRole"}
 
 # What each wrapper's entities ARE. Referencing the base rather than restating its shape keeps one
 # definition of an instrument / tool / reagent, and it is what makes the generated examples usable:
@@ -198,7 +205,7 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 # (ada:toolRole) or reagents (ada:reagentRole). A single Arr.selkey made the last
                 # path win, so every branch was emitted against the wrong key.
                 arr.selkey = key                        # last key seen; kept for bare-append callers
-                if require:
+                if require and key not in ROLE_KEYS:
                     arr.required.add((key, val))
                 if is_last:
                     if element is not None:
@@ -313,6 +320,14 @@ def to_schema(node):
                         cond.append({"if": {"properties": {skey: sel}, "required": [skey]},
                                      "then": {"properties": nested}})
                 items = {"type": "object", "allOf": cond} if cond else {"type": "object"}
+                # bios:computationalTool and bios:reagent are optional collections -- a TAPP need
+                # not own software or reference materials in every role the workbook enumerates.
+                # What is NOT optional is saying which role a member plays, so the discriminator is
+                # required per item instead of each role being required to exist. (The role's value
+                # is held to the enum by tappDefinition / adaProduct.)
+                skeys = {sk for sk, _ in node.branches if sk != _WRAPPER}
+                if len(skeys) == 1 and next(iter(skeys)) in ROLE_KEYS:
+                    items["required"] = [next(iter(skeys))]
             out = {"type": "array", "items": items}
             # per-branch presence: a $ref branch is optional-and-at-most-one; a required object
             # branch must be CONTAINED (selector key = the token/name).
@@ -366,10 +381,25 @@ def to_instance(node):
 
 
 # ---------- leaf schema from workbook Data Type ----------
+# A transcriber records "missing" when the source -- typically the publication being transcribed --
+# does not state a controlled field. Omitting the key instead would lose the distinction between
+# "checked, not reported" and "nobody looked", so every controlled enum admits the sentinel. It is
+# not published as a vocabulary concept (vocab_obj drops it with N/A and None): it marks the absence
+# of a value, not one of them.
+SENTINEL = "missing"
+
+
+def with_sentinel(values):
+    out = list(values)
+    if SENTINEL not in out:
+        out.append(SENTINEL)
+    return out
+
+
 def leaf_for(desc, dtype, enum=None, default=None):
     dl = (dtype or "").lower()
     if enum:
-        s = {"type": "string", "enum": enum}
+        s = {"type": "string", "enum": with_sentinel(enum)}
     elif dl.startswith("bool"):
         s = {"type": "boolean"}
     elif "integer" in dl:
