@@ -1795,15 +1795,17 @@ allOf:
         - missing
         readOnly: true
     ada:ablationSamplingMode:
-      description: Sampling mode or ablation pattern used during analysis.
-      type: string
-      enum:
-      - Spot (stationary)
-      - Transect (continuous line scan)
-      - Raster area (2D elemental mapping)
-      - Stepped line profile
-      - missing
-      readOnly: true
+      type: array
+      items:
+        description: Sampling mode or ablation pattern used during analysis.
+        type: string
+        enum:
+        - Spot (stationary)
+        - Transect (continuous line scan)
+        - Raster area (2D elemental mapping)
+        - Stepped line profile
+        - missing
+        readOnly: true
     ada:ablationSpotDurationDefault:
       description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds,
         as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects
@@ -2791,7 +2793,6 @@ allOf:
   required:
   - schema:name
   - schema:datePublished
-  - ada:ablationSamplingMode
   - ada:ablationSpotDurationDefault
   - ada:rasterLineSpacingDefault
   - ada:carrierGasFlowRateDefault

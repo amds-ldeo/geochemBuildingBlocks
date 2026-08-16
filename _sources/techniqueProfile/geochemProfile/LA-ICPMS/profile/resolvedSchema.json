@@ -2746,7 +2746,7 @@
                     ]
                   },
                   {
-                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_2j3zxykq\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_n6rs_2g_\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                   }
                 ]
               },
@@ -3751,7 +3751,7 @@
                                       ]
                                     },
                                     {
-                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_2j3zxykq\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_n6rs_2g_\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                                     }
                                   ]
                                 }
@@ -23040,16 +23040,19 @@
                                 }
                               },
                               "ada:ablationSamplingMode": {
-                                "description": "Sampling mode or ablation pattern used during analysis.",
-                                "type": "string",
-                                "enum": [
-                                  "Spot (stationary)",
-                                  "Transect (continuous line scan)",
-                                  "Raster area (2D elemental mapping)",
-                                  "Stepped line profile",
-                                  "missing"
-                                ],
-                                "readOnly": true
+                                "type": "array",
+                                "items": {
+                                  "description": "Sampling mode or ablation pattern used during analysis.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Spot (stationary)",
+                                    "Transect (continuous line scan)",
+                                    "Raster area (2D elemental mapping)",
+                                    "Stepped line profile",
+                                    "missing"
+                                  ],
+                                  "readOnly": true
+                                }
                               },
                               "ada:ablationSpotDurationDefault": {
                                 "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a protocol-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent protocol-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
@@ -24973,7 +24976,6 @@
                             "required": [
                               "schema:name",
                               "schema:datePublished",
-                              "ada:ablationSamplingMode",
                               "ada:ablationSpotDurationDefault",
                               "ada:rasterLineSpacingDefault",
                               "ada:carrierGasFlowRateDefault",
