@@ -3,16 +3,17 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/"
   },
-  "@id": "ex:detailTEM-Matsumoto2021-3",
+  "@id": "ex:detail-Matsumoto2021-2",
   "@type": [
     "ada:TEMImage"
   ],
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Matsumoto2021-3"
+      "@id": "ex:temTAPP-Matsumoto2021-2"
     }
   ],
+  "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
@@ -25,9 +26,12 @@
     }
   ],
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
+  "ada:samplingUnit": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/analyticalMode",
@@ -40,7 +44,7 @@
         }
       ],
       "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM"
+      "schema:value": "BF-TEM; ADF-STEM; STEM-EDS (line profiles; quantitative)"
     },
     {
       "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
@@ -53,7 +57,20 @@
         }
       ],
       "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
+      "schema:value": "Line scan; quantitative point analysis"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
+        }
+      ],
+      "schema:name": "EDS Calibration Standard(s)",
+      "schema:value": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)"
     }
   ]
 }

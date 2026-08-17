@@ -14,37 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EDS (JEOL 60 mm² SDD)",
-  "schema:description": "temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF-STEM + EDS (JSC JEOL 2500SE) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      },
-      "TEM"
-    ],
-    "schema:name": "JEOL 60 mm² silicon-drift detector (SDD) for EDS BF STEM detector; DF STEM detector; SE STEM detector"
-  },
+  "schema:name": "JEOL 2500SE",
+  "schema:description": "temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF-STEM + EDS (JSC JEOL 2500SE) (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Bennu carbonaceous asteroid sample (OSIRIS-REx return); apatite grains in phyllosilicate-rich matrix"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -54,6 +31,8 @@
       "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [],
   "ada:convergenceSemiAngle": -9999,
@@ -61,13 +40,51 @@
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "Spectrum imaging (EDS elemental maps); false-color RGB maps",
   "ada:edsQuantificationMethod": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

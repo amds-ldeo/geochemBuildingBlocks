@@ -469,13 +469,20 @@ def main():
 
     # canonical schema paths (full sidecar map, all items) — authoritative for detail-key
     # placement so example keys match the build_pathdriven schema (which derives from these paths).
+    # md_items = items that have a $MethodDefinition (procedure-level) home; an item with only a
+    # $Dataset path is analysis-level and must NOT be emitted as a TAPP (procedure) method parameter
+    # even if its Procedure tier routes it there.
     canon_sp = {}
+    md_items = set()
     _side = schemapath_io.csv_path(bt.XLSX)
     if os.path.exists(_side):
         for _row in schemapath_io.read(_side):
             _it = (_row.get("Metadata Item") or "").strip()
+            _p = (_row.get("Schema Path") or "").strip()
             if _it:
-                canon_sp[_it] = (_row.get("Schema Path") or "").strip()
+                canon_sp[_it] = _p
+                if _p.startswith("$MethodDefinition"):
+                    md_items.add(_it)
 
     inherited_items = {it for it, sp in sp_by_item.items()
                        if sp.startswith("$MethodDefinition") and ".ada:" not in sp
@@ -581,6 +588,8 @@ def main():
         # Advanced params
         saps = []
         for b in R["method_param"]:
+            if md_items and b["item"] not in md_items:
+                continue  # analysis-level-only field ($Dataset path, no $MethodDefinition home)
             v = cell(pubval[b["item"]].get(pc))
             if not v:
                 continue
@@ -594,6 +603,8 @@ def main():
             if not place_parameter(inst, e, sp_by_item.get(b["item"], "")):
                 saps.append(e)
         for b in R["method_value"]:
+            if md_items and b["item"] not in md_items:
+                continue  # analysis-level-only field ($Dataset path, no $MethodDefinition home)
             v = cell(pubval[b["item"]].get(pc))
             if not v:
                 continue

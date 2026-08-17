@@ -3,17 +3,18 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/"
   },
-  "@id": "ex:detailTEM-Zega2025-2",
+  "@id": "ex:detail-Cymes2023",
   "@type": [
     "ada:TEMImage"
   ],
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025-2"
+      "@id": "ex:temTAPP-Cymes2023"
     }
   ],
-  "ada:analyst": "missing",
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "B.A. Cymes; K.D. Burgess; R.M. Stroud",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
   "schema:funding": [
@@ -21,27 +22,17 @@
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231"
+      "schema:name": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program"
     }
   ],
-  "ada:sampleName": "missing",
+  "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)",
+  "ada:samplingUnit": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
     {
       "@id": "ada:parameter/temTAPP/acceleratingVoltage",
       "@type": [
@@ -53,7 +44,7 @@
         }
       ],
       "schema:name": "Accelerating Voltage",
-      "schema:value": 80,
+      "schema:value": 200,
       "schema:unitText": "kV"
     },
     {
@@ -67,47 +58,33 @@
         }
       ],
       "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (STEM Imaging)"
+      "schema:value": "BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM"
     },
     {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
+      "@id": "ada:parameter/temTAPP/eftemEnergyWindow",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": [
         {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
+          "@id": "ada:parameter/temTAPP/eftemEnergyWindow"
         }
       ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": "<0.25 nA",
-      "schema:unitText": "pA or nA"
+      "schema:name": "EFTEM Energy Window",
+      "schema:value": "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)"
     },
     {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
+      "@id": "ada:parameter/temTAPP/selectedAreaApertureSize",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": [
         {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
+          "@id": "ada:parameter/temTAPP/selectedAreaApertureSize"
         }
       ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
+      "schema:name": "Selected-Area Aperture Size",
+      "schema:value": "100 nm (SAED aperture)"
     },
     {
       "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
@@ -120,7 +97,7 @@
         }
       ],
       "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Sequential map acquisition combined in Python to control light-element volatilization"
+      "schema:value": "Inverse FFT with spot-pass filter for HRTEM images"
     }
   ]
 }

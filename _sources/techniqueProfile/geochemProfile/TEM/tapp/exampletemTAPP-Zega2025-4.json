@@ -14,53 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EDS and EELS",
-  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (JSC JEOL 2500SE) (publication column of TEM_TAPP_v7.xlsx).",
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Thermo System7",
-      "ada:toolRole": "acquisition"
-    },
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Thermo System7 (EDS quantification)",
-      "ada:toolRole": "dataReduction"
-    }
-  ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      },
-      "TEM"
-    ],
-    "schema:name": "JEOL 70 mm² SDD Gatan Tridiem GIF BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera (HRTEM and electron diffraction)"
-  },
+  "schema:name": "JEOL 2500SE (200 kV)",
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (JSC JEOL 2500SE) (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "ARES Division, NASA Johnson Space Center"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -70,6 +31,8 @@
       "schema:name": "TEM/STEM"
     }
   ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [
     "TEM Imaging",
@@ -81,12 +44,16 @@
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "k-factors from well-characterized standards (standards not specified); Thermo System7",
   "schema:additionalProperty": [
     {
@@ -117,6 +84,40 @@
       "schema:defaultValue": "Successive frames until counting statistics <1% for major elements"
     }
   ],
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

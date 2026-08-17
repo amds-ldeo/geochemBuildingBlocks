@@ -14,37 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EDS only",
-  "schema:description": "temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging + EDS (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      },
-      "TEM"
-    ],
-    "schema:name": "Super-X EDS system; four silicon drift detectors (SDD)"
-  },
+  "schema:name": "FEI Talos 200 kV",
+  "schema:description": "temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging + EDS (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Purdue University"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Oxide (synthetic magnetite Fe3O4, 99.9% purity, Sigma Aldrich; dry-sieved <45 µm; pressed into pellets at 1500 psi)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -54,6 +31,8 @@
       "schema:name": "TEM/STEM"
     }
   ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [
     "TEM Imaging",
@@ -64,13 +43,51 @@
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "Line scan; Spectrum image (map)",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "Manual d-spacing comparison: HRTEM lattice fringes; 2.5 Å → magnetite (311); 1.4 Å and 2.0 Å → metallic iron (110) and (200); 2.9 Å / 2.5 Å / 1.6 Å → magnetite (220)/(311)/(511)",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

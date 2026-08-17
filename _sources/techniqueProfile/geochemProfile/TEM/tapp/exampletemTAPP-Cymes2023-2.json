@@ -14,37 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EELS (Gatan Enfinium ER Dual EELS); EDS (Bruker X-Flash windowless SDD, 0.7 sr solid angle)",
-  "schema:description": "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | HAADF-STEM + Dual EELS + EDS (NRL Nion UltraSTEM200-X) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      },
-      "TEM"
-    ],
-    "schema:name": "Bruker X-Flash windowless silicon-drift detector (SDD); 0.7 sr solid angle Gatan Enfinium ER Dual EELS spectrometer (simultaneous low-loss and core-loss) HAADF-STEM detector (DigiScan)"
-  },
+  "schema:name": "Nion UltraSTEM200-X",
+  "schema:description": "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | HAADF-STEM + Dual EELS + EDS (NRL Nion UltraSTEM200-X) (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Apollo 17 soil 71501 (<45 µm fraction); pyroxene grains \"1pyx\" (unexsolved augite) and \"2pyx\" (exsolved pigeonite-augite intergrowth); one FIB section analyzed on two instruments"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -54,6 +31,8 @@
       "schema:name": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
     }
   ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:acceleratingVoltageDefault": "200 keV",
   "ada:analyticalMode": [],
   "ada:convergenceSemiAngle": -9999,
@@ -61,12 +40,16 @@
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected",
   "ada:edsQuantificationMethod": "Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)",
   "ada:eelsEdgesDefault": "Fe L2,3 edge (700–735 eV); O K-edge (528–550 eV)",
   "ada:eelsCollectionSemiAngle": "Power-law background removal",
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
   "ada:phaseIdentificationMethod": "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe⁰ identified by anti-correlation with O K-edge and lattice fringe measurement in HR images",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {
@@ -139,6 +122,40 @@
       "schema:unitText": "eV FWHM"
     }
   ],
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

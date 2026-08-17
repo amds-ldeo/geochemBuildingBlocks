@@ -3,16 +3,17 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/"
   },
-  "@id": "ex:detailTEM-Zega2025",
+  "@id": "ex:detail-Zega2025-3",
   "@type": [
     "ada:TEMImage"
   ],
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025"
+      "@id": "ex:temTAPP-Zega2025-3"
     }
   ],
+  "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
@@ -21,13 +22,16 @@
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF"
+      "schema:name": "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473"
     }
   ],
   "ada:sampleName": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
@@ -67,75 +71,46 @@
         }
       ],
       "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction)"
+      "schema:value": "HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)"
     },
     {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
+      "@id": "ada:parameter/temTAPP/haadfCollectionAngles",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": [
         {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
+          "@id": "ada:parameter/temTAPP/haadfCollectionAngles"
         }
       ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 8,
-      "schema:unitText": "ms"
+      "schema:name": "HAADF Collection Angles",
+      "schema:value": "Inner 58 mrad (HAADF)"
     },
     {
-      "@id": "ada:parameter/temTAPP/stemScanDimensions",
+      "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": [
         {
-          "@id": "ada:parameter/temTAPP/stemScanDimensions"
+          "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod"
         }
       ],
-      "schema:name": "STEM Scan Dimensions",
-      "schema:value": 512,
-      "schema:unitText": "pixels x pixels"
+      "schema:name": "Diffraction Camera Length Calibration Method",
+      "schema:value": "External standard (AGAR S106 cross grating, 3 mm)"
     },
     {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
+      "@id": "ada:parameter/temTAPP/diffractionCalibrationReference",
       "@type": [
         "schema:PropertyValue"
       ],
       "schema:propertyID": [
         {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
+          "@id": "ada:parameter/temTAPP/diffractionCalibrationReference"
         }
       ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsEnergyRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsEnergyRange"
-        }
-      ],
-      "schema:name": "EDS Energy Range",
-      "schema:value": "20 keV (2048 channels)",
-      "schema:unitText": "keV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
-        }
-      ],
-      "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Selective quantification: summed spectra extracted from specific phyllosilicate domains in EDS spectrum images"
+      "schema:name": "Diffraction Calibration Reference",
+      "schema:value": "External standard (AGAR S106 cross grating, 3 mm)"
     }
   ]
 }

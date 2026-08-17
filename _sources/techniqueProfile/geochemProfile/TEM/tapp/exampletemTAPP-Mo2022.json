@@ -14,37 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EDS detector (model not specified)",
-  "schema:description": "temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | HAADF-STEM + EDS (SINANO CAS FEI Talos F200X) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      },
-      "TEM"
-    ],
-    "schema:name": "HAADF-STEM detector; DF TEM detector"
-  },
+  "schema:name": "FEI Talos F200X",
+  "schema:description": "temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | HAADF-STEM + EDS (SINANO CAS FEI Talos F200X) (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 µm; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -54,6 +31,8 @@
       "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [],
   "ada:convergenceSemiAngle": -9999,
@@ -61,13 +40,51 @@
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "EDS chemical mapping (Fe distribution)",
   "ada:edsQuantificationMethod": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "FFT of DF image lattice fringes for phase ID (olivine d-spacings); EDS composition maps",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

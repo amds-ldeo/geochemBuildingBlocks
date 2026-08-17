@@ -411,7 +411,12 @@ def with_sentinel(values):
 def leaf_for(desc, dtype, enum=None, default=None):
     dl = (dtype or "").lower()
     if enum:
-        s = {"type": "string", "enum": with_sentinel(enum)}
+        strict = {"type": "string", "enum": with_sentinel(enum)}
+        # "Controlled list / Text": the controlled vocabulary is guidance, but free text is
+        # also admitted (publications routinely report these fields as prose or as several
+        # values joined together). Emit anyOf[enum, string] so a controlled term validates on
+        # the enum branch and a free-text description validates on the string branch.
+        s = {"anyOf": [strict, {"type": "string"}]} if "text" in dl else strict
     elif dl.startswith("bool"):
         s = {"type": "boolean"}
     elif "integer" in dl:
@@ -448,6 +453,15 @@ def _load_rows(tapp):
             continue
         g = lambda k: b.norm(r[ci[k]]) if ci[k] is not None and ci[k] < len(r) else ""
         out[item] = {"desc": b.norm(r[1]), "P": g("P"), "A": g("A"), "dt": g("dt"), "ex": g("ex")}
+    # Per-field dtype overrides in docs/<workbook>.overrides.json (ours, not Ruolin's delivery):
+    # lets us retype a field to "Controlled list / Text" (enum guidance + free text) without editing
+    # the Drive-synced workbook, for fields publications report as prose or several joined values.
+    ovp = os.path.join(b.ROOT, "docs",
+                       os.path.splitext(os.path.basename(b.XLSX))[0] + ".overrides.json")
+    if os.path.exists(ovp):
+        for item, o in json.load(open(ovp, encoding="utf-8")).items():
+            if isinstance(o, dict) and o.get("dtype") and item in out:
+                out[item]["dt"] = o["dtype"]
     return out
 
 

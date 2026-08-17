@@ -14,37 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EDS only",
-  "schema:description": "temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-STEM (Kyushu JEOL JEM-ARM200F) (publication column of TEM_TAPP_v7.xlsx).",
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      },
-      "TEM"
-    ],
-    "schema:name": "JEOL JED-2300T EDX detector"
-  },
+  "schema:name": "JEOL JEM-ARM200F",
+  "schema:description": "temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-STEM (Kyushu JEOL JEM-ARM200F) (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Ultramicroscopy Research Center, Kyushu University, Japan"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Lunar soil grains (iron sulfides: troilite, NC-pyrrhotite; pyroxene; Apollo 11 soil 10084; Apollo 17 soil 78481,49)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -54,20 +31,60 @@
       "schema:name": "TEM/STEM"
     }
   ],
-  "ada:acceleratingVoltageDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:acceleratingVoltageDefault": "missing",
   "ada:analyticalMode": [],
   "ada:convergenceSemiAngle": -9999,
   "ada:stemDwellTimePerPixelDefault": -9999,
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
   "ada:edsQuantificationMethod": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "HR-STEM + FFT: imaging of (001) plane stacking and distortions in iron sulfides; qualitative lattice fringe analysis (no explicit d-spacing phase matching stated)",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

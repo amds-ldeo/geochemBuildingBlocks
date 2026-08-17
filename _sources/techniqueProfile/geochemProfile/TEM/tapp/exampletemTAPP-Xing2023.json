@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid",
-  "schema:description": "temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale mineralogy in NEPS | No original protocol data (publication column of TEM_TAPP_v7.xlsx).",
+  "schema:name": "tem protocol — Xing2023",
+  "schema:description": "temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale mineralogy in NEPS | No original protocol data (publication column of TEM_TAPP_v17.xlsx).",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -25,19 +25,25 @@
       "schema:termCode": "tem"
     }
   ],
-  "ada:acceleratingVoltageDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:acceleratingVoltageDefault": "missing",
   "ada:analyticalMode": [],
   "ada:convergenceSemiAngle": -9999,
   "ada:stemDwellTimePerPixelDefault": -9999,
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "missing",
   "ada:edsQuantificationMethod": "EDS described as \"mostly semiquantitative\"; standard-based quantification (matched thickness/composition standard) achieves ~0.1% error; quantitative EDS rarely performed without standards",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "Reviews SAED; NBD (nanobeam diffraction); CBED; HRTEM + FFT; aberration-corrected HAADF-STEM + FFT (atomic-resolution phase ID)",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error",
   "schema:additionalProperty": [
     {
@@ -67,6 +73,40 @@
       "schema:defaultValue": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability"
     }
   ],
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

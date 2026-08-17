@@ -14,53 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EDS only",
-  "schema:description": "temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + HAADF-STEM + SAED + EDS (Goethe TS Talos F200X G2) (publication column of TEM_TAPP_v7.xlsx).",
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "TS Velox",
-      "ada:toolRole": "acquisition"
-    },
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "TS Velox",
-      "ada:toolRole": "dataReduction"
-    }
-  ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Thing",
-      "schema:Product"
-    ],
-    "schema:additionalType": [
-      "nxs:BaseClass/NXinstrument",
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      },
-      "TEM"
-    ],
-    "schema:name": "Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad TS Ceta-S 4k × 4k 16M camera (TEM images and SAED)"
-  },
+  "schema:name": "Thermo Scientific Talos F200X G2 S/TEM",
+  "schema:description": "temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + HAADF-STEM + SAED + EDS (Goethe TS Talos F200X G2) (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Bennu particle OREX-800045-102 (OSIRIS-REx sample): Na,Ca carbonates (gaylussite/pirssonite), phyllosilicates, sulfides"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -70,6 +31,8 @@
       "schema:name": "TEM/STEM"
     }
   ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:acceleratingVoltageDefault": "200 kV",
   "ada:analyticalMode": [
     "Electron Diffraction"
@@ -79,12 +42,16 @@
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "Spectrum image (map); point analysis",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor) method; no absorption corrections",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
   "schema:additionalProperty": [
     {
@@ -127,6 +94,40 @@
       "schema:defaultValue": "AGAR S106 Cross Grating 3 mm (camera constant calibration)"
     }
   ],
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }

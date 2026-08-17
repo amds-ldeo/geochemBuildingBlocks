@@ -14,23 +14,14 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "FIB lift-out (Ga+)",
-  "schema:description": "temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM + SAED (Jena FEI Tecnai G2 FEG) (publication column of TEM_TAPP_v7.xlsx).",
+  "schema:name": "FEI Tecnai G2 FEG",
+  "schema:description": "temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM + SAED (Jena FEI Tecnai G2 FEG) (publication column of TEM_TAPP_v17.xlsx).",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Institute for Geosciences, Friedrich Schiller University Jena, Germany"
   },
-  "schema:object": [
-    {
-      "@type": [
-        "schema:DefinedTerm",
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-      ],
-      "schema:name": "Lunar soil grains (iron sulfides: troilite, NC-pyrrhotite; pyroxene; Apollo 11 soil 10084; Apollo 17 soil 78481,49)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -40,7 +31,9 @@
       "schema:name": "TEM/STEM"
     }
   ],
-  "ada:acceleratingVoltageDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:acceleratingVoltageDefault": "missing",
   "ada:analyticalMode": [
     "Electron Diffraction"
   ],
@@ -49,13 +42,51 @@
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "missing",
   "ada:edsQuantificationMethod": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
   "ada:eelsEdgesDefault": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "SAED indexing: BCC structure for metallic iron; troilite 2C superstructure reflections vs NiAs 1C base reflections; NC-pyrrhotite non-integral superstructure spots (NC values 3.6–6.5); dark-field imaging using specific reflections to image phase distributions",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
-  "schema:datePublished": "2026-08-15",
-  "ada:targetSelectionCriteriaDefault": "missing"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
 }
