@@ -199,12 +199,14 @@ allOf:
           properties:
             "ada:componentType":
               type: string
+              schema:inDefinedTermSet: "ada:vocab/componentType"
               description: >-
                 ADA file-type classification for a MONOLITHIC single-file
                 distribution -- it classifies the file that IS the dataset. On a
                 bundle this sits on each schema:hasPart member instead, not here.
-                Technique profiles narrow it (universal enum, or a technique detail
-                schema) in both positions.
+                Values are drawn from the componentType vocabulary
+                (ada:vocab/componentType); conformance is advisory (annotated via
+                schema:inDefinedTermSet), not hard-enumerated in JSON Schema.
             "schema:hasPart":
               items:
                 allOf:
@@ -246,31 +248,9 @@ $defs:
       - 'ada:componentType'
   universalComponentType:
     description: >-
-      ada:componentType values valid across all ADA techniques. As a string,
-      directly assignable to the part's ada:componentType property. Profiles use
-      this $def (typically via the universalComponentTypeBranch wrapper) in their
-      hasPart anyOf branches.
+      A componentType value drawn from the shared componentType vocabulary
+      (ada:vocab/componentType). Not hard-enumerated here: conformance to the
+      vocabulary is advisory (annotated via schema:inDefinedTermSet, SHACL-checkable)
+      rather than enforced by JSON Schema, so techniques may extend the term set.
     type: string
-    enum:
-      - "ada:analysisLocation"
-      - "ada:annotatedImage"
-      - "ada:areaOfInterest"
-      - "ada:basemap"
-      - "ada:calibrationFile"
-      - "ada:code"
-      - "ada:contextPhotography"
-      - "ada:contextVideo"
-      - "ada:inputFile"
-      - "ada:instrumentMetadata"
-      - "ada:logFile"
-      - "ada:methodDescription"
-      - "ada:other"
-      - "ada:plot"
-      - "ada:processingMethod"
-      - "ada:quickLook"
-      - "ada:report"
-      - "ada:samplePreparation"
-      - "ada:shapefile"
-      - "ada:supplementalBasemap"
-      - "ada:supplementaryImage"
-      - "ada:worldFile"
+    schema:inDefinedTermSet: "ada:vocab/componentType"

@@ -78,7 +78,7 @@ def _schema(tapp, cfg, component_types):
                         f"schema:Dataset root, narrows prov:used to the {tapp} protocol, and constrains "
                         f"valid component types on schema:distribution.hasPart."),
         "allOf": [
-            {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml"},
+            {"$ref": "../../../../BaseSchema/geochemProduct/schema.yaml"},
             {"$ref": "../detail/schema.yaml"},
             {"type": "object", "properties": {
                 "prov:wasGeneratedBy": {
@@ -109,12 +109,12 @@ def _schema(tapp, cfg, component_types):
                         # monolithic: the single file IS the dataset -> componentType on the distribution item
                         {"type": "object", "required": ["ada:componentType"],
                          "properties": {"ada:componentType": {"type": "string", "anyOf": [
-                             {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType"},
+                             {"$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType"},
                              {"enum": component_types}]}}},
                         # bundle: componentType on each hasPart member
                         {"type": "object", "required": ["schema:hasPart"],
                          "properties": {"schema:hasPart": {"items": {"type": "object", "anyOf": [
-                             {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
+                             {"$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
                              {"properties": {"ada:componentType": {"type": "string", "enum": component_types}},
                               "required": ["ada:componentType"]}]}}}}]}},
                 "schema:subjectOf": {"properties": {"dcterms:conformsTo": {"contains": {

@@ -2,7 +2,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA EMPA Product Profile (path-driven)
 description: Technique-specific profile for Electron Microprobe Analysis (EMPA/EPMA) products. Extends the base ADA product profile with the EMPA analysis-instance detail (detailEMPA) on the schema:Dataset root, narrows prov:used to the empaTAPP protocol, and constrains valid EMPA component types on schema:distribution.hasPart.
 allOf:
-  - $ref: ../../../../BaseSchema/adaProduct/schema.yaml
+  - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml
   # analysis-instance detail on the schema:Dataset root (analyst, session dates, sample,
   # per-analysis parameters, funding, measurementTechnique, quality measurements). componentType
   # is NOT here — it lives on schema:distribution.hasPart below.
@@ -64,7 +64,7 @@ allOf:
               items:
                 type: object
                 anyOf:
-                  - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                  - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
                   - properties:
                       ada:componentType:
                         type: string

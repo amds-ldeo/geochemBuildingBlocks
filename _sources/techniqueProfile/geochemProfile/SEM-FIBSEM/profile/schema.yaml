@@ -4,7 +4,7 @@ description: Path-driven technique-specific profile for ADA FIB-SEM Product Prof
   ADA product profile with the SEMFIBSEM analysis-instance detail on the schema:Dataset root, narrows
   prov:used to the semFibsemTAPP protocol, and constrains valid component types on schema:distribution.hasPart.
 allOf:
-- $ref: ../../../../BaseSchema/adaProduct/schema.yaml
+- $ref: ../../../../BaseSchema/geochemProduct/schema.yaml
 - $ref: ../detail/schema.yaml
 - type: object
   properties:
@@ -61,7 +61,7 @@ allOf:
             ada:componentType:
               type: string
               anyOf:
-              - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType
+              - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
               - enum: &id001
                 - ada:FIBSEMVolume
                 - ada:FIBSEMImage
@@ -75,7 +75,7 @@ allOf:
               items:
                 type: object
                 anyOf:
-                - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
                 - properties:
                     ada:componentType:
                       type: string

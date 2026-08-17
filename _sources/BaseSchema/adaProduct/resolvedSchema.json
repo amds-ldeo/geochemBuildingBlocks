@@ -2617,9 +2617,17 @@
                     ]
                   },
                   {
-                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_wq80ztdt\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                    "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_vta6hxis\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                   }
                 ]
+              },
+              "schema:additionalType": {
+                "description": "Optional file-classification of this distribution (or, on a bundle, of the whole archive) drawn from the componentType vocabulary (ada:vocab/componentType) -- e.g. \"ada:report\", \"ada:calibrationFile\". Generic and OPTIONAL here; the ADA product layer (adaProduct) instead carries the required ada:componentType. Advisory (annotated via schema:inDefinedTermSet), not hard-enumerated in JSON Schema.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "schema:inDefinedTermSet": "ada:vocab/componentType"
               }
             },
             "allOf": [
@@ -15442,7 +15450,8 @@
             "properties": {
               "ada:componentType": {
                 "type": "string",
-                "description": "ADA file-type classification for a MONOLITHIC single-file distribution -- it classifies the file that IS the dataset. On a bundle this sits on each schema:hasPart member instead, not here. Technique profiles narrow it (universal enum, or a technique detail schema) in both positions."
+                "schema:inDefinedTermSet": "ada:vocab/componentType",
+                "description": "ADA file-type classification for a MONOLITHIC single-file distribution -- it classifies the file that IS the dataset. On a bundle this sits on each schema:hasPart member instead, not here. Values are drawn from the componentType vocabulary (ada:vocab/componentType); conformance is advisory (annotated via schema:inDefinedTermSet), not hard-enumerated in JSON Schema."
               },
               "schema:hasPart": {
                 "items": {
@@ -16353,7 +16362,7 @@
                                       ]
                                     },
                                     {
-                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_wq80ztdt\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
+                                      "$comment": "could not resolve fragment /$defs/id-reference in C:\\Users\\smrTu\\AppData\\Local\\Temp\\resolve_schema_vta6hxis\\cross-domain-interoperability-framework.github.io\\metadataBuildingBlocks\\_sources\\profiles\\cdifProfile\\cdifDataStructure\\schema.yaml"
                                     }
                                   ]
                                 }

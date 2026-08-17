@@ -355,6 +355,18 @@ allOf:
                 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
                 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
                 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/id-reference
+            "schema:additionalType":
+              description: >-
+                Optional file-classification of this distribution (or, on a bundle,
+                of the whole archive) drawn from the componentType vocabulary
+                (ada:vocab/componentType) -- e.g. "ada:report", "ada:calibrationFile".
+                Generic and OPTIONAL here; the ADA product layer (adaProduct) instead
+                carries the required ada:componentType. Advisory (annotated via
+                schema:inDefinedTermSet), not hard-enumerated in JSON Schema.
+              type: array
+              items:
+                type: string
+              schema:inDefinedTermSet: "ada:vocab/componentType"
           allOf:
             # A monolithic single-file distribution that is a tabular text file
             # validates its CSVW/DDI-CDI layout + per-column cdif:hasPhysicalMapping
@@ -379,6 +391,29 @@ allOf:
                 "@id":
                   const: "https://w3id.org/geochem/metadata/profiles/geochemProduct"
 $defs:
+  # --- Component-type classification shared by geochem technique profiles ------
+  # A generic file-classification scheme available to every geochemProfile profile
+  # (via geochemProduct, their base). adaProduct declares its own equivalent copy
+  # for the adaProfile collection; the two are kept self-contained rather than aliased,
+  # because a cross-file $ref-of-a-$ref alias mis-resolves.
+  universalComponentTypeBranch:
+    description: >-
+      Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
+      Constrains ada:componentType to the universal enum and marks it required.
+      Factored out of every profile to eliminate the inline boilerplate.
+    properties:
+      'ada:componentType':
+        $ref: '#/$defs/universalComponentType'
+    required:
+      - 'ada:componentType'
+  universalComponentType:
+    description: >-
+      A componentType value drawn from the shared componentType vocabulary
+      (ada:vocab/componentType). Not hard-enumerated here: conformance to the
+      vocabulary is advisory (annotated via schema:inDefinedTermSet, SHACL-checkable)
+      rather than enforced by JSON Schema, so techniques may extend the term set.
+    type: string
+    schema:inDefinedTermSet: "ada:vocab/componentType"
   UsedComputationalTool:
       type: object
       additionalProperties: false
