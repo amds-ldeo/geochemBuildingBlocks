@@ -92,8 +92,13 @@ ROLE_KEYS = {"ada:toolRole", "ada:reagentRole"}
 # block demands nothing and the entities come out untyped.
 WRAPPER_ITEM_REF = {
     "schema:instrument": "../../../../BaseSchema/instrument/schema.yaml",
-    "bios:computationalTool": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedComputationalTool",
-    "prov:reagent": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/UsedReagent",
+    # Reference the tool/reagent shapes at their home in the generic geochemProduct base, NOT
+    # through the adaProduct alias: the technique detail is a geochem artifact and must not depend
+    # on the ADA-specific product layer. (The adaProduct alias also mis-resolves as a cross-file
+    # $ref-of-a-$ref — it inlines the whole product schema, leaking @type [Dataset,Product] onto the
+    # tool/reagent — whereas the direct geochemProduct fragment resolves to the correct shape.)
+    "bios:computationalTool": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool",
+    "prov:reagent": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent",
 }
 
 # base-owned array properties whose items are rich objects defined in tappDefinition
