@@ -3,46 +3,21 @@ $id: https://w3id.org/adaJSONLD/schema/3.0
 title: Astromat Archive Product Metadata
 description: >-
   Schema for JSON metadata documenting products in Astromat Data Archive (ADA).
-  Each project consists of one or more data files and 0 to many supplemental files.
-  Each file MUST have an associated YAML metadata file, with the same name,
-  but '.yaml' as the file extension. Version 3.0 aligned with CDIF 2026 schema
-  for DDI-CDI variable types and CSVW tabular data properties.
+  Extends the domain-neutral geochemProduct base with the ADA/SAMIS submission and
+  delivery layer: the ADA product-type vocabulary, the SAMIS submissionType, the
+  ada:componentType file-classification scheme (on monolithic distributions and on
+  each bundle member), and the adaProduct profile conformance. All of the generic
+  analytical surface -- analysis events (prov:wasGeneratedBy), variables measured,
+  distributions, spatial / temporal / quality coverage -- is inherited unchanged
+  from geochemProduct. Version 3.0 aligned with CDIF 2026.
 type: object
 allOf:
-  - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/schema.yaml
-  - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
-  # cdifManifest is the BUNDLE/archive profile: it applies (and its manifest/1.1
-  # conformance is required) ONLY when a distribution is positively typed as a
-  # bundle/archive — schema:Collection in @type (alongside schema:DataDownload),
-  # symmetric with the monolithic cdi:PhysicalDataSet marker. A monolithic
-  # single-file distribution is not an archive, so it is not held to the manifest
-  # profile. (The bundle case declares manifest/1.1 in conformsTo and enumerates its
-  # members in schema:hasPart, per the upstream cdifManifest schema:Collection trigger.)
-  - if:
-      properties:
-        "schema:distribution":
-          type: array
-          contains:
-            type: object
-            properties:
-              "@type":
-                type: array
-                contains:
-                  const: "schema:Collection"
-            required:
-              - "@type"
-    then:
-      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
-  - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml
+  # Inherit the entire generic geochem analytical product (which itself composes
+  # cdifCore + cdifDataDescription + cdifManifest + cdifProvenance).
+  - $ref: ../geochemProduct/schema.yaml
+  # ADA / SAMIS submission + delivery layer.
   - type: object
     properties:
-      "@type":
-        type: array
-        items:
-          type: string
-          enum:
-            - "schema:Dataset"
-            - "schema:Product"
       "schema:additionalType":
         type: array
         description: >-
@@ -208,302 +183,16 @@ allOf:
         minItems: 2
       submissionType:
         type: string
-      "schema:license":
-        description: Legal statement of conditions for use and access
-        type: array
-        minItems: 0
-        items:
-          anyOf:
-            - type: string
-            - $ref: ../creativeWork/schema.yaml
-      "schema:relatedLink":
-        type: array
-        description: Links to related resources at the product level
-        items:
-          type: object
-          properties:
-            "@type":
-              type: array
-              items:
-                type: string
-              contains:
-                const: "schema:LinkRole"
-              minItems: 1
-            "schema:linkRelationship":
-              type: string
-            "schema:target":
-              type: object
-              properties:
-                "@type":
-                  type: array
-                  items:
-                    type: string
-                  contains:
-                    const: "schema:EntryPoint"
-                  minItems: 1
-                "schema:encodingFormat":
-                  type: string
-                "schema:name":
-                  type: string
-                "schema:url":
-                  type: string
-      "schema:creativeWorkStatus":
-        type: string
-      "schema:measurementTechnique":
-        type: array
-        items:
-          type: object
-          description: Text description of the measurement method
-          properties:
-            "@type":
-              type: array
-              items:
-                type: string
-              contains:
-                const: "schema:DefinedTerm"
-              minItems: 1
-            "schema:name":
-              type: string
-            "schema:identifier":
-              type: string
-      "prov:wasGeneratedBy":
-        description: >-
-          ADA analysis events. Extends cdifProvActivity (from cdifProvenance) with
-          ADA-specific instrument, laboratory, and sample properties.
-        type: array
-        items:
-          type: object
-          properties:
-            "prov:used":
-              type: array
-              description: >-
-                Resources used in the analysis. Each item is one of: an instrument
-                BB instance; a computational tool actually used (schema:SoftwareApplication);
-                a reagent / reference material actually used; a tappDefinition BB
-                instance (inlined); or an @id reference to a TAPP definition node
-                defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol)
-                prescribes the generic instrument / computationalTool / reagent
-                list; these prov:used entries record the ACTUALS used in this
-                specific run (tool versions, reagent lots, and their run roles),
-                mirroring how the instrument is already recorded here. Technique
-                profiles narrow the tappDefinition branch to their specific TAPP.
-              items:
-                # Constraint-only pins, per the CDIF wrapper model: each fires ONLY when its
-                # role key is present, so the base's own item shapes (string, {@id}, inline
-                # prov:Entity) stay reachable. A narrowed anyOf here would intersect with the
-                # base union and quietly exclude shapes the base allows -- which is exactly
-                # how the flat entity form drifted out of conformance.
-                allOf:
-                  - if:
-                      type: object
-                      required: ['schema:instrument']
-                    then:
-                      properties:
-                        'schema:instrument':
-                          type: array
-                          minItems: 1
-                          items:
-                            $ref: ../instrument/schema.yaml
-                  - if:
-                      type: object
-                      required: ['bios:computationalTool']
-                    then:
-                      properties:
-                        'bios:computationalTool':
-                          type: array
-                          minItems: 1
-                          items:
-                            $ref: '#/$defs/UsedComputationalTool'
-                  - if:
-                      type: object
-                      required: ['prov:reagent']
-                    then:
-                      properties:
-                        'prov:reagent':
-                          type: array
-                          minItems: 1
-                          items:
-                            $ref: '#/$defs/UsedReagent'
-                  # An inline TAPP travels as a base inline prov:Entity: its @type carries
-                  # prov:Entity alongside ada:TAPPDefinition. A bare {@id} reference to a TAPP
-                  # needs no pin -- the base already accepts it.
-                  - if:
-                      type: object
-                      properties:
-                        '@type':
-                          contains:
-                            const: ada:TAPPDefinition
-                      required: ['@type']
-                    then:
-                      $ref: ../tappDefinition/schema.yaml
-            "schema:location":
-              $ref: ../laboratory/schema.yaml
-            "schema:object":
-              type: array
-              description: Samples analyzed
-              items:
-                type: object
-                properties:
-                  "@type":
-                    type: array
-                    items:
-                      type: string
-                    allOf:
-                    - contains:
-                        const: "schema:Thing"
-                    - contains:
-                        const: "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                    minItems: 2
-                  "schema:additionalType":
-                    type: array
-                    items:
-                      type: string
-                  "schema:identifier":
-                    type: array
-                    items:
-                      type: string
-                  "schema:name":
-                    description: Sample name/identifier as used in the lab.
-                    type: string
-                  "schema:additionalProperty":
-                    description: Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.
-                    type: array
-                    items:
-                      type: object
-            "schema:identifier":
-              description: >-
-                The analytical session's own identifier — the laboratory's run, sequence or batch
-                identifier as generated by the instrument or acquisition software. Sits on the
-                activity rather than the dataset because the session IS the activity: it is what
-                schema:startDate and schema:endDate already bound, and one session can produce
-                several datasets that all cite the same run.
-              type: string
-            "schema:startDate":
-              type: string
-            "schema:endDate":
-              type: string
-            "schema:additionalProperty":
-              description: Per-analysis PropertyValue entries (replicates, transect length, …); technique profiles constrain these.
-              type: array
-              items:
-                type: object
-          required:
-            - "prov:used"
-      "schema:variableMeasured":
-        description: >-
-          ADA variable definitions. Extends cdifInstanceVariable (from cdifDataDescription)
-          with additional ADA properties. Requires description with minLength 10.
-        type: array
-        items:
-          type: object
-          properties:
-            "schema:description":
-              type: string
-              minLength: 3
-            "schema:alternateName":
-              type: array
-              items:
-                type: string
-                description: Human intelligible name for variable that conveys semantics
-            "schema:measurementTechnique":
-              type: array
-              items:
-                anyOf:
-                  - type: string
-                  - type: object
-                    required: ['@id']
-                    additionalProperties: false
-                    properties:
-                      "@id":
-                        type: string
-                  - type: object
-                    additionalProperties: false
-                    properties:
-                      "@type":
-                        type: array
-                        items:
-                          type: string
-                        contains:
-                          const: "schema:DefinedTerm"
-                        minItems: 1
-                      "schema:name":
-                        type: string
-                    required:
-                      - "@type"
-                      - "schema:name"
-            "schema:unitText":
-              type: string
-            "schema:unitCode":
-              anyOf:
-                - type: string
-                - type: object
-                  required: ['@id']
-                  additionalProperties: false
-                  properties:
-                    "@id":
-                      type: string
-                - type: object
-                  additionalProperties: false
-                  properties:
-                    "@type":
-                      type: array
-                      items:
-                        type: string
-                      contains:
-                        const: "schema:DefinedTerm"
-                      minItems: 1
-                    "schema:name":
-                      type: string
-                  required:
-                    - "@type"
-                    - "schema:name"
-            "schema:minValue":
-              type: number
-            "schema:maxValue":
-              type: number
-            "schema:url":
-              type: string
-              format: uri
-          required:
-            - "schema:description"
-      "schema:spatialCoverage":
-        description: Geographic extent of resource content.
-        type: array
-        items:
-          $ref: '#/$defs/SpatialExtent'
-      "schema:temporalCoverage":
-        description: Temporal extent of resource content.
-        type: array
-        items:
-          $ref: '#/$defs/TemporalExtent'
-      "dqv:hasQualityMeasurement":
-        description: Quality measurements reported to assess the resource.
-        type: array
-        items:
-          $ref: '#/$defs/QualityMeasure'
-      "schema:additionalProperty":
-        description: >-
-          PropertyValue entries describing the DELIVERED DATA rather than the analysis that
-          produced it — the area a map covers, the pixel dimensions of a reconstructed volume, how
-          many sub-volumes it was written as. Distinct from the per-analysis
-          prov:wasGeneratedBy.schema:additionalProperty, which records how the instrument was
-          configured for the session: one session can yield products of differing extent, and a
-          product carries these properties whether or not its provenance is described at all.
-          Technique profiles constrain these.
-        type: array
-        items:
-          type: object
       "schema:distribution":
         description: >-
-          A distribution is EITHER a MONOLITHIC single-file dataset — a
-          schema:DataDownload that carries its own ada:componentType and, when its
-          structure is described, cdi:isStructuredBy, with NO schema:hasPart — OR a
-          BUNDLE/archive — a schema:DataDownload whose schema:hasPart lists the
-          member files, each a schema:MediaObject carrying its own ada:componentType
-          (the ADA SAMIS delivery pattern). DataDownload/WebAPI are inherited from
-          cdifCore and the archive hasPart from cdifManifest; the monolithic form is
-          the XAS/NeXus single-file pattern (structure sits on the distribution
-          because the file IS the dataset, so a part would only repeat it).
+          ADA delivery view: adds the ada:componentType file-classification to the
+          generic distribution structure inherited from geochemProduct. A
+          distribution is EITHER a MONOLITHIC single-file dataset -- a
+          schema:DataDownload that carries its own ada:componentType (and, when its
+          structure is described, cdi:isStructuredBy from the base), with NO
+          schema:hasPart -- OR a BUNDLE/archive -- a schema:DataDownload whose
+          schema:hasPart lists member files, each a schema:MediaObject carrying its
+          own ada:componentType (the ADA SAMIS delivery pattern).
         type: array
         items:
           type: object
@@ -512,23 +201,10 @@ allOf:
               type: string
               description: >-
                 ADA file-type classification for a MONOLITHIC single-file
-                distribution — it classifies the file that IS the dataset. On a
+                distribution -- it classifies the file that IS the dataset. On a
                 bundle this sits on each schema:hasPart member instead, not here.
                 Technique profiles narrow it (universal enum, or a technique detail
                 schema) in both positions.
-            "cdi:isStructuredBy":
-              description: >-
-                Data-structure description of a MONOLITHIC single-file distribution
-                (the file is the dataset), or a structure shared across bundle parts
-                and referenced from them by @id. One of the four CDIF DataStructure
-                variants inline, or an @id reference. Optional: absent when the
-                structure is not described (detect, don't assert).
-              anyOf:
-                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
-                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
-                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
-                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
-                - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/id-reference
             "schema:hasPart":
               items:
                 allOf:
@@ -540,26 +216,12 @@ allOf:
                         description: >-
                           ADA file-type classification, expressed as a single
                           string drawn from a universal set or a technique-specific
-                          set. Technique profiles add an anyOf at the hasPart
-                          level: one branch declares the universal componentType
-                          enum; other branches $ref technique-specific detail
-                          schemas (e.g. detailEMPA) that enumerate technique
-                          componentType values and contribute detail-specific
-                          sibling properties (e.g. ada:spectrometersUsed).
-          allOf:
-            # pattern-per-datatype: a MONOLITHIC single-file distribution that is a
-            # tabular text file validates its CSVW/DDI-CDI layout + per-column
-            # cdif:hasPhysicalMapping via cdifTabularData. (cdi:isStructuredBy above
-            # covers container/array single files.) A bundle DataDownload is an
-            # archive, not itself tabular, so this never fires there.
-            - if:
-                properties:
-                  "@type":
-                    type: array
-                    contains:
-                      const: "cdi:TabularTextDataSet"
-              then:
-                $ref: ../tabularData/schema.yaml
+                          set. Technique profiles add an anyOf at the hasPart level:
+                          one branch declares the universal componentType enum;
+                          other branches $ref technique-specific detail schemas
+                          (e.g. detailEMPA) that enumerate technique componentType
+                          values and contribute detail-specific sibling properties
+                          (e.g. ada:spectrometersUsed).
       "schema:subjectOf":
         properties:
           "dcterms:conformsTo":
@@ -571,120 +233,15 @@ allOf:
                 "@id":
                   const: "https://w3id.org/geochem/metadata/profiles/adaProduct"
 $defs:
+  # --- Re-exported from geochemProduct for backward compatibility -------------
+  # Technique profiles reference adaProduct#/$defs/UsedComputationalTool (16x) and
+  # #/$defs/UsedReagent (9x). The canonical definitions now live in geochemProduct;
+  # these aliases keep the existing profile $refs resolving unchanged.
   UsedComputationalTool:
-      type: object
-      additionalProperties: false
-      description: Computational tool actually used (acquisition, data reduction, or processing).
-      properties:
-        '@type':
-          type: array
-          items:
-            type: string
-          contains:
-            const: schema:SoftwareApplication
-        '@id':
-          type: string
-        'schema:name':
-          type: string
-        'schema:version':
-          type: string
-        'schema:url':
-          type: string
-          format: uri
-        'schema:description':
-          type: string
-        'ada:toolRole':
-          type: string
-          enum:
-            - acquisition
-            - dataReduction
-            - processing
-            - visualization
-      required:
-        - '@type'
-        - schema:name
+    $ref: ../geochemProduct/schema.yaml#/$defs/UsedComputationalTool
   UsedReagent:
-      type: object
-      additionalProperties: false
-      description: Reference material, calibration standard, or chemical reagent actually used.
-      properties:
-        '@type':
-          type: array
-          items:
-            type: string
-          minItems: 1
-          description: >-
-            What the material IS, independent of the role it plays in this run (that is
-            ada:reagentRole). schema:DefinedTerm for a material identified by a registry
-            entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued
-            specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard);
-            schema:ChemicalSubstance for a bulk chemical or coating stock.
-          contains:
-            enum:
-              - schema:DefinedTerm
-              - schema:Product
-              - schema:ChemicalSubstance
-        '@id':
-          type: string
-        'schema:name':
-          type: string
-        'schema:description':
-          type: string
-        'schema:identifier':
-          description: >-
-            Formal identifier (IGSN, catalog number, GeoReM ID). Mirrors
-            tappDefinition $defs/Reagent.
-          anyOf:
-            - type: string
-            - type: object
-              additionalProperties: false
-              properties:
-                '@type':
-                  type: array
-                  items:
-                    type: string
-                  minItems: 1
-                'schema:propertyID':
-                  type: string
-                'schema:value':
-                  type: string
-        'schema:termCode':
-          type: string
-          description: >-
-            Registry code for the material on the schema:DefinedTerm path.
-        'schema:inDefinedTermSet':
-          description: >-
-            The registry the schema:termCode belongs to.
-          anyOf:
-            - type: string
-              format: uri
-            - type: object
-              additionalProperties: false
-              properties:
-                '@id':
-                  type: string
-                  format: uri
-                'schema:name':
-                  type: string
-        'ada:reagentRole':
-          type: string
-          enum:
-            - primaryStandard
-            - secondaryStandard
-            - interferenceStandard
-            - blankMaterial
-            - coatingMaterial
-            - referenceMaterial
-            - reagent
-      required:
-        - '@type'
-        - schema:name
-  SpatialExtent:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/schema.yaml
-  TemporalExtent:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/schema.yaml
-  QualityMeasure:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/schema.yaml
+    $ref: ../geochemProduct/schema.yaml#/$defs/UsedReagent
+  # --- ADA-specific: the ada:componentType file-classification scheme ---------
   universalComponentTypeBranch:
     description: >-
       Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
@@ -698,9 +255,9 @@ $defs:
   universalComponentType:
     description: >-
       ada:componentType values valid across all ADA techniques. As a string,
-      directly assignable to the part's ada:componentType property. Profiles
-      use this $def (typically via the universalComponentTypeBranch wrapper)
-      in their hasPart anyOf branches.
+      directly assignable to the part's ada:componentType property. Profiles use
+      this $def (typically via the universalComponentTypeBranch wrapper) in their
+      hasPart anyOf branches.
     type: string
     enum:
       - "ada:analysisLocation"
