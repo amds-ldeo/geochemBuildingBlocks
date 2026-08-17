@@ -26,7 +26,12 @@ import build_tapp as b
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPROF = os.path.join(ROOT, "_sources", "techniqueProfile", "geochemProfile")
-LAI = os.path.join(TPROF, "LA-ICPMS", "profile", "exampleadaICPMS.json")
+# Scaffold for _example(): a valid, structurally-complete product example (bundle distribution
+# with schema:hasPart, prov:wasGeneratedBy, instrument). The retargeting below swaps the
+# technique-specific bits. Was LA-ICPMS/profile/exampleadaICPMS.json, retired in the LA split;
+# now the canonical adaProduct example, which is technique-neutral apart from a componentType
+# the retargeting overwrites.
+LAI = os.path.join(ROOT, "_sources", "BaseSchema", "adaProduct", "exampleadaProduct.json")
 
 
 def _profile_dir(tapp):
@@ -153,6 +158,12 @@ def _example(tapp, cfg, component_types):
     for k, v in det.items():
         if k.startswith("ada:") or k == "dqv:hasQualityMeasurement":
             ex[k] = copy.deepcopy(v)
+    # the profile requires a schema:contributor with the analyst role; keep the scaffold's full
+    # CDIF schema:Role structure but retarget its role from principal-investigator to analyst.
+    for c in ex.get("schema:contributor", []):
+        if isinstance(c, dict) and "schema:roleName" in c:
+            c["schema:roleName"] = "analyst"
+            break
     # retarget the TAPP linkage (measurementTechnique + prov:used @id refs) to this TAPP
     _swap_tapp(ex.get("schema:measurementTechnique"), tapp)
     _swap_tapp(ex.get("prov:wasGeneratedBy"), tapp)
@@ -175,8 +186,14 @@ def _example(tapp, cfg, component_types):
             if "schema:Collection" not in at:
                 at.append("schema:Collection")
         for hp in dist.get("schema:hasPart", []):
-            if isinstance(hp, dict) and "ada:componentType" in hp:
-                hp["ada:componentType"] = component_types[0]
+            if isinstance(hp, dict):
+                if "ada:componentType" in hp:
+                    hp["ada:componentType"] = component_types[0]
+                # the scaffold classifies a member via schema:additionalType too (e.g. the
+                # generic componentType vocab); retarget it to this technique's componentType so
+                # no scaffold-technique token leaks through.
+                if isinstance(hp.get("schema:additionalType"), list):
+                    hp["schema:additionalType"] = [component_types[0]]
     # conformsTo: retarget technique @id (keep adaProduct + cdif classes), dedupe
     so = ex.get("schema:subjectOf")
     if isinstance(so, dict):
@@ -184,9 +201,12 @@ def _example(tapp, cfg, component_types):
         ids = {x.get("@id") for x in ct if isinstance(x, dict)}
         # drop any prior technique-profile @id (keep adaProduct + cdif), then add ours
         ct = [x for x in ct if not (isinstance(x, dict) and x.get("@id", "").startswith(CID_BASE)
-                                    and not x.get("@id", "").endswith("/adaProduct"))]
-        if not any(isinstance(x, dict) and x.get("@id") == CID_BASE + cfg["cid"] for x in ct):
-            ct.append({"@id": CID_BASE + cfg["cid"]})
+                                    and not x.get("@id", "").endswith(("/adaProduct", "/geochemProduct")))]
+        # geochemProfile profiles are based on geochemProduct: the record must declare that base
+        # profile (the generic scaffold only declares adaProduct).
+        for pid in (CID_BASE + "geochemProduct", CID_BASE + cfg["cid"]):
+            if not any(isinstance(x, dict) and x.get("@id") == pid for x in ct):
+                ct.append({"@id": pid})
         so["dcterms:conformsTo"] = ct
     return ex
 
