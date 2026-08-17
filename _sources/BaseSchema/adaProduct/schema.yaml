@@ -233,14 +233,6 @@ allOf:
                 "@id":
                   const: "https://w3id.org/geochem/metadata/profiles/adaProduct"
 $defs:
-  # --- Re-exported from geochemProduct for backward compatibility -------------
-  # Technique profiles reference adaProduct#/$defs/UsedComputationalTool (16x) and
-  # #/$defs/UsedReagent (9x). The canonical definitions now live in geochemProduct;
-  # these aliases keep the existing profile $refs resolving unchanged.
-  UsedComputationalTool:
-    $ref: ../geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-  UsedReagent:
-    $ref: ../geochemProduct/schema.yaml#/$defs/UsedReagent
   # --- ADA-specific: the ada:componentType file-classification scheme ---------
   universalComponentTypeBranch:
     description: >-
