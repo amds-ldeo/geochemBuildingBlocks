@@ -369,21 +369,41 @@ def coerce(v, jtype):
     return v
 
 
-def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_types):
+_SIMPLE_DATASET_LEAF = re.compile(r"^\$Dataset\.([A-Za-z]+:[A-Za-z0-9]+)$")
+
+
+def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_types, canon_sp=None):
     """Build one analysis-level detail-block instance from a publication column:
     componentType + required analysis-level (detail_req) fields + per-dataset
     schema:PropertyValue entries (detail_addl). Pairs with the TAPP example by @id."""
+    canon_sp = canon_sp or {}
     ct = component_types[0] if component_types else "ada:Tabular"
     inst = {"@context": {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"},
             "@id": f"ex:{detail_name}-{code}", "@type": [ct], "ada:componentType": ct,
-            "schema:measurementTechnique": {"@id": f"ex:{tapp}-{code}"}}
+            "schema:measurementTechnique": [{"@id": f"ex:{tapp}-{code}"}]}
     seen = set()
     for b in R["detail_req"]:
         if b["name"] in seen:
             continue
         seen.add(b["name"])
-        key = "ada:" + b["name"]
         v = cell(pubval[b["item"]].get(pc))
+        # Honor the canonical schema path for fields whose analysis-instance home is a SIMPLE
+        # top-level $Dataset property, so the example key matches the (build_pathdriven) schema
+        # exactly instead of the camelCase(item) fallback. This fixes drift such as
+        # "Spot Diameter (Measured)" -> $Dataset.ada:spotDiameterMeasured (camel drops the
+        # parenthetical to spotDiameter) and "Funding Source for Analysis" -> $Dataset.schema:funding
+        # (the analysis-level grant, distinct from procedure funding $MethodDefinition.schema:funding;
+        # ada:fundingSourceForAnalysis was a camelCase artifact). Nested / $MethodDefinition paths
+        # keep the tolerated flat ada:<name> form (the schema does not require those keys).
+        m = _SIMPLE_DATASET_LEAF.match(canon_sp.get(b["item"], ""))
+        leaf = m.group(1) if m else None
+        if leaf == "schema:funding":
+            if v is not None:
+                inst["schema:funding"] = [{"@type": ["schema:MonetaryGrant"], "schema:name": v}]
+            elif not b["multivol_only"]:   # required -> sentinel
+                inst["schema:funding"] = [{"@type": ["schema:MonetaryGrant"], "schema:name": "missing"}]
+            continue
+        key = leaf or ("ada:" + b["name"])
         if v is not None:
             inst[key] = coerce(v, b["jtype"])
         elif not b["multivol_only"]:   # required -> sentinel
@@ -446,6 +466,16 @@ def main():
                 it, p = (row.get("Metadata Item") or "").strip(), (row.get("Schema Path") or "").strip()
                 if it in sp_by_item and p.startswith("$MethodDefinition") and not sp_by_item[it]:
                     sp_by_item[it] = p
+
+    # canonical schema paths (full sidecar map, all items) — authoritative for detail-key
+    # placement so example keys match the build_pathdriven schema (which derives from these paths).
+    canon_sp = {}
+    _side = schemapath_io.csv_path(bt.XLSX)
+    if os.path.exists(_side):
+        for _row in schemapath_io.read(_side):
+            _it = (_row.get("Metadata Item") or "").strip()
+            if _it:
+                canon_sp[_it] = (_row.get("Schema Path") or "").strip()
 
     inherited_items = {it for it, sp in sp_by_item.items()
                        if sp.startswith("$MethodDefinition") and ".ada:" not in sp
@@ -596,7 +626,7 @@ def main():
             f.write("\n")
         written.append((code, hdr_txt))
         # paired analysis-level detail-block example
-        dinst = build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name, component_types)
+        dinst = build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name, component_types, canon_sp)
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
                   "w", encoding="utf-8", newline="\n") as f:
             json.dump(dinst, f, indent=2, ensure_ascii=False)
