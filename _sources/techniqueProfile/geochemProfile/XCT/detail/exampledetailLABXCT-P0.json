@@ -414,8 +414,7 @@
       },
       "ada:rotationMode": "Step rotation (stop-and-shoot)",
       "ada:segmentationMethod": "Global threshold (single CT number boundary)",
-      "schema:description": "example additionalNotes",
-      "schema:identifier": "example sessionIdentifier"
+      "schema:description": "example additionalNotes"
     }
   ],
   "schema:measurementTechnique": [
@@ -446,9 +445,13 @@
       "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
-  "schema:distribution": {
-    "schema:encodingFormat": "TIFF image stack"
-  },
+  "schema:distribution": [
+    {
+      "schema:encodingFormat": [
+        "TIFF image stack"
+      ]
+    }
+  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
@@ -527,14 +530,6 @@
     {
       "dqv:isMeasurementOf": "Cross-Validation Outcome",
       "dqv:value": "example crossValidationOutcome"
-    },
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }
