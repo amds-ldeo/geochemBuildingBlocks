@@ -36,3 +36,59 @@ cdifd:adaInstrumentShape
     ] ;
     sh:message "ADA instrument nodes (schema:Product used in prov:Activity) must have a name and identifier." ;
     .
+
+# Context-dependent shape of instrument schema:additionalProperty entries.
+# The JSON Schema accepts either schema:PropertyValue or schema:PropertyValueSpecification
+# on an instrument; the intended form depends on where the instrument sits:
+#
+#   - On an ada:TAPPDefinition (a prov:Plan / procedure), instrument parameters are
+#     PARAMETER TEMPLATES an analyst may override -> schema:PropertyValueSpecification
+#     (the value is a schema:defaultValue).
+#   - On a prov:used analysis-event instrument (the concrete run), instrument parameters
+#     carry the ACTUAL value used -> schema:PropertyValue (the value is a schema:value).
+#
+# These two shapes pin the correct form per context.
+
+cdifd:tappInstrumentParamSpecShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX ada: <https://ada.astromat.org/metadata/>
+            PREFIX schema: <http://schema.org/>
+            SELECT ?this
+            WHERE {
+                ?tapp a ada:TAPPDefinition ;
+                      schema:instrument ?this .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path schema:additionalProperty ;
+        sh:class schema:PropertyValueSpecification ;
+        sh:severity sh:Violation ;
+        sh:message "On an ada:TAPPDefinition, an instrument's schema:additionalProperty entries must be schema:PropertyValueSpecification (overridable parameter templates), not schema:PropertyValue." ;
+    ] ;
+    .
+
+cdifd:provUsedInstrumentParamValueShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX prov: <http://www.w3.org/ns/prov#>
+            PREFIX schema: <http://schema.org/>
+            SELECT ?this
+            WHERE {
+                ?activity prov:used ?used .
+                ?used schema:instrument ?this .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path schema:additionalProperty ;
+        sh:class schema:PropertyValue ;
+        sh:severity sh:Violation ;
+        sh:message "On a prov:used analysis-event instrument, schema:additionalProperty entries must be schema:PropertyValue (concrete values), not schema:PropertyValueSpecification." ;
+    ] ;
+    .
