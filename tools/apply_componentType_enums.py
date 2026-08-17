@@ -88,7 +88,7 @@ def derive_from_xlsx(xlsx_path: Path) -> dict:
         elif ft == "document | tabularData":
             bb["document"].add(pfx)
             bb["tabularData"].add(pfx)
-        elif ft == "video":
+        elif ft in ("video", "otherFile"):
             bb["otherFile"].add(pfx)
         else:
             print(f"  WARN: unhandled fileType={ft!r} for componentType={ct!r}", file=sys.stderr)
