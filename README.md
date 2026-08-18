@@ -16,7 +16,8 @@ The scheme involves three components:
 
 ```
 _sources/
-  BaseSchema/           17 shared BBs: adaProduct, tappDefinition, instrument,
+  BaseSchema/           18 shared BBs: geochemProduct (domain-neutral base),
+                        adaProduct (extends it), tappDefinition, instrument,
                         laboratory, the file-type blocks (image, imageMap,
                         tabularData, dataCube, collection, document,
                         supDocImage, otherFile, files), structuredData,
@@ -44,13 +45,17 @@ _sources/
 
 ### BaseSchema
 
-Shared building blocks. `adaProduct` is the base product profile, composing the **CDIF v1.1** profile schemas via `allOf`:
+Shared building blocks. The product profile is split into two layers:
+
+- **`geochemProduct`** is the domain-neutral base product profile, composing the **CDIF v1.1** profile schemas via `allOf`. It carries no ADA-specific requirements: its distribution has an *optional* `schema:additionalType` (drawn from the componentType vocabulary), not a required `ada:componentType`.
+- **`adaProduct`** extends `geochemProduct` (via `allOf: [$ref geochemProduct, …]`) with the ADA/SAMIS overlays: technique types, instrument/lab/sample, and a *required* `ada:componentType` on each distribution. Everything ADA-specific lives here, so `geochemProduct` stays reusable outside ADA.
+
+The composed CDIF v1.1 profiles (via `geochemProduct`):
 
 - `cdifCore` — core metadata properties
 - `cdifDataDescription` — variableMeasured with DDI-CDI extensions, `@id` requirement
 - `cdifProvenance` — `prov:wasGeneratedBy` provenance activities
 - `cdifManifest` — archive distribution with `hasPart` component files (was `cdifArchiveDistribution` in CDIF ≤1.0). Applied **conditionally**: the `if/then` fires only when a `schema:distribution` item carries `schema:Collection` in its `@type`, so a monolithic single-file distribution isn't held to the manifest rules.
-- ADA-specific overlays: technique types, instrument/lab/sample, `ada:componentType`
 
 Two BBs extend CDIF core BBs:
 - **instrument** — extends core CDIF instrument; requires `schema:additionalType` (at least one entry, e.g. `nxs:BaseClass/NXinstrument` or a technique term like `ada:EPMAInstrument`)
@@ -72,18 +77,24 @@ Eleven techniques have a `tapp/`: EMPA, Geochron, LA-ICPMS, SEM, SEM-Composition
 
 - **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:analyteTemplate.ada:analyteColumns` constraints referencing the registry catalogs.
 - **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EMPA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
-- **`profile/`** — path-driven product profile: `adaProduct` + the `detail` block + `prov:used` narrowed to that technique's TAPP + the technique's `ada:componentType` enum on `hasPart`.
-- **`profile-ada/`** — the generic product profile: `adaProduct` + `ada:componentType` constraints only, no TAPP linkage or detail block.
+- **`profile/`** — path-driven product profile: bases on the domain-neutral **`geochemProduct`** + the `detail` block + `prov:used` narrowed to that technique's TAPP + the technique's `ada:componentType` enum on `hasPart` (the profile layers the ADA componentType constraint on top of the ADA-agnostic base).
+- **`profile-ada/`** — the generic product profile: bases on **`adaProduct`** + `ada:componentType` constraints only, no TAPP linkage or detail block.
+
+> **Base-selection rule.** `geochemProfile/<TECH>/profile/` (generic, path-driven) → `geochemProduct`; `geochemProfile/<TECH>/profile-ada/` (the 4 ADA variants) and all `adaProfile/<TECH>/profile-ada/` → `adaProduct`. Principle: geochem→geochemProduct, ada→adaProduct.
 
 A dataset instance selects between the two profile variants by how it references its protocol: a bare `{"@id": …}` node reference in `schema:measurementTechnique` targets the path-driven profile, an inline `schema:DefinedTerm` targets the generic one.
 
 ## componentType architecture
 
-Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EMPAImageMap`) that classifies the file. The architecture enforces a two-level constraint:
+Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EMPAImageMap`) that classifies the file. The term list is governed by a **vocabulary**, and two schema layers add per-context constraints:
 
-1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping). E.g. `ada:EMPAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
+**Governing vocabulary.** `registry/vocab/componentType.json` is a SKOS ConceptScheme (`@id: ada:vocab/componentType`, the ~22 universal cross-technique terms). The base products reference it by **annotation only** — the `universalComponentType` `$def` in `geochemProduct` (and duplicated in `adaProduct`) is `{type: string, schema:inDefinedTermSet: "ada:vocab/componentType"}` with **no inline enum**, so at the base layer any string validates and conformance to the vocabulary is advisory (SHACL-checkable), not hard-enforced by JSON Schema. `geochemProduct` exposes the vocab as an optional `schema:additionalType`; `adaProduct` requires it as `ada:componentType`.
 
-2. **Profile-level constraint** — a technique profile's `schema:distribution.items.schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref` to `adaProduct/schema.yaml#/$defs/universalComponentTypeBranch` (factored once, used everywhere) for universal componentTypes; (b) inline string-enum for technique-specific componentTypes; (c) for techniques whose `detail/` block is the older *hasPart-item* kind (XRD, ARGT, DSC, …), a `$ref` to that detail schema, which pins `ada:componentType` to its technique consts and contributes detail-specific sibling properties (e.g. `ada:geometry`) flat on the hasPart item — not nested inside componentType. Path-driven profiles do **not** use branch (c): their detail block overlays the dataset root instead, and `hasPart` gets only branches (a) and (b).
+1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping; columns `componentType` / `FileType` / `isSupplement`). E.g. `ada:EMPAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
+
+2. **Profile-level constraint** — a technique profile's `schema:distribution.items.schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref` to `geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch` (factored once, used everywhere) for universal componentTypes; (b) inline string-enum for technique-specific componentTypes; (c) for techniques whose `detail/` block is the older *hasPart-item* kind (XRD, ARGT, DSC, …), a `$ref` to that detail schema, which pins `ada:componentType` to its technique consts and contributes detail-specific sibling properties (e.g. `ada:geometry`) flat on the hasPart item — not nested inside componentType. Path-driven profiles do **not** use branch (c): their detail block overlays the dataset root instead, and `hasPart` gets only branches (a) and (b).
+
+**Keeping the layers in sync.** Because the base layer is annotation-only, JSON-Schema validation no longer catches componentType drift on its own. `python tools/check_componentType.py` restores that check: it fails if a universal vocab term is missing from the enum cache, if a base schema stops annotating the vocab `@id`, or if any `ada:componentType` used in an example is not a known term (universal vocab ∪ enum cache ∪ per-technique profile enums). Run it after touching the worksheet, the vocab, or example componentTypes.
 
 ### Refreshing the mapping
 
@@ -95,9 +106,10 @@ python tools/apply_componentType_enums.py --refresh \
 python tools/regenerate_schema_json.py
 python tools/resolve_schema.py --all
 python tools/validate_examples.py
+python tools/check_componentType.py    # confirm vocab / cache / schemas / examples agree
 ```
 
-The cached mapping at `tools/componentType_enum_cache.json` is committed so the apply step works on a fresh clone without spreadsheet access.
+The cached mapping at `tools/componentType_enum_cache.json` is committed so the apply step works on a fresh clone without spreadsheet access. Worksheet `FileType` values map to file-type BBs as: `image`→image (or supDocImage when `isSupplement`=supplement), `imageMap`→imageMap, `tabularData`→tabularData, `archive`→collection, `dataCube`→dataCube, `document`→document, `video`/`otherFile`→otherFile, plus the `document | image` and `document | tabularData` splits.
 
 ## Cross-repo imports
 
