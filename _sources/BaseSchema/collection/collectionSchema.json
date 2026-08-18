@@ -26,6 +26,19 @@
         },
         "ada:componentType": {
             "type": "string",
+            "enum": [
+                "ada:EAIRMSCollection",
+                "ada:EMPAImageCollection",
+                "ada:GCMSCollection",
+                "ada:LCMSCollection",
+                "ada:NanoSIMSCollection",
+                "ada:PSFDShapeFile",
+                "ada:QRISCalibratedCollection",
+                "ada:SEMImageCollection",
+                "ada:TOFSIMSCollection",
+                "ada:XCTImageCollection",
+                "ada:shapefile"
+            ],
             "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema."
         },
         "ada:memberTypes": {

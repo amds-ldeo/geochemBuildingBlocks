@@ -111,14 +111,15 @@ WRAPPER_ITEM_REF = {
 # since items are AnalyteColumn objects — and with every row writing the same append, last-one-wins.
 # It is now handled by ANALYTE_COLUMN_ARRAY below, which turns each row into a generated column def
 # rather than consuming the row's leaf.
-BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool",
-                           # tappDefinition types a default analyte as an OBJECT (an
-                           # identifier plus whatever per-analyte columns the technique
-                           # adds). The sidecar row carries the analyte NAME, so its
-                           # "Text (free)" leaf emitted items:{type:string} -- allOf then
-                           # intersected string with object and nothing could satisfy it,
-                           # which is why every entry failed in whichever form it was written.
-                           "ada:defaultAnalytes"}
+BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
+
+# ada:defaultAnalytes (and the analogous ada:defaultChannels) hold the template's DEFAULT ROWS: a
+# list of analyte/channel identifiers, each a bare string OR a schema:DefinedTerm — never an object
+# carrying per-column values (those live in the columns array). Whether the sidecar row targets the
+# property directly or with a bare "[]", the array's item shape is this anyOf, not the row's scalar.
+DEFAULT_ROW_ARRAYS = {"ada:defaultAnalytes", "ada:defaultChannels"}
+DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
+                               {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"}]}
 
 # The per-analyte column array. Each row targeting it names one column; the emitter generates a
 # column def per row and narrows the array to those columns plus the base's identifier column.
@@ -157,7 +158,27 @@ KEYED_TABLES = {
                     "#/$defs/ReportedPropertyIdentifierColumn"
         },
     },
+    # An MC-ICP-MS collector: ada:collectorConfiguration IS the channel-column array directly (it
+    # lives on instrument[ICPMS].hasPart[Collector], not in a top-level template, and has no
+    # identifier column). Channel column @ids use the ada:channelColumn namespace.
+    "ada:collectorConfiguration": {
+        "template": None,
+        "registry": "channelColumns",
+        "identifier_ref": None,
+    },
 }
+
+
+def normalize_path(p):
+    """Collapse the collectorConfiguration channel table to its emitted shape.
+
+    The sidecar addresses MC-ICP-MS channels as `…collectorConfiguration.ada:channelColumns[]` and
+    the default channel list as `…collectorConfiguration.ada:defaultChannels[]`, but the emitted
+    structure is `ada:collectorConfiguration` = the channel-column array itself, with
+    `ada:defaultChannels` a SIBLING of it on the Collector (an array cannot also hold a
+    defaultChannels key). Rewrite both so schema and example agree without touching the sidecar."""
+    return (p.replace(".ada:collectorConfiguration.ada:channelColumns", ".ada:collectorConfiguration")
+             .replace(".ada:collectorConfiguration.ada:defaultChannels", ".ada:defaultChannels"))
 
 
 class AddlType:
@@ -236,6 +257,8 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                     if branch_key is not None and element is not None:
                         # one named permitted item (analyte column) rather than an item-shape leaf
                         arr.branches[(None, branch_key)] = element
+                    elif curie in DEFAULT_ROW_ARRAYS:
+                        arr.append = Leaf(DEFAULT_ROW_ITEMS)   # string | DefinedTerm rows
                     elif curie in BASE_OWNED_OBJECT_ARRAY:
                         arr.append = Obj()     # base-owned object array -> items:{object}, defer shape to base
                     else:
@@ -384,11 +407,13 @@ def to_instance(node):
             out[k] = to_instance(v)
         return out
     if isinstance(node, Arr):
-        if node.branches:
-            return [to_instance(v) for v in node.branches.values()]
+        # Emit BOTH selector branches and a bare "[]" append when they coexist: schema:object can
+        # carry a selector-keyed materialsample (Sample Form) AND a bare target-material DefinedTerm
+        # (Target Material) — dropping the append lost the latter entirely.
+        out = [to_instance(v) for v in node.branches.values()]
         if node.append is not None:
-            return [to_instance(node.append)]
-        return []
+            out.append(to_instance(node.append))
+        return out
     raise TypeError(node)
 
 
@@ -470,15 +495,18 @@ _REG_PREFIX = {"MethodDefinition": "../../../../registry", "Dataset": "../../../
 
 
 def _is_addl_param(p: spp.ParsedPath) -> bool:
-    """True for a `…schema:additionalProperty[schema:name='X'].schema:(value|defaultValue)` path —
-    an ADA method/analysis parameter that resolves to a registry PropertyValue(Spec) $ref."""
+    """True for a `…<container>[schema:name='X'].schema:(value|defaultValue)` path — an ADA
+    parameter resolving to a registry PropertyValue(Spec) $ref. The container is schema:additional-
+    Property (method/analysis parameters) or schema:variableMeasured (reported properties: a reported
+    variable is likewise a PropertyValueSpecification default / PropertyValue measured value)."""
     s = p.segments
     return (len(s) >= 2 and not s[-1].is_array and s[-1].selector is None
             and s[-1].prop in ("schema:value", "schema:defaultValue")
-            and s[-2].prop == "schema:additionalProperty" and s[-2].selector is not None)
+            and s[-2].prop in ("schema:additionalProperty", "schema:variableMeasured")
+            and s[-2].selector is not None)
 
 
-def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier=""):
+def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", prefix="ada:analyteColumn", as_value=False):
     """One generated AnalyteColumn $def, mirroring build_tapp.param_template_def.
 
     Built here rather than via _tapp_lib.analyte_column_obj: that helper keys its @id off a
@@ -486,13 +514,39 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier=""):
     so LA-ICP-MS columns came out with empaTAPP @ids) and returns OrderedDicts that
     yaml.safe_dump cannot represent. b.PARAM_BASE is configured per TAPP by b.configure().
     """
-    base = (b.PARAM_BASE or "ada:parameter/unknownTAPP").replace("ada:parameter/", "ada:analyteColumn/")
+    base = (b.PARAM_BASE or "ada:parameter/unknownTAPP").replace("ada:parameter/", prefix + "/")
     col_id = f"{base}/{name}"
     # ada:tier is M/R/O (Mandatory/Recommended/Optional) and follows the PROCEDURE-level tier: a
     # Basic column is one the procedure must state, Advanced is recommended. It was hardcoded "M",
     # which marked every column mandatory regardless of what the workbook said. Only the base's
     # analyte-identifier column is unconditionally M, and that one lives in tappDefinition.
     tier = {"Basic": "M", "Advanced": "R"}.get(ptier, "O")
+    valtype = ({"anyOf": [{"type": "number"}, {"type": "string"}]}
+               if jtype in ("number", "integer") else {"type": "string"})
+    if "channelColumn" in prefix:
+        # A channel property value may be a delimited list (e.g. Interfering Species reports several
+        # species) — allow an array of the base type alongside the literal. This is the ONLY place a
+        # property value is permitted to be either a literal or a list; a deliberate exception.
+        valtype = {"anyOf": [valtype, {"type": "array", "items": valtype}]}
+    if as_value:
+        # A fixed/recorded column value -> schema:PropertyValue (schema:value), mirroring
+        # param_value_def. Used for read-only channel columns on the procedure and for every column
+        # on the $Dataset side (the analysis records the value it actually used, never a default).
+        props = {
+            "@id": {"const": col_id},
+            "@type": {"const": ["schema:PropertyValue"]},
+            "schema:propertyID": {"const": [{"@id": col_id}]},
+            "schema:name": {"const": item},
+            "ada:dataType": {"const": jtype},
+            "ada:tier": {"const": tier},
+        }
+        required = ["@id", "@type", "schema:propertyID", "schema:name", "ada:dataType"]
+        if ptier in ("Basic", "Advanced") or atier in ("Basic", "Editable", "Advanced"):
+            props["schema:value"] = valtype
+            if ptier == "Basic" or atier == "Basic":
+                required.append("schema:value")
+        return {"title": item, "description": desc, "type": "object",
+                "properties": props, "required": required}
     props = {
         "@id": {"const": col_id},
         "@type": {"const": ["schema:PropertyValueSpecification"]},
@@ -508,8 +562,7 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier=""):
     # procedure specifies the column at all (C != N/A), and REQUIRED at Basic — the procedure must
     # state it. Without this the default had nowhere to live and no type.
     if ptier in ("Basic", "Advanced"):
-        props["schema:defaultValue"] = ({"anyOf": [{"type": "number"}, {"type": "string"}]}
-                                        if jtype in ("number", "integer") else {"type": "string"})
+        props["schema:defaultValue"] = valtype
         if ptier == "Basic":
             required.append("schema:defaultValue")
     # No `$id`: these defs are INLINED into the overlay, and an inlined $id would re-base $ref
@@ -549,6 +602,7 @@ def build(tapp):
         m = meta.get(item, {})
         paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
         for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
+            path = normalize_path(path)
             parsed = spp.parse(path)
             if mc.ms._norm(mc.ms.rename(item)) in _covered[parsed.root]:
                 continue                  # the module carries this one
@@ -577,7 +631,11 @@ def build(tapp):
                 if read_only:
                     ref["readOnly"] = True   # $ref + sibling keyword is valid in JSON Schema 2020-12
                 truncated = spp.ParsedPath(parsed.root, parsed.segments[:-1])
-                insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
+                # A reported property is OPTIONAL in the array: it is present only when the procedure
+                # enumerates "Reported Variables and Units"; otherwise the field lives on its workflow
+                # step. So never force `contains` for a schema:variableMeasured entry.
+                vm = any(s.prop == "schema:variableMeasured" for s in parsed.segments)
+                insert(roots[parsed.root], truncated, element=Leaf(ref), require=(require and not vm))
                 continue
             if _is_analyte_column(parsed):
                 cfg = KEYED_TABLES[parsed.segments[-1].prop]
@@ -588,9 +646,25 @@ def build(tapp):
                 # @id const — the same reason parameter defs are inlined.
                 bare = sidecar.get(item, {}).get("name") or b.camel(item)
                 name = b.def_key(bare)   # TAPP-namespaced: the registry is shared across TAPPs
+                # A dual-homed channel column defines TWO shapes under one name — a procedure default
+                # (PropertyValueSpecification on $MethodDefinition) and an analysis value
+                # (PropertyValue on $Dataset). Keep them as distinct $defs so one does not overwrite
+                # the other in the shared registry (which made an editable procedure column adopt its
+                # dataset counterpart's PropertyValue form).
+                if cfg["registry"] == "channelColumns" and parsed.root == "Dataset":
+                    name = name + "AnalysisValue"
+                # @id namespace per table: analyteColumns -> ada:analyteColumn, channelColumns ->
+                # ada:channelColumn, reportedPropertyColumns -> ada:reportedPropertyColumn.
+                # Channel columns type by tier+root: a read-only procedure column and EVERY dataset
+                # column record a fixed value (schema:PropertyValue); an editable procedure column
+                # registers a default (schema:PropertyValueSpecification). Analyte columns keep the
+                # specification form.
+                as_value = (cfg["registry"] == "channelColumns"
+                            and (parsed.root == "Dataset" or read_only))
                 registries.setdefault(cfg["registry"], {})[name] = analyte_column_def(
                     bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only,
-                    ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip())
+                    ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip(),
+                    prefix="ada:" + cfg["registry"].rstrip("s"), as_value=as_value)
                 ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/{cfg['registry']}/schema.yaml"
                                 f"#/$defs/{name}"}
                 insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require)
@@ -599,6 +673,13 @@ def build(tapp):
                 arr = arr.props.get(parsed.segments[-1].prop) if isinstance(arr, Obj) else None
                 if isinstance(arr, Arr) and cfg["identifier_ref"] not in arr.extra_items:
                     arr.extra_items.append(cfg["identifier_ref"])
+                continue
+            if parsed.segments[-1].prop in DEFAULT_ROW_ARRAYS:
+                # a template's default-ROW array (defaultAnalytes/defaultChannels): the leaf is the
+                # string|DefinedTerm array, not the row's scalar Data Type. Overriding the base's
+                # array constraint with the row's {type:string} otherwise made every list invalid.
+                insert(roots[parsed.root], parsed,
+                       {"type": "array", "items": DEFAULT_ROW_ITEMS}, require=require)
                 continue
             enum = None
             dl = (m.get("dt") or "").lower()

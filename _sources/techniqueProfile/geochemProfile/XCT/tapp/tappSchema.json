@@ -1,20 +1,156 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)",
-    "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.csv by tools/build_tapp.py.",
+    "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.xlsx by tools/build_tapp.py.",
     "allOf": [
         {
             "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
         },
         {
-            "$ref": "../../../../BaseSchema/modules/group1/schema.yaml#/$defs/ProcedureIdentification"
-        },
-        {
-            "$ref": "../../../../BaseSchema/modules/reportingCore/schema.yaml#/$defs/TargetSelection_Procedure"
-        },
-        {
             "type": "object",
             "properties": {
+                "schema:name": {
+                    "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "schema:measurementTechnique": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:termCode": {
+                                "description": "Top-level analytical technique identifier.",
+                                "type": "string",
+                                "enum": [
+                                    "XCT (laboratory, polychromatic cone-beam)",
+                                    "missing"
+                                ],
+                                "readOnly": true
+                            }
+                        }
+                    }
+                },
+                "schema:creator": {
+                    "type": "object",
+                    "properties": {
+                        "schema:name": {
+                            "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
+                            "type": "string",
+                            "readOnly": true
+                        }
+                    }
+                },
+                "schema:location": {
+                    "type": "object",
+                    "properties": {
+                        "schema:name": {
+                            "description": "Name of the laboratory or institution hosting the instrument.",
+                            "type": "string"
+                        },
+                        "schema:identifier": {
+                            "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+                            "type": "string"
+                        }
+                    }
+                },
+                "schema:datePublished": {
+                    "description": "First date this procedure configuration was used in production.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "schema:funding": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:name": {
+                                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+                                "type": "string",
+                                "readOnly": true
+                            }
+                        }
+                    }
+                },
+                "schema:relatedLink": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "schema:linkRelationship": {
+                                            "const": "techniquePublication"
+                                        }
+                                    },
+                                    "required": [
+                                        "schema:linkRelationship"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:target": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:name": {
+                                                    "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+                                                    "type": "string",
+                                                    "readOnly": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "schema:linkRelationship": {
+                                            "const": "coupledTechnique"
+                                        }
+                                    },
+                                    "required": [
+                                        "schema:linkRelationship"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:target": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:name": {
+                                                    "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "NCT",
+                                                                "EPMA",
+                                                                "LA-ICP-MS",
+                                                                "SIMS",
+                                                                "None",
+                                                                "N/A",
+                                                                "missing"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:description": {
+                                                    "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
                 "schema:object": {
                     "type": "array",
                     "items": {
@@ -57,19 +193,26 @@
                                                                     "type": "array",
                                                                     "items": {
                                                                         "description": "General description of the material type(s) this procedure is designed to scan. Used for discoverability and procedure matching.",
-                                                                        "type": "string",
-                                                                        "enum": [
-                                                                            "Chondrite meteorite",
-                                                                            "Achondrite meteorite",
-                                                                            "Lunar sample",
-                                                                            "Mission-returned sample",
-                                                                            "Drill core (rock)",
-                                                                            "Sediment core",
-                                                                            "Terrestrial rock",
-                                                                            "Cosmic spherule",
-                                                                            "N/A",
-                                                                            "None",
-                                                                            "missing"
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "type": "string",
+                                                                                "enum": [
+                                                                                    "Chondrite meteorite",
+                                                                                    "Achondrite meteorite",
+                                                                                    "Lunar sample",
+                                                                                    "Mission-returned sample",
+                                                                                    "Drill core (rock)",
+                                                                                    "Sediment core",
+                                                                                    "Terrestrial rock",
+                                                                                    "Cosmic spherule",
+                                                                                    "N/A",
+                                                                                    "None",
+                                                                                    "missing"
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "type": "string"
+                                                                            }
                                                                         ],
                                                                         "readOnly": true
                                                                     }
@@ -2171,27 +2314,41 @@
                 },
                 "ada:xRaySourceConfiguration": {
                     "description": "Focal spot geometry and scale of the X-ray tube. Reflection target configurations are most common in lab XCT (X-rays emitted from the face of the anode toward the sample); transmission target configurations allow smaller focal spots by thinning the anode into a membrane and collecting X-rays from the back, enabling higher spatial resolution at the cost of lower maximum power.",
-                    "type": "string",
-                    "enum": [
-                        "Reflection target, microfocal",
-                        "Reflection target, rotating (high-power)",
-                        "Transmission target, nanofocal",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Reflection target, microfocal",
+                                "Reflection target, rotating (high-power)",
+                                "Transmission target, nanofocal",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ],
                     "readOnly": true
                 },
                 "ada:detectorType": {
                     "description": "Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre voxel sizes.",
-                    "type": "string",
-                    "enum": [
-                        "Flat-panel (amorphous silicon, a-Si)",
-                        "CCD + scintillator (with optical objective)",
-                        "CMOS + scintillator",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Flat-panel (amorphous silicon, a-Si)",
+                                "CCD + scintillator (with optical objective)",
+                                "CMOS + scintillator",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ],
                     "readOnly": true
                 },
@@ -2811,19 +2968,26 @@
                 },
                 "ada:samplingUnit": {
                     "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
-                    "type": "string",
-                    "enum": [
-                        "Whole sample",
-                        "Aliquot",
-                        "Grain",
-                        "Spot",
-                        "Analysis point",
-                        "Phase",
-                        "Sub-volume",
-                        "Region of interest",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Whole sample",
+                                "Aliquot",
+                                "Grain",
+                                "Spot",
+                                "Analysis point",
+                                "Phase",
+                                "Sub-volume",
+                                "Region of interest",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ]
                 },
                 "ada:minimumSubVolumeOverlap": {
@@ -2838,56 +3002,88 @@
                     ],
                     "readOnly": true
                 },
+                "ada:targetSelectionCriteriaDefault": {
+                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+                    "type": "string"
+                },
                 "ada:reconstructionAlgorithm": {
                     "description": "Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images. The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative methods offer better artifact suppression at the cost of computation time.",
-                    "type": "string",
-                    "enum": [
-                        "FDK (Feldkamp-Davis-Kress, cone-beam)",
-                        "FBP (filtered back-projection, parallel-beam)",
-                        "Iterative reconstruction",
-                        "SART",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "FDK (Feldkamp-Davis-Kress, cone-beam)",
+                                "FBP (filtered back-projection, parallel-beam)",
+                                "Iterative reconstruction",
+                                "SART",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ],
                     "readOnly": true
                 },
                 "ada:beamHardeningCorrectionMethod": {
                     "description": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filtering (Group 4: X-ray Pre-filter) and software correction are complementary approaches. The method is a procedure-level design choice; the specific correction parameter value is session-specific and recorded separately at analysis level.",
-                    "type": "string",
-                    "enum": [
-                        "Software polynomial correction (instrument-specific algorithm)",
-                        "Ketcham & Hanna (2014) iterative BH correction",
-                        "None applied",
-                        "N/A",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Software polynomial correction (instrument-specific algorithm)",
+                                "Ketcham & Hanna (2014) iterative BH correction",
+                                "None applied",
+                                "N/A",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ],
                     "readOnly": true
                 },
                 "ada:outputDataFormatDefault": {
                     "description": "File format of the reconstructed CT volume as output by the reconstruction software. Bit depth is recorded separately in Output Bit Depth.",
-                    "type": "string",
-                    "enum": [
-                        "TIFF image stack",
-                        "VGI/VOL (VGStudio)",
-                        "RAW volume",
-                        "DICOM",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "TIFF image stack",
+                                "VGI/VOL (VGStudio)",
+                                "RAW volume",
+                                "DICOM",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ]
                 },
                 "ada:segmentationMethodDefault": {
                     "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
-                    "type": "string",
-                    "enum": [
-                        "Global threshold (single CT number boundary)",
-                        "Multi-threshold (separate CT number range per phase)",
-                        "Manual threshold per phase",
-                        "Semi-automated: threshold + morphological filtering",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Global threshold (single CT number boundary)",
+                                "Multi-threshold (separate CT number range per phase)",
+                                "Manual threshold per phase",
+                                "Semi-automated: threshold + morphological filtering",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ]
                 },
                 "ada:reportedPropertyTemplate": {
@@ -2909,6 +3105,8 @@
                 }
             },
             "required": [
+                "schema:name",
+                "schema:datePublished",
                 "ada:targetFeature",
                 "ada:applicableSampleDimensionRange",
                 "ada:ctSystemManufacturerAndModel",
@@ -2920,6 +3118,7 @@
                 "ada:rotationModeDefault",
                 "ada:samplingUnit",
                 "ada:minimumSubVolumeOverlap",
+                "ada:targetSelectionCriteriaDefault",
                 "ada:reconstructionAlgorithm",
                 "ada:beamHardeningCorrectionMethod",
                 "ada:outputDataFormatDefault",

@@ -4,6 +4,307 @@
     "description": "Registry of reusable schema:PropertyValueSpecification channel column definitions derived from technique TAPP workbooks. Each $def constrains one column of the channel table, a channel being an instrument selection position -- a mass, a Faraday cup, an energy-loss edge, an X-ray line -- as distinct from the analyte measured on it. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
+        "laMcicpms_faradayCupAmplifierResistorValues": {
+            "title": "Faraday Cup Amplifier Resistor Values",
+            "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. High-gain amplifiers (10¹² or 10¹³ Ω) are fitted to selected cups to improve signal-to-noise for very low-intensity beams (e.g., 234U, low-abundance spike isotopes). Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "faradayCupAmplifierResistorValues"
+                },
+                "schema:name": {
+                    "const": "Faraday Cup Amplifier Resistor Values"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "laMcicpms_faradayCupGainCalibrationMethod": {
+            "title": "Faraday Cup Gain Calibration Method",
+            "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Relative gain differences between amplifiers cause systematic errors in isotope ratios if uncorrected. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "faradayCupGainCalibrationMethod"
+                },
+                "schema:name": {
+                    "const": "Faraday Cup Gain Calibration Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "laMcicpms_integrationTimePerCycle": {
+            "title": "Integration Time per Cycle",
+            "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "integrationTimePerCycle"
+                },
+                "schema:name": {
+                    "const": "Integration Time per Cycle"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "laMcicpms_interferenceCorrectionMethod": {
+            "title": "Interference Correction Method",
+            "description": "Equation or procedure used to correct for isobaric interferences, including the production rate factor and the reference material used to measure it.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "interferenceCorrectionMethod"
+                },
+                "schema:name": {
+                    "const": "Interference Correction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "laMcicpms_interferingSpecies": {
+            "title": "Interfering Species",
+            "description": "Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with the measured isotope.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/interferingSpecies"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "interferingSpecies"
+                },
+                "schema:name": {
+                    "const": "Interfering Species"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "laMcicpms_ionCounterDeadTime": {
+            "title": "Ion Counter Dead Time",
+            "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "ionCounterDeadTime"
+                },
+                "schema:name": {
+                    "const": "Ion Counter Dead Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "laMcicpms_massResolutionAssignment": {
+            "title": "Mass Resolution Assignment",
+            "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "massResolutionAssignment"
+                },
+                "schema:name": {
+                    "const": "Mass Resolution Assignment"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
         "solutionMcicpms_interferenceCorrectionMethod": {
             "title": "Interference Correction Method",
             "description": "Mathematical approach used to calculate and remove residual interference contributions. For direct isobars, interference monitor masses (e.g., 202Hg to correct 204Hg on 204Pb) are measured simultaneously and used with natural abundance ratios to calculate the interference contribution. For abundance sensitivity, the tailing factor is measured using a pure standard.",

@@ -1977,6 +1977,69 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpms_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Documents cases where different analytes or analyte groups within the same session are
+      calibrated using different strategies — for example, one element used as the internal standard while
+      trace elements are calibrated by an external reference material, or different primary standards
+      applied to different mass ranges or mineral phases. If a single calibration strategy applies uniformly
+      to all analytes, state that here and refer to Internal Standard Approach and Normalization / Standards-Based
+      Correction for details. Free text; list the strategy for each analyte or analyte group as needed.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_sensitivityAsUsefulYield:
+    title: Sensitivity as Useful Yield
+    description: 'Instrument sensitivity expressed as useful yield: the percentage of sampled atoms of
+      a given element ultimately detected as ions, with the method used to derive it cited. A more rigorous
+      and more comparable statement of sensitivity than counts per second per unit concentration, which
+      depends on spot size, fluence and repetition rate.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/sensitivityAsUsefulYield
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sensitivityAsUsefulYield
+      schema:name:
+        const: Sensitivity as Useful Yield
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   laMcicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: 'Reproducibility of repeated measurements within a single analytical session. Report

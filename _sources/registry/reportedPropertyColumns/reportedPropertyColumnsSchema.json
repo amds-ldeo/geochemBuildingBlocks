@@ -83,6 +83,47 @@
                 "schema:name",
                 "ada:dataType"
             ]
+        },
+        "laMcicpms_detectionLimitMethod": {
+            "title": "Detection Limit Method",
+            "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:analyteColumn/laMcicpmsTAPP/detectionLimitMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "detectionLimitMethod"
+                },
+                "schema:name": {
+                    "const": "Detection Limit Method"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
         }
     }
 }

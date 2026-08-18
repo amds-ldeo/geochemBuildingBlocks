@@ -19,6 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import build_tapp as bt  # noqa: E402
 import schemapath_io  # noqa: E402
+import schema_path_example_emitter as ex  # noqa: E402  (shared nested path interpreter)
 
 # schema.org-typed marker the instrument BB requires every instrument to carry
 WIKIDATA_INSTRUMENT = "https://www.wikidata.org/wiki/Q3099911"
@@ -92,7 +93,15 @@ def place_identity(inst, item, sp, v, allowed_techniques=()):
         inst["schema:measurementTechnique"] = [{"@type": ["schema:DefinedTerm"],
                                                 "schema:termCode": technique_code(v, allowed_techniques),
                                                 "schema:name": v}]
-    elif sp.endswith(".schema:name") and ".schema:creator" not in sp and ".schema:location" not in sp:
+    elif "prov:wasDerivedFrom" in sp:
+        # Procedure Reference(s): the publication(s) the procedure was derived from, kept as a plain
+        # string citation. Previously this row's sidecar path ended in a nested ...schema:target.schema:name,
+        # which the greedy schema:name branch below grabbed for the TAPP's own name.
+        inst["prov:wasDerivedFrom"] = v
+    elif sp.strip() == "$MethodDefinition.schema:name":
+        # The TAPP's own name (Procedure Name) is the ONLY row mapped to the top-level schema:name.
+        # Match the exact top-level path: any nested ...schema:name (reference target, instrument
+        # model, location) has its own branch and must not hijack the procedure name.
         inst["schema:name"] = v
     elif "schema:creator" in sp:
         inst["schema:creator"] = {"@type": ["schema:Person"], "schema:name": v}
@@ -211,14 +220,285 @@ def ensure_required_steps(inst, sp_by_item):
     proc = inst.setdefault("schema:actionProcess", {"@type": ["schema:HowTo"], "schema:step": []})
     steps = proc.setdefault("schema:step", [])
     for name in uniq:
-        if not any(s.get("schema:name") == name for s in steps):
+        st = next((s for s in steps if s.get("schema:name") == name), None)
+        if st is None:
             # the overlay pins each step's kind on additionalType (Sample preparation is a
             # bios:LabProcess); a step declared without it cannot satisfy the contains
             steps.append({"@type": ["cdi:Activity", "schema:Action"], "schema:name": name,
                           "schema:additionalType": ["bios:LabProcess"], "schema:position": 0})
+        else:
+            # a step the path interpreter already built (from a step-scoped parameter) carries its
+            # name and parameters but not the structural @type/additionalType the contains demands
+            st.setdefault("@type", ["cdi:Activity", "schema:Action"])
+            at = st.setdefault("schema:additionalType", [])
+            if "bios:LabProcess" not in at:
+                at.append("bios:LabProcess")
     steps.sort(key=lambda s: (uniq.index(s["schema:name"]) if s.get("schema:name") in uniq else 99))
     for i, s in enumerate(steps, 1):
         s["schema:position"] = i
+
+
+_HASPART_SEL = re.compile(r"schema:instrument\[\s*schema:additionalType\s*=\s*'([^']+)'\s*\]"
+                          r"\.schema:hasPart\[\s*schema:additionalType\s*=\s*'([^']+)'")
+
+
+_TEMPLATE_COLS = {"ada:analyteTemplate": "ada:analyteColumns",
+                  "ada:channelTemplate": "ada:channelColumns",
+                  "ada:reportedPropertyTemplate": "ada:reportedPropertyColumns"}
+
+
+def populate_template_columns(inst, tapp_res):
+    """A keyed-table template requires its columns array, and the columns are the schema-side column
+    DEFINITIONS (an identifier column plus the technique's own columns). The path interpreter leaves
+    them out (they carry no per-publication value), so instantiate each column def from the resolved
+    schema (const -> its value) and fill the template's required columns array."""
+    if not isinstance(tapp_res, dict):
+        return
+    defs = tapp_res.get("$defs", {})
+
+    def resolve(node):
+        seen = 0
+        while isinstance(node, dict) and isinstance(node.get("$ref"), str) and "#/$defs/" in node["$ref"] and seen < 8:
+            node = defs.get(node["$ref"].split("#/$defs/")[1], {}); seen += 1
+        return node
+
+    # The columns constraint is split across the resolved schema: the base carries the required
+    # identifier column as `contains` (inlined, not a named $def), the overlay carries the technique
+    # columns as items.anyOf. Accumulate BOTH across every occurrence of the columns property.
+    found = {}   # columns-key -> {"contains": schema|None, "branches": [schema, ...]}
+
+    def walk(n):
+        if isinstance(n, dict):
+            for ckey in set(_TEMPLATE_COLS.values()):
+                sub = (n.get("properties") or {}).get(ckey)
+                if isinstance(sub, dict):
+                    f = found.setdefault(ckey, {"contains": None, "branches": []})
+                    if f["contains"] is None and isinstance(sub.get("contains"), dict):
+                        f["contains"] = sub["contains"]
+                    items = sub.get("items") or {}
+                    f["branches"].extend(items.get("anyOf") or ([items] if items else []))
+            for v in n.values():
+                walk(v)
+        elif isinstance(n, list):
+            for v in n:
+                walk(v)
+    walk(tapp_res)
+    for tkey, ckey in _TEMPLATE_COLS.items():
+        tpl = inst.get(tkey)
+        f = found.get(ckey)
+        if not (isinstance(tpl, dict) and ckey not in tpl and f):
+            continue
+        built, seen = [], set()
+        for br in ([f["contains"]] if f["contains"] else []) + f["branches"]:
+            rb = resolve(br)
+            if not (isinstance(rb, dict) and (rb.get("properties") or rb.get("allOf"))):
+                continue
+            obj = ex.instance_from_def(rb)
+            if not isinstance(obj, dict):
+                continue                 # a non-object branch (bare string item) — not a column def
+            vn = obj.get("schema:valueName")
+            if vn in seen:
+                continue
+            seen.add(vn)
+            built.append(obj)
+        if built:
+            tpl[ckey] = built
+
+
+def _channel_value(col, raw):
+    """Set the value of one channel column from its publication cell, with two special cases the
+    channels need: a numeric column reported as "<number> <unit> <prose>" (Integration Time) splits
+    into schema:value/unitText/description; a delimited free-text column (Interfering Species) splits
+    on ';' into a list. The value key is schema:value (PropertyValue) or schema:defaultValue (Spec)."""
+    vk = "schema:value" if "schema:value" in col else ("schema:defaultValue" if "schema:defaultValue" in col else None)
+    if vk is None:
+        return
+    if not raw:
+        # no publication value for this channel -> the transcription sentinel, not a fake placeholder
+        col[vk] = -9999 if col.get("ada:dataType") in ("number", "integer") else "missing"
+        return
+    if col.get("schema:name") == "Interfering Species":
+        # the one column whose value is a discrete delimited list (isotope interference pairs);
+        # the schema admits a literal-or-list here (the deliberate channel-value exception).
+        parts = [p.strip() for p in raw.split(";") if p.strip()]
+        col[vk] = parts if len(parts) > 1 else raw
+        return
+    num, desc = ex.numify(raw, col.get("ada:dataType"))
+    col[vk] = num
+    if desc:                               # a number reported with prose -> keep the full text
+        col["schema:description"] = desc
+
+
+def populate_collector_config(inst, tapp_res, values=None):
+    """Populate ada:collectorConfiguration.ada:channelColumns on the ICP-MS Collector component.
+
+    Unlike the analyte table (a top-level template), an MC-ICP-MS defines its channels as columns of
+    a collectorConfiguration that hangs off instrument[ICPMS].hasPart[Collector]; each channel row is
+    a PropertyValue/PropertyValueSpecification column def whose identity is the row label. The schema
+    pins those columns via channelColumns.allOf[].contains, so instantiate each, fill its value from
+    the matching publication cell, and attach them to the Collector.
+    """
+    values = values or {}
+    if not isinstance(tapp_res, dict):
+        return
+    defs = tapp_res.get("$defs", {})
+
+    def resolve(node):
+        seen = 0
+        while isinstance(node, dict) and isinstance(node.get("$ref"), str) and "#/$defs/" in node["$ref"] and seen < 8:
+            node = defs.get(node["$ref"].split("#/$defs/")[1], {}); seen += 1
+        return node
+
+    sch = None
+    def find(n):
+        nonlocal sch
+        if isinstance(n, dict):
+            cc = (n.get("properties") or {}).get("ada:collectorConfiguration")
+            if isinstance(cc, dict) and sch is None and cc.get("type") == "array":
+                sch = cc            # collectorConfiguration IS the channel-column array schema
+            for v in n.values():
+                find(v)
+        elif isinstance(n, list):
+            for v in n:
+                find(v)
+    find(tapp_res)
+    if not sch:
+        return
+    branches = [a["contains"] for a in (sch.get("allOf") or [])
+                if isinstance(a, dict) and isinstance(a.get("contains"), dict)]
+    branches += (sch.get("items") or {}).get("anyOf") or []
+    built, seen = [], set()
+    for br in branches:
+        rb = resolve(br)
+        if not (isinstance(rb, dict) and (rb.get("properties") or rb.get("allOf"))):
+            continue
+        obj = ex.instance_from_def(rb)
+        if not isinstance(obj, dict):
+            continue
+        key = obj.get("schema:valueName") or obj.get("schema:name")
+        if key in seen:
+            continue
+        seen.add(key)
+        _channel_value(obj, values.get(obj.get("schema:name")))
+        built.append(obj)
+    if not built:
+        return
+    for insn in inst.get("schema:instrument", []) or []:
+        for part in (insn.get("schema:hasPart", []) or []):
+            if isinstance(part, dict) and "Collector" in (part.get("schema:additionalType") or []):
+                part["ada:collectorConfiguration"] = built   # the array of channel columns, directly
+
+
+def populate_reported_properties(inst, tapp_res, values):
+    """Build schema:variableMeasured ONLY when the procedure enumerates 'Reported Variables and
+    Units'. Each reported property becomes the PropertyValueSpecification / PropertyValue the overlay
+    defines, its value taken from the matching publication cell. When the field is empty (Zhang), the
+    property is left off schema:variableMeasured and its value stays on its workflow step (the
+    interpreter used the non-'reported property' path instead)."""
+    if not values.get("Reported Variables and Units") or not isinstance(tapp_res, dict):
+        return
+    defs = tapp_res.get("$defs", {})
+
+    def resolve(node):
+        seen = 0
+        while isinstance(node, dict) and isinstance(node.get("$ref"), str) and "#/$defs/" in node["$ref"] and seen < 8:
+            node = defs.get(node["$ref"].split("#/$defs/")[1], {}); seen += 1
+        return node
+
+    sch = None
+    def find(n):
+        nonlocal sch
+        if isinstance(n, dict):
+            vm = (n.get("properties") or {}).get("schema:variableMeasured")
+            # the technique OVERLAY copy carries generated column defs (items.anyOf / allOf-contains);
+            # the permissive base copy does not — pick the overlay.
+            if isinstance(vm, dict) and sch is None and (
+                    (vm.get("items") or {}).get("anyOf") or vm.get("allOf")):
+                sch = vm
+            for v in n.values():
+                find(v)
+        elif isinstance(n, list):
+            for v in n:
+                find(v)
+    find(tapp_res)
+    if not sch:
+        return
+    branches = [a["contains"] for a in (sch.get("allOf") or [])
+                if isinstance(a, dict) and isinstance(a.get("contains"), dict)]
+    branches += (sch.get("items") or {}).get("anyOf") or []
+    built, seen = [], set()
+    for br in branches:
+        rb = resolve(br)
+        if not (isinstance(rb, dict) and (rb.get("properties") or rb.get("allOf"))):
+            continue
+        obj = ex.instance_from_def(rb)
+        if not isinstance(obj, dict):
+            continue
+        key = obj.get("schema:name")
+        if key in seen:
+            continue
+        seen.add(key)
+        raw = values.get(key)
+        vk = "schema:value" if "schema:value" in obj else ("schema:defaultValue" if "schema:defaultValue" in obj else None)
+        if vk and raw:
+            num, desc = ex.numify(raw, obj.get("ada:dataType"))
+            obj[vk] = num
+            if desc:
+                obj["schema:description"] = desc
+        built.append(obj)
+    if built:
+        inst["schema:variableMeasured"] = built
+
+
+def type_instrument_tree(inst):
+    """Add the structural @type each instrument node needs but a schema path never names.
+
+    The instrument BB requires @type [schema:Product, schema:Thing] on every instrument AND every
+    inline sub-component, @type [schema:ProductModel] on schema:model, and the scientific-instrument
+    Wikidata term + a schema:name on each sub-component. The path interpreter builds these nodes by
+    nesting (from the [additionalType=…] selectors) but carries only the metadata leaves, so the
+    discriminators are supplied here rather than left to the validator-driven fills (which cannot
+    resolve them through the instrument $def's deep anyOf)."""
+    def walk(node, is_component):
+        if not isinstance(node, dict):
+            return
+        node.setdefault("@type", ["schema:Product", "schema:Thing"])
+        if is_component:
+            at = node.setdefault("schema:additionalType", [])
+            if not any(isinstance(x, dict) and x.get("@id") == WIKIDATA_INSTRUMENT for x in at):
+                at.append({"@id": WIKIDATA_INSTRUMENT})
+            node.setdefault("schema:name", "missing")
+        m = node.get("schema:model")
+        if isinstance(m, dict):
+            m.setdefault("@type", ["schema:ProductModel"])
+        for p in node.get("schema:hasPart", []) or []:
+            walk(p, True)
+    for ins in inst.get("schema:instrument", []) or []:
+        walk(ins, False)
+
+
+def ensure_required_hasparts(inst, sp_by_item):
+    """Declare every instrument sub-component the overlay selects on, even when unreported.
+
+    An instrument's hasPart is `contains`-constrained the same way the top-level instrument array is
+    — a Basic parameter scoped to (say) the ICP-MS Collector requires the ICP-MS to CONTAIN a
+    Collector component. When the publication reports no value for that component it is never built,
+    so the contains fails; declare it with the sentinel name, mirroring ensure_required_instruments.
+    """
+    pairs = {(m.group(1), m.group(2)) for sp in sp_by_item.values()
+             for m in _HASPART_SEL.finditer(sp or "")}
+    if not pairs:
+        return
+    for host, comp in sorted(pairs):
+        ins = next((i for i in inst.get("schema:instrument", [])
+                    if host in (i.get("schema:additionalType") or [])), None)
+        if ins is None:
+            continue
+        parts = ins.setdefault("schema:hasPart", [])
+        if not any(comp in (p.get("schema:additionalType") or []) for p in parts):
+            parts.append({"@type": ["schema:Product", "schema:Thing"],
+                          "schema:additionalType": [comp, {"@id": WIKIDATA_INSTRUMENT}],
+                          "schema:name": "missing"})
 
 
 def ensure_required_instruments(inst, sp_by_item):
@@ -357,6 +637,123 @@ def fill_required_sentinels(inst, tapp_dir):
         got = sentinel_for(sub)
         if got is not None:
             inst[key] = got
+
+
+def _enum_of(sub):
+    """The enum list a (possibly array/anyOf-wrapped) subschema constrains a value to, or None."""
+    if not isinstance(sub, dict):
+        return None
+    if isinstance(sub.get("enum"), list):
+        return sub["enum"]
+    it = sub.get("items")
+    if isinstance(it, dict):
+        e = _enum_of(it)
+        if e:
+            return e
+    for br in (sub.get("anyOf") or sub.get("oneOf") or []):
+        e = _enum_of(br)
+        if e:
+            return e
+    return None
+
+
+def _snap_enum(v, enum):
+    """Snap a free-text value onto a strict enum. Returns (snapped_or_None, dropped_text_or_None).
+
+    A publication states a controlled value with extra detail — "Transect (continuous line scan at
+    2-6 µm s⁻¹)" for the option "Transect (continuous line scan)". Match an option as a substring of
+    the value (value = option + detail, keep the detail to fold into the description), else the value
+    inside an option, else the option's leading label (text before the first "("). No match -> None,
+    leaving the value for the required-field sentinel.
+    """
+    strs = [o for o in enum if isinstance(o, str)]
+    if v in strs:
+        return v, None
+    low = v.strip().lower()
+    for o in sorted(strs, key=len, reverse=True):
+        if o.lower() in low:
+            return o, v
+    for o in strs:
+        if low in o.lower():
+            return o, None
+    for o in sorted(strs, key=len, reverse=True):
+        head = o.split("(")[0].strip().lower()
+        if head and low.startswith(head):
+            return o, v
+    return None, None
+
+
+def _is_bool(sub):
+    """True if the subschema constrains a value to a boolean (directly or via array/anyOf)."""
+    if not isinstance(sub, dict):
+        return False
+    if sub.get("type") == "boolean":
+        return True
+    it = sub.get("items")
+    if isinstance(it, dict) and _is_bool(it):
+        return True
+    return any(_is_bool(br) for br in (sub.get("anyOf") or sub.get("oneOf") or []))
+
+
+def _bool_from_text(v):
+    """Extract a boolean from a prose cell — the first standalone yes/no gives the value, the rest is
+    returned to fold into the description. (None, None) when neither word is present.
+    e.g. "Yes — correction for doubly charged ions: …" -> (True, "correction for doubly charged …")."""
+    m = re.search(r"\b(yes|no)\b", v, re.I)
+    if not m:
+        return None, None
+    return m.group(1).lower() == "yes", ((v[:m.start()] + v[m.end():]).strip(" —-:;,.\t") or None)
+
+
+def conform_enums(inst, tapp_dir, technique_enum):
+    """Snap free-text publication values onto the strict schema constraints the path interpreter
+    cannot honour on its own — the technique code (kept as schema:name), controlled enum fields, and
+    boolean fields carrying prose. The dropped detail is folded into schema:description. Mirrors the
+    old tier-code normalisation."""
+    for mt in inst.get("schema:measurementTechnique", []) or []:
+        tc = mt.get("schema:termCode")
+        if isinstance(tc, str) and technique_enum and tc not in technique_enum:
+            code = technique_code(tc, technique_enum)
+            if code != tc:
+                mt.setdefault("schema:name", tc)
+                mt["schema:termCode"] = code
+    notes, props = [], _required_scalar_props(tapp_dir)[1]
+    for key, val in list(inst.items()):
+        if not key.startswith(("ada:", "schema:")) or key == "schema:measurementTechnique":
+            continue
+        sub = props.get(key, {})
+        if _is_bool(sub):
+            # a Boolean field the publication reported as prose ("Yes — corrections applied for …"):
+            # take the yes/no as the value, fold the rest into the description.
+            seq = val if isinstance(val, list) else [val]
+            out = []
+            for v in seq:
+                b, rest = _bool_from_text(v) if isinstance(v, str) else (None, None)
+                if b is None:
+                    out.append(v)
+                else:
+                    out.append(b)
+                    if rest:
+                        notes.append(f"{key} = {rest}")
+            inst[key] = out if isinstance(val, list) else out[0]
+            continue
+        enum = _enum_of(sub)
+        if not enum:
+            continue
+        seq = val if isinstance(val, list) else [val]
+        out = []
+        for v in seq:
+            if not isinstance(v, str) or v in enum:
+                out.append(v)
+                continue
+            snapped, dropped = _snap_enum(v, enum)
+            out.append(snapped if snapped is not None else v)
+            if dropped:
+                notes.append(f"{key} = {dropped}")
+        inst[key] = out if isinstance(val, list) else out[0]
+    if notes:
+        inst["schema:description"] = (inst.get("schema:description", "").rstrip()
+                                      + " Reported detail: " + "; ".join(notes) + ".").strip()
 
 
 def coerce(v, jtype):
@@ -529,6 +926,8 @@ def main():
     detail_name = os.path.basename(DETAIL_DIR)
     component_types = bt.CFG.get("component_types") or []
     os.makedirs(DETAIL_DIR, exist_ok=True)
+    _res_path = os.path.join(TAPP_DIR, "resolvedSchema.json")
+    tapp_res = json.load(open(_res_path, encoding="utf-8")) if os.path.exists(_res_path) else None
     written, detail_written = [], []
     for idx, pc in enumerate(pub_cols):
         hdr_txt = norm(hdr[pc])
@@ -537,99 +936,41 @@ def main():
         base = code; k = 1
         while code in [w[0] for w in written]:
             k += 1; code = f"{base}-{k}"
+        # PATH-DRIVEN placement: every reported cell is placed at its canonical sidecar path by the
+        # shared nested interpreter, so instrument models, hasPart component params, workflow-step
+        # params, target material, funding, references and the procedure name all land at their real
+        # nested homes — no tier-based ada:<name> flattening, and schema + example stay identical.
+        values = {it: cell(pubval[it].get(pc)) for it in pubval if cell(pubval[it].get(pc))}
+        # a publication that lists Reported Variables populates schema:variableMeasured from the
+        # 'reported property' rows; otherwise those rows defer to their non-reported counterparts.
+        emit_rp = bool(cell(pubval.get("Reported Variables and Units", {}).get(pc)))
+        md = ex.build_example(tapp, values=values, emit_reported_property=emit_rp)["MethodDefinition"]
+        md.pop("@type", None)                          # the envelope owns the TAPP @type
+        name = md.pop("schema:name", "") or f"{short} protocol — {code}"
         inst = {"@context": CTX, "@id": f"ex:{tapp}-{code}",
                 "@type": ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
-                "schema:name": "", "schema:description":
-                    f"{tapp} instance derived from {hdr_txt} (publication column of {os.path.basename(bt.XLSX)})."}
-        # identity
-        for it in sorted(inherited_items):   # sorted: inherited_items is a set; keep output deterministic
-            v = cell(pubval[it].get(pc))
-            if v:
-                place_identity(inst, it, sp_by_item[it], v, allowed_techniques=technique_enum)
-        for it, sel in sorted(tool_desc_items.items()):
-            d = cell(pubval[it].get(pc))
-            if d:
-                place_tool_description(inst, it, sel, d)
-        if not inst.get("schema:name"):
-            inst["schema:name"] = f"{short} protocol — {code}"
+                "schema:name": name,
+                "schema:description":
+                    f"{tapp} instance derived from {hdr_txt} (publication column of {os.path.basename(bt.XLSX)}).",
+                **md}
         if "schema:measurementTechnique" not in inst:
             inst["schema:measurementTechnique"] = [{"@type": ["schema:DefinedTerm"],
                                                     "schema:name": short, "schema:termCode": short}]
-        # Basic props
-        mode_names = R.get("mode_names") or []
-        for b in R["tapp_prop"]:
-            key = "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else "")
-            v = cell(pubval[b["item"]].get(pc))
-            if b["name"] == "analyticalMode":
-                key = "ada:analyticalMode"  # never …Default
-                if v:
-                    matched = [m for m in mode_names if m.lower() in v.lower()]
-                    inst[key] = matched if matched else ([] if b["cov"] > 0 else None)
-                elif b["cov"] > 0:
-                    inst[key] = []
-                else:
-                    inst[key] = None
-                if inst.get(key) is None:
-                    inst.pop(key, None)
-                continue
-            if v:
-                inst[key] = conform(v, prop_schema(TAPP_DIR, key))
-            elif b["cov"] > 0 or b["P"] == "Basic":
-                # A Basic procedure-tier field is required by the generated schema whether or not any
-                # publication happens to report it, so `cov > 0` alone left every zero-coverage Basic
-                # field absent and the example invalid against its own TAPP — 9 of the 11 missing
-                # required properties per LA example. The sentinel says "the source does not state
-                # this", which is what a transcription can honestly assert; omission cannot, since an
-                # absent key is indistinguishable from not-applicable. Matches build_detail above.
-                # The schema's own shape wins over the workbook Data Type — see sentinel_for.
-                got = sentinel_for(prop_schema(TAPP_DIR, key))
-                inst[key] = got if got is not None else (
-                    -9999 if b["jtype"] in ("number", "integer") else "missing")
-        # Advanced params
-        saps = []
-        for b in R["method_param"]:
-            if md_items and b["item"] not in md_items:
-                continue  # analysis-level-only field ($Dataset path, no $MethodDefinition home)
-            v = cell(pubval[b["item"]].get(pc))
-            if not v:
-                continue
-            md = b["name"] + "Default"
-            e = {"@id": f"{PARAM_BASE}/{md}", "@type": ["schema:PropertyValueSpecification"],
-                 "schema:valueName": md, "schema:name": b["item"], "ada:dataType": b["jtype"],
-                 "ada:fieldScope": "session", "schema:readonlyValue": False, "ada:tier": "R",
-                 "schema:defaultValue": v}
-            if b.get("unit") and b["unit"] != "free":
-                e["schema:unitText"] = b["unit"]
-            if not place_parameter(inst, e, sp_by_item.get(b["item"], "")):
-                saps.append(e)
-        for b in R["method_value"]:
-            if md_items and b["item"] not in md_items:
-                continue  # analysis-level-only field ($Dataset path, no $MethodDefinition home)
-            v = cell(pubval[b["item"]].get(pc))
-            if not v:
-                continue
-            e = {"@id": f"{PARAM_BASE}/{b['name']}", "@type": ["schema:PropertyValue"],
-                 "schema:propertyID": [{"@id": f"{PARAM_BASE}/{b['name']}"}], "schema:name": b["item"],
-                 "schema:value": v}
-            if b.get("unit") and b["unit"] != "free":
-                e["schema:unitText"] = b["unit"]
-            if not place_parameter(inst, e, sp_by_item.get(b["item"], "")):
-                saps.append(e)
-        if saps:
-            inst["schema:additionalProperty"] = saps
-        # analyteTemplate
-        if acols and analyte_row:
-            av = norm(pubval[analyte_row].get(pc))
-            analytes = parse_analytes(av) if av else []
-            if analytes:
-                idcol = {"@type": ["schema:PropertyValueSpecification"],
-                         "schema:name": "Analyzed constituent", "schema:valueName": "analyte",
-                         "ada:dataType": "string", "schema:readonlyValue": True,
-                         "schema:valueRequired": True, "ada:tier": "M"}
-                inst["ada:analyteTemplate"] = {"ada:analyteColumns": [idcol],
-                                               "ada:defaultAnalytes": [{"analyte": a} for a in analytes]}
+        conform_enums(inst, TAPP_DIR, technique_enum)
         ensure_required_steps(inst, sp_by_item)
         ensure_required_instruments(inst, sp_by_item)
+        ensure_required_hasparts(inst, sp_by_item)
+        type_instrument_tree(inst)
+        if tapp_res is not None:
+            populate_template_columns(inst, tapp_res)
+            populate_collector_config(inst, tapp_res, values)
+            populate_reported_properties(inst, tapp_res, values)
+        # complete what a schema path cannot carry — @type discriminators on nested nodes, the
+        # instrument's Wikidata term / placeholder name, array cardinality — read off the resolved
+        # schema; then sentinel every still-absent required field.
+        if tapp_res is not None:
+            ex.fill_required_types(inst, tapp_res)
+            ex.fill_structural_gaps(inst, tapp_res)
         fill_required_sentinels(inst, TAPP_DIR)
         fp = os.path.join(TAPP_DIR, f"example{tapp}-{code}.json")
         with open(fp, "w", encoding="utf-8", newline="\n") as f:

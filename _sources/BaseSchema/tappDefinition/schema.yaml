@@ -120,14 +120,44 @@ properties:
     
   'schema:object':
     description: >-
-      Target material(s) this method is designed to analyse (e.g. silicate glass, olivine, spinel). Modeled
-      as DefinedTerm(s) or free text.
+      Target material(s) this method is designed to analyse (e.g. silicate glass, olivine, spinel),
+      modeled as DefinedTerm(s) or free text; and/or the sample(s) analysed, modeled as iSamples
+      material-sample objects (the "Samples analyzed" shape carried over from geochemProduct).
     type: array
     items:
       anyOf:
       - $ref: '#/$defs/DefinedTerm'
       - type: string
-        
+      - type: object
+        description: Samples analyzed
+        properties:
+          '@type':
+            type: array
+            items:
+              type: string
+            allOf:
+            - contains:
+                const: "schema:Thing"
+            - contains:
+                const: "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            minItems: 2
+          'schema:additionalType':
+            type: array
+            items:
+              type: string
+          'schema:identifier':
+            type: array
+            items:
+              type: string
+          'schema:name':
+            description: Sample name/identifier as used in the lab.
+            type: string
+          'schema:additionalProperty':
+            description: Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.
+            type: array
+            items:
+              type: object
+
         
   'schema:instrument':
     description: >-
@@ -225,10 +255,13 @@ properties:
       'ada:defaultAnalytes':
         type: array
         description: >-
-          Pre-populated analyte rows for this method. Each entry is an object keyed by analyteColumn names.
+          The analytes (analyzed constituents) this method targets by default — the ROWS of the
+          per-analyte table. Each is a bare string or a schema:DefinedTerm identifying the analyte;
+          per-analyte column VALUES live in the analysis record, not here.
         items:
-          type: object
-          additionalProperties: true
+          anyOf:
+          - type: string
+          - $ref: '#/$defs/DefinedTerm'
     required:
     - ada:analyteColumns
     
@@ -255,11 +288,13 @@ properties:
       'ada:defaultChannels':
         type: array
         description: >-
-          Pre-populated channel rows for this procedure. Each entry is an object keyed by
-          channelColumn names.
+          The channels this procedure defines by default — the ROWS of the channel table. Each is a
+          bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live
+          in the analysis record's collectorConfiguration array, not here.
         items:
-          type: object
-          additionalProperties: true
+          anyOf:
+          - type: string
+          - $ref: '#/$defs/DefinedTerm'
     required:
     - ada:channelColumns
 
@@ -286,11 +321,13 @@ properties:
       'ada:defaultReportedProperties':
         type: array
         description: >-
-          Pre-populated reported-property rows for this procedure. Each entry is an object keyed by
-          reportedPropertyColumn names.
+          The reported properties this procedure defines by default — the ROWS of the reported-
+          property table. Each is a bare string or a schema:DefinedTerm identifying the property;
+          per-property column VALUES live in the analysis record, not here.
         items:
-          type: object
-          additionalProperties: true
+          anyOf:
+          - type: string
+          - $ref: '#/$defs/DefinedTerm'
     required:
     - ada:reportedPropertyColumns
 
@@ -318,8 +355,33 @@ properties:
     type: array
     items:
       $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/schema.yaml
-      
-      
+
+
+  'schema:variableMeasured':
+    title: Reported Variables
+    description: >-
+      Variables / properties this procedure reports (e.g. detection limit, limit of quantification,
+      calibration factor, uncertainty propagation method), each modeled as a
+      schema:PropertyValueSpecification (a procedure-level default, carrying schema:defaultValue) or
+      a schema:PropertyValue (a measured value, carrying schema:value), keyed by schema:name. A
+      technique profile enumerates the reported properties it defines; a dataset instance overrides
+      each schema:defaultValue with a schema:value. Left open here — the technique overlay narrows it.
+    type: array
+    items:
+      type: object
+      properties:
+        '@type':
+          type: array
+          items:
+            type: string
+        'schema:name':
+          type: string
+        'ada:dataType':
+          type: string
+        'schema:defaultValue': {}
+        'schema:value': {}
+
+
 required:
 - '@context'
 - '@type'

@@ -8,6 +8,257 @@ description: Registry of reusable schema:PropertyValueSpecification channel colu
   no instantiable properties of its own.
 type: object
 $defs:
+  laMcicpms_faradayCupAmplifierResistorValues:
+    title: Faraday Cup Amplifier Resistor Values
+    description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard
+      amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. High-gain amplifiers
+      (10¹² or 10¹³ Ω) are fitted to selected cups to improve signal-to-noise for very low-intensity beams
+      (e.g., 234U, low-abundance spike isotopes). Report the resistor value per cup position, or note
+      'all 10¹¹ Ω' if uniform.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
+      schema:name:
+        const: Faraday Cup Amplifier Resistor Values
+      ada:dataType:
+        const: string
+      ada:tier:
+        const: M
+      schema:value:
+        anyOf:
+        - &id001
+          type: string
+        - type: array
+          items: *id001
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - ada:dataType
+    - schema:value
+  laMcicpms_faradayCupGainCalibrationMethod:
+    title: Faraday Cup Gain Calibration Method
+    description: 'Method used to calibrate the relative gain (amplification factor) of each Faraday cup
+      amplifier at the start of or during each analytical session. Relative gain differences between amplifiers
+      cause systematic errors in isotope ratios if uncorrected. Common approaches: instrument internal
+      gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier
+      rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments
+      with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency
+      (per session, per block, weekly).'
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
+      schema:name:
+        const: Faraday Cup Gain Calibration Method
+      ada:dataType:
+        const: string
+      ada:tier:
+        const: M
+      schema:value:
+        anyOf:
+        - &id002
+          type: string
+        - type: array
+          items: *id002
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - ada:dataType
+    - schema:value
+  laMcicpms_integrationTimePerCycle:
+    title: Integration Time per Cycle
+    description: Duration of signal integration per measurement cycle (seconds). Determines counting statistics
+      per cycle. Longer integration times improve shot-noise precision but increase the impact of signal
+      drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration
+      times are often required to accumulate sufficient charge. Procedure specifies the standard integration
+      time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use
+      different integration schemes, record the time for each channel.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: integrationTimePerCycle
+      schema:name:
+        const: Integration Time per Cycle
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id003
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id003
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_interferenceCorrectionMethod:
+    title: Interference Correction Method
+    description: Equation or procedure used to correct for isobaric interferences, including the production
+      rate factor and the reference material used to measure it.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+      schema:name:
+        const: Interference Correction Method
+      ada:dataType:
+        const: string
+      ada:tier:
+        const: M
+      schema:value:
+        anyOf:
+        - &id004
+          type: string
+        - type: array
+          items: *id004
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - ada:dataType
+    - schema:value
+  laMcicpms_interferingSpecies:
+    title: Interfering Species
+    description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
+      the measured isotope.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/laMcicpmsTAPP/interferingSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:channelColumn/laMcicpmsTAPP/interferingSpecies
+      schema:name:
+        const: Interfering Species
+      ada:dataType:
+        const: string
+      ada:tier:
+        const: M
+      schema:value:
+        anyOf:
+        - &id005
+          type: string
+        - type: array
+          items: *id005
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - ada:dataType
+    - schema:value
+  laMcicpms_ionCounterDeadTime:
+    title: Ion Counter Dead Time
+    description: Dead time of each ion-counting detector channel, used in the dead-time correction applied
+      to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector
+      modes rather than correcting counting losses within the pulse-counting mode.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+      schema:name:
+        const: Ion Counter Dead Time
+      ada:dataType:
+        const: number
+      ada:tier:
+        const: M
+      schema:value:
+        anyOf:
+        - &id006
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id006
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - ada:dataType
+    - schema:value
+  laMcicpms_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode assigned to each acquired mass. The selected resolution determines
+      which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be
+      acquired at more than one resolution, so the assignment is per acquired mass rather than per element.
+      The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      ada:tier:
+        const: M
+      schema:value:
+        anyOf:
+        - &id007
+          type: string
+        - type: array
+          items: *id007
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - ada:dataType
+    - schema:value
   solutionMcicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
     description: Mathematical approach used to calculate and remove residual interference contributions.

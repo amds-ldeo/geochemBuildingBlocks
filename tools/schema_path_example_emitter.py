@@ -15,6 +15,7 @@ consistent. This is the last piece needed to flip a TAPP to path-driven and go g
 """
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -36,9 +37,16 @@ def instance_from_def(s):
     placeholder)."""
     if "const" in s:
         return s["const"]
-    if "properties" in s:
-        req = s.get("required") or list(s["properties"])
-        return {k: instance_from_def(s["properties"][k]) for k in req if k in s["properties"]}
+    # a resolved column def often nests its shape under allOf (base column shape + pinned consts);
+    # merge the members' properties/required so the identifier column instantiates from its consts.
+    props, req = dict(s.get("properties") or {}), list(s.get("required") or [])
+    for m in (s.get("allOf") or []):
+        if isinstance(m, dict):
+            props.update(m.get("properties") or {})
+            req += (m.get("required") or [])
+    if props:
+        keys = req or list(props)
+        return {k: instance_from_def(props[k]) for k in keys if k in props}
     t = s.get("type")
     if t == "boolean":
         return True
@@ -47,6 +55,19 @@ def instance_from_def(s):
     if "anyOf" in s:
         return 1 if any(br.get("type") in ("number", "integer") for br in s["anyOf"]) else "example value"
     return "example value"
+
+
+def numify(raw, dtype):
+    """A numeric field whose source cell carries a number PLUS prose (e.g. "1250 W RF power",
+    "~60% of maximum output"): return (number, full_text) so the extracted number becomes the
+    value/defaultValue and the full original text is preserved in schema:description. A pure number
+    returns (number, None); anything non-numeric returns (raw, None)."""
+    if dtype in ("number", "integer") and isinstance(raw, str):
+        m = re.search(r"-?\d+(?:\.\d+)?", raw)
+        if m:
+            n = float(m.group(0)) if "." in m.group(0) else int(m.group(0))
+            return n, (raw if m.group(0) != raw.strip() else None)
+    return raw, None
 
 
 def placeholder(m, item, sidecar):
@@ -66,8 +87,42 @@ def placeholder(m, item, sidecar):
     return f"example {sidecar.get(item, {}).get('name') or b.camel(item)}"
 
 
-def build_example(tapp):
-    """{root -> instance dict} built from the canonical paths, reusing the schema-emitter merger."""
+def _split_top_level(v):
+    """Split a transcribed list on commas/semicolons at PARENTHESIS DEPTH ZERO, so a member's own
+    parenthetical (e.g. '(7 cups monitoring Kr, Rb, Er)') is kept intact rather than shredded."""
+    out, buf, depth = [], [], 0
+    for ch in v:
+        if ch in "([":
+            depth += 1
+        elif ch in ")]":
+            depth = max(0, depth - 1)
+        if ch in ",;" and depth == 0:
+            if "".join(buf).strip():
+                out.append("".join(buf).strip())
+            buf = []
+        else:
+            buf.append(ch)
+    if "".join(buf).strip():
+        out.append("".join(buf).strip())
+    return out
+
+
+def build_example(tapp, values=None, emit_reported_property=False):
+    """{root -> instance dict} built from the canonical paths, reusing the schema-emitter merger.
+
+    values=None  -> the synthetic minimal example: placeholder leaves, and the base-owned rich MD
+        objects (instrument tree, target-material object, workflow steps, …) are SKIPPED because
+        placeholders cannot synthesise them and they are optional in tappDefinition.
+    values={item: cell}  -> a PUBLICATION example: the transcribed cell value is placed at each
+        item's canonical sidecar path, the rich MD objects ARE populated (an instrument model, a
+        target material, a workflow-step parameter all land at their real nested homes), and only
+        items the publication reports are emitted — empty cells are omitted and required-but-absent
+        scalars are back-filled with a sentinel downstream (fill_required_sentinels).
+
+    emit_reported_property -> when a publication lists 'Reported Variables and Units', its reported
+        properties are emitted at schema:variableMeasured (the 'reported property' Key-by rows);
+        otherwise those rows are skipped in favour of their non-reported-property counterparts."""
+    pub = values is not None
     meta = e._load_rows(tapp)
     sidecar = b.load_sidecar()
     import schemapath_io
@@ -109,12 +164,41 @@ def build_example(tapp):
     SKIP_MD = ("ada:analyteTemplate", "ada:reportedPropertyTemplate", "ada:channelTemplate",
                "bios:computationalTool",
                "schema:actionProcess", "schema:instrument", "schema:object", "schema:relatedLink")
+    # Publication mode populates the rich objects from real cells. What still stays out are the
+    # keyed-table COLUMN DEFINITIONS (analyteColumns/channelColumns/reportedPropertyColumns) — those
+    # are structural, emitted schema-side, never carrying per-publication values — while the default
+    # ROWS (defaultAnalytes / defaultChannels) and the collector-configuration data ARE populated.
+    COLUMN_DEFS = ("ada:analyteColumns", "ada:channelColumns", "ada:reportedPropertyColumns",
+                   "ada:collectorConfiguration",
+                   # reported properties are a conditional template: emitted only when the procedure
+                   # enumerates "Reported Variables and Units" (build_tapp_examples gates them),
+                   # never by the generic interpreter — otherwise every reported field would appear
+                   # both here and on its workflow step.
+                   "schema:variableMeasured")
+    DEFAULT_ROWS = ("ada:defaultAnalytes", "ada:defaultChannels")
     for item, rec in spec.items():
         m = meta.get(item, {})
+        if pub and item not in values:
+            continue                     # publication example: emit only what the source reports
         paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
         for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
+            path = e.normalize_path(path)
             parsed = spp.parse(path)
-            if parsed.root == "MethodDefinition" and any(t in path for t in SKIP_MD):
+            if any(c in path for c in COLUMN_DEFS):
+                continue                 # structural column defs, schema-side only — never a value
+            if pub:
+                if "schema:variableMeasured" in path and not emit_reported_property:
+                    continue             # reported-property row unused when no variables are listed
+            elif parsed.root == "MethodDefinition" and any(t in path for t in SKIP_MD):
+                # synthetic mode omits the rich base-owned objects (placeholders cannot build them)
+                continue
+            if pub and parsed.segments[-1].prop in DEFAULT_ROWS:
+                # a default-row array: split the transcribed list into members on top-level commas /
+                # semicolons only — a parenthetical like "H3 (⁸⁸Sr) (7 cups monitoring Kr, Rb, …)"
+                # keeps its internal commas rather than being shredded into bogus members.
+                v = values[item]
+                items = _split_top_level(v) if isinstance(v, str) else v
+                e.insert(roots[parsed.root], parsed, items)
                 continue
             if e._is_addl_param(parsed):
                 bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
@@ -125,10 +209,16 @@ def build_example(tapp):
                 else:
                     _, body = b.param_value_def(bd, pv_seen); pv_seen.add(next(iter(body)))
                 elem = instance_from_def(next(iter(body.values())))
+                if pub and isinstance(elem, dict):
+                    num, desc = numify(values[item], b.jtype(m.get("dt", "")))
+                    elem[parsed.segments[-1].prop] = num          # real default/value, not placeholder
+                    if desc:
+                        elem["schema:description"] = desc          # number extracted; keep the prose
                 trunc = spp.ParsedPath(parsed.root, parsed.segments[:-1])
                 e.insert(roots[parsed.root], trunc, element=e.Leaf(elem))
                 continue
-            e.insert(roots[parsed.root], parsed, placeholder(m, item, sidecar))
+            e.insert(roots[parsed.root], parsed,
+                     values[item] if pub else placeholder(m, item, sidecar))
     return {r: e.to_instance(o) for r, o in roots.items()}
 
 
