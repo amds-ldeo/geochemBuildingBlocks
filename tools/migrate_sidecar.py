@@ -165,6 +165,27 @@ def source_items(path):
     return out
 
 
+def source_keyedby(path):
+    """{item -> the table's `Keyed By` declaration}, or {} when the table has no such column.
+
+    Separate from source_items() on purpose: five call sites in the module tooling unpack that as a
+    4-tuple, and widening it for one caller would break all of them.
+    """
+    rows = tapp_source.rows(path)
+    hdr = [b.norm(v).lower() if v is not None else "" for v in rows[0]]
+    ki = next((i for i, h in enumerate(hdr) if h.startswith("keyed")), None)
+    if ki is None:
+        return {}
+    out = {}
+    for r in rows[1:]:
+        it = b.norm(r[0]) if r and r[0] else ""
+        if not it or re.match(r"^\d+\.\s", it) or len(r) <= ki:
+            continue
+        kb = b.norm(r[ki]) or ""
+        out[it] = "" if kb.strip().lower() in ("", "(none)") else kb.strip()
+    return out
+
+
 def build_rename_map(old_items, new_items):
     """{old item -> new item} plus the old items with no counterpart."""
     new_exact = {i: i for i in new_items}
@@ -231,6 +252,8 @@ def migrate(tapp, new_source, write=False, seed=None):
 
     rows = schemapath_io.read(old_csv)
     new_rows_src = source_items(new_source)
+    new_kb = source_keyedby(new_source)
+    drift = {"fill": [], "loss": [], "conflict": []}
     new_meta = {i: (p, a, dt) for i, p, a, dt in new_rows_src}
     new_order = [i for i, _, _, _ in new_rows_src]
 
@@ -258,9 +281,26 @@ def migrate(tapp, new_source, write=False, seed=None):
         p, k = rewrite_selectors((r.get("Schema Path") or "").strip(), by_norm)
         row["Schema Path"] = p
         sel_hits += k
-        if new_it in new_meta:                       # refresh the context columns
+        if new_it in new_meta:
+            # Refresh every column that MIRRORS the source table, and record what changed. These
+            # used to be overwritten in silence, which hides the drift this tool exists to surface:
+            # a re-tier changes requiredness in the generated schema, and a Keyed By change re-routes
+            # a template family to a different canonical path. Both are as consequential as a rename.
             tp, ta, tdt = new_meta[new_it]
-            row["Protocol Tier"], row["Analysis Tier"], row["Data Type"] = tp, ta, tdt
+            for col, was, now in (("Protocol Tier", row.get("Protocol Tier"), tp),
+                                  ("Analysis Tier", row.get("Analysis Tier"), ta),
+                                  ("Data Type", row.get("Data Type"), tdt),
+                                  ("Key by", row.get("Key by"), new_kb.get(new_it, ""))):
+                was = (was or "").strip()
+                now = (now or "").strip()
+                if _norm(was) == _norm(now):
+                    continue
+                # A fill is the table supplying something the sidecar never carried — routine, and
+                # the whole point of re-reading the table. The other two directions are a CONFLICT:
+                # curation and table disagree, and only a human knows which is right.
+                drift["fill" if not was else "loss" if not now else "conflict"].append(
+                    (col, new_it, was, now))
+                row[col] = now
         out.append(row)
 
     # Two items merging onto one produce the same row twice, once their selectors are rewritten to
@@ -282,17 +322,30 @@ def migrate(tapp, new_source, write=False, seed=None):
         tp, ta, tdt = new_meta[i]
         out.append({"Metadata Item": i, "Protocol Tier": tp, "Analysis Tier": ta, "Data Type": tdt,
                     "Schema Path": "", "Source": "flagged", "Scope": "",
-                    "Notes": "new in this revision (needs mapping)"})
+                    "Notes": "new in this revision (needs mapping)",
+                    "Key by": new_kb.get(i, "")})
 
     print(f"=== {tapp}: {os.path.basename(b.XLSX)} -> {os.path.basename(new_source)} ===")
     print(f"  rows        {len(rows)} -> {len(out)}")
     print(f"  items       {len(old_items)} carried, {len(renamed)} renamed, "
           f"{len(dropped)} dropped, {len(added)} new (flagged)")
     print(f"  selectors   {sel_hits} literal(s) rewritten")
+    if any(drift.values()):
+        from collections import Counter
+        fills = Counter(c for c, _, _, _ in drift["fill"])
+        print(f"  columns     {len(drift['fill'])} filled from the table "
+              f"({', '.join(f'{n} {c}' for c, n in sorted(fills.items())) or 'none'}), "
+              f"{len(drift['conflict'])} conflict(s), {len(drift['loss'])} loss(es)")
     if merged:
         print(f"  merged      {merged} duplicate row(s) collapsed by an alias merge")
     for o in sorted(renamed):
         print(f"      rename  {o!r} -> {renamed[o]!r}")
+    # Conflicts and losses are itemised; plain fills are only counted. A fill is the table telling
+    # us something we never recorded, and at 348 of them across the delivery an itemised list would
+    # bury the handful of rows where curation and table actually disagree.
+    for col, item, was, now in drift["conflict"] + drift["loss"]:
+        print(f"      {col:<14s} {item!r}: {was!r} -> {now!r}"
+              f"{'  (table clears it — confirm)' if not now else ''}")
     for d in dropped:
         # In seed mode these are simply fields the neighbour has and this technique does not, which
         # is expected and not a loss. Saying "confirm this item really is gone" there would send a
