@@ -48,29 +48,47 @@ def exists(path):
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# The canonical TAPP source library is the `tapp/` git submodule (amds-ldeo/tapp), whose root holds
+# the delivery contents directly (Current TAPPs/, Claude Skills for TAPP/, composed_tapps.json) —
+# no TAPPS<date>/ wrapper. The older inline TAPPS<date>/ drops are kept only as a fallback.
+_TAPP_SUBMODULE = os.path.join(_ROOT, "tapp")
+
+
+def _is_delivery(path):
+    """True if `path` looks like a TAPP delivery (has the tables and/or the manifest)."""
+    return os.path.isdir(os.path.join(path, "Current TAPPs")) or \
+        os.path.exists(os.path.join(path, "composed_tapps.json"))
+
 
 def current_delivery():
-    """The newest TAPPS<date>/ folder — deliveries are dated, so the latest name is the latest drop.
+    """The TAPP source library.
 
-    Derived rather than hard-coded because three separate tools pinned TAPPS20260811 in their own
-    constants, and after the 2026-08-13 drop each of them was silently reading a superseded
-    delivery: the module sidecars in both folders were being counted together, inflating the path
-    total by the whole of the older set.
+    Prefers the `tapp/` submodule (amds-ldeo/tapp) — the canonical source going forward, version
+    pinned by the submodule commit. Falls back to the newest inline TAPPS<date>/ folder for a repo
+    that still carries a drop inline (deliveries are dated, so the latest name is the latest drop).
+
+    Derived rather than hard-coded because three separate tools once pinned TAPPS20260811 in their
+    own constants and silently read a superseded delivery after the next drop.
     """
+    if _is_delivery(_TAPP_SUBMODULE):
+        return _TAPP_SUBMODULE
     ds = sorted(d for d in os.listdir(_ROOT)
                 if d.startswith("TAPPS") and os.path.isdir(os.path.join(_ROOT, d)))
     return os.path.join(_ROOT, ds[-1]) if ds else _ROOT
 
 
 def manifest_path():
-    """The newest composed_tapps.json across deliveries, or None.
+    """The composed_tapps.json to use, or None.
 
-    Not simply `current_delivery()/composed_tapps.json`: the 2026-08-13 drop shipped without the
-    manifest, so anything that assumed the current delivery has one crashed outright. The
-    composition declaration changes far less often than the tables, and the most recent one still
-    describes them, so falling back to it is better than failing — as long as the caller says which
-    delivery it came from, since a stale manifest is a real hazard once modules move.
+    Prefers the submodule's manifest, then the newest across any inline TAPPS<date>/ folders. Not
+    simply `current_delivery()/composed_tapps.json`: some drops shipped without a manifest, so
+    anything that assumed the current delivery has one crashed outright. The composition declaration
+    changes far less often than the tables, so falling back to the most recent one is better than
+    failing — as long as the caller says which delivery it came from.
     """
+    sub = os.path.join(_TAPP_SUBMODULE, "composed_tapps.json")
+    if os.path.exists(sub):
+        return sub
     for d in sorted((x for x in os.listdir(_ROOT) if x.startswith("TAPPS")), reverse=True):
         p = os.path.join(_ROOT, d, "composed_tapps.json")
         if os.path.exists(p):
