@@ -427,14 +427,14 @@ ex:semTAPP-Garvie2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument [ a schema1:Product,
@@ -442,6 +442,11 @@ ex:semTAPP-Garvie2008 a cdi:Activity,
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
             schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
@@ -456,11 +461,6 @@ ex:semTAPP-Garvie2008 a cdi:Activity,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "FEI / Thermo Fisher Scientific" ] ;
@@ -936,13 +936,13 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -1416,6 +1416,11 @@ ex:semTAPP-Genge2025 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
@@ -1423,11 +1428,6 @@ ex:semTAPP-Genge2025 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -1888,13 +1888,13 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v17.xlsx)." ;
     schema1:instrument [ a schema1:Product,
@@ -1904,12 +1904,6 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
@@ -1917,6 +1911,12 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:description "Oxford X-Max SDD system" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -2391,23 +2391,23 @@ ex:semTAPP-Genge2025-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -2845,13 +2845,13 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2" ;
     schema1:instrument [ a schema1:Product,
@@ -3331,8 +3331,7 @@ ex:semTAPP-Gucsik2013-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "ISIS analysis system (Oxford); detector type not specified" ;
+                        "Electron source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -3342,12 +3341,13 @@ ex:semTAPP-Gucsik2013-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
+                    schema1:description "ISIS analysis system (Oxford); detector type not specified" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -3821,14 +3821,14 @@ ex:semTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
     schema1:instrument [ a schema1:Product,
@@ -3887,10 +3887,10 @@ ex:semTAPP-Izawa2010 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ] .
 
 
 ```
@@ -4308,13 +4308,13 @@ ex:semTAPP-Izawa2010-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v17.xlsx)." ;
     schema1:instrument [ a schema1:Product,
@@ -4329,7 +4329,7 @@ ex:semTAPP-Izawa2010-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -4339,7 +4339,7 @@ ex:semTAPP-Izawa2010-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -4790,13 +4790,13 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument [ a schema1:Product,
@@ -4806,8 +4806,7 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Gresham light element detector; Quartz XOne EDX analysis system (full spectral imaging)" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -4817,12 +4816,13 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
+                        "EDSDetector" ;
+                    schema1:description "Gresham light element detector; Quartz XOne EDX analysis system (full spectral imaging)" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -5273,13 +5273,13 @@ ex:semTAPP-Izawa2010-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v17.xlsx)." ;
     schema1:instrument [ a schema1:Product,
@@ -5289,18 +5289,18 @@ ex:semTAPP-Izawa2010-4 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -5758,13 +5758,13 @@ ex:semTAPP-Izawa2010-5 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument [ a schema1:Product,
@@ -5774,8 +5774,8 @@ ex:semTAPP-Izawa2010-5 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Oxford Instruments INCA EDX system" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -5785,13 +5785,13 @@ ex:semTAPP-Izawa2010-5 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "EDSDetector" ;
+                    schema1:description "Oxford Instruments INCA EDX system" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -6248,14 +6248,14 @@ ex:semTAPP-Liu2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v17.xlsx)." ;
     schema1:instrument [ a schema1:Product,
@@ -6265,12 +6265,12 @@ ex:semTAPP-Liu2017 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -6280,7 +6280,7 @@ ex:semTAPP-Liu2017 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -6743,22 +6743,22 @@ ex:semTAPP-Liu2017-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -7221,7 +7221,13 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -7231,13 +7237,7 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -7683,14 +7683,14 @@ ex:semTAPP-Ma2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument [ a schema1:Product,
@@ -7700,7 +7700,12 @@ ex:semTAPP-Ma2017 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -7711,12 +7716,7 @@ ex:semTAPP-Ma2017 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "xrayLine" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -8162,14 +8162,14 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument [ a schema1:Product,
@@ -8179,23 +8179,23 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -8661,14 +8661,14 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
     schema1:instrument [ a schema1:Product,
@@ -8678,11 +8678,6 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
@@ -8690,6 +8685,11 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -9652,14 +9652,14 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)" ;
@@ -9668,6 +9668,12 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
             schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
@@ -9682,12 +9688,6 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -10803,14 +10803,14 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
     schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping." ;
@@ -10819,11 +10819,6 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
             schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
@@ -10839,6 +10834,11 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -10908,10 +10908,10 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
     ada:stepSizePixelSizeDefault "2.5 µm" ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Analyte Estimation Method" ;
@@ -11468,11 +11468,6 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
@@ -11480,6 +11475,11 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -11936,11 +11936,6 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
@@ -11952,6 +11947,11 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -12434,23 +12434,23 @@ ex:semTAPP-Zega2025 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -12947,13 +12947,7 @@ ex:semTAPP-Zega2025-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Oxford Instruments Ultim Max SDD, 170 mm²" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -12964,7 +12958,13 @@ ex:semTAPP-Zega2025-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
+                    schema1:description "Oxford Instruments Ultim Max SDD, 170 mm²" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -13433,7 +13433,7 @@ ex:semTAPP-Zega2025-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -13444,12 +13444,12 @@ ex:semTAPP-Zega2025-3 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "xrayLine" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Hitachi" ] ;
@@ -13912,12 +13912,13 @@ ex:semTAPP-Zega2025-4 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -13927,8 +13928,7 @@ ex:semTAPP-Zega2025-4 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Hitachi" ] ;
@@ -14419,7 +14419,8 @@ ex:semTAPP-Zega2025-5 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "EDSDetector" ;
+                    schema1:description "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -14429,8 +14430,7 @@ ex:semTAPP-Zega2025-5 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -14468,10 +14468,10 @@ ex:semTAPP-Zega2025-5 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ] .
 
 
 ```
@@ -14895,14 +14895,14 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
     schema1:instrument [ a schema1:Product,
@@ -14912,7 +14912,13 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -14922,13 +14928,7 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "xrayLine" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -15384,14 +15384,14 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument [ a schema1:Product,
@@ -15401,6 +15401,11 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
@@ -15408,11 +15413,6 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -15873,14 +15873,14 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument [ a schema1:Product,
@@ -15900,13 +15900,13 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -16379,12 +16379,13 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -16394,8 +16395,7 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -16837,22 +16837,22 @@ ex:semTAPP-Barnes2025 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
                     schema1:name "missing" ] ;
             schema1:name "missing" ] ;
     schema1:location [ a schema1:Place ;
@@ -17197,13 +17197,13 @@ ex:semTAPP-Barnes2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated." ;
     schema1:instrument [ a schema1:Product,
@@ -17213,22 +17213,22 @@ ex:semTAPP-Barnes2025-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "Electron source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:name "missing" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -17561,13 +17561,13 @@ ex:semTAPP-Barnes2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. FIB-based TEM foil preparation using FEI Helios G4 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument [ a schema1:Product,
@@ -17582,7 +17582,7 @@ ex:semTAPP-Barnes2025-3 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -17592,7 +17592,7 @@ ex:semTAPP-Barnes2025-3 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:name "missing" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;

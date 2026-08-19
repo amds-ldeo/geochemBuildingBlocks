@@ -14,6 +14,14 @@ ex:semFibsemTAPP-Zega2025-7 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditionsDefault>,
+                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
+                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
@@ -22,15 +30,7 @@ ex:semFibsemTAPP-Zega2025-7 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditionsDefault>,
-                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
-                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument [ a schema1:Product,
@@ -41,13 +41,13 @@ ex:semFibsemTAPP-Zega2025-7 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "BSEDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
