@@ -24,7 +24,7 @@ python tools/resolve_schema.py --all          # resolvedSchema.json everywhere (
 
 `resolve_schema.py` also accepts a single `<profile>` name or `--file <schema.yaml> -o <out>` to resolve just one — far faster than `--all` after a localized edit.
 
-> ⚠ 2026-08: `resolve_schema.py --all` is temporarily degraded — it fetches upstream CDIF `$ref`s from a **stale** published mbb gh-pages, leaving temp-dir `$comment` stamps and dropping defs. **Do not commit its output** until mbb gh-pages is republished. Details + local-mbb workaround: `AGENTS.md` and auto-memory `resolvedschema_regen_deferred_2026_08`.
+> **TAPP source = the `tapp/` git submodule** ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)); `tools/tapp_source.py:current_delivery()` resolves to it. Clone with `--recursive` / `git submodule update --init` before regenerating. **Pending delivery migration:** the submodule is a *newer* drop than the committed schemas were built from — adopting it (repoint `TAPP_CONFIGS`, `migrate_sidecar`, regenerate) is deliberate work, see auto-memory `tapp_delivery_migration_202608`. (The earlier `resolve_schema.py --all` gh-pages blocker is now **lifted** — CDIF publishes `objectReference`; it runs clean.)
 
 Validate ("run the tests"):
 
@@ -38,10 +38,10 @@ python tools/check_componentType.py               # componentType vocab/enum dri
 
 Local green ≠ CI green: `validate_examples.py` cannot catch the OGC bblocks-annotate dependency-resolution / dangling-`$ref` failures — only CI (or the branch `.github/workflows/validate-branch.yml`) runs the full postprocess.
 
-Regenerate a TAPP technique from its workbook (`docs/<Technique>_TAPP_v#.xlsx`, worksheet `TAPP`) — never hand-edit generated output; fix the workbook, the sidecar, or a tool and regenerate:
+Regenerate a TAPP technique from its source table (a CSV in the `tapp/` submodule's `Current TAPPs/`) — never hand-edit generated output; fix the table (upstream in amds-ldeo/tapp), the sidecar, or a tool and regenerate:
 
 ```
-python tools/bootstrap_schemapaths.py <XLSX>    # 1. seed/refresh docs/<wb>.schemapaths.csv (hand-authored source of truth)
+python tools/bootstrap_schemapaths.py <table.csv>  # 1. seed/refresh docs/<wb>.schemapaths.csv (hand-authored source of truth)
 python tools/build_tapp.py         <TAPP_NAME>  # 2. registry catalogs + vocab
 python tools/build_pathdriven.py   <TAPP_NAME>  # 3. tapp/ + detail/ schemas from the sidecar
 python tools/build_profile.py      <TAPP_NAME>  # 4. profile/ schema
