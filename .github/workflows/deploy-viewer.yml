@@ -32,9 +32,18 @@ jobs:
         run: |
           FALLBACK="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
           URL=$(gh api repos/${{ github.repository }}/pages --jq '.html_url // empty' 2>/dev/null) || true
-          if [ -z "$URL" ]; then
-            URL="$FALLBACK"
-          fi
+          # Validate the SHAPE, not just non-emptiness. When Pages is not enabled the API 404s and
+          # `gh` prints its error body to STDOUT, so 2>/dev/null does not suppress it and --jq never
+          # applies: URL captures the raw JSON, which is non-empty, so an -z test passes it straight
+          # through. That JSON then interpolates into PAGES_URL="..." in a later step, its embedded
+          # quotes break the assignment, and the runner tries to execute a fragment of the error
+          # body (exit 127). Anything that is not an http(s) URL is not a Pages URL.
+          case "$URL" in
+            https://*|http://*) ;;
+            *) URL="$FALLBACK" ;;
+          esac
+          # Guarantee the trailing slash the config.js/index.html templates concatenate onto.
+          case "$URL" in */) ;; *) URL="$URL/" ;; esac
           echo "url=$URL" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ github.token }}
@@ -57,9 +66,10 @@ jobs:
         run: python tools/generate_custom_report.py --input build/tests/report.json --output build/tests/report.html
 
       - name: Generate config.js and index.html
+        env:
+          PAGES_URL: ${{ steps.pages-url.outputs.url }}
+          TITLE: ${{ steps.config.outputs.title }}
         run: |
-          PAGES_URL="${{ steps.pages-url.outputs.url }}"
-          TITLE="${{ steps.config.outputs.title }}"
           BASE_PATH=$(echo "$PAGES_URL" | sed 's|https\?://[^/]*||')
           cat > config.js << EOF
           window.bblocksRegister = '${PAGES_URL}build/register.json';
@@ -90,6 +100,12 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Enable Pages if the repo has no Pages site yet, instead of requiring someone to click
+          # through Settings. The amds-ldeo move left this repo without one, so every deploy-viewer
+          # run failed and the published viewer 404s — a manual step that has to be repeated on
+          # every fork or move is a step that gets missed.
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
