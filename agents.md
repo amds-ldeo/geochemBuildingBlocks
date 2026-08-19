@@ -19,6 +19,9 @@ _sources/
     image/ imageMap/ tabularData/ dataCube/ collection/ document/
     supDocImage/ otherFile/ files/            file-type BBs + the hasPart union
     structuredData/ spatialRegistration/ creativeWork/ stringArray/
+    modules/                 composition modules (7): group1, reportingCore, laserAblation,
+                             mcIcpms, solutionIntroduction, geochronology, uPb — shared fields
+                             factored out of the technique overlays; see CLAUDE.md
   registry/                  shared catalogs (was techniqueProtocols/)
     analyteColumns/          registered BB (isTypeLibrary): PropertyValueSpecification $defs, 34
     parameterTemplates/      registered BB (isTypeLibrary): PropertyValueSpecification $defs, 178
@@ -113,8 +116,8 @@ Profiles additionally compose base schemas via `allOf` references.
 | `regenerate_schema_json.py` | Sync `*Schema.json` from `schema.yaml` sources. Use `--dry-run` to preview. |
 | `resolve_schema.py` | Resolve all `$ref` into a structured `resolvedSchema.json` (`$defs` + internal `$ref`, recursion-safe, ~88–90% smaller). The old fully-inlined output and separate `*StructuredSchema.json` files are gone; `--structured` is now a no-op. Supports `--all`, `--flatten-allof`. Canonical copy from metadataBuildingBlocks. |
 
-> **⚠ Known blocker (2026-08): `resolve_schema.py --all` currently DEGRADES output — do not commit its result.**
-> The resolver fetches upstream CDIF `$ref`s over HTTP from the **published gh-pages** copy of metadataBuildingBlocks (not a local checkout). That published copy is stale: its `cdifDataStructure` still carries a dangling `$ref: '#/$defs/id-reference'` (removed in current mbb source). Resolving against it stamps temp-dir paths into `$comment`s ("could not resolve fragment /$defs/id-reference in …\Temp\resolve_schema_XXXX\…") and drops `cdifConceptOrTermOrString` defs — regressing ~64 resolvedSchemas. Root cause: mbb `process-bblocks` CI is red → `deploy-viewer` never republishes gh-pages. **Fix is being done in mbb** (republish gh-pages / land id-reference-clean source). Until then, `resolvedSchema.json` regen is deferred (e.g. the `schema:encodingFormat` array alignment lives in source + `*Schema.json` but not yet in `resolvedSchema.json`). Decouple lever if you need clean local artifacts sooner: seed `resolve_schema.py`'s `_URL_CACHE` to a local mbb checkout (see auto-memory `targeted_resolve_acceleration` / `resolvedschema_regen_deferred_2026_08`).
+> **Former blocker, lifted 2026-08-19: `resolve_schema.py --all` runs clean again.**
+> The resolver fetches upstream CDIF `$ref`s over HTTP from the **published gh-pages** copy of metadataBuildingBlocks (not a local checkout). Through mid-2026-08 that copy was stale — its `cdifDataStructure` carried a dangling `$ref: '#/$defs/id-reference'` — so resolving stamped temp-dir paths into `$comment`s ("could not resolve fragment /$defs/id-reference in …\Temp\resolve_schema_XXXX\…") and dropped `cdifConceptOrTermOrString` defs, regressing ~64 resolvedSchemas. CDIF now publishes `objectReference`; the repo was repointed (`dc55e089`) and regenerated against it (`6be59b52`), and `--all` output is committable again. The failure mode is worth recognising because it recurs whenever mbb gh-pages lags its source (mbb `process-bblocks` CI going red stops `deploy-viewer` republishing). Decouple lever if it does: seed `resolve_schema.py`'s `_URL_CACHE` to a local mbb checkout (see auto-memory `targeted_resolve_acceleration` / `resolvedschema_regen_deferred_2026_08`).
 
 ### Validation and auditing
 

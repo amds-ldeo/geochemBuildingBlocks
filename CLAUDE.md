@@ -6,7 +6,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 
 ## Deeper references
 
-- **`AGENTS.md`** — the authoritative, detailed agent guide (directory layout, every tool, the TAPP/detail/profile pipeline internals, the full componentType architecture). Read it when this file's summary isn't enough.
+- **`agents.md`** (lowercase — that is the tracked filename) — the authoritative, detailed agent guide (directory layout, every tool, the TAPP/detail/profile pipeline internals, the full componentType architecture). Read it when this file's summary isn't enough.
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
@@ -25,6 +25,10 @@ python tools/resolve_schema.py --all          # resolvedSchema.json everywhere (
 `resolve_schema.py` also accepts a single `<profile>` name or `--file <schema.yaml> -o <out>` to resolve just one — far faster than `--all` after a localized edit.
 
 > **TAPP source = the `tapp/` git submodule** ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)); `tools/tapp_source.py:current_delivery()` resolves to it. Clone with `--recursive` / `git submodule update --init` before regenerating. **Pending delivery migration:** the submodule is a *newer* drop than the committed schemas were built from — adopting it (repoint `TAPP_CONFIGS`, `migrate_sidecar`, regenerate) is deliberate work, see auto-memory `tapp_delivery_migration_202608`. (The earlier `resolve_schema.py --all` gh-pages blocker is now **lifted** — CDIF publishes `objectReference`; it runs clean.)
+
+The migration tools, in run order: `python tools/intake_delivery.py <delivery>` (read-only first pass — what carries, what is renamed, what arrives **DROPPED** or flagged, what composing a module would change), then `python tools/migrate_sidecar.py <tapp> --source <table> [--seed <nearest tapp>] --write` (carries a sidecar onto a new revision; record non-mechanical renames in its `ALIASES` rather than losing the authored paths), then `python tools/fill_flagged.py --write`.
+
+`TAPPS20260811/` and `TAPPS20260813/` at the repo root are **earlier inline drops**, not the source: `tapp_source.current_delivery()` prefers the `tapp/` submodule and only falls back to them. An unrecursed clone will silently build from the old drop — check the submodule is initialised before believing a regen.
 
 Validate ("run the tests"):
 
@@ -55,6 +59,28 @@ python tools/validate_examples.py               # 6. verify
 - **Generated:** everything under `build/` (resolved schemas, OAS3 downcompiles, JSONLD, register, tests).
 
 When fixing a bug that surfaces in a generated artifact, **trace to the source generator/template/schema and regenerate** — never patch the build output directly. This is a standing rule across this ecosystem; it has its own feedback memory.
+
+Two standing gotchas that bite spot regenerations:
+
+- **The shared registries reformat wholesale on regen.** After regenerating one technique, `git checkout` `_sources/registry/parameterValues/schema.yaml` and `_sources/registry/parameterTemplates/schema.yaml` if you only meant to touch that technique — otherwise the diff carries unrelated reflow.
+- **`tools/resolve_schema.py` and `tools/regenerate_schema_json.py` are synced copies** from `metadataBuildingBlocks/tools/`. Don't edit them here — fix the canonical copy upstream and re-sync (`python tools/sync_resolve_schema.py --apply` from that repo).
+
+## Composition modules
+
+`_sources/BaseSchema/modules/<name>/` (`group1`, `reportingCore`, `laserAblation`, `mcIcpms`, `solutionIntroduction`, `geochronology`, `uPb`) factors fields shared across techniques into module building blocks. Each exposes up to two `$defs`, split by path root: **`ProcedureIdentification`** (from the module's `$MethodDefinition` paths, composed into `tapp/`) and **`AnalysisIdentification`** (from its `$Dataset` paths, composed into `detail/`); `reportingCore` is conditional and exposes one `$def` per block per side (see `docs/REPORTINGCORE_BLOCKS.md`). Four techniques compose modules today: EMPA and the three `Solution-*-ICPMS`.
+
+A row covered by a module is **dropped from the technique's own overlay** — otherwise the shared field is defined twice and the technique's copy silently wins on any divergence. `tools/module_composition.py` makes that call, and only when the module `$def` demonstrably provides the field (module has it, the field has a placement in the module sidecar, and the `$def` exists).
+
+```
+python tools/seed_module_sidecars.py --write   # fill docs/modules/Module_*.schemapaths.csv from technique consensus
+python tools/module_conflict_check.py          # preview: TIGHTENS / LOOSENS / ABSENT / ADDS for consumers
+python tools/build_module_bb.py --write        # module BB from its CSV (tapp/ submodule) + sidecar
+python tools/draft_module.py --measure         # draft candidate modules, measure what they'd save
+```
+
+`geochronology` and `uPb` currently generate nothing — their fields have no placement in any technique sidecar, and an empty schema would wrongly assert a conforming procedure carries nothing.
+
+> **Module `$ref` depth (`e3a3968d`).** Modules sit at `_sources/BaseSchema/modules/<name>/` — two hops shallower than a technique schema at `_sources/techniqueProfile/geochemProfile/<TECH>/tapp/` — but `build_module_bb.py` reuses `schema_path_emitter`'s technique-depth `REF_MAP`. A BaseSchema target written as `../../../../BaseSchema/X` climbs past the repo root and must be `../../X`; `build_module_bb._reref_module_depth()` does that rewrite. Only the full CI postprocess catches this class of break — `validate_examples.py` does not.
 
 ## componentType architecture (source of truth: spreadsheet)
 
